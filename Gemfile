@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
-
 gem 'mysql'
+gem 'haml', '~> 3.0.21'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -24,4 +24,5 @@ gem 'mysql'
 # and rake tasks are available in development mode:
 # group :development, :test do
 #   gem 'webrat'
+#   gem 'factory_girl'
 # end
