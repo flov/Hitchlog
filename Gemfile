@@ -6,6 +6,12 @@ gem 'haml', '~> 3.0.21'
 gem "rspec-rails",        "~> 2.0.1", :git => "git://github.com/rspec/rspec-rails.git"
 gem "rspec",              ">= 2.0.0.rc", :git => "git://github.com/rspec/rspec.git"
 
+gem 'database_cleaner'
+gem 'cucumber-rails'
+gem 'cucumber', '0.9.2'
+gem 'spork'
+gem 'launchy'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

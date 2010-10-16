@@ -47,11 +47,28 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     builder (2.1.2)
+    configuration (1.1.0)
+    cucumber (0.9.2)
+      builder (~> 2.1.2)
+      diff-lcs (~> 1.1.2)
+      gherkin (~> 2.2.5)
+      json (~> 1.4.6)
+      term-ansicolor (~> 1.0.5)
+    cucumber-rails (0.3.1)
+      cucumber (>= 0.7.2)
+    database_cleaner (0.5.2)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    gherkin (2.2.9)
+      json (~> 1.4.6)
+      term-ansicolor (~> 1.0.5)
     haml (3.0.21)
     i18n (0.4.1)
+    json (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -84,6 +101,8 @@ GEM
     rspec-mocks (2.0.0)
       rspec-core (= 2.0.0)
       rspec-expectations (= 2.0.0)
+    spork (0.8.4)
+    term-ansicolor (1.0.5)
     thor (0.14.3)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -93,8 +112,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cucumber (= 0.9.2)
+  cucumber-rails
+  database_cleaner
   haml (~> 3.0.21)
+  launchy
   mysql
   rails (= 3.0.0)
   rspec (>= 2.0.0.rc)!
   rspec-rails (~> 2.0.1)!
+  spork
