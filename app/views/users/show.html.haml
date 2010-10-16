@@ -1,0 +1,8 @@
+%h1= t '.title'
+%p
+  = link_to t('back'), users_path
+  = link_to t('edit'), edit_user_path(@user)
+
+%dl
+  %dt= User.human_attribute_name :name
+  %dd= @user.name

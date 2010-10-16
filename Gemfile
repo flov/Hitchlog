@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 gem 'mysql'
 gem 'haml', '~> 3.0.21'
+gem "rspec-rails",        "~> 2.0.1", :git => "git://github.com/rspec/rspec-rails.git"
+gem "rspec",              ">= 2.0.0.rc", :git => "git://github.com/rspec/rspec.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'

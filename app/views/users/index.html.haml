@@ -1,0 +1,16 @@
+%h1= t('.title')
+%p= link_to t('.new_user'), new_user_path
+
+%table
+  %thead
+    %tr
+      %th= User.human_attribute_name :name
+      %th{:colspan => 3}= t 'actions'
+  
+  %tbody
+    - for user in @users
+      %tr{ :class => cycle(:odd, :even) }
+        %td= user.name
+        %td.action= link_to t('show'), user
+        %td.action= link_to t('edit'), edit_user_path(user)
+        %td.action= link_to t('destroy'), user, :confirm => t('are_you_sure'), :method => :delete
