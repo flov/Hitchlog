@@ -17,6 +17,7 @@
       .slogan
         %h2 Giving back to Drivers.
       / = render :partial => 'layouts/site_photography'
+      
     #container 
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_\#{name}"
