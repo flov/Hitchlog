@@ -1,10 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
+gem 'devise'
 gem 'mysql'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
 gem 'paperclip', '2.3.4'
+
+gem 'hpricot' # only for generating devise views
+gem 'ruby_parser' # only for generating devise views
 
 group :development, :test, :cucumber do
   gem "rspec-rails"
