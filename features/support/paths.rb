@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the sign up page/i
       new_user_registration_path
+    when /the new hitchhike page/i
+      new_hitchhike_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -71,6 +71,7 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     haml (3.0.21)
+    hirb (0.3.4)
     i18n (0.4.1)
     json (1.4.6)
     json_pure (1.4.6)
@@ -144,6 +145,7 @@ DEPENDENCIES
   escape_utils
   factory_girl_rails
   haml (~> 3.0.21)
+  hirb
   mysql
   nokogiri
   paperclip (= 2.3.4)

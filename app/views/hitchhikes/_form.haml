@@ -1,4 +1,12 @@
-- form_for @hitchhike, :html => { :multipart => true } do |f|
+= form_for @hitchhike, :html => { :multipart => true } do |f|
+
+  - if @hitchhike.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@hitchhike.errors.count, 'error')} prohibited this user from being saved:"
+      %ul
+      = @hitchhike.errors.full_messages.each do |msg|
+        %li= msg
+
   %p
     = f.label :title
     %br/
@@ -11,7 +19,8 @@
     = f.label :to
     %br/
     = f.text_field :to
-  - f.fields_for :people do |builder|
+
+  = f.fields_for :people do |builder|
     / t.string "name" t.string "occupation" t.string "mission" t.string "origin" t.integer "hitchhike_id"
     %p
       = builder.label :name

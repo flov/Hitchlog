@@ -1,0 +1,16 @@
+%p
+  %strong Title:
+  = h @hitchhike.title
+%p
+  %strong From:
+  = h @hitchhike.from
+%p
+  %strong To:
+  = h @hitchhike.to
+%p= image_tag @hitchhike.photo.url(:large) if @hitchhike.photo.file?
+%p
+  = link_to "Edit", edit_hitchhike_path(@hitchhike)
+  | 
+  = link_to "Destroy", @hitchhike, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", hitchhikes_path

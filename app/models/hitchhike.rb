@@ -14,6 +14,8 @@ class Hitchhike < ActiveRecord::Base
   has_many :people
   accepts_nested_attributes_for :people, :allow_destroy => true
 
+  validates_presence_of :title, :from, :to
+
   named_scope :next, lambda { |i| {:conditions => ["#{self.table_name}.id > ?", i.id], :order => "#{self.table_name}.id ASC"} }  
 
   def path
