@@ -28,12 +28,12 @@ class HitchhikesController < ApplicationController
   def create
     @hitchhike = Hitchhike.new(params[:hitchhike])
     if @hitchhike.save
-      if params[:hitchhike][:photo].blank?
+      # if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully created hitchhike."
         redirect_to @hitchhike
-      else
-        render :action => "crop"
-      end
+      # else
+      #   render :action => "crop"
+      # end
     else
       render :action => 'new'
     end

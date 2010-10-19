@@ -6,9 +6,12 @@ gem 'mysql'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
 gem 'paperclip', '2.3.4'
+gem 'aws-s3', :require => 'aws/s3'
 
-gem 'hpricot' # only for generating devise views
-gem 'ruby_parser' # only for generating devise views
+gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
+
+# gem 'hpricot' # only for generating devise views
+# gem 'ruby_parser' # only for generating devise views
 
 group :development, :test, :cucumber do
   gem "rspec-rails"

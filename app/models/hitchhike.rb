@@ -2,11 +2,11 @@ class Hitchhike < ActiveRecord::Base
   
   has_attached_file :photo, 
     :styles => { :small => "200x100#", :large => "600x300>" }, 
-    :processors => [:cropper],
     :storage => :s3,
     :s3_credentials => "#{Rails.root.to_s}/config/s3.yml",
-    :path => ":attachment/:id/:style.:extension",
-    :bucket => 'hitchhike.heroku.com'
+    # :processors => [:cropper],
+    :path => ":attachment/:id/:style.:extension"
+    # :bucket => 'hitchhike.heroku.com'
                             
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :people
   after_update :reprocess_photo, :if => :cropping?

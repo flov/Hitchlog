@@ -1,7 +1,7 @@
-Feature: Sign up
-  In order to get access to protected sections of the site
+Feature: Hitchhike feature
+  In order to post hitchhikes
   A user
-  Should be able to sign up
+  Should be able post a hitchhike
 
   Scenario: User signs up with invalid data
     When I go to the sign up page

@@ -4,7 +4,7 @@
   - for hitchhike in @hitchhikes
     %tr
       %td= hitchhike.title
-      %td = link_to "Show", hitchhike
-      %td = link_to "Edit", edit_hitchhike_path(hitchhike)
-      %td = link_to "Destroy", hitchhike, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to "Show", hitchhike
+      %td= link_to "Edit", edit_hitchhike_path(hitchhike)
+      %td= link_to "Destroy", hitchhike, :confirm => 'Are you sure?', :method => :delete
 %p= link_to "New Hitchhike", new_hitchhike_path

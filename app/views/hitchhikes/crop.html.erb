@@ -1,0 +1,34 @@
+<% title "Crop photo" %>
+<% content_for(:head) do %>
+<%= stylesheet_link_tag "jquery.Jcrop" %>
+<%= javascript_include_tag "jquery.Jcrop.min" %>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 600, 300],
+    aspectRatio: 2
+  });
+});
+
+function update_crop(coords) {
+  // cropping values:
+  $("#crop_x").val(coords.x)
+  $("#crop_y").val(coords.y)
+  $("#crop_w").val(coords.w)
+  $("#crop_h").val(coords.h)
+}
+</script>
+<% end %>
+
+<%= image_tag @hitchhike.photo.url(:original), :id => "cropbox" %>
+
+
+
+<% form_for @hitchhike do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.text_field attribute, :id => attribute %>
+  <% end %>
+  <p><%= f.submit "Crop" %></p>
+<% end %>
