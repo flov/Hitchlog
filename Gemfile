@@ -7,7 +7,6 @@ gem 'mysql'
 gem 'hirb'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
-gem 'paperclip', '2.3.4'
 gem 'aws-s3', :require => 'aws/s3'
 gem "nifty-generators"
 

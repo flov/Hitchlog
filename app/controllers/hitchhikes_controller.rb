@@ -1,19 +1,11 @@
 class HitchhikesController < ApplicationController
   def index
     @hitchhikes = Hitchhike.all
-    # if params[:id]
-    #   @hh = Hitchhike.find_by_id(params[:id])
-    # else
-    #   @hh = Hitchhike.find(:first, :order => 'RANDOM()')
-    # end
 
     respond_to do |wants|
       wants.html { }
       # wants.json { render :json => @hh.build_hash.to_json }
     end
-  end
-
-  def inspiration
   end
 
   def show
@@ -24,16 +16,16 @@ class HitchhikesController < ApplicationController
     @hitchhike = Hitchhike.new
     # @hitchhike.people.build
   end
-  
+
   def create
     @hitchhike = Hitchhike.new(params[:hitchhike])
     if @hitchhike.save
-      # if params[:hitchhike][:photo].blank?
+      if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully created hitchhike."
         redirect_to @hitchhike
-      # else
-      #   render :action => "crop"
-      # end
+      else
+        render :action => "crop"
+      end
     else
       render :action => 'new'
     end

@@ -83,9 +83,6 @@ GEM
     mysql (2.8.1)
     nifty-generators (0.4.2)
     nokogiri (1.4.3.1)
-    paperclip (2.3.4)
-      activerecord
-      activesupport
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -150,7 +147,6 @@ DEPENDENCIES
   mysql
   nifty-generators
   nokogiri
-  paperclip (= 2.3.4)
   rails (= 3.0.0)
   rspec-rails
   shoulda
