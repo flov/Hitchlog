@@ -1,5 +1,6 @@
 class Hitchhike < ActiveRecord::Base
   
-  has_attached_file :photo, :styles => { :small => ["32x32#", :png] }
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
   
 end
