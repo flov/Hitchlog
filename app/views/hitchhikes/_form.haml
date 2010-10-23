@@ -20,24 +20,24 @@
     %br/
     = f.text_field :to
 
-  = f.fields_for :people do |builder|
-    / t.string "name" t.string "occupation" t.string "mission" t.string "origin" t.integer "hitchhike_id"
-    %p
-      = builder.label :name
-      %br/
-      = builder.text_field :name
-    %p
-      = builder.label :mission
-      %br/
-      = builder.text_field :mission
-    %p
-      = builder.label :origin
-      %br/
-      = builder.text_field :origin
-    %p
-      = builder.label :occupation
-      %br/
-      = builder.text_field :occupation
+  / = f.fields_for :people do |builder|
+  /   / t.string "name" t.string "occupation" t.string "mission" t.string "origin" t.integer "hitchhike_id"
+  /   %p
+  /     = builder.label :name
+  /     %br/
+  /     = builder.text_field :name
+  /   %p
+  /     = builder.label :mission
+  /     %br/
+  /     = builder.text_field :mission
+  /   %p
+  /     = builder.label :origin
+  /     %br/
+  /     = builder.text_field :origin
+  /   %p
+  /     = builder.label :occupation
+  /     %br/
+  /     = builder.text_field :occupation
   %p
     = f.label :photo
     %br/

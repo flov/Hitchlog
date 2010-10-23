@@ -114,7 +114,7 @@ p {
 #container {
   width: 600px;
   margin: 0 auto;
-  background-color: black;
+  background-color: gray;
   color: white;
   padding: 20px 40px;
   border: solid 1px black;

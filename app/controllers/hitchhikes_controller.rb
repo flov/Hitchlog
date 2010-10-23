@@ -22,7 +22,7 @@ class HitchhikesController < ApplicationController
   
   def new
     @hitchhike = Hitchhike.new
-    @hitchhike.people.build
+    # @hitchhike.people.build
   end
   
   def create
