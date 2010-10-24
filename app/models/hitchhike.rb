@@ -1,7 +1,7 @@
 class Hitchhike < ActiveRecord::Base
   
   has_attached_file :photo, 
-                    :styles => { :small => "100x100#", :large => "500x500>"}, 
+                    :styles => { :cropped => "100x100#", :large => "500x500>"}, 
                     :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_photo, :if => :cropping?
