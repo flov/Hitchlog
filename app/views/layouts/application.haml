@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title= content_for?(:title) ? yield(:title) : "Hitchspread"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag 'jquery-1.3.2.min', 'application'
+    = csrf_meta_tag
+    = yield(:head)
+  %body
+    #container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      #user_nav
+        - if user_signed_in? 
+          = "Signed in as #{current_user.username}. Not you?"
+          = link_to "Sign out", destroy_user_session_path
+        - else
+          = link_to "Sign up", new_user_registration_path
+          or 
+          = link_to "sign in", new_user_session_path 
+      = yield

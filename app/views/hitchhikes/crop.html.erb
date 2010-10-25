@@ -7,13 +7,13 @@ $(function() {
   $('#cropbox').Jcrop({
     onChange: update_crop,
     onSelect: update_crop,
-    setSelect: [0, 0, 500, 500],
-    aspectRatio: 1
+    setSelect: [0, 0, 500, 250],
+    aspectRatio: 2
   });
 });
 
 function update_crop(coords) {
-	var rx = 100/coords.w;
+	var rx = 200/coords.w;
 	var ry = 100/coords.h;
 	$('#preview').css({
 		width: Math.round(rx * <%= @hitchhike.photo_geometry(:large).width %>) + 'px',
@@ -30,14 +30,16 @@ function update_crop(coords) {
 </script>
 <% end %>
 
+<h1>Crop the photo</h1>
+
 <%= image_tag @hitchhike.photo.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:100px; height:100px; overflow:hidden">
+<div style="width:200px; height:100px; overflow:hidden">
   <%= image_tag @hitchhike.photo.url(:large), :id => "preview" %>
 </div>
 
-<% form_for @hitchhike do |f| %>
+<%= form_for @hitchhike do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
