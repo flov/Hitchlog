@@ -2,12 +2,16 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : "Hitchspread"
-    = stylesheet_link_tag "application"
-    = javascript_include_tag 'jquery-1.3.2.min', 'application'
+    = stylesheet_link_tag "application", 'inspiration'
+    = javascript_include_tag 'jquery-1.4.3.min', 'rails', 'application'
     = csrf_meta_tag
     = yield(:head)
   %body
     #container
+      %h1 Hitchspread
+      %p A hitchhiker's journal
+      = render :partial => 'layouts/site_photography'
+    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       #user_nav

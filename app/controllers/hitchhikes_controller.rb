@@ -3,8 +3,8 @@ class HitchhikesController < ApplicationController
     @hitchhikes = Hitchhike.all
 
     respond_to do |wants|
-      wants.html { }
-      # wants.json { render :json => @hh.build_hash.to_json }
+      wants.html
+      wants.json { render :json => Hitchhike.order('RAND()').first.to_json }
     end
   end
 

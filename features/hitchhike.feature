@@ -9,7 +9,6 @@ Feature: Hitchhike feature
       | Title | example   |
     And I press "Submit"
     Then I should see error messages
-    
 
   Scenario: User creates hitchhike with valid data and a Photo
     When I go to the new hitchhike page

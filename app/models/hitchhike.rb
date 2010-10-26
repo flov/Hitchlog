@@ -8,6 +8,9 @@ class Hitchhike < ActiveRecord::Base
   
   validates_presence_of :title, :from, :to
   
+  # used to create custom json (http://github.com/qoobaa/to_hash)
+  include ToHash
+  
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
   end
@@ -15,6 +18,12 @@ class Hitchhike < ActiveRecord::Base
   def photo_geometry(style = :original)
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(photo.path(style))
+  end
+  
+  def to_json
+    hash = self.to_hash(:title, :from, :to, :id)
+    hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:large)} if self.photo.file?
+    JSON.pretty_generate(hash)
   end
   
   private
