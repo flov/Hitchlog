@@ -206,10 +206,10 @@ div#site-photography-loader {
 div#site-photography-details {
   background-image: url("/images/site_photo_details_background.png");
   border-top: 1px solid black;
-  bottom: -98px;
+  bottom: -48px;
   color: #f0f0f0;
   font-size: 1.1em;
-  height: 80px;
+  height: 30px;
   list-style-type: none;
   margin: 0px 0px 0px 0px;
   overflow: hidden;

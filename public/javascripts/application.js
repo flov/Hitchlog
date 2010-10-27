@@ -192,7 +192,7 @@ $(
             // if (objResponse.SUCCESS){
 						SetNewSitePhotoDetails( objResponse );
             // } else {
-            //  alert( "There was an error getting the photo." );
+            // alert( "There was an error getting the photo." );
             // }
 						},
 						
@@ -211,8 +211,7 @@ $(
 				}
 				);
 		}
-		
-		
+
 		function SetNewSitePhotoDetails( data ){
       // Set src of Photo
       jPhoto.attr({
@@ -220,12 +219,11 @@ $(
     		alt: data.title,
     		rel: data.id
     	});
-    	
-    	jPhotoLeft.attr("rel", data.prev_id)
-      jPhotoRight.attr("rel", data.next_id)
+    	jPhotoLeft.attr("rel", data.prev)
+      jPhotoRight.attr("rel", data.next)
 
       // Add Title to Photo
-      jPhotoDescription.html( data.title + " with:")
+      jPhotoDescription.html( data.title + " from " + data.from + " to " + data.to)
 
       // Add Large Photo Link
       jPhotoLink.attr("href", data.photo.large)	
@@ -236,36 +234,36 @@ $(
     	jPhotoContacts.empty();
 
     	// Loop over each contact.
-    	$.each(data.  people, function( intI, person ){
-    		var arrParts = [];
-    		// Add start LI (with potential class).
-    		arrParts.push( "<li " + ((intI == 0) ? "class='first'" : "" ) + ">" );
-
-    		// Add name.
-    		arrParts.push( "<strong>" + person.name + "</strong><br />" );
-
-        // Add Mission if it exists.
-        if (person.mission.length){
-         arrParts.push( "Mission: " + person.mission +"<br />");
-        }
-
-        // Add Origin if it exists.
-        if (person.origin.length){
-         arrParts.push( "Origin: " + person.origin +"<br />");
-        }
-
-        // Add Occupation if it exists.
-        if (person.occupation.length){
-         arrParts.push( "Occupation: " + person.occupation );
-        }
-
-
-    		// Add closing LI.
-    		arrParts.push( "<br /></li>" );
-
-    		// Add item to list.
-    		jPhotoContacts.append( arrParts.join( "" ) );
-    	});
+     // $.each(data.  people, function( intI, person ){
+      //        var arrParts = [];
+      //        // Add start LI (with potential class).
+      //        arrParts.push( "<li " + ((intI == 0) ? "class='first'" : "" ) + ">" );
+      // 
+      //        // Add name.
+      //        arrParts.push( "<strong>" + person.name + "</strong><br />" );
+      // 
+      //         // Add Mission if it exists.
+      //         if (person.mission.length){
+      //          arrParts.push( "Mission: " + person.mission +"<br />");
+      //         }
+      // 
+      //         // Add Origin if it exists.
+      //         if (person.origin.length){
+      //          arrParts.push( "Origin: " + person.origin +"<br />");
+      //         }
+      // 
+      //         // Add Occupation if it exists.
+      //         if (person.occupation.length){
+      //          arrParts.push( "Occupation: " + person.occupation );
+      //         }
+      // 
+      // 
+      //        // Add closing LI.
+      //        arrParts.push( "<br /></li>" );
+      // 
+      //        // Add item to list.
+      //        jPhotoContacts.append( arrParts.join( "" ) );
+      //      });
     }
 
 		

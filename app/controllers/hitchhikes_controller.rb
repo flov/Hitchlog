@@ -3,7 +3,13 @@ class HitchhikesController < ApplicationController
     @hitchhikes = Hitchhike.all
     respond_to do |wants|
       wants.html
-      wants.json { render :json => Hitchhike.order('RAND()').first.to_json }
+      wants.json do
+        if params[:id]
+          render :json => Hitchhike.find(params[:id]).to_json
+        else
+          render :json => Hitchhike.order('RAND()').first.to_json
+        end
+      end
     end
   end
 
