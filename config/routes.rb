@@ -1,8 +1,9 @@
 PaperclipOnHeroku::Application.routes.draw do
   devise_for :users
   resources :hitchhikes
-  
-  root :to => "hitchhikes#index"
+  resources :welcome, :only => [:index]
+
+  root :to => "welcome#index"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
