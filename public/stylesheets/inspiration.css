@@ -6,8 +6,7 @@ div.photoposition {
 
 div.topmenu {
   background: url(/images/topmenu.png);
-  /*border-bottom: 2px solid black; */
-  height: 339px; }
+  height: 319px; }
   div.topmenu .buffer1 {
     position: absolute;
     left: 320px;
@@ -30,7 +29,7 @@ p.seedlink {
 a {
   color: #aaaadd; }
 
-.text h1 {
+.topmenu h1 {
   position: absolute;
   left: 15px;
   top: 5px;
@@ -41,8 +40,7 @@ a {
   font-family: Arial, "MS Trebuchet", sans-serif;
   float: left;
   font-weight: normal; }
-
-.slogan h2 {
+.topmenu h2 {
   position: absolute;
   left: 38px;
   top: 65px;

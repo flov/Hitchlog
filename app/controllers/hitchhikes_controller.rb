@@ -1,7 +1,6 @@
 class HitchhikesController < ApplicationController
   def index
     @hitchhikes = Hitchhike.all
-
     respond_to do |wants|
       wants.html
       wants.json { render :json => Hitchhike.order('RAND()').first.to_json }
@@ -46,6 +45,15 @@ class HitchhikesController < ApplicationController
       end
     else
       render :action => 'edit'
+    end
+  end
+  
+  def next
+    result = self.class.find(:first, :conditions => ['id > ?', self.id], :order => 'id ASC')
+    if result == nil
+      self.class.first
+    else
+      result
     end
   end
   

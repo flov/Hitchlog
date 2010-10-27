@@ -1,7 +1,7 @@
 class Hitchhike < ActiveRecord::Base
   
   has_attached_file :photo, 
-                    :styles => { :cropped => "200x100#", :large => "500x250>"}, 
+                    :styles => { :cropped => "200x100#", :large => "600x300>"}, 
                     :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_photo, :if => :cropping?
@@ -20,8 +20,18 @@ class Hitchhike < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(photo.path(style))
   end
   
+  def next
+    result = Hitchhike.where('id > ?', self.id).first
+    result.nil? ? self.class.first.id : result.id
+  end
+
+  def prev
+    result = Hitchhike.where('id < ?', self.id).first
+    result.nil? ? self.class.last.id : result.id
+  end
+  
   def to_json
-    hash = self.to_hash(:title, :from, :to, :id)
+    hash = self.to_hash(:title, :from, :to, :id, :next, :prev)
     hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:large)} if self.photo.file?
     JSON.pretty_generate(hash)
   end
