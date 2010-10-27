@@ -155,18 +155,22 @@ div#road-driven {
   float: right; }
 
 div#site-photography {
-  height: 301px;
+  height: 250px;
   left: 0px;
+  top: 18px;
   overflow: hidden;
   position: relative;
-  width: 600px;
+  width: 500px;
   margin: 0 auto;
   z-index: 100;
   font-size: 62.5%; }
   div#site-photography img {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
     display: block;
-    height: 301px;
-    width: 600px; }
+    height: 250px;
+    width: 500px; }
 
 a#site-photography-left, a#site-photography-right {
   background-position: left top;
@@ -232,7 +236,6 @@ div#site-photography li {
   div#site-photography li.first {
     border-left-width: 0px; }
 
-/* Do rounding (native in Safari, Firefox and Chrome) */
 body {
   margin: 0;
   padding: 0;

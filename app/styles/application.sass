@@ -1,8 +1,6 @@
-@import inspiration
-@import site-photo
-
+// Mixins:
 // Cross Browser Transparency (Yuck!)
-=opacity(!opacity)
+@mixin opacity(!opacity)
   :opacity= !opacity
   :-moz-opacity= !opacity
   :-khtml-opacity= !opacity
@@ -10,10 +8,15 @@
   :filter= "alpha(opacity=" + round(!opacity*100) + ")"
 
 
-/* Do rounding (native in Safari, Firefox and Chrome) */
-=rounded_corners(!radius)
-  -webkit-border-radius: !radius
-  -moz-border-radius: !radius
+@mixin rounded_corners ($radius)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+// Imports:
+@import inspiration
+@import site-photo
+
 
 body
   margin: 0

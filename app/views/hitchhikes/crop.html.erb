@@ -1,42 +1,42 @@
 <% title "Crop photo" %>
 <% content_for(:head) do %>
-<%= stylesheet_link_tag "jquery.Jcrop" %>
-<%= javascript_include_tag "jquery.Jcrop.min" %>
-<script type="text/javascript" charset="utf-8">
-$(function() {
-  $('#cropbox').Jcrop({
-    onChange: update_crop,
-    onSelect: update_crop,
-    setSelect: [0, 0, 500, 250],
-    aspectRatio: 2
+  <%= stylesheet_link_tag "jquery.Jcrop" %>
+  <%= javascript_include_tag "jquery.Jcrop.min" %>
+  <script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('#cropbox').Jcrop({
+      onChange: update_crop,
+      onSelect: update_crop,
+      setSelect: [0, 0, 500, 250],
+      aspectRatio: 2
+    });
   });
-});
 
-function update_crop(coords) {
-	var rx = 200/coords.w;
-	var ry = 100/coords.h;
-	$('#preview').css({
-		width: Math.round(rx * <%= @hitchhike.photo_geometry(:large).width %>) + 'px',
-		height: Math.round(ry * <%= @hitchhike.photo_geometry(:large).height %>) + 'px',
-		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-		marginTop: '-' + Math.round(ry * coords.y) + 'px'
-	});
-  var ratio = <%= @hitchhike.photo_geometry(:original).width %> / <%= @hitchhike.photo_geometry(:large).width %>;
-  $("#crop_x").val(Math.round(coords.x * ratio));
-  $("#crop_y").val(Math.round(coords.y * ratio));
-  $("#crop_w").val(Math.round(coords.w * ratio));
-  $("#crop_h").val(Math.round(coords.h * ratio));
-}
-</script>
+  function update_crop(coords) {
+  	var rx = 200/coords.w;
+  	var ry = 100/coords.h;
+  	$('#preview').css({
+  		width: Math.round(rx * <%= @hitchhike.photo_geometry(:cropped).width %>) + 'px',
+  		height: Math.round(ry * <%= @hitchhike.photo_geometry(:cropped).height %>) + 'px',
+  		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+  		marginTop: '-' + Math.round(ry * coords.y) + 'px'
+  	});
+    var ratio = <%= @hitchhike.photo_geometry(:original).width %> / <%= @hitchhike.photo_geometry(:cropped).width %>;
+    $("#crop_x").val(Math.round(coords.x * ratio));
+    $("#crop_y").val(Math.round(coords.y * ratio));
+    $("#crop_w").val(Math.round(coords.w * ratio));
+    $("#crop_h").val(Math.round(coords.h * ratio));
+  }
+  </script>
 <% end %>
 
 <h1>Crop the photo</h1>
 
-<%= image_tag @hitchhike.photo.url(:large), :id => "cropbox" %>
+<%= image_tag @hitchhike.photo.url(:original), :id => "cropbox" %>
 
 <h4>Preview:</h4>
 <div style="width:200px; height:100px; overflow:hidden">
-  <%= image_tag @hitchhike.photo.url(:large), :id => "preview" %>
+  <%= image_tag @hitchhike.photo.url(:original), :id => "preview" %>
 </div>
 
 <%= form_for @hitchhike do |f| %>

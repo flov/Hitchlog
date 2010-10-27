@@ -1,80 +1,95 @@
-div#road-driven {
-  float: right; }
+/*
+Syntax error: Undefined mixin 'rounded_corners'.
+        on line 15 of /Users/florianvallen/code/hitchspread/app/styles/site-photo.sass, in `rounded_corners'
+        from line 15 of /Users/florianvallen/code/hitchspread/app/styles/site-photo.sass
 
-div#site-photography {
-  height: 301px;
-  left: 0px;
-  overflow: hidden;
-  position: relative;
-  width: 600px;
-  margin: 0 auto;
-  z-index: 100;
-  font-size: 62.5%; }
-  div#site-photography img {
-    display: block;
-    height: 301px;
-    width: 600px; }
+10:   width: 500px
+11:   margin: 0 auto
+12:   z-index: 100
+13:   font-size: 62.5%
+14:   img
+15:     @include rounded_corners(10px)
+16:     display: block
+17:     height: 250px
+18:     width: 500px
+19:   
+20: a
 
-a#site-photography-left, a#site-photography-right {
-  background-position: left top;
-  background-repeat: no-repeat;
-  display: none;
-  height: 43px;
-  position: absolute;
-  text-indent: -9999px;
-  top: 30px;
-  width: 43px;
-  z-index: 150; }
-a#site-photography-left {
-  background-image: url("/images/site_photography_left.png");
-  left: 20px; }
-a#site-photography-right {
-  background-image: url("/images/site_photography_right.png");
-  right: 20px; }
-
-div#site-photography-loader {
-  background-color: #151515;
-  color: #f0f0f0;
-  display: none;
-  font-size: 11px;
-  font-style: italic;
-  height: 25px;
-  line-height: 22px;
-  position: absolute;
-  right: 0px;
-  text-align: center;
-  top: 0px;
-  width: 120px;
-  z-index: 150; }
-div#site-photography-details {
-  background-image: url("/images/site_photo_details_background.png");
-  border-top: 1px solid black;
-  bottom: -98px;
-  color: #f0f0f0;
-  font-size: 1.1em;
-  height: 80px;
-  list-style-type: none;
-  margin: 0px 0px 0px 0px;
-  overflow: hidden;
-  padding: 15px 0px 0px 0px;
-  position: absolute;
-  width: 640px;
-  z-index: 150; }
-  div#site-photography-details p {
-    font-size: 100%;
-    margin: 0px 0px 7px 20px; }
-div#site-photography ul {
-  font-size: 100%;
-  list-style-type: none;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px; }
-div#site-photography a {
-  color: #f0f0f0; }
-div#site-photography li {
-  border-left: 1px dotted white;
-  float: left;
-  margin: 0px 0px 0px 0px;
-  padding-left: 20px;
-  padding-right: 20px; }
-  div#site-photography li.first {
-    border-left-width: 0px; }
+Backtrace:
+/Users/florianvallen/code/hitchspread/app/styles/site-photo.sass:15:in `rounded_corners'
+/Users/florianvallen/code/hitchspread/app/styles/site-photo.sass:15
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/mixin_node.rb:74:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `block in perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `map'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:317:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/rule_node.rb:191:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `block in perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `map'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:317:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/rule_node.rb:191:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `block in perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `map'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:317:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/root_node.rb:59:in `perform!'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/root_node.rb:37:in `perform'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/tree/root_node.rb:29:in `render'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:220:in `update_stylesheet'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:85:in `block (2 levels) in update_stylesheets'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:78:in `each'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:78:in `block in update_stylesheets'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:76:in `each'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:76:in `update_stylesheets'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin.rb:50:in `check_for_updates'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/haml-3.0.21/lib/sass/plugin/rack.rb:40:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:12:in `cache'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:31:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/logger.rb:13:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:168:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:77:in `method_missing'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Users/florianvallen/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/Users/florianvallen/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/florianvallen/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/florianvallen/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'rounded_corners'.\A         on line 15 of /Users/florianvallen/code/hitchspread/app/styles/site-photo.sass, in `rounded_corners'\A         from line 15 of /Users/florianvallen/code/hitchspread/app/styles/site-photo.sass\A \A 10:   width: 500px\A 11:   margin: 0 auto\A 12:   z-index: 100\A 13:   font-size: 62.5%\A 14:   img\A 15:     @include rounded_corners(10px)\A 16:     display: block\A 17:     height: 250px\A 18:     width: 500px\A 19:   \A 20: a"; }

@@ -2,19 +2,21 @@ div#road-driven
   float: right
 
 div#site-photography
-  height: 301px
+  height: 250px
   left: 0px
+  top: 18px
   overflow: hidden
   position: relative
-  width: 600px
+  width: 500px
   margin: 0 auto
   z-index: 100
   font-size: 62.5%
   img
+    @include rounded_corners(10px)
     display: block
-    height: 301px
-    width: 600px
-
+    height: 250px
+    width: 500px
+  
 a
   &#site-photography-left, &#site-photography-right
     background-position: left top

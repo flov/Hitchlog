@@ -48,15 +48,6 @@ class HitchhikesController < ApplicationController
     end
   end
   
-  def next
-    result = self.class.find(:first, :conditions => ['id > ?', self.id], :order => 'id ASC')
-    if result == nil
-      self.class.first
-    else
-      result
-    end
-  end
-  
   def destroy
     @hitchhike = Hitchhike.find(params[:id])
     @hitchhike.destroy
