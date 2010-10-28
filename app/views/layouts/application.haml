@@ -3,17 +3,19 @@
   %head
     %title= content_for?(:title) ? yield(:title) : "Hitchspread"
     = stylesheet_link_tag "application"
-    = javascript_include_tag 'jquery-1.4.3.min', 'rails', 'application'
+    %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"} 
+    = javascript_include_tag 'jquery-1.4.3.min', 'rails', 'site_photography', 'application'
     = csrf_meta_tag
+
     = yield(:head)
   %body
     %div{:style => "position: absolute; top:0; right:0;"}
       = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov'
     .topmenu
-      %h1 Hitchspread
-      %h2 On the shoulder of giants
+      / %h1 Hitchspread
+      / %h2 On the shoulder of giants
       = render :partial => 'layouts/site_photography'
-
+    
     #container    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"

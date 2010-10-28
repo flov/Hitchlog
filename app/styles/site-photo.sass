@@ -1,18 +1,28 @@
-div#road-driven
+.top-wrapper
+  width: 800px
+  margin: 0 auto
+  position: relative
+  top: 10px
+  
+#map_canvas
+  height: 250px
+  width: 300px
   float: right
 
-div#site-photography
+  
+  
+#site-photography
+  float: left
   height: 250px
-  left: 0px
-  top: 18px
   overflow: hidden
   position: relative
   width: 500px
-  margin: 0 auto
   z-index: 100
   font-size: 62.5%
   img
-    @include rounded_corners(10px)
+    -moz-border-radius: 30px 0 0 30px
+    -webkit-border-radius: 30px 0 0 30px
+    border-radius: 30px 0 0 30px
     display: block
     height: 250px
     width: 500px
