@@ -180,7 +180,7 @@ $(
 			objSitePhotoRequest = $.ajax(
 				{
 					method: "get",
-					url: ("hitchhikes.json"),
+					url: ("/hitchhikes.json"),
 					data: {
 					  id: next
 					},

@@ -1,12 +1,12 @@
 class Hitchhike < ActiveRecord::Base
   
   has_attached_file :photo, 
-                    :styles => { :cropped => "500x250#" },
+                    :styles => { :cropped => "500x250#", :large => "800x400>" },
                     :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_photo, :if => :cropping?
   
-  validates_presence_of :title, :from, :to
+  validates_presence_of :from, :to
 
   # used to create custom json (http://github.com/qoobaa/to_hash)
   include ToHash

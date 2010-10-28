@@ -13,7 +13,6 @@ Feature: Sign up
     And I press "Sign up"
     Then I should see error messages
     
-
   Scenario: User signs up with valid data
     When I go to the sign up page
     And I fill in the following:  

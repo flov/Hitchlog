@@ -21,7 +21,7 @@
   		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
   		marginTop: '-' + Math.round(ry * coords.y) + 'px'
   	});
-    var ratio = <%= @hitchhike.photo_geometry(:original).width %> / <%= @hitchhike.photo_geometry(:cropped).width %>;
+    var ratio = <%= @hitchhike.photo_geometry(:cropped).width %> / <%= @hitchhike.photo_geometry(:large).width %>;
     $("#crop_x").val(Math.round(coords.x * ratio));
     $("#crop_y").val(Math.round(coords.y * ratio));
     $("#crop_w").val(Math.round(coords.w * ratio));
@@ -32,11 +32,11 @@
 
 <h1>Crop the photo</h1>
 
-<%= image_tag @hitchhike.photo.url(:original), :id => "cropbox" %>
+<%= image_tag @hitchhike.photo.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
-<div style="width:200px; height:100px; overflow:hidden">
-  <%= image_tag @hitchhike.photo.url(:original), :id => "preview" %>
+<div style="width:500px; height:250px; overflow:hidden">
+  <%= image_tag @hitchhike.photo.url(:large), :id => "preview" %>
 </div>
 
 <%= form_for @hitchhike do |f| %>

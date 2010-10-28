@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe WelcomeController do
-
+describe WelcomeController, 'routes' do
+  it { should route(:get, '/welcome').to(:action => 'index') }
 end
