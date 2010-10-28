@@ -39,7 +39,7 @@ $(
     // my home locatino and set the zoom level to 1.
     var startlocation = new google.maps.LatLng(51.850033, 10.6500523);
     var myOptions = {
-      zoom:1,
+      zoom: 1,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: startlocation
     }
@@ -48,7 +48,20 @@ $(
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
+    google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+      computeTotalDistance(directionsDisplay.directions);
+    });
     
+    function computeTotalDistance(result) {
+      var total = 0;
+      var myroute = result.routes[0];
+      for (i = 0; i < myroute.legs.length; i++) {
+        total += myroute.legs[i].distance.value;
+      }
+      total = total / 1000.
+      document.getElementById("total").innerHTML = total + " km";
+    }
+
     // I execute this function whenever the routes need to be set again
     function SetNewRoute(from, to) {
       var start = from;
@@ -64,8 +77,8 @@ $(
         }
       });
     }
-		
-		
+
+
     $.getJSON("/hitchhikes.json", function(data){
       SetNewSitePhotoDetails(data)
       SetNewRoute(data.from, data.to)      

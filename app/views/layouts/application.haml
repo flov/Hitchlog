@@ -12,9 +12,8 @@
     %div{:style => "position: absolute; top:0; right:0;"}
       = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov'
     .topmenu
-      / %h1 Hitchspread
-      / %h2 On the shoulder of giants
-      = render :partial => 'layouts/site_photography'
+      .top-wrapper
+        = render :partial => 'layouts/site_photography'
     
     #container    
       - flash.each do |name, msg|
@@ -27,4 +26,6 @@
       /       = link_to "Sign up", new_user_registration_path
       /       or 
       /       = link_to "sign in", new_user_session_path 
+      %h1 Kilometer travelled: 
+      %h1#total
       = yield
