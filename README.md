@@ -40,9 +40,10 @@ Upcoming Features
   total amount kilometers travelled, country where you hitchhiked most, etc...
 
 Environment
----
-Rails 3.0.0
-Rspec 2.0.1
-Cucumber 0.9.2
-Mysql
-... (see Gemfile)
+-----------
+
+* Rails 3.0.0
+* Rspec 2.0.1
+* Cucumber 0.9.2
+* Mysql
+* ... (see Gemfile)

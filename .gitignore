@@ -4,4 +4,4 @@ config/s3.yml
 log/*.log
 tmp/**/*
 public/system
-
+*.css
