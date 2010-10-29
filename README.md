@@ -1,4 +1,5 @@
-== Hitchhike.me
+Hitchhike.me
+----------
 
 Hitchhiking is my favorite way of transportation. Whenever I had time to
 travel i chose hitchhiking before car pooling and trains. It is a great way
@@ -12,32 +13,34 @@ By making it easy to log these experiences,
 this application is a tribute to those people 
 and to hitchhiking itself.
 
-== Documenting A Hitchhike
-
+Documenting A Hitchhike
+-----------------------
 The current flow of documenting a hitchhike:
 
-* log in
-* click on new Hitchhike
+* Log in
+* Click on new Hitchhike
 * Fill in fields: title:string from:string, to:string, photo:image
-* a photo
-* location from where you where picked up
-* location at which you have been dropped off
+* optionally add a story
+* Crop the image
+* Submit
 
-== Features
+Features
+-------
 
 * When Uploading an image the app lets you crop it to a unified size so that it fits
   in a slide show displayed at the top of the page.
 * The information from where to where you hitchhiked is displayed in a google maps canvas
   right beneath the picture.
 
-== Upcoming Features
+Upcoming Features
+---------------
 
 * Statistics:
   By telling the app from where to where you went, it creates statistical data, e.g.:
   total amount kilometers travelled, country where you hitchhiked most, etc...
 
-== Environment
-
+Environment
+---
 Rails 3.0.0
 Rspec 2.0.1
 Cucumber 0.9.2
