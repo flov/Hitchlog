@@ -1,15 +1,27 @@
-class Hitchhike < ActiveRecord::Base
-  
+class Hitchhike < ActiveRecord::Base  
+  # used to create custom json (http://github.com/qoobaa/to_hash)
+  include ToHash
+  # custom functions to get distances
+  include Gmaps
+
   has_attached_file :photo, 
                     :styles => { :cropped => "500x250#", :large => "800x400>" },
                     :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_photo, :if => :cropping?
   
-  validates_presence_of :from, :to
+  validates_presence_of :from, :to, :distance
+  validates_numericality_of :distance
 
-  # used to create custom json (http://github.com/qoobaa/to_hash)
-  include ToHash
+  before_validation do
+    self.distance = Gmaps.distance(self.from, self.to)
+  end
+  
+  def validate
+  	if distance == 0
+  		errors.add(:distance, "cannot find a route from #{self.from} to #{self.to}")
+  	end
+  end
 
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
@@ -35,7 +47,8 @@ class Hitchhike < ActiveRecord::Base
     hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} if self.photo.file?
     JSON.pretty_generate(hash)
   end
-  
+
+      
   private
   
   def reprocess_photo
