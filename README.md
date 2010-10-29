@@ -42,6 +42,7 @@ Upcoming Features
 Environment
 -----------
 
+* Ruby 1.9.2
 * Rails 3.0.0
 * Rspec 2.0.1
 * Cucumber 0.9.2
