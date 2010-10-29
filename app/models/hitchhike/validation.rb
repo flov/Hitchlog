@@ -8,7 +8,7 @@ class Hitchhike
   
   def validate
   	if distance == 0
-  		errors.add(:distance, "cannot find a route from #{self.from} to #{self.to}")
+  		errors.add("could not find a route from #{self.from} to #{self.to}")
   	end
   end
 end
