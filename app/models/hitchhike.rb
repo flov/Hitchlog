@@ -10,18 +10,7 @@ class Hitchhike < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   after_update :reprocess_photo, :if => :cropping?
   
-  validates_presence_of :from, :to, :distance
-  validates_numericality_of :distance
-
-  before_validation do
-    self.distance = Gmaps.distance(self.from, self.to)
-  end
-  
-  def validate
-  	if distance == 0
-  		errors.add(:distance, "cannot find a route from #{self.from} to #{self.to}")
-  	end
-  end
+  concerned_with  :validation
 
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?

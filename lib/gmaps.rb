@@ -7,7 +7,7 @@ module Gmaps
      # we convert the returned JSON data to native Ruby
      # data structure - a hash
      result = JSON.parse(data)
-     
+
      distance = 0
      unless result['status'] == 'NOT_FOUND'
        #  we take the first route and iterate over the legs to compute the total distance
