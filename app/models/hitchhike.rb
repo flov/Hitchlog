@@ -1,8 +1,6 @@
 class Hitchhike < ActiveRecord::Base  
   # used to create custom json (http://github.com/qoobaa/to_hash)
   include ToHash
-  # custom functions to get distances
-  include Gmaps
 
   has_attached_file :photo, 
                     :styles => { :cropped => "500x250#", :large => "800x400>" },
@@ -32,7 +30,7 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :from, :to, :id, :next, :prev)
+    hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance)
     hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} if self.photo.file?
     JSON.pretty_generate(hash)
   end

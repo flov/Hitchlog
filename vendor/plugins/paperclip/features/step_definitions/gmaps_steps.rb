@@ -1,3 +1,3 @@
 Then /^the distance between "([^"]*)" and "([^"]*)" should be saved$/ do |origin, destination|
-  pending
+  Gmaps.distance(origin, destination)
 end

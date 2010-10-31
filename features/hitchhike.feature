@@ -28,5 +28,3 @@ Feature: Hitchhike feature
       | To      | Odessa                 |
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
-    And the distance between "Belgrade" and "Odessa" should be saved
-

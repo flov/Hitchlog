@@ -1,14 +1,16 @@
 class Hitchhike
-  validates_presence_of :from, :to, :distance
-  validates_numericality_of :distance
+  # custom functions to get distances
+  include Gmaps
 
-  before_validation do
+  validates :from, :presence => true
+  validates :to, :presence => true
+  validates :distance, :numericality => true
+
+  def compute_distance!
     self.distance = Gmaps.distance(self.from, self.to)
   end
-  
-  def validate
-  	if distance == 0
-  		errors.add("could not find a route from #{self.from} to #{self.to}")
-  	end
+
+  before_validation do
+    compute_distance!
   end
 end
