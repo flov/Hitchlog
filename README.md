@@ -9,31 +9,44 @@ When I managed to go a long tour of about 1000 kms in one day i’ve felt
 energised and quite happy about my day spent on the road, meeting all 
 these people coming from different backgrounds.
 
+After a while it was quite difficult to remember all these different people
+and the stories that were connected to it.
+
 By making it easy to log these experiences,
-this application is a tribute to those people 
-and to hitchhiking itself.
+this application aims at creating a hitchhiking log.
+Furthermore the logs can be used to create demographic statistics about hitchhiking:
+e.g. how much male/female driver did you hitchhike with, or how much kilometers did 
+you hitchhike, etc...
 
 Documenting A Hitchhike
 -----------------------
+
 The current flow of documenting a hitchhike:
 
 * Log in
 * Click on new Hitchhike
 * Fill in fields: title:string from:string, to:string, photo:image
-* optionally add a story
 * Crop the image
 * Submit
 
-Features
+Roadmap
 -------
 
-* When Uploading an image the app lets you crop it to a unified size so that it fits
-  in a slide show displayed at the top of the page.
-* The information from where to where you hitchhiked is displayed in a google maps canvas
-  right beneath the picture.
+Version 0.1:
 
-Upcoming Features
----------------
+* User can sign in/out
+* User can upload a hitchhike and geographic information gets parsed in 
+  all different cases
+* If a picture is attached, the image gets cropped so that it fits into
+  a slideshow and the user can choose where it is cropped.
+* A Google Map canvas displays the route and the distance travelled
+
+Version 0.2:
+
+* A User can add more information to a hitchhike:
+  - several people with whom you rode and information about them: 
+    origin, occupation, mission, driver?, male/female
+  - a story which is displayed below the hitchhike.
 
 * Statistics:
   By telling the app from where to where you went, it creates statistical data, e.g.:
