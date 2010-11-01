@@ -31,7 +31,11 @@ class Hitchhike < ActiveRecord::Base
   
   def to_json
     hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance)
-    hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} if self.photo.file?
+    if self.photo.file?
+      hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
+    else
+      hash[:photo] = {:small => '/images/missingphoto.jpg', :large => '/images/missingphoto.jpg'} 
+    end
     JSON.pretty_generate(hash)
   end
 

@@ -11,8 +11,8 @@ end
 
 Factory.define :hitchhike do |f|
   f.title { 'example title' }
-  f.from { 'Barcelona' }
-  f.to   { 'Madrid' }
+  f.from  { 'Barcelona' }
+  f.to    { 'Madrid' }
 end
 
 Factory.define :address_not_found_hitchhike, :parent => :hitchhike do |f|

@@ -10,10 +10,12 @@ describe HitchhikesController, 'GET to hitchhikes.json' do
     get :index, :format => 'json'
     response.should be_success
     json = JSON.parse(response.body)
-    json['from'].should == @hitchhike.from
-    json['to'].should == @hitchhike.to
-    json['distance'].should == @hitchhike.distance
-    # json['photo']['small'].should == @hitchhike.photo.url(:cropped)
-    # json['photo']['large'].should == @hitchhike.photo.url(:large)
+    json['from']['city'].should    == @hitchhike.from_city
+    json['from']['country'].should == @hitchhike.from_country
+    json['to']['city'].should      == @hitchhike.from_city
+    json['to']['country'].should   == @hitchhike.from_country
+    json['distance'].should        == @hitchhike.distance
+    json['photo']['small'].should  == "/images/missingphoto.jpg"
+    json['photo']['large'].should  == "/images/missingphoto.jpg"
   end
 end
