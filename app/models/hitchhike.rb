@@ -6,7 +6,10 @@ class Hitchhike < ActiveRecord::Base
                     :styles => { :cropped => "500x250#", :large => "800x400>" },
                     :processors => [:cropper]
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-  after_update :reprocess_photo, :if => :cropping?
+
+  after_update do 
+    reprocess_photo if cropping?
+  end
   
   concerned_with  :validation
 

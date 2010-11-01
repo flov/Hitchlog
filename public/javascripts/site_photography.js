@@ -34,6 +34,7 @@ $(
 		
 		
     // GOOGLE MAPS:
+    
     // I initiate the Map and associate it with the #map_canvas div
     // Because it is necessary to define a start location i just chose
     // my home locatino and set the zoom level to 1.
@@ -43,23 +44,28 @@ $(
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       center: startlocation
     }
+    
     var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     // I get the DirectionServices from the Google Maps API V3.
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
-    google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-      computeTotalDistance(directionsDisplay.directions);
-    });
+    // google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+    //   computeTotalDistance(directionsDisplay.directions);
+    // });
+    // 
+    // function computeTotalDistance(result) {
+    //   var total = 0;
+    //   var myroute = result.routes[0];
+    //   for (i = 0; i < myroute.legs.length; i++) {
+    //     total += myroute.legs[i].distance.value;
+    //   }
+    //   total = total / 1000
+    //   $("#total").html(total + " km");
+    // }
     
-    function computeTotalDistance(result) {
-      var total = 0;
-      var myroute = result.routes[0];
-      for (i = 0; i < myroute.legs.length; i++) {
-        total += myroute.legs[i].distance.value;
-      }
-      total = total / 1000.
-      document.getElementById("total").innerHTML = total + " km";
+    function SetNewDistance(distance) {
+      $("#distance").html(distance/1000 + " km");
     }
 
     // I execute this function whenever the routes need to be set again
@@ -67,8 +73,8 @@ $(
       var start = from;
       var end = to;
       var request = {
-          origin:start, 
-          destination:end,
+          origin: start, 
+          destination: end,
           travelMode: google.maps.DirectionsTravelMode.DRIVING
       };
       directionsService.route(request, function(response, status) {
@@ -82,6 +88,7 @@ $(
     $.getJSON("/hitchhikes.json", function(data){
       SetNewSitePhotoDetails(data)
       SetNewRoute(data.from, data.to)      
+			SetNewDistance(data.distance)
     });
 		
 		// I show the site photo details (if necesssary).
@@ -237,9 +244,9 @@ $(
 					success: function( objResponse ){
 						// Check to see if the response was successful.
             // if (objResponse.SUCCESS){
-						SetNewSitePhotoDetails( objResponse );
-						SetNewRoute(objResponse.from, objResponse.to)      
-            
+						SetNewSitePhotoDetails( objResponse )
+						SetNewRoute(objResponse.from, objResponse.to)
+						SetNewDistance(objResponse.distance)
             // } else {
             // alert( "There was an error getting the photo." );
             // }

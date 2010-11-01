@@ -10,6 +10,8 @@ describe HitchhikesController, 'GET to hitchhikes.json' do
     get :index, :format => 'json'
     response.should be_success
     json = JSON.parse(response.body)
+    json['from'].should    == @hitchhike.from
+    json['to'].should      == @hitchhike.to
     # json['from']['city'].should    == @hitchhike.from_city
     # json['from']['country'].should == @hitchhike.from_country
     # json['to']['city'].should      == @hitchhike.from_city

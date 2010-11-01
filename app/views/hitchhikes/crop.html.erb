@@ -13,15 +13,15 @@
   });
 
   function update_crop(coords) {
-  	var rx = 200/coords.w;
-  	var ry = 100/coords.h;
+  	var rx = 500/coords.w;
+  	var ry = 250/coords.h;
   	$('#preview').css({
-  		width: Math.round(rx * <%= @hitchhike.photo_geometry(:cropped).width %>) + 'px',
-  		height: Math.round(ry * <%= @hitchhike.photo_geometry(:cropped).height %>) + 'px',
+  		width: Math.round(rx * <%= @hitchhike.photo_geometry(:large).width %>) + 'px',
+  		height: Math.round(ry * <%= @hitchhike.photo_geometry(:large  ).height %>) + 'px',
   		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
   		marginTop: '-' + Math.round(ry * coords.y) + 'px'
   	});
-    var ratio = <%= @hitchhike.photo_geometry(:cropped).width %> / <%= @hitchhike.photo_geometry(:large).width %>;
+    var ratio = <%= @hitchhike.photo_geometry(:original).width %> / <%= @hitchhike.photo_geometry(:large).width %>;
     $("#crop_x").val(Math.round(coords.x * ratio));
     $("#crop_y").val(Math.round(coords.y * ratio));
     $("#crop_w").val(Math.round(coords.w * ratio));
