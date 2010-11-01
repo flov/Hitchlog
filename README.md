@@ -53,10 +53,15 @@ Version 0.2:
     origin, occupation, mission, driver?, male/female
   - waiting time
   - a story which is displayed below the hitchhike.
-
 * Statistics:
   By telling the app from where to where you went, it creates statistical data, e.g.:
   total amount kilometers travelled, country where you hitchhiked most, etc...
+  
+Version 0.3:
+
+* A Trip has many hitchhikes and a hitchhike belongs to a trip.
+  That way a trip with many hitchhikes can be displayed on one map with a slideshow
+  of the pictures of that trip.
 
 Environment
 -----------
