@@ -15,8 +15,13 @@ and the stories that were connected to it.
 By making it easy to log these experiences,
 this application aims at creating a hitchhiking log.
 Furthermore the logs can be used to create demographic statistics about hitchhiking:
-e.g. how much male/female driver did you hitchhike with, or how much kilometers did 
-you hitchhike, etc...
+e.g. how much male/female driver did you hitchhike with, the average waiting time, 
+or how much kilometers did you hitchhike, etc...
+
+[Frank Verhart](http://hitchwiki.org/en/User:Fverhart) started to document his 
+hitchhiking statistics on [hitchwiki](http://hitchwiki.org/en/User:Fverhart) the idea
+of this application is to make it easy to provide an easy way to collect that data
+
 
 Documenting A Hitchhike
 -----------------------
@@ -35,7 +40,7 @@ Roadmap
 Version 0.1:
 
 * User can sign in/out
-* User can upload a hitchhike and geographic information gets parsed in 
+* User can upload a hitchhike and the geographic information gets parsed in 
   all different cases
 * If a picture is attached, the image gets cropped so that it fits into
   a slideshow and the user can choose where it is cropped.
@@ -46,6 +51,7 @@ Version 0.2:
 * A User can add more information to a hitchhike:
   - several people with whom you rode and information about them: 
     origin, occupation, mission, driver?, male/female
+  - waiting time
   - a story which is displayed below the hitchhike.
 
 * Statistics:
