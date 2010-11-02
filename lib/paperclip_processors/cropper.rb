@@ -4,24 +4,19 @@ module Paperclip
     # into the thumbnail.
     def transformation_command
       if crop_command
-        crop_command + super.first.sub(/ -crop \S+/, '')
+        crop_command + super.join(' ').sub(/ -crop \S+/, '').split(' ')
       else
         super
       end
     end
-    
-    # def transformation_command
-    #   scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
-    #   trans = []
-    #   trans << "-resize" << %["#{scale}"] unless scale.nil? || scale.empty?
-    #   trans << "-crop" << %["#{crop}"] << "+repage" if crop
-    #   trans
-    # end    
+    # -crop '221x221+0+0' -resize "x100" +repage
+    # -crop '221x221+0+0' -resize "500x500>"
+
     
     def crop_command
       target = @attachment.instance
       if target.cropping?
-        " -crop '#{target.crop_w.to_i}x#{target.crop_h.to_i}+#{target.crop_x.to_i}+#{target.crop_y.to_i}'"
+        ["-crop","#{target.crop_w.to_i}x#{target.crop_h.to_i}+#{target.crop_x.to_i}+#{target.crop_y.to_i}"]
       end
     end
   end
