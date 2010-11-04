@@ -7,7 +7,7 @@ gem 'hirb'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
 gem 'aws-s3', :require => 'aws/s3'
-gem "nifty-generators"
+# gem "nifty-generators"
 
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 
