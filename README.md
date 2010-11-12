@@ -56,8 +56,16 @@ Version 0.2:
 * Statistics:
   By telling the app from where to where you went, it creates statistical data, e.g.:
   total amount kilometers travelled, country where you hitchhiked most, etc...
-  
+
 Version 0.3:
+
+* Implementation with other sites:
+  - combining the [Mediawiki API](http://www.mediawiki.org/wiki/API:Login) of hitchwiki  with the
+    Hitchhike.me Login process
+  - API for external pages to use the hitchhike statistics parsed in JSON and XML format
+  
+
+Version 0.4:
 
 * A Trip has many hitchhikes and a hitchhike belongs to a trip.
   That way a trip with many hitchhikes can be displayed on one map with a slideshow
