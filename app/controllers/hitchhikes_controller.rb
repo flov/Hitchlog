@@ -26,6 +26,7 @@ class HitchhikesController < ApplicationController
 
   def create
     @hitchhike = Hitchhike.new(params[:hitchhike])
+    @hitchhike.user = current_user
     if @hitchhike.save
       if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully created hitchhike."

@@ -11,6 +11,8 @@ class Hitchhike < ActiveRecord::Base
     reprocess_photo if cropping?
   end
   
+  belongs_to :user
+  
   concerned_with  :validation
 
   def cropping?

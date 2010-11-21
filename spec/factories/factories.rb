@@ -16,10 +16,11 @@ Factory.define :flov, :parent => :user do |user|
   user.email 'florian.vallen@gmail.com'
 end
 
-Factory.define :hitchhike do |f|
-  f.title { 'example title' }
-  f.from  { 'Barcelona' }
-  f.to    { 'Madrid' }
+Factory.define :hitchhike do |hitchike|
+  hitchike.title { 'example title' }
+  hitchike.from  { 'Barcelona' }
+  hitchike.to    { 'Madrid' }
+  hitchike.association(:user)
 end
 
 Factory.define :address_not_found_hitchhike, :parent => :hitchhike do |f|

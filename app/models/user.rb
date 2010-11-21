@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  
+  has_many :hitchhikes
 
-  validates_presence_of :username
+  validates :username, :presence => true
+  
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 end

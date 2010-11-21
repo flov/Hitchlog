@@ -5,6 +5,7 @@ class Hitchhike
   validates :from, :presence => true
   validates :to, :presence => true
   validates :distance, :numericality => true
+  validates :user_id, :presence => true
 
   def compute_distance!
     self.distance = Gmaps.distance(self.from, self.to)
