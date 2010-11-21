@@ -1,4 +1,6 @@
 class HitchhikesController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create]
+  
   def index
     @hitchhikes = Hitchhike.all
     respond_to do |wants|

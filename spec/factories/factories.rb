@@ -1,3 +1,5 @@
+require 'factory_girl'
+
 Factory.sequence :email do |n|
   "user#{n}@example.com"
 end
@@ -7,6 +9,11 @@ Factory.define :user do |user|
   user.username              { |u| u.email.split("@").first }
   user.password              { "password" }
   user.password_confirmation { "password" }
+end
+
+Factory.define :flov, :parent => :user do |user|
+  user.username 'flov'
+  user.email 'florian.vallen@gmail.com'
 end
 
 Factory.define :hitchhike do |f|

@@ -4,13 +4,15 @@ Feature: Hitchhike feature
   Should be able upload a photo and tell from where to where he went.
 
   Scenario: User creates hitchhike with invalid data
+    Given I am logged in as flov
     When I go to the new hitchhike page
     And I fill in the following:
       | Title | example   |
     And I press "Submit"
     Then I should see error messages
 
-  Scenario: User creates hitchhike with valid data and a Photo
+  Scenario: Hitchhiker creates hitchhike with valid data and a Photo
+    Given I am logged in as flov
     When I go to the new hitchhike page
     And I fill in the following:
       | Title   | Trip in eastern Europe |
@@ -20,7 +22,8 @@ Feature: Hitchhike feature
     And I press "Submit"
     Then I should see "Crop the photo"
 
-  Scenario: User creates hitchhike with valid data without a Photo
+  Scenario: Hitchhiker creates hitchhike with valid data without a Photo
+    Given I am logged in as flov
     When I go to the new hitchhike page
     And I fill in the following:
       | Title   | Trip in eastern Europe |
@@ -28,5 +31,8 @@ Feature: Hitchhike feature
       | To      | Odessa                 |
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
-    And the photo should be set to "missingpicture.png"
     
+    Scenario: 
+      Given I am not logged in
+      And I go to the new hitchhike page
+      Then I should see "You need to sign in"
