@@ -20,7 +20,7 @@ module Gmaps
     distance = 0
     if result['status'] == 'OK' # compute distance
       result['routes'][0]['legs'].each{|leg| distance += leg['distance']['value']} 
-    elsif result['status'] == 'ZERO_RESULTS'
+    elsif result['status'] == 'OFFLINE'
       distance = -1
     elsif result['status'] == 'OVER_QUERY_LIMIT'
       distance = -2
@@ -28,7 +28,7 @@ module Gmaps
       distance = -3
     elsif result['status'] == 'INVALID_REQUEST'
       distance = -4
-    elsif result['status'] == 'OFFLINE'
+    elsif result['status'] == 'ZERO_RESULTS'
       distance = -5
     end
     distance

@@ -12,8 +12,12 @@ class Hitchhike < ActiveRecord::Base
   end
   
   belongs_to :user
+  has_many :people
   
   concerned_with  :validation
+  
+  accepts_nested_attributes_for :people, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
+  
 
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
@@ -35,7 +39,9 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance)
+    hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance, :story)
+    hash[:people] = []
+    self.people.each {|person| hash[:people] << person.build_hash }
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
     else

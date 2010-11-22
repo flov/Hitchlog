@@ -26,12 +26,21 @@ Feature: Hitchhike feature
     Given I am logged in as flov
     When I go to the new hitchhike page
     And I fill in the following:
-      | Title      | Trip in eastern Europe |
-      | From       | Belgrade               |
-      | To         | Odessa                 |
-      | Story      | My Story               |
+      | Title        | Trip in eastern Europe |
+      | From         | Belgrade               |
+      | To           | Odessa                 |
+      | Story        | My Story               |
+      | Waiting time | 40                     |
+      # Driver:
+      | Name       | Alexander Supertramp     |
+      | Age        | 24                       |
+      | Origin     | Hitchhiker               |
+      | Occupation | Hitchhiker               |
+      | Mission    | To travel across America |
+    And I select "male" from "gender"
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
+
     
     Scenario: 
       Given I am not logged in

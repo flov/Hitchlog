@@ -65,6 +65,9 @@ $(
     // }
     
     function SetNewDistance(distance) {
+      if (distance == -5) {
+        $("#distance").html("Google Maps is not reachable");        
+      }
       $("#distance").html(distance/1000 + " km");
     }
 

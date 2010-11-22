@@ -23,25 +23,32 @@
     = f.label :story
     %br/
     = f.text_area :story
-
-  / = f.fields_for :people do |builder|
-  /   / t.string "name" t.string "occupation" t.string "mission" t.string "origin" t.integer "hitchhike_id"
-  /   %p
-  /     = builder.label :name
-  /     %br/
-  /     = builder.text_field :name
-  /   %p
-  /     = builder.label :mission
-  /     %br/
-  /     = builder.text_field :mission
-  /   %p
-  /     = builder.label :origin
-  /     %br/
-  /     = builder.text_field :origin
-  /   %p
-  /     = builder.label :occupation
-  /     %br/
-  /     = builder.text_field :occupation
+  %p
+    = f.label :waiting_time, 'Waiting time (in minutes)'
+    %br/
+    = f.text_field :waiting_time
+  %h4 Person who picked you up:
+  = f.fields_for :people do |builder|
+    %p
+      = builder.label :name
+      %br/
+      = builder.text_field :name
+    %p
+      = builder.label :mission
+      %br/
+      = builder.text_field :mission
+    %p
+      = builder.label :origin
+      %br/
+      = builder.text_field :origin
+    %p
+      = builder.label :occupation
+      %br/
+      = builder.text_field :occupation
+    %p
+      = builder.label :age
+      %br/
+      = builder.text_field :age
   %p
     = f.label :photo
     %br/

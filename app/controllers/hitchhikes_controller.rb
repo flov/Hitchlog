@@ -17,11 +17,15 @@ class HitchhikesController < ApplicationController
 
   def show
     @hitchhike = Hitchhike.find(params[:id])
+    respond_to do |wants|
+      wants.html
+      wants.json { render :json => @hitchhike.to_json }
+    end
   end
   
   def new
     @hitchhike = Hitchhike.new
-    # @hitchhike.people.build
+    @hitchhike.people.build
   end
 
   def create

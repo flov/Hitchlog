@@ -3,7 +3,10 @@
   %head
     %title= content_for?(:title) ? yield(:title) : "Hitchspread"
     = stylesheet_link_tag "application"
-    %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"} 
+    - if Rails.env == 'development'
+      = javascript_include_tag 'gmaps_offline'
+    - else
+      %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"} 
     = javascript_include_tag 'jquery-1.4.3.min', 'rails', 'site_photography', 'application'
     = csrf_meta_tag
 
