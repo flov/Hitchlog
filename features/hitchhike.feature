@@ -37,7 +37,7 @@ Feature: Hitchhike feature
       | Origin     | Hitchhiker               |
       | Occupation | Hitchhiker               |
       | Mission    | To travel across America |
-    And I select "male" from "gender"
+    And I select "male" from "Gender"
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
 

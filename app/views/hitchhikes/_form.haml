@@ -34,6 +34,10 @@
       %br/
       = builder.text_field :name
     %p
+      = builder.label :gender
+      %br/
+      = builder.select("gender", %w[male female])
+    %p
       = builder.label :mission
       %br/
       = builder.text_field :mission
