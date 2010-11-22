@@ -26,9 +26,10 @@ Feature: Hitchhike feature
     Given I am logged in as flov
     When I go to the new hitchhike page
     And I fill in the following:
-      | Title   | Trip in eastern Europe |
-      | From    | Belgrade               |
-      | To      | Odessa                 |
+      | Title      | Trip in eastern Europe |
+      | From       | Belgrade               |
+      | To         | Odessa                 |
+      | Story      | My Story               |
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
     

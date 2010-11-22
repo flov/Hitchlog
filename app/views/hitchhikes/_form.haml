@@ -19,6 +19,10 @@
     = f.label :to
     %br/
     = f.text_field :to
+  %p
+    = f.label :story
+    %br/
+    = f.text_area :story
 
   / = f.fields_for :people do |builder|
   /   / t.string "name" t.string "occupation" t.string "mission" t.string "origin" t.integer "hitchhike_id"
