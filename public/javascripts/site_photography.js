@@ -283,7 +283,8 @@ $(
       // Adding People to Description:
     	// Update the hitchhike-description. In order to do that, we have to build up the elements.
     	// Start out by clearing what's there.
-    	jHitchhikeDetails.empty();      
+    	jHitchhikeDetails.empty();
+      $('#hitchhike-story').empty()
       
       var arrParts = [];
 
@@ -314,9 +315,11 @@ $(
               if (person.origin.length){
                 arrParts.push( "<dt>Origin</dt><dd> " + person.origin +"</dd>");
               }
-                    
-      
            });
+           // Add Story if it exists.
+           if (data.story != null){
+             $('#hitchhike-story').html( "<h1>" + data.title + "</h1><p>" + data.story + "</p>" );
+           }
            
            // Add closing LI.
            arrParts.push( "</dl>" );
