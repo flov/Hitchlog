@@ -1,5 +1,5 @@
 .top-wrapper
-  width: 800px
+  width: 1000px
   margin: 0 auto
   position: relative
   top: 10px
@@ -8,11 +8,9 @@
   height: 250px
   width: 300px
   float: right
-
-  
   
 #site-photography
-  float: left
+  float: right
   height: 250px
   overflow: hidden
   position: relative
@@ -26,7 +24,7 @@
     display: block
     height: 250px
     width: 500px
-  
+
 a
   &#site-photography-left, &#site-photography-right
     background-position: left top
@@ -45,51 +43,65 @@ a
     background-image: url( "/images/site_photography_right.png" )
     right: 20px
 
-div
-  &#site-photography-loader
-    background-color: #151515
-    color: #F0F0F0
-    display: none
-    font-size: 11px
-    font-style: italic
-    height: 25px
-    line-height: 22px
-    position: absolute
-    right: 0px
-    text-align: center
-    top: 0px
-    width: 120px
-    z-index: 150
-  &#site-photography-details
-    background-image: url("/images/site_photo_details_background.png")
-    border-top: 1px solid #000000
-    bottom: -48px
-    color: #F0F0F0
-    font-size: 1.1em
-    height: 30px
+#site-photography-loader
+  background-color: #151515
+  color: #F0F0F0
+  display: none
+  font-size: 11px
+  font-style: italic
+  height: 25px
+  line-height: 22px
+  position: absolute
+  right: 0px
+  text-align: center
+  top: 0px
+  width: 120px
+  z-index: 150
+
+#hitchhike-details
+  float: left
+  color: white
+  padding-right: 10px
+  font-family: Arial,"MS Trebuchet",sans-serif
+  width: 190px
+  h1
+    font-size: 29px
+  dl
+    text-align: right
+    dd
+      color: #888888
+      margin: 0
+
+#site-photography-details
+  background-image: url("/images/site_photo_details_background.png")
+  border-top: 1px solid #000000
+  bottom: -48px
+  color: #F0F0F0
+  font-size: 1.1em
+  height: 30px
+  list-style-type: none
+  margin: 0px 0px 0px 0px
+  overflow: hidden
+  padding: 15px 0px 0px 0px
+  position: absolute
+  width: 640px
+  z-index: 150
+  p
+    font-size: 100%
+    margin: 0px 0px 7px 20px
+#site-photography
+  ul
+    font-size: 100%
     list-style-type: none
     margin: 0px 0px 0px 0px
-    overflow: hidden
-    padding: 15px 0px 0px 0px
-    position: absolute
-    width: 640px
-    z-index: 150
-    p
-      font-size: 100%
-      margin: 0px 0px 7px 20px
-  &#site-photography
-    ul
-      font-size: 100%
-      list-style-type: none
-      margin: 0px 0px 0px 0px
-      padding: 0px 0px 0px 0px
-    a
-      color: #F0F0F0
-    li
-      border-left: 1px dotted #FFFFFF
-      float: left
-      margin: 0px 0px 0px 0px
-      padding-left: 20px
-      padding-right: 20px
-      &.first
-        border-left-width: 0px
+    padding: 0px 0px 0px 0px
+  a
+    color: #F0F0F0
+  li
+    border-left: 1px dotted #FFFFFF
+    float: left
+    margin: 0px 0px 0px 0px
+    padding-left: 20px
+    padding-right: 20px
+    &.first
+      border-left-width: 0px

@@ -6,6 +6,7 @@ $(
 		var jPhotoArea = $( "#site-photography" );
 		var jPhoto = $( "#site-photography-photo" );
 		var jPhotoDetails = $( "#site-photography-details" );
+		var jHitchhikeDetails = $( "#hitchhike-details" );
 		var jPhotoDescription = $( "#site-photo-details-description" );
 		var jPhotoLink = $( "#site-photo-details-link" );
 		var jPhotoContacts = $( "#site-photo-details-contacts" );
@@ -50,27 +51,14 @@ $(
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
-    // google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-    //   computeTotalDistance(directionsDisplay.directions);
-    // });
-    // 
-    // function computeTotalDistance(result) {
-    //   var total = 0;
-    //   var myroute = result.routes[0];
-    //   for (i = 0; i < myroute.legs.length; i++) {
-    //     total += myroute.legs[i].distance.value;
-    //   }
-    //   total = total / 1000
-    //   $("#total").html(total + " km");
-    // }
     
     function SetNewDistance(distance) {
-      if (distance == -5) {
-        $("#distance").html("Google Maps is not reachable");        
+      if (distance < 0) {
+        $("#distance").html("unknown");        
       }
       $("#distance").html(distance/1000 + " km");
     }
-
+    
     // I execute this function whenever the routes need to be set again
     function SetNewRoute(from, to) {
       var start = from;
@@ -89,9 +77,8 @@ $(
 
 
     $.getJSON("/hitchhikes.json", function(data){
-      SetNewSitePhotoDetails(data)
+      SetNewSitePhotoDetails(data)      
       SetNewRoute(data.from, data.to)      
-			SetNewDistance(data.distance)
     });
 		
 		// I show the site photo details (if necesssary).
@@ -216,6 +203,13 @@ $(
 			GetNewSitePhotoDetails( "getprev" );
 		}
 		
+		function GetDistance( distance ){
+		  if (distance > 0){
+        return distance / 1000 + " km</dd>" 
+      } else {
+        return "unknown" 
+      }
+		}
 		
 		// I get the new site photo (prev and next) base on given action.
 		function GetNewSitePhotoDetails( strAction ){
@@ -227,6 +221,8 @@ $(
 			
 			// Show ajax loader.
 			jAjaxLoader.fadeIn( 100 );
+      // Fade out Hitchhike details
+      jHitchhikeDetails.fadeOut(100);
 			
 			// Get the new photo (be sure to store request).
 			if (strAction == "getnext"){
@@ -234,6 +230,7 @@ $(
 			} else if (strAction == "getprev"){
 			  next = jPhotoLeft.attr( "rel" )
 			}
+      
       
 			objSitePhotoRequest = $.ajax(
 				{	method: "get",
@@ -245,21 +242,16 @@ $(
 					
 					// Handle the response.
 					success: function( objResponse ){
-						// Check to see if the response was successful.
-            // if (objResponse.SUCCESS){
-						SetNewSitePhotoDetails( objResponse )
-						SetNewRoute(objResponse.from, objResponse.to)
-						SetNewDistance(objResponse.distance)
-            // } else {
-            // alert( "There was an error getting the photo." );
-            // }
-						},
-						
+					  SetNewSitePhotoDetails( objResponse )
+						// fade in details.
+            jHitchhikeDetails.fadeIn();
+            
+						SetNewRoute( objResponse.from, objResponse.to )
+					},
 					// If the request errored, something went seriously wrong!
 					error: function(){
 						alert( "There was an error getting the photo!!!" );
 					},
-					
 					complete: function(){
 						// Clear the request no matter what.
 						objSitePhotoRequest = null;
@@ -283,46 +275,53 @@ $(
 
       // Add Title to Photo
       jPhotoDescription.html( data.title + " from " + data.from + " to " + data.to)
-
+      $("#distance").html(GetDistance(data.distance))
+      
       // Add Large Photo Link
       jPhotoLink.attr("href", data.photo.large)	
 
       // Adding People to Description:
-    	// Update the contacts list. In order to do that, we have to build up the elements.
+    	// Update the hitchhike-description. In order to do that, we have to build up the elements.
     	// Start out by clearing what's there.
-    	jPhotoContacts.empty();
+    	jHitchhikeDetails.empty();      
+      
+      var arrParts = [];
 
+      // Add start LI (with potential class).
+      arrParts.push( "<dl>" );
+
+      // // Add distance
+      // if (data.distance){
+      //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" );
+      // }
     	// Loop over each contact.
-     // $.each(data.  people, function( intI, person ){
-      //        var arrParts = [];
-      //        // Add start LI (with potential class).
-      //        arrParts.push( "<li " + ((intI == 0) ? "class='first'" : "" ) + ">" );
-      // 
-      //        // Add name.
-      //        arrParts.push( "<strong>" + person.name + "</strong><br />" );
-      // 
-      //         // Add Mission if it exists.
-      //         if (person.mission.length){
-      //          arrParts.push( "Mission: " + person.mission +"<br />");
-      //         }
-      // 
-      //         // Add Origin if it exists.
-      //         if (person.origin.length){
-      //          arrParts.push( "Origin: " + person.origin +"<br />");
-      //         }
-      // 
-      //         // Add Occupation if it exists.
-      //         if (person.occupation.length){
-      //          arrParts.push( "Occupation: " + person.occupation );
-      //         }
-      // 
-      // 
-      //        // Add closing LI.
-      //        arrParts.push( "<br /></li>" );
-      // 
-      //        // Add item to list.
-      //        jPhotoContacts.append( arrParts.join( "" ) );
-      //      });
+      $.each(data.people, function( intI, person ){
+      
+             // Add name if it exists
+             if (person.name.length){
+               arrParts.push( "<dt>Name</dt><dd>" + person.name + "</dd>" );
+             }
+              // Add Occupation if it exists.
+              if (person.occupation.length){
+                arrParts.push( "<dt>Occupation</dt><dd>" + person.occupation + "</dd>" );
+              }
+      
+              // Add Mission if it exists.
+              if (person.mission.length){
+               arrParts.push( "<dt>Mission</dt><dd>" + person.mission + "</dd>" );
+              }
+              // Add Origin if it exists.
+              if (person.origin.length){
+                arrParts.push( "<dt>Origin</dt><dd> " + person.origin +"</dd>");
+              }
+                    
+      
+           });
+           
+           // Add closing LI.
+           arrParts.push( "</dl>" );
+           // Add item to list.
+           jHitchhikeDetails.append( arrParts.join( "" ) );
     }
 
 		
