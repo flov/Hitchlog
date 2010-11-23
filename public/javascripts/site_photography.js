@@ -274,7 +274,7 @@ $(
       jPhotoRight.attr("rel", data.next)
 
       // Add Title to Photo
-      jPhotoDescription.html( data.title + " from " + data.from + " to " + data.to)
+      jPhotoDescription.html( "From " + data.from + " To " + data.to)
       $("#distance").html(GetDistance(data.distance))
       
       // Add Large Photo Link
