@@ -19,7 +19,7 @@ group :development, :test, :cucumber do
 end
 
 group :test, :cucumber do
-  gem 'cucumber', '0.9.2'
+  gem 'cucumber', '0.9.4'
   gem 'cucumber-rails', '0.3.2'
   gem "factory_girl_rails"
   gem "capybara"
