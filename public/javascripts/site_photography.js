@@ -51,28 +51,30 @@ $(
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
     directionsDisplay.setMap(map);
+
+    
+    // I execute this function whenever the routes need to be set again
+     function SetNewRoute(from, to) {
+       var start = from;
+       var end = to;
+       var request = {
+           origin: start, 
+           destination: end,
+           travelMode: google.maps.DirectionsTravelMode.DRIVING
+       };
+       directionsService.route(request, function(response, status) {
+         if (status == google.maps.DirectionsStatus.OK) {
+           directionsDisplay.setDirections(response);
+         }
+       });
+     }
+    
     
     function SetNewDistance(distance) {
       if (distance < 0) {
         $("#distance").html("unknown");        
       }
       $("#distance").html(distance/1000 + " km");
-    }
-    
-    // I execute this function whenever the routes need to be set again
-    function SetNewRoute(from, to) {
-      var start = from;
-      var end = to;
-      var request = {
-          origin: start, 
-          destination: end,
-          travelMode: google.maps.DirectionsTravelMode.DRIVING
-      };
-      directionsService.route(request, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-        }
-      });
     }
 
 
@@ -246,7 +248,7 @@ $(
 						// fade in details.
             jHitchhikeDetails.fadeIn();
             
-						SetNewRoute( objResponse.from, objResponse.to )
+            SetNewRoute( objResponse.from, objResponse.to )
 					},
 					// If the request errored, something went seriously wrong!
 					error: function(){
@@ -318,7 +320,10 @@ $(
            });
            // Add Story if it exists.
            if (data.story != null){
-             $('#hitchhike-story').html( "<h1>" + data.title + "</h1><p>" + data.story + "</p>" );
+             var converter = new Showdown.converter();
+             var story = converter.makeHtml(data.story);
+             
+             $('#hitchhike-story').html( "<h1>" + data.title + "</h1><p>" + story + "</p>" );
            }
            
            // Add closing LI.
