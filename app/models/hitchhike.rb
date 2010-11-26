@@ -40,6 +40,7 @@ class Hitchhike < ActiveRecord::Base
   
   def to_json
     hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance, :story)
+    hash[:username] = self.user.username
     hash[:people] = []
     self.people.each {|person| hash[:people] << person.build_hash }
     if self.photo.file?

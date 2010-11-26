@@ -11,16 +11,27 @@ Factory.define :user do |user|
   user.password_confirmation { "password" }
 end
 
-Factory.define :flov, :parent => :user do |user|
-  user.username 'flov'
-  user.email 'florian.vallen@gmail.com'
+Factory.define :alex, :parent => :user do |user|
+  user.username 'alex'
+  user.email 'alexander.supertramp@hitchhike.me'
 end
 
 Factory.define :hitchhike do |hitchike|
-  hitchike.title { 'example title' }
   hitchike.from  { 'Barcelona' }
   hitchike.to    { 'Madrid' }
+  hitchike.title { 'example title' }
+  hitchike.story { 'example story' }
   hitchike.association(:user)
+end
+
+Factory.define :person do |person|
+  person.name         {'Penny Lane'}
+  person.occupation   {'Groupie'}
+  person.mission      {'Tour around with the Beatles'}
+  person.origin       {'USA'}
+  person.association  (:hitchhike)
+  person.age          {21}
+  person.gender       {'female'}
 end
 
 Factory.define :address_not_found_hitchhike, :parent => :hitchhike do |f|

@@ -3,7 +3,11 @@ Given /^I am not logged in$/ do
 end
 
 Given /^(?:I am|I'm) logged in as (\w+)$/ do |username|
-  @user = Factory(:flov)  
+  if username == "alex"
+    @user = Factory(:alex) 
+  else
+    @user = Factory(:user, :username => username)
+  end
 
   visit path_to('the login page')
   fill_in('Username', :with => @user.username)

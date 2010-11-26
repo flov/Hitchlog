@@ -1,31 +1,27 @@
-%p
-  %strong From:
-  = @hitchhike.from
-%p
-  %strong To:
-  = @hitchhike.to
-%p
-  %strong Title:
-  = @hitchhike.title
-%p
-  %strong story:
-  = @hitchhike.story
-%p
-  %strong waiting_time:
-  = @hitchhike.waiting_time
-%p
-  People:<br />
-  %strong Name:
-  = @hitchhike.people.first.name
-%p
-  %strong Gender:
-  = @hitchhike.people.first.gender
-%p
-  %strong Mission:
-  = @hitchhike.people.first.mission
-%p
-  %strong Origin:
-  = @hitchhike.people.first.origin
+/ %p
+/   %strong From:
+/   = @hitchhike.from
+/ %p
+/   %strong To:
+/   = @hitchhike.to
+%h1= @hitchhike.title
+%p=  @hitchhike.story
+/ %p
+/   %strong waiting_time:
+/   = @hitchhike.waiting_time
+/ %p
+/   People:<br />
+/   %strong Name:
+/   = @hitchhike.people.first.name
+/ %p
+/   %strong Gender:
+/   = @hitchhike.people.first.gender
+/ %p
+/   %strong Mission:
+/   = @hitchhike.people.first.mission
+/ %p
+/   %strong Origin:
+/   = @hitchhike.people.first.origin
 
 %p
   cropped:

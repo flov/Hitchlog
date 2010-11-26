@@ -277,7 +277,7 @@ $(
 
       // Add Title to Photo
       jPhotoDescription.html( "From " + data.from + " To " + data.to)
-      $("#distance").html(GetDistance(data.distance))
+      $("#site-photo-distance").html(GetDistance(data.distance))
       
       // Add Large Photo Link
       jPhotoLink.attr("href", data.photo.large)	
@@ -323,7 +323,9 @@ $(
              var converter = new Showdown.converter();
              var story = converter.makeHtml(data.story);
              
-             $('#hitchhike-story').html( "<h1>" + data.title + "</h1><p>" + story + "</p>" );
+             $('#hitchhike-story').html( "<h1>" + data.title + "</h1>" +
+                                         "<span id='hitchhike-subtitle'>By " + data.username + "</span>" + 
+                                         "<p>" + story + "</p>" );
            }
            
            // Add closing LI.
