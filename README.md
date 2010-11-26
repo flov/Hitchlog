@@ -45,15 +45,6 @@ Version 0.1:
   a slideshow and the user can choose where it is cropped.
 * A Google Map canvas displays the route and the distance travelled
 
-TODO:
-* Autocomplete for google maps address
-* Implement google metrics
-* Structure:
-  - Random hitchhikes are only shown at the main page
-  - Story gets is hidden first. Link points on real page
-  - A user has an overview over his hitchhikes and can edit them
-* 
-
 Version 0.2:
 
 * A User can add more information to a hitchhike:
