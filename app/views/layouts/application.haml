@@ -8,15 +8,15 @@
 
     = javascript_include_tag 'jquery-1.4.3.min', 'showdown', 'rails', 'application'
     = csrf_meta_tag
-    / :javascript
-    /   var _gaq = _gaq || [];
-    /   _gaq.push(['_setAccount', 'UA-12749815-3']);
-    /   _gaq.push(['_trackPageview']);
-    /   (function() {
-    /     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    /     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    /     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    /   })();
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12749815-3']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
     
     = yield(:head)
   %body
@@ -30,7 +30,7 @@
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
-      #hitchhike-story
+      = yield
 
       #user_nav
         - if user_signed_in? 
@@ -40,4 +40,5 @@
           = link_to "Sign up", new_user_registration_path
           or 
           = link_to "sign in", new_user_session_path 
-      = yield
+  / %footer
+  /   &copy; 2009 Woofer Dog Corporation
