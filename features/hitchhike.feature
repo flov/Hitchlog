@@ -23,17 +23,17 @@ Feature: Hitchhike feature
     Given I am logged in as alex
     When I go to the new hitchhike page
     And I fill in the following:
-      | Title        | Trip in eastern Europe |
-      | From         | Belgrade               |
-      | To           | Odessa                 |
-      | Story        | My Story               |
-      | Waiting time | 40                     |
-      # Driver:
-      | Name       | Alexander Supertramp     |
-      | Age        | 24                       |
-      | Origin     | Hitchhiker               |
-      | Occupation | Hitchhiker               |
-      | Mission    | To travel across America |
+      | Title                     | Trip in eastern Europe   |
+      | From                      | Belgrade                 |
+      | To                        | Odessa                   |
+      | When (format: dd/mm/yyyy) | 20/10/2010               |
+      | Story                     | My Story                 |
+      | Waiting time              | 40                       |
+      | Name                      | Alexander Supertramp     |
+      | Age                       | 24                       |
+      | Origin                    | Hitchhiker               |
+      | Occupation                | Hitchhiker               |
+      | Mission                   | To travel across America |
     And I select "male" from "Gender"
     And I press "Submit"
     Then I should see "Successfully created hitchhike."

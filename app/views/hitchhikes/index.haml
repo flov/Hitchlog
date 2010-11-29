@@ -9,10 +9,7 @@
     %th About person:
     %th Name
     %th Occupation
-    %th Gender
     %th Mission
-    %th Origin
-    %th Age
     
   - for hitchhike in @hitchhikes
     %tr
@@ -24,10 +21,7 @@
       %td
       %td= hitchhike.people.first.name
       %td= hitchhike.people.first.occupation
-      %td= hitchhike.people.first.gender
       %td= hitchhike.people.first.mission
-      %td= hitchhike.people.first.origin
-      %td= hitchhike.people.first.age
       %td= link_to "Show", hitchhike
       %td= link_to "Edit", edit_hitchhike_path(hitchhike)
       %td= link_to "Destroy", hitchhike, :confirm => 'Are you sure?', :method => :delete
