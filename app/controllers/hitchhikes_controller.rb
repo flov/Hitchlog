@@ -1,8 +1,8 @@
 class HitchhikesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :create]
+  before_filter :authenticate_user!, :except => [:show]
   
   def index
-    @hitchhikes = Hitchhike.all
+    @hitchhikes = Hitchhike.where(:user_id => current_user.id)
     respond_to do |wants|
       wants.html
       wants.json do

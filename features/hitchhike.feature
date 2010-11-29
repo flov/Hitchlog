@@ -37,7 +37,7 @@ Feature: Hitchhike feature
     And I select "male" from "Gender"
     And I press "Submit"
     Then I should see "Successfully created hitchhike."
-    And I should see "Alexander Supertramp"
+    # And I should see "Alexander Supertramp" # selenium testing
 
     
     Scenario: Make sure that You cannot put in new hitchhikes when you are not logged in

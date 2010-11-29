@@ -1,11 +1,11 @@
+%h1= @hitchhike.title
+%p=  @hitchhike.story
 / %p
 /   %strong From:
 /   = @hitchhike.from
 / %p
 /   %strong To:
 /   = @hitchhike.to
-%h1= @hitchhike.title
-%p=  @hitchhike.story
 / %p
 /   %strong waiting_time:
 /   = @hitchhike.waiting_time
@@ -22,15 +22,11 @@
 / %p
 /   %strong Origin:
 /   = @hitchhike.people.first.origin
-
-%p
-  cropped:
-  %br/
-  = image_tag @hitchhike.photo.url(:cropped) if @hitchhike.photo.file?
-%p
-  large:
-  %br/
-  = image_tag @hitchhike.photo.url(:large) if @hitchhike.photo.file?
+- if @hitchhike.photo.file?
+  %p
+    cropped:
+    %br/
+    = image_tag @hitchhike.photo.url(:cropped) 
 %p
   = link_to "Edit", edit_hitchhike_path(@hitchhike)
   | 
