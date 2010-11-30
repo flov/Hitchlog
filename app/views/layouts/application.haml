@@ -19,7 +19,7 @@
         - if content_for? :site_photography
           = render :partial => 'layouts/site_photography'
       %ul#main_nav
-        %li#nav_hitchhikes Hitchhikes
+        %li#nav_hitchhikes= link_to 'Hitchhikes', hitchhikes_path
         %li#nav_authenitcation
           - if user_signed_in? 
             = "Signed in as #{current_user.username}. Not you?"

@@ -2,15 +2,6 @@
 %ul
   - for hitchhike in @hitchhikes
     %li
-      = link_to raw("#{hitchhike.from} &rarr; #{hitchhike.to}"), hitchhike_path(hitchhike)
+      = link_to raw("#{hitchhike.from} &rarr; #{hitchhike.to} (#{distance(hitchhike)})"), hitchhike_path(hitchhike)
       by: 
-      = link_to hitchhike.user.username, user_path(hitchhike.user)
-        
-
-
-/ = builder.label :name
-/ = builder.label :gender
-/ = builder.label :mission
-/ = builder.label :origin
-/ = builder.label :occupation
-/ = builder.label :age
+      = link_to hitchhike.user.username, user_path(hitchhike.user.username)
