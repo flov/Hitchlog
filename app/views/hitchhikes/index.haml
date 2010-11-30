@@ -1,31 +1,11 @@
-%h1 Your Hitchhikes:
-%table
-  %tr
-    %th Title
-    %th From
-    %th To
-    %th Story
-    %th Waiting Time
-    %th About person:
-    %th Name
-    %th Occupation
-    %th Mission
-    
+%h1 Hitchhikes:
+%ul
   - for hitchhike in @hitchhikes
-    %tr
-      %td= hitchhike.title
-      %td= hitchhike.from
-      %td= hitchhike.to
-      %td= "#{hitchhike.story[0..40]}..." unless hitchhike.story.empty?
-      %td= "#{hitchhike.waiting_time} minutes"
-      %td
-      %td= hitchhike.people.first.name
-      %td= hitchhike.people.first.occupation
-      %td= hitchhike.people.first.mission
-      %td= link_to "Show", hitchhike
-      %td= link_to "Edit", edit_hitchhike_path(hitchhike)
-      %td= link_to "Destroy", hitchhike, :confirm => 'Are you sure?', :method => :delete
-%p= link_to "New Hitchhike", new_hitchhike_path
+    %li
+      = link_to raw("#{hitchhike.from} &rarr; #{hitchhike.to}"), hitchhike_path(hitchhike)
+      by: 
+      = link_to hitchhike.user.username, user_path(hitchhike.user)
+        
 
 
 / = builder.label :name

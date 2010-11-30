@@ -54,20 +54,20 @@ $(
 
     
     // I execute this function whenever the routes need to be set again
-     function SetNewRoute(from, to) {
-       var start = from;
-       var end = to;
-       var request = {
-           origin: start, 
-           destination: end,
-           travelMode: google.maps.DirectionsTravelMode.DRIVING
-       };
-       directionsService.route(request, function(response, status) {
-         if (status == google.maps.DirectionsStatus.OK) {
-           directionsDisplay.setDirections(response);
-         }
-       });
-     }
+    function SetNewRoute(from, to) {
+      var start = from;
+      var end = to;
+      var request = {
+          origin: start, 
+          destination: end,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+      };
+      directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+    }
     
     
     function SetNewDistance(distance) {

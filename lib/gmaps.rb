@@ -14,7 +14,6 @@ module Gmaps
       result = JSON.parse(data)
     rescue Exception => e
       # Should only happen when used offline. Should not happen if online
-      # TODO: better check if online  
       result = {'status' => 'OFFLINE'}
     end
     distance = 0

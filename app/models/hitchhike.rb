@@ -1,6 +1,17 @@
 class Hitchhike < ActiveRecord::Base  
   # used to create custom json (http://github.com/qoobaa/to_hash)
   include ToHash
+  # custom functions to get distances
+  include Gmaps
+  
+  def compute_distance!
+    self.distance = Gmaps.distance(self.from, self.to)
+  end
+
+  before_validation do
+    compute_distance!
+  end
+  
 
   has_attached_file :photo, 
                     :styles => { :cropped => "500x250#", :large => "800x400>" },

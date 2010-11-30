@@ -4,7 +4,7 @@ class HitchhikesController < ApplicationController
   def index
     respond_to do |wants|
       wants.html do
-        @hitchhikes = current_user.hitchhikes
+        @hitchhikes = Hitchhike.all
       end
       wants.json do
         if params[:id]
