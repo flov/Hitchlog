@@ -21,4 +21,6 @@ Feature: Sign up
     | Password              | password         |
     | Password confirmation | password         |
     And I press "Sign up"
-    Then I should see "Signed in successfully."
+    Then I should see "signed up successfully."
+    And I should not see "a confirmation was sent to your e-mail."
+    
