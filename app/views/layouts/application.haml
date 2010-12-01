@@ -16,19 +16,16 @@
       = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov/hitchhike.me'
     #topmenu
       #topmenu-wrapper
-        - if content_for? :site_photography
-          = render :partial => 'layouts/site_photography'
+        = yield(:topmenu)
       %ul#main_nav
         %li#nav_hitchhikes= link_to 'Hitchhikes', hitchhikes_path
         %li#nav_authenitcation
           - if user_signed_in? 
-            = "Signed in as #{current_user.username}. Not you?"
             = link_to "Sign out", destroy_user_session_path
           - else
             = link_to "Sign up", new_user_registration_path
             or 
-            = link_to "sign in", new_user_session_path 
-            
+            = link_to "sign in", new_user_session_path             
     #container    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"

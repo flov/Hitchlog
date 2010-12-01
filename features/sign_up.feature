@@ -17,8 +17,8 @@ Feature: Sign up
     When I go to the sign up page
     And I fill in the following:  
     | Email                 | user@example.com |
-    | Username              | flov             |
+    | Username              | alex             |
     | Password              | password         |
     | Password confirmation | password         |
     And I press "Sign up"
-    Then I should see "Signed in as flov"
+    Then I should see "Signed in successfully."

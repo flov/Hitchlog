@@ -9,7 +9,15 @@ class User < ActiveRecord::Base
   
   has_many :hitchhikes
 
-  validates :username, :presence => true
+  validates :username, :presence => true, :uniqueness => true
   
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
+  def to_s
+    username.capitalize
+  end
+  
+  def to_param
+    username
+  end
 end

@@ -1,6 +1,7 @@
 #hitchhike-story
 
+- content_for :topmenu do
+  = render :partial => 'layouts/site_photography'
+
 - content_for :site_photography do
   = javascript_include_tag 'site_photography'
-/ 
-/ %p= link_to "New Hitchhike", new_hitchhike_path

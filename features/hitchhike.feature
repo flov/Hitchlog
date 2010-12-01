@@ -45,12 +45,3 @@ Feature: Hitchhike feature
       And I go to the new hitchhike page
       Then I should see "You need to sign in"
       
-    Scenario: User can manage his hitchhikes
-      Given I am logged in as alex
-      And there is a hitchhike from alex
-      And there is a hitchhike from someone else
-      When I go to the hitchhikes page
-      Then I should see the hitchhike of Alexander but not the other one
-    
-    
-    

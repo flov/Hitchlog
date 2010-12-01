@@ -1,0 +1,13 @@
+%h1= @user.username.capitalize
+%p
+  = "#{@user} logged #{pluralize(@user.hitchhikes.size, 'hitchhike')}"
+  = "and travelled #{@total_distance} kms by hitchhiking."
+  %br
+  = "#{@user} waited averagely #{@average_waiting_time} minutes per ride."
+  %br
+  = "All in all #{@user} waited #{@total_waiting_time} minutes for #{pluralize(@waiting_time.size, 'ride')}."
+%ul
+  - for hitchhike in @user.hitchhikes
+    %li
+      = link_to raw("#{hitchhike.from} &rarr; #{hitchhike.to} (#{distance(hitchhike)})"), hitchhike_path(hitchhike)
+      = "- with picture" if hitchhike.photo.file?
