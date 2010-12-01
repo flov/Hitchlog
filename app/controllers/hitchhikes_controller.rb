@@ -1,11 +1,8 @@
 class HitchhikesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  
+
   def index
     respond_to do |wants|
-      wants.html do
-        @hitchhikes = Hitchhike.all
-      end
       wants.json do
         if params[:id]
           render :json => Hitchhike.find(params[:id]).to_json
@@ -26,16 +23,18 @@ class HitchhikesController < ApplicationController
   
   def new
     @hitchhike = Hitchhike.new
-    @hitchhike.people.build
+    @hitchhike.build_person
+    @trip = Trip.find(params[:trip_id])
   end
 
   def create
     @hitchhike = Hitchhike.new(params[:hitchhike])
+    @hitchhike.trip = Trip.find(params[:trip_id])
     @hitchhike.user = current_user
     if @hitchhike.save
       if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully created hitchhike."
-        redirect_to @hitchhike
+        redirect_to trips_path
       else
         render :action => "crop"
       end
@@ -46,6 +45,7 @@ class HitchhikesController < ApplicationController
   
   def edit
     @hitchhike = Hitchhike.find(params[:id])
+    @trip      = Trip.find(params[:trip_id])
   end
   
   def update
@@ -53,7 +53,7 @@ class HitchhikesController < ApplicationController
     if @hitchhike.update_attributes(params[:hitchhike])
       if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully updated hitchhike."
-        redirect_to @hitchhike
+        redirect_to trips_path
       else
         render :action => "crop"
       end

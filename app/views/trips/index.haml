@@ -1,0 +1,18 @@
+%h1 Trips:
+%ul
+  - for trip in @trips
+    %li
+      = link_to "#{trip} (#{distance(trip.distance)})", edit_trip_path(trip)
+      by: 
+      = link_to trip.user.username, user_path(trip.user.username)
+      %br/
+      Rides:
+      %ol
+        - for hitchhike in trip.hitchhikes
+          %li
+            = hitchhike.to_s
+            = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
+      = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip)
+      to Trip
+        
+= link_to 'New Trip', new_trip_path

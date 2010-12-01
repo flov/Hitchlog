@@ -1,2 +1,2 @@
-= render :partial => 'form'
-%p= link_to "Back to List", hitchhikes_path
+= form_for @hitchhike, :url => trip_hitchhikes_path, :html => { :multipart => true } do |f|
+  = render :partial => 'hitchhikes/hitchhike_fields', :locals => {:trip => @trip, :hitchhike => @hitchhike, :f => f}

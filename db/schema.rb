@@ -10,12 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101129133005) do
+ActiveRecord::Schema.define(:version => 20101202004828) do
 
   create_table "hitchhikes", :force => true do |t|
     t.string   "title"
-    t.string   "from"
-    t.string   "to"
     t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -23,11 +21,12 @@ ActiveRecord::Schema.define(:version => 20101129133005) do
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "distance"
     t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
     t.datetime "date"
+    t.integer  "trip_id"
+    t.float    "duration"
   end
 
   create_table "people", :force => true do |t|
@@ -38,6 +37,17 @@ ActiveRecord::Schema.define(:version => 20101129133005) do
     t.integer "hitchhike_id"
     t.integer "age"
     t.string  "gender"
+  end
+
+  create_table "trips", :force => true do |t|
+    t.integer  "distance"
+    t.datetime "date"
+    t.integer  "duration"
+    t.string   "from"
+    t.string   "to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -67,5 +77,6 @@ ActiveRecord::Schema.define(:version => 20101129133005) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

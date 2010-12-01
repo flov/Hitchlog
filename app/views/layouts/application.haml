@@ -3,11 +3,8 @@
   %head
     %title= content_for?(:title) ? yield(:title) : "Hitchhike.me"
     = stylesheet_link_tag "application"
-
-    %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}
-
     = javascript_include_tag 'jquery-1.4.3.min', 'showdown', 'rails', 'application'
-    = yield(:site_photography)
+    = yield(:javascripts)
     = javascript_google_stats
     
     = csrf_meta_tag    
@@ -15,10 +12,10 @@
     %div{:style => "position: absolute; top:0; right:0;"}
       = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov/hitchhike.me'
     #topmenu
-      #topmenu-wrapper
-        = yield(:topmenu)
+      = yield(:topmenu)
+      
       %ul#main_nav
-        %li#nav_hitchhikes= link_to 'Hitchhikes', hitchhikes_path
+        %li#nav_hitchhikes= link_to 'Trips', trips_path
         %li#nav_authenitcation
           - if user_signed_in? 
             = link_to "Sign out", destroy_user_session_path

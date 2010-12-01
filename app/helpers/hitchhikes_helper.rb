@@ -1,7 +1,7 @@
 module HitchhikesHelper
-  def distance(hitchhike)
-    if hitchhike.distance > 0
-      "#{hitchhike.distance / 1000} km" 
+  def distance(distance_in_meters)
+    if distance_in_meters > 0
+      "#{distance_in_meters / 1000} km" 
     else
       "unknown distance"
     end

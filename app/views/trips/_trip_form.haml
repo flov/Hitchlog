@@ -1,0 +1,25 @@
+= form_for @trip do |f|
+  = render :partial => 'shared/error_explanation', :locals => {:model => @trip}
+  %p
+    = f.label :from
+    %br/
+    = f.text_field :from
+  %p
+    = f.label :to
+    %br/
+    = f.text_field :to
+  %p
+    = f.label :date, 'When (format: dd/mm/yyyy)'
+    %br/
+    = f.text_field :date
+  - if @trip.new_record?
+    %p
+      = f.label :rides, 'Number of rides'
+      %br/
+      = f.text_field :rides
+  %p
+    = f.label :duration, 'Time the trip took (in hours)'
+    %br/
+    = f.text_field :duration
+
+  %p= f.submit "Submit"

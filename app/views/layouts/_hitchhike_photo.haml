@@ -1,0 +1,18 @@
+#topmenu-wrapper
+  #hitchhike-details
+  #map_canvas
+  #hitchhike-photo
+    #hitchhike-photo-loader Loading...
+    %a#hitchhike-photo-left Prev
+    %a#hitchhike-photo-right Next
+    #hitchhike-photo-details
+      %p
+        %span#site-photo-details-description= @hitchhike
+        %em
+          (
+          %a#site-photo-details-link{:href => ""} photo link
+          )
+          %br/
+          %span#site-photo-distance
+    %img#hitchhike-photo-photo/
+

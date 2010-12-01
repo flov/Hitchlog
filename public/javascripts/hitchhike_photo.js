@@ -3,16 +3,16 @@
 $(
 	function(){
 		// Get DOM references.
-		var jPhotoArea = $( "#site-photography" );
-		var jPhoto = $( "#site-photography-photo" );
-		var jPhotoDetails = $( "#site-photography-details" );
+		var jPhotoArea = $( "#hitchhike-photo" );
+		var jPhoto = $( "#hitchhike-photo-photo" );
+		var jPhotoDetails = $( "#hitchhike-photo-details" );
 		var jHitchhikeDetails = $( "#hitchhike-details" );
 		var jPhotoDescription = $( "#site-photo-details-description" );
 		var jPhotoLink = $( "#site-photo-details-link" );
 		var jPhotoContacts = $( "#site-photo-details-contacts" );
-		var jPhotoLeft = $( "#site-photography-left" );
-		var jPhotoRight = $( "#site-photography-right" );
-		var jAjaxLoader = $( "#site-photography-loader" );
+		var jPhotoLeft = $( "#hitchhike-photo-left" );
+		var jPhotoRight = $( "#hitchhike-photo-right" );
+		var jAjaxLoader = $( "#hitchhike-photo-loader" );
 		
 		// Keep track of properties of the photo details.
 		var objBottomProperties = {

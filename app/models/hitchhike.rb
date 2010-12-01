@@ -1,47 +1,30 @@
 class Hitchhike < ActiveRecord::Base  
   # used to create custom json (http://github.com/qoobaa/to_hash)
-  include ToHash
   # custom functions to get distances
-  include Gmaps
-  
-  def compute_distance!
-    self.distance = Gmaps.distance(self.from, self.to)
-  end
-
-  before_validation do
-    compute_distance!
-  end
-  
+  include ToHash  
 
   has_attached_file :photo, 
                     :styles => { :cropped => "500x250#", :large => "800x400>" },
                     :processors => [:cropper]
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-
-  after_update do 
-    reprocess_photo if cropping?
-  end
   
   belongs_to :user
-  has_many :people
+  belongs_to :trip
+  has_one :person, :dependent => :destroy
   
-  concerned_with  :validation
-  
-  accepts_nested_attributes_for :people, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
-  
+  concerned_with  :photo_procession
 
-  def cropping?
-    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  accepts_nested_attributes_for :person, :allow_destroy => true
+
+  def to_s
+    arr = [title, mission, person.to_s].compact
+    arr << "waiting time: #{waiting_time}" unless waiting_time.nil?
+    arr << "duration of ride: #{duration}" unless duration.nil?
+    arr.delete_if{|x| x==''}.join(', ')
   end
-  
-  def photo_geometry(style = :original)
-    @geometry ||= {}
-    @geometry[style] ||= Paperclip::Geometry.from_file(photo.path(style))
-  end
-  
+
   def next
     result = Hitchhike.where('id > ?', self.id).first
-    result.nil? ? self.class.first.id : result.id
+    result.nil? ? self.class.first.id : result.i
   end
 
   def prev
@@ -50,10 +33,9 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :from, :to, :id, :next, :prev, :distance, :story)
+    hash = self.to_hash(:title, :id, :next, :prev, :story)
     hash[:username] = self.user.username
-    hash[:people] = []
-    self.people.each {|person| hash[:people] << person.build_hash }
+    hash[:person] << person.build_hash
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
     else
@@ -61,7 +43,6 @@ class Hitchhike < ActiveRecord::Base
     end
     JSON.pretty_generate(hash)
   end
-
       
   private
   

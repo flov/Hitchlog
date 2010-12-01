@@ -1,0 +1,53 @@
+= render :partial => 'shared/error_explanation', :locals => {:model => hitchhike}
+
+%p
+  = f.label :title
+  %br/
+  = f.text_field :title
+%p
+  = f.label :story
+  %br/
+  = f.text_area :story
+%p
+  ="You said that the trip lasted #{trip.duration} hours."
+  %br/ 
+  ="Please specify here how long this specific ride took."
+  %br/
+  = f.label :waiting_time, 'Waiting time (in minutes)'
+  %br/
+  = f.text_field :waiting_time
+%p
+  = f.label :duration, 'Duration of ride (in hours) e.g. 2.5 for 2 hours 30 minutes'
+  %br/
+  = f.text_field :duration
+%h4 Person who picked you up:
+= f.fields_for :person do |builder|
+  %p
+    = builder.label :name
+    %br/
+    = builder.text_field :name
+  %p
+    = builder.label :gender
+    %br/
+    = builder.select("gender", %w[male female])
+  %p
+    = builder.label :mission
+    %br/
+    = builder.text_field :mission
+  %p
+    = builder.label :origin
+    %br/
+    = builder.text_field :origin
+  %p
+    = builder.label :occupation
+    %br/
+    = builder.text_field :occupation
+  %p
+    = builder.label :age
+    %br/
+    = builder.text_field :age
+%p
+  = f.label :photo
+  %br/
+  = f.file_field :photo
+%p= f.submit "Submit"
