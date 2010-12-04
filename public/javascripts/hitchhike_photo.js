@@ -69,15 +69,6 @@ $(
       });
     }
     
-    
-    function SetNewDistance(distance) {
-      if (distance < 0) {
-        $("#distance").html("unknown");        
-      }
-      $("#distance").html(distance/1000 + " km");
-    }
-
-
     $.getJSON("/hitchhikes.json", function(data){
       SetNewSitePhotoDetails(data)      
       SetNewRoute(data.from, data.to)      
@@ -209,7 +200,7 @@ $(
 		  if (distance > 0){
         return distance / 1000 + " km</dd>" 
       } else {
-        return "unknown" 
+        return "unknown distance" 
       }
 		}
 		
@@ -293,31 +284,29 @@ $(
       // Add start LI (with potential class).
       arrParts.push( "<dl>" );
 
-      // // Add distance
-      // if (data.distance){
-      //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" );
-      // }
-    	// Loop over each contact.
-      $.each(data.people, function( intI, person ){
-      
-             // Add name if it exists
-             if (person.name.length){
-               arrParts.push( "<dt>Name</dt><dd>" + person.name + "</dd>" );
-             }
-              // Add Occupation if it exists.
-              if (person.occupation.length){
-                arrParts.push( "<dt>Occupation</dt><dd>" + person.occupation + "</dd>" );
-              }
-      
-              // Add Mission if it exists.
-              if (person.mission.length){
-               arrParts.push( "<dt>Mission</dt><dd>" + person.mission + "</dd>" );
-              }
-              // Add Origin if it exists.
-              if (person.origin.length){
-                arrParts.push( "<dt>Origin</dt><dd> " + person.origin +"</dd>");
-              }
-           });
+          // // Add distance
+          // if (data.distance){
+          //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" );
+          // }
+
+          // Add name if it exists
+          if (data.person.name.length){
+            arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" );
+          }
+          // Add Occupation if it exists.
+          if (data.person.occupation.length){
+            arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" );
+          }
+          
+          // Add Mission if it exists.
+          if (data.person.mission.length){
+            arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" );
+          }
+          // Add Origin if it exists.
+          if (data.person.origin.length){
+            arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>");
+          }
+
            // Add Story if it exists.
            if (data.story != null){
              var converter = new Showdown.converter();

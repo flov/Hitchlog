@@ -1,15 +1,11 @@
 class HitchhikesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
-  def index
-    respond_to do |wants|
-      wants.json do
-        if params[:id]
-          render :json => Hitchhike.find(params[:id]).to_json
-        else
-          render :json => Hitchhike.order('RAND()').first.to_json
-        end
-      end
+  def json
+    if params[:id]
+      render :json => Hitchhike.find(params[:id]).to_json
+    else
+      render :json => Hitchhike.order('RAND()').first.to_json
     end
   end
 

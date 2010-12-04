@@ -2,17 +2,18 @@ PaperclipOnHeroku::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'login' }
   
   resources :users
+  resources :welcome, :only => [:index]
   
   resources :trips do
     resources :hitchhikes
   end
   
-  resources :welcome, :only => [:index]
+  match 'hitchhikes.json' => 'hitchhikes#json'
 
   root :to => "welcome#index"
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  # match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
