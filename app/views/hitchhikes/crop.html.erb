@@ -39,7 +39,7 @@
   <%= image_tag @hitchhike.photo.url(:large), :id => "preview" %>
 </div>
 
-<%= form_for @hitchhike do |f| %>
+<%= form_for @hitchhike, :url => trip_hitchhike_path(@hitchhike.trip, @hitchhike) do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>

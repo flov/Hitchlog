@@ -66,6 +66,6 @@ class HitchhikesController < ApplicationController
     @hitchhike = Hitchhike.find(params[:id])
     @hitchhike.destroy
     flash[:notice] = "Successfully destroyed hitchhike."
-    redirect_to hitchhikes_url
+    redirect_to trips_url
   end
 end
