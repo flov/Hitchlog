@@ -24,7 +24,7 @@ class Hitchhike < ActiveRecord::Base
 
   def next
     result = Hitchhike.where('id > ?', self.id).first
-    result.nil? ? self.class.first.id : result.i
+    result.nil? ? self.class.first.id : result.id
   end
 
   def prev

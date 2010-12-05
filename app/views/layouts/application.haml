@@ -4,8 +4,8 @@
     %title= content_for?(:title) ? yield(:title) : "Hitchhike.me"
     = stylesheet_link_tag "application"
     = javascript_include_tag 'jquery-1.4.3.min', 'showdown', 'rails', 'application'
-    = yield(:javascripts)
     = javascript_google_stats
+    = yield(:head)
     = csrf_meta_tag    
   %body
     %div{:style => "position: absolute; top:0; right:0;"}
