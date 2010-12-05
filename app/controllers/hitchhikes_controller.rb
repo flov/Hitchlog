@@ -59,8 +59,12 @@ class HitchhikesController < ApplicationController
   
   def destroy
     @hitchhike = Hitchhike.find(params[:id])
-    @hitchhike.destroy
-    flash[:notice] = "Successfully destroyed hitchhike."
+    if @hitchhike.trip.user == current_user
+      @hitchhike.destroy
+      flash[:notice] = "Successfully destroyed hitchhike."
+    else
+      flash[:error] = "You are not allowed to do that!"
+    end
     redirect_to trips_url
   end
 end
