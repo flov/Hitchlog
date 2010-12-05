@@ -1,5 +1,5 @@
 class HitchhikesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :authenticate_user!, :except => [:json, :show, :index]
 
   def json
     if params[:id]
