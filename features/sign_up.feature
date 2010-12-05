@@ -23,4 +23,3 @@ Feature: Sign up
     And I press "Sign up"
     Then I should see "signed up successfully."
     And I should not see "a confirmation was sent to your e-mail."
-    

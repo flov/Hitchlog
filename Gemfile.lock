@@ -85,7 +85,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql (2.8.1)
+    mysql2 (0.2.6)
     nokogiri (1.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -149,7 +149,7 @@ DEPENDENCIES
   factory_girl_rails
   haml (~> 3.0.21)
   hirb
-  mysql
+  mysql2
   nokogiri
   rails (= 3.0.0)
   rspec-rails (= 2.1.0)

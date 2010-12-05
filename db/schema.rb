@@ -14,17 +14,14 @@ ActiveRecord::Schema.define(:version => 20101202004828) do
 
   create_table "hitchhikes", :force => true do |t|
     t.string   "title"
-    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
-    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
   end
@@ -69,10 +66,6 @@ ActiveRecord::Schema.define(:version => 20101202004828) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "username"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

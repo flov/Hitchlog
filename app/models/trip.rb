@@ -13,7 +13,7 @@ class Trip < ActiveRecord::Base
 
   before_save do
     # build as much hitchhikes on top of the ride as previously defined
-    rides.to_i.times{ hitchhikes.build }
+    rides.to_i.times{ hitchhikes.build.build_person }
   end
 
   def to_s

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'devise'
-gem 'mysql'
+gem 'mysql2'
 gem 'hirb'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'

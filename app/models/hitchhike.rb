@@ -16,7 +16,7 @@ class Hitchhike < ActiveRecord::Base
   accepts_nested_attributes_for :person, :allow_destroy => true
 
   def to_s
-    arr = [title, mission, person.to_s].compact
+    arr = [title, person.to_s].compact
     arr << "waiting time: #{waiting_time}" unless waiting_time.nil?
     arr << "duration of ride: #{duration}" unless duration.nil?
     arr.delete_if{|x| x==''}.join(', ')
