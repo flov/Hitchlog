@@ -6,6 +6,7 @@ gem 'mysql2'
 gem 'hirb'
 gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
+gem 'hoptoad_notifier'
 gem 'aws-s3', :require => 'aws/s3'
 # gem "nifty-generators"
 
