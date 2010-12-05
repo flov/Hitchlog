@@ -13,6 +13,7 @@
     #topmenu
       = yield(:topmenu)
       %ul#main_nav
+        %li#nav_home= link_to 'Home', root_path
         %li#nav_hitchhikes= link_to 'Trips', trips_path
         %li#nav_authenitcation
           - if user_signed_in? 

@@ -7,7 +7,6 @@
   %br
   = "All in all #{@user} waited #{@total_waiting_time} minutes for #{pluralize(@waiting_time.size, 'ride')}."
 %ul
-  - for hitchhike in @user.hitchhikes
+  - for trip in @user.trips
     %li
-      = link_to raw("#{hitchhike.from} &rarr; #{hitchhike.to} (#{distance(hitchhike)})"), hitchhike_path(hitchhike)
-      = "- with picture" if hitchhike.photo.file?
+      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}"), trip_path(trip)

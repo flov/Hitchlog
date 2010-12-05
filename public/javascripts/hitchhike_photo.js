@@ -313,7 +313,10 @@ $(
              var story = converter.makeHtml(data.story);
              
              $('#hitchhike-story').html( "<h1>" + data.title + "</h1>" +
-                                         "<span id='hitchhike-subtitle'>By " + data.username + "</span>" + 
+                                         "<span id='hitchhike-subtitle'>By " + 
+                                         "<a href='/users/"+data.username+"'>" +
+                                         data.username + "</a> &nbsp;&nbsp;&nbsp;&nbsp;" +
+                                         data.date + " &nbsp;&nbsp;&nbsp;&nbsp;" + GetDistance(data.distance) + "</span>" + 
                                          "<p>" + story + "</p>" );
            }
            

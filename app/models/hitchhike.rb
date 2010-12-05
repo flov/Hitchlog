@@ -34,8 +34,9 @@ class Hitchhike < ActiveRecord::Base
   
   def to_json
     hash = self.to_hash(:title, :id, :next, :prev)
-    hash[:story]    = story
+    hash[:story]    = story.force_encoding('utf-8')
     hash[:from]     = trip.from
+    hash[:date]     = trip.date.strftime("%d. %b %Y")   #=> "04/09/2003"
     hash[:to]       = trip.to
     hash[:distance] = trip.distance
     hash[:username] = user.username
