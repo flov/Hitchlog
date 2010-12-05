@@ -33,7 +33,8 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :id, :next, :prev, :story)
+    hash = self.to_hash(:title, :id, :next, :prev)
+    hash[:story]    = story
     hash[:from]     = trip.from
     hash[:to]       = trip.to
     hash[:distance] = trip.distance

@@ -1,5 +1,6 @@
 development:
   adapter: mysql
+  encoding: utf8
   database: hitcher_development
   username: root
   password:
@@ -8,6 +9,7 @@ development:
 test: &TEST
   adapter: mysql
   database: hitcher_test
+  encoding: utf8
   username: root
   password:
   host: localhost
@@ -15,6 +17,7 @@ test: &TEST
 production:
   adapter: mysql
   database: hitcher_production
+  encoding: utf8
   username: root
   password: 
   host: localhost

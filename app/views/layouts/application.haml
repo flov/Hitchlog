@@ -6,14 +6,12 @@
     = javascript_include_tag 'jquery-1.4.3.min', 'showdown', 'rails', 'application'
     = yield(:javascripts)
     = javascript_google_stats
-    
     = csrf_meta_tag    
   %body
     %div{:style => "position: absolute; top:0; right:0;"}
       = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov/hitchhike.me'
     #topmenu
       = yield(:topmenu)
-      
       %ul#main_nav
         %li#nav_hitchhikes= link_to 'Trips', trips_path
         %li#nav_authenitcation
