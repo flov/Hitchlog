@@ -42,7 +42,7 @@ $(
     var startlocation = new google.maps.LatLng(51.850033, 10.6500523);
     var myOptions = {
       zoom: 1,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeId: google.maps.MapTypeId.HYBRID,
       center: startlocation
     }
     
