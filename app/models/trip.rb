@@ -17,6 +17,10 @@ class Trip < ActiveRecord::Base
   end
 
   def to_s
-    ["#{date.strftime("%d %b %Y")}: ", from, " -> ", to].compact.join
+    if date.nil?
+      "#{from} -> #{to}"
+    else
+      "#{date.strftime("%d %b %Y")}: #{from} -> #{to}"
+    end
   end
 end
