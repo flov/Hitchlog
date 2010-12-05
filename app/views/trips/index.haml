@@ -5,6 +5,7 @@
       = link_to "#{trip} (#{distance(trip.distance)})", edit_trip_path(trip)
       by: 
       = link_to trip.user.username, user_path(trip.user.username)
+      = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?'
       %br/
       Rides:
       %ol

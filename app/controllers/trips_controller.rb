@@ -37,4 +37,11 @@ class TripsController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  def destroy
+    @trip = Trip.find(params[:id])
+    @trip.destroy
+    flash[:notice] = "Successfully destroyed trip."
+    redirect_to trips_url
+  end  
 end

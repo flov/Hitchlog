@@ -268,7 +268,8 @@ $(
 
       // Add Title to Photo
       jPhotoDescription.html( "On the way from " + data.from + " to " + data.to)
-      $("#site-photo-distance").html(GetDistance(data.distance))
+      $("#site-photo-distance").html(GetDistance(data.distance) + " by <a href='/users/"+data.username+"'>" +
+                                    data.username + "</a>")
       
       // Add Large Photo Link
       jPhotoLink.attr("href", data.photo.large)	
@@ -290,20 +291,20 @@ $(
           // }
 
           // Add name if it exists
-          if (data.person.name.length){
+          if (data.person.name != null && data.person.name.length){
             arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" );
           }
           // Add Occupation if it exists.
-          if (data.person.occupation.length){
+          if (data.person.occupation != null && data.person.occupation.length){
             arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" );
           }
           
           // Add Mission if it exists.
-          if (data.person.mission.length){
+          if (data.person.mission != null && data.person.mission.length){
             arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" );
           }
           // Add Origin if it exists.
-          if (data.person.origin.length){
+          if (data.person.origin != null && data.person.origin.length){
             arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>");
           }
 

@@ -34,12 +34,12 @@ class Hitchhike < ActiveRecord::Base
   
   def to_json
     hash = self.to_hash(:title, :id, :next, :prev)
-    hash[:story]    = story.force_encoding('utf-8')
+    hash[:story]    = story#.force_encoding('utf-8')
     hash[:from]     = trip.from
-    hash[:date]     = trip.date.strftime("%d. %b %Y")   #=> "04/09/2003"
     hash[:to]       = trip.to
+    hash[:date]     = trip.date.strftime("%d. %b %Y")   #=> "04/09/2003"
     hash[:distance] = trip.distance
-    hash[:username] = user.username
+    hash[:username] = trip.user.username
     hash[:person]   = person.build_hash
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
