@@ -37,7 +37,11 @@ class Hitchhike < ActiveRecord::Base
     hash[:story]    = story#.force_encoding('utf-8')
     hash[:from]     = trip.from
     hash[:to]       = trip.to
-    hash[:date]     = trip.date.strftime("%d. %b %Y")   #=> "04/09/2003"
+    if date.nil?
+      hash[:date]     = ""
+    else
+      hash[:date]     = trip.date.strftime("%d. %b %Y")
+    end
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
     hash[:person]   = person.build_hash
