@@ -27,9 +27,3 @@
     cropped:
     %br/
     = image_tag @hitchhike.photo.url(:cropped) 
-%p
-  = link_to "Edit", edit_hitchhike_path(@hitchhike)
-  | 
-  = link_to "Destroy", @hitchhike, :method => :delete, :confirm => 'Are you sure?'
-  |
-  = link_to "View All", hitchhikes_path
