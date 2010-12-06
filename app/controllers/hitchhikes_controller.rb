@@ -67,4 +67,4 @@ class HitchhikesController < ApplicationController
     end
     redirect_to trips_url
   end
-end
+endj

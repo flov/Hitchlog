@@ -21,6 +21,7 @@ Feature: Trip feature
       | Time the trip took (in hours) | 1.5        |
     And I press "Submit"
     Then I should see "Successfully created trip."
+    And I should see
   
   
   

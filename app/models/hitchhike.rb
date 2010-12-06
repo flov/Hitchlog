@@ -17,8 +17,8 @@ class Hitchhike < ActiveRecord::Base
 
   def to_s
     arr = [title, person.to_s].compact
-    arr << "waiting time: #{waiting_time}" unless waiting_time.nil?
-    arr << "duration of ride: #{duration}" unless duration.nil?
+    arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?
+    arr << "duration of ride: #{duration} hours" unless duration.nil?
     arr.delete_if{|x| x==''}.join(', ')
   end
 

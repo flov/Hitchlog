@@ -7,7 +7,7 @@ module Gmaps
     # "REQUEST_DENIED" indicates that your request was denied, generally because of lack of a sensor parameter.
     # "INVALID_REQUEST" generally indicates that the query (address or latlng) is missing.
     # "OFFLINE" indicates that you are not online
-    url = "http://maps.googleapis.com/maps/api/directions/json?origin=#{from}&destination=#{to}&sensor=false"
+    url = "http://maps.googleapis.com/maps/api/directions/json?origin=#{CGI::escape(from)}&destination=#{CGI::escape(to)}&sensor=false"
     begin
       data = Net::HTTP.get_response(URI.parse(url)).body
       # we convert the returned JSON data to native Ruby hash
