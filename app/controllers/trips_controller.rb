@@ -5,6 +5,10 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
   
+  def show
+    @trip = Trip.find(params[:id])
+  end
+  
   def create
     @trip = Trip.new(params[:trip])
     @trip.user = current_user
