@@ -21,6 +21,10 @@ class Hitchhike < ActiveRecord::Base
     arr << "duration of ride: #{duration} hours" unless duration.nil?
     arr.delete_if{|x| x==''}.join(', ')
   end
+  
+  def empty?
+    [mission, waiting_time, duration, person.to_s].compact.delete_if{|x| x == ''}.empty?
+  end
 
   def next
     result = Hitchhike.where('id > ?', self.id).first
@@ -37,11 +41,7 @@ class Hitchhike < ActiveRecord::Base
     hash[:story]    = story#.force_encoding('utf-8')
     hash[:from]     = trip.from
     hash[:to]       = trip.to
-    if date.nil?
-      hash[:date]     = ""
-    else
-      hash[:date]     = trip.date.strftime("%d. %b %Y")
-    end
+    trip.date.nil? ? hash[:date] = "" : hash[:date] = trip.date.strftime("%d. %b %Y")
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
     hash[:person]   = person.build_hash

@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Hitchhike do
-  it { should validate_presence_of :from }
-  it { should validate_presence_of :to }
-  it { should belong_to :user }
-  it { should have_many :people }
+  it { should have_one :person }
+  it { should belong_to :trip }
 end

@@ -16,12 +16,21 @@ Factory.define :alex, :parent => :user do |user|
   user.email 'alexander.supertramp@hitchhike.me'
 end
 
-Factory.define :hitchhike do |hitchike|
-  hitchike.from  { 'Barcelona' }
-  hitchike.to    { 'Madrid' }
-  hitchike.title { 'example title' }
-  hitchike.story { 'example story' }
-  hitchike.association(:user)
+Factory.define :trip do |trip|
+  trip.from  { 'Barcelona' }
+  trip.to    { 'Madrid' }
+  trip.date  { '22/11/2009' }
+  trip.duration { '6'}
+  trip.association(:user)
+end
+
+Factory.define :hitchhike do |hitchhike|
+  hitchhike.association(:trip)
+  hitchhike.title{'The hitchhike around the world'}
+  hitchhike.story{"**AMAZINHG STORY!!!**"}
+  hitchhike.waiting_time{15}
+  hitchhike.association(:trip)
+  hitchhike.duration{4}
 end
 
 Factory.define :person do |person|
@@ -29,14 +38,9 @@ Factory.define :person do |person|
   person.occupation   {'Groupie'}
   person.mission      {'Tour around with the Beatles'}
   person.origin       {'USA'}
-  person.association  (:hitchhike)
+  person.association  (:trip)
   person.age          {21}
   person.gender       {'female'}
-end
-
-Factory.define :address_not_found_hitchhike, :parent => :hitchhike do |f|
-  f.from { 'geez this is not an address' }
-  f.to   { 'and this is not an address either' }
 end
 
 Factory.define :address_not_routable_hitchhike, :parent => :hitchhike do |f|
