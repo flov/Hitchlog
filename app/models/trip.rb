@@ -23,4 +23,8 @@ class Trip < ActiveRecord::Base
       "#{date.strftime("%d %b %Y")}: #{from} -> #{to}"
     end
   end
+  
+  def to_date
+    date.nil? ? '' : date.strftime("%d. %b %Y")    
+  end
 end

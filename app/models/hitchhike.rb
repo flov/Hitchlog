@@ -3,18 +3,22 @@ class Hitchhike < ActiveRecord::Base
   # custom functions to get distances
   include ToHash  
 
-  has_attached_file :photo, 
-                    :styles => { :cropped => "500x250#", :large => "800x400>" },
-                    :processors => [:cropper]
-  
   belongs_to :user
   belongs_to :trip
   has_one :person, :dependent => :destroy
   
+  validates :trip_id, :presence => true
+  
   concerned_with  :photo_procession
 
   accepts_nested_attributes_for :person, :allow_destroy => true
-
+  
+  before_save do
+    if person.nil?
+      build_person
+    end  
+  end
+  
   def to_s
     arr = [title, person.to_s].compact
     arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?
@@ -37,11 +41,10 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :id, :next, :prev)
-    hash[:story]    = story#.force_encoding('utf-8')
+    hash = self.to_hash(:title, :story, :id, :next, :prev)
     hash[:from]     = trip.from
     hash[:to]       = trip.to
-    trip.date.nil? ? hash[:date] = "" : hash[:date] = trip.date.strftime("%d. %b %Y")
+    hash[:date]     = trip.to_date
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
     hash[:person]   = person.build_hash
@@ -52,7 +55,7 @@ class Hitchhike < ActiveRecord::Base
     end
     JSON.pretty_generate(hash)
   end
-      
+  
   private
   
   def reprocess_photo

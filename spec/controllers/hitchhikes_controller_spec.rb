@@ -25,9 +25,9 @@ describe HitchhikesController, 'GET to hitchhikes.json' do
     json['person']['mission'].should  == @hitchhike.person.mission
     json['prev'].should               == @hitchhike.prev
     json['next'].should               == @hitchhike.next 
-    json['distance'].should           == @hitchhike.distance 
+    json['distance'].should           == @hitchhike.trip.distance 
     json['username'].should           == @hitchhike.trip.user.username
-    json['date'].should               == @hitchhike.trip.date
+    json['date'].should               == @hitchhike.trip.to_date
     json['photo']['small'].should  == "/images/missingphoto.jpg"
     json['photo']['large'].should  == "/images/missingphoto.jpg"
   end
