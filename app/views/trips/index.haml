@@ -2,21 +2,23 @@
 %ul
   - for trip in @trips
     %li
-      = link_to "#{trip} (#{distance(trip.distance)})", edit_trip_path(trip)
+      ="#{trip} (#{distance(trip.distance)})"
       by: 
       = link_to trip.user.username, user_path(trip.user.username)
-      = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' if trip.user == current_user
+      - if trip.user == current_user
+        = link_to "edit", edit_trip_path(trip)
+        = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
       %br/
-      Rides:
-      %ol
-        - for hitchhike in trip.hitchhikes
-          %li
-            = hitchhike.to_s
-            - if trip.user == current_user
-              = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
-              = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
-            
-      = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip)
-      to Trip
+      / Rides:
+      / %ol
+      /   - for hitchhike in trip.hitchhikes
+      /     %li
+      /       = hitchhike.to_s
+      /       - if trip.user == current_user
+      /         = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
+      /         = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
+      /       
+      / = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip)
+      / to Trip
         
 = link_to 'New Trip', new_trip_path

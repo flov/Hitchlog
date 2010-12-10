@@ -267,7 +267,7 @@ $(
       jPhotoRight.attr("rel", data.next)
 
       // Add Title to Photo
-      jPhotoDescription.html( "On the way from " + data.from + " to " + data.to)
+      jPhotoDescription.html( "On the way from " + data.from + " to " + data.to + " with " + data.rides + " rides")
       $("#site-photo-distance").html(GetDistance(data.distance) + " by <a href='/users/"+data.username+"'>" +
                                     data.username + "</a>")
       
