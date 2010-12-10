@@ -32,4 +32,28 @@ module Gmaps
     end
     distance
   end
+  
+  def Gmaps::formatted_address(address)
+    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false"
+    begin
+      data = Net::HTTP.get_response(URI.parse(url)).body
+      result = JSON.parse(data)
+    rescue Exception => e
+      # Should only happen when used offline. Should not happen if online
+      result = {'status' => 'OFFLINE'}
+    end
+    result['results'].first['formatted_address']
+  end
+  
+  def Gmaps::country(address)
+    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false"
+    begin
+      data = Net::HTTP.get_response(URI.parse(url)).body
+      result = JSON.parse(data)
+    rescue Exception => e
+      # Should only happen when used offline. Should not happen if online
+      result = {'status' => 'OFFLINE'}
+    end
+    result['results'].first['address_components'].each{|address| address['long_name'] if address['types'].include?('country')}
+  end
 end
