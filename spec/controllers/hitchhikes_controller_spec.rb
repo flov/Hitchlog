@@ -11,11 +11,11 @@ describe HitchhikesController, 'GET to hitchhikes.json' do
     get 'json'
     response.should be_success
     json = JSON.parse(response.body)
-    puts json
     
     json['from'].should               == @hitchhike.trip.from
     json['to'].should                 == @hitchhike.trip.to
     json['story'].should              == @hitchhike.story
+    json['rides'].should              == Hitchhike.where(:trip_id => @hitchhike.trip_id).size
     json['title'].should              == @hitchhike.title
     json['person']['gender'].should   == @hitchhike.person.gender
     json['person']['occupation'].should  == @hitchhike.person.occupation

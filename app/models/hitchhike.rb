@@ -47,6 +47,7 @@ class Hitchhike < ActiveRecord::Base
     hash[:date]     = trip.to_date
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
+    hash[:rides]    = trip.hitchhikes.size
     hash[:person]   = person.build_hash
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
