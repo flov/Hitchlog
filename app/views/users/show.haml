@@ -1,6 +1,6 @@
 %h1= @user.username.capitalize
 %p
-  = "#{@user} logged #{pluralize(@user.hitchhikes.size, 'hitchhike')}"
+  = "#{@user} logged #{pluralize(@hitchhikes.size, 'hitchhike')}"
   = "and travelled #{@total_distance} kms by hitchhiking."
   %br
   = "#{@user} waited averagely #{@average_waiting_time} minutes per ride."
@@ -9,4 +9,4 @@
 %ul
   - for trip in @user.trips
     %li
-      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}"), trip_path(trip)
+      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{trip.hitchhikes.size} rides"), trip_path(trip)
