@@ -1,7 +1,7 @@
 PaperclipOnHeroku::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'login' }
   
-  resources :users  
+  resources :users
   resources :trips do
     resources :hitchhikes
   end

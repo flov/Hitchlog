@@ -11,7 +11,10 @@
   %p
     = f.label :date, 'When (format: dd/mm/yyyy)'
     %br/
-    = f.text_field :date
+    - if @trip.date.nil?
+      =f.text_field :date
+    - else
+      = text_field_tag 'trip[date]', @trip.date.strftime("%d/%m/%Y"), :size => 30
   - if @trip.new_record?
     %p
       = f.label :rides, 'Number of rides'

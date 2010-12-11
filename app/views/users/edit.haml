@@ -1,6 +1,5 @@
-%h1 Trips:
+%h1 Your Trips:
 
-= render :partial => 'trips'
-
+= render :partial => 'trips/trips'
         
 = link_to 'New Trip', new_trip_path if user_signed_in?

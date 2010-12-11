@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   def new
     @trip = Trip.new
@@ -31,7 +31,7 @@ class TripsController < ApplicationController
       redirect_to trips_path
     end
   end
-  
+    
   def update
     @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])

@@ -25,6 +25,6 @@ class Trip < ActiveRecord::Base
   end
   
   def to_date
-    date.nil? ? '' : date.strftime("%d. %b %Y")    
+    date.nil? ? '' : date.strftime("%d. %B %Y")    
   end
 end

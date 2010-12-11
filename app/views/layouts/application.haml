@@ -21,7 +21,8 @@
           - else
             = link_to "Sign up", new_user_registration_path
             or 
-            = link_to "sign in", new_user_session_path             
+            = link_to "sign in", new_user_session_path  
+        %li#nav_manage=link_to 'Manage profile', edit_user_path(current_user) if user_signed_in?
     #container    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"

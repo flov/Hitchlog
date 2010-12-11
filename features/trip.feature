@@ -4,12 +4,7 @@ Feature: Trip feature
     Given I am logged in as alex
     When I go to the trips page
     Then I should see "New Trip"
-  
-  Scenario: Going to the trips page when logged out
-    Given I am not logged in
-    When I go to the trips page
-    Then I should see "You need to sign in"
-  
+    
   Scenario: Creating new trips
     Given I am logged in as alex
     When I go to the new trip page
@@ -21,7 +16,3 @@ Feature: Trip feature
       | Time the trip took (in hours) | 1.5        |
     And I press "Submit"
     Then I should see "Successfully created trip."
-    And I should see
-  
-  
-  
