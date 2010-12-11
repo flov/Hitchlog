@@ -15,7 +15,7 @@
           = link_to "edit", edit_trip_path(trip)
           = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
         %br/
-        ="This trip took #{trip.hitchhikes.size} Rides:"
+        ="This trip took #{pluralize(trip.hitchhikes.size, 'Ride')}:"
         %ol
           - for hitchhike in trip.hitchhikes
             %li
