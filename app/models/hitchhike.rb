@@ -6,13 +6,14 @@ class Hitchhike < ActiveRecord::Base
   belongs_to :user
   belongs_to :trip
   has_one :person, :dependent => :destroy
+  accepts_nested_attributes_for :person, :allow_destroy => true
   
   validates :trip_id, :presence => true
   
   concerned_with  :photo_procession
-
-  accepts_nested_attributes_for :person, :allow_destroy => true
   
+  scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
+    
   before_save do
     if person.nil?
       build_person
@@ -27,17 +28,21 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def empty?
-    [mission, waiting_time, duration, person.to_s].compact.delete_if{|x| x == ''}.empty?
+    [photo_file_name, title, story, waiting_time, duration, person.to_s].compact.delete_if{|x| x == '' }.empty?
   end
 
   def next
-    result = Hitchhike.where('id > ? AND photo_file_name IS NOT NULL', self.id).first
+    result = Hitchhike.not_empty.where('id > ?', self.id).first
     result.nil? ? self.class.first.id : result.id
   end
 
   def prev
-    result = Hitchhike.where('id < ? AND photo_file_name IS NOT NULL', self.id).order('id DESC').first
+    result = Hitchhike.not_empty.where('id < ?', self.id).order('id DESC').first
     result.nil? ? self.class.last.id : result.id
+  end
+  
+  def self.random_item
+    not_empty.order('RAND()').first
   end
   
   def to_json
