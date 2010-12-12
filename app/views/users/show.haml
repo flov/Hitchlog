@@ -9,4 +9,4 @@
 %ul
   - for trip in @user.trips
     %li
-      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{trip.hitchhikes.size} rides"), trip_path(trip)
+      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{pluralize(trip.hitchhikes.size), 'ride'}"), trip_path(trip)
