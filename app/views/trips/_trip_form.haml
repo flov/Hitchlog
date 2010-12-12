@@ -9,7 +9,7 @@
     %br/
     = f.text_field :to
   %p
-    = f.label :date, 'When (format: dd/mm/yyyy)'
+    = f.label :date, 'When (format: mm/dd/yyyy)'
     %br/
     - if @trip.date.nil?
       =f.text_field :date
