@@ -34,7 +34,7 @@ module Gmaps
   end
   
   def Gmaps::formatted_address(address)
-    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false"
+    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{CGI::escape(address)}&sensor=false"
     begin
       data = Net::HTTP.get_response(URI.parse(url)).body
       result = JSON.parse(data)
@@ -42,11 +42,15 @@ module Gmaps
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end
-    result['results'].first['formatted_address']
+    formatted_address = "unknown"
+    if result['status'] == "OK"
+      formatted_address = result['results'].first['formatted_address']
+    end
+    formatted_address
   end
   
   def Gmaps::country(address)
-    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=false"
+    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{CGI::escape(address)}&sensor=false"
     begin
       data = Net::HTTP.get_response(URI.parse(url)).body
       result = JSON.parse(data)
@@ -54,6 +58,10 @@ module Gmaps
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end
-    result['results'].first['address_components'].each{|address| address['long_name'] if address['types'].include?('country')}
+    country = 'unknown'
+    if result['status'] == "OK"
+      result['results'].first['address_components'].each{|address| country = address['long_name'] if address['types'].include?("country")}    
+    end
+    country
   end
 end
