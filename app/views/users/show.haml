@@ -7,7 +7,7 @@
   %br
   = "#{@user} waited a total number of #{@total_waiting_time} minutes for #{pluralize(@waiting_time_array.size, 'ride')}."
 %ul
-  - for trip in @user.trips
+  - for trip in @user.trips.order("date DESC")
     %li
       = trip.date.strftime("%d %b %y")
       = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{pluralize(trip.hitchhikes.size, 'ride')}"), trip_path(trip)
