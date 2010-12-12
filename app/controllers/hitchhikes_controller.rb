@@ -5,7 +5,7 @@ class HitchhikesController < ApplicationController
     if params[:id]
       render :json => Hitchhike.find(params[:id]).to_json
     else
-      render :json => Hitchhike.order('RAND()').first.to_json
+      render :json => Hitchhike.where('photo_file_name IS NOT NULL').order('RAND()').first.to_json
     end
   end
 

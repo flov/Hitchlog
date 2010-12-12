@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101202004828) do
+ActiveRecord::Schema.define(:version => 20101212031659) do
 
   create_table "hitchhikes", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20101202004828) do
     t.integer  "trip_id"
     t.float    "duration"
   end
+
+  add_index "hitchhikes", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
 
   create_table "people", :force => true do |t|
     t.string  "name"

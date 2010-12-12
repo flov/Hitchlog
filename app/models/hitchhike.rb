@@ -31,12 +31,12 @@ class Hitchhike < ActiveRecord::Base
   end
 
   def next
-    result = Hitchhike.where('id > ?', self.id).first
+    result = Hitchhike.where('id > ? AND photo_file_name IS NOT NULL', self.id).first
     result.nil? ? self.class.first.id : result.id
   end
 
   def prev
-    result = Hitchhike.where('id < ?', self.id).order('id DESC').first
+    result = Hitchhike.where('id < ? AND photo_file_name IS NOT NULL', self.id).order('id DESC').first
     result.nil? ? self.class.last.id : result.id
   end
   
