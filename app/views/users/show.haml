@@ -9,5 +9,5 @@
 %ul
   - for trip in @user.trips.order("date DESC")
     %li
-      = trip.date.strftime("%d %b %y")
+      = trip.date.strftime("%d %b %y") unless trip.date.nil?
       = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{pluralize(trip.hitchhikes.size, 'ride')}"), trip_path(trip)
