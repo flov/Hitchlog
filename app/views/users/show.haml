@@ -9,5 +9,10 @@
 %ul
   - for trip in @user.trips.order("date DESC")
     %li
-      = trip.date.strftime("%d %b %y")
+      = trip.date.strftime("%d %b %y") unless trip.date
       = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{pluralize(trip.hitchhikes.size, 'ride')}"), trip_path(trip)
+
+-content_for :head do
+  %script{:type => "text/javascript", :src  => "http://www.google.com/jsapi"}  
+
+=raw "<img src='#{@user.to_chart_image}'/>"
