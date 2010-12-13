@@ -1,11 +1,13 @@
 PaperclipOnHeroku::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'login' }
   
+  resources :users, :path => 'hitchhikers'
   resources :users
+
   resources :trips do
     resources :hitchhikes
   end
-  
+  match 'hitchhikers' => 'users#index'
   match 'hitchhikes.json' => 'hitchhikes#json'
 
   root :to => "welcome#index"
