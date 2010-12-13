@@ -1,4 +1,7 @@
 %h1 Hitchhikers:
 -@users.each do |user|
   =link_to user, user_path(user)
+  logged 
+  = user.trips.size
+  trips
   %br/
