@@ -6,6 +6,11 @@
   = "#{@user} waited averagely #{@average_waiting_time} minutes per ride."
   %br
   = "#{@user} waited a total number of #{@total_waiting_time} minutes for #{pluralize(@waiting_time_array.size, 'ride')}."
+  
+-content_for :head do
+  %script{:type => "text/javascript", :src  => "http://www.google.com/jsapi"}  
+=raw "<img src='#{@user.chart_image}'/>"
+  
 %ul
   - for trip in @trips
     %li
@@ -18,7 +23,3 @@
         = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
 
 
--content_for :head do
-  %script{:type => "text/javascript", :src  => "http://www.google.com/jsapi"}  
-
-=raw "<img src='#{@user.chart_image}'/>"

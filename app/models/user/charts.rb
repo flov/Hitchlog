@@ -2,7 +2,33 @@ class User
   include ActionView::Helpers::TextHelper
   
   def chart_image
-    "http://chart.apis.google.com/chart?cht=p&chs=650x250&chd=t:#{chart_numbers}&chds=0,#{chart_numbers_max}&chl=#{chart_label}"
+    "http://chart.apis.google.com/chart?cht=p
+                                       &chs=650x200
+                                       &chd=t:#{chart_numbers}
+                                       &chds=0,#{chart_numbers_max}
+                                       &chl=#{chart_label}
+                                       &chtt=Hitchhiked Countries Of #{username.capitalize}
+                                       &chts=676767,14".gsub(/\n( )+/,'')
+  end
+
+  def chart_numbers
+    # [[2, 627, "Spain"], [3, 73, "The Netherlands"], [3, 129, "United States"], [3, 0, "unknown"], [3, 568, "United Kingdom"], [1, 232, "France"]] 
+    chart_array.collect{|i| i.first}.join(",")
+  end
+  
+  def chart_numbers_max
+    chart_array.collect{|i| i.first}.max
+  end
+  
+  def chart_label
+    # [[2, 627, "Spain"], ...]
+    chart_array.collect do |i| 
+      if i[1] > 0
+        "#{pluralize(i[0], 'ride')} - #{i[2]} (#{i[1]}km)"
+      else
+        "#{pluralize(i[0], 'ride')} #{i[2]}"
+      end
+    end.join("|")
   end
   
   def chart_array
@@ -38,20 +64,7 @@ class User
     hash.each do |k,v|
       numbers << (v << k)
     end
-
+    
     numbers
-  end
-  
-  def chart_numbers
-    # [[2, 627, "Spain"], [3, 73, "The Netherlands"], [3, 129, "United States"], [3, 0, "unknown"], [3, 568, "United Kingdom"], [1, 232, "France"]] 
-    chart_array.collect{|i| i.first}.join(",")
-  end
-  
-  def chart_numbers_max
-    chart_array.collect{|i| i.first}.max
-  end
-  
-  def chart_label
-    chart_array.collect{|i| "#{pluralize(i[0], 'ride')} #{i[1]}km #{i[2]}"}.join("|")
   end
 end
