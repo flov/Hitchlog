@@ -1,44 +1,57 @@
 class User
-  def to_chart_image
-    "http://chart.apis.google.com/chart?chs=400x218&cht=p&chd=s:FBCH&chdl=#{to_trip_countries}&chp=2.233&chl=#{to_trip_rides}&chma=43|0,2"
-    "http://chart.apis.google.com/chart?chs=400x218&cht=p&chd=s:FBCH&chdl=Germany|United+Kingdom&chp=2.233&chl=290km|599km&chma=43|0,2"
-    http://chart.apis.google.com/chart
-       ?chs=313x218
-       &cht=p
-       &chd=s:FB
-       &chdl=Germany|United+Kingdom
-       &chl=290km|599km
-       &chma=43|0,2
-  end
-
-  private
+  include ActionView::Helpers::TextHelper
   
-  def to_trip_countries
-    countries = trips.collect{|trip| [trip.to_country, trip.from_country]}.flatten
-    @country_hash = {}
-    countries.each do |country|
-      if @country_hash[country].nil?
-        @country_hash[country] = 1
+  def chart_image
+    "http://chart.apis.google.com/chart?cht=p&chs=650x250&chd=t:#{chart_numbers}&chds=0,#{chart_numbers_max}&chl=#{chart_label}"
+  end
+  
+  def chart_array
+    numbers = []
+    trips.each do |trip| 
+      if trip.from_country == trip.to_country
+        numbers << [trip.hitchhikes.size, trip.distance/1000, trip.from_country] 
       else
-        @country_hash[country] += 1
+        numbers << [trip.hitchhikes.size/2, trip.distance/1000/2, trip.from_country] 
+        if trip.hitchhikes.size.odd?
+          numbers << [(trip.hitchhikes.size/2)+1, trip.distance/1000/2, trip.to_country] 
+        else
+          numbers << [trip.hitchhikes.size/2, trip.distance/1000/2, trip.to_country] 
+        end
       end
     end
-    @coutry_hash
+
+    # if numbers looks like this:
+    # [[2, 627, "Spain"], [1, 123, "China"], [2, 544, "Spain"]]
+    # we need to check if there are two countries which are the same: 
+    hash = {}
+    numbers.each do |i|
+      if hash.key?(i[2])
+        hash[i[2]][0] += i[0]
+        hash[i[2]][1] += i[1]
+      else
+        hash[i[2]] = [i[0],i[1]]
+      end
+    end
+    # hash looks like this:
+    # {"Spain"=>[4, 1171], "China"=>[1, 123]} 
+    numbers = []
+    hash.each do |k,v|
+      numbers << (v << k)
+    end
+
+    numbers
   end
   
-  def to_trip_rides
-    array = []
-    @country_hash.each_key do |key|
-      array << key
-    end
-    array.join '|'
+  def chart_numbers
+    # [[2, 627, "Spain"], [3, 73, "The Netherlands"], [3, 129, "United States"], [3, 0, "unknown"], [3, 568, "United Kingdom"], [1, 232, "France"]] 
+    chart_array.collect{|i| i.first}.join(",")
   end
   
-  def to_number_of_hitchhikes_in_countries
-    array = []
-    @country_hash.each_value do |value|
-      array << "#{value} rides"
-    end
-    array.join '|'
+  def chart_numbers_max
+    chart_array.collect{|i| i.first}.max
+  end
+  
+  def chart_label
+    chart_array.collect{|i| "#{pluralize(i[0], 'ride')} #{i[1]}km #{i[2]}"}.join("|")
   end
 end
