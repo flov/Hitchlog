@@ -9,6 +9,9 @@ class Trip < ActiveRecord::Base
   
   concerned_with :googlemaps
 
+  cattr_reader :per_page
+  @@per_page = 40
+
   attr_accessor :rides
 
   before_save do

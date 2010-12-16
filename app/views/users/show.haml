@@ -7,19 +7,13 @@
   %br
   = "#{@user} waited a total number of #{@total_waiting_time} minutes for #{pluralize(@waiting_time_array.size, 'ride')}."
   
--content_for :head do
-  %script{:type => "text/javascript", :src  => "http://www.google.com/jsapi"}  
-=raw "<img src='#{@user.chart_image}'/>"
+= render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
+
   
-%ul
-  - for trip in @trips
-    %li
-      = trip.date.strftime("%d %b %y") unless trip.date.nil?
-      = link_to raw("#{trip.from} &rarr; #{trip.to} #{distance(trip.distance)}, #{pluralize(trip.hitchhikes.size, 'ride')}"), trip_path(trip)
-      - if user_signed_in? && trip.user == current_user
-        |
-        = link_to "edit", edit_trip_path(trip)
-        |
-        = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
-
-
+#trips_listing
+  %p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"
+  %ul
+    - for trip in @trips
+      %li
+        = trip.date.strftime("%d %b %y") unless trip.date.nil?
+        = link_to_trip(trip)

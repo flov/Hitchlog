@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212191829) do
+ActiveRecord::Schema.define(:version => 20101212201816) do
 
   create_table "hitchhikes", :force => true do |t|
     t.string   "title"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(:version => 20101212191829) do
     t.string   "from_country"
     t.string   "to_country"
   end
+
+  add_index "trips", ["from_country"], :name => "index_trips_on_from_country"
+  add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

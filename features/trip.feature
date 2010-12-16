@@ -11,7 +11,7 @@ Feature: Trip feature
     And I fill in the following:
       | From                          | Belgrade   |
       | To                            | Odessa     |
-      | When (format: dd/mm/yyyy)     | 20/10/2010 |
+      | When (format: mm/dd/yyyy)     | 20/10/2010 |
       | Number of rides               | 3          |
       | Time the trip took (in hours) | 1.5        |
     And I press "Submit"

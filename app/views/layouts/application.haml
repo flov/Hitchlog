@@ -15,18 +15,15 @@
       %ul#main_nav
         %li#nav_home= link_to 'Home', root_path
         %li#nav_hitchhikes= link_to 'Trips', trips_path
-        %li#nav_authenitcation
-          - if user_signed_in? 
-            = link_to "Sign out", destroy_user_session_path
-          - else
-            = link_to "Sign up", new_user_registration_path
-            or 
-            = link_to "sign in", new_user_session_path  
+        %li#nav_hitchhikes= link_to 'Hitchhikers', users_path
+        %li#nav_authenitcation= render :partial => 'shared/sign_in_and_out'
         / %li#nav_manage=link_to 'Manage profile', edit_user_path(current_user) if user_signed_in?
     #container    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       = yield
 
-  / %footer
-  /   &copy; 2009 Woofer Dog Corporation
+    / %footer
+    /   &copy; 2009 Woofer Dog Corporation
+  
+    = uservoice_feedback

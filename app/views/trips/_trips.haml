@@ -2,26 +2,37 @@
   %ul
     - for trip in @trips
       %li
-        = trip.to_date
-        %span.italic
-          by: 
-          =link_to trip.user.username, user_path(trip.user.username)
-        %br/
-        = trip.from.capitalize
-        &rarr;
-        = trip.to.capitalize
-        ="(#{distance(trip.distance)})"
-        - if trip.user == current_user
-          = link_to "edit", edit_trip_path(trip)
-          = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
-        %br/
-        ="This trip took #{pluralize(trip.hitchhikes.size, 'Ride')}:"
-        %ol
-          - for hitchhike in trip.hitchhikes
-            %li
-              = hitchhike.to_s
-              - if trip.user == current_user
-                = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
-                = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
-        = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip) 
-        to Trip
+        = trip.date.strftime("%d %b %y") unless trip.date.nil?
+        = link_to_trip(trip)
+        by
+        = link_to(trip.user, user_path(trip.user))
+    = will_paginate @trips
+      
+/ 
+/ .trips
+/   %ul
+/     - for trip in @trips
+/       %li
+/         = trip.to_date
+/         %span.italic
+/           by: 
+/           =link_to trip.user.username, user_path(trip.user.username)
+/         %br/
+/         = trip.from.capitalize
+/         &rarr;
+/         = trip.to.capitalize
+/         ="(#{distance(trip.distance)})"
+/         - if trip.user == current_user
+/           = link_to "edit", edit_trip_path(trip)
+/           = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
+/         %br/
+/         = "This trip took #{pluralize(trip.hitchhikes.size, 'Ride')}:"
+/         %ol
+/           - for hitchhike in trip.hitchhikes
+/             %li
+/               = hitchhike.to_s
+/               - if trip.user == current_user
+/                 = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
+/                 = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
+/         = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip) 
+/         to Trip
