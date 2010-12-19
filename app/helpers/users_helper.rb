@@ -6,10 +6,10 @@ module UsersHelper
     array << "person"  if !trip.hitchhikes.collect{|h| h.person.to_s}.compact.delete_if{|x|x==''}.empty?
     string = "#{h(trip.from)} &rarr; #{h(trip.to)} (#{distance(trip.distance)}), #{pluralize(trip.hitchhikes.size, 'ride')}".html_safe
     string << ", with #{array.join(', ')}" unless array.empty?
-    if array.empty?
-      string
-    else
-      link_to string, trip_path(trip)
-    end
+    # if array.empty?
+    #   string
+    # else
+    link_to string, trip_path(trip)
+    # end
   end
 end

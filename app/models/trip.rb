@@ -28,7 +28,9 @@ class Trip < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-"
+    from_param = from.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    to_param   = to.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    "#{id}-#{from_param}->#{to_param}"
   end
   
   def to_date
