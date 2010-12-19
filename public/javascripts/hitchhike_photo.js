@@ -248,7 +248,7 @@ $(
 
       // Add Title to Photo
       jPhotoDescription.html( "On the way from " + data.from + " to " + data.to + " with " + data.rides + " rides")
-      $("#site-photo-distance").html(GetDistance(data.distance) + " by <a href='/users/"+data.username+"'>" +
+      $("#site-photo-distance").html(GetDistance(data.distance) + " by <a href='/hitchhiker/"+data.username+"'>" +
                                     data.username + "</a>")
       
       // Add Large Photo Link
@@ -295,7 +295,7 @@ $(
              
              $('#hitchhike-story').html( "<h1>" + data.title + "</h1>" +
                                          "<span id='hitchhike-subtitle'>By " + 
-                                         "<a href='/users/"+data.username+"'>" +
+                                         "<a href='/hitchhiker/"+data.username+"'>" +
                                          data.username + "</a> &nbsp;&nbsp;&nbsp;&nbsp;" +
                                          data.date + " &nbsp;&nbsp;&nbsp;&nbsp;" + GetDistance(data.distance) + "</span>" + 
                                          "<p>" + story + "</p>" )
