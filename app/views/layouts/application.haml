@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %title= content_for?(:title) ? yield(:title) : "Hitchhike.me"
+    %title= content_for?(:title) ? "Hitchhike.me#{yield(:title)}" : "Hitchhike.me"
+    =# meta_keywords
+    =# meta_description
     = stylesheet_link_tag "application"
     = javascript_include_tag 'jquery-1.4.3.min', 'showdown', 'rails', 'application'
     = yield(:head)

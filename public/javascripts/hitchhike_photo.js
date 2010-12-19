@@ -3,111 +3,101 @@
 $(
 	function(){
 		// Get DOM references.
-		var jPhotoArea = $( "#hitchhike-photo" );
-		var jPhoto = $( "#hitchhike-photo-photo" );
-		var jPhotoDetails = $( "#hitchhike-photo-details" );
-		var jHitchhikeDetails = $( "#hitchhike-details" );
-		var jPhotoDescription = $( "#site-photo-details-description" );
-		var jPhotoLink = $( "#site-photo-details-link" );
-		var jPhotoContacts = $( "#site-photo-details-contacts" );
-		var jPhotoLeft = $( "#hitchhike-photo-left" );
-		var jPhotoRight = $( "#hitchhike-photo-right" );
-		var jAjaxLoader = $( "#hitchhike-photo-loader" );
+		var jPhotoArea = $( "#hitchhike-photo" )
+		var jPhoto = $( "#hitchhike-photo-photo" )
+		var jPhotoDetails = $( "#hitchhike-photo-details" )
+		var jHitchhikeDetails = $( "#hitchhike-details" )
+		var jPhotoDescription = $( "#site-photo-details-description" )
+		var jPhotoLink = $( "#site-photo-details-link" )
+		var jPhotoContacts = $( "#site-photo-details-contacts" )
+		var jPhotoLeft = $( "#hitchhike-photo-left" )
+		var jPhotoRight = $( "#hitchhike-photo-right" )
+		var jAjaxLoader = $( "#hitchhike-photo-loader" )
+		var jMapCanvas = $( "#map_canvas" )
 		
 		// Keep track of properties of the photo details.
 		var objBottomProperties = {
-			Min: "-98px",
+			Min: "-52px",
 			Max: "0px"
-			};
+			}
 		
 		// The timer for mouseing out of the site photo area.
-		var objMouseOutTimeout = null;
+		var objMouseOutTimeout = null
 		
 		// Keep track of which direction we are animating in.
 		var objIsAnimatingSitePhotoDetails = {
 			Show: false,
 			Hide: false
-			};
+			}
 			
 		// Keep track of site photo XHR request.
-		var objSitePhotoRequest = null;
-		
-		
-		
+		var objSitePhotoRequest = null
+
     // GOOGLE MAPS:
     
     // I initiate the Map and associate it with the #map_canvas div
     // Because it is necessary to define a start location i just chose
     // my home locatino and set the zoom level to 1.
-    var startlocation = new google.maps.LatLng(51.850033, 10.6500523);
+    var startlocation = new google.maps.LatLng(51.850033, 10.6500523)
     var myOptions = {
       zoom: 1,
       mapTypeId: google.maps.MapTypeId.HYBRID,
       center: startlocation
     }
-    
-    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
     // I get the DirectionServices from the Google Maps API V3.
-    var directionsDisplay = new google.maps.DirectionsRenderer();
-    var directionsService = new google.maps.DirectionsService();
-    directionsDisplay.setMap(map);
+    var directionsDisplay = new google.maps.DirectionsRenderer()
+    var directionsService = new google.maps.DirectionsService()
+    directionsDisplay.setMap(map)
 
     
     // I execute this function whenever the routes need to be set again
     function SetNewRoute(from, to) {
-      var start = from;
-      var end = to;
+      var start = from
+      var end = to
       var request = {
           origin: start, 
           destination: end,
           travelMode: google.maps.DirectionsTravelMode.DRIVING
-      };
+      }
       directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
+          directionsDisplay.setDirections(response)
         }
-      });
+      })
     }
     
     $.getJSON("/hitchhikes.json", function(data){
       SetNewSitePhotoDetails(data)      
       SetNewRoute(data.from, data.to)      
-    });
+    })
 		
 		// I show the site photo details (if necesssary).
 		function ShowSitePhotoDetails(){
 			// We only want to animate the Show if we are:
 			// 1. Not currently showing the photo details.
 			// 2. Currently hiding the photo details.
-			if (
-				!objIsAnimatingSitePhotoDetails.Show ||
-				objIsAnimatingSitePhotoDetails.Hide
-				){
-				
+			if (!objIsAnimatingSitePhotoDetails.Show ||	objIsAnimatingSitePhotoDetails.Hide	)	{
 				// Check to see if we need to stop any animation.
-				if (objIsAnimatingSitePhotoDetails.Hide){
-					jPhotoDetails.stop();
-				}
+				if (objIsAnimatingSitePhotoDetails.Hide){ jPhotoDetails.stop()	}
 				
 				// Flag the animations.
-				objIsAnimatingSitePhotoDetails.Show = true;
-				objIsAnimatingSitePhotoDetails.Hide = false;
+				objIsAnimatingSitePhotoDetails.Show = true
+				objIsAnimatingSitePhotoDetails.Hide = false
 				
 				// Stop any existing animation and show the details.
-				jPhotoDetails.animate(
-					{
-						bottom: objBottomProperties.Max
-					},
+				jPhotoDetails.animate({	bottom: objBottomProperties.Max	},
 					{
 						duration: 150,
 						
 						// When complete, flag all animations as being done.
 						complete: function(){
-							objIsAnimatingSitePhotoDetails.Show = false;
-							objIsAnimatingSitePhotoDetails.Hide = false;
+							objIsAnimatingSitePhotoDetails.Show = false
+							objIsAnimatingSitePhotoDetails.Hide = false
 						}
 					}
-					);
+					)
 			}
 		}
 		
@@ -115,55 +105,45 @@ $(
 		// I hide the site photo details.
 		function HideSitePhotoDetails(){
 			// When mousing down, set the animation flags.
-			objIsAnimatingSitePhotoDetails.Show = false;
-			objIsAnimatingSitePhotoDetails.Hide = true;
+			objIsAnimatingSitePhotoDetails.Show = false
+			objIsAnimatingSitePhotoDetails.Hide = true
 		
 			// Slide details down.
-			jPhotoDetails
-				.animate(
-					{
-						bottom: objBottomProperties.Min
-					},
-					{
-						duration: 100,
-						
-						// When complete, flag all animations as being done.
-						complete: function(){
-							objIsAnimatingSitePhotoDetails.Show = false;
-							objIsAnimatingSitePhotoDetails.Hide = false;
-						}
+			jPhotoDetails.animate(
+			  { bottom: objBottomProperties.Min	},
+				{
+					duration: 100,
+					// When complete, flag all animations as being done.
+					complete: function(){
+						objIsAnimatingSitePhotoDetails.Show = false
+						objIsAnimatingSitePhotoDetails.Hide = false
 					}
-					)
-				.fadeTo( 1, 1 )
-			;
+				}).fadeTo( 1, 1 )
 		}
-		
 		
 		// I show the prev/next links.
 		function ShowPrevNextArrows(){
-			jPhotoLeft.show();
-			jPhotoRight.show();
+			jPhotoLeft.show()
+			jPhotoRight.show()
 		}
-		
 		
 		// I hide the prev/next links.
 		function HidePrevNextArrows(){
-			jPhotoLeft.hide();
-			jPhotoRight.hide();
+			jPhotoLeft.hide()
+			jPhotoRight.hide()
 		}
-		
 		
 		// I handle the mouse over functionality for both the photo and 
 		// the photo details as they are going to act in the same fashion.
 		function SitePhotoMouseOverHandler(){
 			// Clear any mouse out time out so that our details don't disaapear.
-			clearTimeout( objMouseOutTimeout );
+			clearTimeout( objMouseOutTimeout )
 			
 			// Show the photo details.
-			ShowSitePhotoDetails();
+			ShowSitePhotoDetails()
 			
 			// Show prev / next arrows.
-			ShowPrevNextArrows();
+			ShowPrevNextArrows()
 		}
 		
 		
@@ -175,25 +155,25 @@ $(
 			// cancel the bubble.
 			objMouseOutTimeout = setTimeout(
 				function(){
-					HideSitePhotoDetails();
-					HidePrevNextArrows();
+					HideSitePhotoDetails()
+					HidePrevNextArrows()
 				},
 				100
-				);
+				)
 		}
 		
 		
 		// I get the next site photo.
 		function GetNextSitePhoto(){
 			// Get next photo.
-			GetNewSitePhotoDetails( "getnext" );
+			GetNewSitePhotoDetails( "getnext" )
 		}
 		
 		
 		// I get the previous site photo.
 		function GetPreviousSitePhoto(){
 			// Get next photo.
-			GetNewSitePhotoDetails( "getprev" );
+			GetNewSitePhotoDetails( "getprev" )
 		}
 		
 		function GetDistance( distance ){
@@ -209,13 +189,13 @@ $(
 			// Check to see if there is a current request. If so, then return out
 			// as we don't want to do anything until the request returns.
 			if (objSitePhotoRequest){
-				return;
+				return
 			}
 			
 			// Show ajax loader.
-			jAjaxLoader.fadeIn( 100 );
+			jAjaxLoader.fadeIn( 100 )
       // Fade out Hitchhike details
-      jHitchhikeDetails.fadeOut(100);
+      jHitchhikeDetails.fadeOut(100)
 			
 			// Get the new photo (be sure to store request).
 			if (strAction == "getnext"){
@@ -237,23 +217,23 @@ $(
 					success: function( objResponse ){
 					  SetNewSitePhotoDetails( objResponse )
 						// fade in details.
-            jHitchhikeDetails.fadeIn();
+            jHitchhikeDetails.fadeIn()
             
             SetNewRoute( objResponse.from, objResponse.to )
 					},
 					// If the request errored, something went seriously wrong!
 					error: function(){
-						alert( "There was an error getting the photo!!!" );
+						alert( "There was an error getting the photo!!!" )
 					},
 					complete: function(){
 						// Clear the request no matter what.
-						objSitePhotoRequest = null;
+						objSitePhotoRequest = null
 						
 						// Hide ajax loader.
-						jAjaxLoader.stop().fadeOut();
+						jAjaxLoader.stop().fadeOut()
 					}
 				}
-				);
+				)
 		}
 
 		function SetNewSitePhotoDetails( data ){
@@ -262,7 +242,7 @@ $(
     		src: data.photo.small,
     		alt: data.title,
     		rel: data.id
-    	});
+    	})
     	jPhotoLeft.attr("rel", data.prev)
       jPhotoRight.attr("rel", data.next)
 
@@ -277,54 +257,54 @@ $(
       // Adding People to Description:
     	// Update the hitchhike-description. In order to do that, we have to build up the elements.
     	// Start out by clearing what's there.
-    	jHitchhikeDetails.empty();
+    	jHitchhikeDetails.empty()
       $('#hitchhike-story').empty()
       
-      var arrParts = [];
+      var arrParts = []
 
       // Add start LI (with potential class).
-      arrParts.push( "<dl>" );
+      arrParts.push( "<dl>" )
 
           // // Add distance
           // if (data.distance){
-          //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" );
+          //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" )
           // }
 
           // Add name if it exists
           if (data.person.name != null && data.person.name.length){
-            arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" );
+            arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" )
           }
           // Add Occupation if it exists.
           if (data.person.occupation != null && data.person.occupation.length){
-            arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" );
+            arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" )
           }
           
           // Add Mission if it exists.
           if (data.person.mission != null && data.person.mission.length){
-            arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" );
+            arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" )
           }
           // Add Origin if it exists.
           if (data.person.origin != null && data.person.origin.length){
-            arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>");
+            arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>")
           }
 
            // Add Story if it exists.
            if (data.story != null){
-             var converter = new Showdown.converter();
-             var story = converter.makeHtml(data.story);
+             var converter = new Showdown.converter()
+             var story = converter.makeHtml(data.story)
              
              $('#hitchhike-story').html( "<h1>" + data.title + "</h1>" +
                                          "<span id='hitchhike-subtitle'>By " + 
                                          "<a href='/users/"+data.username+"'>" +
                                          data.username + "</a> &nbsp;&nbsp;&nbsp;&nbsp;" +
                                          data.date + " &nbsp;&nbsp;&nbsp;&nbsp;" + GetDistance(data.distance) + "</span>" + 
-                                         "<p>" + story + "</p>" );
+                                         "<p>" + story + "</p>" )
            }
            
            // Add closing LI.
-           arrParts.push( "</dl>" );
+           arrParts.push( "</dl>" )
            // Add item to list.
-           jHitchhikeDetails.append( arrParts.join( "" ) );
+           jHitchhikeDetails.append( arrParts.join( "" ) )
     }
 
 		
@@ -333,52 +313,40 @@ $(
 			.attr( "href", "javascript:void( 0 )" )
 			.click(
 				function(){
-					GetPreviousSitePhoto();
-					return( false );
+					GetPreviousSitePhoto()
+					return( false )
 				}
 				)
-		;
+		
 		
 		// Initialize the right photo arrow.
 		jPhotoRight
 			.attr( "href", "javascript:void( 0 )" )
 			.click(
 				function(){
-					GetNextSitePhoto();
-					return( false );
-				}
-				)
-		;
+					GetNextSitePhoto()
+					return( false )
+				})
 		
 		// Initialized mouse over / out for left / right.
-		$ ( [] ).add( jPhotoLeft ).add( jPhotoRight )
-			.mouseover(
-				function(){
-					jPhotoDetails.fadeTo( "fast", .3 );
-				}
-				)
-			.mouseout(
-				function(){
-					jPhotoDetails.fadeTo( "fast", 1 );
-				}
-				)
-		;
-		
-		
+    $ ( [] ).add( jPhotoLeft ).add( jPhotoRight ).mouseover(function(){
+          jPhotoDetails.fadeTo( "fast", .3 )
+        }).mouseout(function(){
+          jPhotoDetails.fadeTo( "fast", 1 )
+        })
+    
+    
 		// I handle the mouse over of the photo area.
 		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).add( jPhotoLeft ).add( jPhotoRight ).mouseover(
 			function(){
-				SitePhotoMouseOverHandler();
-				return( false );
-			}
-			);
+				SitePhotoMouseOverHandler()
+				return( false )
+			})
 		
 		// I handle the mouse out of the photo area.
 		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).add( jPhotoLeft ).add( jPhotoRight ).mouseout(
 			function(){
-				SitePhotoMouseOutHandler();
-				return( false );
-			}
-			);
-	}
-	);
+				SitePhotoMouseOutHandler()
+				return( false )
+			})
+	})

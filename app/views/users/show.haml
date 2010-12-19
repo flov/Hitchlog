@@ -1,3 +1,5 @@
+- title " - #{h(@user)}"
+
 %h1= @user.username.capitalize
 %p
   = "#{@user} logged #{pluralize(@hitchhikes.size, 'hitchhike')}"
