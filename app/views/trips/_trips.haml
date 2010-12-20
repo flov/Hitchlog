@@ -2,10 +2,20 @@
   %ul
     - for trip in @trips
       %li
-        = trip.date.strftime("%d %b %y") unless trip.date.nil?
+        = trip_date(trip)
         = link_to_trip(trip)
         by
         = link_to(trip.user, user_path(trip.user))
+        |
+        = link_to('show rides', '#', :remote => true)
+      = content_tag_for :ol, trip, :class => 'hidden' do
+        - for hitchhike in trip.hitchhikes
+          %li
+            = hitchhike.to_s
+            - if trip.user == current_user
+              = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
+              = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
+
     = will_paginate @trips
       
 / 
@@ -28,11 +38,5 @@
 /         %br/
 /         = "This trip took #{pluralize(trip.hitchhikes.size, 'Ride')}:"
 /         %ol
-/           - for hitchhike in trip.hitchhikes
-/             %li
-/               = hitchhike.to_s
-/               - if trip.user == current_user
-/                 = link_to "edit", edit_trip_hitchhike_path(trip, hitchhike)
-/                 = link_to "delete", trip_hitchhike_path(trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
 /         = link_to 'Add Hitchhike', new_trip_hitchhike_path(trip) 
 /         to Trip
