@@ -5,8 +5,11 @@ PaperclipOnHeroku::Application.routes.draw do
   resources :users, :path => 'hitchhikers'
 
   resources :trips do
-    resources :hitchhikes
+    resources :hitchhikes, :except => [:index]
   end
+  
+  resources :hitchhikes, :except => [:index]
+  
   match 'hitchhikers' => 'users#index'
   match 'hitchhikes.json' => 'hitchhikes#json'
 

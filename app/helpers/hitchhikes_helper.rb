@@ -8,4 +8,23 @@ module HitchhikesHelper
       "unknown distance"
     end
   end
+  
+  def show_attribute(name, attribute, options = {})
+    unless attribute.blank?
+      if options[:time] == :minutes
+        attribute = "#{attribute} minutes"
+      elsif options[:time] == :hours
+        attribute = "#{attribute} hours"
+      end
+      "#{name}: #{h(attribute)}<br/>".html_safe
+    end
+  end
+  
+  def link_to_hitchhike(hitchhike)
+    if hitchhike.empty?
+      "no information"
+    else
+      link_to "show", hitchhike_path(hitchhike)
+    end
+  end
 end

@@ -27,8 +27,14 @@ class Hitchhike < ActiveRecord::Base
     arr.delete_if{|x| x==''}.join(', ')
   end
   
+  def to_param
+    from_param = trip.from.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    to_param   = trip.to.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    "#{id}-#{from_param}->#{to_param}"
+  end
+  
   def empty?
-    [photo_file_name, title, story, waiting_time, duration, person.to_s].compact.delete_if{|x| x == '' }.empty?
+    [photo_file_name, title, story, waiting_time, duration, person.empty?].compact.delete_if{|x| x == '' || x == true}.empty?
   end
 
   def next

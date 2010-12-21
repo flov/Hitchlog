@@ -40,7 +40,7 @@ class HitchhikesController < ApplicationController
   
   def edit
     @hitchhike = Hitchhike.find(params[:id])
-    @trip      = Trip.find(params[:trip_id])
+    @trip      = @hitchhike.trip
   end
   
   def update

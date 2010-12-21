@@ -23,7 +23,7 @@ class Trip < ActiveRecord::Base
     if date.nil?
       "#{from} -> #{to}"
     else
-      "#{date.strftime("%d %b %Y")}: #{from} -> #{to}"
+      "#{date.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
     end
   end
 

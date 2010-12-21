@@ -9,14 +9,14 @@
   %br/
   = f.text_area :story
 %p
-  ="You said that the trip lasted #{trip.duration} hours."
-  %br/ 
-  ="Please specify here how long this specific ride took."
-  %br/
   = f.label :waiting_time, 'Waiting time (in minutes)'
   %br/
   = f.text_field :waiting_time
 %p
+  ="You said that the trip lasted <b>#{trip.duration}</b>  hours.".html_safe
+  %br/ 
+  ="Please specify here how long this specific ride took."
+  %br/
   = f.label :duration, 'Duration of ride (in hours) e.g. 2.5 for 2 hours 30 minutes'
   %br/
   = f.text_field :duration

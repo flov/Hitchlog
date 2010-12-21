@@ -1,7 +1,0 @@
-%h1 Hitchhikes:
-%ul
-  - for hitchhike in @hitchhikes
-    %li
-      = link_to hitchhike.to_s, hitchhike_path(hitchhike)
-      by: 
-      = link_to hitchhike.user.username, user_path(hitchhike.user.username)

@@ -11,7 +11,7 @@
   
 = render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
 
-%p= link_to 'Log New Trip', new_trip_path if user_signed_in? && @user == current_user
+%p= link_to 'Log New Trip', new_trip_path if @user == current_user
 
 #trips_listing
   %p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"

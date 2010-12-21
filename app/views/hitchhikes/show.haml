@@ -1,29 +1,24 @@
 %h1= @hitchhike.title
-%p=  @hitchhike.story
-/ %p
-/   %strong From:
-/   = @hitchhike.from
-/ %p
-/   %strong To:
-/   = @hitchhike.to
-/ %p
-/   %strong waiting_time:
-/   = @hitchhike.waiting_time
-/ %p
-/   People:<br />
-/   %strong Name:
-/   = @hitchhike.people.first.name
-/ %p
-/   %strong Gender:
-/   = @hitchhike.people.first.gender
-/ %p
-/   %strong Mission:
-/   = @hitchhike.people.first.mission
-/ %p
-/   %strong Origin:
-/   = @hitchhike.people.first.origin
 - if @hitchhike.photo.file?
+  = image_tag @hitchhike.photo.url(:cropped)
+%p
+  = @hitchhike.trip
+%p
+  = @hitchhike.story
+- if @hitchhike.waiting_time
   %p
-    cropped:
-    %br/
-    = image_tag @hitchhike.photo.url(:cropped) 
+    %strong waiting_time:
+    = @hitchhike.waiting_time
+- unless @hitchhike.person.name.blank?
+  %p
+    Person:<br />
+    %strong Name:
+    = @hitchhike.person.name
+- unless @hitchhike.person.mission.blank?
+  %p
+    %strong Mission:
+    = @hitchhike.person.mission
+- unless @hitchhike.person.origin.blank?
+  %p
+    %strong Origin:
+    = @hitchhike.person.origin

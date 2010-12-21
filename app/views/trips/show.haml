@@ -1,11 +1,3 @@
 %h1= @trip
-%ol
-  -@trip.hitchhikes.each do |hitchhike|
-    %li
-      = link_to hitchhike, trip_hitchhike_path(@trip, hitchhike)
-      - if user_signed_in? && @trip.user == current_user
-        |
-        = link_to "edit", edit_trip_hitchhike_path(@trip, hitchhike)
-        |
-        = link_to "delete", trip_hitchhike_path(@trip, hitchhike), :method => :delete, :confirm => 'Are you sure?' 
-  
+%ol.hitchhike
+  = render :partial => 'list_hitchhikes', :locals => {:trip => @trip}  
