@@ -11,6 +11,7 @@ PaperclipOnHeroku::Application.routes.draw do
   resources :hitchhikes, :except => [:index]
   
   match 'hitchhikers' => 'users#index'
+  match 'about' => 'welcome#about'
   match 'hitchhikes.json' => 'hitchhikes#json'
 
   root :to => "welcome#index"

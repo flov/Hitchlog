@@ -1,0 +1,39 @@
+%h1 About
+
+%p
+  Hitchhike.me gives an authentic view on hitchhiking. Hitchhikers can log their hitchhiking 
+  experience with Photos, stories and other statistical data.
+
+/ .suggest_data
+/   - form_tag '/suggest_idea' do
+/     = text_field_tag 'name', nil, :placeholder => 'suggest some data'
+%p
+  This data generates statistical and demographic data e.g. average waiting time, 
+  hitchhiked countries, longest ride, shortest ride, etc...
+  If you have an idea on interesting data that we could be mining, please post it in the 
+  Feedback forum on the left.
+
+%p
+  There are many ways to make <a href='http://hitchhike.me'>Hitchhike.me</a> a 
+  great project and the easiest way is to just <b>GIVE FEEDBACK.</b> 
+  If you like the idea, but you don't like the interface or if
+  you have a question or a great idea, just click on the feedback link on the <b>&larr;</b> left and enter your 
+  thoughts, or send 
+  =link_to @flov, user_path(@flov)
+  an email: flov at hitchhike.me
+.float_right
+  =image_tag 'open-source.png'
+
+%p
+  The application is completely open-source and we would love it if other people would dive into the project
+  and implement their own ideas. So if you are a ruby on rails developer, you can participate by forking the project at 
+  <a href='http://github.com/flov/hitchhike.me'>Github</a>. It runs on Rails 3 and uses cucumber and rspec
+  for BDD testing.
+  
+
+:javascript
+  $('body').css('background-image', 'url("/images/about-bg.jpg")')
+  $('body').css('background-repeat', 'no-repeat')
+  $('body').css('background-position', '50px 0')
+  
+  
