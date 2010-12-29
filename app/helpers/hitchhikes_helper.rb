@@ -9,12 +9,12 @@ module HitchhikesHelper
     end
   end
   
-  def show_attribute(name, attribute, options = {})
+  def show_attribute(name_of_attr, attribute, options = {})
     unless attribute.blank?
       if options[:time] == :minutes
         attribute = "#{attribute} minutes"
       end
-      "#{name}: #{h(attribute)}<br/>".html_safe
+      "#{name_of_attr}: #{attribute}<br/>".html_safe
     end
   end
   
