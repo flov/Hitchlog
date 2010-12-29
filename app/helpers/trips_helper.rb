@@ -22,11 +22,10 @@ module TripsHelper
       string << ", with #{array.join(', ')}" 
     end
     
-    
-    if options[:remote] == true
-      link_to string, trip_path(trip), {:class => 'trip', :rel => trip.id}
-    elsif array.empty?
+    if array.empty?
       string
+    elsif options[:remote] == true
+      link_to string, trip_path(trip), {:class => 'trip', :rel => trip.id}
     else
       link_to string, trip_path(trip)
     end
