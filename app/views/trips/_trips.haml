@@ -1,9 +1,9 @@
 .trips
   %ul
-    - for trip in @trips
+    - for trip in trips
       %li
         = trip_date(trip)
-        = link_to_trip(trip)
+        = link_to_trip(trip, :remote => true)
         by
         = link_to(trip.user, user_path(trip.user))
         |
@@ -14,9 +14,9 @@
           |
           = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
         = content_tag_for :ol, trip, :class => 'hidden hitchhike' do
-          = render :partial => 'list_hitchhikes', :locals => {:trip => trip}
+          = render :partial => 'trips/list_hitchhikes', :locals => {:trip => trip}
 
-    = will_paginate @trips
+    = will_paginate trips
 
 :javascript
   // adding some margin to the months

@@ -3,7 +3,7 @@
     = show_attribute("Title", hitchhike.title)
     = show_attribute("Story", hitchhike.story[0..150]) unless hitchhike.story.blank?
     = show_attribute("Waiting Time", hitchhike.waiting_time, {:time => :minutes})
-    = show_attribute("Duration", hitchhike.duration, {:time => :hours})
+    = show_attribute("Duration", human_hours(hitchhike.duration)) unless hitchhike.duration.blank?
     - if hitchhike.photo.file?
       Has Photo!
       %br/
@@ -25,12 +25,3 @@
       = link_to "edit", edit_hitchhike_path(hitchhike)
       = link_to "delete", hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
 
-
-/ - for hitchhike in trip.hitchhikes
-/   %li
-/     = hitchhike
-/     = link_to "show", hitchhike_path(hitchhike)
-/     - if trip.user == current_user
-/       = link_to "edit", edit_hitchhike_path(hitchhike)
-/       = link_to "delete", hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
-      

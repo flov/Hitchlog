@@ -10,3 +10,10 @@ en:
       title: User
     index:
       title: Users
+      
+  hours: 
+    one: "%{count} hour"
+    other: "%{count} hours"
+  hours_with_minutes:
+    one: "%{count} hour %{minutes} minutes"
+    other: "%{count} hours %{minutes} minutes"

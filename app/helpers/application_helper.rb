@@ -6,5 +6,4 @@ module ApplicationHelper
   def uservoice_feedback
     render :partial => 'shared/uservoice_feedback'
   end
-  
 end

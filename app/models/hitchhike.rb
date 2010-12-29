@@ -20,6 +20,10 @@ class Hitchhike < ActiveRecord::Base
     end  
   end
   
+  def no_in_trip
+    trip.hitchhikes.index(self) + 1
+  end
+  
   def to_s
     arr = [title, person.to_s].compact
     arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?

@@ -2,27 +2,25 @@
 
 %h1= @user.username.capitalize
 %p
-  = "#{@user} logged #{pluralize(@hitchhikes.size, 'hitchhike')}"
-  = "and travelled #{@total_distance} kms by hitchhiking."
-  %br
-  = "#{@user} waited averagely #{@average_waiting_time} minutes per ride."
-  %br
-  = "#{@user} waited a total number of #{@total_waiting_time} minutes for #{pluralize(@waiting_time_array.size, 'ride')}."
+  = user_hitchhiked(@user, @hitchhikes, @total_distance)
+  = user_waited_averagely(@user, @average_waiting_time)
+  = user_waited_totally(@user, @total_waiting_time, @waiting_time_array)
   
 = render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
 
-%p= link_to 'Log New Trip', new_trip_path if @user == current_user
+/ = render :partial => 'trips/trips', :locals => {:trips => @user.trips.paginate(:page => params[:page])}
 
-#trips_listing
-  %p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"
-  %ul
-    - for trip in @trips
-      %li
-        = trip.date.strftime("%d %b %y") unless trip.date.nil?
-        = link_to_trip(trip)
-        - if user_signed_in? && trip.user == current_user
-          |
-          = link_to "edit", edit_trip_path(trip)
-          |
-          = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
-        
+
+
+%p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"
+%ul
+  - for trip in @trips
+    %li
+      = trip.date.strftime("%d %b %y") unless trip.date.nil?
+      = link_to_trip(trip)
+      - if user_signed_in? && trip.user == current_user
+        |
+        = link_to "edit", edit_trip_path(trip)
+        |
+        = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
+      

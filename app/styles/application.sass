@@ -1,6 +1,16 @@
 // Mixins:
 // Cross Browser Transparency (Yuck!)
-@mixin opacity(!opacity)
+
+=clearfix
+  :overflow auto
+  :overflow -moz-scrollbars-none
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
+= opacity(!opacity)
   :opacity= !opacity
   :-moz-opacity= !opacity
   :-khtml-opacity= !opacity
@@ -8,7 +18,7 @@
   :filter= "alpha(opacity=" + round(!opacity*100) + ")"
 
 
-@mixin rounded_corners ($radius)
+= rounded_corners ($radius)
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
   border-radius: $radius
@@ -74,10 +84,10 @@ span.subtitle
   font-family: cursive
   font-size: 16px
 
-span#hitchhike-subtitle
+span#hitchhike-subtitle, .hitchhike-subtitle
   font-size: 22px
   font-family: cursive
-  
+
 #container
   width: 800px
   margin: 0 auto

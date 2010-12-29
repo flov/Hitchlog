@@ -1,6 +1,6 @@
-$(function(){
 
-  // Drop Down menu when clicking on trip links:
+$(function(){
+  // Drop Down menu for trip links:
   var trip_id
   $("a.trip").click(function(e){
     trip_id = $(this).attr("rel")
