@@ -5,13 +5,17 @@ module UsersHelper
   
   def user_waited_totally(user, total_waiting_time, waiting_time_array)
     unless total_waiting_time == 0
-      "#{user} waited a total number of #{total_waiting_time} minutes for #{pluralize(waiting_time_array.size, 'ride')}." 
+      "#{user} waited a total number of #{total_waiting_time} minutes for #{pluralize(waiting_time_array.size, 'ride')}.<br/>".html_safe
     end
   end
   
   def user_hitchhiked(user, hitchhikes, total_distance)
     "#{h(user)} has seen #{pluralize(hitchhikes.size, 'car')} from inside while hitchhiking ".html_safe +
     "and travelled #{h(total_distance)} kms this way.<br/>".html_safe
+  end
+  
+  def average_drivers_age(user, avg_age)
+    "#{h(user)} has been driven by people who were averagely #{avg_age} years old.<br/>".html_safe unless avg_age.blank?
   end
   
   def link_to_user(user)

@@ -1,7 +1,7 @@
 - for hitchhike in trip.hitchhikes
   %li
     = show_attribute("Title", hitchhike.title)
-    = show_attribute("Story", hitchhike.story[0..200]) unless hitchhike.story.blank?
+    = show_attribute("Story", hitchhike.story) unless hitchhike.story.blank?
     = show_attribute("Waiting Time", hitchhike.waiting_time, {:time => :minutes})
     = show_attribute("Duration", human_hours(hitchhike.duration)) unless hitchhike.duration.blank?
     - if hitchhike.photo.file?

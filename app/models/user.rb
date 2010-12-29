@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def to_param
     username
   end
+  
+  def hitchhikes
+    trips.collect{|trip| trip.hitchhikes}.flatten
+  end
 end

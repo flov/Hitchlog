@@ -14,6 +14,9 @@ module HitchhikesHelper
       if options[:time] == :minutes
         attribute = "#{attribute} minutes"
       end
+      if name_of_attr == 'Story'
+        attribute = attribute[0..150] + '...'
+      end
       "#{name_of_attr}: #{attribute}<br/>".html_safe
     end
   end
@@ -22,7 +25,7 @@ module HitchhikesHelper
     if hitchhike.empty?
       "no information"
     else
-      link_to "show", hitchhike_path(hitchhike)
+      link_to "show this ride", hitchhike_path(hitchhike)
     end
   end
   
