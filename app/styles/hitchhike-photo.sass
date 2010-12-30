@@ -16,8 +16,27 @@
   height: 250px
   margin: 0 auto
   position: relative
+
 #another-wrapper
   position: relative
+  
+#nav_trips_dropdown
+  +rounded_corners(0 0 15px 15px)
+  background-color: black
+  height: 25px
+  left: -33px
+  padding: 5px
+  position: absolute
+  text-align: center
+  top: 34px
+  width: 89px
+  display: none
+  
+#nav_trips
+  position: relative
+  &:hover
+    #nav_trips_dropdown
+      display:block
 
 #main_nav
   font-family: fantasy
