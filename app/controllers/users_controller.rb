@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @total_waiting_time   = @waiting_time_array.sum
     @average_waiting_time = @total_waiting_time / @waiting_time_array.size unless @waiting_time_array.size == 0    
     @stories = @hitchhikes.collect{|h| h.story}.compact.delete_if{|x| x == ''}
+    @number_of_photos = @hitchhikes.collect{|h| h.photo.file? }.delete_if{|x| x==false}.compact.size
     
     avg_drivers_age_array = @hitchhikes.collect{|h| h.person.age}.compact
     @avg_drivers_age = avg_drivers_age_array.sum / avg_drivers_age_array.size unless avg_drivers_age_array.size == 0    

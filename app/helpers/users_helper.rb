@@ -5,7 +5,7 @@ module UsersHelper
   
   def user_waited_totally(user, total_waiting_time, waiting_time_array)
     unless total_waiting_time == 0
-      "#{user} waited a total number of #{total_waiting_time} minutes for #{pluralize(waiting_time_array.size, 'ride')}.<br/>".html_safe
+      "#{h(user)} waited a total number of #{total_waiting_time} minutes for #{pluralize(waiting_time_array.size, 'ride')}.<br/>".html_safe
     end
   end
   
@@ -19,7 +19,11 @@ module UsersHelper
   end
   
   def user_wrote_stories(user, stories)
-    "#{user} has written #{pluralize(stories.size, 'story')}" unless stories.size == 0
+    "#{h(user)} has written #{pluralize(stories.size, 'story')}.<br/>".html_safe unless stories.size == 0
+  end
+  
+  def user_uploaded_photos(user, no_of_photos)
+    "#{user} uploaded #{pluralize(no_of_photos, 'photo')}<br/>".html_safe unless no_of_photos == 0
   end
   
   def link_to_user(user)
