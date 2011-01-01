@@ -10,14 +10,14 @@ module LayoutHelper
   
   def meta_keywords(keywords = nil)
     if keywords.nil?
-      raw("<meta name='keywords' content='hitchhiking,logs,hitchhiker,free travel,autostop,trampen' /> ")
+      "<meta name='keywords' content='hitchhiking,logs,hitchhiker,free travel,autostop,trampen' /> ".html_safe
     else
-      raw("<meta name='keywords' content='#{keywords}' /> ")
+      "<meta name='keywords' content='#{keywords}' /> ".html_safe
     end
   end
   
   def meta_description(description=nil)
-    "<meta name='description' content='A website for logging hitchhikes and personal hitchhiking stories. It uses the data to generate demographic statistics and show some overview about the experiences of hitchhikers.'/>"
+    "<meta name='description' content='A website for logging hitchhikes and personal hitchhiking stories. It uses the data to generate demographic statistics and show some overview about the experiences of hitchhikers.'/>".html_safe
   end
 
   def show_title?

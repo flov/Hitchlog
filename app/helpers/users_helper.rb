@@ -18,6 +18,10 @@ module UsersHelper
     "#{h(user)} has been driven by people who were averagely #{avg_age} years old.<br/>".html_safe unless avg_age.blank?
   end
   
+  def user_wrote_stories(user, stories)
+    "#{user} has written #{pluralize(stories.size, 'story')}" unless stories.size == 0
+  end
+  
   def link_to_user(user)
     link_to(user, user_path(user))
   end
