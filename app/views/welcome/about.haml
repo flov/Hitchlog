@@ -15,11 +15,13 @@
   If you have an idea on interesting data that we could be mining, please post it in the 
   Feedback forum on the left.
 
+%h2
+  How to contribute
 %p
   There are many ways to contribute to <a href='http://hitchhike.me'>Hitchhike.me</a>
   and the easiest way is to <b>give feedback.</b> 
-  If you like the idea, but you don't like the interface or if
-  you have a question or a great idea, just click on the feedback link on the <b>&larr;</b> left and enter your 
+  If you have a great idea, but you don't like the interface or if
+  you have a question, just click on the feedback link on the <b>&larr;</b> left and enter your 
   thoughts, or send 
   =link_to @flov, user_path(@flov)
   an email: flov at hitchhike.me
@@ -29,9 +31,27 @@
 %p
   The application is completely open-source and we would love it if other people would dive into the project
   and implement their own ideas. So if you are a ruby on rails developer, you can participate by forking the project at 
-  <a href='http://github.com/flov/hitchhike.me'>Github</a>. It runs on Rails 3 and uses cucumber and rspec
+  <a href='http://github.com/flov/hitchhike.me'>Github</a>. It runs on Ruby on Rails 3 and uses cucumber and rspec
   for BDD testing.
   
+/ %h2 Hitchhike.me supports
+/ .first
+/   .float_left.contributer_picture= image_tag 'Hitchwiki.png'
+/   %p
+/     Hitchwiki is a collaborative website for gathering information 
+/     about hitchhiking and other ways of extremely cheap ways of transport. 
+/ .second
+/   .float_left.contributer_picture=image_tag 'randomroads.org_A_Hitchhiking_Magazine.jpg'
+/   %p RandomRoads
+  
+
+
+/ .contributer_picture.float_left
+/   = image_tag 'http://en.gravatar.com/userimage/9468087/aa45ca214ba94d19c02ef45c807b3469.jpg?size=80'
+/ %p
+/   =link_to @flov, user_path(@flov)
+/   started building this site in November 2010. 
+/   He works as a freelancer and is currently based in Barcelona. 
 
 :javascript
   $('body').css('background-image', 'url("/images/about-bg.jpg")')

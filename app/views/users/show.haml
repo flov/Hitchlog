@@ -7,7 +7,7 @@
 %p
   = user_hitchhiked(@user, @hitchhikes, @total_distance)
   = user_waited_averagely(@user, @average_waiting_time)
-  = user_waited_totally(@user, @total_waiting_time, @waiting_time_array)
+  / = user_waited_totally(@user, @total_waiting_time, @waiting_time_array)
   = average_drivers_age(@user, @avg_drivers_age)
   
 = render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
