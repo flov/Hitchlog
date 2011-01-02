@@ -2,10 +2,10 @@ Feature: Hitchhike feature
 
   # Scenario: User creates hitchhike with invalid data
   #   Given I am logged in as alex
-  #   And 
-  #   When I go to the new hitchhike page
+  #   When I go to the new trip page
   #   And I fill in the following:
-  #     | Title | example   |
+  #       | From    |                |
+  #       | To      | Odessa                 |
   #   And I press "Submit"
   #   Then I should see error messages
   # 

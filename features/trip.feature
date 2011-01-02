@@ -15,4 +15,4 @@ Feature: Trip feature
       | Number of rides               | 3          |
       | Time the trip took (in hours) | 1.5        |
     And I press "Submit"
-    Then I should see "Successfully created trip."
+    Then I should see "Thanks for creating a new trip"

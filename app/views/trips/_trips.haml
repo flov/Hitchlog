@@ -3,7 +3,7 @@
     - for trip in trips
       %li
         = trip_date(trip)
-        = link_to_trip(trip, :remote => true)
+        = link_to_trip(trip, :remote => true).html_safe
         by
         = link_to(trip.user, user_path(trip.user))
         |

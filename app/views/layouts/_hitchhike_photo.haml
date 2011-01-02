@@ -3,7 +3,7 @@
   #hitchhike-photo
     #hitchhike-photo-loader Loading...
     %a#hitchhike-photo-left Prev
-    %a#hitchhike-photo-right Next
+    %a#hitchhike-photo-right Next    
     #hitchhike-photo-details
       %p
         %span#site-photo-details-description= @hitchhike
@@ -13,5 +13,7 @@
           )
           %br/
           %span#site-photo-distance
-    %img#hitchhike-photo-photo/
-    
+    - if @hitchhike && @hitchhike.photo.file?
+      = image_tag @hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
+    - else
+      %img#hitchhike-photo-photo/

@@ -1,3 +1,7 @@
+- title "#{@trip.from} &rarr; #{@trip.to}".html_safe
+
 %h1= @trip
+%p
+  = "Please add some information to the hitchhikes." if current_user == @trip.user
 %ol.hitchhike
   = render :partial => 'list_hitchhikes', :locals => {:trip => @trip}  

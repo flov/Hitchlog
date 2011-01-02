@@ -16,19 +16,13 @@ class HitchhikesController < ApplicationController
       wants.json { render :json => @hitchhike.to_json }
     end
   end
-  
-  def new
-    @hitchhike = Hitchhike.new
-    @hitchhike.build_person
-    @trip = Trip.find(params[:trip_id])
-  end
 
   def create
     @hitchhike = Hitchhike.new(params[:hitchhike])
     @hitchhike.trip = Trip.find(params[:trip_id])
     if @hitchhike.save
       if params[:hitchhike][:photo].blank?
-        flash[:notice] = "Successfully created hitchhike."
+        flash[:notice] = "Thanks for creating a new hitchhike."
         redirect_to trips_path
       else
         render :action => "crop"
@@ -40,6 +34,7 @@ class HitchhikesController < ApplicationController
   
   def edit
     @hitchhike = Hitchhike.find(params[:id])
+    @hitchhike.build_person
     @trip      = @hitchhike.trip
   end
   

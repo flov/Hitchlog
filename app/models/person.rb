@@ -14,8 +14,4 @@ class Person < ActiveRecord::Base
   def to_s
     [name, occupation, mission, origin].compact.delete_if{|x| x == ''}.join(', ')
   end
-
-  def empty?
-    [name, occupation, mission, origin, age].delete_if{|x| x==''}.compact.empty?
-  end
 end

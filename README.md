@@ -75,3 +75,5 @@ Environment
 * Cucumber 0.9.2
 * Mysql
 * ... (see Gemfile)
+
+We are using the Famfamfam icon collection

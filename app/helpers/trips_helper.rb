@@ -12,22 +12,24 @@ module TripsHelper
   
   def link_to_trip(trip, options ={})
     array = []
-    array << "picture" if !trip.hitchhikes.collect{|h| h.photo.file?}.delete_if{|x|!x}.compact.empty?
-    array << "story"   if !trip.hitchhikes.collect{|h| h.story}.compact.empty?
-    array << "person"  if !trip.hitchhikes.collect{|h| h.person.to_s}.compact.delete_if{|x|x==''}.empty?
+    array << image_tag("icons/photo.png").html_safe unless trip.hitchhikes.collect{|h| h.photo.file?}.delete_if{|x|!x}.compact.empty?
+    array << image_tag("icons/page.png").html_safe  unless trip.hitchhikes.collect{|h| h.story}.compact.delete_if{|x| x==''}.empty?
+    unless trip.hitchhikes.collect{|h| h.person.nil?}.compact.delete_if{|x|x==true}.empty?
+      array << image_tag("icons/user_male.png").html_safe  
+    end
     string = "#{h(trip.from)} &rarr; #{h(trip.to)} (#{distance(trip.distance)}), #{pluralize(trip.hitchhikes.size, 'ride')}".html_safe
     if array.empty?
-      string << ", no information"
+      string << ", no information".html_safe
     else
-      string << ", with #{array.join(', ')}" 
+      string << ", with #{array.join(' ')}".html_safe 
     end
     
     if array.empty?
       string
     elsif options[:remote] == true
-      link_to string, trip_path(trip), {:class => 'trip', :rel => trip.id}
+      link_to string.html_safe, trip_path(trip), {:class => 'trip', :rel => trip.id}
     else
-      link_to string, trip_path(trip)
+      link_to string.html_safe, trip_path(trip)
     end
   end
   

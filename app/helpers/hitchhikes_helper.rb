@@ -50,8 +50,7 @@ module HitchhikesHelper
   def human_minutes(minutes)
     pluralize(minutes, 'minute')
   end
-  
-  
+
   def number_to_ordinal(num)
     num = num.to_i
     if (10...20)===num

@@ -17,4 +17,8 @@ class Hitchhike
     @geometry ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(photo.path(style))
   end
+  
+  def reprocess_photo
+    photo.reprocess!
+  end
 end

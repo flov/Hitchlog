@@ -7,7 +7,7 @@
     - if hitchhike.photo.file?
       Has Photo!
       %br/
-    - unless hitchhike.person.empty?
+    - unless hitchhike.person.nil?
       About the driver:
       %ul.person
         -unless hitchhike.person.name.blank?
@@ -20,6 +20,8 @@
           %li= "Origin: #{h(hitchhike.person.origin)}"
         - unless hitchhike.person.age.blank?
           %li= "Age: #{h(hitchhike.person.age)}"
+        - unless hitchhike.person.gender.blank?
+          %li= "Gender: #{h(hitchhike.person.gender)}"
     = link_to_hitchhike(hitchhike)
     - if trip.user == current_user
       = link_to "edit", edit_hitchhike_path(hitchhike)

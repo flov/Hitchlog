@@ -12,13 +12,8 @@ class Hitchhike < ActiveRecord::Base
   
   concerned_with  :photo_procession
   
-  scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
-    
-  before_save do
-    if person.nil?
-      build_person
-    end  
-  end
+  # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
+  scope :not_empty, where("story IS NOT NULL")
   
   def no_in_trip
     trip.hitchhikes.index(self) + 1
@@ -38,7 +33,7 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def empty?
-    [photo_file_name, title, story, waiting_time, duration, person.empty?].compact.delete_if{|x| x == '' || x == true}.empty?
+    [photo_file_name, title, story, waiting_time, duration, person.nil?].compact.delete_if{|x| x == '' || x == true}.empty?
   end
 
   def next
@@ -71,10 +66,4 @@ class Hitchhike < ActiveRecord::Base
     end
     JSON.pretty_generate(hash)
   end
-  
-  private
-  
-  def reprocess_photo
-    photo.reprocess!
-  end  
 end

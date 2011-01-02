@@ -13,7 +13,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(params[:trip])
     @trip.user = current_user
     if @trip.save
-      flash[:notice] = "Successfully created trip."
+      flash[:notice] = "Thanks for creating a new trip. Please provide more information below."
       redirect_to trip_path(@trip)
     else
       render :new

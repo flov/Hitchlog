@@ -15,8 +15,8 @@ class Trip < ActiveRecord::Base
   attr_accessor :rides
 
   before_save do
-    # build as much hitchhikes on top of the ride as previously defined
-    rides.to_i.times{ hitchhikes.build.build_person }
+    # build as much hitchhikes on top of the ride as needed
+    rides.to_i.times{ hitchhikes.build }
   end
 
   def to_s

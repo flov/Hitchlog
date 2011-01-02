@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= content_for?(:title) ? "Hitchhike.me - #{yield(:title)}" : "Hitchhike.me"
+    %title= content_for?(:title) ? "Hitchhike.me - #{yield(:title)}".html_safe : "Hitchhike.me"
     = meta_keywords
     = meta_description
     = stylesheet_link_tag "application"
@@ -21,7 +21,7 @@
           #nav_trips_dropdown=link_to 'New Trip', new_trip_path
         %li#nav_hitchhikes= link_to 'Hitchhikers', users_path
         %li#nav_about= link_to 'About', about_path
-        %li#nav_authenitcation= render :partial => 'shared/sign_in_and_out'
+        %li#nav_authenitcation.right= render :partial => 'shared/sign_in_and_out'
         / %li#nav_manage=link_to 'Manage profile', edit_user_path(current_user) if user_signed_in?
     #container    
       - flash.each do |name, msg|
