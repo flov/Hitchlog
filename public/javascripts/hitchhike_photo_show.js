@@ -153,8 +153,6 @@ $(
     		alt: data.title,
     		rel: data.id
     	})
-    	jPhotoLeft.attr("rel", data.prev)
-      jPhotoRight.attr("rel", data.next)
 
       // Add Title to Photo
       jPhotoDescription.html( "From " + data.from + " to " + data.to + " with " + data.rides + " rides")
@@ -219,14 +217,14 @@ $(
 
     
 		// I handle the mouse over of the photo area.
-		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).add( jPhotoLeft ).add( jPhotoRight ).mouseover(
+		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).mouseover(
 			function(){
 				SitePhotoMouseOverHandler()
 				return( false )
 			})
 		
 		// I handle the mouse out of the photo area.
-		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).add( jPhotoLeft ).add( jPhotoRight ).mouseout(
+		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).mouseout(
 			function(){
 				SitePhotoMouseOutHandler()
 				return( false )
