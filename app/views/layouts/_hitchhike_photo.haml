@@ -2,8 +2,12 @@
   #map_canvas
   #hitchhike-photo
     #hitchhike-photo-loader Loading...
-    %a#hitchhike-photo-left Prev
-    %a#hitchhike-photo-right Next    
+    - if @hitchhike
+      =link_to @hitchhike, hitchhike_path(@hitchhike.prev), :id => "hitchhike-photo-left"
+      =link_to @hitchhike, hitchhike_path(@hitchhike.next), :id => "hitchhike-photo-right"
+    -else
+      %a#hitchhike-photo-left Prev
+      %a#hitchhike-photo-right Next    
     #hitchhike-photo-details
       %p
         %span#site-photo-details-description= @hitchhike
