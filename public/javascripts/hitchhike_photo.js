@@ -243,8 +243,8 @@ $(
     		alt: data.title,
     		rel: data.id
     	})
-    	jPhotoLeft.attr("rel", data.prev)
-      jPhotoRight.attr("rel", data.next)
+    	jPhotoLeft.attr("rel", data.prev_id)
+      jPhotoRight.attr("rel", data.next_id)
 
       // Add Title to Photo
       jPhotoDescription.html( "On the way from " + data.from + " to " + data.to + " with " + data.rides + " rides")
