@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    
+    @hitchhike = Hitchhike.random_item
   end
   
   def about

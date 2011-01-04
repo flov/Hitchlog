@@ -35,14 +35,6 @@ class Hitchhike < ActiveRecord::Base
   def empty?
     [photo_file_name, title, story, waiting_time, duration, person.nil?].compact.delete_if{|x| x == '' || x == true}.empty?
   end
-
-  def next_id
-    self.next.id
-  end
-
-  def prev_id
-    prev.id
-  end
   
   def next
     result = Hitchhike.not_empty.where('id > ?', self.id).first
@@ -59,14 +51,16 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_json
-    hash = self.to_hash(:title, :story, :id, :next_id, :prev_id)
+    hash = self.to_hash(:title, :story, :id)
+    hash[:next]     = "/hitchhikes/#{self.next.to_param}"
+    hash[:prev]     = "/hitchhikes/#{self.prev.to_param}"
     hash[:from]     = trip.from
     hash[:to]       = trip.to
     hash[:date]     = trip.to_date
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
     hash[:rides]    = trip.hitchhikes.size
-    hash[:person]   = person.build_hash
+    hash[:person]   = person.build_hash if person
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
     else

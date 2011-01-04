@@ -1,6 +1,6 @@
 class Hitchhike
   has_attached_file :photo, 
-                    :styles => { :cropped => "500x250#", :large => "800x400>" },
+                    :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },
                     :processors => [:cropper]
   
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

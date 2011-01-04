@@ -243,8 +243,8 @@ $(
     		alt: data.title,
     		rel: data.id
     	})
-    	jPhotoLeft.attr("rel", data.prev_id)
-      jPhotoRight.attr("rel", data.next_id)
+    	jPhotoLeft.attr("href", data.prev)
+      jPhotoRight.attr("href", data.next)
 
       // Add Title to Photo
       jPhotoDescription.html( "On the way from " + data.from + " to " + data.to + " with " + data.rides + " rides")
@@ -309,24 +309,24 @@ $(
 
 		
 		// Initialize the left photo arrow.
-		jPhotoLeft
-			.attr( "href", "javascript:void( 0 )" )
-			.click(
-				function(){
-					GetPreviousSitePhoto()
-					return( false )
-				}
-				)
+    // jPhotoLeft
+    //  .attr( "href", "javascript:void( 0 )" )
+    //  .click(
+    //    function(){
+    //      GetPreviousSitePhoto()
+    //      return( false )
+    //    }
+    //    )
 		
 		
 		// Initialize the right photo arrow.
-		jPhotoRight
-			.attr( "href", "javascript:void( 0 )" )
-			.click(
-				function(){
-					GetNextSitePhoto()
-					return( false )
-				})
+    // jPhotoRight
+    //  .attr( "href", "javascript:void( 0 )" )
+    //  .click(
+    //    function(){
+    //      GetNextSitePhoto()
+    //      return( false )
+    //    })
 		
 		// Initialized mouse over / out for left / right.
     $ ( [] ).add( jPhotoLeft ).add( jPhotoRight ).mouseover(function(){

@@ -5,12 +5,12 @@
     = show_attribute("Waiting Time", hitchhike.waiting_time, {:time => :minutes})
     = show_attribute("Duration", human_hours(hitchhike.duration)) unless hitchhike.duration.blank?
     - if hitchhike.photo.file?
-      Has Photo!
+      = image_tag("icons/photo.png")
       %br/
     - unless hitchhike.person.nil?
       About the driver:
       %ul.person
-        -unless hitchhike.person.name.blank?
+        - unless hitchhike.person.name.blank?
           %li= "Name: #{h(hitchhike.person.name)}" 
         - unless hitchhike.person.occupation.blank?
           %li= "Occupation: #{h(hitchhike.person.occupation)}"
@@ -24,6 +24,8 @@
           %li= "Gender: #{h(hitchhike.person.gender)}"
     = link_to_hitchhike(hitchhike)
     - if trip.user == current_user
+      |
       = link_to "edit", edit_hitchhike_path(hitchhike)
+      |
       = link_to "delete", hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
 

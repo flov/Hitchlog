@@ -25,7 +25,7 @@ module HitchhikesHelper
     if hitchhike.empty?
       "no information"
     else
-      link_to "show this ride", hitchhike_path(hitchhike)
+      link_to "show this hitchhike", hitchhike_path(hitchhike)
     end
   end
   

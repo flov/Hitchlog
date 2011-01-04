@@ -18,18 +18,18 @@ module TripsHelper
       array << image_tag("icons/user_male.png").html_safe  
     end
     string = "#{h(trip.from)} &rarr; #{h(trip.to)} (#{distance(trip.distance)}), #{pluralize(trip.hitchhikes.size, 'ride')}".html_safe
+    string << link_to(" #{image_tag('icons/add.png')}".html_safe, trip_path(trip)) if current_user == trip.user
     if array.empty?
-      string << ", no information".html_safe
+      string << ", no information"
     else
       string << ", with #{array.join(' ')}".html_safe 
     end
-    
     if array.empty?
-      string
+      string.html_safe
     elsif options[:remote] == true
-      link_to string.html_safe, trip_path(trip), {:class => 'trip', :rel => trip.id}
+      link_to(string, trip_path(trip), {:class => 'trip', :rel => trip.id})
     else
-      link_to string.html_safe, trip_path(trip)
+      link_to(string, trip_path(trip))
     end
   end
   
