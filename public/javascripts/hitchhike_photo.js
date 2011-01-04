@@ -269,23 +269,24 @@ $(
           // if (data.distance){
           //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" )
           // }
-
-          // Add name if it exists
-          if (data.person.name != null && data.person.name.length){
-            arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" )
-          }
-          // Add Occupation if it exists.
-          if (data.person.occupation != null && data.person.occupation.length){
-            arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" )
-          }
+          if (data.person != null){
+            // Add name if it exists
+            if (data.person.name != null && data.person.name.length){
+              arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" )
+            }
+            // Add Occupation if it exists.
+            if (data.person.occupation != null && data.person.occupation.length){
+              arrParts.push( "<dt>Occupation</dt><dd>" + data.person.occupation + "</dd>" )
+            }
           
-          // Add Mission if it exists.
-          if (data.person.mission != null && data.person.mission.length){
-            arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" )
-          }
-          // Add Origin if it exists.
-          if (data.person.origin != null && data.person.origin.length){
-            arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>")
+            // Add Mission if it exists.
+            if (data.person.mission != null && data.person.mission.length){
+              arrParts.push( "<dt>Mission</dt><dd>" + data.person.mission + "</dd>" )
+            }
+            // Add Origin if it exists.
+            if (data.person.origin != null && data.person.origin.length){
+              arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>")
+            }
           }
 
            // Add Story if it exists.

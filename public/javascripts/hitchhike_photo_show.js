@@ -173,11 +173,7 @@ $(
       // Add start LI (with potential class).
       arrParts.push( "<dl>" )
 
-          // // Add distance
-          // if (data.distance){
-          //   arrParts.push( "<dt>Distance</dt><dd>" + GetDistance(data.distance) + "</dd>" )
-          // }
-
+        if (data.person != null) {
           // Add name if it exists
           if (data.person.name != null && data.person.name.length){
             arrParts.push( "<dt>Name</dt><dd>" + data.person.name + "</dd>" )
@@ -195,6 +191,7 @@ $(
           if (data.person.origin != null && data.person.origin.length){
             arrParts.push( "<dt>Origin</dt><dd> " + data.person.origin +"</dd>")
           }
+        }
 
            // Add Story if it exists.
            if (data.story != null){
