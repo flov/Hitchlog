@@ -57,10 +57,6 @@ The current flow of documenting hitchhikes:
 Upcoming Features / TODOs
 -------
 
-* Graphs:
-  By telling the app from where to where you went, it creates statistical data:
-  Countries where you hitchhiked should be displayed in a pie-chart graph.
-
 * Implementation with other sites:
   - combining the [Mediawiki API](http://www.mediawiki.org/wiki/API:Login) of hitchwiki  with the
     Hitchhike.me Login process
