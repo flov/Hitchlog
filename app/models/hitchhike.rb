@@ -27,8 +27,8 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def to_param
-    from_param = trip.from.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
-    to_param   = trip.to.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    from_param = trip.from.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
+    to_param   = trip.to.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
     "#{id}-#{from_param}->#{to_param}"
   end
   

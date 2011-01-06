@@ -23,7 +23,7 @@ class HitchhikesController < ApplicationController
     if @hitchhike.save
       if params[:hitchhike][:photo].blank?
         flash[:notice] = "Thanks for creating a new hitchhike."
-        redirect_to trips_path
+        redirect_to hitchhike_path(@hitchhike)
       else
         render :action => "crop"
       end
@@ -43,7 +43,7 @@ class HitchhikesController < ApplicationController
     if @hitchhike.update_attributes(params[:hitchhike])
       if params[:hitchhike][:photo].blank?
         flash[:notice] = "Successfully updated hitchhike."
-        redirect_to trips_path
+        redirect_to hitchhike_path(@hitchhike)
       else
         render :action => "crop"
       end
