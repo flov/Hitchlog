@@ -15,10 +15,19 @@ module HitchhikesHelper
         attribute = "#{attribute} minutes"
       end
       if name_of_attr == 'Story'
-        attribute = attribute[0..150] + '...'
+        attribute = truncate(attribute)
       end
       "#{name_of_attr}: #{attribute}<br/>".html_safe
     end
+  end
+  
+  def show_available_images_for_attributes(hitchhike)
+    array = []
+    array << photo_image if hitchhike.photo.file?
+    array << user_image if hitchhike.person
+    array << story_image if hitchhike.story
+    string = array.join(' ')
+    string.html_safe
   end
   
   def link_to_hitchhike(hitchhike)
@@ -27,6 +36,10 @@ module HitchhikesHelper
     else
       link_to "show this hitchhike", hitchhike_path(hitchhike)
     end
+  end
+  
+  def this_is_your_hitchhike(user)
+    "This is your entry, #{link_to 'edit this hitchhike', edit_hitchhike_path(@hitchhike)}".html_safe if current_user == user
   end
   
   def human_hours(hours)

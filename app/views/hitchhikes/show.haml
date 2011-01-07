@@ -3,10 +3,9 @@
 -content_for :topmenu do
   = render 'layouts/hitchhike_photo'
 
-%p
-  = "This is your entry, #{link_to 'edit this hitchhike', edit_hitchhike_path(@hitchhike)}".html_safe if current_user == @hitchhike.trip.user
-
 %h1= @hitchhike.title
+%p= this_is_your_hitchhike(@hitchhike.trip.user)
+
 %ul.hitchhike-subtitle 
   %li="By #{link_to_user(@hitchhike.trip.user)}".html_safe
   %li="#{@hitchhike.trip.to_date}"
