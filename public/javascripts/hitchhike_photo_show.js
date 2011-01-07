@@ -1,31 +1,22 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
 $(
 	function(){
-		// Keep track of properties of the photo details.
-		var objBottomProperties = { Min: "-52px", Max: "0px" }		
-		// The timer for mouseing out of the site photo area.
-		var objMouseOutTimeout = null
-		// Keep track of which direction we are animating in.
-		var objIsAnimatingSitePhotoDetails = { Show: false, Hide: false }
-		// Keep track of site photo XHR request.
-		var objSitePhotoRequest = null
-
     // GOOGLE MAPS:
     // I initiate the Map and associate it with the #map_canvas div
     // Because it is necessary to define a start location i just chose
     // my home location and set the zoom level to 1.
-    var startlocation = new google.maps.LatLng(51.850033, 10.6500523)
+    
+    var directionsDisplay = new google.maps.DirectionsRenderer()
+    var directionsService = new google.maps.DirectionsService()
+    var map;
+    
+    var startlocation = new google.maps.LatLng(33.431441,61.523438)
     var myOptions = {
-      zoom: 5,
+      zoom: 1,
       mapTypeId: google.maps.MapTypeId.HYBRID,
       center: startlocation
     }
 
-    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
-    // I get the DirectionServices from the Google Maps API V3.
-    var directionsDisplay = new google.maps.DirectionsRenderer()
-    var directionsService = new google.maps.DirectionsService()
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
     directionsDisplay.setMap(map)
 
     // I execute this function whenever the routes need to be set again
@@ -43,11 +34,21 @@ $(
         }
       })
     }
+    
     url = window.location.pathname.split("/").pop()
     $.getJSON(url + ".json", function(data){
-      SetNewSitePhotoDetails(data)      
-      SetNewRoute(data.from, data.to)      
+      SetNewSitePhotoDetails(data)
+      SetNewRoute(data.from, data.to)
     })
+		
+		// Keep track of properties of the photo details.
+		var objBottomProperties = { Min: "-52px", Max: "0px" }		
+		// The timer for mouseing out of the site photo area.
+		var objMouseOutTimeout = null
+		// Keep track of which direction we are animating in.
+		var objIsAnimatingSitePhotoDetails = { Show: false, Hide: false }
+		// Keep track of site photo XHR request.
+		var objSitePhotoRequest = null
 		
 		// I show the site photo details (if necesssary).
 		function ShowSitePhotoDetails(){
