@@ -7,7 +7,4 @@ module ApplicationHelper
     render :partial => 'shared/uservoice_feedback'
   end
   
-  def user_image
-    image_tag("icons/user.png")
-  end
 end
