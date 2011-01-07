@@ -2,26 +2,12 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(
 	function(){
-		// Get DOM references.
-		var jPhotoArea = $( "#hitchhike-photo" )
-		var jPhoto = $( "#hitchhike-photo-photo" )
-		var jPhotoDetails = $( "#hitchhike-photo-details" )
-		var jHitchhikeDetails = $( "#hitchhike-details" )
-		var jPhotoDescription = $( "#site-photo-details-description" )
-		var jPhotoLink = $( "#site-photo-details-link" )
-		var jPhotoContacts = $( "#site-photo-details-contacts" )
-		var jAjaxLoader = $( "#hitchhike-photo-loader" )
-		var jMapCanvas = $( "#map_canvas" )
-		
 		// Keep track of properties of the photo details.
-		var objBottomProperties = { Min: "-52px", Max: "0px" }
-		
+		var objBottomProperties = { Min: "-52px", Max: "0px" }		
 		// The timer for mouseing out of the site photo area.
 		var objMouseOutTimeout = null
-		
 		// Keep track of which direction we are animating in.
 		var objIsAnimatingSitePhotoDetails = { Show: false, Hide: false }
-			
 		// Keep track of site photo XHR request.
 		var objSitePhotoRequest = null
 
@@ -31,7 +17,7 @@ $(
     // my home location and set the zoom level to 1.
     var startlocation = new google.maps.LatLng(51.850033, 10.6500523)
     var myOptions = {
-      zoom: 1,
+      zoom: 5,
       mapTypeId: google.maps.MapTypeId.HYBRID,
       center: startlocation
     }
@@ -70,14 +56,14 @@ $(
 			// 2. Currently hiding the photo details.
 			if (!objIsAnimatingSitePhotoDetails.Show ||	objIsAnimatingSitePhotoDetails.Hide	)	{
 				// Check to see if we need to stop any animation.
-				if (objIsAnimatingSitePhotoDetails.Hide){ jPhotoDetails.stop()	}
+				if (objIsAnimatingSitePhotoDetails.Hide){ $( "#hitchhike-photo-details" ).stop()	}
 				
 				// Flag the animations.
 				objIsAnimatingSitePhotoDetails.Show = true
 				objIsAnimatingSitePhotoDetails.Hide = false
 				
 				// Stop any existing animation and show the details.
-				jPhotoDetails.animate({	bottom: objBottomProperties.Max	},
+				$( "#hitchhike-photo-details" ).animate({	bottom: objBottomProperties.Max	},
 					{
 						duration: 150,
 						
@@ -99,7 +85,7 @@ $(
 			objIsAnimatingSitePhotoDetails.Hide = true
 		
 			// Slide details down.
-			jPhotoDetails.animate(
+			$( "#hitchhike-photo-details" ).animate(
 			  { bottom: objBottomProperties.Min	},
 				{
 					duration: 100,
@@ -148,24 +134,23 @@ $(
 
 		function SetNewSitePhotoDetails( data ){
       // Set src of Photo
-      jPhoto.attr({
+      $( "#hitchhike-photo-photo" ).attr({
     		src: data.photo.small,
     		alt: data.title,
     		rel: data.id
     	})
 
       // Add Title to Photo
-      jPhotoDescription.html( "From " + data.from + " to " + data.to + " with " + data.rides + " rides")
+      $( "#site-photo-details-description" ).html( "From " + data.from + " to " + data.to + " with " + data.rides + " rides")
       $("#site-photo-distance").html(GetDistance(data.distance) + " by <a href='/hitchhikers/"+data.username+"'>" +
                                     data.username + "</a>")
       
       // Add Large Photo Link
-      jPhotoLink.attr("href", data.photo.large)	
+      $( "#site-photo-details-link" ).attr("href", data.photo.large)	
 
       // Adding People to Description:
     	// Update the hitchhike-description. In order to do that, we have to build up the elements.
     	// Start out by clearing what's there.
-    	jHitchhikeDetails.empty()
       $('#hitchhike-story').empty()
       
       var arrParts = []
@@ -208,20 +193,18 @@ $(
            
            // Add closing LI.
            arrParts.push( "</dl>" )
-           // Add item to list.
-           jHitchhikeDetails.append( arrParts.join( "" ) )
     }
 
     
 		// I handle the mouse over of the photo area.
-		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).mouseover(
+		$( [] ).add( $( "#hitchhike-photo" ) ).add( $( "#hitchhike-photo-details" ) ).mouseover(
 			function(){
 				SitePhotoMouseOverHandler()
 				return( false )
 			})
 		
 		// I handle the mouse out of the photo area.
-		$( [] ).add( jPhotoArea ).add( jPhotoDetails ).mouseout(
+		$( [] ).add( $( "#hitchhike-photo" ) ).add( $( "#hitchhike-photo-details" ) ).mouseout(
 			function(){
 				SitePhotoMouseOutHandler()
 				return( false )
