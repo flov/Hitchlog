@@ -1,12 +1,20 @@
 module HitchhikesHelper
   def distance(distance_in_meters)
     if distance_in_meters > 0
-      "#{distance_in_meters / 1000} km" 
+      "#{distance_in_meters / 1000}km" 
     elsif distance_in_meters == -5
       "no results for this route"
     else
       "unknown distance"
     end
+  end
+  
+  def show_photo_link(hitchhike)
+    "(#{link_to 'photo link', hitchhike.photo(:large)})".html_safe if hitchhike.photo.file?
+  end
+
+  def show_ordinal_of_ride(hitchhike)
+    "#{number_to_ordinal(hitchhike.no_in_trip)} ride"
   end
   
   def show_attribute(name_of_attr, attribute, options = {})
@@ -61,7 +69,7 @@ module HitchhikesHelper
   end  
   
   def human_minutes(minutes)
-    pluralize(minutes, 'minute')
+    "#{minutes}min"
   end
 
   def number_to_ordinal(num)

@@ -2,18 +2,18 @@
   #map_canvas
   #hitchhike-photo
     #hitchhike-photo-loader Loading...
-    - if @hitchhike
-      =link_to @hitchhike, hitchhike_path(@hitchhike.prev), :id => "hitchhike-photo-left"
-      =link_to @hitchhike, hitchhike_path(@hitchhike.next), :id => "hitchhike-photo-right"
-    -else
-      %a#hitchhike-photo-left Prev
-      %a#hitchhike-photo-right Next    
+    =link_to 'Prev', hitchhike_path(hitchhike.prev), :id => "hitchhike-photo-left"
+    =link_to 'Next', hitchhike_path(hitchhike.next), :id => "hitchhike-photo-right"
     #hitchhike-photo-details
       %p
-        %span
-          = "#{number_to_ordinal(@hitchhike.no_in_trip)} ride going from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}"
-          = "(#{link_to 'photo link', @hitchhike.photo(:large)})".html_safe unless @hitchhike.photo.file?
+        / = link_to_user(hitchhike.trip.user)
+        / = "waited #{human_minutes(hitchhike.waiting_time)} for his" if hitchhike.waiting_time
+        = link_to_user(hitchhike.trip.user)
+        = "hitchhiked #{distance(hitchhike.trip.distance)} from"
+        %span#hitchhike-from= hitchhike.trip.from
+        to 
+        %span#hitchhike-to= hitchhike.trip.to
         %br/
-        %span
-          = "#{distance(@hitchhike.trip.distance)}, hitchhiked by #{link_to h(@hitchhike.trip.user), user_path(@hitchhike.trip.user)}".html_safe
-    = image_tag @hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
+        = show_ordinal_of_ride(hitchhike)
+        = show_photo_link(hitchhike)
+    = image_tag hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
