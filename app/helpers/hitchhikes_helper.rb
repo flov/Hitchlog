@@ -22,7 +22,11 @@ module HitchhikesHelper
   end
 
   def ride_took(hitchhike)
-    "ride took #{human_hours(hitchhike.duration)}" if hitchhike.trip.duration
+    "ride took #{human_hours(hitchhike.duration)}" if hitchhike.duration
+  end
+  
+  def trip_and_ride_took(hitchhike)
+    [trip_took(hitchhike), ride_took(hitchhike)].compact.join(', ')
   end
     
   def show_available_images_for_attributes(hitchhike)
