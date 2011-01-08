@@ -5,9 +5,9 @@
 %p
   Hitchhike.me is an application that serves as a platform for hitchhikers to log
   their personal hitchhiking experience.
-  It aims at giving an authentic view on hitchhiking untouched of it's bad reputation
-  that is spread by public media and movies.
-  / Hitchhikers can get in touch with other hitchhikers who already have some experience.
+  It gives an authentic view on hitchhiking untouched of it's bad reputation
+  that is spread by public media and movies and tries to make the world a more hitchhiker
+  friendly place.
 
 %p
   The information that is entered by hitchhikers generates demographic data 
@@ -15,23 +15,29 @@
   If you have an idea on interesting features that we could implement, please post it in the 
   Feedback forum on the left.
 
-%h2 How to contribute
-%p
-  There are many ways to contribute to <a href='http://hitchhike.me'>Hitchhike.me</a>
-  and the easiest way is to <b>give feedback.</b> 
-  If you have a great idea, but you don't like the interface or if
-  you have a question, just click on the feedback link on the <b>&larr;</b> left and enter your 
-  thoughts, or send 
-  =link_to @flov, user_path(@flov)
-  an email: flov at hitchhike.me
+%h2 Contribute
 .float_right
   =image_tag 'open-source.png'
+%p
+  = link_to @flov, user_path(@flov)
+  is currently developing this site and he is pretty excited about all its possibilities.
+  The application is completely open-source and it would be lovely if other people would dive into the project
+  and implement their own ideas. So if you feel like coding a feature, don't just wait. Just
+  get the code on <a href='http://github.com/flov/hitchhike.me'>Github</a> and start rolling.
+  It runs on Ruby on Rails 3 and uses cucumber and rspec for BDD testing.
 
 %p
-  The application is completely open-source and we would love it if other people would dive into the project
-  and implement their own ideas. So if you are a ruby on rails developer, you can participate by forking the project at 
-  <a href='http://github.com/flov/hitchhike.me'>Github</a>. It runs on Ruby on Rails 3 and uses cucumber and rspec
-  for BDD testing.
+  There are many ways to contribute to <a href='http://hitchhike.me'>Hitchhike.me</a>.
+  From spreading the word to your friends and fellow hitchhikers to coding your own feature.
+  If you feel like this application is a great idea, give it a shout on twitter, facebook or
+  whatever social medium you feel good with.
+  If you have a great idea, don't bother with giving some feedback by
+  clicking on the feedback link on the <b>&larr;</b> left and enter your 
+  thoughts, or send 
+  =link_to @flov, user_path(@flov)
+  an email: flov@hitchhike.me
+  
+
   
 %h2 Hitchhike.me supports
 .about-paragraph
@@ -49,10 +55,6 @@
     people they meet on the road. As such, the magazine is a great way 
     to create further bonding between hitchhikers, and to have something 
     we can give away that is representable for our culture.
-
-%h2 Upcoming features
-%p
-  Autocompletion for city forms 
 
 / .contributer_picture.float_left
 /   = image_tag 'http://en.gravatar.com/userimage/9468087/aa45ca214ba94d19c02ef45c807b3469.jpg?size=80'
