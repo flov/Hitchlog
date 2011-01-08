@@ -16,26 +16,14 @@ module HitchhikesHelper
   def show_ordinal_of_ride(hitchhike)
     "#{number_to_ordinal(hitchhike.no_in_trip)} ride"
   end
-  
-  def show_attribute(name_of_attr, attribute, options = {})
-    unless attribute.blank?
-      if options[:time] == :minutes
-        attribute = "#{attribute} minutes"
-      end
-      if name_of_attr == 'Story'
-        attribute = truncate(attribute)
-      end
-      "#{name_of_attr}: #{attribute}<br/>".html_safe
-    end
-  end
-  
+    
   def show_available_images_for_attributes(hitchhike)
     array = []
     array << photo_image if hitchhike.photo.file?
     array << user_image if hitchhike.person
     array << story_image if hitchhike.story
     string = array.join(' ')
-    string.html_safe
+    "#{string}<br/>".html_safe unless string.empty?
   end
   
   def link_to_hitchhike(hitchhike)

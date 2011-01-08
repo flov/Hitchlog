@@ -1,19 +1,15 @@
 - for hitchhike in trip.hitchhikes
   %li
     = show_available_images_for_attributes(hitchhike)
-    %br
-    = "Title: #{hitchhike.title}" unless hitchhike.title.blank?
-    %br
-    = "Story: #{truncate(hitchhike.story, :length => 120)}" unless hitchhike.story.blank?
-    %br
-    = "Waiting Time: #{pluralize(hitchhike.waiting_time, 'minute')}"
-    %br
-    = show_attribute("Duration", human_hours(hitchhike.duration)) unless hitchhike.duration.blank?
+    = "Title: #{h(hitchhike.title)}<br/>".html_safe unless hitchhike.title.blank?
+    = "Story: #{truncate(hitchhike.story, :length => 120)}<br/>".html_safe unless hitchhike.story.blank?
+    = "Waiting Time: #{pluralize(hitchhike.waiting_time, 'minute')}</br>".html_safe unless hitchhike.waiting_time.blank?
+    = "Duration: #{human_hours(hitchhike.duration)}<br/>".html_safe unless hitchhike.duration.blank?
     - unless hitchhike.person.nil?
       About the driver:
       %ul.person
         - unless hitchhike.person.name.blank?
-          %li= "Name: #{h(hitchhike.person.name)}" 
+          %li= "Name: #{h(hitchhike.person.name)}"
         - unless hitchhike.person.occupation.blank?
           %li= "Occupation: #{h(hitchhike.person.occupation)}"
         - unless hitchhike.person.mission.blank?
