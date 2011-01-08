@@ -1,6 +1,8 @@
 class Trip < ActiveRecord::Base
   has_many :hitchhikes, :dependent => :destroy
   belongs_to :user
+
+  default_scope :order => 'created_at ASC'
   
   validates :from, :presence => true
   validates :to, :presence => true

@@ -1,3 +1,6 @@
 Expand Navigation:
  - your profile
  - manage trips/hitchhikes
+ 
+Timeline:
+ - I should be able to see a timeline of hitchhikes when I go to the users hitchhikes page.
