@@ -10,14 +10,10 @@
       %a#hitchhike-photo-right Next    
     #hitchhike-photo-details
       %p
-        %span#site-photo-details-description= @hitchhike
-        %em
-          (
-          %a#site-photo-details-link{:href => ""} photo link
-          )
-          %br/
-          %span#site-photo-distance
-    - if @hitchhike && @hitchhike.photo.file?
-      = image_tag @hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
-    - else
-      %img#hitchhike-photo-photo/
+        %span
+          = "#{number_to_ordinal(@hitchhike.no_in_trip)} ride going from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}"
+          = "(#{link_to 'photo link', @hitchhike.photo(:large)})".html_safe unless @hitchhike.photo.file?
+        %br/
+        %span
+          = "#{distance(@hitchhike.trip.distance)}, hitchhiked by #{link_to h(@hitchhike.trip.user), user_path(@hitchhike.trip.user)}".html_safe
+    = image_tag @hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'

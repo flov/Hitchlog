@@ -1,0 +1,5 @@
+= render 'hitchhikes/show_date', :date => hitchhike.trip.date if hitchhike.trip.date
+%h1= hitchhike.title
+= render 'hitchhikes/hitchhike_subtitle', :hitchhike => hitchhike
+%p= this_is_your_hitchhike(hitchhike.trip.user)
+= BlueCloth.new(hitchhike.story).to_html.html_safe

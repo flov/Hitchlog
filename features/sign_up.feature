@@ -21,5 +21,5 @@ Feature: Sign up
     | Password              | password         |
     | Password confirmation | password         |
     And I press "Sign up"
-    Then I should see "signed up successfully."
+    Then I should see "Thank you for signing up."
     And I should not see "a confirmation was sent to your e-mail."

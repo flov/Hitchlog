@@ -13,7 +13,7 @@ class Hitchhike < ActiveRecord::Base
   concerned_with  :photo_procession
   
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
-  scope :not_empty, where("story IS NOT NULL")
+  scope :not_empty, where("story IS NOT NULL AND story <> ''")
   
   def no_in_trip
     trip.hitchhikes.index(self) + 1

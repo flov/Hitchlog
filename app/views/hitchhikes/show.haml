@@ -1,25 +1,10 @@
 - title("#{number_to_ordinal(@hitchhike.no_in_trip)} Hitchhike from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}")
 
 
-= render 'show_date', :date => @hitchhike.trip.date if @hitchhike.trip.date
-
-%h1= @hitchhike.title
-%ul.hitchhike-subtitle 
-  %li="By #{link_to_user(@hitchhike.trip.user)}".html_safe
-  %li="#{distance(@hitchhike.trip.distance)}"
-  %li="#{number_to_ordinal(@hitchhike.no_in_trip)} ride"
-  %br/
-  - unless @hitchhike.duration.blank?
-    %li="took #{human_hours(@hitchhike.duration)}"
-  - unless @hitchhike.waiting_time.blank?
-    %li="waited #{human_minutes(@hitchhike.waiting_time)}"
-%p= this_is_your_hitchhike(@hitchhike.trip.user)
-
-= BlueCloth.new(@hitchhike.story).to_html.html_safe
-
+= render 'show_hitchhike', :hitchhike => @hitchhike
 
 - content_for :head do
-  = javascript_include_tag 'hitchhike_photo_show'
+  = javascript_include_tag 'hitchhike_photo'
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
 
 -content_for :topmenu do
