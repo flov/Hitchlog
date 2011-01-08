@@ -11,6 +11,7 @@
   = average_drivers_age(@user, @avg_drivers_age)
   = user_wrote_stories(@user, @stories)
   = user_uploaded_photos(@user, @number_of_photos)
+  = "#{@user}'s longest hitchhiking trip was #{distance(@longest_hitchhike)} long<br/>".html_safe
 
 = render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
 

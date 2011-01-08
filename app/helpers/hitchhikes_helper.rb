@@ -26,7 +26,7 @@ module HitchhikesHelper
   end
   
   def trip_and_ride_took(hitchhike)
-    [trip_took(hitchhike), ride_took(hitchhike)].compact.join(', ')
+    [ride_took(hitchhike), trip_took(hitchhike)].compact.join(', ')
   end
     
   def show_available_images_for_attributes(hitchhike)

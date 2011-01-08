@@ -1,9 +1,12 @@
 - if @hitchhike.title
-  - title(@hitchhike.title)
+  - title("#{@hitchhike.title} by #{@hitchhike.trip.user}")
 - else
   - title("#{number_to_ordinal(@hitchhike.no_in_trip)} Hitchhike from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}")
 
-= render 'show_hitchhike', :hitchhike => @hitchhike
+- if @hitchhike.story.blank?
+  = render 'hitchhikes/show_date', :date => @hitchhike.trip.date if @hitchhike.trip.date
+- else
+  = render 'show_hitchhike', :hitchhike => @hitchhike  
 
 - content_for :head do
   = javascript_include_tag 'hitchhike_photo'

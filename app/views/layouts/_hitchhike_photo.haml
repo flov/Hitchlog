@@ -6,8 +6,6 @@
     =link_to 'Next', hitchhike_path(hitchhike.next), :id => "hitchhike-photo-right"
     #hitchhike-photo-details
       %p
-        / = link_to_user(hitchhike.trip.user)
-        / = "waited #{human_minutes(hitchhike.waiting_time)} for his" if hitchhike.waiting_time
         = link_to_user(hitchhike.trip.user)
         = "hitchhiked #{distance(hitchhike.trip.distance)} from"
         %span#hitchhike-from= hitchhike.trip.from

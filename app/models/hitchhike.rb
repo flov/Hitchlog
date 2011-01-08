@@ -39,12 +39,12 @@ class Hitchhike < ActiveRecord::Base
   
   def next
     result = Hitchhike.not_empty.where('id > ?', self.id).first
-    result.nil? ? self.class.first : result
+    result.nil? ? self.class.not_empty.first : result
   end
 
   def prev
     result = Hitchhike.not_empty.where('id < ?', self.id).order('id DESC').first
-    result.nil? ? self.class.last : result
+    result.nil? ? self.class.not_empty.last : result
   end
   
   def self.random_item
