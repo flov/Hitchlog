@@ -1,4 +1,7 @@
-- title("#{number_to_ordinal(@hitchhike.no_in_trip)} Hitchhike from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}")
+- if @hitchhike.title
+  - title(@hitchhike.title)
+- else
+  - title("#{number_to_ordinal(@hitchhike.no_in_trip)} Hitchhike from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}")
 
 = render 'show_hitchhike', :hitchhike => @hitchhike
 
