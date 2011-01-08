@@ -16,6 +16,14 @@ module HitchhikesHelper
   def show_ordinal_of_ride(hitchhike)
     "#{number_to_ordinal(hitchhike.no_in_trip)} ride"
   end
+  
+  def trip_took(hitchhike)
+    "trip took #{human_hours(hitchhike.trip.duration)}" if hitchhike.trip.duration
+  end
+
+  def ride_took(hitchhike)
+    "ride took #{human_hours(hitchhike.duration)}" if hitchhike.trip.duration
+  end
     
   def show_available_images_for_attributes(hitchhike)
     array = []
