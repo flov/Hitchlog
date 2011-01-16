@@ -34,14 +34,13 @@ $(function(){
   var from = $('#hitchhike-from').html()
   var to   = $('#hitchhike-to').html()
   SetNewRoute(from, to)
-		
-	// Keep track of properties of the photo details.
-	var objBottomProperties = { Min: "-52px", Max: "0px" }		
-	// The timer for mouseing out of the site photo area.
+
+
+
+
+  // Keep track of properties of the photo details.
 	var objMouseOutTimeout = null
-	// Keep track of which direction we are animating in.
 	var objIsAnimatingSitePhotoDetails = { Show: false, Hide: false }
-	// Keep track of site photo XHR request.
 	var objSitePhotoRequest = null
 	
 	// I show the site photo details (if necesssary).
@@ -58,7 +57,7 @@ $(function(){
 			objIsAnimatingSitePhotoDetails.Hide = false
 			
 			// Stop any existing animation and show the details.
-			$( "#hitchhike-photo-details" ).animate({	bottom: objBottomProperties.Max	},
+			$( "#hitchhike-photo-details" ).animate({	bottom: '0px'	},
 				{
 					duration: 150,
 					
@@ -80,7 +79,7 @@ $(function(){
 		objIsAnimatingSitePhotoDetails.Hide = true
 		// Slide details down.
 		$( "#hitchhike-photo-details" ).animate(
-		  { bottom: objBottomProperties.Min	},{
+		  { bottom: '-52px'	},{
 				duration: 100,
 				// When complete, flag all animations as being done.
 				complete: function(){

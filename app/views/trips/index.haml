@@ -4,4 +4,5 @@
 
 = link_to 'Log New Trip', new_trip_path if user_signed_in?
 
-= render :partial => 'trips', :locals => {:trips => @trips}
+#trips
+  = render :partial => 'trips/trips', :locals => {:trips => @trips}
