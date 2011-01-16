@@ -5,6 +5,8 @@
     =link_to 'Prev', hitchhike_path(hitchhike.prev), :id => "hitchhike-photo-left"
     =link_to 'Next', hitchhike_path(hitchhike.next), :id => "hitchhike-photo-right"
     #hitchhike-photo-details
+      #hitchhike-detail-close
+        X
       %p
         = link_to_user(hitchhike.trip.user)
         = "hitchhiked #{distance(hitchhike.trip.distance)} from"
@@ -16,3 +18,4 @@
         
         = show_photo_link(hitchhike)
     = image_tag hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
+
