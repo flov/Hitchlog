@@ -9,6 +9,15 @@ module HitchhikesHelper
     end
   end
   
+  def hitchhike_show_title(hitchhike)
+    if !hitchhike.title.blank?
+      title("#{hitchhike.title} by #{hitchhike.trip.user}")
+    else
+      title("#{number_to_ordinal(hitchhike.no_in_trip)} Hitchhike from #{hitchhike.trip.from} to #{hitchhike.trip.to}")
+    end
+  end
+  
+  
   def show_photo_link(hitchhike)
     "(#{link_to 'photo link', hitchhike.photo(:large)})".html_safe if hitchhike.photo.file?
   end

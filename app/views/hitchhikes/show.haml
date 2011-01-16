@@ -1,8 +1,4 @@
-- if @hitchhike.title
-  - title("#{@hitchhike.title} by #{@hitchhike.trip.user}")
-- else
-  - title("#{number_to_ordinal(@hitchhike.no_in_trip)} Hitchhike from #{@hitchhike.trip.from} to #{@hitchhike.trip.to}")
-
+- hitchhike_show_title(@hitchhike)
 - if @hitchhike.story.blank?
   = render 'hitchhikes/show_date', :date => @hitchhike.trip.date if @hitchhike.trip.date
 - else

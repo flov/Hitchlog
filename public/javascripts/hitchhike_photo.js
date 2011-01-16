@@ -35,7 +35,7 @@ $(function(){
   var to   = $('#hitchhike-to').html()
   SetNewRoute(from, to)
 
-  $('#hitchhike-photo-details').click(function(){
-    $(this).animate({bottom: '-=52' })
+  $('#hitchhike-detail-close').click(function(){
+    $(this).parent().animate({bottom: '-=52' })
   })
 	})

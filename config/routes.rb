@@ -14,7 +14,7 @@ PaperclipOnHeroku::Application.routes.draw do
   match 'about' => 'welcome#about'
   match 'hitchhikes.json' => 'hitchhikes#json'
 
-  root :to => "welcome#index"
+  root :to => "welcome#home"
 
   # Sample of regular route:
   # match 'products/:id' => 'catalog#view'

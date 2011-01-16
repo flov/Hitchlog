@@ -15,7 +15,5 @@
         %span#hitchhike-to= hitchhike.trip.to
         %br/
         = "#{show_ordinal_of_ride(hitchhike)}, #{trip_and_ride_took(hitchhike)}" if hitchhike.trip.duration
-        
         = show_photo_link(hitchhike)
     = image_tag hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
-

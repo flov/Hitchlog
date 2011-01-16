@@ -1,0 +1,32 @@
+- title("A Hitchhiker's Logbook")
+
+= render 'content_for_home'
+
+.float_wrapper.home
+  .left
+    %h1.center Hitchlog
+    .statistics
+      .first
+        = @hitchhike_size
+        .subtitle Hitchhikes
+      .second
+        = @story_size
+        .subtitle Stories
+      .third
+        = number_with_delimiter(@hitchhiked_km, :delimiter => ".")
+        .subtitle KM Hitchhiked
+    %p 
+      Hitchlog tries to make the world a more hitchhiker friendly place.<br />
+      By logging the hitchhikers personal experience while hitting the road,
+      the Hitchlog makes it easy to share the experiences on the road and 
+      to give an authentic picture on hitchhiking.
+      
+  -# .right
+  -#   %h2 Statistics
+  -#   %p 
+  -#     138 logged Hitchhikes<br />
+  -#     38 stories<br />
+  -#     29410 km hitchhiked by 5 Hitchhikers
+  -#   %h2 Latest stories
+  -#   %p Long Dance by Flov
+

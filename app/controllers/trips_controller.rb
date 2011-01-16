@@ -21,7 +21,7 @@ class TripsController < ApplicationController
   end
   
   def index
-    @trips = Trip.paginate(:page => params[:page], :per_page => 60)
+    @trips = Trip.order("date ASC").paginate(:page => params[:page], :per_page => 60)
     respond_to do |wants|
       wants.html
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }
