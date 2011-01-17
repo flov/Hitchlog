@@ -20,6 +20,16 @@ class Trip
     save!
   end
   
+  def get_formatted_addresses
+    self.formatted_from = Gmaps.formatted_address(from)
+    self.formatted_to = Gmaps.formatted_address(to)
+  end
+
+  def get_formatted_addresses!
+    get_formatted_addresses
+    save!
+  end
+
   before_update do
     compute_distance
     get_country
