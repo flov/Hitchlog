@@ -42,11 +42,12 @@ module Gmaps
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end
-    formatted_address = "unknown"
+
     if result['status'] == "OK"
-      formatted_address = result['results'].first['formatted_address']
+      result['results'].first['formatted_address']
+    else
+      "unkown"
     end
-    formatted_address
   end
   
   def Gmaps::country(address)
