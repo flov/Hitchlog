@@ -17,6 +17,16 @@ gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 # gem 'hpricot' # only for generating devise views
 # gem 'ruby_parser' # only for generating devise views
 
+group :development do
+  gem "capistrano"
+  gem "capistrano-ext"
+  gem "capistrano_colors", :require => false
+
+  platforms :mri_19 do
+    gem "mongrel", "~> 1.2.0.pre2"
+  end
+end
+
 group :development, :test, :cucumber do
   gem "rspec-rails", '2.1.0'
 end
