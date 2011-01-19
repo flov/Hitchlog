@@ -1,26 +1,32 @@
-class User
+module Chart
   include ActionView::Helpers::TextHelper
   
-  def chart_image
+  def chart_image(trips, user=nil, options={})
+    array = chart_array(trips)
+    user.nil? ? title = '' : title = "Hitchhiked Countries Of #{user}"
+    options[:resolution] ||= '540x200'
+
     "http://chart.apis.google.com/chart?cht=p
-                                       &chs=650x200
-                                       &chd=t:#{chart_numbers}
-                                       &chds=0,#{chart_numbers_max}
-                                       &chl=#{chart_label}
-                                       &chtt=Hitchhiked Countries Of #{username.capitalize}
+                                       &chs=#{options[:resolution]}
+                                       &chd=t:#{chart_numbers(array)}
+                                       &chds=0,#{chart_numbers_max(array)}
+                                       &chl=#{chart_label(array)}
+                                       &chtt=#{title}
                                        &chts=676767,14".gsub(/\n( )+/,'')
   end
 
-  def chart_numbers
+  protected
+
+  def chart_numbers(chart_array)
     # [[2, 627, "Spain"], [3, 73, "The Netherlands"], [3, 129, "United States"], [3, 0, "unknown"], [3, 568, "United Kingdom"], [1, 232, "France"]] 
     chart_array.collect{|i| i.first}.join(",")
   end
   
-  def chart_numbers_max
+  def chart_numbers_max(chart_array)
     chart_array.collect{|i| i.first}.max
   end
   
-  def chart_label
+  def chart_label(chart_array)
     # [[2, 627, "Spain"], ...]
     chart_array.collect do |i| 
       if i[1] > 0
@@ -31,7 +37,7 @@ class User
     end.join("|")
   end
   
-  def chart_array
+  def chart_array(trips)
     numbers = []
     trips.each do |trip| 
       if trip.from_country == trip.to_country

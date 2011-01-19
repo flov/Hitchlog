@@ -1,6 +1,10 @@
 class WelcomeController < ApplicationController
+  include Chart
+
   def home
     @hitchhike = Hitchhike.random_item
+    @chart_image = chart_image(Trip.all)
+
     hitchhikes = Hitchhike.all
     @hitchhike_size = hitchhikes.size
     @story_size = hitchhikes.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size

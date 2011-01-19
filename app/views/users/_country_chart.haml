@@ -1,3 +1,4 @@
 -content_for :head do
   %script{:type => "text/javascript", :src  => "http://www.google.com/jsapi"}  
-="<img src='#{user.chart_image}'/>".html_safe
+="<img src='#{user.chart_image(user.trips, user.to_s, :resolution=>'700x200')}'/>".html_safe
+
