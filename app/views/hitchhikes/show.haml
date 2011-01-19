@@ -1,4 +1,5 @@
 - hitchhike_show_title(@hitchhike)
+%p= this_is_your_hitchhike(@hitchhike.trip.user)
 - if @hitchhike.story.blank?
   = render 'hitchhikes/show_date', :date => @hitchhike.trip.date if @hitchhike.trip.date
 - else

@@ -15,3 +15,14 @@ implement Data:
 implement flattr into page in order to do Donations for hitchhikers
 
 add datepicker for form
+
+Trips:
+  - list hitchhikes instead of trips.
+  - list only hitchhike which contain a photo
+  - show flag instead of Country
+
+Address input field:
+  - make ajax call and check if address is correct.
+
+
+
