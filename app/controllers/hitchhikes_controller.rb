@@ -31,6 +31,16 @@ class HitchhikesController < ApplicationController
       render :action => 'new'
     end
   end
+
+  def delete_photo
+    @hitchhike = Hitchhike.find(params[:id])  
+    if @hitchhike.delete_photo!
+      redirect_to edit_hitchhike_path(@hitchhike)
+    else
+      flash[:error] = 'Could not delete photo'
+      render :edit
+    end
+  end
   
   def edit
     @hitchhike = Hitchhike.find(params[:id])

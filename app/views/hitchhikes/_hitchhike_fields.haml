@@ -46,6 +46,10 @@
     = builder.label :age
     %br/
     = builder.text_field :age
+  - if hitchhike.photo.file?
+    %p
+      = image_tag(hitchhike.photo(:thumb)) 
+      = link_to 'Delete Photo', delete_photo_hitchhike_path(hitchhike), :method => :delete, :confirm => 'Are you sure?'
 %p
   = f.label :photo
   %br/

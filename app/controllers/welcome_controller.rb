@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     @hitchhike = Hitchhike.random_item
     hitchhikes = Hitchhike.all
     @hitchhike_size = hitchhikes.size
-    @story_size = hitchhikes.collect{|hh| hh.story}.flatten.compact.size
+    @story_size = hitchhikes.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
     @hitchhiked_km = Trip.all.collect{|t| t.distance}.flatten.compact.sum / 1000
   end
   

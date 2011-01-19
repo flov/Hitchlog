@@ -10,6 +10,11 @@ class Hitchhike
     reprocess_photo if cropping?
   end
   
+  def delete_photo!
+    self.photo = nil
+    self.save!
+  end
+
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
   end
