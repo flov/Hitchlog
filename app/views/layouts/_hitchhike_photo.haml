@@ -15,4 +15,6 @@
         %span#hitchhike-to= hitchhike.trip.formatted_to
         = "#{show_ordinal_of_ride(hitchhike)}, #{trip_and_ride_took(hitchhike)}" if hitchhike.trip.duration
         = show_photo_link(hitchhike)
+        - unless hitchhike.story.blank?
+          = link_to "go to story", hitchhike_path(hitchhike) unless hitchhike.story.blank?
     = image_tag hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
