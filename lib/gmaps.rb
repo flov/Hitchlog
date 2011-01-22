@@ -59,8 +59,11 @@ module Gmaps
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end
+
     if result['status'] == "OK"
+      country = ''
       result['results'].first['address_components'].each{|address| country = address['long_name'] if address['types'].include?("country")}
+      country
     else
       "unknown"
     end
