@@ -9,7 +9,17 @@ class Trip
     compute_distance
     save!
   end
-  
+
+  def get_city
+    self.from_city = Gmaps.city(from)
+    self.to_city   = Gmaps.city(to)
+  end
+
+  def get_city!
+    get_city
+    save!
+  end
+
   def get_country
     self.from_country = Gmaps.country(from)
     self.to_country   = Gmaps.country(to)
@@ -19,7 +29,7 @@ class Trip
     get_country
     save!
   end
-  
+
   def get_formatted_addresses
     self.formatted_from = Gmaps.formatted_address(from)
     self.formatted_to = Gmaps.formatted_address(to)
@@ -33,10 +43,14 @@ class Trip
   before_update do
     compute_distance
     get_country
+    get_formatted_addresses
+    get_city
   end
 
   before_validation do
     compute_distance
     get_country
+    get_formatted_addresses
+    get_city
   end
 end
