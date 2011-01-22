@@ -59,10 +59,26 @@ module Gmaps
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end
-    country = 'unknown'
     if result['status'] == "OK"
-      result['results'].first['address_components'].each{|address| country = address['long_name'] if address['types'].include?("country")}    
+      result['results'].first['address_components'].each{|address| country = address['long_name'] if address['types'].include?("country")}
+    else
+      "unknown"
     end
-    country
+  end
+
+  def Gmaps::city(address)
+    url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{CGI::escape(address)}&sensor=false"
+    begin
+      data = Net::HTTP.get_response(URI.parse(url)).body
+      result = JSON.parse(data)
+    rescue Exception => e
+      # Should only happen when used offline. Should not happen if online
+      result = {'status' => 'OFFLINE'}
+    end
+    if result['status'] == "OK"
+      result['results'].first['address_components'].first['long_name']
+    else
+      "unknown"
+    end
   end
 end
