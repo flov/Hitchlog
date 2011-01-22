@@ -81,7 +81,7 @@ module Gmaps
     if result['status'] == "OK"
       result['results'].first['address_components'].first['long_name']
     else
-      "unknown"
+      address
     end
   end
 end

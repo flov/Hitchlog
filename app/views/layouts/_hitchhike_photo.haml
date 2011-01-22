@@ -10,9 +10,9 @@
       %p
         = link_to_user(hitchhike.trip.user)
         = "hitchhiked #{distance(hitchhike.trip.distance)} from"
-        %span#hitchhike-from= hitchhike.trip.formatted_from
+        %span#hitchhike-from= hitchhike.trip.from_city
         to 
-        %span#hitchhike-to= hitchhike.trip.formatted_to
+        %span#hitchhike-to= hitchhike.trip.to_city
         = "#{show_ordinal_of_ride(hitchhike)}, #{trip_and_ride_took(hitchhike)}" if hitchhike.trip.duration
         = show_photo_link(hitchhike)
         - unless hitchhike.story.blank?
