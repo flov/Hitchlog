@@ -2,7 +2,11 @@
 
 %h1 Trips:
 
-= link_to 'Log New Trip', new_trip_path if user_signed_in?
+- if user_signed_in?
+  = link_to 'Log New Trip', new_trip_path 
+- else
+  = render 'shared/sign_in_and_out'
+  to log a new trip.
 
 #trips
   = render :partial => 'trips/trips', :locals => {:trips => @trips}

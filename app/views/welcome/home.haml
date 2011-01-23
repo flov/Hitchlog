@@ -1,6 +1,6 @@
 - title("A Hitchhiker's Logbook")
 
-= render 'content_for_home'
+= render 'content_for_home' unless @hitchhike.nil?
 
 .float_wrapper.home
   .header
