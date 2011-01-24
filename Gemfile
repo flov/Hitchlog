@@ -23,11 +23,8 @@ group :development do
   end
 end
 
-group :development, :test, :cucumber do
-  gem "rspec-rails", '2.1.0'
-end
-
 group :test, :cucumber do
+  gem "rspec-rails", '2.1.0'
   gem "database_cleaner"
   gem 'cucumber', '0.9.4'
   gem 'cucumber-rails', '0.3.2'
@@ -35,8 +32,5 @@ group :test, :cucumber do
   gem "capybara"
   gem "nokogiri"
   gem "shoulda"
-  # gem "fakeweb"
-  # gem "timecop"
-  # gem "treetop"
-  # gem "launchy"
+  gem "faker"
 end

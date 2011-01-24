@@ -1,13 +1,26 @@
 - hitchhike_show_title(@hitchhike)
-%p= this_is_your_hitchhike(@hitchhike.trip.user)
-- if @hitchhike.story.blank?
+
+.hitchhike_show_box
   = render 'hitchhikes/show_date', :date => @hitchhike.trip.start if @hitchhike.trip.start
-- else
-  = render 'show_hitchhike', :hitchhike => @hitchhike  
+  %h1= @hitchhike.trip
+  %p
+    = link_to @hitchhike.trip.user, user_path(@hitchhike.trip.user)
+    rode ca.
+    %b= distance(@hitchhike.trip.distance)
+    - if trip_has_duration(@hitchhike)
+      in
+      %b= human_hours(@hitchhike.trip.new_duration)
+    on the way from #{@hitchhike.trip.from_city} to #{@hitchhike.trip.to_city}.<br />
+    This is the #{show_ordinal_of_ride(@hitchhike)} out of #{@hitchhike.trip.hitchhikes.size}
+    rides
+    = "and it took <b>#{human_hours(@hitchhike.duration)}</b>.".html_safe unless @hitchhike.duration.blank?
+  %p= this_is_your_hitchhike(@hitchhike.trip.user)
 
-- content_for :head do
-  = javascript_include_tag 'hitchhike_photo'
-  %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
+  .hitchhike_buttons
+    - @hitchhike.trip.hitchhikes.each_with_index do |hitchhike, i|
+      %div{:class => div_attributes_for_hitchhike_button(i, hitchhike)}
+        = show_ordinal_ride(i, hitchhike)
 
-- content_for :topmenu do
-  = render 'layouts/hitchhike_photo', :hitchhike => @hitchhike
+= render 'show_hitchhike', :hitchhike => @hitchhike unless @hitchhike.story.blank?
+
+= render 'content_for_show_hitchhike'

@@ -1,5 +1,5 @@
-Hitchhike.me
-----------
+Hitchlog
+--------
 
 Hitchhiking is my favorite way of transportation. Whenever I had time to
 travel i chose hitchhiking before car pooling and trains. It is a great way
@@ -59,7 +59,7 @@ Upcoming Features / TODOs
 
 * Implementation with other sites:
   - combining the [Mediawiki API](http://www.mediawiki.org/wiki/API:Login) of hitchwiki  with the
-    Hitchhike.me Login process
+    Hitchlog Login process
   - Javascript embed to show your personal hitchhiking experiences on other sites like hitchwiki
 
 Environment

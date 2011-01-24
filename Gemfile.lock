@@ -70,6 +70,7 @@ GEM
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
+    faker (0.3.1)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gem_plugin (0.2.3)
@@ -156,6 +157,7 @@ DEPENDENCIES
   devise
   escape_utils
   factory_girl_rails
+  faker
   haml (~> 3.0.21)
   hirb
   hoptoad_notifier

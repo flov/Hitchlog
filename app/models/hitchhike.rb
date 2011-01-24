@@ -15,11 +15,6 @@ class Hitchhike < ActiveRecord::Base
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
   scope :not_empty, where("story IS NOT NULL AND story <> '' OR photo_file_name IS NOT NULL")
   
-  
-  def no_in_trip
-    trip.hitchhikes.index(self) + 1
-  end
-  
   def to_s
     arr = [title, person.to_s].compact
     arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?
@@ -32,7 +27,7 @@ class Hitchhike < ActiveRecord::Base
     to_param   = trip.to.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
     "#{id}-#{from_param}->#{to_param}"
   end
-  
+
   def empty?
     [photo_file_name, title, story, waiting_time, duration, person.nil?].compact.delete_if{|x| x == '' || x == true}.empty?
   end
@@ -69,4 +64,8 @@ class Hitchhike < ActiveRecord::Base
     end
     JSON.pretty_generate(hash)
   end
+
+  def no_in_trip
+    trip.hitchhikes.index(self) + 1
+  end  
 end

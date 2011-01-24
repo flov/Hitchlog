@@ -26,8 +26,8 @@ end
 
 Factory.define :hitchhike do |hitchhike|
   hitchhike.association(:trip)
-  hitchhike.title{'The hitchhike around the world'}
-  hitchhike.story{"**AMAZINHG STORY!!!**"}
+  hitchhike.title{'A hitchhike around the world'}
+  hitchhike.story{Faker::Lorem.paragraph}
   hitchhike.waiting_time{15}
   hitchhike.association(:trip)
   hitchhike.duration{4}

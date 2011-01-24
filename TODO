@@ -25,3 +25,12 @@ Address input field:
   - make ajax call and check if address is correct.
 
 - Add Comments to Stories
+
+
+- Statistic section:
+  ideas:
+  - Average waiting time per country
+  - Cloud of occupation of driver
+  - Closer look on countries:
+    - Germany:
+      - how much Germans have taken people in Germany

@@ -4,35 +4,32 @@
     padding: 3px
     font-size: 15px
 acronym.published
-  position: absolute
-  margin: 5px 0 0 -105px
   display: block
   text-align: center
-  // float: left
   font-family: Arial, Helvetica, sans-serif 
   border-bottom: none
   text-shadow: #7C7C70 0px 1px 0px
-
-.pub-month
-  display: block
-  font-size: .9em
-  margin: 0
-  padding: 5px
-  line-height: 11px
-  float: right
-  text-transform: uppercase
-  color: black
-  padding: 12px 14px 0 7px
-  height: 35px
-.pub-date 
-  background-repeat: no-repeat
+  width: 73px
   float: left
-  display: block
-  font-size: 25px
-  margin: 0 
-  padding: 13px 5px 0 19px
-  color: black
-  height: 35px
+  margin-right: 10px
+
+  .pub-month
+    float: right
+    margin-top: 3px
+    display: block
+    font-size: 13px
+    line-height: normal
+    text-transform: uppercase
+    color: black
+    
+  .pub-date 
+    float: left
+    background-repeat: no-repeat
+    display: block
+    line-height: normal
+    font-size: 33px
+    margin: 0 
+    color: black
 
 .suggest_data
   float: right
@@ -88,5 +85,19 @@ h3.date
     margin: 10px 0
   li
     color: black
-    
-  
+
+#container
+  .hitchhike_show_box
+    border: 1px solid #bbb 
+    margin-bottom: 20px
+    //#DCDC96>#FEFBDB 
+    padding: 10px
+    //background-color: #FEFBDB
+    +rounded_corners(5px)
+    +clearfix
+    h1
+      line-height: normal
+      font-size: 34px
+      margin: 0
+    p
+      margin: 0

@@ -35,4 +35,7 @@ module TripsHelper
     end
   end
   
+  def trip_has_duration(trip)
+    (!trip.duration.nil? and trip.duration > 0) or (trip.start.nil? and trip.end.nil?)
+  end  
 end

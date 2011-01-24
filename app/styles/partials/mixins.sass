@@ -1,0 +1,26 @@
+// Mixins:
+// Cross Browser Transparency (Yuck!)
+
+=clearfix
+  :overflow auto
+  :overflow -moz-scrollbars-none
+  // This makes ie6 get layout
+  :display inline-block
+  // and this puts it back to block
+  &
+    :display block
+
+= opacity(!opacity)
+  :opacity= !opacity
+  :-moz-opacity= !opacity
+  :-khtml-opacity= !opacity
+  :-ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round(!opacity*100) + ")"
+  :filter= "alpha(opacity=" + round(!opacity*100) + ")"
+
+
+= rounded_corners ($radius)
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+
+

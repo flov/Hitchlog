@@ -1,0 +1,74 @@
+.last
+  .hitchhike_button
+    //border-left: 0px
+    +rounded_corners(0 5px 5px 0)
+.first
+  .hitchhike_button
+    +rounded_corners(5px 0 0 5px)
+.first_and_last
+  .hitchhike_button
+    +rounded_corners(5px)
+.hitchhike_buttons
+  margin-top: 2px
+  +clearfix
+.current    
+  .hitchhike_button
+    color: black
+    &:hover
+      color: white
+    background: -webkit-gradient(linear, center bottom, center top, from(#ececec), to(#fff))
+    background: -moz-linear-gradient(90deg, #ececec, #f4f4f4)
+    -moz-box-shadow: 0 1px 0 #ececec
+    -webkit-box-shadow: 0 1px 0 #ececec
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4f4f4',endColorstr='#ececec')
+.active
+  .hitchhike_button
+    color: black
+    &:hover
+      border: 1px solid #2e63a5
+      color: #fff
+      text-decoration: none
+      text-shadow: 0 -1px 0 #2e63a5
+      background: #3570b8
+      background: -webkit-gradient(linear, center bottom, center top, from(#3570b8), to(#5e9ae2))
+      background: -moz-linear-gradient(90deg, #3570b8, #5e9ae2)
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3570b8',endColorstr='#5e9ae2')
+      .icon, #hitchhike_button:active .icon
+        background-position: -21px 52%    
+
+.hitchhike_button
+  border: 1px solid #d4d4d4
+  color: #666
+  display: block
+  float: left
+  font-size: 11px
+  font-weight: bold
+  line-height: 10px
+  padding: 5px 9px 5px 8px
+  text-align: center
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7)
+  background: #ececec
+  background: -webkit-gradient(linear, center bottom, center top, from(#dddddd), to(#ececec))
+  background: -moz-linear-gradient(90deg, #ececec, #f4f4f4)
+  -moz-box-shadow: 0 1px 0 #ececec
+  -webkit-box-shadow: 0 1px 0 #ececec
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4f4f4',endColorstr='#ececec')
+  //&:visited
+  //&:hover
+    //border: 1px solid #2e63a5
+    //color: #fff
+    //text-decoration: none
+    //text-shadow: 0 -1px 0 #2e63a5
+    //background: #3570b8
+    //background: -webkit-gradient(linear, center bottom, center top, from(#3570b8), to(#5e9ae2))
+    //background: -moz-linear-gradient(90deg, #3570b8, #5e9ae2)
+    //filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3570b8',endColorstr='#5e9ae2')
+    //.icon, #hitchhike_button:active .icon
+      //background-position: -21px 52%
+  //&:active
+    //border: 1px solid #2e63a5
+    //color: #fff
+    //text-decoration: none
+    //text-shadow: 0 -1px 0 #2e63a5
+    //background: -moz-linear-gradient(90deg, #558bcb, #336fb7)
+

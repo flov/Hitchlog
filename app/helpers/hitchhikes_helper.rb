@@ -16,18 +16,21 @@ module HitchhikesHelper
       title("#{number_to_ordinal(hitchhike.no_in_trip)} Hitchhike from #{hitchhike.trip.from} to #{hitchhike.trip.to}")
     end
   end
-  
-  
+
   def show_photo_link(hitchhike)
     "(#{link_to 'photo link', hitchhike.photo(:large)})".html_safe if hitchhike.photo.file?
   end
 
   def show_ordinal_of_ride(hitchhike)
-    "#{number_to_ordinal(hitchhike.no_in_trip)} ride"
+    number_to_ordinal(hitchhike.no_in_trip)
   end
   
   def trip_took(hitchhike)
-    "trip took #{human_hours(hitchhike.trip.duration)}" if hitchhike.trip.duration
+    if !hitchhike.trip.start.blank? and !hitchhike.trip.end.blank?
+      "trip took #{human_seconds(hitchhike.trip.end - hitchhike.trip.start)}" 
+    elsif hitchhike.trip.duration
+      "trip took #{human_hours(hitchhike.trip.duration)}" 
+    end
   end
 
   def ride_took(hitchhike)
@@ -56,40 +59,35 @@ module HitchhikesHelper
   end
   
   def this_is_your_hitchhike(user)
-    "This is your entry, #{link_to 'edit this hitchhike', edit_hitchhike_path(@hitchhike)}".html_safe if current_user == user
+    if current_user == user
+      "This is your entry, #{link_to 'edit hitchhike', edit_hitchhike_path(@hitchhike)} | #{link_to 'edit trip', edit_trip_path(@hitchhike.trip)}".html_safe 
+    end
+  end
+
+  def show_ordinal_ride(i, hitchhike)
+    if hitchhike.empty?
+      "<div class='hitchhike_button inactive'>#{number_to_ordinal(i+1)} ride</div>".html_safe
+    else
+      link_to "#{number_to_ordinal(i+1)} ride".html_safe, hitchhike_path(hitchhike), :class => 'hitchhike_button'    
+    end
   end
   
-  def human_hours(hours)
-    hours = (hours.to_f * 100).round.to_f / 100
-
-    if hours > 0
-      minutes = ((hours % 1) * 60).round
-      if minutes == 60
-        hours += 1
-        minutes = 0
-      end
+  def div_attributes_for_hitchhike_button(i, hitchhike)
+    array = []
+    if i == 0 and i == (@hitchhike.trip.hitchhikes.size - 1)
+      array << 'first_and_last'
+    elsif i == 0
+      array << 'first'
+    elsif i == (@hitchhike.trip.hitchhikes.size - 1)
+      array << 'last'
     end
-
-    if minutes == 0
-      t('hours', :count => hours.to_i)
-    else
-      t('hours_with_minutes', :count => hours.to_i, :minutes => minutes)
+    if hitchhike == @hitchhike
+      array << 'current'
     end
-  end  
-  
-  def human_minutes(minutes)
-    "#{minutes}min"
+    if !hitchhike.empty?
+      array << 'active'
+    end
+    array.join ' '
   end
 
-  def number_to_ordinal(num)
-    num = num.to_i
-    if (10...20)===num
-      "#{num}th"
-    else
-      g = %w{ th st nd rd th th th th th th }
-      a = num.to_s
-      c=a[-1..-1].to_i
-      a + g[c]
-    end
-  end
 end

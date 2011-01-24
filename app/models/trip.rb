@@ -22,11 +22,11 @@ class Trip < ActiveRecord::Base
   end
 
   def to_s
-    if start.nil?
-      "#{from_city} -> #{to_city}"
-    else
-      "#{start.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
-    end
+    #if start.nil?
+      "#{from_city} &rarr; #{to_city}".html_safe
+    #else
+      #"#{start.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
+    #end
   end
 
   def to_param
@@ -37,5 +37,13 @@ class Trip < ActiveRecord::Base
   
   def to_date
     start.nil? ? '' : start.strftime("%d. %B %Y")    
+  end
+
+  def new_duration
+    if !self.duration.nil?
+      self.duration
+    else
+      (self.end - self.start)/60/60
+    end
   end
 end
