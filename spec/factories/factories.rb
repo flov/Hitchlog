@@ -19,7 +19,7 @@ end
 Factory.define :trip do |trip|
   trip.from  { 'Barcelona' }
   trip.to    { 'Madrid' }
-  trip.date  { '22/11/2009' }
+  trip.start { '22/11/2009' }
   trip.duration { '6'}
   trip.association(:user)
 end

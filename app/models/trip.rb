@@ -2,7 +2,7 @@ class Trip < ActiveRecord::Base
   has_many :hitchhikes, :dependent => :destroy
   belongs_to :user
 
-  default_scope :order => 'date DESC'
+  default_scope :order => 'start DESC'
   
   validates :from, :presence => true
   validates :to, :presence => true
@@ -22,10 +22,10 @@ class Trip < ActiveRecord::Base
   end
 
   def to_s
-    if date.nil?
-      "#{from} -> #{to}"
+    if start.nil?
+      "#{from_city} -> #{to_city}"
     else
-      "#{date.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
+      "#{start.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
     end
   end
 
@@ -36,6 +36,6 @@ class Trip < ActiveRecord::Base
   end
   
   def to_date
-    date.nil? ? '' : date.strftime("%d. %B %Y")    
+    start.nil? ? '' : start.strftime("%d. %B %Y")    
   end
 end

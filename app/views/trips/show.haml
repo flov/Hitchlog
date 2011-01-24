@@ -1,6 +1,8 @@
 - title "#{@trip.from} &rarr; #{@trip.to}".html_safe
 
-%h1= @trip
+%h1
+  = @trip
+  = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
 %p
   = "Please add some information to the hitchhikes." if current_user == @trip.user
 %ol.hitchhike

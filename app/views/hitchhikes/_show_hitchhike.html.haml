@@ -1,4 +1,4 @@
-= render 'hitchhikes/show_date', :date => hitchhike.trip.date if hitchhike.trip.date
+= render 'hitchhikes/show_date', :date => hitchhike.trip.start if hitchhike.trip.start
 %h1= hitchhike.title
 / = render 'hitchhikes/hitchhike_subtitle', :hitchhike => hitchhike
 = BlueCloth.new(hitchhike.story).to_html.html_safe

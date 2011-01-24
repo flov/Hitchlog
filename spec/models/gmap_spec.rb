@@ -15,4 +15,9 @@ describe 'gmaps.rb' do
   it 'should return a distance greater than 0' do
     Gmaps.distance('New York', 'Boston').should > 0
   end
+
+  it 'should return the correct city' do
+    Gmaps.city('Barcelona, Flassaders').should == 'Barcelona'
+    Gmaps.city('Barcelona').should == 'Barcelona'
+  end
 end

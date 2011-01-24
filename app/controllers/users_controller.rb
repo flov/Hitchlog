@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.where(:username => params[:id]).first
-    @trips = @user.trips.order("date DESC")
+    @trips = @user.trips.order("start DESC")
     @hitchhikes   = @user.trips.collect{|trip| trip.hitchhikes}.flatten
     @total_distance = @user.trips.collect{|trip| trip.distance if trip.distance > 0}.compact.sum / 1000
     @waiting_time_array = @hitchhikes.collect{|hitchhike| hitchhike.waiting_time}.flatten.compact

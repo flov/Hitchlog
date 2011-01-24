@@ -21,7 +21,7 @@ class TripsController < ApplicationController
   end
   
   def index
-    @trips = Trip.order("date ASC").paginate(:page => params[:page], :per_page => 60)
+    @trips = Trip.order("start ASC").paginate(:page => params[:page], :per_page => 60)
     respond_to do |wants|
       wants.html
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }
@@ -40,7 +40,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])
       flash[:notice] = "Successfully updated trip."
-      redirect_to trips_path
+      redirect_to trip_path(@trip)
     else
       render :action => 'edit'
     end

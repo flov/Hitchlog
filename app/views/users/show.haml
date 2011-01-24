@@ -19,7 +19,7 @@
 %ul
   - for trip in @trips
     %li
-      = trip.date.strftime("%d %b %y") unless trip.date.nil?
+      = trip.start.strftime("%d %b %y") unless trip.start.nil?
       = link_to_trip(trip)
       - if user_signed_in? && trip.user == current_user
         |

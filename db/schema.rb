@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122023254) do
+ActiveRecord::Schema.define(:version => 20110123221548) do
 
   create_table "hitchhikes", :force => true do |t|
     t.string   "title"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20110122023254) do
 
   create_table "trips", :force => true do |t|
     t.integer  "distance"
-    t.datetime "date"
+    t.datetime "start"
     t.integer  "duration"
     t.string   "from"
     t.string   "to"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110122023254) do
     t.string   "to_city"
     t.integer  "money_spent"
     t.integer  "travelling_with"
+    t.datetime "end"
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"

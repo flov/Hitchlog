@@ -1,4 +1,4 @@
-= form_for @trip do |f|
+= form_for @trip, :html => {:class => "trip_form"} do |f|
   =   render :partial => 'shared/error_explanation', :locals => {:model => @trip}
   %p
     = f.label :from
@@ -9,12 +9,19 @@
     %br/
     = f.text_field :to
   %p
-    = f.label :date, 'When (format: mm/dd/yyyy)'
+    = f.label :start, 'Started at'
     %br/
-    - if @trip.date.nil?
-      =f.text_field :date
+    - if @trip.start.nil?
+      =f.text_field :start
     - else
-      = text_field_tag 'trip[date]', @trip.date.strftime("%m/%d/%Y"), :size => 30
+      = text_field_tag 'trip[start]', @trip.start.strftime("%d/%m/%Y %H:%M"), :size => 30
+  %p
+    = f.label :end, 'Arrival at'
+    %br/
+    - if @trip.end.nil?
+      =f.text_field :end
+    - else
+      = text_field_tag 'trip[end]', @trip.end.strftime("%d/%m/%Y %H:%M"), :size => 30
   - if @trip.new_record?
     %p
       = f.label :rides, 'Number of rides'
@@ -22,10 +29,6 @@
       = f.text_field :rides
   %h4
     Optional:
-  %p
-    = f.label :duration, 'Time the trip took (in hours)'
-    %br/
-    = f.text_field :duration
   %p
     = f.label :travelling_with, 'Travelling'
     %br/
@@ -38,4 +41,9 @@
   %p= f.submit "Submit"
 
 :javascript
-  $("#trip_date").timepicker();
+  $("#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'});
+
+  $("#trip_end").datetimepicker({dateFormat: 'dd/mm/yy'});
+  $("#trip_end").focus(function(){
+    $("#trip_end").datetimepicker('setDate', $("#trip_start").datetimepicker('getDate') )
+  })
