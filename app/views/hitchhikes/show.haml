@@ -5,14 +5,16 @@
   %h1= @hitchhike.trip
   %p
     = link_to @hitchhike.trip.user, user_path(@hitchhike.trip.user)
-    rode ca.
+    rode 
     %b= distance(@hitchhike.trip.distance)
-    - if trip_has_duration(@hitchhike)
+    - if trip_has_duration(@hitchhike.trip)
       in
       %b= human_hours(@hitchhike.trip.new_duration)
     on the way from #{@hitchhike.trip.from_city} to #{@hitchhike.trip.to_city}.<br />
-    This is the #{show_ordinal_of_ride(@hitchhike)} out of #{@hitchhike.trip.hitchhikes.size}
-    rides
+    -if @hitchhike.trip.hitchhikes.size > 1
+      This is the #{show_ordinal_of_ride(@hitchhike)} out of #{@hitchhike.trip.hitchhikes.size} rides
+    -else
+      This is the #{show_ordinal_of_ride(@hitchhike)} ride
     = "and it took <b>#{human_hours(@hitchhike.duration)}</b>.".html_safe unless @hitchhike.duration.blank?
   %p= this_is_your_hitchhike(@hitchhike.trip.user)
 
