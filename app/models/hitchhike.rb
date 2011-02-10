@@ -16,10 +16,11 @@ class Hitchhike < ActiveRecord::Base
   scope :not_empty, where("story IS NOT NULL AND story <> '' OR photo_file_name IS NOT NULL")
   
   def to_s
-    arr = [title, person.to_s].compact
-    arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?
-    arr << "duration of ride: #{duration} hours" unless duration.nil?
-    arr.delete_if{|x| x==''}.join(', ')
+    self.trip
+    #arr = [title, person.to_s].compact
+    #arr << "waiting time: #{waiting_time} minutes" unless waiting_time.nil?
+    #arr << "duration of ride: #{duration} hours" unless duration.nil?
+    #arr.delete_if{|x| x==''}.join(', ')
   end
   
   def to_param

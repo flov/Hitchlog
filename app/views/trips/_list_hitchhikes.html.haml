@@ -1,6 +1,6 @@
 - for hitchhike in trip.hitchhikes
   %li
-    = show_available_images_for_attributes(hitchhike)
+    = show_available_images_for_hitchhike(hitchhike)
     = "Title: #{h(hitchhike.title)}<br/>".html_safe unless hitchhike.title.blank?
     = "Story: #{truncate(hitchhike.story, :length => 120)}<br/>".html_safe unless hitchhike.story.blank?
     = "Waiting Time: #{pluralize(hitchhike.waiting_time, 'minute')}</br>".html_safe unless hitchhike.waiting_time.blank?

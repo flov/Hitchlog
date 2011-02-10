@@ -1,7 +1,7 @@
 module HitchhikesHelper
   def distance(distance_in_meters)
     if distance_in_meters > 0
-      "#{distance_in_meters / 1000}km" 
+      "#{number_with_delimiter( distance_in_meters / 1000 )}km" 
     elsif distance_in_meters == -5
       "no results for this route"
     else
@@ -41,15 +41,6 @@ module HitchhikesHelper
     [ride_took(hitchhike), trip_took(hitchhike)].compact.join(', ')
   end
     
-  def show_available_images_for_attributes(hitchhike)
-    array = []
-    array << photo_image if hitchhike.photo.file?
-    array << user_image if hitchhike.person
-    array << story_image if hitchhike.story
-    string = array.join(' ')
-    "#{string}<br/>".html_safe unless string.empty?
-  end
-  
   def link_to_hitchhike(hitchhike)
     if hitchhike.empty?
       "no information"
@@ -64,24 +55,43 @@ module HitchhikesHelper
     end
   end
 
-  def show_ordinal_ride(i, hitchhike)
-    if hitchhike.empty?
-      "<div class='hitchhike_button inactive'>#{number_to_ordinal(i+1)} ride</div>".html_safe
+  def link_to_ride_for_button(i, hitchhike, current_hitchhike=nil)
+    if hitchhike.empty? 
+      "<div class='#{hitchhike_button_class(i, hitchhike, current_hitchhike)}'>#{number_to_ordinal(i+1)} ride</div>".html_safe
     else
-      link_to "#{number_to_ordinal(i+1)} ride".html_safe, hitchhike_path(hitchhike), :class => 'hitchhike_button'    
+      link_to "#{number_to_ordinal(i+1)} ride".html_safe, hitchhike_path(hitchhike), :class => hitchhike_button_class(i, hitchhike, current_hitchhike)
     end
   end
-  
-  def div_attributes_for_hitchhike_button(i, hitchhike)
+
+  def hitchhike_button_class(i, hitchhike, current_hitchhike=nil)
     array = []
-    if i == 0 and i == (@hitchhike.trip.hitchhikes.size - 1)
+    array << 'hitchhike_button'
+    if i == 0 and i == (hitchhike.trip.hitchhikes.size - 1)
       array << 'first_and_last'
     elsif i == 0
       array << 'first'
-    elsif i == (@hitchhike.trip.hitchhikes.size - 1)
+    elsif i == (hitchhike.trip.hitchhikes.size - 1)
       array << 'last'
     end
-    if hitchhike == @hitchhike
+    if !current_hitchhike.nil? and hitchhike == current_hitchhike
+      array << 'current'
+    end
+    unless hitchhike.empty?
+      array << 'active'
+    end
+    array.join ' '
+  end
+  
+  def div_attributes_for_hitchhike_button(i, hitchhike, comparing_hitchhike = nil)
+    array = []
+    if i == 0 and i == (comparing_hitchhike.trip.hitchhikes.size - 1)
+      array << 'first_and_last'
+    elsif i == 0
+      array << 'first'
+    elsif i == (comparing_hitchhike.trip.hitchhikes.size - 1)
+      array << 'last'
+    end
+    if comparing_hitchhike.nil? and hitchhike == comparing_hitchhike
       array << 'current'
     end
     if !hitchhike.empty?

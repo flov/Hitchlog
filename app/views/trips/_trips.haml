@@ -1,7 +1,16 @@
 %ul.trips
-  - for trip in trips
+  - trips.each do |trip|
+    .trips_index_box
+      -#= render 'hitchhikes/hitchhike_buttons', :trip => trip
+      %h2= trip
+      %p
+        #{trip.to_date}, #{pluralize(trip.hitchhikes.size, 'ride')},
+        <b>#{distance( trip.distance )}</b> by #{link_to trip.user, user_path(trip.user)}
+
+      = render 'rides_box', :trip => trip
+
+  -#- for trip in trips
     %li
-      = trip_date(trip)
       = link_to_trip(trip, :remote => true).html_safe
       by
       = link_to(trip.user, user_path(trip.user))
@@ -17,6 +26,6 @@
 
   = will_paginate trips
 
-:javascript
-  // adding some margin to the months
-  $('h3.date').parent().css("margin-top","20px")
+-#:javascript
+  -#// adding some margin to the months
+  -#$('h3.date').parent().css("margin-top","20px")

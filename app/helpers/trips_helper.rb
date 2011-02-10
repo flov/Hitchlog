@@ -1,14 +1,4 @@
 module TripsHelper
-  def trip_date(trip)
-    @month_array ||= []
-    if !trip.start.nil? && !@month_array.include?(trip.start.strftime("%B%y"))
-      @month_array << trip.start.strftime("%B%y")
-      date = trip.start.strftime("<h3 class='date'>%B<strong>%y</strong></h3>").html_safe unless trip.start.nil?
-    else
-      date = ''
-    end
-    date
-  end
   
   def link_to_trip(trip, options ={})
     array = []
@@ -38,4 +28,11 @@ module TripsHelper
   def trip_has_duration(trip)
     (!trip.duration.nil? and trip.duration > 0) or (trip.start.nil? and trip.end.nil?)
   end  
+
+  def ride_box_attributes(i, trip)
+    array=[]
+    array << "ride"
+    array << "last" if i == trip.hitchhikes.size
+    array.join ' '
+  end
 end

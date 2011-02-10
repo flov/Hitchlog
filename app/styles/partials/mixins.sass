@@ -17,6 +17,19 @@
   :-ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round(!opacity*100) + ")"
   :filter= "alpha(opacity=" + round(!opacity*100) + ")"
 
+=linear-gradient($color-stops, $start: top, $image: false)
+  // Firefox's gradient api is nice.
+  // Webkit's gradient api sucks -- hence these backflips:
+  $background: unquote("")
+  @if $image
+    $background: $image + unquote(", ")
+  $start: unquote($start)
+  $end: opposite-position($start)
+  @if $experimental-support-for-webkit
+    background-image: #{$background}-webkit-gradient(linear, grad-point($start), grad-point($end), grad-color-stops($color-stops))
+  @if $experimental-support-for-mozilla
+    background-image: #{$background}-moz-linear-gradient($start, $color-stops)
+  background-image: #{$background}linear-gradient($start, $color-stops)
 
 = rounded_corners ($radius)
   -moz-border-radius: $radius

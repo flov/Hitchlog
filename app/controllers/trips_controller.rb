@@ -21,7 +21,8 @@ class TripsController < ApplicationController
   end
   
   def index
-    @trips = Trip.order("start ASC").paginate(:page => params[:page], :per_page => 60)
+    @trips = Trip.order("start ASC").paginate(:page => params[:page], :per_page => 20)
+    @hitchhikes = Hitchhike.not_empty
     respond_to do |wants|
       wants.html
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }

@@ -1,12 +1,12 @@
 - title "Trips"
 
-%h1 Trips:
+%h1 Latest hitchhiking trips:
 
 - if user_signed_in?
   = link_to 'Log New Trip', new_trip_path 
 - else
   = render 'shared/sign_in_and_out'
-  to log a new trip.
+  to log a new hitchhiking trip.
 
 #trips
   = render :partial => 'trips/trips', :locals => {:trips => @trips}
