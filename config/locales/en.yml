@@ -19,8 +19,9 @@ en:
     other: "%{count} hours %{minutes} minutes"
 
   trips:
-    rides_box:
+    helper:
       photo: Photo
       story: Story
       male_driver: Male Driver
       female_driver: Female Driver
+      add_information: Add Information

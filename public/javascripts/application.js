@@ -12,7 +12,6 @@ $(function(){
     e.preventDefault()
   })
   
-  $('a[rel=tipsy]').tipsy({fade: true, gravity: 'n'});  
-  $('.rides_box .ride img').tipsy({title: 'alt'});
+  $('.tooltip').tipsy({title: 'alt'});
   
 })
