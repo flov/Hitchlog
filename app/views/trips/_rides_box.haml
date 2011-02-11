@@ -4,6 +4,4 @@
       -if hitchhike.empty?
         #{number_to_ordinal(i+1)} ride
       -else
-        =link_to "#{number_to_ordinal(i+1)} ride", hitchhike_path(hitchhike)
-      %br/
-      = show_available_images_for_hitchhike(hitchhike)
+        =link_to "#{number_to_ordinal(i+1)} ride<br />#{show_available_images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)

@@ -17,3 +17,10 @@ en:
   hours_with_minutes:
     one: "%{count} hour %{minutes} minutes"
     other: "%{count} hours %{minutes} minutes"
+
+  trips:
+    rides_box:
+      photo: Photo
+      story: Story
+      male_driver: Male Driver
+      female_driver: Female Driver
