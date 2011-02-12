@@ -2,9 +2,9 @@
 
 = render 'content_for_home' unless @hitchhike.nil?
 
-.float_wrapper.home
-  .header
-    %h1.center Hitchlog
+.home
+  .left
+    %h1 Hitchlog
     .statistics
       .first
         = @hitchhike_size
@@ -23,3 +23,14 @@
 
     .chart_image
       = image_tag @chart_image
+
+  .right
+    %h3 Latest Hitchhiking Stories
+    %ul
+      -@hitchhikes_with_story.each do |hitchhike|
+        %li
+          = link_to hitchhike.title, hitchhike_path(hitchhike)
+          by 
+          = link_to h(hitchhike.trip.user), user_path(hitchhike.trip.user)
+          = images_for_hitchhike(hitchhike)
+      %li=link_to "... More Stories", trips_path 

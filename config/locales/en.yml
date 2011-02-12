@@ -25,3 +25,7 @@ en:
       male_driver: Male Driver
       female_driver: Female Driver
       add_information: Add Information
+      alone: Hitchhiking alone
+      two: Hitchhiking with another person
+      three: Hitchhiking with two others
+      more_than_three: Hitchhiking with more than two

@@ -9,6 +9,8 @@ class WelcomeController < ApplicationController
     @hitchhike_size = hitchhikes.size
     @story_size = hitchhikes.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
     @hitchhiked_km = Trip.all.collect{|t| t.distance}.flatten.compact.sum / 1000
+
+    @hitchhikes_with_story = Hitchhike.with_story.paginate :per_page => 10, :page => params[:page]
   end
   
   def about
