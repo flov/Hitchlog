@@ -2,16 +2,21 @@ require 'spec_helper'
 
 describe HitchhikesController, 'routes' do
   it { should route(:get, '/hitchhikes.json').to(:action => 'json') }
+  puts Rails.env
 end
 
 describe HitchhikesController, 'GET to hitchhikes.json' do
-  it "should return valid json" do
+  before do
     @trip = Factory.create(:trip)
-    @hitchhike = Factory.create(:hitchhike)
+    2.times {Factory.create(:hitchhike)}
+    @hitchhike = Factory :hitchhike
+  end
+
+  it "should return valid json" do
     get 'json'
     response.should be_success
     json = JSON.parse(response.body)
-    
+
     json['from'].should               == @hitchhike.trip.from
     json['to'].should                 == @hitchhike.trip.to
     json['story'].should              == @hitchhike.story
@@ -23,8 +28,8 @@ describe HitchhikesController, 'GET to hitchhikes.json' do
     json['person']['name'].should     == @hitchhike.person.name
     json['person']['age'].should      == @hitchhike.person.age
     json['person']['mission'].should  == @hitchhike.person.mission
-    json['prev'].should               == @hitchhike.prev
-    json['next'].should               == @hitchhike.next 
+    #json['prev'].should               == "/hitchhikes/#{@hitchhike.prev.to_param}"
+    #json['next'].should               == "/hitchhikes/#{@hitchhike.next.to_param}"
     json['distance'].should           == @hitchhike.trip.distance 
     json['username'].should           == @hitchhike.trip.user.username
     json['date'].should               == @hitchhike.trip.to_date

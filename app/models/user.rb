@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   # chart_image method
   include Chart
   
-  has_many :trips
-  has_many :hitchhikes
+  has_many :trips, :dependent => :destroy
 
   validates :username, :presence => true, :uniqueness => true
   
