@@ -25,12 +25,12 @@ Factory.define :trip do |trip|
 end
 
 Factory.define :hitchhike do |hitchhike|
-  hitchhike.association(:trip)
   hitchhike.title{'A hitchhike around the world'}
-  hitchhike.story{Faker::Lorem.paragraph}
+  hitchhike.story{'A crazy new story about hitchhiking'}
   hitchhike.waiting_time{15}
-  hitchhike.association(:trip)
   hitchhike.duration{4}
+  hitchhike.association(:trip)
+  hitchhike.person {|h| h.association(:person)}
 end
 
 Factory.define :person do |person|
@@ -38,7 +38,6 @@ Factory.define :person do |person|
   person.occupation   {'Groupie'}
   person.mission      {'Tour around with the Beatles'}
   person.origin       {'USA'}
-  person.association  (:trip)
   person.age          {21}
   person.gender       {'female'}
 end
