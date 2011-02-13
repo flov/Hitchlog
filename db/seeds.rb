@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+puts <<-EOS
+This will create some example users and a pre-populated project for development.
+EOS
+
+def seed_data
+  puts "Seeding Users"
+  users = %w(Flov Supertramp Helen).collect do |username|
+    user = User.finde_by_username(username) || User.create!(
+                        :username => 'flov',
+                        :password => 'adminadmin',
+                        :password_confirmation => 'testpassword',
+                        :email    => "#{username}@hitchlog.com")
+  
+  end
+
+  
+  User.find_by_username("flov").trips.build(
+    
+end
+
+
+seed_data
