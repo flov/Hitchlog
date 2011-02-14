@@ -40,12 +40,12 @@ module HitchhikesHelper
   def trip_and_ride_took(hitchhike)
     [ride_took(hitchhike), trip_took(hitchhike)].compact.join(', ')
   end
-    
-  def link_to_hitchhike(hitchhike)
+  
+  def link_to_hitchhike(hitchhike, i)
     if hitchhike.empty?
-      "no information"
+      "#{number_to_ordinal(i+1)} Hitchhike"
     else
-      link_to "show this hitchhike", hitchhike_path(hitchhike)
+      link_to "#{number_to_ordinal(i+1)} Hitchhike", hitchhike_path(hitchhike)
     end
   end
   

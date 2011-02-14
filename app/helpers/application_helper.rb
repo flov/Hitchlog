@@ -11,6 +11,10 @@ module ApplicationHelper
     secounds/60/60
   end
 
+  def human_minutes(minutes)
+    "#{minutes} minutes"
+  end
+
   def human_hours(hours)
     hours = (hours.to_f * 100).round.to_f / 100
 

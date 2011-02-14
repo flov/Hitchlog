@@ -3,7 +3,5 @@
 %h1
   = @trip
   = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
-%p
-  = "Please edit the hitchhikes to add some information to them." if current_user == @trip.user
-%ol.hitchhike
+%ul.hitchhike
   = render :partial => 'list_hitchhikes', :locals => {:trip => @trip}  

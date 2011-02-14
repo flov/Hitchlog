@@ -16,7 +16,7 @@
     - else
       = text_field_tag 'trip[start]', @trip.start.strftime("%d/%m/%Y %H:%M"), :size => 30
   %p
-    = f.label :end, 'Arrival at (please specify the time to reckon the duration)'
+    = f.label :end, 'Arrival at (please specify the hour to reckon the total time of the trip)'
     %br/
     - if @trip.end.nil?
       =f.text_field :end

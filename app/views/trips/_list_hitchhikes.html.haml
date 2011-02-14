@@ -1,29 +1,10 @@
-- for hitchhike in trip.hitchhikes
+- trip.hitchhikes.each_with_index do |hitchhike, i|
   %li
+    = link_to_hitchhike(hitchhike, i)
     = images_for_hitchhike(hitchhike)
-    = "Title: #{h(hitchhike.title)}<br/>".html_safe unless hitchhike.title.blank?
-    = "Story: #{truncate(hitchhike.story, :length => 120)}<br/>".html_safe unless hitchhike.story.blank?
-    = "Waiting Time: #{pluralize(hitchhike.waiting_time, 'minute')}</br>".html_safe unless hitchhike.waiting_time.blank?
-    = "Duration: #{human_hours(hitchhike.duration)}<br/>".html_safe unless hitchhike.duration.blank?
-    - unless hitchhike.person.nil?
-      About the driver:
-      %ul.person
-        - unless hitchhike.person.name.blank?
-          %li= "Name: #{h(hitchhike.person.name)}"
-        - unless hitchhike.person.occupation.blank?
-          %li= "Occupation: #{h(hitchhike.person.occupation)}"
-        - unless hitchhike.person.mission.blank?
-          %li= "Mission: #{h(hitchhike.person.mission)}"
-        - unless hitchhike.person.origin.blank?
-          %li= "Origin: #{h(hitchhike.person.origin)}"
-        - unless hitchhike.person.age.blank?
-          %li= "Age: #{h(hitchhike.person.age)}"
-        - unless hitchhike.person.gender.blank?
-          %li= "Gender: #{h(hitchhike.person.gender)}"
-    = link_to_hitchhike(hitchhike)
+    = images_missing_for_hitchhike(hitchhike)
+    %br/
     - if trip.user == current_user
-      |
-      = link_to "edit", edit_hitchhike_path(hitchhike)
-      |
-      = link_to "delete", hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
+      = link_to "Add Information to Hitchhike #{add_information_image}".html_safe, edit_hitchhike_path(hitchhike)
+      = link_to delete_image, hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
 

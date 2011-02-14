@@ -8,6 +8,10 @@ class Trip < ActiveRecord::Base
   validates :to, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
+  validates :rides, :presence => true
+  validates :start, :presence => true
+  validates :end, :presence => true
+
   
   concerned_with :googlemaps
 
@@ -22,11 +26,7 @@ class Trip < ActiveRecord::Base
   end
 
   def to_s
-    #if start.nil?
-      "#{from_city} &rarr; #{to_city}".html_safe
-    #else
-      #"#{start.strftime("%d %b %Y")}: #{from} &rarr; #{to}".html_safe
-    #end
+    "#{from_city} &rarr; #{to_city}".html_safe
   end
 
   def to_param
