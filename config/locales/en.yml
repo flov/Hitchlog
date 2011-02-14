@@ -31,6 +31,6 @@ en:
       three: Hitchhiking with two others
       more_than_three: Hitchhiking with more than two
       driving_time: "%{time} driving time"
-      driving_time_missing: Driving Time missing
+      driving_time_missing: Driving time is missing
       waiting_time: "%{time} waiting time"
-      waiting_time_missing: Waiting Time
+      waiting_time_missing: Waiting time is missing

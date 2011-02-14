@@ -29,8 +29,8 @@
     %ul
       -@hitchhikes_with_story.each do |hitchhike|
         %li
-          = link_to hitchhike.title, hitchhike_path(hitchhike)
+          = link_to "#{hitchhike.title} #{images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)
+          -#.float_right
           by 
           = link_to h(hitchhike.trip.user), user_path(hitchhike.trip.user)
-          = images_for_hitchhike(hitchhike)
       %li.text_center=link_to "... More Stories", trips_path 
