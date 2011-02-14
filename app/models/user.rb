@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
+  before_save :sanitize_username
+  
+
   # chart_image method
   include Chart
   
@@ -26,5 +29,10 @@ class User < ActiveRecord::Base
   
   def hitchhikes
     trips.collect{|trip| trip.hitchhikes}.flatten
+  end
+
+  private
+  def sanitize_username
+    self.username.downcase
   end
 end
