@@ -15,12 +15,19 @@
       .third
         = number_with_delimiter(@hitchhiked_km, :delimiter => ".")
         .subtitle KM Hitchhiked
+    %h3
+      Welcome!
     %p 
-      Hitchlog tries to make the world a more hitchhiker friendly place.<br />
-      By logging the hitchhikers personal experience while hitting the road,
-      the Hitchlog makes it easy to share the experiences on the road and 
-      to give an authentic picture on hitchhiking.
-
+      We are trying to make the world a more hitchhiker friendly place.<br />
+      By logging personal hitchhiking experiences, we are trying to paint a 
+      pretty authentic picture about what hitchhiking is actually like.
+      If you have ever hitchhiked, you are welcome to 
+      = link_to 'share your experience with us.', new_trip_path
+      The information that you enter on this site gets parsed into demographic data
+      so that we can tell the average waiting time for a ride in let's say China,
+      your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
+      Below you can see a piechart which consists the countries of the #{@hitchhike_size} 
+      logged Hitchhikes
     .chart_image
       = image_tag @chart_image
 
