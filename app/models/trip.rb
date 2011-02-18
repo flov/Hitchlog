@@ -8,7 +8,7 @@ class Trip < ActiveRecord::Base
   validates :to, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
-  validates :rides, :presence => true
+  validates :rides, :presence => true, :if => :new_record
   validates :start, :presence => true
   validates :end, :presence => true
 
@@ -45,5 +45,9 @@ class Trip < ActiveRecord::Base
     else
       (self.end - self.start)/60/60
     end
+  end
+
+  def new_record
+    new_record?
   end
 end

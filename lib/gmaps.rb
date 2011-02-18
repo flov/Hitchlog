@@ -1,5 +1,5 @@
 module Gmaps
-  def Gmaps::distance(from, to)
+  def Gmaps::distance(from='', to='')
     # Possible Values for result['status] 
     # "OK" indicates that no errors occurred; the address was successfully parsed and at least one geocode was returned.
     # "ZERO_RESULTS" indicates that the geocode was successful but returned no results. This may occur if the geocode was passed a non-existent address or a latlng in a remote location.
