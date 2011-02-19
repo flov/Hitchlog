@@ -30,4 +30,7 @@ group :test, :development do
   gem "nokogiri"
   gem "shoulda"
   gem 'factory_girl_rails', '~> 1.0.1'
+  gem 'livereload'
+  gem 'guard'  
+  gem 'guard-livereload'
 end

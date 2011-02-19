@@ -9,8 +9,6 @@ class Trip < ActiveRecord::Base
   validates :distance, :numericality => true
   validates :user_id, :presence => true
   validates :rides, :presence => true, :if => :new_record
-  validates :start, :presence => true
-
   
   concerned_with :googlemaps
 

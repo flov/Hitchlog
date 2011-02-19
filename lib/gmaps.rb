@@ -46,7 +46,7 @@ module Gmaps
     if result['status'] == "OK"
       result['results'].first['formatted_address']
     else
-      "unkown"
+      "unknown"
     end
   end
   
