@@ -11,7 +11,7 @@ gem 'nokogiri'
 gem 'hoptoad_notifier'
 gem "meta_where"
 gem "mongrel", "~> 1.2.0.pre2"
-
+gem 'json', '~> 1.4.6'
 gem 'aws-s3', :require => 'aws/s3'
 # gem "nifty-generators"
 

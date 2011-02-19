@@ -170,6 +170,7 @@ DEPENDENCIES
   haml (~> 3.0.21)
   hirb
   hoptoad_notifier
+  json (~> 1.4.6)
   meta_where
   mongrel (~> 1.2.0.pre2)
   mysql2
