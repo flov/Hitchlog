@@ -10,27 +10,27 @@
     = csrf_meta_tag    
     = javascript_google_stats
   %body
-    %div{:style => "position: absolute; top:0; right:0; z-index:2"}
-      = link_to image_tag('forkme_right_white.png'), 'http://github.com/flov/hitchlog'
-    %div{:style => "position: absolute; top:0; left:0; z-index:101"}
-      = link_to image_tag('collaborate_on_teambox_left_white.png'), 'https://teambox.com/projects/hitchlog'
-    #topmenu
-      = yield(:topmenu)
-      %ul#main_nav
-        %li#nav_home= link_to 'Home', root_path
-        %li#nav_trips
-          = link_to 'Trips', trips_path
-          #nav_trips_dropdown=link_to 'New Trip', new_trip_path
-        %li#nav_hitchhikes= link_to 'Hitchhikers', users_path
-        %li#nav_about= link_to 'About', about_path
-        %li#nav_authenitcation.right= render :partial => 'shared/sign_in_and_out'
-        / %li#nav_manage=link_to 'Manage profile', edit_user_path(current_user) if user_signed_in?
-    #container    
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      = yield
+    = render 'shared/banners_in_corners'
 
-    / %footer
-    /   &copy; 2009 Woofer Dog Corporatio
+    #wrap
+      #topmenu
+        = yield(:topmenu)
+        %ul#main_nav
+          %li#nav_home= link_to 'Home', root_path
+          %li#nav_trips
+            = link_to 'Trips', trips_path
+            #nav_trips_dropdown=link_to 'New Trip', new_trip_path
+          %li#nav_hitchhikes= link_to 'Hitchhikers', users_path
+          %li#nav_about= link_to 'About', about_path
+          %li#nav_authenitcation.right= render :partial => 'shared/sign_in_and_out'
+          / %li#nav_manage=link_to 'Manage profile', edit_user_path(current_user) if user_signed_in?
+
+      #container    
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+        = yield
+
+    #footer
+      &copy; 2010 Hitchlog - #{link_to 'About', ''}
   
     = uservoice_feedback
