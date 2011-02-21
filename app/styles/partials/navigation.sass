@@ -1,0 +1,37 @@
+.navigation
+  width: 100%
+  background-color: black
+
+ul#main_nav
+  font-family: Arial
+  font-size: 12px
+  margin: 0 auto
+  padding-left: 0
+  padding-top: 8px
+  width: 800px
+  height: 30px
+  list-style-type: none
+
+  li
+    padding: 3px 115px 0 0
+    float: left
+  li.right
+    padding: 3px 0 0
+
+#nav_trips_dropdown
+  +rounded_corners(0 0 15px 15px)
+  background-color: black
+  left: -33px
+  padding: 5px
+  position: absolute
+  text-align: center
+  top: 34px
+  width: 89px
+  display: none
+  
+#nav_trips
+  position: relative
+  &:hover
+    #nav_trips_dropdown
+      display:block
+
