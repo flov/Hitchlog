@@ -10,11 +10,7 @@ module HitchhikesHelper
   end
   
   def hitchhike_show_title(hitchhike)
-    if !hitchhike.title.blank?
-      title("#{hitchhike.title} by #{hitchhike.trip.user}")
-    else
-      title("#{number_to_ordinal(hitchhike.no_in_trip)} Hitchhike from #{hitchhike.trip.from} to #{hitchhike.trip.to}")
-    end
+    title("Hitchhiking from #{@hitchhike.trip.from_city_sanitized} to #{@hitchhike.trip.to_city_sanitized}")
   end
 
   def show_photo_link(hitchhike)

@@ -59,7 +59,7 @@ class Trip < ActiveRecord::Base
   end
 
   def assign_time
-    # combining the time input with the date input (02/11/2011 02:00 pm
+    # combining the time input with the date input (02/11/2011 02:00 pm)
     self.start = Time.parse("#{self.start.to_s.split(' ').first} #{self.start_time}")
     self.end = Time.parse("#{self.end.to_s.split(' ').first} #{self.end_time}")
   end
