@@ -4,7 +4,7 @@
   = render 'hitchhikes/show_date', :date => @hitchhike.trip.start if @hitchhike.trip.start
   = render 'hitchhikes/hitchhike_buttons', :trip => @hitchhike.trip, :hitchhike => @hitchhike
   %h1= @hitchhike.trip
-  %p= render :partial => 'hitchhikes/hitchhike_text'
+  %p= render 'hitchhikes/hitchhike_text'
   %p= this_is_your_hitchhike(@hitchhike.trip.user)
 
 = render 'show_hitchhike', :hitchhike => @hitchhike unless @hitchhike.story.blank?

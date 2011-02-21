@@ -10,9 +10,9 @@
       %p
         = link_to_user(hitchhike.trip.user)
         = "hitchhiked #{distance(hitchhike.trip.distance)} from"
-        %span#hitchhike-from= hitchhike.trip.from_city
+        %span#hitchhike-from= hitchhike.trip.from_city_sanitized
         to 
-        %span#hitchhike-to= hitchhike.trip.to_city
+        %span#hitchhike-to= hitchhike.trip.to_city_sanitized
         = link_to '(more)', hitchhike_path(hitchhike)
         -#%br/
         -#= "#{show_ordinal_of_ride(hitchhike)} ride"

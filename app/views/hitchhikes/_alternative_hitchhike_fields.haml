@@ -1,0 +1,41 @@
+%table.form
+  %tr.textfield
+    %th
+      =f.label :title
+      %p.details 
+    %td
+      = f.text_field :title
+  %tr.text_area
+    %th
+      =f.label :story
+      %p.details Tell us a story about the ride
+    %td
+      = f.text_area :story, :rows => 2, :class => 'hitchhike_story'
+  -#%tr
+    -#%th
+      -#%p.details preview
+    -#%td
+      -#.preview 
+  %tr.textfield
+    %th
+      =f.label :waiting_time, 'Waiting time'
+      %p.details in minutes
+    %td
+      = f.text_field :waiting_time
+  %tr.textfield
+    %th
+      =f.label :duration, 'Driving time'
+      %p.details in hours e.g 2.5 for 2h 30min
+    %td
+      = f.text_field :duration
+  %tr
+    %th
+      =f.label :photo
+      %p.details 
+    %td
+      = f.file_field :photo
+
+- if hitchhike.photo.file?
+  = image_tag(hitchhike.photo(:thumb)) 
+  = link_to 'Delete Photo', delete_photo_hitchhike_path(hitchhike), :method => :delete, :confirm => 'Are you sure?'
+

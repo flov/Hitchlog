@@ -4,7 +4,7 @@ rode
 - if trip_has_duration(@hitchhike.trip)
   in
   %b= human_hours(@hitchhike.trip.new_duration)
-from #{@hitchhike.trip.from_city} to #{@hitchhike.trip.to_city}.<br />
+from #{@hitchhike.trip.from_city_sanitized} to #{@hitchhike.trip.to_city_sanitized}.<br />
 -if @hitchhike.trip.hitchhikes.size > 1
   This is the #{show_ordinal_of_ride(@hitchhike)} out of #{@hitchhike.trip.hitchhikes.size} rides
 -else

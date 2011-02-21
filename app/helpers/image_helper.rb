@@ -2,7 +2,7 @@ module ImageHelper
   def images_missing_for_hitchhike(hitchhike)
     array = []
     array << photo_missing_image unless hitchhike.photo.file?
-    array << story_missing_image unless hitchhike.story
+    array << story_missing_image if hitchhike.story.blank?
     array << waiting_time_missing_image unless hitchhike.waiting_time
     array << driving_time_missing_image unless hitchhike.duration
     link_to array.join(' ').html_safe, edit_hitchhike_path(hitchhike)
@@ -12,7 +12,7 @@ module ImageHelper
     array = []
     array << photo_image if hitchhike.photo.file?
     array << driver_image(hitchhike.person.gender) if hitchhike.person
-    array << story_image if hitchhike.story
+    array << story_image unless hitchhike.story.blank?
     array << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
     array << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
     unless hitchhike.trip.travelling_with.nil?

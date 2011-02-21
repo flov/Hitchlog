@@ -1,10 +1,11 @@
 - trip.hitchhikes.each_with_index do |hitchhike, i|
   %li
-    = link_to_hitchhike(hitchhike, i)
+    %h3= link_to_hitchhike(hitchhike, i)
     = images_for_hitchhike(hitchhike)
     = images_missing_for_hitchhike(hitchhike)
+    = link_to delete_image, hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
     %br/
-    - if trip.user == current_user
-      = link_to "Add Information to Hitchhike #{add_information_image}".html_safe, edit_hitchhike_path(hitchhike)
-      = link_to delete_image, hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?' 
+  - if trip.user == current_user
+    = link_to "Add/Edit Information to Hitchhike #{add_information_image}".html_safe, edit_hitchhike_path(hitchhike)
+
 

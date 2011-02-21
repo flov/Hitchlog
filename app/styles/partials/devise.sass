@@ -1,22 +1,44 @@
-.sign_in_box
+.yellow_box
+  padding: 20px
+  background-color: #feffee
+  +rounded_corners(10px)
   text-align: center
   margin: 0 auto
-  width: 400px
-  +rounded_corners(10px)
-  border: 8px solid gray
-  background-color: #feffee
-  margin-top: 50px
-
+  border: 2px solid gray
   .text_field
     label
       width: 60px
-
   h3
-    padding: 15px
+    padding-bottom: 15px
     font-size: 25px
     line-height: 30px
     font-weight: normal
+  .description
+    margin: 0 auto 10px
+    width: 400px
+  .field_with_errors
+    display: inline-block
+    input
+      border: 1px solid red
+
+  form .text_field
+    label
+      width: 95px
+    input
+      width: 260px
+
+.sign_in_box
+  margin-top: 25px
 
 .help
   text-align: center
   margin-top: 50px
+
+.edit_hitchhikes_box
+  padding-bottom: 20px
+  margin-bottom: 10px
+  //width: 500px
+  form table.form
+    textarea, input
+      width: 500px
+

@@ -1,5 +1,3 @@
-textarea
-  width: 500px
 
 a
   img
@@ -10,20 +8,27 @@ a
     color: orange
 
 form
-  .text_field
+  .text_field, .select_field
     margin-bottom: 10px
-    input
-      width: 200px
-      font-size: 16px
-      padding: 5px
-      border-top: solid 1px #C4C4C4
-      border-left: solid 1px #E9E9E9
-      border-bottom: solid 1px #E9E9E9
-      border-right: solid 1px #C4C4C4
     label
       display: inline-block
       font-size: 12px
       width: 150px
       margin-right: 5px
       text-align: right
+  .input_fields, .text_field
+    input, textarea
+      width: 260px
+      font-size: 16px
+      padding: 5px
+      border-top: solid 1px #C4C4C4
+      border-left: solid 1px #E9E9E9
+      border-bottom: solid 1px #E9E9E9
+      border-right: solid 1px #C4C4C4
 
+
+.hitchhike_fields
+  form
+    textarea
+      width: 400px
+      font-size: 12px

@@ -43,9 +43,9 @@ module HitchhikesHelper
   
   def link_to_hitchhike(hitchhike, i)
     if hitchhike.empty?
-      "#{number_to_ordinal(i+1)} Hitchhike"
+      "#{number_to_ordinal(i+1)} Ride"
     else
-      link_to "#{number_to_ordinal(i+1)} Hitchhike", hitchhike_path(hitchhike)
+      link_to "#{number_to_ordinal(i+1)} Ride", hitchhike_path(hitchhike)
     end
   end
   
