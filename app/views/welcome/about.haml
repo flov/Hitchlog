@@ -1,58 +1,73 @@
 - title "About"
 
-%h1 About
+.about
+  %h1 About
 
-%p
-  Hitchlog is an application that serves as a platform for hitchhikers to log
-  their personal hitchhiking experience.
-  It gives an authentic view on hitchhiking untouched of it's bad reputation
-  that is spread by public media and movies and tries to make the world a more hitchhiker
-  friendly place.
-
-%p
-  The information that is entered by hitchhikers generates demographic data 
-  like the average waiting time in certain countries, longest ride, shortest ride, etc...    
-  If you have an idea on interesting features that we could implement, please post it in the 
-  Feedback forum on the left.
-
-%h2 Contribute
-.float_right
-  =image_tag 'open-source.png'
-%p
-  = link_to @flov, user_path(@flov)
-  is currently developing this site and he is pretty excited about all its possibilities.
-  The application is completely open-source and it would be lovely if other people would dive into the project
-  and implement their own ideas. So if you feel like coding a feature, don't just wait. Just
-  get the code on <a href='http://github.com/flov/hitchhike.me'>Github</a> and start rolling.
-  It runs on Ruby on Rails 3 and uses cucumber and rspec for BDD testing.
-
-%p
-  There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>.
-  From spreading the word to your friends and fellow hitchhikers to coding your own feature.
-  If you feel like this application is a great idea, give it a shout on twitter, facebook or
-  whatever social medium you feel good with.
-  If you have a great idea give some feedback by
-  clicking on the feedback link on the <b>&larr;</b> left and enter your 
-  thoughts, or send 
-  =link_to @flov, user_path(@flov)
-  an email: flov@hitchhike.me
-  
-%h2 Hitchlog.com supports
-.about-paragraph
-  .float_left.contributer_picture=link_to(image_tag('Hitchwiki.png'), 'http://hitchwiki.org/')
   %p
-    Hitchwiki is a wiki just like Wikipedia.
-    Hitchhiker from all around the world share tips on how to get out of the city there. 
-    It helped many hitchhikers to find a good spot and is really useful.
-.about-paragraph
-  .float_left.contributer_picture
-    =link_to(image_tag('Random_Roads.jpg'), "http://randomroads.org/")
+    Hitchlog is an application that serves as a platform for hitchhikers to log
+    their personal hitchhiking experience.
+    It gives an authentic view on hitchhiking untouched of it's bad reputation
+    that is spread by public media and movies and tries to make the world a more hitchhiker
+    friendly place.
+
   %p
-    RandomRoads is a printed magazine, one that travels from one person 
-    to another, one that travelers can give to their drivers or other 
-    people they meet on the road. As such, the magazine is a great way 
-    to create further bonding between hitchhikers, and to have something 
-    we can give away that is representable for our culture.
+    The information that is entered by hitchhikers generates demographic data 
+    like the average waiting time in certain countries, longest ride, shortest ride, etc...    
+    If you have an idea on interesting features that we could implement, please post it in the 
+    Feedback forum on the left.
+
+  %h2 Contribute
+  .float_right
+    =image_tag 'open-source.png'
+  %p
+    = link_to @flov, user_path(@flov)
+    is currently developing this site and he is pretty excited about all its possibilities.
+    The application is completely open-source and it would be lovely if other people would dive into the project
+    and implement their own ideas. So if you feel like coding a feature, don't just wait. Just
+    get the code on <a href='http://github.com/flov/hitchhike.me'>Github</a> and start rolling.
+    It runs on Ruby on Rails 3 and uses cucumber and rspec for BDD testing.
+
+  %p
+    There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>.
+    From spreading the word to your friends and fellow hitchhikers to coding your own feature.
+    If you feel like this application is a great idea, give it a shout on twitter, facebook or
+    whatever social medium you feel good with.
+    If you have a great idea give some feedback by
+    clicking on the feedback link on the <b>&larr;</b> left and enter your 
+    thoughts, or send 
+    =link_to @flov, user_path(@flov)
+    an email: flov@hitchhike.me
+    
+  %h2 Hitchlog supports
+  .about-paragraph
+    .float_left.contributer_picture=link_to(image_tag('Hitchwiki.png'), 'http://hitchwiki.org/')
+    %h3 Hitchwiki
+    %p
+      Hitchwiki is a wiki just like Wikipedia.
+      Hitchhiker from all around the world share tips on how to get out of the city there. 
+      It helped many hitchhikers to find a good spot and is really useful.
+  .about-paragraph
+    .float_right.contributer_picture
+      =link_to(image_tag('about-vivaconagau.gif'), "http://www.vivaconagua.org/")
+    %h3 Viva Con Agua
+    %p
+      Besides the air we breathe, water is the most fundamental source of life.
+      Water creates life, water is life. Water means healthy living, happy
+      living. For Viva con Agua de Sankt Pauli this is the primary motivation for
+      our activities &ndash the funding and implementation of water projects
+      around the world and thus enabling people to access clean water.
+  .about-paragraph
+    .float_left.contributer_picture
+      =link_to(image_tag('Random_Roads.jpg'), "http://randomroads.org/")
+    %h3 Random Roads
+    %p
+      RandomRoads is a printed magazine, one that travels from one person 
+      to another, one that travelers can give to their drivers or other 
+      people they meet on the road. As such, the magazine is a great way 
+      to create further bonding between hitchhikers, and to have something 
+      we can give away that is representable for our culture.
+
+
 
 :javascript
   $('body').css('background-image', 'url("/images/about-bg.jpg")')

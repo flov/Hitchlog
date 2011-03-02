@@ -36,11 +36,20 @@
     %ul
       -@hitchhikes_with_story.each do |hitchhike|
         %li
-          = link_to "#{hitchhike.title} #{images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)
+          = link_to "#{h(hitchhike.title)} #{images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)
           -#.float_right
           by 
           = link_to h(hitchhike.trip.user), user_path(hitchhike.trip.user)
       %li.text_center=link_to "... More Stories", trips_path 
+
+
+    %h3 Newest Hitchhikers
+    %ul
+      -@hitchhikers.each do |hitchhiker|
+        %li
+          = link_to "#{hitchhiker.username}, logged #{hitchhiker.trips.size} Trips" , user_path(hitchhiker)
+      %li.text_center=link_to "... More Hitchhikers", users_path 
+
 
 :javascript
   $("#hitchhike-photo-details").css('bottom', '0px')

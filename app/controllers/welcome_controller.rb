@@ -11,6 +11,7 @@ class WelcomeController < ApplicationController
     @hitchhiked_km = Trip.all.collect{|t| t.distance}.flatten.compact.sum / 1000
 
     @hitchhikes_with_story = Hitchhike.with_story.order("updated_at DESC").paginate :per_page => 5, :page => params[:page]
+    @hitchhikers = User.order("created_at DESC").paginate :per_page => 5, :page => params[:page]
   end
   
   def about
