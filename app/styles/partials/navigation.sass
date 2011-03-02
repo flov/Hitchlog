@@ -2,36 +2,41 @@
   width: 100%
   background-color: black
 
-ul#main_nav
+ul#nav_menu
+  a:hover
+    color: orange
   font-family: Arial
   font-size: 12px
   margin: 0 auto
-  padding-left: 0
-  padding-top: 8px
-  width: 800px
-  height: 30px
+  padding: 0
+  width: 500px
+  height: 28px
   list-style-type: none
-
-  li
-    padding: 3px 115px 0 0
+  > li
+    margin: 0
+    position: relative
+    padding: 7px 25px 
     float: left
+    &:hover
+      #nav_trips_dropdown
+        display:block
+    ul
+      +rounded_corners(0 0 15px 15px)
+      display: none
+      list-style-type: none
+      background-color: black
+      left: 9px
+      padding: 5px
+      position: absolute
+      top: 28px
+      width: 113px
+      li
+        padding-left: 10px
+      li.last
+        margin-bottom: 4px
+  li:hover
+    ul
+      display: block
   li.right
-    padding: 3px 0 0
-
-#nav_trips_dropdown
-  +rounded_corners(0 0 15px 15px)
-  background-color: black
-  left: -33px
-  padding: 5px
-  position: absolute
-  text-align: center
-  top: 34px
-  width: 89px
-  display: none
-  
-#nav_trips
-  position: relative
-  &:hover
-    #nav_trips_dropdown
-      display:block
+    padding-right: 0
 

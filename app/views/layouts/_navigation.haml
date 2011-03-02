@@ -1,0 +1,12 @@
+.navigation
+  %ul#nav_menu
+    %li#nav_home= link_to 'Home', root_path
+    %li#nav_trips
+      = link_to 'Trips', trips_path
+      - if user_signed_in?
+        %ul#nav_trips_dropdown
+          %li.last= link_to 'New Trip', new_trip_path
+          -#%li.last= link_to 'Manage Trips', new_trip_path
+    %li#nav_hitchhikes= link_to 'Hitchhikers', users_path
+    %li#nav_about= link_to 'About', about_path
+    %li#nav_authenitcation.right= render :partial => 'shared/sign_in_and_out'
