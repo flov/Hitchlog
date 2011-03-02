@@ -3,8 +3,8 @@
 = render 'content_for_home' unless @hitchhike.nil?
 
 .home
+  .logo=image_tag 'Hitchlog.png'
   .left
-    %h1 Hitchlog
     .statistics
       .first
         = @hitchhike_size
