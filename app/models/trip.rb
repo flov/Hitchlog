@@ -49,8 +49,10 @@ class Trip < ActiveRecord::Base
   def new_duration
     if !self.duration.nil?
       self.duration
-    else
+    elsif self.end != nil and self.start != nil
       (self.end - self.start)/60/60
+    else
+      0
     end
   end
 
