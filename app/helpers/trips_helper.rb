@@ -1,4 +1,12 @@
 module TripsHelper
+  def log_trip_header(trip)
+    if trip.new_record?
+      "<h3>Log a new Hitchhiking Trip</h3>".html_safe
+    else
+      "<h3>Edit Hitchhiking Trip</h3>".html_safe
+    end
+    
+  end
   
   def link_to_trip(trip, options ={})
     array = []
