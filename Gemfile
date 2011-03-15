@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.5'
 gem 'devise'
 gem 'mysql2'
 gem 'bluecloth'
@@ -22,7 +22,9 @@ gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 
 group :test, :development do
   gem "rspec-rails", "~> 2.5"    
-  gem "faker"
+end
+
+group :test do
   gem "database_cleaner"
   gem 'cucumber', '0.9.4'
   gem 'cucumber-rails', '0.3.2'
@@ -33,4 +35,5 @@ group :test, :development do
   gem 'livereload'
   gem 'guard'  
   gem 'guard-livereload'
+  gem "faker"
 end

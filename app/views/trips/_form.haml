@@ -1,0 +1,35 @@
+= form_for trip, :html => {:class => "trip_form"} do |f|
+  %table
+    -#=   render :partial => 'shared/error_explanation', :locals => {:model => trip}
+    %tr.text_field
+      %td= f.label :from
+      %td= f.text_field :from
+    %tr.text_field
+      %td= f.label :to
+      %td= f.text_field :to
+    %tr.text_field
+      %td= f.label :start, 'Started at'
+      - if trip.start.nil?
+        %td=f.text_field :start
+      - else
+        %td= text_field_tag 'trip[start]', trip.start.strftime("%d/%m/%Y %H:%M"), :size => 30
+    %tr.text_field
+      %td= f.label :duration, 'Duration (in hours)'
+      %td= f.text_field :duration
+      #time_trip_ends
+    - if trip.new_record?
+      %tr.text_field
+        %td= f.label :rides, 'Number of rides'
+        %td= f.text_field :rides
+    %tr.select_field
+      %td= f.label :travelling_with, 'Travelling'
+      %td= select_tag "trip[travelling_with]", "<option value='0'>Alone</option><option value='1'>With 1 Person</option><option value='2'>With 2 People</option><option value='3'>With 3 People</option><option value='4'>With 4 People</option>".html_safe
+    -#.text_field
+      -#= f.label :money_spent, 'Money spent on road in Euro'
+      -#= f.text_field :money_spent
+    %tr
+      %td= f.submit "Submit"
+
+:javascript
+  var tripDateStart;
+  $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'mm/dd/yy'});
