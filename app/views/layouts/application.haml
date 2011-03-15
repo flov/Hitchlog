@@ -4,11 +4,14 @@
     %title= content_for?(:title) ? "Hitchlog - #{yield(:title)}".html_safe : "Hitchlog"
     = meta_keywords
     = meta_description
-    = stylesheet_link_tag "application"
     = javascript_include_tag 'jquery-1.4.3.min', 'jquery-ui-1.8.9.custom.min', 'jquery-ui-timepicker-addon', 'jquery.calendrical.js', 'jquery.tipsy', 'jquery.autogrowtextarea', 'vendor/date', 'showdown', 'rails', 'application'
     = yield(:head)
     = csrf_meta_tag 
     = javascript_google_stats
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+
   %body
     = render 'shared/banners_in_corners'
 

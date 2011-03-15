@@ -49,6 +49,8 @@ GEM
     celerity (0.8.8)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -184,6 +186,7 @@ DEPENDENCIES
   aws-s3
   bluecloth
   capybara
+  compass (>= 0.10.6)
   cucumber (= 0.9.4)
   cucumber-rails (= 0.3.2)
   database_cleaner

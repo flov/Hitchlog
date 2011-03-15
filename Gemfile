@@ -15,6 +15,8 @@ gem 'json', '~> 1.4.6'
 gem 'aws-s3', :require => 'aws/s3'
 # gem "nifty-generators"
 
+gem "compass", ">= 0.10.6"
+
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 
 # gem 'hpricot' # only for generating devise views
