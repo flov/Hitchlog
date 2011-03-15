@@ -14,7 +14,7 @@ Given /^(?:I am|I'm) logged in as (\w+)$/ do |username|
   fill_in('Password', :with => @user.password)
   click_button('Sign in')
   if defined?(Spec::Rails::Matchers)
-    page.should have_content('Signed in successfully')
+    page.should have_content('devise.sessions.signed_in')
   else
     assert page.has_content?('Signed in successfully')
   end
