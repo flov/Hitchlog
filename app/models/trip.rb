@@ -22,8 +22,6 @@ class Trip < ActiveRecord::Base
     rides.to_i.times{ hitchhikes.build }
   end
 
-  before_create :assign_time
-
   def to_s
     "#{from_city_sanitized} &rarr; #{to_city_sanitized}".html_safe
   end
@@ -49,18 +47,14 @@ class Trip < ActiveRecord::Base
   def new_duration
     if !self.duration.nil?
       self.duration
-    else
+    elsif !self.start.nil? && self.end.nil?
       (self.end - self.start)/60/60
+    else
+      nil
     end
   end
 
   def new_record
     new_record?
-  end
-
-  def assign_time
-    # combining the time input with the date input (02/11/2011 02:00 pm)
-    self.start = Time.parse("#{self.start.to_s.split(' ').first} #{self.start_time}")
-    self.end = Time.parse("#{self.end.to_s.split(' ').first} #{self.end_time}")
   end
 end
