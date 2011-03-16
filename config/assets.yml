@@ -1,0 +1,10 @@
+embed_assets: on
+#package_assets: always
+
+javascripts:
+  workspace:
+    - public/javascripts/vendor/jquery-1.4.3.min.js
+    - public/javascripts/vendor/jquery*
+    - public/javascripts/vendor/*.js
+    - public/javascripts/*.js
+    - public/javascripts/lib/*.js
