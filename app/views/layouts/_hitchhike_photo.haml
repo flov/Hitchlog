@@ -14,9 +14,7 @@
         to 
         %span#hitchhike-to= hitchhike.trip.to_city_sanitized
         = link_to '(more)', hitchhike_path(hitchhike)
-        -#%br/
-        -#= "#{show_ordinal_of_ride(hitchhike)} ride"
-        -##{trip_and_ride_took(hitchhike)}
-        -#= show_photo_link(hitchhike)
-        -#= link_to "go to story", hitchhike_path(hitchhike) unless hitchhike.story.blank?
     = image_tag hitchhike.photo.url(:cropped), :id => 'hitchhike-photo-photo'
+
+:javascript
+  HitchhikePhoto.init()

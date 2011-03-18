@@ -6,5 +6,6 @@ javascripts:
     - public/javascripts/vendor/jquery-1.4.3.min.js
     - public/javascripts/vendor/jquery*
     - public/javascripts/vendor/*.js
+    - public/javascripts/custom/*.js
     - public/javascripts/*.js
     - public/javascripts/lib/*.js

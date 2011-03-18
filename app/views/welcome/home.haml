@@ -1,6 +1,5 @@
 - title("A Hitchhiker's Logbook")
-
-= render 'content_for_home' unless @hitchhike.nil?
+= render 'hitchhikes/topmenu_photo', :hitchhike => @hitchhike 
 
 .home
   .logo=image_tag 'logo.png'
