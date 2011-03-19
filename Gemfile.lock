@@ -52,6 +52,8 @@ GEM
     closure-compiler (1.0.0)
     compass (0.10.6)
       haml (>= 3.0.4)
+    compass-colors (0.3.1)
+      compass (>= 0.8.7)
     configuration (1.2.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -82,6 +84,8 @@ GEM
       railties (>= 3.0.0)
     faker (0.9.5)
       i18n (~> 0.4)
+    fancy-buttons (1.0.6)
+      compass (= 0.10.6)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gem_plugin (0.2.3)
@@ -192,6 +196,7 @@ DEPENDENCIES
   bluecloth
   capybara
   compass (>= 0.10.6)
+  compass-colors
   cucumber (= 0.9.4)
   cucumber-rails (= 0.3.2)
   database_cleaner
@@ -199,6 +204,7 @@ DEPENDENCIES
   escape_utils
   factory_girl_rails (~> 1.0.1)
   faker
+  fancy-buttons
   guard
   guard-livereload
   haml (~> 3.0.21)

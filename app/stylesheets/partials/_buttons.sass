@@ -1,0 +1,55 @@
+@import compass
+@import fancy-buttons
+@import page-styles
+@include global-reset
+@include reset-html5
+
+$green: darken($orange, 8)
+$blue: #00ff00
+$red: #ff0000
+$heart_button: saturate(lighten($red, 2), 20)
+
+=custom-fancy-gradient(!color1, !color2)
+  !color2 = darken(!color2, 5)
+  +radial-gradient(color-stops(!color1, !color2))
+  
+
+=invert-custom-fancy-gradient(!color1, !color2)
+  !color1 = lighten(!color2, 10)
+  !color2 = lighten(!color2, 25)
+  +custom-fancy-gradient(!color1, !color2)
+
+.fancy-button-base
+  +fancy-button
+  margin: 0 2px
+  vertical-align: middle
+
+.button, button
+  @extend .fancy-button-base
+  &[disabled]
+    +disable-fancy-button(gray)
+.light
+  +fancy-button-colors-matte(#ddd)
+.matte-blue
+  +fancy-button-colors($blue)
+.green
+  +fancy-button-colors($green)
+.red
+  +fancy-button-colors($red)
+.yellow
+  +fancy-button-colors(darken(desaturate(yellow, 35), 5))
+.custom
+  +fancy-button-size(30px, .3em)
+  +fancy-button-padding(2px, 12px, 2px)
+.heart
+  +fancy-button-colors-custom($heart_button)
+.arrow
+  +fancy-button-size(30px, 1em)
+  +fancy-button-padding(2px, 6px, 2px)
+.spade
+  +fancy-button-colors-custom($blue)
+  +fancy-button-padding(2px, 8px, 2px)
+.blue
+  +fancy-button-colors($blue)
+  +fancy-button-size(32px, 1em, 3px)
+

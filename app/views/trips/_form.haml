@@ -27,8 +27,30 @@
     -#.text_field
       -#= f.label :money_spent, 'Money spent on road in Euro'
       -#= f.text_field :money_spent
-    %tr
-      %td= f.submit "Submit"
+  = f.submit "Submit", :class => 'button light'
+
+%h1 Fancy Buttons - Color Demo
+%div
+  %button.green Click Me
+  %a.button.blue{:href => "#"} Click Me
+  %button.red &hearts;
+%div
+  %button Click Me
+  %button.yellow Click Me
+%h2 Matte Gradient
+%div
+  %button.light Click Me
+  %button.matte-blue Click Me
+%h2 Disabled Buttons
+%div
+  %button{:disabled => ""} Click Me
+%h2 Custom Radial Gradient
+%div
+  %button.custom.heart &hearts;
+  %button.custom.arrow &rarr;
+  %button.custom.spade &Omega;
+
+
 
 :javascript
   var tripDateStart;
