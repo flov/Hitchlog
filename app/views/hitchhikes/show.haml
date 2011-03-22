@@ -1,5 +1,6 @@
 - hitchhike_show_title(@hitchhike)
 
+= render 'topmenu_photo', :hitchhike => @hitchhike
 .hitchhike_show_box
   = render 'hitchhikes/show_date', :date => @hitchhike.trip.start if @hitchhike.trip.start
   = render 'hitchhikes/hitchhike_buttons', :trip => @hitchhike.trip, :hitchhike => @hitchhike
@@ -9,5 +10,4 @@
 
 = render 'show_hitchhike', :hitchhike => @hitchhike unless @hitchhike.story.blank?
 
-= render 'topmenu_photo', :hitchhike => @hitchhike
 

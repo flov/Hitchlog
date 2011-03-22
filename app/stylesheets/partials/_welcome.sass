@@ -1,5 +1,33 @@
-.home
+#second-header #container
+  color: white
   +clearfix
+
+.statistics
+  +clearfix
+  padding: 20px 0
+  color: white
+  width: 530px
+  margin: 0 auto
+  font-size: 44px
+  line-height: 52px
+  text-align: center
+  font-family: Arial
+  font-weight: bold
+  .subtitle
+    font-size: 16px
+    line-height: 19px
+  li
+    margin-right: 20px
+    text-shadow: 2px 2px 2px #222
+    float: left
+  li.last
+    margin-right: 0
+a
+  color: white
+  &:active, &:hover
+    color: $orange
+
+.home
   margin: 0 auto
   h1
     font-size: 66px !important
@@ -7,39 +35,19 @@
     margin: 0 0 10px 0 !important
     font-family: Palatino, Arial
     text-align: center
-  .statistics
-    +clearfix
-    width: 450px
-    margin: 0 auto 15px
-    font-size: 61px
-    line-height: 52px
-    text-align: center
-    font-family: Palatino, Arial
-    font-weight: bold
-    .subtitle
-      font-size: 20px
-      line-height: 23px
-    .first
-      margin-right: 35px
-      float: left
-    .second
-      margin-right: 35px
-      float: left
-      color: orange
-    .third
-      float: left
   .chart_image
     text-align: center
+    margin-bottom: 30px
         
   .left
     padding-top: 20px
-    width: 550px
+    width: 600px
     float: left
     //border-right: 1px dashed gray
     p
       padding-right: 15px
   .right
-    width: 227px
+    width: 300px
     float: right
     padding: 15px 0
     ul

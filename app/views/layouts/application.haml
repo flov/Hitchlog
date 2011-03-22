@@ -17,16 +17,27 @@
     = render 'shared/banners_in_corners'
 
     #wrap
-      #topmenu
-        = yield(:topmenu)
-        = render 'layouts/navigation'
+      #header
+        #container
+          .logo=link_to image_tag("hitchlog_logo.png"), root_path
+          = render 'layouts/navigation'
 
-      #container    
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
-        = yield
+      #second-header
+        #container
+          = yield(:layout_header)
+
+      #secondary-message
+        #container
+          = yield(:topmenu)
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}"
+
+      #container.main
+        #content
+          = yield
 
     #footer
       &copy; 2011 Hitchlog - #{link_to 'About', ''}
   
-    = uservoice_feedback
+    -#= uservoice_feedback
+

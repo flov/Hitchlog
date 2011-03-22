@@ -1,21 +1,45 @@
 - title("A Hitchhiker's Logbook")
-= render 'hitchhikes/topmenu_photo', :hitchhike => @hitchhike 
 
-.home
-  .logo=image_tag 'logo.png'
-  .left
-    .statistics
-      .first
-        = @hitchhike_size
-        .subtitle Hitchhikes
-      .second
+= content_for :layout_header do
+  #main-message
+    %h1 
+      We exist to facilitate a greater understanding of hitchhiking.
+    %h2
+      = link_to 'Share your hitchhiking experience with us.', new_trip_path
+      %br/
+      Get in touch with Hitchhikers who already hitched a route.
+      %br/
+  #right-message
+    - unless user_signed_in?
+      = link_to 'Sign Up', new_user_registration_path, :class => 'button light'
+      = link_to 'Sign In', new_user_session_path, :class => 'button light'
+
+= content_for :topmenu do
+  .statistics
+    %ul
+      %li
+        = @trip_size
+        .subtitle= link_to 'Trips', trips_path
+      %li
+        = number_with_delimiter(@hitchhiked_km, :delimiter => ".")
+        .subtitle Hitchhiked KM
+      %li
+        = @country_size
+        .subtitle Countries
+      %li
+        = @active_hitchhikers
+        .subtitle= link_to "Hitchhikers", users_path
+      %li
+        = @photo_size
+        .subtitle Photos
+      %li.last
         = @story_size
         .subtitle Stories
-      .third
-        = number_with_delimiter(@hitchhiked_km, :delimiter => ".")
-        .subtitle KM Hitchhiked
-    %h3
-      Welcome!
+
+.home
+  -#.logo=image_tag 'logo.png'
+  .left
+    %h1 Welcome!
     %p 
       We are trying to make the world a more hitchhiker friendly place.<br />
       By logging personal hitchhiking experiences, we are trying to paint a 
@@ -25,12 +49,26 @@
       The information that you enter on this site gets parsed into demographic data
       so that we can tell the average waiting time for a ride in let's say China,
       your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
-      Below you can see a piechart which consists the countries of the #{@hitchhike_size} 
-      logged Hitchhikes
+      Below you can see a piechart which consists the countries of the logged
+      Hitchhikes
+      The information that you enter on this site gets parsed into demographic data
+      so that we can tell the average waiting time for a ride in let's say China,
+      your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
+      Below you can see a piechart which consists the countries of the logged
+      Hitchhikes
     .chart_image
       = image_tag @chart_image
 
   .right
+    %h3 Latest Hitchhiking trips
+    %ul
+      -@trips.each do |trip|
+        %li
+          = link_to "#{h(trip.from_city)} &rarr; #{h(trip.to_city)}".html_safe, trip_path(trip)
+          hitchhiked by 
+          = link_to h(trip.user), user_path(trip.user)
+      %li.text_center=link_to "... More Trips", trips_path 
+
     %h3 Latest Hitchhiking Stories
     %ul
       -@hitchhikes_with_story.each do |hitchhike|

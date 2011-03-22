@@ -1,22 +1,35 @@
+#container.main
+  margin-bottom: 30px
+  a 
+    color: $orange
+    &:hover
+      color: lighten($orange, 10)
+
 #container
+  +clearfix
   overflow: auto
-  padding-top: 20px
-  padding-bottom: 60px
-  width: 800px
-  margin: 0 auto
-  color: #000
   font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
-  p
-    line-height: 21px
-  h1
-    color: black
-    font-size: 180%
-    margin: 10px 0
-    padding: 0
+  width: 950px
+  margin: 0 auto
+  #content
+    padding-top: 20px
+    padding-bottom: 84px
+    margin: 0 auto
+    color: #000 
+    font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
+    p
+      line-height: 21px
+    h1
+      color: black
+      font-size: 180%
+      margin: 10px 0
+      padding: 0
+      font-style: italic
 
 #wrap .full_width
   width: 100%
   padding: 0
+  min-height: 100%
 
 #footer 
   line-height: 40px
@@ -25,8 +38,54 @@
   height: 40px
   clear: both 
   width: 100%
-  background-color: black
+  background-color: lighten($orange, 10)
   font-size: 12px
   color: white
   text-align: center
 
+#header
+  +clearfix
+  background-color: $orange
+  #container
+    width: 950px
+    margin: 0 auto
+    padding: 10px 0 0
+  .logo
+    float: left
+
+#second-header
+  +clearfix
+  background-color: lighten($orange, 20)
+
+#navigation
+  float: right
+  margin-right: 30px
+  
+#secondary-message
+  background-color: lighten($orange, 35)
+
+#container
+  #main-message
+    +clearfix
+    width: 480px
+    float: left
+    padding-top: 20px
+    h1
+      color: white
+      font-family: georgia,serif
+      padding-bottom: 20px
+      border-bottom: 1px solid #fff
+      font-size: 44px
+      font-style: italic
+      text-shadow: 2px 2px 2px #222
+      line-height: 1.25em
+    h2
+      color: white
+      font-size: 18px
+      padding: 20px 0 30px 0
+      text-shadow: 1px 1px 1px #222
+  #right-message
+    padding-top: 30px
+    width: 400px
+    float: right
+    

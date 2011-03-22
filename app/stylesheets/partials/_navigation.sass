@@ -1,25 +1,30 @@
-.navigation
-  width: 100%
-  background-color: black
-
 ul#nav_menu
-  a:hover
-    color: orange
   font-family: Arial
   font-size: 12px
-  margin: 0 auto
   padding: 0
-  width: 500px
   height: 28px
   list-style-type: none
+  margin-top: 18px
+  margin-right: 45px
+
+  a
+    +border-radius(5px)
+    background-color: darken($orange, 30)
+    padding: 5px 10px
+    margin-right: 20px
+    color: white
+
+  a:hover
+    color: orange
+
   > li
     margin: 0
     position: relative
-    padding: 7px 25px 
+    //padding: 7px 25px 
     float: left
-    &:hover
-      #nav_trips_dropdown
-        display:block
+    //&:hover
+      //#nav_trips_dropdown
+        //display:block
     ul
       +rounded_corners(0 0 15px 15px)
       display: none
@@ -34,9 +39,9 @@ ul#nav_menu
         padding-left: 10px
       li.last
         margin-bottom: 4px
-  li:hover
-    ul
-      display: block
+  //li:hover
+    //ul
+      //display: block
   li.right
     padding-right: 0
 
