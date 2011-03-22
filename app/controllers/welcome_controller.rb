@@ -6,7 +6,8 @@ class WelcomeController < ApplicationController
     #@chart_image_header = chart_image(Trip.all, nil, :three_dimensional => true, :color => 'FFAC63', :size => 'small')
 
     @chart_image = chart_image(Trip.all)
-    @trips = Trip.all.paginate :per_page => 5, :page => 1
+    @paginated_trips = Trip.all.paginate :per_page => 5, :page => 1
+    @trips = Trip.all
     @trip_size = @trips.size
     @country_size = @trips.map(&:from_country).uniq.size
     @active_hitchhikers = @trips.map(&:user).uniq.size

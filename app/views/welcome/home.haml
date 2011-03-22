@@ -62,7 +62,7 @@
   .right
     %h3 Latest Hitchhiking trips
     %ul
-      -@trips.each do |trip|
+      -@paginated_trips.each do |trip|
         %li
           = link_to "#{h(trip.from_city)} &rarr; #{h(trip.to_city)}".html_safe, trip_path(trip)
           hitchhiked by 

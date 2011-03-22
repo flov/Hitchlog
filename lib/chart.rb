@@ -3,16 +3,26 @@ module Chart
   
   def chart_image(trips, user=nil, options={})
     array = chart_array(trips)
-    user.nil? ? title = '' : title = "Hitchhiked Countries Of #{user}"
+    user.nil? ? title = 'Hitchhiked Countries' : title = "Hitchhiked Countries Of #{user}"
+
+    if options[:size] == 'small'
+      options[:resolution] = '340x100'
+      chart_label = small_chart_label(array)
+      title = nil
+    end
+    chart_label          ||= chart_label(array)
     options[:resolution] ||= '540x200'
 
-    "http://chart.apis.google.com/chart?cht=p
+    image = "http://chart.apis.google.com/chart?cht=p
                                        &chs=#{options[:resolution]}
                                        &chd=t:#{chart_numbers(array)}
                                        &chds=0,#{chart_numbers_max(array)}
-                                       &chl=#{chart_label(array)}
+                                       &chl=#{chart_label}
                                        &chtt=#{title}
                                        &chts=676767,14".gsub(/\n( )+/,'')
+    image << '&cht=p3'                      if options[:three_dimensional] == true
+    image << "&chf=bg,s,#{options[:color]}" if options[:color]
+    image
   end
 
   protected
@@ -34,6 +44,13 @@ module Chart
       else
         "#{pluralize(i[0], 'ride')} #{i[2]}"
       end
+    end.join("|")
+  end
+
+  def small_chart_label(chart_array)
+    # [[2, 627, "Spain"], ...]
+    chart_array.collect do |i| 
+      "#{i[2]} #{i[1]}km"
     end.join("|")
   end
   
