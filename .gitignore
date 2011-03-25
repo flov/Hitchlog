@@ -4,7 +4,10 @@ config/s3.yml
 log/*.log
 tmp/**/*
 public/system
-*.css
+public/stylesheets/*.css
+public/stylesheets/backup
+public/stylesheets/partials
+public/stylesheets/vendors
 Capfile
 config/deploy.rb
 .idea
