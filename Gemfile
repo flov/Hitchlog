@@ -17,8 +17,9 @@ gem 'aws-s3', :require => 'aws/s3'
 gem "compass", ">= 0.10.6"
 gem "compass-colors"
 gem 'fancy-buttons'
-# gem "nifty-generators"
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
 
 # gem 'hpricot' # only for generating devise views
 # gem 'ruby_parser' # only for generating devise views

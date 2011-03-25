@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 48b67c2d2493bfa7ac08aaab8667101261379eb2
+  specs:
+    rails_admin (0.0.2)
+      builder (~> 2.1.0)
+      rails (~> 3.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -218,6 +226,7 @@ DEPENDENCIES
   mysql2
   nokogiri
   rails (= 3.0.5)
+  rails_admin!
   rspec-rails (~> 2.5)
   shoulda
   will_paginate (~> 3.0.pre2)
