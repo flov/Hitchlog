@@ -3,11 +3,12 @@ Hitchlog
 
 Hitchhiking is my favorite way of transportation. Whenever I had time to
 travel i chose hitchhiking before car pooling and trains. It is a great way
-to get in touch with the local population and get a glimpse of the life of 
+to get in touch with the local people and to get a glimpse of the life of 
 a completely other personality.
 When I managed to go a long tour of about 1000 kms in one day i’ve felt 
 energised and quite happy about my day spent on the road, meeting all 
-these people coming from different backgrounds.
+these people coming from different backgrounds. Additionally I also felt that I
+deserve to be there more than any other tourist :P
 
 After a while it was quite difficult for me to remember all these different people
 and the stories that were connected to it. Additionaly it would have been nice to 

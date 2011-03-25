@@ -5,38 +5,50 @@
 
   %p
     Hitchlog is an application that serves as a platform for hitchhikers to log
-    their personal hitchhiking experience.
-    It gives an authentic view on hitchhiking untouched of it's bad reputation
-    that is spread by public media and movies and tries to make the world a more hitchhiker
-    friendly place.
+    their personal hitchhiking experience.  It gives an authentic view on
+    hitchhiking untouched of it's bad reputation that is spread by public
+    media/movies and tries to make the world a more hitchhiker friendly place.
 
   %p
-    The information that is entered by hitchhikers generates demographic data 
-    like the average waiting time in certain countries, longest ride, shortest ride, etc...    
-    If you have an idea on interesting features that we could implement, please post it in the 
-    Feedback forum on the left.
+    The information that is entered by hitchhikers (waiting time, stories,
+    routes) generates demographic data like the average waiting time in
+    countries, the longest/shortest ride of a user, the total number of
+    kilometers hitchhiked by a user in for example Mexico, etc... 
+
+  %p
+    Stories can be attached to rides so that rides become like blog entries
+    telling a bit about the situation, the person and the ride.
 
   %h2 Contribute
   .float_right
     =image_tag 'open-source.png'
   %p
-    = link_to @flov, user_path(@flov)
-    is currently developing this site and he is pretty excited about all its possibilities.
-    The application is completely open-source and it would be lovely if other people would dive into the project
-    and implement their own ideas. So if you feel like coding a feature, don't just wait. Just
-    get the code on <a href='http://github.com/flov/hitchhike.me'>Github</a> and start rolling.
-    It runs on Ruby on Rails 3 and uses cucumber and rspec for BDD testing.
-
+    The Hitchlog lives of the community and without hitchhikers logging trips
+    this application is worthless. We can use any help.  Logging previous
+    hitchhiking trips and telling some stories is already really helpful. You
+    can also spread the word by telling your fellow hitchhiking friends about
+    the site.
+    As well we could use designers making some images or comics branding the
+    page.  If you are a geek and feel like learning some ruby on rails, 
+    #{link_to @flov, user_path(@flov)} is grateful for any help and is happy to
+    teach some ruby.<br />
+    He is currently developing this site and he is pretty excited about all its
+    possibilities. The application is completely open-source. 
+    
+  %h3 How To Contribute
+    If you feel like participating, a good start is the
+    <a href='https://teambox.com/projects/hitchlog'>Teambox Page</a>, which we
+    use for organizing the project. We are organizing feature requests and task
+    management there
+    
   %p
     There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>.
-    From spreading the word to your friends and fellow hitchhikers to coding your own feature.
-    If you feel like this application is a great idea, give it a shout on twitter, facebook or
-    whatever social medium you feel good with.
-    If you have a great idea give some feedback by
-    clicking on the feedback link on the <b>&larr;</b> left and enter your 
-    thoughts, or send 
-    =link_to @flov, user_path(@flov)
-    an email: flov@hitchhike.me
+    If you feel like this application is a great idea, give it a shout on
+    twitter, facebook or whatever social medium you feel good with.  If you
+    have a great idea, give some feedback by using
+    <a href='https://teambox.com/projects/hitchlog'>Teambox</a> or do it the
+    oldschool way by sending #{link_to @flov, user_path(@flov)} an email:
+    flov@hitchhike.me
     
   %h2 Hitchlog supports
   .about-paragraph
@@ -66,8 +78,6 @@
       people they meet on the road. As such, the magazine is a great way 
       to create further bonding between hitchhikers, and to have something 
       we can give away that is representable for our culture.
-
-
 
 :javascript
   $('body').css('background-image', 'url("/images/about-bg.jpg")')
