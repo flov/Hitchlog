@@ -25,6 +25,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 # gem 'ruby_parser' # only for generating devise views
 
 group :test, :development do
+  gem 'fuubar'
   gem "rspec-rails", "~> 2.5"    
 end
 
