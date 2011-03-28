@@ -1,6 +1,6 @@
 = form_for trip, :html => {:class => "trip_form"} do |f|
   %table
-    -#=   render :partial => 'shared/error_explanation', :locals => {:model => trip}
+    =   render :partial => 'shared/error_explanation', :locals => {:model => trip}
     %tr.text_field
       %td= f.label :from
       %td= f.text_field :from
