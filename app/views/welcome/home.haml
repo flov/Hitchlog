@@ -87,6 +87,7 @@
           = link_to "#{hitchhiker.username}, logged #{hitchhiker.trips.size} Trips" , user_path(hitchhiker)
       %li.text_center=link_to "... More Hitchhikers", users_path 
 
+    = flattr_button
 
 :javascript
   $("#hitchhike-photo-details").css('bottom', '0px')

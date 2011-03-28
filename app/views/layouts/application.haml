@@ -12,6 +12,15 @@
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    :javascript
+      (function() {
+          var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+          s.type = 'text/javascript';
+          s.async = true;
+          s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+          t.parentNode.insertBefore(s, t);
+      })();
+    </script>
 
   %body
     = render 'shared/banners_in_corners'
