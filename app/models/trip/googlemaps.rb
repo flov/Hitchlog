@@ -1,14 +1,16 @@
 class Trip
   include Gmaps
   
-  def compute_distance
+  def get_distance
     self.distance = Gmaps.distance(from, to)
+  end
 
+  def get_country_distance
     Gmaps.countries(from, to).each do |country_distance|
       cd = CountryDistance.where(:country => country_distance[0],
-                                      :trip_id => self.id)
+                                 :trip_id => self.id)
       if cd.empty?
-        self.country_distances.build(:country => country_distance[0],
+        self.country_distances.create(:country  => country_distance[0],
                                       :distance => country_distance[1])
       elsif cd.first.distance != country_distance
         cd.first.update_attribute :distance, country_distance[1]
@@ -16,8 +18,8 @@ class Trip
     end
   end
 
-  def compute_distance!
-    compute_distance
+  def get_distance!
+    get_distance
     save!
   end
 
@@ -52,9 +54,13 @@ class Trip
   end
 
   before_validation do
-    compute_distance
     get_country
     get_formatted_addresses
     get_city
+    get_distance
+  end
+
+  after_create do
+    get_country_distance
   end
 end
