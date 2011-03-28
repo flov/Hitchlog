@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :find_trip_and_redirect_if_not_owner, :only => [:edit, :router]
+  before_filter :find_trip_and_redirect_if_not_owner, :only => [:edit]
   
   def new
     @trip = Trip.new
@@ -15,13 +15,10 @@ class TripsController < ApplicationController
     @trip.user = current_user
     if @trip.save
       flash[:notice] = "Thanks for creating a new trip. Please provide more information below."
-      redirect_to router_user_trip_path(current_user, @trip)
+      redirect_to trip_path(@trip)
     else
       render :new
     end
-  end
-
-  def router
   end
   
   def index
