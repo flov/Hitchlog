@@ -29,11 +29,11 @@ module Chart
 
   def chart_numbers(chart_array)
     # [[2, 627, "Spain"], [3, 73, "The Netherlands"], [3, 129, "United States"], [3, 0, "unknown"], [3, 568, "United Kingdom"], [1, 232, "France"]] 
-    chart_array.collect{|i| i.first}.join(",")
+    chart_array.collect{|i| i[1]}.join(",")
   end
   
   def chart_numbers_max(chart_array)
-    chart_array.collect{|i| i.first}.max
+    chart_array.collect{|i| i[1]}.max
   end
   
   def chart_label(chart_array)
@@ -57,15 +57,8 @@ module Chart
   def chart_array(trips)
     numbers = []
     trips.each do |trip| 
-      if trip.from_country == trip.to_country
-        numbers << [trip.hitchhikes.size, trip.distance/1000, trip.from_country] 
-      else
-        numbers << [trip.hitchhikes.size/2, trip.distance/1000/2, trip.from_country] 
-        if trip.hitchhikes.size.odd?
-          numbers << [(trip.hitchhikes.size/2)+1, trip.distance/1000/2, trip.to_country] 
-        else
-          numbers << [trip.hitchhikes.size/2, trip.distance/1000/2, trip.to_country] 
-        end
+      trip.country_distances.each do |country_distance|
+        numbers << [trip.hitchhikes.size, country_distance.distance/1000, country_distance.country]
       end
     end
 

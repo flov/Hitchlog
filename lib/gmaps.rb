@@ -89,7 +89,7 @@ module Gmaps
           nokogiri = Nokogiri::HTML(step['html_instructions'])
           country = nokogiri.search('div').last.content.sub('Entering ','')
           countries[-1][1] = distance
-          countries << [country, nil]
+          countries << [Gmaps.country(country), nil]
           distance = 0
         end
         if i == result['routes'][0]['legs'][0]['steps'].size-1
