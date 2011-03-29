@@ -3,7 +3,7 @@ module Chart
   
   def chart_image(trips, user=nil, options={})
     array = chart_array(trips)
-    user.nil? ? title = 'Hitchhiked Countries' : title = "Hitchhiked Countries Of #{user}"
+    user.nil? ? title = 'Total Amount Of Hitchhiked Countries By The Hitchlog' : title = "Hitchhiked Countries Of #{user}"
 
     if options[:size] == 'small'
       options[:resolution] = '340x100'
@@ -39,11 +39,7 @@ module Chart
   def chart_label(chart_array)
     # [[2, 627, "Spain"], ...]
     chart_array.collect do |i| 
-      if i[1] > 0
-        "#{pluralize(i[0], 'ride')} - #{i[2]} (#{i[1]}km)"
-      else
-        "#{pluralize(i[0], 'ride')} #{i[2]}"
-      end
+      "#{i[2]} (#{i[1]}km)"
     end.join("|")
   end
 
