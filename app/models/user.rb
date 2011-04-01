@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   include Chart
   
   has_many :trips, :dependent => :destroy
+  has_many :authentications, :dependent => :destroy
 
   validates :username, :presence => true, :uniqueness => true
   

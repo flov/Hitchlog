@@ -19,6 +19,7 @@ gem "compass-colors"
 gem 'fancy-buttons'
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'omniauth'
 
 
 # gem 'hpricot' # only for generating devise views

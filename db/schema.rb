@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328003334) do
+ActiveRecord::Schema.define(:version => 20110331083151) do
+
+  create_table "authentications", :force => true do |t|
+    t.string   "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "custom_attributes"
+  end
 
   create_table "country_distances", :force => true do |t|
     t.integer "distance"

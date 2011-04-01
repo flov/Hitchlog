@@ -1,4 +1,5 @@
-class MigrateDistance < ActiveRecord::Migration def self.up
+class MigrateDistance < ActiveRecord::Migration
+  def self.up
     Trip.all.each(&:get_country_distance)
   end
 
