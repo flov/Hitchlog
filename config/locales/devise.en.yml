@@ -24,7 +24,10 @@ en:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
-      signed_up: 'Thank you for signing up. You can start to Log your own hitchhikes now by clicking on Log new trip'
+      signed_up: 'Welcome aboard!'
+      new:
+        sign_up: 'Sign up'
+        or: Or
       updated: 'You updated your account successfully.'
       destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
     unlocks:
@@ -37,3 +40,4 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+

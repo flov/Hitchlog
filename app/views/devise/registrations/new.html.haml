@@ -1,28 +1,36 @@
--title 'Sign Up'
-- content_for :topmenu do
-  .yellow_box.sign_in_box
-    %h3
-      Sign Up For
-      %br/
-      <b>Hitchlog</b>
-      
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      .text_field.username
-        = f.label :username
-        = f.text_field :username
-      .text_field.email
-        = f.label :email
-        = f.text_field :email
-      .text_field.password
-        = f.label :password
-        = f.password_field :password
-      .text_field.email
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
-      %p= f.submit "Sign up"
+- title 'Sign Up'
 
-    -#= render :partial => "devise/shared/links"
+- content_for :topmenu do
+  %h1
+    =t('.sign_up')
+    
+%table#sign_up
+  %tr
+    %td
+      = facebook_login
+    %td
+      =t('.or')
+    %td
+      %h2 Create a Hitchlog account
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .text_field.username
+          = f.label :username
+          %br
+          = f.text_field :username
+        .text_field.email
+          = f.label :email
+          %br
+          = f.text_field :email
+        .text_field.password
+          = f.label :password
+          %br
+          = f.password_field :password
+        .text_field.email
+          = f.label :password_confirmation
+          %br
+          = f.password_field :password_confirmation
+        %p= f.submit "Sign up"
 
 .help
   <b>Help:</b>

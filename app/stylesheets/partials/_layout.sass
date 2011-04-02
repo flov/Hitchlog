@@ -1,47 +1,14 @@
-#container.main
-  margin-bottom: 30px
-  a 
-    color: $orange
-    &:hover
-      color: lighten($orange, 10)
-
 #container
   +clearfix
   overflow: auto
   font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
   width: 950px
   margin: 0 auto
-  #content
-    padding-top: 20px
-    padding-bottom: 84px
-    margin: 0 auto
-    color: #000 
-    font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
-    p
-      line-height: 21px
-    h1
-      color: black
-      font-size: 180%
-      margin: 10px 0
-      padding: 0
-      font-style: italic
 
 #wrap .full_width
   width: 100%
   padding: 0
   min-height: 100%
-
-#footer 
-  line-height: 40px
-  position: relative
-  margin-top: -40px 
-  height: 40px
-  clear: both 
-  width: 100%
-  background-color: lighten($orange, 10)
-  font-size: 12px
-  color: white
-  text-align: center
 
 #header
   +clearfix
@@ -53,39 +20,96 @@
   .logo
     float: left
 
-#second-header
+#second-header, #third-header
   +clearfix
+  h1
+    color: white
+    font-family: georgia,serif
+    padding-bottom: 2px
+    border-bottom: 1px solid #fff
+    font-size: 44px
+    font-style: italic
+    +text-shadow(#222, 2px, 2px, 2px )
+    line-height: 1.25em
+  h2
+    color: white
+    font-size: 18px
+    +text-shadow(#222, 1px, 1px, 1px)
+
+#second-header
   background-color: lighten($orange, 20)
+  #main-message
+    h2
+      padding: 20px 0 30px 0
+    +clearfix
+    width: 480px
+    float: left
+    padding-top: 20px
+  #right-message
+    padding-top: 30px
+    width: 400px
+    float: right
+
+#third-header
+  background-color: lighten($orange, 35)
+  h1
+    border-bottom: 0px
+
+  .statistics
+    +clearfix
+    padding: 20px 0
+    color: white
+    width: 630px
+    margin: 0 auto
+    font-size: 44px
+    line-height: 52px
+    text-align: center
+    font-family: Arial
+    font-weight: bold
+    .subtitle
+      font-size: 16px
+      line-height: 19px
+    li
+      margin-right: 20px
+      +text-shadow(#222, 2px, 2px, 2px)
+      float: left
+    li.last
+      margin-right: 0
+  
 
 #navigation
   float: right
   margin-right: 30px
   
-#secondary-message
-  background-color: lighten($orange, 35)
+#content
+  padding-top: 20px
+  padding-bottom: 84px
+  margin: 0 auto
+  color: #000 
+  font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
+  a 
+    color: $orange
+    &:hover
+      color: lighten($orange, 10)
+  p
+    line-height: 21px
+  h1
+    color: black
+    font-size: 180%
+    margin: 10px 0
+    padding: 0
+    font-style: italic
 
-#container
-  #main-message
-    +clearfix
-    width: 480px
-    float: left
-    padding-top: 20px
-    h1
-      color: white
-      font-family: georgia,serif
-      padding-bottom: 20px
-      border-bottom: 1px solid #fff
-      font-size: 44px
-      font-style: italic
-      +text-shadow(#222, 2px, 2px, 2px )
-      line-height: 1.25em
-    h2
-      color: white
-      font-size: 18px
-      padding: 20px 0 30px 0
-      +text-shadow(#222, 1px, 1px, 1px)
-  #right-message
-    padding-top: 30px
-    width: 400px
-    float: right
+#footer 
+  line-height: 40px
+  position: relative
+  margin-top: -40px 
+  height: 40px
+  clear: both 
+  width: 100%
+  background-color: $orange
+  font-size: 12px
+  color: white
+  text-align: center
+
     

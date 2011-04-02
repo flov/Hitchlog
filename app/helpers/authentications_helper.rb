@@ -1,5 +1,5 @@
 module AuthenticationsHelper
   def facebook_login
-    link_to "Login with Facebook", "auth/facebook"
+    link_to image_tag("authbuttons/png/facebook_signup.png"), "/auth/facebook"
   end
 end
