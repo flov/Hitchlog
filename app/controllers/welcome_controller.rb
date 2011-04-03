@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     @paginated_trips = Trip.all.paginate :per_page => 5, :page => 1
     @trips = Trip.all
     @trip_size = @trips.size
-    @country_size = @trips.map(&:from_country).uniq.size
+    @country_size = CountryDistance.all.map(&:country).uniq.size
     @active_hitchhikers = @trips.map(&:user).uniq.size
     @hitchhike_size = Hitchhike.all.size
     @story_size = Hitchhike.all.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size

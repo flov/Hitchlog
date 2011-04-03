@@ -1,0 +1,20 @@
+.statistics
+  %ul
+    %li
+      = @trip_size
+      .subtitle= link_to 'Trips', trips_path
+    %li
+      = number_with_delimiter(@hitchhiked_km, :delimiter => ".")
+      .subtitle Hitchhiked KM
+    %li
+      = @country_size
+      .subtitle Countries
+    %li
+      = @active_hitchhikers
+      .subtitle= link_to "Hitchhikers", users_path
+    %li
+      = @photo_size
+      .subtitle Photos
+    %li.last
+      = @story_size
+      .subtitle Stories
