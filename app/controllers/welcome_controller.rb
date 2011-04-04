@@ -2,9 +2,6 @@ class WelcomeController < ApplicationController
   include Chart
 
   def home
-    @hitchhike = Hitchhike.random_item
-    #@chart_image_header = chart_image(Trip.all, nil, :three_dimensional => true, :color => 'FFAC63', :size => 'small')
-
     @chart_image = chart_image(Trip.all)
     @paginated_trips = Trip.all.paginate :per_page => 5, :page => 1
     @trips = Trip.all
