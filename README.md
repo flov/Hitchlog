@@ -25,6 +25,18 @@ hitchhiking statistics on [hitchwiki](http://hitchwiki.org/en/User:Fverhart) the
 of this application is to make it easy to provide an easy way to collect that data
 
 
+Set Up
+-----------------------
+Copy config/database.yml.example to config/database.yml
+
+    cp config/database.yml.example config/databse.yml
+
+and run:
+
+    bundle install
+    rake db:migrate
+    rails s
+
 Documenting A Hitchhike
 -----------------------
 
