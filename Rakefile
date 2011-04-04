@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-PaperclipOnHeroku::Application.load_tasks
+Hitchlog::Application.load_tasks

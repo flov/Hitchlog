@@ -1,4 +1,4 @@
-PaperclipOnHeroku::Application.routes.draw do
+Hitchlog::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'login' }
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
