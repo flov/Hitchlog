@@ -46,4 +46,10 @@ Hitchlog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+
+  # Custom Attributes
+  config.host = 'hitchlog.com'
+  config.facebook_id = 'dd99a73ebab7f0774f310d0c63ba4140'
+  config.facebook_secret = 'a27c4401e2c4aa4e173ae4ddeea821be'
 end

@@ -8,8 +8,11 @@
   %tr
     %td
       = facebook_authentication
+      %br/
+      = render :partial => 'shared/facepile'
+     
     %td
-      %h2=t('.or')
+      =t('.or')
     %td
       %h2 Create a Hitchlog account
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
