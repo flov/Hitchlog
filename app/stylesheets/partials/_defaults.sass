@@ -7,23 +7,27 @@ body
   font-family: Verdana, Helvetica, Arials
   color: #ddd
 
+  h1
+    line-height: 1.25em
+  h2
+    font-size: 22px
+    margin-bottom: 12px
+  h3
+    font-size: 18px
+    font-family: Palatino
+  h4
+    font-size: 20px
+
 .pagination
   text-align: center
   margin: 5px 0
   
-
 .italic
   font-style: italic
-h2
-  margin: 0
-  font-family: 'avelight','Avenir','Avenir LT Std','Avenir Pro',Helvetica,Arial,serif
-h4
-  margin-bottom: 5px
 p
   font-size: 1.2 em
   line-height: 1.6 em
   margin: 1em 0px
-  
 dl
   margin: 0
 
@@ -43,10 +47,13 @@ span#hitchhike-subtitle, .hitchhike-subtitle
   font-size: 22px
   font-family: cursive
   line-height: 28px
-h1
-  line-height: 1.25em
-h2, h3, h4, h5
-  margin: 0
+a
+  img
+    border: none
+  color: $orange
+  text-decoration: none
+  &:hover, &:visited
+    color: lighten($orange, 10)
   
 .float_left
   float: left
