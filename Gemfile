@@ -27,6 +27,7 @@ gem 'omniauth'
 
 group :test, :development do
   gem 'fuubar'
+  gem 'sqlite3'
   gem "rspec-rails", "~> 2.5"    
 end
 
