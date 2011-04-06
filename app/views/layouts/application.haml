@@ -20,27 +20,24 @@
 
     #wrap
       #header
-        #container
+        .container
           .logo=link_to image_tag("hitchlog_logo.png"), root_path
           = render 'layouts/navigation'
 
       #second-header
-        #container
+        .container
           = yield(:layout_header)
 
       #third-header
-        #container
+        .container
           = yield(:topmenu)
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
 
-      #container.main
-        #content
+      #content
+        .container
           = yield
 
     %script{:src=>"http://connect.facebook.net/en_US/all.js#xfbml=1"}
     #footer
       &copy; 2011 Hitchlog - #{link_to 'About', ''}
-  
-    -#= uservoice_feedback
-

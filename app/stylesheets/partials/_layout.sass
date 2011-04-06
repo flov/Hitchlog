@@ -1,4 +1,4 @@
-#container
+.container
   +clearfix
   overflow: auto
   font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
@@ -11,9 +11,7 @@
 #header
   +clearfix
   background-color: $orange
-  #container
-    width: 950px
-    margin: 0 auto
+  .container
     padding: 10px 0 0
   .logo
     float: left
@@ -81,30 +79,30 @@
       float: left
     li.last
       margin-right: 0
-  
 
 #navigation
   float: right
   margin-right: 30px
   
 #content
-  padding-top: 20px
-  padding-bottom: 84px
-  margin: 0 auto
-  color: #000 
-  font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
-  a 
-    color: $orange
-    &:hover
-      color: lighten($orange, 10)
-  p
-    line-height: 21px
-  h1
-    color: black
-    font-size: 180%
-    margin: 10px 0
-    padding: 0
-    font-style: italic
+  .container
+    padding-top: 20px
+    padding-bottom: 84px
+    margin: 0 auto
+    color: #000 
+    font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
+    a 
+      color: $orange
+      &:hover
+        color: lighten($orange, 10)
+    p
+      line-height: 21px
+    h1
+      color: black
+      font-size: 180%
+      margin: 10px 0
+      padding: 0
+      font-style: italic
 
 #footer 
   font-size: 12px
@@ -115,7 +113,7 @@
   height: 40px
   clear: both 
   width: 100%
-  background-color: lighten($orange, 10)
+  background-color: $orange
   font-size: 12px
   color: white
   text-align: center
