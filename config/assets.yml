@@ -1,5 +1,9 @@
 embed_assets: on
-#package_assets: always
+package_assets: always
+javascript_compressor: closure
+compressor_options:
+  compilation_level: "WHITESPACE_ONLY"
+
 
 javascripts:
   workspace:
