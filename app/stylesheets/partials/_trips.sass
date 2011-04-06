@@ -3,6 +3,7 @@
   input
     padding: 3px
     font-size: 15px
+
 acronym.published
   display: block
   text-align: center
@@ -34,7 +35,6 @@ acronym.published
 .suggest_data
   float: right
   margin: 10px
-
 
 ul.trips
   font-size: 15px
@@ -100,20 +100,19 @@ h3.date
     p
       margin: 0
 
-  .trips_index_box
-    margin: 20px auto
-    h2
-      border: 0
-      line-height: normal
-
 .trip_form_box
   width: 500px
-
-
-
 
 #new_trip
   .left
     100px
   .right
     background-color: blue
+
+#trips_index
+  table
+    $table-color: lighten($orange,60)
+    +table-scaffolding
+    +alternating-rows-and-columns2($table-color, darken($table-color, 4), black)
+    td.started_at, td.created_at
+      text-align: center

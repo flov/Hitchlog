@@ -18,6 +18,7 @@ en:
   trips:
     helper:
       photo: Photo
+      rides: "%{number} Rides"
       photo_missing: Missing Photo, Upload Photo
       story: Story
       story_missing: Missing Story, write a story about the ride

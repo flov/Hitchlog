@@ -75,6 +75,10 @@ module ImageHelper
     image_tag("icons/time_delete.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time_missing'))
   end
 
+  def ride_image(number)
+    image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.rides', :number => number))
+  end
+
   def driving_time_image(time)
     image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.driving_time', :time => time))
   end
