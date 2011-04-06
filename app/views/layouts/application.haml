@@ -6,21 +6,14 @@
     = meta_description
     %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
     = include_javascripts :workspace
-    = yield(:head)
     = csrf_meta_tag 
-    = javascript_google_stats
+    = yield(:head)
+
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-    :javascript
-      (function() {
-          var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-          s.type = 'text/javascript';
-          s.async = true;
-          s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-          t.parentNode.insertBefore(s, t);
-      })();
-    </script>
+    -if Rails.env == "production"
+      = javascript_google_stats
 
   %body
     = render 'shared/banners_in_corners'
