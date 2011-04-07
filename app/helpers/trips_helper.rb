@@ -5,7 +5,17 @@ module TripsHelper
     else
       "<h3>Edit Hitchhiking Trip</h3>".html_safe
     end
-    
+  end
+
+  def country_images(hash)
+    case hash[:country]
+      when "The Netherlands" then hash[:country] = "Netherlands"
+      # Add more exceptions...
+    end
+
+    unless I18nData.country_code(hash[:country]).nil?
+      image_tag "flags/png/#{I18nData.country_code(hash[:country])}.png", :class => 'tooltip', :alt => "#{hash[:country]} #{distance( hash[:distance] )}"
+    end
   end
   
   def link_to_trip(trip, options ={})
