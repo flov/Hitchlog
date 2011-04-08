@@ -46,6 +46,7 @@ GEM
       builder
       mime-types
       xml-simple
+    babosa (0.2.2)
     bcrypt-ruby (2.1.4)
     bluecloth (2.1.0)
     builder (2.1.2)
@@ -106,6 +107,8 @@ GEM
       rack (>= 1.1.0, < 2)
     ffi (1.0.7)
       rake (>= 0.8.7)
+    friendly_id (3.2.1)
+      babosa (~> 0.2.1)
     fuubar (0.0.4)
       chalofa_ruby-progressbar (~> 0.0.9)
       rspec (~> 2.0)
@@ -285,6 +288,7 @@ DEPENDENCIES
   factory_girl_rails (~> 1.0.1)
   faker
   fancy-buttons
+  friendly_id (~> 3.2.1)
   fuubar
   guard
   guard-livereload
