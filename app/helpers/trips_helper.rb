@@ -14,7 +14,7 @@ module TripsHelper
     end
 
     unless I18nData.country_code(hash[:country]).nil?
-      image_tag "flags/png/#{I18nData.country_code(hash[:country])}.png", :class => 'tooltip', :alt => "#{hash[:country]} #{distance( hash[:distance] )}"
+      image_tag "flags/png/#{I18nData.country_code(hash[:country]).downcase}.png", :class => 'tooltip', :alt => "#{hash[:country]} #{distance( hash[:distance] )}"
     end
   end
   
