@@ -1,5 +1,7 @@
 Hitchlog::Application.routes.draw do
-  devise_for :users, :path_names => { :sign_in => 'login' }
+  devise_for :users, :path_names => { :sign_in => 'login' },
+                     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
   
