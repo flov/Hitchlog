@@ -7,7 +7,7 @@ class User
         # user doesn't use facebook connect yet, so we create an Authentication entry
         user = User.find_by_email(data["email"])
         user.authentications.create!(:provider => access_token['provider'],
-                                     :uid => omniauth['uid'])
+                                     :uid => access_token['uid'])
       end
     else # Create a user with a stub password. 
       user = User.new(:email => data["email"],
@@ -39,7 +39,7 @@ end
   #token: 133141056704542|56b0473a54317c16f42188cf-100002244415511|XlkdyCu1k_rl-m6MWqNfJZbqLeg
 #user_info: 
   #nickname: profile.php?id=100002244415511
-  #email: florian@wuaki.tv
+  #email: florian@example.com
   #first_name: Klaus
   #last_name: Taler
   #name: Klaus Taler
@@ -55,7 +55,7 @@ end
     #last_name: Taler
     #link: http://www.facebook.com/profile.php?id=100002244415511
     #gender: male
-    #email: florian@wuaki.tv
+    #email: florian@example.com
     #timezone: 2
     #locale: en_US
     #updated_time: 2011-04-09T13:54:55+0000
