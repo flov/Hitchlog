@@ -3,25 +3,21 @@ class Trip < ActiveRecord::Base
   has_many :country_distances, :dependent => :destroy
   belongs_to :user
 
-  default_scope :order => 'start DESC'
+  default_scope :order => 'created_at DESC'
   
   validates :from, :presence => true
   validates :to, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
-  validates :rides, :presence => true, :if => :new_record
   
   concerned_with :googlemaps, :countries
+
+  accepts_nested_attributes_for :hitchhikes, :allow_destroy => true
 
   cattr_reader :per_page
   @@per_page = 40
 
-  attr_accessor :rides, :start_time, :end_time
-
-  before_save do
-    # build as much hitchhikes on top of the ride as needed
-    rides.to_i.times{ hitchhikes.build }
-  end
+  before_create :build_a_hitchhike
 
   def to_s
     "#{from_city_sanitized} &rarr; #{to_city_sanitized}".html_safe
@@ -57,5 +53,11 @@ class Trip < ActiveRecord::Base
 
   def new_record
     new_record?
+  end
+
+  private
+
+  def build_a_hitchhike
+    self.hitchhikes.build
   end
 end
