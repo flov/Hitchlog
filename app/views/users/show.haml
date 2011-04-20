@@ -16,7 +16,7 @@
     = "was #{distance(@longest_trip.distance)} long<br/>".html_safe
  
 
-= render :partial => 'country_chart', :locals => {:user => @user} unless @user.trips.empty?
+= render :partial => 'shared/country_chart', :locals => {:user => @user} unless @user.trips.empty?
 
 %p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"
 %ul

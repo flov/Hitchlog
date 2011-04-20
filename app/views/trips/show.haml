@@ -1,7 +1,66 @@
+#trips_show
+  .left
+    %h1.text_center
+      %span#start= @trip.from
+      &rarr;
+      %span#end= @trip.to
+      = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
+  .right
+    %h1.text_center Flov
+    .text_center=image_tag 'rails.png', :style => 'width: 60; height: 60;'
+    %p
+      Total Amount: 12500 km<br/>
+      Hitchhiked Countries: 19<br/>
+      Cars seen from inside: 138<br/>
+
+      = render 'shared/country_chart', :user => @trip.user
+      <br/>
+      average waiting time: 30 minutes<br/>
+      fastest ride: 300 km in 3 hours.<br/>
+
+
 - title "#{@trip.from} &rarr; #{@trip.to}".html_safe
 
-%h1.text_center
-  = @trip
-  = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
-%ul.hitchhike
-  = render 'list_hitchhikes', :trip => @trip  
+- content_for :topmenu do
+  #map_canvas{:style=>"width:100%"}
+
+-content_for :head do
+  :javascript
+    $(function(){
+      var directionDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+      initialize();
+      calcRoute();
+
+      function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+        var myOptions = {
+          zoom:6,
+          mapTypeId: google.maps.MapTypeId.HYBRID,
+          center: chicago
+        }
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        directionsDisplay.setMap(map);
+      }
+        
+      function calcRoute() {
+        var start = $("#start").html()
+        var end = $("#end").html()
+        var request = {
+          origin:start, 
+          destination:end,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+        directionsService.route(request, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+          }
+        });
+      }
+    });
+
+  :css
+    #third-header .container {width: 100%;}
+  
