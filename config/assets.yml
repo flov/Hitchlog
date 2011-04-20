@@ -1,15 +1,14 @@
-embed_assets: on
-package_assets: always
-javascript_compressor: closure
-compressor_options:
-  compilation_level: "WHITESPACE_ONLY"
-
+#package_assets: always
 
 javascripts:
   workspace:
     - public/javascripts/vendor/jquery-1.4.3.min.js
-    - public/javascripts/vendor/jquery*
-    - public/javascripts/vendor/*.js
+    - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery-ui-timepicker-addon.js
+    - public/javascripts/vendor/jquery.autogrowtextarea.js
+    - public/javascripts/vendor/jquery.tipsy.js
+    - public/javascripts/vendor/jquery.Jcrop.min.js
+    #- public/javascripts/vendor/showdown.js
+
     - public/javascripts/custom/*.js
-    - public/javascripts/*.js
-    - public/javascripts/lib/*.js
+    #- public/javascripts/lib/*.js
