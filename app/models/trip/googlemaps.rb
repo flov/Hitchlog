@@ -6,14 +6,20 @@ class Trip
   end
 
   def get_country_distance
-    Gmaps.countries(from, to).each do |country_distance|
-      cd = CountryDistance.where(:country => country_distance[0],
-                                 :trip_id => self.id)
-      if cd.empty?
-        self.country_distances.create(:country  => country_distance[0],
-                                      :distance => country_distance[1])
-      elsif cd.first.distance != country_distance
-        cd.first.update_attribute :distance, country_distance[1]
+    countries = Gmaps.countries(from, to)
+     
+    if countries == 'ZERO_RESULTS' || 'OVER_QUERY_LIMIT' || 'REQUEST_DENIED' || 'INVALID_REQUEST'
+      [['Unknown', 10000]]
+    else
+      countries.each do |country_distance|
+        cd = CountryDistance.where(:country => country_distance[0],
+                                   :trip_id => self.id)
+        if cd.empty?
+          self.country_distances.create(:country  => country_distance[0],
+                                        :distance => country_distance[1])
+        elsif cd.first.distance != country_distance
+          cd.first.update_attribute :distance, country_distance[1]
+        end
       end
     end
   end
