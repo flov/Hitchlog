@@ -3,15 +3,24 @@ module Chart
   
   def chart_image(trips, user=nil, options={})
     array = chart_array(trips)
-    user.nil? ? title = 'Total Amount Of Hitchhiked Countries By The Hitchlog' : title = "Hitchhiked Countries Of #{user}"
+    if user.nil? 
+      title = 'Hitchhiked Countries Of The Hitchlog' 
+    else
+      title = "Hitchhiked Countries Of #{user}"
+    end
 
     if options[:size] == 'small'
       options[:resolution] = '340x100'
       chart_label = small_chart_label(array)
       title = nil
+    elsif options[:size] == 'tiny'
+      options[:resolution] = '200x100'
+      chart_label = tiny_chart_label(array)
+    else
+      chart_label          ||= chart_label(array)
+      options[:resolution] ||= '540x200'
     end
-    chart_label          ||= chart_label(array)
-    options[:resolution] ||= '540x200'
+
 
     image = "http://chart.apis.google.com/chart?cht=p
                                        &chs=#{options[:resolution]}
@@ -39,8 +48,13 @@ module Chart
   def chart_label(chart_array)
     # [[2, 627, "Spain"], ...]
     chart_array.collect do |i| 
-      "#{i[2]} (#{i[1]}km)"
+      "#{i[2]} #{i[1]}km"
     end.join("|")
+  end
+
+  def tiny_chart_label(chart_array)
+    # [[2, 627, "Spain"], ...]
+    chart_array.collect{|i| i[2]}.join("|")
   end
 
   def small_chart_label(chart_array)

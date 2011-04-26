@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     trips.collect{|trip| trip.hitchhikes}.flatten
   end
 
+  def hitchhiked_countries
+    self.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq
+  end
+
   private
   def sanitize_username
     self.username.downcase

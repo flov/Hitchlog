@@ -10,7 +10,11 @@ module HitchhikesHelper
   end
   
   def hitchhike_show_title(hitchhike)
-    title("Hitchhiking from #{@hitchhike.trip.from_city_sanitized} to #{@hitchhike.trip.to_city_sanitized}")
+    title("Hitchhiking from #{hitchhike.trip.from_city_sanitized} to #{hitchhike.trip.to_city_sanitized}")
+  end
+
+  def trip_show_title(trip)
+    title("Hitchhiking from #{trip.from_city_sanitized} to #{trip.to_city_sanitized}")
   end
 
   def show_photo_link(hitchhike)
@@ -57,6 +61,10 @@ module HitchhikesHelper
     else
       link_to "#{number_to_ordinal(i+1)} ride".html_safe, hitchhike_path(hitchhike), :class => hitchhike_button_class(i, hitchhike, current_hitchhike)
     end
+  end
+
+  def delete_ride(hitchhike)
+    link_to delete_image, hitchhike_path(hitchhike), :remote => :true, :method => :delete, :confirm => 'Are you sure?'
   end
 
   def hitchhike_button_class(i, hitchhike, current_hitchhike=nil)

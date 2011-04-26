@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408161309) do
+ActiveRecord::Schema.define(:version => 20110425101216) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110408161309) do
     t.integer  "waiting_time"
     t.integer  "trip_id"
     t.float    "duration"
+    t.integer  "number"
   end
 
   add_index "hitchhikes", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"

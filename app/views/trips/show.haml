@@ -5,24 +5,31 @@
       &rarr;
       %span#end= @trip.to
       = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
+    - @trip.hitchhikes.not_empty.each do |ride|
+      %h1
+        #{number_to_ordinal(ride.number)} Ride:
+        = ride.title
+      - @trip.countries_with_distance.each do |hash|
+        = country_images(hash)
+    %ul.hitchhike
+      = render 'list_hitchhikes', :trip => @trip  
+      
   .right
-    %h1.text_center Flov
+    %h1.text_center= @trip.user
     .text_center=image_tag 'rails.png', :style => 'width: 60; height: 60;'
     %p
-      Total Amount: 12500 km<br/>
-      Hitchhiked Countries: 19<br/>
-      Cars seen from inside: 138<br/>
-
-      = render 'shared/country_chart', :user => @trip.user
+      Total Amount: #{@hitchhiked_kms} km<br/>
+      Hitchhiked Countries: #{@hitchhiked_countries.size}<br/>
+      Cars seen from inside: #{@rides.size}<br/>
+      = render 'shared/country_chart', :user => @trip.user, :resolution => '200x100', :size => 'tiny'
       <br/>
-      average waiting time: 30 minutes<br/>
-      fastest ride: 300 km in 3 hours.<br/>
+      = "average waiting time: #{@average_waiting_time} minutes<br/>".html_safe if @average_waiting_time
+      -#fastest ride: 300 km in 3 hours.<br/>
 
-
-- title "#{@trip.from} &rarr; #{@trip.to}".html_safe
+- title trip_show_title(@trip)
 
 - content_for :topmenu do
-  #map_canvas{:style=>"width:100%"}
+  #map_canvas{:style=>"width:950px"}
 
 -content_for :head do
   :javascript
@@ -62,5 +69,5 @@
     });
 
   :css
-    #third-header .container {width: 100%;}
-  
+    body #content .container {padding-top: 0; padding-bottom: 40px;}
+
