@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.7'
 gem 'devise'
 gem 'mysql2'
 gem 'bluecloth'
@@ -17,6 +17,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem "compass", ">= 0.10.6"
 gem "compass-colors"
 gem 'fancy-buttons'
+gem 'gravatar_image_tag'
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "oa-oauth", :require => "omniauth/oauth"

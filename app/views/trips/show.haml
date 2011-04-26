@@ -16,7 +16,7 @@
       
   .right
     %h1.text_center= @trip.user
-    .text_center=image_tag 'rails.png', :style => 'width: 60; height: 60;'
+    .text_center=gravatar_image_tag @user.email
     %p
       Total Amount: #{@hitchhiked_kms} km<br/>
       Hitchhiked Countries: #{@hitchhiked_countries.size}<br/>
