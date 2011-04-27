@@ -45,7 +45,6 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])
-      flash[:notice] = "Successfully updated trip."
       redirect_to trip_path(@trip)
     else
       render :action => 'edit'
@@ -55,7 +54,6 @@ class TripsController < ApplicationController
   def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
-    flash[:notice] = "Successfully destroyed trip."
     redirect_to trips_url
   end  
 
