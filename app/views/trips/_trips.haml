@@ -6,12 +6,14 @@
       %th
       %th
       %th
+      %th
       %th Started At
       %th Created At
     - trips.each do |trip|
       %tr
         %td
           %h5= link_to trip.to_s.html_safe, trip
+        %td.text_center= images_for_trip(trip)
         %td.countries
           - trip.countries_with_distance.each do |hash|
             = country_images(hash)

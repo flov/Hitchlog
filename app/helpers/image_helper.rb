@@ -10,11 +10,23 @@ module ImageHelper
 
   def images_for_hitchhike(hitchhike)
     array = []
-    array << photo_image if hitchhike.photo.file?
     array << gender_image(hitchhike.person.gender) if hitchhike.person
     array << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
     array << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
+    array << photo_image if hitchhike.photo.file?
     string = array.join(' ')
+    string.html_safe 
+  end
+
+  def images_for_trip(trip)
+    images = []
+    trip.hitchhikes.each do |hitchhike|
+      images << gender_image(hitchhike.person.gender) if hitchhike.person
+      images << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
+      images << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
+      images << photo_image if hitchhike.photo.file?
+    end
+    string = images.join(' ')
     string.html_safe 
   end
   

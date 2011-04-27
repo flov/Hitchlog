@@ -35,7 +35,7 @@
     #map_canvas{:style=>"width:950px"}
   - else
     #map_canvas{:style=>"width:450px"}
-    #hitchhike-photo= image_tag ride.photo.url(:cropped), :id => 'hitchhike-photo-photo'
+    #hitchhike-photo= image_tag @photos.first.url(:cropped), :id => 'hitchhike-photo-photo'
 
 -content_for :head do
   :javascript
