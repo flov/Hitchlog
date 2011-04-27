@@ -52,7 +52,6 @@ class HitchhikesController < ApplicationController
     @hitchhike = Hitchhike.find(params[:id])
     if @hitchhike.update_attributes(params[:hitchhike])
       if params[:hitchhike][:photo].blank?
-        flash[:notice] = "Successfully updated hitchhike."
         redirect_to trip_path(@hitchhike.trip)
       else
         render :action => "crop"
