@@ -11,6 +11,7 @@
       %br/
   #right-message
     - unless user_signed_in?
+      = facebook_button
       = link_to 'Sign Up', new_user_registration_path, :class => 'button light'
       = link_to 'Sign In', new_user_session_path, :class => 'button light'
 
