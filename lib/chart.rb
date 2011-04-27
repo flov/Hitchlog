@@ -14,7 +14,8 @@ module Chart
       chart_label = small_chart_label(array)
       title = nil
     elsif options[:size] == 'tiny'
-      options[:resolution] = '200x100'
+      title = nil
+      options[:resolution] = '300x150'
       chart_label = tiny_chart_label(array)
     else
       chart_label          ||= chart_label(array)

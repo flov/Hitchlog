@@ -28,9 +28,9 @@ en:
       add_information_to_hitchhike: Add Inforation to Hitchhike
       delete_hitchhike: Delete Hitchhike
       alone: Hitchhiking alone
-      two: Hitchhiking with another person
-      three: Hitchhiking with two others
-      more_than_three: Hitchhiking with more than two
+      two: "2 Hitchhikers"
+      three: "3 Hitchhikers"
+      more_than_three: "4 Hitchhikers"
       driving_time: "%{time} driving time"
       driving_time_missing: Driving time is missing
       waiting_time: "%{time} waiting time"

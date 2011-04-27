@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user = @trip.user
-    @hitchhiked_kms = @user.trips.map{|trip| trip.distance}.sum
+    @hitchhiked_kms = @user.trips.map{|trip| trip.distance}.sum/1000.0
     @hitchhiked_countries = @user.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq
     @rides = @user.trips
     waiting_time = @user.trips.map{|trip| trip.hitchhikes.map{|hh| hh.waiting_time}}.flatten.compact
@@ -18,6 +18,7 @@ class TripsController < ApplicationController
     else
       @average_waiting_time = waiting_time.sum / waiting_time.size
     end
+    @photos = @trip.hitchhikes.map{|t| t.photo}.delete_if{|photo| !photo.file?}
   end
   
   def create

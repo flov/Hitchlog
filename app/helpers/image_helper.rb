@@ -11,24 +11,26 @@ module ImageHelper
   def images_for_hitchhike(hitchhike)
     array = []
     array << photo_image if hitchhike.photo.file?
-    array << driver_image(hitchhike.person.gender) if hitchhike.person
-    array << story_image unless hitchhike.story.blank?
+    array << gender_image(hitchhike.person.gender) if hitchhike.person
     array << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
     array << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
-    unless hitchhike.trip.travelling_with.nil?
-      case hitchhike.trip.travelling_with
-      when 0
-        array << alone_image
-      when 1
-        array << two_people_image
-      when 2
-        array << three_people_image
-      else
-        array << more_than_three_people_image
-      end
-    end
     string = array.join(' ')
     string.html_safe 
+  end
+  
+  def hitchhiking_with_image(trip)
+    unless trip.travelling_with.nil?
+      case trip.travelling_with
+      when 0
+        alone_image
+      when 1
+        two_people_image
+      when 2
+        three_people_image
+      else
+        more_than_three_people_image
+      end
+    end
   end
 
   def alone_image
@@ -51,7 +53,7 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tooltip', :alt => t('trips.helper.add_information_to_hitchhike'))
   end
 
-  def driver_image(gender)
+  def gender_image(gender)
     if gender == 'male'
       image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male_driver'))
     else
