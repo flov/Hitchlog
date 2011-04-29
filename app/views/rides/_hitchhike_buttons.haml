@@ -1,0 +1,5 @@
+- hitchhike ||= nil
+
+.hitchhike_buttons
+  - trip.rides.each_with_index do |ride, i|
+    = link_to_ride_for_button(i, ride, hitchhike)

@@ -1,9 +1,7 @@
 class Person < ActiveRecord::Base
   include ToHash
   
-  belongs_to :hitchhike
-  
-  # validates :hitchhike_id, :presence => true
+  belongs_to :ride
   
   attr_accessible :name, :occupation, :mission, :origin, :age, :gender
   

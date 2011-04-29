@@ -1,4 +1,4 @@
-class Hitchhike < ActiveRecord::Base  
+class Ride < ActiveRecord::Base  
   # used to create custom json (http://github.com/qoobaa/to_hash)
   # custom functions to get distances
   include ToHash  
@@ -32,12 +32,12 @@ class Hitchhike < ActiveRecord::Base
   end
   
   def next
-    result = Hitchhike.not_empty.where('id > ?', self.id).first
+    result = Ride.not_empty.where('id > ?', self.id).first
     result.nil? ? self.class.not_empty.first : result
   end
 
   def prev
-    result = Hitchhike.not_empty.where('id < ?', self.id).order('id DESC').first
+    result = Ride.not_empty.where('id < ?', self.id).order('id DESC').first
     result.nil? ? self.class.not_empty.last : result
   end
   
@@ -47,14 +47,14 @@ class Hitchhike < ActiveRecord::Base
   
   def to_json
     hash = self.to_hash(:title, :story, :id)
-    hash[:next]     = "/hitchhikes/#{self.next.to_param}"
-    hash[:prev]     = "/hitchhikes/#{self.prev.to_param}"
+    hash[:next]     = "/rides/#{self.next.to_param}"
+    hash[:prev]     = "/rides/#{self.prev.to_param}"
     hash[:from]     = trip.from
     hash[:to]       = trip.to
     hash[:date]     = trip.to_date
     hash[:distance] = trip.distance
     hash[:username] = trip.user.username
-    hash[:rides]    = trip.hitchhikes.size
+    hash[:rides]    = trip.rides.size
     hash[:person]   = person.build_hash if person
     if self.photo.file?
       hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
@@ -65,6 +65,6 @@ class Hitchhike < ActiveRecord::Base
   end
 
   def no_in_trip
-    trip.hitchhikes.index(self) + 1
+    trip.rides.index(self) + 1
   end  
 end

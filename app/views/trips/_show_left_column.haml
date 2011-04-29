@@ -1,0 +1,13 @@
+%h1.text_center
+  = hitchhiking_with_image(trip)
+  %span#start= trip.from
+  &rarr;
+  %span#end= trip.to
+  = link_to '(Edit Trip)', edit_trip_path(trip) if trip.user == current_user
+
+- if user_signed_in? and current_user == trip.user
+  - trip.rides.each do |ride|
+    = render 'show_ride', :ride => ride
+- else
+  - trip.rides.not_empty.each do |ride|
+    = render 'show_ride', :ride => ride

@@ -1,4 +1,4 @@
-= render :partial => 'shared/error_explanation', :locals => {:model => hitchhike}
+= render :partial => 'shared/error_explanation', :locals => {:model => ride}
 %p.input_fields
   = f.label :title
   %br/
@@ -45,10 +45,10 @@
     = builder.label :age
     %br/
     = builder.text_field :age
-  - if hitchhike.photo.file?
+  - if ride.photo.file?
     %p
-      = image_tag(hitchhike.photo(:thumb)) 
-      = link_to 'Delete Photo', delete_photo_hitchhike_path(hitchhike), :method => :delete, :confirm => 'Are you sure?'
+      = image_tag(ride.photo(:thumb)) 
+      = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
 %p
   = f.label :photo
   %br/

@@ -1,7 +1,7 @@
 .rides_box
-  - trip.hitchhikes.each_with_index do |hitchhike, i|
+  - trip.rides.each_with_index do |ride, i|
     %div{:class => ride_box_attributes(i+1, trip)}
-      -if hitchhike.empty?
+      -if ride.empty?
         #{number_to_ordinal(i+1)} ride
       -else
-        =link_to "#{number_to_ordinal(i+1)} ride<br />#{images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)
+        =link_to "#{number_to_ordinal(i+1)} ride<br />#{images_for_ride(ride)}".html_safe, ride_path(ride)

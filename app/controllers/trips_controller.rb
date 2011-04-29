@@ -12,13 +12,13 @@ class TripsController < ApplicationController
     @hitchhiked_kms = @user.trips.map{|trip| trip.distance}.sum/1000.0
     @hitchhiked_countries = @user.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq
     @rides = @user.trips
-    waiting_time = @user.trips.map{|trip| trip.hitchhikes.map{|hh| hh.waiting_time}}.flatten.compact
+    waiting_time = @user.trips.map{|trip| trip.rides.map{|hh| hh.waiting_time}}.flatten.compact
     if waiting_time.size == 0
       @average_waiting_time = nil
     else
       @average_waiting_time = waiting_time.sum / waiting_time.size
     end
-    @photos = @trip.hitchhikes.map{|t| t.photo}.delete_if{|photo| !photo.file?}
+    @photos = @trip.rides.map{|t| t.photo}.delete_if{|photo| !photo.file?}
   end
   
   def create
@@ -33,7 +33,7 @@ class TripsController < ApplicationController
   
   def index
     @trips = Trip.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
-    @hitchhikes = Hitchhike.not_empty
+    @rides = Ride.not_empty
     respond_to do |wants|
       wants.html
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }

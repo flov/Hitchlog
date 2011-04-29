@@ -1,0 +1,26 @@
+- ride_show_title(@ride)
+
+= render 'topmenu_photo', :ride => @ride
+.hitchhike_show_box
+  = render 'rides/show_date', :date => @ride.trip.start if @ride.trip.start
+  = render 'rides/hitchhike_buttons', :trip => @ride.trip, :ride => @ride
+  %h1= @ride.trip
+  = link_to @ride.trip.user, user_path(@ride.trip.user)
+  rode 
+  %b= distance(@ride.trip.distance)
+  - if trip_has_duration(@ride.trip)
+    in
+    %b= human_hours(@ride.trip.new_duration)
+  from #{@ride.trip.from_city_sanitized} to #{@ride.trip.to_city_sanitized}.<br />
+  -if @ride.trip.rides.size > 1
+    This is the #{show_ordinal_of_ride(@ride)} out of #{@ride.trip.rides.size} rides
+  -else
+    This is the #{show_ordinal_of_ride(@ride)} ride
+  = "and it took <b>#{human_hours(@ride.duration)}</b>.".html_safe unless @ride.duration.blank?
+
+  %h1= ride.title
+  %p=  BlueCloth.new(ride.story).to_html.html_safe
+
+= render 'show_hitchhike', :ride => @ride unless @ride.story.blank?
+
+

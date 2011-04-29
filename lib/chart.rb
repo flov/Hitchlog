@@ -69,7 +69,7 @@ module Chart
     numbers = []
     trips.each do |trip| 
       trip.country_distances.each do |country_distance|
-        numbers << [trip.hitchhikes.size, country_distance.distance/1000, country_distance.country]
+        numbers << [trip.rides.size, country_distance.distance/1000, country_distance.country]
       end
     end
 

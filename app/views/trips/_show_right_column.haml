@@ -1,0 +1,8 @@
+%h1.text_center= @trip.user
+.text_center=gravatar_image_tag @user.email
+%p
+  Total Amount: #{@hitchhiked_kms} km<br/>
+  Hitchhiked Countries: #{@hitchhiked_countries.size}<br/>
+  Cars seen from inside: #{@rides.size}<br/>
+  = "average waiting time: #{@average_waiting_time} minutes<br/>".html_safe if @average_waiting_time
+  = render 'shared/country_chart', :user => @trip.user, :resolution => '200x100', :size => 'tiny'

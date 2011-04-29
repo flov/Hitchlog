@@ -14,8 +14,8 @@ module NavigationHelpers
       new_user_registration_path
     when /the login page/i
       new_user_session_path
-    when /the new hitchhike page/i
-      new_hitchhike_path
+    when /the new ride page/i
+      new_ride_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -13,7 +13,7 @@ end
 
 Factory.define :alex, :parent => :user do |user|
   user.username 'alex'
-  user.email 'alexander.supertramp@hitchhike.me'
+  user.email 'alexander.supertramp@hitchlog.com'
 end
 
 Factory.define :trip do |trip|
@@ -25,13 +25,13 @@ Factory.define :trip do |trip|
   trip.association(:user)
 end
 
-Factory.define :hitchhike do |hitchhike|
-  hitchhike.title{'A hitchhike around the world'}
-  hitchhike.story{'A crazy new story about hitchhiking'}
-  hitchhike.waiting_time{15}
-  hitchhike.duration{4}
-  hitchhike.association(:trip)
-  hitchhike.person {|h| h.association(:person)}
+Factory.define :ride do |ride|
+  ride.title{'A hitchhike around the world'}
+  ride.story{'A crazy new story about hitchhiking'}
+  ride.waiting_time{15}
+  ride.duration{4}
+  ride.association(:trip)
+  ride.person {|h| h.association(:person)}
 end
 
 Factory.define :person do |person|
@@ -43,7 +43,7 @@ Factory.define :person do |person|
   person.gender       {'female'}
 end
 
-Factory.define :address_not_routable_hitchhike, :parent => :hitchhike do |f|
+Factory.define :address_not_routable_ride, :parent => :ride do |f|
   f.from { 'Kabul' }
   f.to   { 'New Delhi' }
 end

@@ -1,33 +1,9 @@
 #trips_show
   .left
-    %h1.text_center
-      = hitchhiking_with_image(@trip)
-      %span#start= @trip.from
-      &rarr;
-      %span#end= @trip.to
-      = link_to '(Edit Trip)', edit_trip_path(@trip) if @trip.user == current_user
-    - @trip.hitchhikes.not_empty.each do |ride|
-      %h1
-        #{number_to_ordinal(ride.number)} Ride - 
-        = ride.title
-        - @trip.countries_with_distance.each do |hash|
-          = country_images(hash)
-      %p
-        = images_for_hitchhike(ride)
-        - if @trip.user == current_user
-          = link_to add_information_image, edit_hitchhike_path(ride)
-      %p
-        = ride.story
+    = render 'show_left_column', :trip => @trip
       
   .right
-    %h1.text_center= @trip.user
-    .text_center=gravatar_image_tag @user.email
-    %p
-      Total Amount: #{@hitchhiked_kms} km<br/>
-      Hitchhiked Countries: #{@hitchhiked_countries.size}<br/>
-      Cars seen from inside: #{@rides.size}<br/>
-      = "average waiting time: #{@average_waiting_time} minutes<br/>".html_safe if @average_waiting_time
-      = render 'shared/country_chart', :user => @trip.user, :resolution => '200x100', :size => 'tiny'
+    = render 'show_right_column'
 
 - title trip_show_title(@trip)
 - content_for :topmenu do

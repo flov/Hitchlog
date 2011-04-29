@@ -1,10 +1,10 @@
 %h4 Rides:
-- trip.hitchhikes.each_with_index do |hitchhike, i|
+- trip.rides.each_with_index do |ride, i|
   %li
     %h3
       = number_to_ordinal(i+1)
-      = images_for_hitchhike(hitchhike)
-      = images_missing_for_hitchhike(hitchhike)
+      = images_for_ride(ride)
+      = images_missing_for_ride(ride)
       - if trip.user == current_user
-        = delete_ride(hitchhike)
-        = link_to add_information_image, edit_hitchhike_path(hitchhike)
+        = delete_ride(ride)
+        = link_to add_information_image, edit_ride_path(ride)

@@ -8,16 +8,15 @@ Hitchlog::Application.routes.draw do
   resources :users, :path => 'hitchhikers'
 
   resources :trips do
-    resources :hitchhikes, :except => [:index]
+    resources :rides, :except => [:index]
   end
   
-  resources :hitchhikes, :except => [:index] do
+  resources :rides, :except => [:index] do
     member{ delete 'delete_photo' }
   end
   
   match 'hitchhikers' => 'users#index'
   match 'about' => 'welcome#about'
-  match 'hitchhikes.json' => 'hitchhikes#json'
 
   root :to => "welcome#home"
 end

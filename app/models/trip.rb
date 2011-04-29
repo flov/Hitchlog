@@ -1,26 +1,26 @@
 class Trip < ActiveRecord::Base
-  has_many :hitchhikes, :dependent => :destroy
+  has_many :rides, :dependent => :destroy
   has_many :country_distances, :dependent => :destroy
   belongs_to :user
 
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'start DESC'
   
   validates :from, :presence => true
   validates :to, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
-  validates :rides, :presence => true, :if => :new_record
+  validates :hitchhikes, :presence => true, :if => :new_record
   
   concerned_with :googlemaps, :countries
 
   cattr_reader :per_page
   @@per_page = 40
 
-  attr_accessor :rides, :start_time, :end_time
+  attr_accessor :hitchhikes, :start_time, :end_time
 
   before_save do
-    # build as much hitchhikes on top of the ride as needed
-    rides.to_i.times{|i| hitchhikes.build(:number => i+1) }
+    # build as much rides on top of the ride as needed
+    hitchhikes.to_i.times{|i| rides.build(:number => i+1) }
   end
 
   def to_s

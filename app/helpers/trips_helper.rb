@@ -20,12 +20,12 @@ module TripsHelper
   
   def link_to_trip(trip, options ={})
     array = []
-    array << photo_image unless trip.hitchhikes.collect{|h| h.photo.file?}.delete_if{|x|!x}.compact.empty?
-    array << story_image unless trip.hitchhikes.collect{|h| h.story}.compact.delete_if{|x| x==''}.empty?
-    unless trip.hitchhikes.collect{|h| h.person.nil?}.compact.delete_if{|x|x==true}.empty?
+    array << photo_image unless trip.rides.collect{|h| h.photo.file?}.delete_if{|x|!x}.compact.empty?
+    array << story_image unless trip.rides.collect{|h| h.story}.compact.delete_if{|x| x==''}.empty?
+    unless trip.rides.collect{|h| h.person.nil?}.compact.delete_if{|x|x==true}.empty?
       array << user_image.html_safe
     end
-    string = "#{h(trip.from)} &rarr; #{h(trip.to_city)} (#{distance(trip.distance)}), #{pluralize(trip.hitchhikes.size, 'ride')}".html_safe
+    string = "#{h(trip.from)} &rarr; #{h(trip.to_city)} (#{distance(trip.distance)}), #{pluralize(trip.rides.size, 'ride')}".html_safe
     if array.empty?
       string << ", no information"
     else
@@ -50,7 +50,7 @@ module TripsHelper
   def ride_box_attributes(i, trip)
     array=[]
     array << "ride"
-    array << "last" if i == trip.hitchhikes.size
+    array << "last" if i == trip.rides.size
     array.join ' '
   end
 end

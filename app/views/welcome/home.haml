@@ -52,12 +52,12 @@
 
     %h3 Latest Hitchhiking Stories
     %ul
-      -@hitchhikes_with_story.each do |hitchhike|
+      -@rides_with_story.each do |ride|
         %li
-          = link_to "#{h(hitchhike.title)} #{images_for_hitchhike(hitchhike)}".html_safe, hitchhike_path(hitchhike)
+          = link_to "#{h(ride.title)} #{images_for_hitchhike(ride)}".html_safe, ride_path(ride)
           -#.float_right
           by 
-          = link_to h(hitchhike.trip.user), user_path(hitchhike.trip.user)
+          = link_to h(ride.trip.user), user_path(ride.trip.user)
       %li.text_center=link_to "... More Stories", trips_path 
 
 

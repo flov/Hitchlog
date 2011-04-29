@@ -8,11 +8,11 @@ class WelcomeController < ApplicationController
     @trip_size = @trips.size
     @country_size = CountryDistance.all.map(&:country).uniq.size
     @active_hitchhikers = @trips.map(&:user).uniq.size
-    @hitchhike_size = Hitchhike.all.size
-    @story_size = Hitchhike.all.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
-    @photo_size = Hitchhike.with_photo.size
+    @hitchhike_size = Ride.all.size
+    @story_size = Ride.all.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
+    @photo_size = Ride.with_photo.size
     @hitchhiked_km = @trips.collect{|t| t.distance}.flatten.compact.sum / 1000
-    @hitchhikes_with_story = Hitchhike.with_story.order("updated_at DESC").paginate :per_page => 5, :page => params[:page]
+    @rides_with_story = Ride.with_story.order("updated_at DESC").paginate :per_page => 5, :page => params[:page]
     @hitchhikers = User.order("created_at DESC").paginate :per_page => 5, :page => 1
   end
   

@@ -15,12 +15,12 @@
   	var rx = 500/coords.w;
   	var ry = 250/coords.h;
   	$('#preview').css({
-  		width: Math.round(rx * <%= @hitchhike.photo_geometry(:large).width %>) + 'px',
-  		height: Math.round(ry * <%= @hitchhike.photo_geometry(:large  ).height %>) + 'px',
+  		width: Math.round(rx * <%= @ride.photo_geometry(:large).width %>) + 'px',
+  		height: Math.round(ry * <%= @ride.photo_geometry(:large  ).height %>) + 'px',
   		marginLeft: '-' + Math.round(rx * coords.x) + 'px',
   		marginTop: '-' + Math.round(ry * coords.y) + 'px'
   	});
-    var ratio = <%= @hitchhike.photo_geometry(:original).width %> / <%= @hitchhike.photo_geometry(:large).width %>;
+    var ratio = <%= @ride.photo_geometry(:original).width %> / <%= @ride.photo_geometry(:large).width %>;
     $("#crop_x").val(Math.round(coords.x * ratio));
     $("#crop_y").val(Math.round(coords.y * ratio));
     $("#crop_w").val(Math.round(coords.w * ratio));
@@ -31,14 +31,14 @@
 
 <h1>Crop the photo</h1>
 
-<%= image_tag @hitchhike.photo.url(:large), :id => "cropbox" %>
+<%= image_tag @ride.photo.url(:large), :id => "cropbox" %>
 
 <h4>Preview:</h4>
 <div style="width:500px; height:250px; overflow:hidden">
-  <%= image_tag @hitchhike.photo.url(:large), :id => "preview" %>
+  <%= image_tag @ride.photo.url(:large), :id => "preview" %>
 </div>
 
-<%= form_for @hitchhike, :url => trip_hitchhike_path(@hitchhike.trip, @hitchhike) do |f| %>
+<%= form_for @ride, :url => trip_ride_path(@ride.trip, @ride) do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>

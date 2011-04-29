@@ -1,30 +1,30 @@
 module ImageHelper
-  def images_missing_for_hitchhike(hitchhike)
+  def images_missing_for_ride(ride)
     array = []
-    array << photo_missing_image unless hitchhike.photo.file?
-    array << story_missing_image if hitchhike.story.blank?
-    array << waiting_time_missing_image unless hitchhike.waiting_time
-    array << driving_time_missing_image unless hitchhike.duration
-    link_to array.join(' ').html_safe, edit_hitchhike_path(hitchhike)
+    array << photo_missing_image unless ride.photo.file?
+    array << story_missing_image if ride.story.blank?
+    array << waiting_time_missing_image unless ride.waiting_time
+    array << driving_time_missing_image unless ride.duration
+    link_to array.join(' ').html_safe, edit_ride_path(ride)
   end
 
-  def images_for_hitchhike(hitchhike)
+  def images_for_ride(ride)
     array = []
-    array << gender_image(hitchhike.person.gender) if hitchhike.person
-    array << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
-    array << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
-    array << photo_image if hitchhike.photo.file?
+    array << gender_image(ride.person.gender) if ride.person
+    array << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+    array << driving_time_image(human_hours(ride.duration)) if ride.duration
+    array << photo_image if ride.photo.file?
     string = array.join(' ')
     string.html_safe 
   end
 
   def images_for_trip(trip)
     images = []
-    trip.hitchhikes.each do |hitchhike|
-      images << gender_image(hitchhike.person.gender) if hitchhike.person
-      images << waiting_time_image(human_minutes(hitchhike.waiting_time)) if hitchhike.waiting_time
-      images << driving_time_image(human_hours(hitchhike.duration)) if hitchhike.duration
-      images << photo_image if hitchhike.photo.file?
+    trip.rides.each do |ride|
+      images << gender_image(ride.person.gender) if ride.person
+      images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+      images << driving_time_image(human_hours(ride.duration)) if ride.duration
+      images << photo_image if ride.photo.file?
     end
     string = images.join(' ')
     string.html_safe 

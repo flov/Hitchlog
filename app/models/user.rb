@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
     username
   end
   
-  def hitchhikes
-    trips.collect{|trip| trip.hitchhikes}.flatten
+  def rides
+    trips.collect{|trip| trip.rides}.flatten
   end
 
   def hitchhiked_countries

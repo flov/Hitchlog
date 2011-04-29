@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110425101216) do
+ActiveRecord::Schema.define(:version => 20110428092228) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -27,29 +27,12 @@ ActiveRecord::Schema.define(:version => 20110425101216) do
     t.string  "country"
   end
 
-  create_table "hitchhikes", :force => true do |t|
-    t.string   "title"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.string   "photo_file_size"
-    t.string   "photo_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "story"
-    t.integer  "waiting_time"
-    t.integer  "trip_id"
-    t.float    "duration"
-    t.integer  "number"
-  end
-
-  add_index "hitchhikes", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
-
   create_table "people", :force => true do |t|
     t.string  "name"
     t.string  "occupation"
     t.string  "mission"
     t.string  "origin"
-    t.integer "hitchhike_id"
+    t.integer "ride_id"
     t.integer "age"
     t.string  "gender"
   end
@@ -66,6 +49,23 @@ ActiveRecord::Schema.define(:version => 20110425101216) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories_on_item_and_table_and_month_and_year"
+
+  create_table "rides", :force => true do |t|
+    t.string   "title"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.string   "photo_file_size"
+    t.string   "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "story"
+    t.integer  "waiting_time"
+    t.integer  "trip_id"
+    t.float    "duration"
+    t.integer  "number"
+  end
+
+  add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"

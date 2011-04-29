@@ -24,8 +24,8 @@ en:
       story_missing: Missing Story, write a story about the ride
       male_driver: Male Driver
       female_driver: Female Driver
-      add_information: Add Inforation to Hitchhikes
-      add_information_to_hitchhike: Add Inforation to Hitchhike
+      add_information: Add inforation to ride
+      add_information_to_hitchhike: Add inforation to ride
       delete_hitchhike: Delete Hitchhike
       alone: Hitchhiking alone
       two: "2 Hitchhikers"

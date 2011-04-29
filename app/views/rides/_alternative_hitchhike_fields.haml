@@ -35,7 +35,7 @@
     %td
       = f.file_field :photo
 
-- if hitchhike.photo.file?
-  = image_tag(hitchhike.photo(:thumb)) 
-  = link_to 'Delete Photo', delete_photo_hitchhike_path(hitchhike), :method => :delete, :confirm => 'Are you sure?'
+- if ride.photo.file?
+  = image_tag(ride.photo(:thumb)) 
+  = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
 

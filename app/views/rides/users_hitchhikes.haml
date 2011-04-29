@@ -1,0 +1,29 @@
+%h1 Your Rides:
+%table
+  %tr
+    %th Title
+    %th From
+    %th To
+    %th Story
+    %th Waiting Time
+    %th About person:
+    %th Name
+    %th Occupation
+    %th Mission
+    
+  - for ride in @rides
+    %tr
+      %td= ride.title
+      %td= ride.from
+      %td= ride.to
+      %td= "#{ride.story[0..40]}..." unless ride.story.empty?
+      %td= "#{ride.waiting_time} minutes"
+      %td
+      %td= ride.people.first.name
+      %td= ride.people.first.occupation
+      %td= ride.people.first.mission
+      %td= link_to "Show", ride
+      %td= link_to "Edit", edit_ride_path(ride)
+      %td= link_to "Destroy", ride, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Ride", new_ride_path
