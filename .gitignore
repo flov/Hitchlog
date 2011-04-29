@@ -11,5 +11,6 @@ public/stylesheets/partials
 public/stylesheets/vendors
 Capfile
 config/deploy.rb
+config/deploy/
 .idea
 notes
