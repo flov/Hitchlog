@@ -35,13 +35,14 @@
       The information that you enter on this site gets parsed into demographic data
       so that we can tell the average waiting time for a ride in let's say China,
       your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
-      Below you can see a piechart which consists the countries of the logged
-      Hitchhikes
+      The piechart below consists of the hitchhiked countries that have been logged
+      by hitchhikers in the Hitchlog.
+      
     .chart_image
       = image_tag @chart_image
 
   .right
-    %h3 Latest Hitchhiking trips
+    %h3 Newest Hitchhiking trips
     %ul
       -@paginated_trips.each do |trip|
         %li
@@ -50,7 +51,7 @@
           = link_to h(trip.user), user_path(trip.user)
       %li.text_center=link_to "... More Trips", trips_path 
 
-    %h3 Latest Hitchhiking Stories
+    %h3 Newest Hitchhiking Stories
     %ul
       -@rides_with_story.each do |ride|
         %li
