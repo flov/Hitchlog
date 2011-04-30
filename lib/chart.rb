@@ -18,8 +18,9 @@ module Chart
       options[:resolution] = '300x180'
       chart_label = tiny_chart_label(array)
     else
+      title = nil
       chart_label          ||= chart_label(array)
-      options[:resolution] ||= '540x200'
+      options[:resolution] ||= '540x280'
     end
 
 
