@@ -9,8 +9,8 @@ module UsersHelper
     end
   end
   
-  def user_hitchhiked(user, hitchhikes, total_distance)
-    "#{h(user)} has seen #{pluralize(hitchhikes.size, 'car')} from inside while hitchhiking ".html_safe +
+  def user_hitchhiked(user, rides, total_distance)
+    "#{h(user)} has seen #{pluralize(rides.size, 'car')} from inside while hitchhiking ".html_safe +
     "and travelled #{h(total_distance)} kms this way.<br/>".html_safe
   end
   

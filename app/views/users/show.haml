@@ -5,7 +5,7 @@
 = link_to 'Log New Trip', new_trip_path if user_signed_in?
 
 %p
-  = user_hitchhiked(@user, @hitchhikes, @total_distance)
+  = user_hitchhiked(@user, @rides, @total_distance)
   = user_waited_averagely(@user, @average_waiting_time)
   / = user_waited_totally(@user, @total_waiting_time, @waiting_time_array)
   = average_drivers_age(@user, @avg_drivers_age)
