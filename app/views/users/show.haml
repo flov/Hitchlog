@@ -7,7 +7,6 @@
 %p
   = user_hitchhiked(@user, @rides, @total_distance)
   = user_waited_averagely(@user, @average_waiting_time)
-  / = user_waited_totally(@user, @total_waiting_time, @waiting_time_array)
   = average_drivers_age(@user, @avg_drivers_age)
   = user_wrote_stories(@user, @stories)
   = user_uploaded_photos(@user, @number_of_photos)
@@ -18,15 +17,5 @@
 
 = render :partial => 'shared/country_chart', :locals => {:user => @user} unless @user.trips.empty?
 
-%p="#{@user} logged #{pluralize(@user.trips.size, 'trip')}:"
-%ul
-  - for trip in @trips
-    %li
-      = trip.start.strftime("%d %b %y") unless trip.start.nil?
-      = link_to_trip(trip)
-      - if user_signed_in? && trip.user == current_user
-        |
-        = link_to "edit", edit_trip_path(trip)
-        |
-        = link_to "delete", trip_path(trip), :method => :delete, :confirm => 'Are you sure?' 
-      
+#trips
+  = render 'trips/list', :trips => @trips
