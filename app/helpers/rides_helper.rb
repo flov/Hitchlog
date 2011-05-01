@@ -8,6 +8,14 @@ module RidesHelper
       "unknown distance"
     end
   end
+
+  def ride_title(ride)
+    if ride.title.blank?
+      ride.story.truncate(30)
+    else
+      ride.title
+    end
+  end
   
   def hitchhike_show_title(hitchhike)
     title("Hitchhiking from #{hitchhike.trip.from_city_sanitized} to #{hitchhike.trip.to_city_sanitized}")
