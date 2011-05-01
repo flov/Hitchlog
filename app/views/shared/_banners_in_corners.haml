@@ -4,12 +4,12 @@
     %span.msg_block 
       Fork Me On Github
   .msg_block
-#pageflip_left
-  %a{:href => "https://teambox.com/projects/hitchlog"}
-    %img{:alt => "Open Source", :src => "/images/page_flip_left.png"}/
-    %span.msg_block 
-      Collaborate On Teambox
-  .msg_block
+-##pageflip_left
+  -#%a{:href => "https://teambox.com/projects/hitchlog"}
+    -#%img{:alt => "Open Source", :src => "/images/page_flip_left.png"}/
+    -#%span.msg_block 
+      -#Collaborate On Teambox
+  -#.msg_block
  
 :javascript
   $("#pageflip_right").hover(function() { //On hover...
@@ -30,6 +30,7 @@
         height: '50px'
       }, 200); //Note this one retracts a bit faster (to prevent glitching in IE)
   });
+-#
   $("#pageflip_left").hover(function() { //On hover...
     $("#pageflip_left img , #pageflip_left .msg_block").stop()
       .animate({ //Animate and expand the image and the msg_block (Width + height)
