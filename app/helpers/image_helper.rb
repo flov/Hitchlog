@@ -133,4 +133,13 @@ module ImageHelper
   def add_image
     image_tag('icons/add.png', :class => 'tooltip', :alt => t('trips.helper.add_information'))
   end
+
+  def facebook_page
+    link_to "Find Hitchlog On Facebook", 'https://www.facebook.com/profile.php?id=740638119', :id => 'facebook_button'
+  end
+
+  def twitter_account
+    link_to "Find Hitchlog On Twitter", 'http://twitter.com/#!/hitchlog', :id => 'twitter_button'
+  end
 end
+

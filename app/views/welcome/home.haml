@@ -22,26 +22,29 @@
   .left
     %h1 Welcome!
     %p 
-      We are trying to make the world a more hitchhiker friendly place.<br />
-      By logging personal hitchhiking experiences, we are trying to paint a 
-      pretty authentic picture about what hitchhiking is actually like.
+      We are making the world a more hitchhiker friendly place.<br />
+      By logging personal hitchhiking experiences, we are trying to paint
+      an authentic picture about what hitchhiking is like.
       If you have ever hitchhiked, you are welcome to 
-      = link_to 'share your experience with us.', new_trip_path
-      The information that you enter on this site gets parsed into demographic data
-      so that we can tell the average waiting time for a ride in let's say China,
-      your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
-      Below you can see a piechart which consists the countries of the logged
-      Hitchhikes
-      The information that you enter on this site gets parsed into demographic data
-      so that we can tell the average waiting time for a ride in let's say China,
-      your longest/fastest hitchhike, the countries where you hitchhiked, and more... <br />
+      #{link_to 'share your experience with us', new_trip_path}.
+      With the information that you enter here you will be part of the project.
+      It will create statistical data and then we can tell the amount of positive/negative
+      experiences, average waiting times, your longest/fastest ride, the
+      countries where you hitchhiked, and more.
+  
+    %p
       The piechart below consists of the hitchhiked countries that have been logged
       by hitchhikers in the Hitchlog.
-      
-    .chart_image
-      = image_tag @chart_image
+      .chart_image
+        = image_tag @chart_image
+
 
   .right
+    %h3 Find Hitchlog On:
+    .find_hitchlog_on
+      = find_hitchlog_on_facebook
+      = find_hitchlog_on_twitter
+    
     %h3 Newest Hitchhiking trips
     %ul
       -@paginated_trips.each do |trip|
