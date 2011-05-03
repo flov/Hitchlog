@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :trips, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
 
-  validates :username, :presence => true, :uniqueness => true
+  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[A-Za-z\d_]+$/}
   
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
