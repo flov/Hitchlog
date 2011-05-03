@@ -1,0 +1,12 @@
+%h1.text_center= link_to @user, user_path(@user)
+.text_center=gravatar_image_tag @user.email
+%p
+  Total Amount: #{@hitchhiked_kms} km<br/>
+  Hitchhiked countries: #{@hitchhiked_countries.size}<br/>
+  Cars seen from inside: #{@rides.size}<br/>
+  = "Average age of driver: #{@average_drivers_age}</br>".html_safe if @average_drivers_age
+  = "Waiting time per ride: #{@average_waiting_time} minutes<br/>".html_safe if @average_waiting_time
+  = "Written stories: #{@stories}<br/>".html_safe if @stories
+  = user_uploaded_photos(@user, @uploaded_photos)
+
+  = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'

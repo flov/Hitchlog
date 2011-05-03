@@ -1,21 +1,9 @@
 - title "#{h(@user)}"
 
-%h1= @user
+#users_show
+  .left
+    = render 'left_column_show'
 
-= link_to 'Log New Trip', new_trip_path if user_signed_in?
+  .right
+    = render 'users/right_column'
 
-%p
-  = user_hitchhiked(@user, @rides, @total_distance)
-  = user_waited_averagely(@user, @average_waiting_time)
-  = average_drivers_age(@user, @avg_drivers_age)
-  = user_wrote_stories(@user, @stories)
-  = user_uploaded_photos(@user, @number_of_photos)
-  - unless @longest_trip.nil?
-    = "#{@user}'s #{link_to 'longest hitchhiking trip', trip_path(@longest_trip)}".html_safe
-    = "was #{distance(@longest_trip.distance)} long<br/>".html_safe
- 
-
-= render :partial => 'shared/country_chart', :locals => {:user => @user} unless @user.trips.empty?
-
-#trips
-  = render 'trips/list', :trips => @trips

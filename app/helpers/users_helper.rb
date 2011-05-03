@@ -9,11 +9,6 @@ module UsersHelper
     end
   end
   
-  def user_hitchhiked(user, rides, total_distance)
-    "#{h(user)} has seen #{pluralize(rides.size, 'car')} from inside while hitchhiking ".html_safe +
-    "and travelled #{h(total_distance)} kms this way.<br/>".html_safe
-  end
-  
   def average_drivers_age(user, avg_age)
     "#{h(user)} has been driven by people who were averagely #{avg_age} years old.<br/>".html_safe unless avg_age.blank?
   end

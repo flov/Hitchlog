@@ -3,7 +3,7 @@
     = render 'show_left_column', :trip => @trip
       
   .right
-    = render 'show_right_column'
+    = render 'users/right_column', :user_settings => @user_settings
 
 - title trip_show_title(@trip)
 - content_for :topmenu do

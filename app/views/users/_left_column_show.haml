@@ -1,0 +1,5 @@
+%h1= @user
+= link_to 'Log New Trip', new_trip_path if user_signed_in?
+= render :partial => 'shared/country_chart', :locals => {:user => @user} unless @user.trips.empty?
+#trips
+  = render 'trips/list', :trips => @trips
