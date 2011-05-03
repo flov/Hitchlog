@@ -9,16 +9,8 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user = @trip.user
-    @hitchhiked_kms = @user.trips.map{|trip| trip.distance}.sum/1000.0
-    @hitchhiked_countries = @user.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq
-    @rides = @user.trips
-    waiting_time = @user.trips.map{|trip| trip.rides.map{|hh| hh.waiting_time}}.flatten.compact
-    if waiting_time.size == 0
-      @average_waiting_time = nil
-    else
-      @average_waiting_time = waiting_time.sum / waiting_time.size
-    end
     @photos = @trip.rides.map{|t| t.photo}.delete_if{|photo| !photo.file?}
+    get_user_settings(@user)
   end
   
   def create
@@ -32,7 +24,7 @@ class TripsController < ApplicationController
   end
   
   def index
-    @trips = Trip.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
+    @trips = Trip.order("created_at DESC").paginate(:page => params[:page])
     @rides = Ride.not_empty
     respond_to do |wants|
       wants.html

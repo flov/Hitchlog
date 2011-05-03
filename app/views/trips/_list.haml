@@ -6,13 +6,15 @@
       %th
       %th
       %th
+      %th Hitchhiked By
       %th
-      %th Hitchhiked
     - trips.each do |trip|
       %tr
         %td
           %h5= link_to trip.to_s.html_safe, trip
-        %td.icons= images_for_trip(trip)
+        %td.icons
+          = images_for_trip(trip)
+          = images_missing_for_trip(trip) if current_user == trip.user
         %td.countries
           - trip.countries_with_distance.each do |hash|
             = country_images(hash)
@@ -20,7 +22,7 @@
           = trip.rides.size
           = ride_image(trip.rides.size)
         %td.distance= distance( trip.distance )
-        %td= link_to trip.user, user_path(trip.user)
+        %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
         %td.started_at= "#{time_ago_in_words trip.start} ago" unless trip.start.nil?
 
 = will_paginate trips

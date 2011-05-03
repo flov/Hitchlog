@@ -1,5 +1,10 @@
 %h1= @user
-= link_to 'Log New Trip', new_trip_path if user_signed_in?
-= render :partial => 'shared/country_chart', :locals => {:user => @user} unless @user.trips.empty?
+- if user_signed_in? and current_user == @user
+  -if @user.trips.empty?
+    %h3= link_to 'Log Your First Trip', new_trip_path
+  - else
+    %p= link_to 'Log New Trip', new_trip_path
+
+= render 'shared/country_chart', :user => @user unless @user.trips.empty?
 #trips
-  = render 'trips/list', :trips => @trips
+  = render 'trips/list', :trips => @trips unless @trips.empty?

@@ -13,14 +13,6 @@ module UsersHelper
     "#{h(user)} has been driven by people who were averagely #{avg_age} years old.<br/>".html_safe unless avg_age.blank?
   end
   
-  def user_wrote_stories(user, stories)
-    "#{h(user)} has written #{pluralize(stories.size, 'story')}.<br/>".html_safe unless stories.size == 0
-  end
-  
-  def user_uploaded_photos(user, no_of_photos)
-    "#{user} uploaded #{pluralize(no_of_photos, 'photo')}<br/>".html_safe unless no_of_photos == 0
-  end
-  
   def link_to_user(user)
     link_to(user, user_path(user))
   end

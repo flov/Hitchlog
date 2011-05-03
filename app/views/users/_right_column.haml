@@ -6,7 +6,7 @@
   Cars seen from inside: #{@rides.size}<br/>
   = "Average age of driver: #{@average_drivers_age}</br>".html_safe if @average_drivers_age
   = "Waiting time per ride: #{@average_waiting_time} minutes<br/>".html_safe if @average_waiting_time
-  = "Written stories: #{@stories}<br/>".html_safe if @stories
-  = user_uploaded_photos(@user, @uploaded_photos)
+  Written stories: #{@stories.size}<br/>
+  Uploaded photos: #{@number_of_photos}<br/>
 
   = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'

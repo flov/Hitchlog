@@ -1,7 +1,7 @@
 %h1
   #{number_to_ordinal(ride.number)} Ride 
   = "- #{ride.title}" if ride.title
-  = link_to '(Edit)', edit_ride_path(ride) if ride.trip.user == current_user
+  = link_to '(Add/Edit Information)', edit_ride_path(ride) if ride.trip.user == current_user
   - ride.trip.countries_with_distance.each do |hash|
     = country_images(hash)
 %p

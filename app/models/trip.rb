@@ -14,7 +14,7 @@ class Trip < ActiveRecord::Base
   concerned_with :googlemaps, :countries
 
   cattr_reader :per_page
-  @@per_page = 40
+  @@per_page = 20
 
   attr_accessor :hitchhikes, :start_time, :end_time
 
