@@ -1,5 +1,10 @@
 - unless trip.to_date.blank?
-  #trip_date= trip.to_date
+  #trip_date
+    = trip.start.strftime("%d")
+    %br/
+    = trip.start.strftime("%B")
+    %br/
+    = trip.start.strftime("%Y")
 
 %h1.text_center
   = hitchhiking_with_image(trip)
