@@ -34,7 +34,7 @@ class Trip < ActiveRecord::Base
   end
   
   def to_date
-    start.nil? ? '' : start.strftime("%d. %B %Y")    
+    start.nil? ? '' : start.strftime("%d %B %Y")    
   end
 
   def to_city_sanitized
