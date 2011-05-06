@@ -4,7 +4,7 @@ module WelcomeHelper
   end
 
   def find_hitchlog_on_facebook
-    link_to image_tag('omniauthbuttons/png/facebook_64.png'), 'https://www.facebook.com/profile.php?id=740638119', :alt => 'Find Hitchlog On Facebook'
+    link_to image_tag('omniauthbuttons/png/facebook_64.png'), 'https://www.facebook.com/pages/Hitchlog/106464962761282', :alt => 'Find Hitchlog On Facebook'
   end
 
   def find_hitchlog_on_twitter
