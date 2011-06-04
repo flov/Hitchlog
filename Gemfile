@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
-gem 'devise'
 gem 'mysql2'
+gem 'devise'
 gem 'bluecloth'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'hirb'
@@ -24,25 +24,36 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem "i18n_data"
 gem "friendly_id", "~> 3.2.1"
 
-# gem 'hpricot' # only for generating devise views
-# gem 'ruby_parser' # only for generating devise views
+group :test, :rspec, :development do
+  # Rspec
+  gem 'rspec-rails', :git => "git://github.com/rspec/rspec-rails.git"
+  gem 'ruby-debug'
+  
+  # guard process manager, spork drb-testserver
+  gem 'guard'
+  gem 'spork', '~> 0.9.0.rc5'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
 
-group :test, :development do
-  gem 'fuubar'
-  gem 'sqlite3'
-  gem "rspec-rails", "~> 2.5"    
-end
-
-group :test do
-  gem "database_cleaner"
-  gem 'cucumber', '0.9.4'
+  # growl notifications
+  gem 'rb-fsevent'
+  gem 'growl'
+  
+  # fixture replacement
+  gem 'factory_girl_rails', '~> 1.0.1'
+  gem 'factory_girl_generator'
+  
+  # cucumber
+  gem 'capybara', '~> 1.0.0.beta1'
+  gem 'launchy'
+  gem 'cucumber', '0.10.2'
   gem 'cucumber-rails', '0.3.2'
-  gem "capybara"
+  gem 'database_cleaner'
+
   gem "nokogiri"
   gem "shoulda"
-  gem 'factory_girl_rails', '~> 1.0.1'
   gem 'livereload'
-  gem 'guard'  
-  gem 'guard-livereload'
   gem "faker"
 end
