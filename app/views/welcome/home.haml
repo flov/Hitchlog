@@ -2,42 +2,30 @@
 
 = content_for :layout_header do
   #main-message
-    %h1 
-      Facilitating A Greater Understanding Of Hitchhiking.
+    %h1=t('general.slogan') 
+    
     %h2
-      = link_to 'Share your hitchhiking experience with us.', new_trip_path
+      = link_to t('.share_your_trip_with_us'), new_trip_path
       %br/
-      Get in touch with Hitchhikers who already hitched a route.
+      = t('.get_in_touch_with_hitchhikers')
       %br/
   #right-message
     - unless user_signed_in?
       = facebook_button
-      = link_to 'Sign Up', new_user_registration_path, :class => 'button light'
-      = link_to 'Sign In', new_user_session_path, :class => 'button light'
+      = link_to t('.sign_up'), new_user_registration_path, :class => 'button light'
+      = link_to t('.sign_in'), new_user_session_path, :class => 'button light'
 
 = content_for :topmenu do
   = render :partial => 'layouts/statistics'
 
 .home
   .left
-    %h1 Welcome!
-    %p 
-      We are making the world a more hitchhiker friendly place.<br />
-      By logging personal hitchhiking experiences, we are trying to paint
-      an authentic picture about what hitchhiking is like.
-      If you have ever hitchhiked, you are welcome to 
-      #{link_to 'share your experience with us', new_trip_path}.
-      With the information that you enter here you will be part of the project.
-      It will create statistical data and then we can tell the amount of positive/negative
-      experiences, average waiting times, your longest/fastest ride, the
-      countries where you hitchhiked, and more.
-  
+    %h1= t('.welcome')
+    %p!= t('.text1')
     %p
-      The piechart below consists of the hitchhiked countries that have been logged
-      by hitchhikers in the Hitchlog.
+      = t('.text2')
       .chart_image
         = image_tag @chart_image
-
 
   .right
     %h3 Find Hitchlog On:

@@ -1,4 +1,32 @@
 en:
+  general:
+    slogan: "A Hitchhiker's Logbook"
+  welcome:
+    home:
+      share_your_trip_with_us: 'Share your hitchhiking experience with us.'
+      get_in_touch_with_hitchhikers: "Get in touch with Hitchhikers who already hitched a route."
+      sign_up: 'Sign Up' 
+      sign_in: 'Sign In' 
+      welcome: Welcome! 
+      text1: |
+          <p>
+            We are making the world a more hitchhiker friendly place.<br>
+            By logging personal hitchhiking experiences, we are trying to paint
+            an authentic picture about what hitchhiking is like.
+            If you have ever hitchhiked, you are welcome to
+            <a href="/trips/new">share your experience with us</a>.
+            With the information that you enter here you will be part of the project.
+            It will create statistical data and then we can tell the amount of positive/negative
+            experiences, average waiting times, your longest/fastest ride, the
+            countries where you hitchhiked, and more.
+          </p>
+      text2:  |
+          The piechart below consists of the hitchhiked countries that have
+          been logged by hitchhikers in the Hitchlog.
+      login_with_facebook: "Login with Facebook"
+
+  facebook:
+    login_with_facebook: "Login with Facebook"
   back: Back
   edit: Edit
   users:
