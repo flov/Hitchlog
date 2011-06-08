@@ -7,7 +7,6 @@ gem 'devise'
 gem 'bluecloth'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'hirb'
-gem 'haml', '~> 3.0.21'
 gem 'nokogiri'
 gem 'hoptoad_notifier'
 gem "meta_where"
@@ -15,9 +14,12 @@ gem "jammit"
 gem "mongrel", "~> 1.2.0.pre2"
 gem 'json', '~> 1.4.6'
 gem 'aws-s3', :require => 'aws/s3'
-gem "compass", ">= 0.10.6"
+
+gem 'compass'
+gem 'haml', '~> 3.1'
 gem "compass-colors"
 gem 'fancy-buttons'
+
 gem 'gravatar_image_tag'
 gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
@@ -25,11 +27,14 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem "i18n_data"
 gem "friendly_id", "~> 3.2.1"
 
+# coffeescript
+gem 'barista', '~> 1.0'
+
 group :test, :rspec, :development do
   # Rspec
   gem 'rspec-rails', :git => "git://github.com/rspec/rspec-rails.git"
-  gem 'ruby-debug'
   
+
   # guard process manager, spork drb-testserver
   gem 'guard'
   gem 'spork', '~> 0.9.0.rc5'
