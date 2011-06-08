@@ -10,12 +10,7 @@
   &
     :display block
 
-= opacity(!opacity)
-  :opacity= !opacity
-  :-moz-opacity= !opacity
-  :-khtml-opacity= !opacity
-  :-ms-filter= "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + round(!opacity*100) + ")"
-  :filter= "alpha(opacity=" + round(!opacity*100) + ")"
+@import "compass/css3/opacity"
 
 =linear-gradient($color-stops, $start: top, $image: false)
   // Firefox's gradient api is nice.

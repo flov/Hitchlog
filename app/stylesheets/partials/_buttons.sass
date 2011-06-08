@@ -8,15 +8,15 @@ $blue: #00ff00
 $red: #ff0000
 $heart_button: saturate(lighten($red, 2), 20)
 
-=custom-fancy-gradient(!color1, !color2)
-  !color2 = darken(!color2, 5)
-  +radial-gradient(color-stops(!color1, !color2))
+=custom-fancy-gradient($color1, $color2)
+  $color2: darken($color2, 5)
+  +radial-gradient(color-stops($color1, $color2))
   
 
-=invert-custom-fancy-gradient(!color1, !color2)
-  !color1 = lighten(!color2, 10)
-  !color2 = lighten(!color2, 25)
-  +custom-fancy-gradient(!color1, !color2)
+=invert-custom-fancy-gradient($color1, $color2)
+  $color1: lighten($color2, 10)
+  $color2: lighten($color2, 25)
+  +custom-fancy-gradient($color1, $color2)
 
 .fancy-button-base
   +fancy-button
