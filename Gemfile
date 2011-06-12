@@ -37,7 +37,7 @@ group :test, :rspec, :development do
 
   # guard process manager, spork drb-testserver
   gem 'guard'
-  gem 'spork', '~> 0.9.0.rc5'
+  gem 'spork', '~> 0.9.0.rc8'
   gem 'guard-spork'
   gem 'guard-bundler'
   gem 'guard-livereload'
