@@ -14,6 +14,7 @@ gem "jammit"
 gem "mongrel", "~> 1.2.0.pre2"
 gem 'json', '~> 1.4.6'
 gem 'aws-s3', :require => 'aws/s3'
+gem 'hpricot'
 
 gem 'compass'
 gem 'haml', '~> 3.1'
