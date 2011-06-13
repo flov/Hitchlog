@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428092228) do
+ActiveRecord::Schema.define(:version => 20110612193307) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20110428092228) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "custom_attributes"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "ride_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "country_distances", :force => true do |t|
@@ -100,6 +107,17 @@ ActiveRecord::Schema.define(:version => 20110428092228) do
     t.integer  "money_spent"
     t.integer  "travelling_with"
     t.datetime "end"
+    t.text     "directions"
+    t.float    "to_lng"
+    t.float    "to_lat"
+    t.float    "from_lng"
+    t.float    "from_lat"
+    t.string   "from_postal_code"
+    t.string   "from_street"
+    t.string   "from_street_no"
+    t.string   "to_postal_code"
+    t.string   "to_street"
+    t.string   "to_street_no"
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"
