@@ -5,6 +5,8 @@ window.map = null
 window.geocoder = null
 window.marker = null
 window.infowindow = null
+window.directionsDisplay = null
+window.directionsService = null
 
 window.init_address_map = ->
   if google?
@@ -17,11 +19,21 @@ window.init_address_map = ->
     
   return
 
-set_field = (type, value) ->
-  $("input#trip_from_#{type}").val value
+set_field = (type, destination, value) ->
+  $("input#trip_#{destination}_#{type}").val value
   return
 
-window.get_location = (location, suggest_field) ->
+window.setNewRoute = (from, to) ->
+  request = {
+    origin: from, 
+    destination: to,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  }
+  directionsService.route request, (response, status) ->
+    if status == google.maps.DirectionsStatus.OK
+      directionsDisplay.setDirections response
+
+window.get_location = (location, suggest_field, destination) ->
   if google?
     if !geocoder?
       geocoder = new google.maps.Geocoder()
@@ -39,14 +51,14 @@ window.get_location = (location, suggest_field) ->
               if results[x]
                 full_address = results[x].formatted_address
                 link_to = "<a href='#' data-full-address='#{full_address}' class='set_map_search'>#{full_address}</a><br />"
-                $("#suggest").append link_to
-            $("#suggest").show()
+                $(suggest_field).append link_to
+            $(suggest_field).show()
         else
-          $("#suggest").hide()
+          $(suggest_field).hide()
           location = results[0].geometry.location
           window.map.setCenter location
-          $("input#trip_from_lat").val location.lat()
-          $("input#trip_from_lng").val location.lng()
+          $("input#trip_#{destination}_lat").val location.lat()
+          $("input#trip_#{destination}_lng").val location.lng()
           address_components = results[0].address_components
           if address_components.length > 0
             for x in [0..address_components.length-1]
@@ -54,16 +66,16 @@ window.get_location = (location, suggest_field) ->
               value = address_components[x].long_name
               switch type
                 when 'locality'
-                  set_field 'city', value
+                  set_field 'city', destination, value
                 when 'country'
-                  set_field 'country', value
-                  set_field 'country_code_iso', address_components[x].short_name
+                  set_field 'country', destination, value
+                  set_field 'country_code_iso', destination, address_components[x].short_name
                 when 'postal_code'
-                  set_field 'zip', value
+                  set_field 'zip', destination, value
                 when 'route'
-                  set_field 'street', value
+                  set_field 'street', destination, value
                 when 'street_number'
-                  set_field 'street_no', value
+                  set_field 'street_no', destination, value
 
             if !window.marker?
               window.marker = new google.maps.Marker { map: window.map }
@@ -72,5 +84,12 @@ window.get_location = (location, suggest_field) ->
             window.marker.setPosition location
             window.marker.setVisible true
             $('#address_selection').show()
-  return
+        if destination == "to"
+          if !directionsDisplay?
+            directionsDisplay = new google.maps.DirectionsRenderer()
+          if !directionsService?
+            directionsService = new google.maps.DirectionsService()
 
+          setNewRoute($("#trip_from").val(), $("#trip_to"))
+
+  return
