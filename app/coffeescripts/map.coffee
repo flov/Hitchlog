@@ -5,17 +5,21 @@ window.map = null
 window.geocoder = null
 window.marker = null
 window.infowindow = null
-window.directionsDisplay = null
 window.directionsService = null
+window.directionsDisplay = null
 
 window.init_address_map = ->
   if google?
+    window.directionsService = new google.maps.DirectionsService()
+    window.directionsDisplay = new google.maps.DirectionsRenderer()
     options = {
       zoom: 1,
       center: new google.maps.LatLng(52.5234051, 13.411399899999992),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     window.map = new google.maps.Map($('#map')[0], options)
+    window.directionsDisplay.setMap(window.map)
+    
     
   return
 
@@ -29,9 +33,9 @@ window.setNewRoute = (from, to) ->
     destination: to,
     travelMode: google.maps.DirectionsTravelMode.DRIVING
   }
-  directionsService.route request, (response, status) ->
+  window.directionsService.route request, (response, status) ->
     if status == google.maps.DirectionsStatus.OK
-      directionsDisplay.setDirections response
+      window.directionsDisplay.setDirections response
 
 window.get_location = (location, suggest_field, destination) ->
   if google?
@@ -42,6 +46,8 @@ window.get_location = (location, suggest_field, destination) ->
     geocoder.geocode geocoderRequest, (results, status) ->
       if status == google.maps.GeocoderStatus.OK
         if results.length > 1
+          ###
+          #Suggestion fields deactivated for the moment
           console.log results
           max_results = 10
           if max_results >= results.length
@@ -53,10 +59,13 @@ window.get_location = (location, suggest_field, destination) ->
                 link_to = "<a href='#' data-full-address='#{full_address}' class='set_map_search'>#{full_address}</a><br />"
                 $(suggest_field).append link_to
             $(suggest_field).show()
+          ###
         else
-          $(suggest_field).hide()
+          #$(suggest_field).hide()
           location = results[0].geometry.location
-          window.map.setCenter location
+          if destination == 'from'
+            window.map.setCenter location
+          $("input#trip_#{destination}_formatted_address").val results[0].formatted_address
           $("input#trip_#{destination}_lat").val location.lat()
           $("input#trip_#{destination}_lng").val location.lng()
           address_components = results[0].address_components
@@ -69,7 +78,6 @@ window.get_location = (location, suggest_field, destination) ->
                   set_field 'city', destination, value
                 when 'country'
                   set_field 'country', destination, value
-                  set_field 'country_code_iso', destination, address_components[x].short_name
                 when 'postal_code'
                   set_field 'zip', destination, value
                 when 'route'
@@ -77,19 +85,10 @@ window.get_location = (location, suggest_field, destination) ->
                 when 'street_number'
                   set_field 'street_no', destination, value
 
-            if !window.marker?
+            if !window.marker? && destination == 'from'
               window.marker = new google.maps.Marker { map: window.map }
-
-            window.map.setZoom 12
-            window.marker.setPosition location
-            window.marker.setVisible true
-            $('#address_selection').show()
-        if destination == "to"
-          if !directionsDisplay?
-            directionsDisplay = new google.maps.DirectionsRenderer()
-          if !directionsService?
-            directionsService = new google.maps.DirectionsService()
-
-          setNewRoute($("#trip_from").val(), $("#trip_to"))
-
+              window.map.setZoom 12
+              window.marker.setPosition location
+              window.marker.setVisible true
   return
+

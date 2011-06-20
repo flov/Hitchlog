@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110612193307) do
+ActiveRecord::Schema.define(:version => 20110620152613) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(:version => 20110612193307) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "custom_attributes"
-  end
-
-  create_table "comments", :force => true do |t|
-    t.text     "body"
-    t.integer  "ride_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "country_distances", :force => true do |t|
@@ -59,17 +52,14 @@ ActiveRecord::Schema.define(:version => 20110612193307) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
-    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
-    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
@@ -107,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20110612193307) do
     t.integer  "money_spent"
     t.integer  "travelling_with"
     t.datetime "end"
-    t.text     "directions"
     t.float    "to_lng"
     t.float    "to_lat"
     t.float    "from_lng"
@@ -118,6 +107,8 @@ ActiveRecord::Schema.define(:version => 20110612193307) do
     t.string   "to_postal_code"
     t.string   "to_street"
     t.string   "to_street_no"
+    t.string   "from_formatted_address"
+    t.string   "to_formatted_address"
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"
@@ -142,10 +133,6 @@ ActiveRecord::Schema.define(:version => 20110612193307) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "username"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
     t.boolean  "admin",                               :default => false
   end
 

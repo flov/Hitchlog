@@ -1,19 +1,23 @@
 $(document).ready ->
-  #$('a.clear_address_fields').live 'click', (e) ->
-    #e.preventDefault()
-    #clear_address_fields()
-
   init_address_map()
-  #getLocation $("#offer_map_search").val()
-
   $("#trip_from").observe_field 0.3, ->
     if this.value.length > 1
-      get_location $("#trip_from").val()
+      get_location $("#trip_from").val(), $("#suggest_from"), "from"
 
-  #$('#offer_map_search').focus()
-  #$('#map_search').example 'Simple example'
-  $('#suggest a').live 'click', ->
+  $('#suggest_from a').live 'click', ->
     $("#trip_from").val($(this).html())
+    return false
+
+  $("#trip_to").observe_field 0.3, ->
+    if this.value.length > 1
+      get_location $("#trip_to").val(), $("#suggest_to"), "to"
+
+  $("#trip_to").change ->
+    if this.value.length > 1
+      setNewRoute $("#trip_from").val(), $("#trip_to").val()
+
+  $('#suggest_to a').live 'click', ->
+    $("#trip_to").val($(this).html())
     return false
 
   return
