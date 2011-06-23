@@ -22,15 +22,18 @@
     color: white
     font-family: georgia,serif
     padding-bottom: 2px
-    border-bottom: 1px solid #fff
     font-size: 44px
     font-style: italic
     +text-shadow(#222, 2px, 2px, 2px )
     line-height: 1.25em
+  h1.padding
+    padding: 10px
   h2
     color: white
     font-size: 18px
     +text-shadow(#222, 1px, 1px, 1px)
+
+
 
 #second-header
   background-color: lighten($orange, 20)
@@ -122,4 +125,10 @@
     text-decoration: underline
     &:hover
       color: $orange
+
+
+.shadow
+  -webkit-box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5)
+  -moz-box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5)
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.5)
 

@@ -3,6 +3,14 @@ module ApplicationHelper
     render :partial => 'shared/google_stats'
   end
   
+  def include_modernizr_js
+    if Rails.env == "production"
+      javascript_include_tag 'vendor/modernizr-2.0-production.js' 
+    else Rails.env == "development"
+      javascript_include_tag 'vendor/modernizr-2.0-development.js' 
+    end
+  end
+  
   def uservoice_feedback
     render :partial => 'shared/uservoice_feedback'
   end

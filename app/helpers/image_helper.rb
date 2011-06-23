@@ -94,8 +94,12 @@ module ImageHelper
     image_tag("icons/user.png", :class => 'tooltip')
   end
 
-  def waiting_time_image(time)
-    image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time', :time => time))
+  def waiting_time_image(time=nil)
+    if time.nil?
+      image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time_without_time'))
+    else
+      image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time', :time => time))
+    end
   end
 
   def waiting_time_missing_image

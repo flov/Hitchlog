@@ -8,12 +8,12 @@
 - title trip_show_title(@trip)
 - content_for :topmenu do
   - if @photos.empty?
-    #map_canvas{:style=>"width:950px"}
+    #map_canvas.map_show{:style=>"width:950px"}
   - else
-    #map_canvas{:style=>"width:450px"}
+    #map_canvas.map_show{:style=>"width:450px"}
     #hitchhike-photo= image_tag @photos.first.url(:cropped), :id => 'hitchhike-photo-photo'
 
--content_for :head do
+-content_for :javascript_at_bottom do
   :javascript
     $(function(){
       var directionDisplay;
@@ -50,6 +50,6 @@
       }
     });
 
+- content_for :head do
   :css
     body #content .container {padding-top: 0; padding-bottom: 40px;}
-

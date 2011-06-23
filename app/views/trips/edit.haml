@@ -1,1 +1,11 @@
-= render 'trips/form_box', :trip => @trip
+.colum_wrapper
+  .left_column#map
+    %h1 HOLA!
+
+  .right_column
+    - @trip.rides.each do |ride| 
+      Ride #{ride.number}
+      %br/
+      = waiting_time_image
+    HEY!
+

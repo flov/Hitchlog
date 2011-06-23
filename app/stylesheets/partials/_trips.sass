@@ -148,13 +148,12 @@ h3.date
   padding-left: 6px
   +border-radius(0px 0px 0px 15px)
 
-#map
+.map_trips_new
   width: 360px
   height: 280px
   position: relative
   background-color: #E5E3DF
   overflow: hidden
-
 
 .suggest
   display: none
@@ -172,5 +171,22 @@ h3.date
   
 .suggest_td
   position: relative
+
+.left_column
+  float: left
+  background-color: #E5E3DF
+  width: 640px
+
+.right_column
+  float: right
+  width: 280px
+  border-left: 1px solid gray
+  padding-left: 20px
   
 
+.column_wrapper:after
+  content: " "
+  display: block
+  height: 0
+  clear: both
+  visibility: hidden

@@ -1,4 +1,16 @@
 en:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      trip:
+        from: From
+        to: To
+        hitchhikes: Number of rides
+        start: Started at
+        duration: Duration (in hours)
+        travelling_with: Travelling
+  
   general:
     slogan: "A Hitchhiker's Logbook"
   welcome:
@@ -9,17 +21,15 @@ en:
       sign_in: 'Sign In' 
       welcome: Welcome! 
       text1: |
-          <p>
-            We are making the world a more hitchhiker friendly place.<br>
-            By logging personal hitchhiking experiences, we are trying to paint
-            an authentic picture about what hitchhiking is like.
-            If you have ever hitchhiked, you are welcome to
-            <a href="/trips/new">share your experience with us</a>.
-            With the information that you enter here you will be part of the project.
-            It will create statistical data and then we can tell the amount of positive/negative
-            experiences, average waiting times, your longest/fastest ride, the
-            countries where you hitchhiked, and more.
-          </p>
+          We are making the world a more hitchhiker friendly place.<br>
+          By logging personal hitchhiking experiences, we are trying to paint
+          an authentic picture about what hitchhiking is like.
+          If you have ever hitchhiked, you are welcome to
+          <a href="/trips/new">share your experience with us</a>.
+          With the information that you enter here you will be part of the project.
+          It will create statistical data and then we can tell the amount of positive/negative
+          experiences, average waiting times, your longest/fastest ride, the
+          countries where you hitchhiked, and more.
       text2:  |
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
@@ -43,6 +53,11 @@ en:
     other: "%{count} hours %{minutes} minutes"
 
   trips:
+    new:
+      new_trip_description: |
+          A trip is a hitchhiking trip from <b>one city to another city</b> which is
+          most of the time just one day.  For longer trips you can continue a trip
+          later. That way you will be able to see the waypoints on the map.
     helper:
       photo: Photo
       rides: "%{number} Rides"
@@ -61,4 +76,5 @@ en:
       driving_time: "%{time} driving time"
       driving_time_missing: Driving time is missing
       waiting_time: "%{time} waiting time"
+      waiting_time_without_time: "waiting time"
       waiting_time_missing: Waiting time is missing
