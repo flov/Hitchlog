@@ -18,6 +18,8 @@ class Trip < ActiveRecord::Base
 
   attr_accessor :hitchhikes, :start_time, :end_time
 
+  accepts_nested_attributes_for :rides
+
   before_save do
     # build as much rides on top of the ride as needed
     hitchhikes.to_i.times{|i| rides.build(:number => i+1) }

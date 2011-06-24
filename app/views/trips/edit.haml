@@ -3,9 +3,37 @@
     %h1 HOLA!
 
   .right_column
-    - @trip.rides.each do |ride| 
-      Ride #{ride.number}
-      %br/
-      = waiting_time_image
-    HEY!
+    - form_for @trip do |f|
+      -@trip.rides.each_with_index do |ride, i|
+        Ride #{ride.number}
+        %ul.idTabs
+          %li
+            %a{:href => "#time_tab_#{ride.number}"}= waiting_time_image
+          %li
+            %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
 
+        .tab_content{:id => "time_tab_#{ride.number}"}
+          = label_tag "trip_rides_attributes_#{ride.number}_waiting_time", "#{t("activerecord.attributes.ride.waiting_time")}:"
+          
+          %br/
+          = text_field_tag "trip[rides_attributes][#{i}][waiting_time]", nil, :placeholder => t('activerecord.attributes.ride.waiting_time')
+          %br/
+          = label_tag "trip_rides_attributes_#{ride.number}_duration", "#{t("activerecord.attributes.ride.duration")}:"
+          %br/
+          = text_field_tag "trip[rides_attributes][#{i}][duration]", nil, :placeholder => t('activerecord.attributes.ride.duration')
+
+        .tab_content{:id => "picture_tab_#{ride.number}"}
+          Upload a picture of the ride
+          %br/
+          - if ride.photo.file?
+            = image_tag(ride.photo(:thumb)) 
+            = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
+          %p
+            = f.label :photo
+            %br/
+            = f.file_field :photo
+
+
+- content_for :javascript_at_bottom do
+  = javascript_include_tag 'map'
+  = javascript_include_tag 'load_map_trips_edit'

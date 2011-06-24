@@ -21,10 +21,6 @@
   = f.text_field :duration
 %h4 Person who picked you up:
 = f.fields_for :person do |builder|
-  -#%p
-    -#= builder.label :name
-    -#%br/
-    -#= builder.text_field :name
   %p.input_fields
     = builder.label :gender
     %br/
