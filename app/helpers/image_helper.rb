@@ -96,7 +96,7 @@ module ImageHelper
 
   def waiting_time_image(time=nil)
     if time.nil?
-      image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time_without_time'))
+      image_tag("icons/time.png")
     else
       image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time', :time => time))
     end
@@ -124,6 +124,10 @@ module ImageHelper
   
   def photo_image
     image_tag("icons/photo.png", :class => 'tooltip', :alt => t('trips.helper.photo'))
+  end
+  
+  def photo_image_button
+    image_tag("icons/photo.png")
   end
   
   def story_image
