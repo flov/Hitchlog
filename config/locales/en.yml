@@ -10,6 +10,9 @@ en:
         start: Started at
         duration: Duration (in hours)
         travelling_with: Travelling
+      ride:
+        duration: Driving time
+        waiting_time: Waiting time
   
   general:
     slogan: "A Hitchhiker's Logbook"
