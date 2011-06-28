@@ -1,9 +1,9 @@
-/* DO NOT MODIFY. This file was compiled Mon, 20 Jun 2011 15:39:27 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 28 Jun 2011 11:59:37 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
 (function() {
-  var set_field, tripDateStart;
+  var convert_lat_lng, parse_route_request, rendererOptions, set_field, tripDateStart;
   tripDateStart = $("input#trip_start").datetimepicker({
     maxDate: new Date(),
     dateFormat: 'dd/mm/yy'
@@ -14,11 +14,46 @@
   window.infowindow = null;
   window.directionsService = null;
   window.directionsDisplay = null;
-  window.init_address_map = function() {
+  rendererOptions = {
+    draggable: true
+  };
+  window.a = null;
+  convert_lat_lng = function(object) {
+    var key, lat_lng, value;
+    lat_lng = (function() {
+      var _results;
+      _results = [];
+      for (key in object) {
+        value = object[key];
+        _results.push(value);
+      }
+      return _results;
+    })();
+    if (lat_lng.length === 2) {
+      return new google.maps.LatLng(lat_lng[0], lat_lng[1]);
+    } else {
+      return object;
+    }
+  };
+  parse_route_request = function(request) {
+    var waypoint, _i, _len, _ref;
+    if (request !== "") {
+      request = JSON.parse(request);
+      request.origin = convert_lat_lng(request.origin);
+      request.destination = convert_lat_lng(request.destination);
+      _ref = request.waypoints;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        waypoint = _ref[_i];
+        waypoint.location = convert_lat_lng(waypoint.location);
+      }
+      return request;
+    }
+  };
+  window.init_map = function() {
     var options;
     if (typeof google !== "undefined" && google !== null) {
       window.directionsService = new google.maps.DirectionsService();
-      window.directionsDisplay = new google.maps.DirectionsRenderer();
+      window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
       options = {
         zoom: 1,
         center: new google.maps.LatLng(52.5234051, 13.411399899999992),
@@ -26,18 +61,29 @@
       };
       window.map = new google.maps.Map($('#map')[0], options);
       window.directionsDisplay.setMap(window.map);
+      return google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+        if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
+          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.Vf));
+          return $("#trip_form").submit();
+        }
+      });
     }
   };
-  set_field = function(type, destination, value) {
-    $("input#trip_" + destination + "_" + type).val(value);
-  };
-  window.setNewRoute = function(from, to) {
-    var request;
-    request = {
-      origin: from,
-      destination: to,
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
-    };
+  window.setNewRoute = function(request) {
+    if (request == null) {
+      request = "";
+    }
+    if (request === "") {
+      request = {
+        origin: $("#trip_from").val(),
+        destination: $("#trip_to").val(),
+        waypoints: [],
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+      };
+    } else {
+      request = parse_route_request(request);
+    }
+    console.log(request);
     return window.directionsService.route(request, function(response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
         return window.directionsDisplay.setDirections(response);
@@ -46,6 +92,12 @@
   };
   window.get_location = function(location, suggest_field, destination) {
     var geocoder, geocoderRequest;
+    if (suggest_field == null) {
+      suggest_field = null;
+    }
+    if (destination == null) {
+      destination = null;
+    }
     if (typeof google !== "undefined" && google !== null) {
       if (!(typeof geocoder !== "undefined" && geocoder !== null)) {
         geocoder = new google.maps.Geocoder();
@@ -114,5 +166,8 @@
         }
       });
     }
+  };
+  set_field = function(type, destination, value) {
+    $("input#trip_" + destination + "_" + type).val(value);
   };
 }).call(this);

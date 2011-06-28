@@ -1,6 +1,16 @@
+- form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
+  = f.text_field :route
+  = f.hidden_field :from
+  = f.hidden_field :to
+  = submit_tag
+
+%h1.text_center
+  From "#{@trip.from_formatted_address}"
+  %br/
+  To "#{@trip.to_formatted_address}"
+
 .colum_wrapper
   .left_column#map
-    %h1 HOLA!
 
   .right_column
     #accordion
@@ -22,13 +32,13 @@
               = f.label :waiting_time
               %br/
               = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
-
+            = submit_tag
 
 - content_for :javascript_at_bottom do
   :javascript
     $(function(){
       $( "#accordion" ).accordion();
     });
-    
+
   = javascript_include_tag 'map'
-  -#= javascript_include_tag 'load_map_trips_edit'
+  = javascript_include_tag 'edit_trip'

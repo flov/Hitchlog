@@ -17,7 +17,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(params[:trip])
     @trip.user = current_user
     if @trip.save
-      redirect_to trip_path(@trip)
+      redirect_to edit_trip_path(@trip)
     else
       render :new
     end
@@ -38,7 +38,10 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])
-      redirect_to trip_path(@trip)
+      respond_to do |wants|
+        wants.html { redirect_to edit_trip_path(@trip) }
+        wants.js {}
+      end
     else
       render :action => 'edit'
     end

@@ -1,10 +1,10 @@
-/* DO NOT MODIFY. This file was compiled Mon, 20 Jun 2011 15:06:47 GMT from
+/* DO NOT MODIFY. This file was compiled Sun, 26 Jun 2011 14:19:15 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/load_map.coffee
  */
 
 (function() {
   $(document).ready(function() {
-    init_address_map();
+    init_map();
     $("#trip_from").observe_field(0.3, function() {
       if (this.value.length > 1) {
         return get_location($("#trip_from").val(), $("#suggest_from"), "from");
@@ -21,7 +21,7 @@
     });
     $("#trip_to").change(function() {
       if (this.value.length > 1) {
-        return setNewRoute($("#trip_from").val(), $("#trip_to").val());
+        return setNewRoute();
       }
     });
     $('#suggest_to a').live('click', function() {

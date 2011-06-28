@@ -1,4 +1,4 @@
-tripDateStart = $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'});
+tripDateStart = $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})
 
 
 window.map = null
@@ -7,11 +7,34 @@ window.marker = null
 window.infowindow = null
 window.directionsService = null
 window.directionsDisplay = null
+rendererOptions = { draggable: true }
 
-window.init_address_map = ->
+window.a = null
+
+convert_lat_lng = (object) ->
+  lat_lng = for key, value of object
+    value
+  if lat_lng.length == 2
+    new google.maps.LatLng(lat_lng[0], lat_lng[1])
+  else
+    object
+  
+parse_route_request = (request) ->
+  # DirectionsWaypoints might be just JSON-like, it is not strictly JSON, as it
+  # indirectly includes LatLng objects. That is why we need to convert the JSON
+  # into google.maps.LatLng objects again
+  if request != ""
+    request = JSON.parse(request)
+    request.origin = convert_lat_lng(request.origin)
+    request.destination = convert_lat_lng(request.destination)
+    for waypoint in request.waypoints
+      waypoint.location = convert_lat_lng(waypoint.location)
+    request
+
+window.init_map = ->
   if google?
     window.directionsService = new google.maps.DirectionsService()
-    window.directionsDisplay = new google.maps.DirectionsRenderer()
+    window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions)
     options = {
       zoom: 1,
       center: new google.maps.LatLng(52.5234051, 13.411399899999992),
@@ -19,25 +42,27 @@ window.init_address_map = ->
     }
     window.map = new google.maps.Map($('#map')[0], options)
     window.directionsDisplay.setMap(window.map)
-    
-    
-  return
+    google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
+      if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
+        $("#trip_route").val JSON.stringify(directionsDisplay.directions.Vf)
+        $("#trip_form").submit()
 
-set_field = (type, destination, value) ->
-  $("input#trip_#{destination}_#{type}").val value
-  return
-
-window.setNewRoute = (from, to) ->
-  request = {
-    origin: from, 
-    destination: to,
-    travelMode: google.maps.DirectionsTravelMode.DRIVING
-  }
+window.setNewRoute = (request = "") ->
+  if request == ""
+    request = {
+      origin: $("#trip_from").val()
+      destination: $("#trip_to").val()
+      waypoints: [],
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    }
+  else
+    request = parse_route_request(request)
+  console.log request
   window.directionsService.route request, (response, status) ->
     if status == google.maps.DirectionsStatus.OK
       window.directionsDisplay.setDirections response
 
-window.get_location = (location, suggest_field, destination) ->
+window.get_location = (location, suggest_field=null, destination=null) ->
   if google?
     if !geocoder?
       geocoder = new google.maps.Geocoder()
@@ -92,3 +117,6 @@ window.get_location = (location, suggest_field, destination) ->
               window.marker.setVisible true
   return
 
+set_field = (type, destination, value) ->
+  $("input#trip_#{destination}_#{type}").val value
+  return

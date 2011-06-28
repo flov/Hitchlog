@@ -56,6 +56,7 @@ en:
     other: "%{count} hours %{minutes} minutes"
 
   trips:
+    show_left_column: "(Edit Trip)"
     new:
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is

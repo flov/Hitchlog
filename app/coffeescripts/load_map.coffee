@@ -1,5 +1,5 @@
 $(document).ready ->
-  init_address_map()
+  init_map()
   $("#trip_from").observe_field 0.3, ->
     if this.value.length > 1
       get_location $("#trip_from").val(), $("#suggest_from"), "from"
@@ -14,7 +14,7 @@ $(document).ready ->
 
   $("#trip_to").change ->
     if this.value.length > 1
-      setNewRoute $("#trip_from").val(), $("#trip_to").val()
+      setNewRoute()
 
   $('#suggest_to a').live 'click', ->
     $("#trip_to").val($(this).html())
