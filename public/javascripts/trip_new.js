@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Wed, 29 Jun 2011 20:10:18 GMT from
- * /Users/florianvallen/code/hitchlog/app/coffeescripts/load_map.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 29 Jun 2011 20:25:02 GMT from
+ * /Users/florianvallen/code/hitchlog/app/coffeescripts/trip_new.coffee
  */
 
 (function() {

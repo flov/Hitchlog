@@ -51,8 +51,8 @@
     =f.hidden_field :to_street
     =f.hidden_field :to_street_no    
 
-  = f.submit "Submit", :class => 'button light'
+  = f.submit t('.step1_2'), :class => 'button light'
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'map'
-  = javascript_include_tag 'load_map'
+  = javascript_include_tag 'trips_new'

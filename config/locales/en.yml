@@ -56,8 +56,11 @@ en:
     other: "%{count} hours %{minutes} minutes"
 
   trips:
+    form:
+      step1_2: "Step 1/2"
     show_left_column: "(Edit Trip)"
     new:
+      log_your_trip_please: "Log your trip please :)"
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is
           most of the time just one day.  For longer trips you can continue a trip

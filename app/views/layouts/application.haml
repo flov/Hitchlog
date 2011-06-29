@@ -12,7 +12,7 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     = include_modernizr_js
 
-  %body
+  %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
     = render 'shared/banners_in_corners'
 
     #wrap

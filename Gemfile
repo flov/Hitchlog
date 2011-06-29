@@ -5,35 +5,35 @@ gem 'mysql2', '~> 0.2.7'
 
 gem 'devise'
 gem 'bluecloth'
-gem "will_paginate", "~> 3.0.pre2"
+gem 'will_paginate', '~> 3.0.pre2'
 gem 'hirb'
 gem 'nokogiri'
 gem 'hoptoad_notifier'
-gem "meta_where"
-gem "jammit"
-gem "mongrel", "~> 1.2.0.pre2"
+gem 'meta_where'
+gem 'jammit'
+gem 'mongrel', '~> 1.2.0.pre2'
 gem 'json', '~> 1.4.6'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'hpricot'
 
 gem 'compass'
 gem 'haml', '~> 3.1'
-gem "compass-colors"
+gem 'compass-colors'
 gem 'fancy-buttons'
 
 gem 'gravatar_image_tag'
-gem "escape_utils" # annoying UTF-8 warning with ruby 1.9.2
+gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem "oa-oauth", :require => "omniauth/oauth"
-gem "i18n_data"
-gem "friendly_id", "~> 3.2.1"
+gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'i18n_data'
+gem 'friendly_id', '~> 3.2.1'
 
 # coffeescript
 gem 'barista', '~> 1.0'
 
 group :test, :rspec, :development do
   # Rspec
-  gem 'rspec-rails', :git => "git://github.com/rspec/rspec-rails.git"
+  gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
   
 
   # guard process manager, spork drb-testserver
@@ -59,8 +59,8 @@ group :test, :rspec, :development do
   gem 'cucumber-rails', '0.3.2'
   gem 'database_cleaner'
 
-  gem "nokogiri"
-  gem "shoulda"
+  gem 'nokogiri'
+  gem 'shoulda'
   gem 'livereload'
-  gem "faker"
+  gem 'faker'
 end

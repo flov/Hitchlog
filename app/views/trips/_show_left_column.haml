@@ -1,3 +1,5 @@
+- form_for trip do |f|
+  = f.hidden_field :route
 - unless trip.to_date.blank?
   #trip_date
     = trip.start.strftime("%d")

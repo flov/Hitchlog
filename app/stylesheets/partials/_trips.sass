@@ -105,15 +105,25 @@ h3.date
     padding: 10px
     +rounded_corners(5px)
     +clearfix
-    h1
-      line-height: normal
-      font-size: 34px
-      margin: 0
     p
       margin: 0
 
+#trips_new
+  #content
+    h1 
+      line-height: normal
+      font-size: 29px
+      font-style: normal
+      margin: 0 0 13px
+      font-family: Georgia
+  
+
 .trip_form_box
   width: 800px
+  .float_wrapper
+    margin: 0 auto
+    h1
+      font-style: normal !important
 
 #new_trip
   .left
@@ -175,13 +185,12 @@ h3.date
 .left_column
   float: left
   background-color: #E5E3DF
-  width: 640px
+  width: 570px
   height: 340px
 
 .right_column
   float: right
   width: 280px
-  border-left: 1px solid gray
   padding-left: 20px
   
 
@@ -197,3 +206,6 @@ h3.date
   .headline
     padding-left: 28px
 
+#trips_edit, #trips_update
+  .yellow_box
+    width: 900px

@@ -1,54 +1,20 @@
 #trips_show
   .left
-    = render 'show_left_column', :trip => @trip
-      
+    = render 'trips/show_left_column', :trip => @trip
   .right
     = render 'users/right_column', :user_settings => @user_settings
 
 - title trip_show_title(@trip)
 - content_for :topmenu do
   - if @photos.empty?
-    #map_canvas.map_show{:style=>"width:950px"}
+    #map.map_show{:style=>"width:950px"}
   - else
-    #map_canvas.map_show{:style=>"width:450px"}
+    #map.map_show{:style=>"width:450px"}
     #hitchhike-photo= image_tag @photos.first.url(:cropped), :id => 'hitchhike-photo-photo'
 
 -content_for :javascript_at_bottom do
-  :javascript
-    $(function(){
-      var directionDisplay;
-      var directionsService = new google.maps.DirectionsService();
-      var map;
-      initialize();
-      calcRoute();
-
-      function initialize() {
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-        var myOptions = {
-          zoom:6,
-          mapTypeId: google.maps.MapTypeId.HYBRID,
-          center: chicago
-        }
-        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        directionsDisplay.setMap(map);
-      }
-        
-      function calcRoute() {
-        var start = $("#start").html()
-        var end = $("#end").html()
-        var request = {
-          origin:start, 
-          destination:end,
-          travelMode: google.maps.DirectionsTravelMode.DRIVING
-        };
-        directionsService.route(request, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);
-          }
-        });
-      }
-    });
+  = javascript_include_tag "map"
+  = javascript_include_tag "show_trip"
 
 - content_for :head do
   :css

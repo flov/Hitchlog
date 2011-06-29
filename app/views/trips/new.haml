@@ -1,12 +1,8 @@
 - title 'New Trip'
 
-= content_for :layout_header do
-  %h1.padding Log a new Hitchhiking Trip
-
 .yellow_box.trip_form_box.shadow
-
-  %p= t('.new_trip_description').html_safe
+  %h1 
+    = t('.log_your_trip_please')
 
   #map.float_right.map_trips_new
   = render 'trips/form', :trip => @trip
-

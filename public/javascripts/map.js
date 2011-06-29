@@ -1,9 +1,9 @@
-/* DO NOT MODIFY. This file was compiled Tue, 28 Jun 2011 11:59:37 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 29 Jun 2011 21:07:59 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
 (function() {
-  var convert_lat_lng, parse_route_request, rendererOptions, set_field, tripDateStart;
+  var convert_lat_lng, parse_route_request, set_field, tripDateStart;
   tripDateStart = $("input#trip_start").datetimepicker({
     maxDate: new Date(),
     dateFormat: 'dd/mm/yy'
@@ -14,9 +14,6 @@
   window.infowindow = null;
   window.directionsService = null;
   window.directionsDisplay = null;
-  rendererOptions = {
-    draggable: true
-  };
   window.a = null;
   convert_lat_lng = function(object) {
     var key, lat_lng, value;
@@ -49,8 +46,14 @@
       return request;
     }
   };
-  window.init_map = function() {
+  window.init_map = function(rendererOptions) {
     var options;
+    if (rendererOptions == null) {
+      rendererOptions = {
+        draggable: true
+      };
+    }
+    console.log(rendererOptions);
     if (typeof google !== "undefined" && google !== null) {
       window.directionsService = new google.maps.DirectionsService();
       window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
@@ -69,7 +72,7 @@
       });
     }
   };
-  window.setNewRoute = function(request) {
+  window.set_new_route = function(request) {
     if (request == null) {
       request = "";
     }
@@ -83,7 +86,6 @@
     } else {
       request = parse_route_request(request);
     }
-    console.log(request);
     return window.directionsService.route(request, function(response, status) {
       if (status === google.maps.DirectionsStatus.OK) {
         return window.directionsDisplay.setDirections(response);
@@ -106,7 +108,7 @@
         address: location
       };
       geocoder.geocode(geocoderRequest, function(results, status) {
-        var address_components, type, value, x, _ref;
+        var address_components, type, value, x, _ref, _results;
         if (status === google.maps.GeocoderStatus.OK) {
           if (results.length > 1) {
             /*
@@ -133,6 +135,7 @@
             $("input#trip_" + destination + "_lng").val(location.lng());
             address_components = results[0].address_components;
             if (address_components.length > 0) {
+              _results = [];
               for (x = 0, _ref = address_components.length - 1; 0 <= _ref ? x <= _ref : x >= _ref; 0 <= _ref ? x++ : x--) {
                 type = address_components[x].types[0];
                 value = address_components[x].long_name;
@@ -152,15 +155,11 @@
                   case 'street_number':
                     set_field('street_no', destination, value);
                 }
-              }
-              if (!(window.marker != null) && destination === 'from') {
-                window.marker = new google.maps.Marker({
-                  map: window.map
-                });
                 window.map.setZoom(12);
                 window.marker.setPosition(location);
-                return window.marker.setVisible(true);
+                _results.push(window.marker.setVisible(true));
               }
+              return _results;
             }
           }
         }

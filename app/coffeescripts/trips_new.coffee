@@ -14,7 +14,7 @@ $(document).ready ->
 
   $("#trip_to").change ->
     if this.value.length > 1
-      setNewRoute()
+      set_new_route()
 
   $('#suggest_to a').live 'click', ->
     $("#trip_to").val($(this).html())

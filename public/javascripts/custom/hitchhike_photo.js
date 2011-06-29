@@ -10,7 +10,7 @@ var HitchhikePhoto = {
       center: startlocation
     };
 
-    map = new google.maps.Map($('#map_canvas')[0], myOptions);
+    map = new google.maps.Map($('#map')[0], myOptions);
     directionsDisplay.setMap(map);
 
     // I execute this function whenever the routes need to be set again

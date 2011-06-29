@@ -7,7 +7,6 @@ window.marker = null
 window.infowindow = null
 window.directionsService = null
 window.directionsDisplay = null
-rendererOptions = { draggable: true }
 
 window.a = null
 
@@ -31,7 +30,8 @@ parse_route_request = (request) ->
       waypoint.location = convert_lat_lng(waypoint.location)
     request
 
-window.init_map = ->
+window.init_map = (rendererOptions = { draggable: true }) ->
+  console.log rendererOptions
   if google?
     window.directionsService = new google.maps.DirectionsService()
     window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions)
@@ -47,7 +47,7 @@ window.init_map = ->
         $("#trip_route").val JSON.stringify(directionsDisplay.directions.Vf)
         $("#trip_form").submit()
 
-window.setNewRoute = (request = "") ->
+window.set_new_route = (request = "") ->
   if request == ""
     request = {
       origin: $("#trip_from").val()
@@ -57,7 +57,6 @@ window.setNewRoute = (request = "") ->
     }
   else
     request = parse_route_request(request)
-  console.log request
   window.directionsService.route request, (response, status) ->
     if status == google.maps.DirectionsStatus.OK
       window.directionsDisplay.setDirections response
@@ -110,8 +109,6 @@ window.get_location = (location, suggest_field=null, destination=null) ->
                 when 'street_number'
                   set_field 'street_no', destination, value
 
-            if !window.marker? && destination == 'from'
-              window.marker = new google.maps.Marker { map: window.map }
               window.map.setZoom 12
               window.marker.setPosition location
               window.marker.setVisible true

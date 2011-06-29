@@ -1,17 +1,19 @@
 - form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
-  = f.text_field :route
+  = f.hidden_field :route
   = f.hidden_field :from
   = f.hidden_field :to
-  = submit_tag
+  = f.hidden_field :from_formatted_address
+  = f.hidden_field :to_formatted_address
+  
+  .hidden= submit_tag
 
 %h1.text_center
-  From "#{@trip.from_formatted_address}"
-  %br/
-  To "#{@trip.to_formatted_address}"
+  = @trip.from_formatted_address
+  &rarr;
+  = @trip.to_formatted_address
 
-.colum_wrapper
+.colum_wrapper.yellow_box.shadow
   .left_column#map
-
   .right_column
     #accordion
       - @trip.rides.each  do |ride|
@@ -35,10 +37,5 @@
             = submit_tag
 
 - content_for :javascript_at_bottom do
-  :javascript
-    $(function(){
-      $( "#accordion" ).accordion();
-    });
-
   = javascript_include_tag 'map'
   = javascript_include_tag 'edit_trip'
