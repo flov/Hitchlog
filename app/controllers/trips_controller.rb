@@ -33,6 +33,11 @@ class TripsController < ApplicationController
   end
   
   def edit
+    @trip.rides.each do |ride|
+      if ride.person.nil?
+        ride.build_person
+      end
+    end
   end
     
   def update

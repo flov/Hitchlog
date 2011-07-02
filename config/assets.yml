@@ -10,7 +10,6 @@ javascripts:
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.Jcrop.min.js
     - public/javascripts/vendor/jquery.observe_field.js
-    - public/javascripts/vendor/jquery.idTabs.min.js
     #- public/javascripts/vendor/showdown.js
 
     - public/javascripts/custom/*.js

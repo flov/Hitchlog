@@ -115,8 +115,8 @@
     color: #333333
 
 .ui-widget-header
-  border: 1px solid #e78f08
-  background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x
+  //border: 1px solid #e78f08
+  //background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x
   color: #ffffff
   font-weight: bold
   a
@@ -971,6 +971,7 @@
   .ui-accordion-content-active
     background-color: white
     display: block
+    height: 350px !important
 
 /*
  * jQuery UI Autocomplete 1.8.9
@@ -1248,13 +1249,26 @@ button.ui-button::-moz-focus-inner
  * *
  * * http://docs.jquery.com/UI/Tabs#theming
 
+.tabs
+  width: 270px
+  margin: 0 auto
+
 .ui-tabs
+  border: 0px !important
   position: relative
-  padding: .2em
   zoom: 1
+  input[type=text], textarea
+    width: 210px
+    font-size: 16px
+    padding: 5px
+    border-top: solid 1px #C4C4C4
+    border-left: solid 1px #E9E9E9
+    border-bottom: solid 1px #E9E9E9
+    border-right: solid 1px #C4C4C4
+    
   .ui-tabs-nav
     margin: 0
-    padding: .2em .2em 0
+    //padding: .2em .2em 0
     li
       list-style: none
       float: left
@@ -1266,7 +1280,7 @@ button.ui-button::-moz-focus-inner
       white-space: nowrap
       a
         float: left
-        padding: .5em 1em
+        padding: 6px 23px 2px
         text-decoration: none
       &.ui-tabs-selected
         margin-bottom: 0
@@ -1284,6 +1298,7 @@ button.ui-button::-moz-focus-inner
     border-width: 0
     padding: 1em 1.4em
     background: none
+    border: 1px solid #FBD850
   .ui-tabs-hide
     display: none !important
 

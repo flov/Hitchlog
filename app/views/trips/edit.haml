@@ -20,32 +20,74 @@
         %p.headline Ride #{ride.number}
         .accordion_content
           - form_for ride do |f|
-            %ul.idTabs
-              %li
-                %a{:href => "#time_tab_#{ride.number}"}
-                  = waiting_time_image
-              %li
-                %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
-              %li
-                %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
-              %li
-                %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
+            .tabs
+              %ul
+                %li
+                  %a{:href => "#time_tab_#{ride.number}"}
+                    = waiting_time_image
+                - if false
+                  -# picture upload currently disabled
+                  %li
+                    %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
+                %li
+                  %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
+                %li
+                  %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
 
-            .tab_content{:id => "time_tab_#{ride.number}"}
-              = f.label :duration
-              %br/
-              = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
-              %br/
-              = f.label :waiting_time
-              %br/
-              = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
-            .tab_content{:id => "picture_tab_#{ride.number}"}
-              Upload Picture
-            .tab_content{:id => "person_info_tab_#{ride.number}"}
-              Hello!
-            .tab_content{:id => "add_story_tab_#{ride.number}"}
-              Add Story!
-            = submit_tag
+              .tab_content{:id => "time_tab_#{ride.number}"}
+                = f.label :duration
+                %br/
+                = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
+                %br/
+                = f.label :waiting_time
+                %br/
+                = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
+                %br/
+                = submit_tag
+              - if false
+                .tab_content{:id => "picture_tab_#{ride.number}"}
+                  - if ride.photo.file?
+                    = image_tag(ride.photo(:thumb)) 
+                    = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
+                    %br/
+                  = f.label :photo
+                  %br/
+                  = f.file_field :photo
+                  %br/
+                  = submit_tag
+              .tab_content{:id => "person_info_tab_#{ride.number}"}
+                = f.fields_for :person do |builder|
+                  = builder.label :gender
+                  %br/
+                  = builder.select("gender", %w[male female], {:include_blank => true})
+                  %br/
+                  = builder.label :mission
+                  %br/
+                  = builder.text_field :mission
+                  %br/
+                  = builder.label :origin
+                  %br/
+                  = builder.text_field :origin
+                  %br/
+                  = builder.label :occupation
+                  %br/
+                  = builder.text_field :occupation
+                  %br/
+                  = builder.label :age
+                  %br/
+                  = builder.text_field :age
+                                
+                = submit_tag
+              .tab_content{:id => "add_story_tab_#{ride.number}"}
+                = f.label :title
+                %br/
+                = f.text_field :title
+                %br/
+                = f.label :story
+                %br/
+                = f.text_area :story, :rows => 4
+                
+                = submit_tag
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'map'

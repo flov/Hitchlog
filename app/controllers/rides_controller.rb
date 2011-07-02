@@ -44,7 +44,7 @@ class RidesController < ApplicationController
   def edit
     @ride = Ride.find(params[:id])
     @ride.build_person
-    @trip      = @ride.trip
+    @trip = @ride.trip
   end
   
   def update

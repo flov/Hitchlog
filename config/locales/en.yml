@@ -13,6 +13,7 @@ en:
       ride:
         duration: Driving time
         waiting_time: Waiting time
+        photo: Photo
   
   general:
     slogan: "A Hitchhiker's Logbook"
