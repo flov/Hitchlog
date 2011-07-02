@@ -57,19 +57,21 @@ en:
 
   trips:
     form:
-      step1_2: "Step 1/2"
+      step1_2: "Continue"
     show_left_column: "(Edit Trip)"
     new:
-      log_your_trip_please: "Log your trip please :)"
+      log_your_trip_please: "Log your hitchhiking trip please :)"
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is
           most of the time just one day.  For longer trips you can continue a trip
           later. That way you will be able to see the waypoints on the map.
     helper:
+      about_person_image: Tell something about the Person who took you
       photo: Photo
       rides: "%{number} Rides"
       photo_missing: Missing Photo, Upload Photo
       story: Story
+      add_story_image: Tell something about the ride
       story_missing: Missing Story, write a story about the ride
       male_driver: Male Driver
       female_driver: Female Driver

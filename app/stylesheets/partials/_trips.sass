@@ -1,9 +1,9 @@
 #trips_show, #users_show
-  .left
+  .left_column
     width: 640px
     float: left
     padding-bottom: 15px
-  .right
+  .right_column
     text-align: center
     width: 300px
     float: right
@@ -182,17 +182,15 @@ h3.date
 .suggest_td
   position: relative
 
-.left_column
-  float: left
-  background-color: #E5E3DF
-  width: 570px
-  height: 340px
-
-.right_column
-  float: right
-  width: 280px
-  padding-left: 20px
-  
+#trips_edit
+  .left_column
+    float: left
+    background-color: #E5E3DF
+    width: 610px
+    height: 400px
+  .right_column
+    float: right
+    width: 280px
 
 .column_wrapper:after
   content: " "
@@ -201,8 +199,20 @@ h3.date
   clear: both
   visibility: hidden
 
-
 #accordion 
+  .idTabs
+    +clearfix
+    li
+      background-color: #FBD850
+      float: left
+      height: 25px
+    a
+      padding: 0 27px
+      img 
+        margin-top: 4px
+      &.last
+        padding: 0 26px
+      
   .headline
     padding-left: 28px
 

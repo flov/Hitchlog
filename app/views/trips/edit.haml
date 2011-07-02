@@ -12,7 +12,7 @@
   &rarr;
   = @trip.to_formatted_address
 
-.colum_wrapper.yellow_box.shadow
+.yellow_box.shadow
   .left_column#map
   .right_column
     #accordion
@@ -22,9 +22,14 @@
           - form_for ride do |f|
             %ul.idTabs
               %li
-                %a{:href => "#time_tab_#{ride.number}"}= waiting_time_image
+                %a{:href => "#time_tab_#{ride.number}"}
+                  = waiting_time_image
               %li
                 %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
+              %li
+                %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
+              %li
+                %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
 
             .tab_content{:id => "time_tab_#{ride.number}"}
               = f.label :duration
@@ -34,6 +39,12 @@
               = f.label :waiting_time
               %br/
               = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
+            .tab_content{:id => "picture_tab_#{ride.number}"}
+              Upload Picture
+            .tab_content{:id => "person_info_tab_#{ride.number}"}
+              Hello!
+            .tab_content{:id => "add_story_tab_#{ride.number}"}
+              Add Story!
             = submit_tag
 
 - content_for :javascript_at_bottom do

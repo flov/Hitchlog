@@ -58,6 +58,10 @@ module ImageHelper
     end
   end
 
+  def about_person_image
+    image_tag("icons/user_comment.png", :class => 'tooltip', :alt => t('trips.helper.about_person_image'))
+  end
+
   def alone_image
     image_tag("icons/alone.png", :class => 'tooltip', :alt => t('trips.helper.alone'))
   end
@@ -132,6 +136,10 @@ module ImageHelper
   
   def story_image
     image_tag("icons/story.png", :class => 'tooltip')
+  end
+
+  def add_story_image
+    image_tag("icons/story.png", :class => 'tooltip', :alt => t('trips.helper.add_story_image'))
   end
   
   def story_missing_image
