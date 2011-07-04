@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Wed, 29 Jun 2011 21:07:59 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 04 Jul 2011 17:31:10 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
@@ -53,7 +53,6 @@
         draggable: true
       };
     }
-    console.log(rendererOptions);
     if (typeof google !== "undefined" && google !== null) {
       window.directionsService = new google.maps.DirectionsService();
       window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
@@ -65,8 +64,20 @@
       window.map = new google.maps.Map($('#map')[0], options);
       window.directionsDisplay.setMap(window.map);
       return google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+        var key, value;
         if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
-          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.Vf));
+          console.log(directionsDisplay);
+          window.abc = (function() {
+            var _ref, _results;
+            _ref = directionsDisplay.directions;
+            _results = [];
+            for (key in _ref) {
+              value = _ref[key];
+              _results.push(key);
+            }
+            return _results;
+          })();
+          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.cg));
           return $("#trip_form").submit();
         }
       });
@@ -76,21 +87,23 @@
     if (request == null) {
       request = "";
     }
-    if (request === "") {
-      request = {
-        origin: $("#trip_from").val(),
-        destination: $("#trip_to").val(),
-        waypoints: [],
-        travelMode: google.maps.DirectionsTravelMode.DRIVING
-      };
-    } else {
-      request = parse_route_request(request);
-    }
-    return window.directionsService.route(request, function(response, status) {
-      if (status === google.maps.DirectionsStatus.OK) {
-        return window.directionsDisplay.setDirections(response);
+    if (typeof google !== "undefined" && google !== null) {
+      if (request === "") {
+        request = {
+          origin: $("#trip_from").val(),
+          destination: $("#trip_to").val(),
+          waypoints: [],
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+        };
+      } else {
+        request = parse_route_request(request);
       }
-    });
+      return window.directionsService.route(request, function(response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+          return window.directionsDisplay.setDirections(response);
+        }
+      });
+    }
   };
   window.get_location = function(location, suggest_field, destination) {
     var geocoder, geocoderRequest;
@@ -113,7 +126,6 @@
           if (results.length > 1) {
             /*
                       #Suggestion fields deactivated for the moment
-                      console.log results
                       max_results = 10
                       if max_results >= results.length
                         max_results = results.length

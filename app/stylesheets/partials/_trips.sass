@@ -1,6 +1,6 @@
 #trips_show, #users_show
   .left_column
-    width: 640px
+    width: 900px
     float: left
     padding-bottom: 15px
   .right_column
@@ -9,6 +9,21 @@
     float: right
     border-left: 1px solid lighten($orange, 35)
     padding-bottom: 15px
+
+#trips_edit
+  .left_column
+    float: left
+    background-color: #E5E3DF
+    width: 850px
+    height: 700px
+  .right_column
+    float: right
+    width: 325px
+    border-left: 1px solid red
+    h1
+      font-family: "Trebuchet MS", "Lucida Grande", "Bitstream Vera Sans", Helvetica, Arial, sans-serif
+      font-size: 100%
+      font-style: normal
 
 .new_trip
   +clearfix
@@ -181,16 +196,6 @@ h3.date
   
 .suggest_td
   position: relative
-
-#trips_edit
-  .left_column
-    float: left
-    background-color: #E5E3DF
-    width: 610px
-    height: 400px
-  .right_column
-    float: right
-    width: 280px
 
 .column_wrapper:after
   content: " "

@@ -43,9 +43,9 @@ module ImageHelper
     string.html_safe 
   end
   
-  def hitchhiking_with_image(trip)
-    unless trip.travelling_with.nil?
-      case trip.travelling_with
+  def hitchhiking_with_image(number)
+    unless number.nil?
+      case number
       when 0
         alone_image
       when 1

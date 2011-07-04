@@ -115,8 +115,8 @@
     color: #333333
 
 .ui-widget-header
-  //border: 1px solid #e78f08
-  //background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x
+  border: 1px solid #e78f08
+  background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x
   color: #ffffff
   font-weight: bold
   a
@@ -935,11 +935,23 @@
 /* IE/Win - Fix animation bug - #4615
 
 .ui-accordion
+  .ui-corner-all, .ui-corner-top, .ui-corner-bottom
+    -moz-border-radius: 0
+    -webkit-border-radius: 0
+  .ui-corner-all
+    border-radius: 0
+    border:
+      top: 1px
+      bottom: 0
+      left: 0
+      right: 0
+      style: solid 
+      color: #CCC4A0
+
   width: 100%
   .ui-accordion-header
     cursor: pointer
     position: relative
-    margin-top: 1px
     zoom: 1
   .ui-accordion-li-fix
     display: inline
@@ -961,10 +973,8 @@
     margin-top: -8px
   .ui-accordion-content
     border-top: 0
-    margin-top: -2px
     position: relative
     top: 1px
-    margin-bottom: 2px
     overflow: auto
     display: none
     zoom: 1
@@ -1267,6 +1277,8 @@ button.ui-button::-moz-focus-inner
     border-right: solid 1px #C4C4C4
     
   .ui-tabs-nav
+    border: 0
+    background: none
     margin: 0
     //padding: .2em .2em 0
     li

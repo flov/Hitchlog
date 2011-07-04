@@ -43,7 +43,10 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     window.directionsDisplay.setMap(window.map)
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
-        $("#trip_route").val JSON.stringify(directionsDisplay.directions.Vf)
+        console.log directionsDisplay
+        window.abc = for key, value of directionsDisplay.directions
+          key
+        $("#trip_route").val JSON.stringify(directionsDisplay.directions.cg)
         $("#trip_form").submit()
 
 window.set_new_route = (request = "") ->

@@ -9,7 +9,7 @@
     = trip.start.strftime("%Y")
 
 %h1.text_center
-  = hitchhiking_with_image(trip)
+  = hitchhiking_with_image(trip.travelling_with)
   %span#start #{trip.from_city}, #{trip.from_country}
   &rarr;
   %span#end #{trip.to_city}, #{trip.to_country}

@@ -7,6 +7,25 @@ module TripsHelper
     end
   end
 
+  def hitchhiked_with(number)
+    unless number.nil?
+      case number
+      when 0
+        I18n.t('helper.trip.alone')
+      when 1
+        I18n.t('helper.trip.with_1')
+      when 2
+        I18n.t('helper.trip.with_2')
+      when 3
+        I18n.t('helper.trip.with_3')
+      when 4
+        I18n.t('helper.trip.with_4')
+      else
+        I18n.t('helper.trip.with_more_than_4')
+      end
+    end
+  end
+
   def country_images(hash)
     case hash[:country]
       when "The Netherlands" then hash[:country] = "Netherlands"

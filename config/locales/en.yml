@@ -14,6 +14,16 @@ en:
         duration: Driving time
         waiting_time: Waiting time
         photo: Photo
+
+  helper:
+    trip:
+      alone: alone
+      with_1: "with 1 person"
+      with_2: "with 2 people"
+      with_3: "with 3 people"
+      with_4: "with 4 people"
+      with_more_than_4: "with more than 4 people"
+    
   
   general:
     slogan: "A Hitchhiker's Logbook"
@@ -67,12 +77,12 @@ en:
           most of the time just one day.  For longer trips you can continue a trip
           later. That way you will be able to see the waypoints on the map.
     helper:
-      about_person_image: Tell something about the Person who took you
+      about_person_image: About the driver
       photo: Photo
       rides: "%{number} Rides"
       photo_missing: Missing Photo, Upload Photo
       story: Story
-      add_story_image: Tell something about the ride
+      add_story_image: Story to this ride
       story_missing: Missing Story, write a story about the ride
       male_driver: Male Driver
       female_driver: Female Driver
