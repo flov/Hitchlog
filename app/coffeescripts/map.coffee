@@ -31,7 +31,6 @@ parse_route_request = (request) ->
     request
 
 window.init_map = (rendererOptions = { draggable: true }) ->
-  console.log rendererOptions
   if google?
     window.directionsService = new google.maps.DirectionsService()
     window.directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions)
@@ -48,18 +47,19 @@ window.init_map = (rendererOptions = { draggable: true }) ->
         $("#trip_form").submit()
 
 window.set_new_route = (request = "") ->
-  if request == ""
-    request = {
-      origin: $("#trip_from").val()
-      destination: $("#trip_to").val()
-      waypoints: [],
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
-    }
-  else
-    request = parse_route_request(request)
-  window.directionsService.route request, (response, status) ->
-    if status == google.maps.DirectionsStatus.OK
-      window.directionsDisplay.setDirections response
+  if google?
+    if request == ""
+      request = {
+        origin: $("#trip_from").val()
+        destination: $("#trip_to").val()
+        waypoints: [],
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+      }
+    else
+      request = parse_route_request(request)
+    window.directionsService.route request, (response, status) ->
+      if status == google.maps.DirectionsStatus.OK
+        window.directionsDisplay.setDirections response
 
 window.get_location = (location, suggest_field=null, destination=null) ->
   if google?
@@ -72,7 +72,6 @@ window.get_location = (location, suggest_field=null, destination=null) ->
         if results.length > 1
           ###
           #Suggestion fields deactivated for the moment
-          console.log results
           max_results = 10
           if max_results >= results.length
             max_results = results.length
