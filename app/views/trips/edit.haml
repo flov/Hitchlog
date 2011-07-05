@@ -11,21 +11,20 @@
       %ul#trip_navigation
         %li
       .hidden= submit_tag
-      %h1 
-        From #{@trip.from_formatted_address}
-        %a{:href=>'#'} (edit)
-      %h1
-        To #{@trip.to_formatted_address}
-        %a#edit_to{:href=>'#'} (edit)
-      %h1
-        Hitchhiked #{hitchhiked_with(@trip.travelling_with)}
-        %a#edit_travelling_with{:href=>'#'} (edit)
-      %h1
-        Hitchhiked at #{@trip.to_date}
-        %a#edit_date{:href=>'#'} (edit)
-      %h1
-        Duration #{@trip.duration}
-        %a#edit_duration{:href=>'#'} (edit)
+      #trip_info
+        %p 
+          From #{@trip.from_formatted_address}
+          To #{@trip.to_formatted_address}
+          %a#edit_to{:href=>'#'} (edit)
+          %br/
+          Hitchhiked #{hitchhiked_with(@trip.travelling_with)}
+          %a#edit_travelling_with{:href=>'#'} (edit)
+          %br/
+          Hitchhiked at #{@trip.to_date}
+          %a#edit_date{:href=>'#'} (edit)
+          %br/
+          Duration #{@trip.duration}
+          %a#edit_duration{:href=>'#'} (edit)
 
     #accordion
       = render @trip.rides

@@ -3,13 +3,13 @@
 javascripts:
   workspace:
     - public/javascripts/vendor/jquery-1.4.3.min.js
-    - public/javascripts/vendor/rails.js
-    - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery-ui-1.8.14.custom.min.js
     - public/javascripts/vendor/jquery-ui-timepicker-addon.js
     #- public/javascripts/vendor/jquery.autogrowtextarea.js
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.Jcrop.min.js
     - public/javascripts/vendor/jquery.observe_field.js
+    - public/javascripts/vendor/rails.js
     - public/javascripts/vendor/flattr.js
     - public/javascripts/vendor/tipsy.js
     #- public/javascripts/vendor/showdown.js

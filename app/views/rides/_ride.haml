@@ -1,15 +1,13 @@
 %p.headline Ride #{ride.number}
 .accordion_content
-  - form_for ride do |f|
+  - form_for ride, :html => {:multipart => true} do |f|
     .tabs
       %ul
         %li
           %a{:href => "#time_tab_#{ride.number}"}
             = waiting_time_image
-        - if false
-          -# picture upload currently disabled
-          %li
-            %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
+        %li
+          %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
         %li
           %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
         %li
@@ -25,17 +23,16 @@
         = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
         %br/
         = submit_tag
-      - if false
-        .tab_content{:id => "picture_tab_#{ride.number}"}
-          - if ride.photo.file?
-            = image_tag(ride.photo(:thumb)) 
-            = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
-            %br/
-          = f.label :photo
+      .tab_content{:id => "picture_tab_#{ride.number}"}
+        - if ride.photo.file?
+          = image_tag(ride.photo(:thumb)) 
+          = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
           %br/
-          = f.file_field :photo
-          %br/
-          = submit_tag
+        = f.label :photo
+        %br/
+        = f.file_field :photo
+        %br/
+        = submit_tag
       .tab_content{:id => "person_info_tab_#{ride.number}"}
         = f.fields_for :person do |builder|
           = builder.label :gender

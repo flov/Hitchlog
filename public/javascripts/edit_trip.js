@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 04 Jul 2011 15:34:08 GMT from
+/* DO NOT MODIFY. This file was compiled Tue, 05 Jul 2011 12:25:03 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/edit_trip.coffee
  */
 
@@ -7,7 +7,8 @@
     init_map();
     set_new_route($("#trip_route").val());
     $("#accordion").accordion({
-      collapsible: true
+      collapsible: true,
+      autoHeight: false
     });
     return $(".tabs").tabs();
   });
