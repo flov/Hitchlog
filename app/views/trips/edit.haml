@@ -15,16 +15,13 @@
         %p 
           From #{@trip.from_formatted_address}
           To #{@trip.to_formatted_address}
-          %a#edit_to{:href=>'#'} (edit)
           %br/
           Hitchhiked #{hitchhiked_with(@trip.travelling_with)}
-          %a#edit_travelling_with{:href=>'#'} (edit)
           %br/
           Hitchhiked at #{@trip.to_date}
-          %a#edit_date{:href=>'#'} (edit)
           %br/
-          Duration #{@trip.duration}
-          %a#edit_duration{:href=>'#'} (edit)
+          - if @trip.duration
+            Duration #{@trip.duration} hours
 
     #accordion
       = render @trip.rides
@@ -32,7 +29,7 @@
 -content_for :head do
   :css
     html #content .container{
-      padding: 0;
+      padding: 0 0 40px 0;
       width: auto;
     }
 
