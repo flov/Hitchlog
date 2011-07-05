@@ -25,7 +25,7 @@
         = submit_tag
       .tab_content{:id => "picture_tab_#{ride.number}"}
         - if ride.photo.file?
-          = image_tag(ride.photo(:thumb)) 
+          = link_to image_tag(ride.photo(:thumb)), ride.photo.to_s
           = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
           %br/
         = f.label :photo

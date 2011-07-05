@@ -9,20 +9,12 @@ class RidesController < ApplicationController
     end
   end
 
-  def show
-    @ride = Ride.find(params[:id])
-    respond_to do |wants|
-      wants.html
-      wants.json { render :json => @ride.to_json }
-    end
-  end
-
   def create
     @ride = Ride.new(params[:ride])
     @ride.trip = Trip.find(params[:trip_id])
     if @ride.save
       if params[:ride][:photo].blank?
-        redirect_to trip_path(@ride.trip)
+        redirect_to edit_trip_path(@ride.trip)
       else
         render :action => "crop"
       end
@@ -34,24 +26,18 @@ class RidesController < ApplicationController
   def delete_photo
     @ride = Ride.find(params[:id])  
     if @ride.delete_photo!
-      redirect_to edit_ride_path(@ride)
+      redirect_to edit_trip_path(@ride.trip)
     else
       flash[:error] = 'Could not delete photo'
       render :edit
     end
   end
   
-  def edit
-    @ride = Ride.find(params[:id])
-    @ride.build_person
-    @trip = @ride.trip
-  end
-  
   def update
     @ride = Ride.find(params[:id])
     if @ride.update_attributes(params[:ride])
       if params[:ride][:photo].blank?
-        redirect_to trip_path(@ride.trip)
+        redirect_to edit_trip_path(@ride.trip)
       else
         render :action => "crop"
       end
@@ -68,6 +54,6 @@ class RidesController < ApplicationController
     else
       flash[:error] = "You are not allowed to do that!"
     end
-    redirect_to trips_url
+    redirect_to edit_trip_path(@ride.trip)
   end
 end

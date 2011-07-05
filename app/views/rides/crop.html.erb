@@ -1,6 +1,5 @@
 <% title "Crop photo" %>
-<% content_for(:head) do %>
-  <%= stylesheet_link_tag "jquery.Jcrop" %>
+<% content_for(:javascript_at_bottom) do %>
   <script type="text/javascript" charset="utf-8">
   $(function() {
     $('#cropbox').Jcrop({
