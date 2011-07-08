@@ -34,7 +34,7 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-group :test, :rspec, :development do
+group :test, :development do
   # Rspec
   gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
   
