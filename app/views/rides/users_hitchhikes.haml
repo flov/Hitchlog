@@ -23,7 +23,7 @@
       %td= ride.people.first.occupation
       %td= ride.people.first.mission
       %td= link_to "Show", ride
-      %td= link_to "Edit", edit_ride_path(ride)
+      %td= link_to "Edit", edit_trip_path(ride.trip)
       %td= link_to "Destroy", ride, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Ride", new_ride_path

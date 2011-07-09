@@ -7,4 +7,4 @@
       = images_missing_for_ride(ride)
       - if trip.user == current_user
         = delete_ride(ride)
-        = link_to add_information_image, edit_ride_path(ride)
+        = link_to add_information_image, edit_trip_path(ride.trip)

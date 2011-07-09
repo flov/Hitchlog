@@ -7,7 +7,7 @@ module ImageHelper
       array << story_missing_image if ride.story.blank?
       array << waiting_time_missing_image unless ride.waiting_time
       array << driving_time_missing_image unless ride.duration
-      images << link_to(array.join(' ').html_safe, edit_ride_path(ride))
+      images << link_to(array.join(' ').html_safe, edit_trip_path(ride.trip))
     end
     images.join(' ').html_safe
   end
@@ -18,7 +18,7 @@ module ImageHelper
     array << story_missing_image if ride.story.blank?
     array << waiting_time_missing_image unless ride.waiting_time
     array << driving_time_missing_image unless ride.duration
-    link_to array.join(' ').html_safe, edit_ride_path(ride)
+    link_to array.join(' ').html_safe, edit_trip_path(ride.trip)
   end
 
   def images_for_ride(ride)
