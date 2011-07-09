@@ -26,6 +26,7 @@ en:
     
   
   general:
+    confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   welcome:
     home:
@@ -67,6 +68,8 @@ en:
     other: "%{count} hours %{minutes} minutes"
 
   trips:
+    edit:
+      delete_trip: Delete Trip
     form:
       step1_2: "Continue"
     show_left_column: "(Edit Trip)"

@@ -7,12 +7,13 @@
       = f.hidden_field :to
       = f.hidden_field :from_formatted_address
       = f.hidden_field :to_formatted_address
-      
-      %ul#trip_navigation
-        %li
       .hidden= submit_tag
       #trip_info
         %p 
+          = t('.trip_details')
+          (#{link_to t('.delete_trip'), trip_path(@trip), :method => :delete, :confirm => t('general.confirm')}):
+          
+          %br/
           From #{@trip.from_formatted_address}
           To #{@trip.to_formatted_address}
           %br/
