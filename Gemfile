@@ -4,7 +4,6 @@ gem 'rake', '0.8.7'
 
 gem 'rails', '3.0.7'
 gem 'mysql2', '~> 0.2.7'
-gem 'rb-inotify'
 
 gem 'devise'
 gem 'bluecloth'
@@ -34,7 +33,7 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-group :test, :development do
+group :test, :rspec, :development do
   # Rspec
   gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
   
