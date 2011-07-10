@@ -11,8 +11,8 @@ en:
         duration: Duration (in hours)
         travelling_with: Travelling
       ride:
-        duration: Driving time
-        waiting_time: Waiting time
+        duration: Driving time (in hours)
+        waiting_time: Waiting time (in minutes)
         photo: Photo
 
   helper:
