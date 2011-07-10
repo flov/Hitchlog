@@ -50,8 +50,8 @@ class Trip
   end
 
   def get_formatted_addresses
-    self.formatted_from = Gmaps.formatted_address(from)
-    self.formatted_to = Gmaps.formatted_address(to)
+    self.from_formatted_address = Gmaps.formatted_address(from)
+    self.to_formatted_address = Gmaps.formatted_address(to)
   end
 
   def get_formatted_addresses!

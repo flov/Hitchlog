@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 04 Jul 2011 17:04:28 GMT from
+/* DO NOT MODIFY. This file was compiled Sun, 10 Jul 2011 17:57:15 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/show_trip.coffee
  */
 
