@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
     @trips = Trip.all
     @trip_size = @trips.size
     @country_size = CountryDistance.all.map(&:country).uniq.size
-    @active_hitchhikers = @trips.map(&:user).uniq.size
+    @active_hitchhikers = User.all.size
     @hitchhike_size = Ride.all.size
     @story_size = Ride.all.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
     @photo_size = Ride.with_photo.size

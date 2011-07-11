@@ -40,10 +40,12 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     window.directionsDisplay.setMap(window.map)
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
-        console.log directionsDisplay
-        window.abc = for key, value of directionsDisplay.directions
-          key
+        #console.log directionsDisplay.directions
         $("#trip_route").val JSON.stringify(directionsDisplay.directions.cg)
+        $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
+        $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
+        if $("#trip_distance_display")
+          $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text
         $("#trip_form").submit()
 
 window.set_new_route = (request = "") ->
@@ -60,6 +62,12 @@ window.set_new_route = (request = "") ->
     window.directionsService.route request, (response, status) ->
       if status == google.maps.DirectionsStatus.OK
         window.directionsDisplay.setDirections response
+
+
+window.calc_route = ->
+  # Route the directions and pass the response to a
+  # function to create markers for each step.
+  
 
 window.get_location = (location, suggest_field=null, destination=null) ->
   if google?
@@ -89,8 +97,6 @@ window.get_location = (location, suggest_field=null, destination=null) ->
           if destination == 'from'
             window.map.setCenter location
             window.map.setZoom 12
-            window.marker.setPosition location
-            window.marker.setVisible true
           $("input#trip_#{destination}_formatted_address").val results[0].formatted_address
           $("input#trip_#{destination}_lat").val location.lat()
           $("input#trip_#{destination}_lng").val location.lng()

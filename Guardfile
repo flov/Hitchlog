@@ -7,6 +7,7 @@ group 'test' do
     watch(%r{app/helpers/.+\.rb})
     watch(%r{public/.+\.(css|js|html)})
     watch(%r{app/stylesheets/.+\.(scss|sass)})
+    watch(%r{app/coffeescripts/.+\.(coffee)})
     watch(%r{config/locales/.+\.yml})
   end
 

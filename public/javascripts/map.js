@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 11 Jul 2011 02:13:14 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 11 Jul 2011 14:38:27 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
@@ -64,20 +64,13 @@
       window.map = new google.maps.Map($('#map')[0], options);
       window.directionsDisplay.setMap(window.map);
       return google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-        var key, value;
         if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
-          console.log(directionsDisplay);
-          window.abc = (function() {
-            var _ref, _results;
-            _ref = directionsDisplay.directions;
-            _results = [];
-            for (key in _ref) {
-              value = _ref[key];
-              _results.push(key);
-            }
-            return _results;
-          })();
           $("#trip_route").val(JSON.stringify(directionsDisplay.directions.cg));
+          $("#trip_distance").val(directionsDisplay.directions.routes[0].legs[0].distance.value);
+          $("#trip_gmaps_duration").val(directionsDisplay.directions.routes[0].legs[0].duration.value);
+          if ($("#trip_distance_display")) {
+            $("#trip_distance_display").html(directionsDisplay.directions.routes[0].legs[0].distance.text);
+          }
           return $("#trip_form").submit();
         }
       });
@@ -105,6 +98,7 @@
       });
     }
   };
+  window.calc_route = function() {};
   window.get_location = function(location, suggest_field, destination) {
     var geocoder, geocoderRequest;
     if (suggest_field == null) {
@@ -142,8 +136,6 @@
             if (destination === 'from') {
               window.map.setCenter(location);
               window.map.setZoom(12);
-              window.marker.setPosition(location);
-              window.marker.setVisible(true);
             }
             $("input#trip_" + destination + "_formatted_address").val(results[0].formatted_address);
             $("input#trip_" + destination + "_lat").val(location.lat());

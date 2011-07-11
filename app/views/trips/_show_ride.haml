@@ -1,8 +1,8 @@
 %h1
   #{number_to_ordinal(ride.number)} Ride 
   = "- #{ride.title}" if ride.title
-  - ride.trip.countries_with_distance.each do |hash|
-    = country_images(hash)
+  = country_images(ride.trip)  
+
 %p
   = images_for_ride(ride)
   - if ride.trip.user == current_user

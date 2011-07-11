@@ -3,6 +3,9 @@
   .right_column
     - form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
+      = f.hidden_field :distance
+      = f.hidden_field :gmaps_duration
+
       = f.hidden_field :from
       = f.hidden_field :to
       = f.hidden_field :from_formatted_address
@@ -10,8 +13,13 @@
       .hidden= submit_tag
       #trip_info
         %p 
+          .float_right#trip_distance_display.trip_km_display
           = t('.trip_details')
           (#{link_to t('.delete_trip'), trip_path(@trip), :method => :delete, :confirm => t('general.confirm')}):
+          
+          %br/
+          - @trip.countries_with_distance.each do |hash|
+            = country_images(@trip)
           
           %br/
           From #{@trip.from_formatted_address}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710212137) do
+ActiveRecord::Schema.define(:version => 20110711120709) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20110710212137) do
     t.string   "from_formatted_address"
     t.string   "to_formatted_address"
     t.text     "route"
+    t.integer  "gmaps_duration"
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"

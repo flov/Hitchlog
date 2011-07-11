@@ -26,16 +26,26 @@ module TripsHelper
     end
   end
 
-  def country_images(hash)
-    case hash[:country]
-      when "The Netherlands" then hash[:country] = "Netherlands"
+  def country_images(trip)
+    array = []
+    
+    trip.countries_with_distance.each do |hash|
+      array << country_image(hash[:country], hash[:distance])
+    end
+    array.join(' ').html_safe
+  end
+
+  def country_image(country, country_distance)
+    case country
+      when "The Netherlands" then country = "Netherlands"
       # Add more exceptions...
     end
 
-    unless I18nData.country_code(hash[:country]).nil?
-      image_tag "flags/png/#{I18nData.country_code(hash[:country]).downcase}.png", :class => 'tooltip', :alt => "#{hash[:country]} #{distance( hash[:distance] )}"
+    unless I18nData.country_code(country).nil?
+      image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", :class => 'tooltip', :alt => "#{country} #{distance( country_distance )}"
     end
   end
+
   
   def link_to_trip(trip, options ={})
     array = []

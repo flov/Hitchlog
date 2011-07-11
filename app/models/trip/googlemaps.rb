@@ -1,9 +1,5 @@
 class Trip
   include Gmaps
-  
-  def get_distance
-    self.distance = Gmaps.distance(from, to)
-  end
 
   def get_country_distance
     countries = Gmaps.countries(from, to)
@@ -24,49 +20,5 @@ class Trip
     end
   end
 
-  def get_distance!
-    get_distance
-    save!
-  end
-
-  def get_city
-    self.from_city = Gmaps.city(from)
-    self.to_city   = Gmaps.city(to)
-  end
-
-  def get_city!
-    get_city
-    save!
-  end
-
-  def get_country
-    self.from_country = Gmaps.country(from)
-    self.to_country   = Gmaps.country(to)
-  end
-
-  def get_country!
-    get_country
-    save!
-  end
-
-  def get_formatted_addresses
-    self.from_formatted_address = Gmaps.formatted_address(from)
-    self.to_formatted_address = Gmaps.formatted_address(to)
-  end
-
-  def get_formatted_addresses!
-    get_formatted_addresses
-    save!
-  end
-
-  before_validation do
-    get_country
-    get_formatted_addresses
-    get_city
-    get_distance
-  end
-
-  after_create do
-    get_country_distance
-  end
+  after_update :get_country_distance
 end

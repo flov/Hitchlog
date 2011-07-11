@@ -7,7 +7,7 @@
       %th
       %th
       %th Hitchhiked By
-      %th
+      %th Hitchhiked At
     - trips.each do |trip|
       %tr
         %td
@@ -16,8 +16,7 @@
           = images_for_trip(trip)
           = images_missing_for_trip(trip) if current_user == trip.user
         %td.countries
-          - trip.countries_with_distance.each do |hash|
-            = country_images(hash)
+          = country_images(trip)
         %td
           = trip.rides.size
           = ride_image(trip.rides.size)

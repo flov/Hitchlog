@@ -12,15 +12,11 @@
 
 %h1.text_center
   = hitchhiking_with_image(trip.travelling_with)
+  = country_images(trip)
   = trip.from_city
   &rarr;
   = trip.to_city
   = link_to t('.edit_trip'), edit_trip_path(trip) if trip.user == current_user
 
-- if user_signed_in? and current_user == trip.user
-  - trip.rides.each do |ride|
-    = render 'show_ride', :ride => ride
-
-- else
-  - trip.rides.not_empty.each do |ride|
-    = render 'show_ride', :ride => ride
+- trip.rides.not_empty.each do |ride|
+  = render 'show_ride', :ride => ride
