@@ -19,9 +19,6 @@ convert_lat_lng = (object) ->
     object
   
 parse_route_request = (request) ->
-  # DirectionsWaypoints might be just JSON-like, it is not strictly JSON, as it
-  # indirectly includes LatLng objects. That is why we need to convert the JSON
-  # into google.maps.LatLng objects again
   if request != ""
     request = JSON.parse(request)
     request.origin = convert_lat_lng(request.origin)
@@ -91,6 +88,9 @@ window.get_location = (location, suggest_field=null, destination=null) ->
           location = results[0].geometry.location
           if destination == 'from'
             window.map.setCenter location
+            window.map.setZoom 12
+            window.marker.setPosition location
+            window.marker.setVisible true
           $("input#trip_#{destination}_formatted_address").val results[0].formatted_address
           $("input#trip_#{destination}_lat").val location.lat()
           $("input#trip_#{destination}_lng").val location.lng()
@@ -111,9 +111,6 @@ window.get_location = (location, suggest_field=null, destination=null) ->
                 when 'street_number'
                   set_field 'street_no', destination, value
 
-              window.map.setZoom 12
-              window.marker.setPosition location
-              window.marker.setVisible true
   return
 
 set_field = (type, destination, value) ->

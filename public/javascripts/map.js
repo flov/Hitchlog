@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sun, 10 Jul 2011 22:08:36 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 11 Jul 2011 02:13:14 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
@@ -141,6 +141,9 @@
             location = results[0].geometry.location;
             if (destination === 'from') {
               window.map.setCenter(location);
+              window.map.setZoom(12);
+              window.marker.setPosition(location);
+              window.marker.setVisible(true);
             }
             $("input#trip_" + destination + "_formatted_address").val(results[0].formatted_address);
             $("input#trip_" + destination + "_lat").val(location.lat());
@@ -151,25 +154,20 @@
               for (x = 0, _ref = address_components.length - 1; 0 <= _ref ? x <= _ref : x >= _ref; 0 <= _ref ? x++ : x--) {
                 type = address_components[x].types[0];
                 value = address_components[x].long_name;
-                switch (type) {
-                  case 'locality':
-                    set_field('city', destination, value);
-                    break;
-                  case 'country':
-                    set_field('country', destination, value);
-                    break;
-                  case 'postal_code':
-                    set_field('zip', destination, value);
-                    break;
-                  case 'route':
-                    set_field('street', destination, value);
-                    break;
-                  case 'street_number':
-                    set_field('street_no', destination, value);
-                }
-                window.map.setZoom(12);
-                window.marker.setPosition(location);
-                _results.push(window.marker.setVisible(true));
+                _results.push((function() {
+                  switch (type) {
+                    case 'locality':
+                      return set_field('city', destination, value);
+                    case 'country':
+                      return set_field('country', destination, value);
+                    case 'postal_code':
+                      return set_field('zip', destination, value);
+                    case 'route':
+                      return set_field('street', destination, value);
+                    case 'street_number':
+                      return set_field('street_no', destination, value);
+                  }
+                })());
               }
               return _results;
             }
