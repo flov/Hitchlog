@@ -18,8 +18,6 @@ class Trip < ActiveRecord::Base
 
   attr_accessor :hitchhikes, :start_time, :end_time
 
-  accepts_nested_attributes_for :rides
-
   before_save do
     # build as much rides on top of the ride as needed
     hitchhikes.to_i.times{|i| rides.build(:number => i+1) }
@@ -30,9 +28,23 @@ class Trip < ActiveRecord::Base
   end
 
   def to_param
-    from_param = from.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
-    to_param   = to.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
-    "#{id}-#{from_param}->#{to_param}"
+    if !self.from_city.blank? && self.to_city.to_i == 0
+      origin = sanitize_param(self.from_city)
+    elsif !self.from_formatted_address.blank?
+      origin = sanitize_param(self.from_formatted_address)
+    else
+      origin = self.from
+    end
+
+    if !self.to_city.blank? && self.to_city.to_i == 0
+      destin = sanitize_param(self.to_city)
+    elsif !self.to_formatted_address.blank?
+      destin = sanitize_param(self.to_formatted_address)
+    else
+      destin = sanitize_param(self.to)
+    end
+
+    "#{id}_#{origin}_to_#{destin}"
   end
   
   def to_date
@@ -59,5 +71,11 @@ class Trip < ActiveRecord::Base
 
   def new_record
     new_record?
+  end
+
+  private
+
+  def sanitize_param(param)
+    param.gsub(/[^[:alnum:]]/,'_').gsub(/-{2,}/,'_').downcase
   end
 end

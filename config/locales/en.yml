@@ -15,6 +15,11 @@ en:
         waiting_time: Waiting time (in minutes)
         photo: Photo
 
+  meta:
+    description: |
+        A website for logging rides and hitchhiking stories. 
+        It generates statistics about hitchhiking in certain countries and 
+        gives an overview of the experiences as a hitchhiker.
   helper:
     trip:
       alone: alone
@@ -23,8 +28,7 @@ en:
       with_3: "with 3 people"
       with_4: "with 4 people"
       with_more_than_4: "with more than 4 people"
-    
-  
+
   general:
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"

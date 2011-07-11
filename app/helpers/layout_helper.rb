@@ -17,7 +17,7 @@ module LayoutHelper
   end
   
   def meta_description(description=nil)
-    "<meta name='description' content='A website for logging hitchhikes and personal hitchhiking stories. It uses the data to generate demographic statistics and show some overview about the experiences of hitchhikers.'/>".html_safe
+    "<meta name='description' content='#{I18n.t('meta.description')}'/>".html_safe
   end
 
   def show_title?

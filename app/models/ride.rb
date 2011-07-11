@@ -8,7 +8,7 @@ class Ride < ActiveRecord::Base
   has_one :person, :dependent => :destroy
   accepts_nested_attributes_for :person, :allow_destroy => true
   
-  validates :trip_id, :presence => true
+  #validates :trip, :presence => true
   
   concerned_with  :photo_procession
   
