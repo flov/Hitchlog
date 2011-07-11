@@ -1,6 +1,6 @@
-= hidden_field_tag :trip_from, trip.to_formatted_address 
-= hidden_field_tag :trip_to,   trip.from_formatted_address
-= hidden_field_tag :route,     trip.route
+= hidden_field_tag :trip_from,  trip.to_formatted_address 
+= hidden_field_tag :trip_to,    trip.from_formatted_address
+= hidden_field_tag :trip_route, trip.route
 
 - unless trip.to_date.blank?
   #trip_date
