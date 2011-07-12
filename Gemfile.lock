@@ -62,7 +62,6 @@ GEM
     barista (1.2.1)
       coffee-script (~> 2.2)
     bcrypt-ruby (2.1.4)
-    bluecloth (2.1.0)
     builder (2.1.2)
     capybara (1.0.0)
       mime-types (>= 1.16)
@@ -220,8 +219,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rb-fsevent (0.4.0)
-    rb-inotify (0.8.5)
-      ffi (>= 0.5.0)
+    rdiscount (1.6.8)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -260,7 +258,6 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   barista (~> 1.0)
-  bluecloth
   capybara (~> 1.0.0.beta1)
   compass
   compass-colors
@@ -299,7 +296,7 @@ DEPENDENCIES
   rails_admin!
   rake (= 0.8.7)
   rb-fsevent
-  rb-inotify
+  rdiscount
   rspec-rails!
   shoulda
   spork (~> 0.9.0.rc8)

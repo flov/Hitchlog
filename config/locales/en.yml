@@ -21,6 +21,8 @@ en:
         It generates statistics about hitchhiking in certain countries and 
         gives an overview of the experiences as a hitchhiker.
   helper:
+    faster_than_gmaps: faster than Google Maps
+    slower_than_gmaps: slower than Google Maps
     trip:
       alone: alone
       with_1: "with 1 person"
@@ -76,7 +78,11 @@ en:
       delete_trip: Delete Trip
     form:
       step1_2: "Continue"
-    show_left_column: "(Edit Trip)"
+    show_left_column: 
+      you_were: you were
+      edit_trip: "(Edit Trip)"
+      hitchhiked_in: 'Hitchhiked in:'
+      gmaps_duration: 'Gmaps Duration:'
     new:
       log_your_trip_please: "Log your hitchhiking trip please :)"
       new_trip_description: |
