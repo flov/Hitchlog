@@ -37,7 +37,7 @@
     %ul
       -@paginated_trips.each do |trip|
         %li
-          = link_to "#{h(trip.from_city)} &rarr; #{h(trip.to_city)} #{images_for_trip(trip)}".html_safe, trip_path(trip)
+          = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
           = t('.hitchhiked_by')
           = link_to h(trip.user), user_path(trip.user)
       %li.text_center=link_to "... More Trips", trips_path 

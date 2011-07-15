@@ -20,6 +20,31 @@ class Trip
     end
   end
 
+  def get_distance!
+    get_distance
+    save!
+  end
+
+  def get_city
+    self.from_city = Gmaps.city(from)
+    self.to_city   = Gmaps.city(to)
+  end
+
+  def get_city!
+    get_city
+    save!
+  end
+
+  def get_country
+    self.from_country = Gmaps.country(from)
+    self.to_country   = Gmaps.country(to)
+  end
+
+  def get_country!
+    get_country
+    save!
+  end
+
   def get_formatted_addresses
     self.from_formatted_address = Gmaps.formatted_address(from)
     self.to_formatted_address = Gmaps.formatted_address(to)

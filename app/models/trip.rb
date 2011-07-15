@@ -52,11 +52,23 @@ class Trip < ActiveRecord::Base
   end
 
   def to_city_sanitized
-    self.to_city.blank? ? self.to_country : self.to_city
+    if !self.to_city.blank?
+      self.to_city
+    elsif !self.to_country.blank?
+      self.to_country
+    else
+      self.to
+    end
   end
 
   def from_city_sanitized
-    self.from_city.blank? ? self.from_country : self.from_city
+    if !self.from_city.blank? 
+      self.from_city
+    elsif !self.from_country.blank?
+      self.from_country 
+    else
+      self.from
+    end
   end
 
   def new_duration
@@ -71,6 +83,14 @@ class Trip < ActiveRecord::Base
 
   def new_record
     new_record?
+  end
+
+  def duration_difference
+    difference = duration.to_f - gmaps_duration.to_f/60/60
+    if difference < 0
+      difference = (gmaps_duration.to_f/60/60 - duration.to_f) * -1
+    end
+    difference
   end
 
   private
