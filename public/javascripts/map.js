@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 11 Jul 2011 14:38:27 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 20 Jul 2011 01:25:25 GMT from
  * /Users/florianvallen/code/hitchlog/app/coffeescripts/map.coffee
  */
 
@@ -65,7 +65,8 @@
       window.directionsDisplay.setMap(window.map);
       return google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
         if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
-          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.cg));
+          window.log = directionsDisplay.directions;
+          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.ag));
           $("#trip_distance").val(directionsDisplay.directions.routes[0].legs[0].distance.value);
           $("#trip_gmaps_duration").val(directionsDisplay.directions.routes[0].legs[0].duration.value);
           if ($("#trip_distance_display")) {
