@@ -24,27 +24,17 @@ class Trip < ActiveRecord::Base
   end
 
   def to_s
-    "#{from_city_sanitized} &rarr; #{to_city_sanitized}".html_safe
+    origin = sanitize_address('from')
+    destin = sanitize_address('to')
+
+    "#{origin} &rarr; #{destin}".html_safe
   end
 
   def to_param
-    if !self.from_city.blank? && self.to_city.to_i == 0
-      origin = sanitize_param(self.from_city)
-    elsif !self.from_formatted_address.blank?
-      origin = sanitize_param(self.from_formatted_address)
-    else
-      origin = self.from
-    end
+      origin = sanitize_param(CGI::escape(sanitize_address('from')))
+      destin = sanitize_param(CGI::escape(sanitize_address('to')))
 
-    if !self.to_city.blank? && self.to_city.to_i == 0
-      destin = sanitize_param(self.to_city)
-    elsif !self.to_formatted_address.blank?
-      destin = sanitize_param(self.to_formatted_address)
-    else
-      destin = sanitize_param(self.to)
-    end
-
-    "#{id}_#{origin}_to_#{destin}"
+    "#{id}_#{origin}_to_#{destin}".downcase
   end
   
   def to_date
@@ -95,7 +85,17 @@ class Trip < ActiveRecord::Base
 
   private
 
+  def sanitize_address(direction)
+    if !self.send("#{direction}_city").blank?
+      address = self.send("#{direction}_city")
+    elsif !self.send("#{direction}_formatted_address").blank?
+      address = self.send("#{direction}_formatted_address")
+    else
+      address = self.send(direction)
+    end
+  end
+
   def sanitize_param(param)
-    param.gsub(/[^[:alnum:]]/,'_').gsub(/-{2,}/,'_').downcase
+    param.gsub(/[^[:alnum:]]/,'_').gsub(/-{2,}/,'_')
   end
 end
