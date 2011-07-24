@@ -28,12 +28,12 @@
         = image_tag @chart_image
 
   .right
-    %h3 Find Hitchlog On:
+    %h3= t(".find_hitchlog_on:")
     .find_hitchlog_on
       = find_hitchlog_on_facebook
       = find_hitchlog_on_twitter
     
-    %h3 Newest Hitchhiking trips
+    %h3= t(".newest_hitchhiking_trips")
     %ul
       -@paginated_trips.each do |trip|
         %li

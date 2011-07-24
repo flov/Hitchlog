@@ -26,7 +26,7 @@
       .tab_content{:id => "picture_tab_#{ride.number}"}
         - if ride.photo.file?
           = link_to image_tag(ride.photo(:thumb)), ride.photo.to_s
-          = link_to 'Delete Photo', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
+          = link_to '.delete_image', delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
           %br/
         = f.label :photo
         %br/
@@ -37,7 +37,7 @@
         = f.fields_for :person do |builder|
           = builder.label :gender
           %br/
-          = builder.select("gender", %w[male female], {:include_blank => true})
+          = builder.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.both')], {:include_blank => true})
           %br/
           = builder.label :mission
           %br/

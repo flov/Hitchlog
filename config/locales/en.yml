@@ -11,6 +11,7 @@ en:
         duration: Duration (in hours)
         travelling_with: Travelling
       ride:
+        experience: Experience
         duration: Driving time (in hours)
         waiting_time: Waiting time (in minutes)
         photo: Photo
@@ -32,6 +33,12 @@ en:
       with_more_than_4: "with more than 4 people"
 
   general:
+    male: "male"
+    female: "female"
+    both: "both"
+    positive: positive
+    neutral: neutral
+    negative: negative
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   welcome:
@@ -41,6 +48,9 @@ en:
       sign_up: 'Sign Up' 
       sign_in: 'Sign In' 
       welcome: Welcome! 
+      newest_hitchhiking_trips: Newest hitchhiking trips
+      find_hitchlog_on: "Find Hitchlog On:"
+
       text1: |
           We are making the world a more hitchhiker friendly place.<br>
           By logging personal hitchhiking experiences, we are trying to paint
@@ -73,6 +83,9 @@ en:
     one: "%{count} hour %{minutes} minutes"
     other: "%{count} hours %{minutes} minutes"
 
+  rides:
+    ride:
+      delete_image: "Delete Photo"
   trips:
     edit:
       delete_trip: Delete Trip
