@@ -85,7 +85,7 @@ module ImageHelper
   def gender_image(gender)
     if gender == 'male'
       image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male_driver'))
-    else
+    elsif gender == 'female'
       image_tag("icons/female.png", :class => 'tooltip', :alt => t('trips.helper.female_driver'))
     end
   end
