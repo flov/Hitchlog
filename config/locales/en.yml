@@ -75,6 +75,13 @@ en:
       title: User
     index:
       title: Users
+    user:
+      total_amount_of_kilometers_hitchhiked: Total amount of kms hitchhiked
+      hitchhiked_countries: Hitchhiked countries
+      cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
+      gender: Gender
+      logged_trips: "logged %{trips_size} trips"
+      trips: Trips
       
   hours: 
     one: "%{count} hour"
@@ -89,6 +96,10 @@ en:
   trips:
     edit:
       delete_trip: Delete Trip
+      trip_details: Trip details
+      hitchhiked: Hitchhiked
+      from: From
+      to: To
     form:
       step1_2: "Continue"
     show_left_column: 
@@ -110,6 +121,8 @@ en:
       story: Story
       add_story_image: Story to this ride
       story_missing: Missing Story, write a story about the ride
+      male: Male
+      female: Female
       male_driver: Male Driver
       female_driver: Female Driver
       add_information: Add inforation to ride

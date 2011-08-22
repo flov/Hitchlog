@@ -18,17 +18,17 @@
           (#{link_to t('.delete_trip'), trip_path(@trip), :method => :delete, :confirm => t('general.confirm')}):
           
           %br/
-          - @trip.countries_with_distance.each do |hash|
-            = country_images(@trip)
+          = country_images(@trip)
           
           %br/
-          From #{@trip.from_formatted_address}
-          To #{@trip.to_formatted_address}
+          #{t('.from')} #{@trip.from_formatted_address}
+          #{t('.to')} #{@trip.to_formatted_address}
           %br/
-          Hitchhiked #{hitchhiked_with(@trip.travelling_with)}
+          #{t('.hitchhiked')} #{hitchhiked_with(@trip.travelling_with)}
           %br/
-          Hitchhiked at #{@trip.to_date}
-          %br/
+          - if @trip.to_date
+            Hitchhiked at #{@trip.to_date}
+            %br/
           - if @trip.duration
             Duration #{@trip.duration} hours
 
