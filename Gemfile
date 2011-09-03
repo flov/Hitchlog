@@ -34,13 +34,18 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-group :test, :rspec, :development do
-  # Rspec
-  gem 'rspec-rails', :git => 'git://github.com/rspec/rspec-rails.git'
-  
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem 'guard'
+  gem "guard-rspec"
+  gem "factory_girl_rails"
+  gem "capybara"
+
+  gem 'shoulda'
+  # fixture replacement
+  gem 'factory_girl_generator'
 
   # guard process manager, spork drb-testserver
-  gem 'guard'
   gem 'spork', '~> 0.9.0.rc8'
   gem 'guard-spork'
   gem 'guard-bundler'
@@ -50,20 +55,8 @@ group :test, :rspec, :development do
   # growl notifications
   gem 'rb-fsevent'
   gem 'growl'
-  
-  # fixture replacement
-  gem 'factory_girl_rails', '~> 1.0.1'
-  gem 'factory_girl_generator'
-  
-  # cucumber
-  gem 'capybara', '~> 1.0.0.beta1'
-  gem 'launchy'
-  gem 'cucumber', '0.10.2'
-  gem 'cucumber-rails', '0.3.2'
-  gem 'database_cleaner'
 
   gem 'nokogiri'
-  gem 'shoulda'
   gem 'livereload'
   gem 'faker'
 end
