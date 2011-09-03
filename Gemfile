@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 gem 'rake', '0.9.2'
 
 gem 'rails', '3.0.7'
-gem 'mysql2', '~> 0.2.7'
-#gem 'rb-inotify'
+gem 'sqlite3'
+gem 'mysql2', '0.2.7'
 
 gem 'devise'
 gem 'rdiscount'
