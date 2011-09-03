@@ -17,7 +17,7 @@ convert_lat_lng = (object) ->
     new google.maps.LatLng(lat_lng[0], lat_lng[1])
   else
     object
-  
+
 parse_route_request = (request) ->
   if request != ""
     request = JSON.parse(request)
@@ -38,6 +38,7 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     }
     window.map = new google.maps.Map($('#map')[0], options)
     window.directionsDisplay.setMap(window.map)
+    # When dragging Route:
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
         window.log =directionsDisplay.directions
@@ -67,7 +68,7 @@ window.set_new_route = (request = "") ->
 window.calc_route = ->
   # Route the directions and pass the response to a
   # function to create markers for each step.
-  
+
 
 window.get_location = (location, suggest_field=null, destination=null) ->
   if google?
