@@ -1,6 +1,6 @@
 class AddGenderToPerson < ActiveRecord::Migration
   def self.up
-    add_column :people, :gender, :string
+    add_column :people, :gender, :string, :default => 'male'
   end
 
   def self.down

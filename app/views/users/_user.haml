@@ -1,0 +1,21 @@
+.box.user
+  .float_left
+    =link_to user, user_path(user)
+    =t('.logged_trips', :trips_size => user.trips.size)
+    %br/
+    #{t('.total_amount_of_kilometers_hitchhiked')}:
+    %b
+      = user.hitchhiked_kms
+    kms
+    %br/
+    #{t('.hitchhiked_countries')}:
+    %b= user.hitchhiked_countries
+    %br/
+    #{t('.gender')}:
+    = gender_image(user.gender)
+    %br/
+    #{t(".cars_seen_from_inside_while_hitchhiking")}:
+    = user.hitchhiked_cars
+
+  .float_right
+    = link_to gravatar_image_tag(user.email), user_path(user)

@@ -71,6 +71,16 @@ en:
   back: Back
   edit: Edit
   users:
+    right_column:
+      cars_seen_from_inside: Cars seen from inside
+      average_drivers_age: "Average driver's age"
+      hitchhiked_countries: Hitchhiked countries
+      hitchhiked_kms: Hitchhiked kms
+      average_waiting_time: Average waiting time
+      total_amount_of_kilometers_hitchhiked: Total amount of kms hitchhiked
+      waiting_time_per_ride: Waiting time per ride
+      written_stories: Written stories
+      uploaded_photos: Uploaded photos
     show:
       title: User
     index:
@@ -82,8 +92,8 @@ en:
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
       trips: Trips
-      
-  hours: 
+
+  hours:
     one: "%{count} hour"
     other: "%{count} hours"
   hours_with_minutes:
@@ -94,6 +104,9 @@ en:
     ride:
       delete_image: "Delete Photo"
   trips:
+    index:
+      latest_hitchhiking_trips: Latest hitchhiking trips
+      log_new_trip: Log New Trip
     edit:
       delete_trip: Delete Trip
       trip_details: Trip details

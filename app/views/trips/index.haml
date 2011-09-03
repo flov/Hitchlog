@@ -1,9 +1,9 @@
 - title "Trips"
 
-%h1 Latest hitchhiking trips:
+%h1 #{t('.latest_hitchhiking_trips')}:
 
 - if user_signed_in?
-  = link_to 'Log New Trip', new_trip_path 
+  = link_to t(".log_new_trip"), new_trip_path 
 - else
   = render 'shared/sign_in_and_out'
   to log a new hitchhiking trip.

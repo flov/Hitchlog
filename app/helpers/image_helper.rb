@@ -23,7 +23,7 @@ module ImageHelper
 
   def images_for_ride(ride)
     array = []
-    array << gender_image(ride.person.gender) if ride.person
+    array << gender_driver_image(ride.person.gender) if ride.person
     array << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
     array << driving_time_image(human_hours(ride.duration)) if ride.duration
     array << photo_image if ride.photo.file?
@@ -34,7 +34,7 @@ module ImageHelper
   def images_for_trip(trip)
     images = []
     trip.rides.each do |ride|
-      images << gender_image(ride.person.gender) if ride.person
+      images << gender_driver_image(ride.person.gender) if ride.person
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
       images << photo_image if ride.photo.file?
@@ -82,11 +82,19 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tooltip', :alt => t('trips.helper.add_information_to_hitchhike'))
   end
 
-  def gender_image(gender)
+  def gender_driver_image(gender)
     if gender == 'male'
       image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male_driver'))
     elsif gender == 'female'
       image_tag("icons/female.png", :class => 'tooltip', :alt => t('trips.helper.female_driver'))
+    end
+  end
+
+  def gender_image(gender)
+    if gender == 'male'
+      image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male'))
+    elsif gender == 'female'
+      image_tag("icons/female.png", :class => 'tooltip', :alt => t('trips.helper.female'))
     end
   end
 

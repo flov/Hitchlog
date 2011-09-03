@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   before_save :sanitize_username
 
-  concerned_with :oauth
+  concerned_with :oauth, :user_settings
   
   has_friendly_id :username
 
@@ -33,10 +33,6 @@ class User < ActiveRecord::Base
   
   def rides
     trips.collect{|trip| trip.rides}.flatten
-  end
-
-  def hitchhiked_countries
-    self.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq
   end
 
   private

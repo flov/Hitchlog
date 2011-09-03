@@ -3,7 +3,7 @@
 = content_for :layout_header do
   #main-message
     %h1=t('general.slogan') 
-    
+
     %h2
       = link_to t('.share_your_trip_with_us'), new_trip_path
       %br/
@@ -32,7 +32,7 @@
     .find_hitchlog_on
       = find_hitchlog_on_facebook
       = find_hitchlog_on_twitter
-    
+
     %h3= t(".newest_hitchhiking_trips")
     %ul
       -@paginated_trips.each do |trip|

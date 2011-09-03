@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724002205) do
+ActiveRecord::Schema.define(:version => 20110812204304) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -119,9 +119,9 @@ ActiveRecord::Schema.define(:version => 20110724002205) do
   add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
+    t.string   "email",                               :default => "",     :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
+    t.string   "password_salt",                       :default => "",     :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20110724002205) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.boolean  "admin",                               :default => false
+    t.string   "gender",                              :default => "male"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
