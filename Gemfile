@@ -38,7 +38,13 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-ext'
+end
+
 gem "rspec-rails", :group => [:test, :development]
+
 group :test do
   gem 'guard'
   gem "guard-rspec"
