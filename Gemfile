@@ -12,7 +12,10 @@ gem 'will_paginate', '~> 3.0.pre2'
 gem 'hirb'
 gem 'nokogiri'
 gem 'hoptoad_notifier'
+
 gem 'meta_where'
+gem "meta_search"
+
 gem 'jammit'
 gem 'mongrel', '~> 1.2.0.pre2'
 gem 'json', '~> 1.4.6'
@@ -30,6 +33,7 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'i18n_data'
 gem 'friendly_id', '~> 3.2.1'
+
 
 # coffeescript
 gem 'barista', '~> 1.0'

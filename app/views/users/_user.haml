@@ -4,15 +4,15 @@
     =t('.logged_trips', :trips_size => user.trips.size)
     %br/
     #{t('.total_amount_of_kilometers_hitchhiked')}:
-    %b
-      = user.hitchhiked_kms
-    kms
+    %b= number_with_delimiter user.hitchhiked_kms
     %br/
     #{t('.hitchhiked_countries')}:
     %b= user.hitchhiked_countries
     %br/
     #{t('.gender')}:
-    = gender_image(user.gender)
+    #{gender_image(user.gender)},
+    #{t('.last_sign_in')}:
+    = user.last_sign_in_at.strftime("%d %B %Y")
     %br/
     #{t(".cars_seen_from_inside_while_hitchhiking")}:
     = user.hitchhiked_cars

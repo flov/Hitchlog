@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order('users.username ASC').paginate(:page => params[:page], :per_page => 10)
+    params[:search] ||= {"meta_sort"=>"last_sign_in_at.desc"}
+    @search = User.search(params[:search])
+    @users = @search.paginate(:page => params[:page], :per_page => 10)
   end
 end

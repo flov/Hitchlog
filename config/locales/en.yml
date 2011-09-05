@@ -84,7 +84,12 @@ en:
     show:
       title: User
     index:
+      hitchhikers: Hitchhikers
       title: Users
+      username: Username
+      last_sign_in: Last sign in
+      search: Search
+      sort_by: Sort by
     user:
       total_amount_of_kilometers_hitchhiked: Total amount of kms hitchhiked
       hitchhiked_countries: Hitchhiked countries
@@ -92,6 +97,8 @@ en:
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
       trips: Trips
+      last_sign_in: Last sign in
+
 
   hours:
     one: "%{count} hour"
