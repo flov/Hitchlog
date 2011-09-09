@@ -1,18 +1,18 @@
 class TripsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_trip_and_redirect_if_not_owner, :only => [:edit]
-  
+
   def new
     @trip = Trip.new
   end
-  
+
   def show
     @trip = Trip.find(params[:id])
     @user = @trip.user
     @photos = @trip.rides.map{|t| t.photo}.delete_if{|photo| !photo.file?}
     @rides = @user.trips.map{|trip| trip.rides}.flatten
   end
-  
+
   def create
     @trip = Trip.new(params[:trip])
     @trip.user = current_user
@@ -22,7 +22,7 @@ class TripsController < ApplicationController
       render :new
     end
   end
-  
+
   def index
     @trips = Trip.order("created_at DESC").paginate(:page => params[:page])
     @rides = Ride.not_empty
@@ -31,7 +31,7 @@ class TripsController < ApplicationController
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }
     end
   end
-  
+
   def edit
     @trip.rides.each do |ride|
       if ride.person.nil?
@@ -39,7 +39,7 @@ class TripsController < ApplicationController
       end
     end
   end
-    
+
   def update
     @trip = Trip.find(params[:id])
     if @trip.update_attributes(params[:trip])
@@ -51,7 +51,7 @@ class TripsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
