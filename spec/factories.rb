@@ -1,7 +1,10 @@
 require 'factory_girl'
 
 Factory.sequence :email do |n|
-  "user#{n}@example.com"
+  "testuser#{n}@example.com"
+end
+
+Factory.define :sign_in_address do |sign_in_address|
 end
 
 Factory.define :user do |user|
@@ -10,6 +13,7 @@ Factory.define :user do |user|
   user.password              "password"
   user.password_confirmation "password"
   user.last_sign_in_at        Time.zone.now
+  user.association            :sign_in_address
 end
 
 Factory.define :trip do |trip|
@@ -28,7 +32,7 @@ Factory.define :ride do |ride|
   ride.story 'A crazy new story about hitchhiking'
   ride.waiting_time 15
   ride.duration 2
-  ride.person {|h| h.association(:person)}
+  ride.association :person
 end
 
 Factory.define :person do |person|
@@ -38,9 +42,4 @@ Factory.define :person do |person|
   person.origin       'USA'
   person.age          21
   person.gender       'female'
-end
-
-Factory.define :address_not_routable_ride, :parent => :ride do |f|
-  f.from  'Kabul' 
-  f.to    'New Delhi' 
 end

@@ -16,6 +16,8 @@ gem 'hoptoad_notifier'
 gem 'meta_where'
 gem "meta_search"
 
+gem 'geocoder'
+
 gem 'jammit'
 gem 'mongrel', '~> 1.2.0.pre2'
 gem 'json', '~> 1.4.6'
@@ -46,6 +48,8 @@ group :test, :development do
 end
 
 group :test do
+  gem 'spork', '0.9.0.rc9'
+
   gem 'guard'
   gem "guard-rspec"
   gem 'guard-bundler'

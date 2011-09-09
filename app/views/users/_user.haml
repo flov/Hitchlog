@@ -12,7 +12,7 @@
     #{t('.gender')}:
     #{gender_image(user.gender)},
     #{t('.last_sign_in')}:
-    = user.last_sign_in_at.strftime("%d %B %Y")
+    = user.last_sign_in_at.strftime("%d %B %Y") if user.last_sign_in_at
     %br/
     #{t(".cars_seen_from_inside_while_hitchhiking")}:
     = user.hitchhiked_cars

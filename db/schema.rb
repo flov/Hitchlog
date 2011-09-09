@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812204304) do
+ActiveRecord::Schema.define(:version => 20110913100919) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110812204304) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,17 +53,14 @@ ActiveRecord::Schema.define(:version => 20110812204304) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
-    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
-    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
@@ -70,6 +68,15 @@ ActiveRecord::Schema.define(:version => 20110812204304) do
   end
 
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
+
+  create_table "sign_in_addresses", :force => true do |t|
+    t.string   "city"
+    t.string   "country_code"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -119,30 +126,27 @@ ActiveRecord::Schema.define(:version => 20110812204304) do
   add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",     :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
-    t.string   "password_salt",                       :default => "",     :null => false
+    t.string   "email",                                       :default => "",    :null => false
+    t.string   "encrypted_password",           :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                               :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "username"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.boolean  "admin",                               :default => false
-    t.string   "gender",                              :default => "male"
+    t.boolean  "admin",                                       :default => false
+    t.string   "gender"
+    t.string   "current_sign_in_address"
+    t.float    "current_sign_in_lat"
+    t.float    "current_sign_in_lng"
+    t.string   "current_sign_in_city"
+    t.string   "current_sign_in_postal_code"
+    t.string   "current_sign_in_country_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
