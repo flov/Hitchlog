@@ -1,4 +1,4 @@
-.box.user
+.box.user{:id => "user_#{user.id}"}
   .float_left
     =link_to user, user_path(user)
     =t('.logged_trips', :trips_size => user.trips.size)

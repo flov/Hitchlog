@@ -9,11 +9,7 @@ Factory.define :user do |user|
   user.username              { |u| u.email.split("@").first }
   user.password              "password"
   user.password_confirmation "password"
-end
-
-Factory.define :alex, :parent => :user do |user|
-  user.username 'alex'
-  user.email 'alexander.supertramp@hitchlog.com'
+  user.last_sign_in_at        Time.zone.now
 end
 
 Factory.define :trip do |trip|
