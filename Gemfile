@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.9.2'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.10'
 gem 'sqlite3'
 gem 'mysql2', '0.2.7'
 
@@ -29,7 +29,7 @@ gem 'fancy-buttons'
 
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => 'rails-3.0'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'i18n_data'
 gem 'friendly_id', '~> 3.2.1'
@@ -38,33 +38,28 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-end
+gem 'capistrano'
+gem 'capistrano-ext'
 
-gem "rspec-rails", :group => [:test, :development]
+group :test, :development do
+  gem "rspec-rails"
+end
 
 group :test do
   gem 'guard'
   gem "guard-rspec"
-  gem "factory_girl_rails"
-  gem "capybara"
+  gem 'guard-bundler'
 
-  gem 'shoulda'
-  # fixture replacement
+  gem "factory_girl_rails"
   gem 'factory_girl_generator'
 
-  # guard process manager, spork drb-testserver
-  gem 'spork', '~> 0.9.0.rc8'
-  gem 'guard-spork'
-  gem 'guard-bundler'
-  gem 'guard-livereload'
-  gem 'guard-rspec'
+  gem 'shoulda'
+  gem "capybara"
 
   # growl notifications
-  gem 'rb-fsevent'
   gem 'growl'
+  gem 'growl_notify'
+  gem 'rb-fsevent'
 
   gem 'nokogiri'
   gem 'livereload'
