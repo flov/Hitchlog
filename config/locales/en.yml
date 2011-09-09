@@ -91,7 +91,7 @@ en:
       search: Search
       sort_by: Sort by
     user:
-      total_amount_of_kilometers_hitchhiked: Total amount of kms hitchhiked
+      kilometers_hitchhiked: Kms hitchhiked
       hitchhiked_countries: Hitchhiked countries
       cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
       gender: Gender
