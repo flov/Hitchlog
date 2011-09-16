@@ -1,6 +1,8 @@
 en:
   activerecord:
     models:
+      male: Male
+      female: Female
       user: User
     attributes:
       trip:
@@ -15,6 +17,12 @@ en:
         duration: Driving time (in hours)
         waiting_time: Waiting time (in minutes)
         photo: Photo
+      user:
+        username: Username
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        gender: Gender
 
   meta:
     description: |
@@ -43,6 +51,9 @@ en:
     slogan: "A Hitchhiker's Logbook"
   welcome:
     home:
+      newest_hh_stories: Newest Hitchhiking Stories
+      newest_hitchhikers: Newest Hitchhikers
+      logged: "logged %{trips_size} Trips"
       share_your_trip_with_us: 'Share your hitchhiking experience with us.'
       get_in_touch_with_hitchhikers: "Get in touch with Hitchhikers who already hitched a route."
       sign_up: 'Sign Up' 
@@ -50,6 +61,8 @@ en:
       welcome: Welcome! 
       newest_hitchhiking_trips: Newest hitchhiking trips
       find_hitchlog_on: "Find Hitchlog On:"
+      more_trips: More Trips
+      more_stories: More Stories
 
       text1: |
           We are making the world a more hitchhiker friendly place.<br>

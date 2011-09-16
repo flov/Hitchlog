@@ -18,19 +18,21 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_one  :sign_in_address
 
-  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[A-Za-z\d_]+$/}
+  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[A-Za-z\d_-]+$/}
 
-  geocoded_by        :current_sign_in_ip, :latitude => :current_sign_in_lat, :longitude => :current_sign_in_lng, :address => :current_sign_in_address
-  after_validation   :geocode, :geocode_address, :if => lambda{ |obj| obj.current_sign_in_ip_changed? }
-  before_save        :sanitize_username
+  before_validation  :sanitize_username
+  before_save        :geocode_address, :if => lambda{ |obj| obj.current_sign_in_ip_changed? }
+  geocoded_by :current_sign_in_ip, :latitude => :sign_in_lat, :longitude => :sign_in_lng
 
   def geocode_address
     if self.current_sign_in_ip
       if search = Geocoder.search(self.current_sign_in_ip).first
-        self.sign_in_address            ||= SignInAddress.new
+        self.build_sign_in_address if self.sign_in_address.nil?
         self.sign_in_address.country      = search.country if search.country
         self.sign_in_address.country_code = search.country_code if search.country
         self.sign_in_address.city         = search.city if search.country
+        self.sign_in_lat                  = search.latitude
+        self.sign_in_lng                  = search.longitude
       end
     end
   end

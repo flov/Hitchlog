@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913100919) do
+ActiveRecord::Schema.define(:version => 20110914121958) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20110913100919) do
     t.string  "origin"
     t.integer "ride_id"
     t.integer "age"
-    t.string  "gender"
+    t.string  "gender",     :default => "male"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -126,12 +126,12 @@ ActiveRecord::Schema.define(:version => 20110913100919) do
   add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                       :default => "",    :null => false
-    t.string   "encrypted_password",           :limit => 128, :default => "",    :null => false
+    t.string   "email",                               :default => "",     :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                               :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -139,14 +139,10 @@ ActiveRecord::Schema.define(:version => 20110913100919) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.boolean  "admin",                                       :default => false
-    t.string   "gender"
-    t.string   "current_sign_in_address"
-    t.float    "current_sign_in_lat"
-    t.float    "current_sign_in_lng"
-    t.string   "current_sign_in_city"
-    t.string   "current_sign_in_postal_code"
-    t.string   "current_sign_in_country_code"
+    t.boolean  "admin",                               :default => false
+    t.string   "gender",                              :default => "male"
+    t.float    "sign_in_lat"
+    t.float    "sign_in_lng"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

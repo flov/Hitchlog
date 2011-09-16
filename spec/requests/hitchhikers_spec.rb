@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Hitchhikers" do
+describe "List Users" do
   describe "GET /hitchhikers" do
     it "should display some users and their details" do
       user1 = Factory :user

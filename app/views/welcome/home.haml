@@ -28,38 +28,51 @@
         = image_tag @chart_image
 
   .right
-    %h3= t(".find_hitchlog_on:")
-    .find_hitchlog_on
-      = find_hitchlog_on_facebook
-      = find_hitchlog_on_twitter
+    .box.welcome_box
+      %h3= t(".find_hitchlog_on:")
+      .find_hitchlog_on
+        = find_hitchlog_on_facebook
+        = find_hitchlog_on_twitter
 
-    %h3= t(".newest_hitchhiking_trips")
-    %ul
-      -@paginated_trips.each do |trip|
-        %li
-          = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
-          = t('.hitchhiked_by')
-          = link_to h(trip.user), user_path(trip.user)
-      %li.text_center=link_to "... More Trips", trips_path 
+    - if user_signed_in? and current_user.nearbys
+      .box.welcome_box
+        %h3= t('.nearby_hitchhiker')
+        %ul
+          - current_user.nearbys.each do |user|
+            %li
+              = link_to user, user_path(user)
+              = t('.last_login_in')
+              %span.red-color
+                = user.sign_in_address.city if user.sign_in_address
 
-    %h3 Newest Hitchhiking Stories
-    %ul
-      -@rides_with_story.each do |ride|
-        %li
-          = link_to "#{ride_title(ride)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
-          by 
-          = link_to h(ride.trip.user), user_path(ride.trip.user)
-      %li.text_center=link_to "... More Stories", trips_path 
+    .box.welcome_box
+      %h3= t(".newest_hitchhiking_trips")
+      %ul
+        -@paginated_trips.each do |trip|
+          %li
+            = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
+            = t('.hitchhiked_by')
+            = link_to h(trip.user), user_path(trip.user)
+        %li.text_center=link_to "... #{t('.more_trips')}", trips_path
+
+    .box.welcome_box
+      %h3= t('.newest_hh_stories')
+      %ul
+        -@rides_with_story.each do |ride|
+          %li
+            = link_to "#{ride_title(ride)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
+            by 
+            = link_to h(ride.trip.user), user_path(ride.trip.user)
+        %li.text_center=link_to "... #{t('.more_stories')}", trips_path 
 
 
-    %h3 Newest Hitchhikers
-    %ul
-      -@hitchhikers.each do |hitchhiker|
-        %li
-          = link_to "#{hitchhiker.username}, logged #{hitchhiker.trips.size} Trips" , user_path(hitchhiker)
-      %li.text_center=link_to "... More Hitchhikers", users_path 
+    .box.welcome_box
+      %h3= t('.newest_hitchhikers')
+      %ul
+        -@hitchhikers.each do |hitchhiker|
+          %li
+            = link_to "#{hitchhiker.username}, #{t('.logged', :trips_size => hitchhiker.trips.size)}", user_path(hitchhiker)
+        %li.text_center=link_to "... More Hitchhikers", users_path 
 
-    = flattr_button
-
-:javascript
-  $("#hitchhike-photo-details").css('bottom', '0px')
+    .box.welcome_box
+      = flattr_button

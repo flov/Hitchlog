@@ -1,4 +1,4 @@
-.box.user{:id => "user_#{user.id}"}
+.box.hh_box.user{:id => "user_#{user.id}"}
   .float_left
     =link_to user, user_path(user)
     =t('.logged_trips', :trips_size => user.trips.size)
@@ -8,11 +8,12 @@
     %br/
     #{t('.hitchhiked_countries')}:
     %b= user.hitchhiked_countries
-    %br/
     #{t('.gender')}:
-    #{gender_image(user.gender)},
+    #{gender_image(user.gender)}
+    %br/
     #{t('.last_sign_in')}:
-    = user.last_sign_in_at.strftime("%d %B %Y") if user.last_sign_in_at
+    = time_ago_in_words user.last_sign_in_at if user.last_sign_in_at
+    #{user.sign_in_address.city if user.sign_in_address} 
     %br/
     #{t(".cars_seen_from_inside_while_hitchhiking")}:
     = user.hitchhiked_cars
