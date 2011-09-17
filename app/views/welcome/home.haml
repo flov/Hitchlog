@@ -34,7 +34,7 @@
         = find_hitchlog_on_facebook
         = find_hitchlog_on_twitter
 
-    - if user_signed_in? and current_user.nearbys
+    - if user_signed_in? and current_user.nearbys.any?
       .box.welcome_box
         %h3= t('.nearby_hitchhiker')
         %ul
