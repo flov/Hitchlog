@@ -51,14 +51,17 @@ group :test do
   gem 'spork', '0.9.0.rc9'
 
   gem 'guard'
+  gem "guard-livereload"
   gem "guard-rspec"
   gem 'guard-bundler'
+  gem 'guard-spork'
 
   gem "factory_girl_rails"
   gem 'factory_girl_generator'
 
   gem 'shoulda'
   gem "capybara"
+  gem 'launchy' # to use save_and_open_page
 
   # growl notifications
   gem 'growl'
