@@ -98,8 +98,12 @@ module ImageHelper
     end
   end
 
-  def delete_image
+  def delete_ride_image
     image_tag("icons/cross.png", :class => 'tooltip', :alt => t('trips.helper.delete_hitchhike'))
+  end
+
+  def delete_trip_image
+    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('trips.helper.delete_trip'))
   end
 
   def user_image

@@ -11,7 +11,8 @@ class Trip < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :hitchhikes, :presence => true, :if => :new_record
   
-  concerned_with :googlemaps, :countries
+  concerned_with :googlemaps,
+                 :countries
 
   cattr_reader :per_page
   @@per_page = 20

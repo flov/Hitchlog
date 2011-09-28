@@ -141,7 +141,6 @@ en:
       latest_hitchhiking_trips: Latest hitchhiking trips
       log_new_trip: Log New Trip
     edit:
-      delete_trip: Delete Trip
       trip_details: Trip details
       hitchhiked: Hitchhiked
       from: From
@@ -174,6 +173,7 @@ en:
       add_information: Add inforation to ride
       add_information_to_hitchhike: Add inforation to ride
       delete_hitchhike: Delete Hitchhike
+      delete_trip: Delete Trip
       alone: Hitchhiking alone
       two: "2 Hitchhikers"
       three: "3 Hitchhikers"

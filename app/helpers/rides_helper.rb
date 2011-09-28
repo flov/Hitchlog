@@ -66,7 +66,7 @@ module RidesHelper
   end
 
   def delete_ride(ride)
-    link_to delete_image, ride_path(ride), :remote => :true, :method => :delete, :confirm => 'Are you sure?'
+    link_to delete_ride_image, ride_path(ride), :remote => :true, :method => :delete, :confirm => 'Are you sure?'
   end
 
   def hitchhike_button_class(i, ride, current_ride=nil)
