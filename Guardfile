@@ -1,16 +1,17 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 30 do
-  watch('config/application.rb')
-  watch('config/environment.rb')
-  watch(%r{^config/environments/.+\.rb$})
-  watch(%r{^config/initializers/.+\.rb$})
-  watch('spec/spec_helper.rb')
-  watch(%r{^spec/support/.+\.rb$})
-end
+# guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' }, :wait => 30 do
+#   watch('config/application.rb')
+#   watch('config/environment.rb')
+#   watch(%r{^config/environments/.+\.rb$})
+#   watch(%r{^config/initializers/.+\.rb$})
+#   watch('spec/spec_helper.rb')
+#   watch(%r{^spec/support/.+\.rb$})
+# end
 
 guard 'livereload' do
+  watch('config/locales/en.yml')
   watch(%r{app/.+\.(erb|haml)})
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})
@@ -23,7 +24,7 @@ guard 'bundler' do
   watch('Gemfile')
 end
 
-guard 'rspec', :cli => "--color --format nested --fail-fast --drb", :all_after_pass => false do
+guard 'rspec', :cli => "--color --drb" do
   watch(%r{^spec/.+_spec\.rb})
   watch(%r{^lib/(.+)\.rb})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb') { "spec" }
