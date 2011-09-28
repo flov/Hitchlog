@@ -6,7 +6,7 @@
     = render 'shared/nearby_hitchhikers'
 
 .section
-  %h3= t('.statistics')
+  %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
   %ul
     %li
       #{t('.kms_hitchhiked')}: #{@user.hitchhiked_kms} km
