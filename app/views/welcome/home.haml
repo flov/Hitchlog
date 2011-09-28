@@ -29,21 +29,14 @@
 
   .right
     .box.welcome_box
-      %h3= t(".find_hitchlog_on:")
+      %h3= t(".find_hitchlog_on")
       .find_hitchlog_on
         = find_hitchlog_on_facebook
         = find_hitchlog_on_twitter
 
     - if user_signed_in? and current_user.nearbys.any?
       .box.welcome_box
-        %h3= t('.nearby_hitchhiker')
-        %ul
-          - current_user.nearbys.each do |user|
-            %li
-              = link_to user, user_path(user)
-              = t('.last_login_in')
-              %span.red-color
-                = user.sign_in_address.city if user.sign_in_address
+        = render 'shared/nearby_hitchhikers'
 
     .box.welcome_box
       %h3= t(".newest_hitchhiking_trips")
@@ -72,7 +65,8 @@
         -@hitchhikers.each do |hitchhiker|
           %li
             = link_to "#{hitchhiker.username}, #{t('.logged', :trips_size => hitchhiker.trips.size)}", user_path(hitchhiker)
-        %li.text_center=link_to "... More Hitchhikers", users_path 
+        %li.text_center=link_to "... #{t('.more_hitchhikers')}", users_path 
 
     .box.welcome_box
+      %h3 Flattr
       = flattr_button

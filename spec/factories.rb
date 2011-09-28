@@ -13,7 +13,17 @@ Factory.define :user do |user|
   user.password              "password"
   user.password_confirmation "password"
   user.last_sign_in_at        Time.zone.now
+  user.sign_in_lat            0.0          # if tested offline
+  user.sign_in_lng            0.0          # it must not be null for tests
   user.association            :sign_in_address
+end
+
+Factory.define :munich_user, :parent => :user do |user|
+  user.current_sign_in_ip "195.71.11.67"
+end
+
+Factory.define :berlin_user, :parent => :user do |user|
+  user.current_sign_in_ip "88.73.54.0"
 end
 
 Factory.define :trip do |trip|

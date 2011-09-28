@@ -1,0 +1,8 @@
+%h3= t('.nearby_hitchhikers')
+%ul
+  - current_user.nearbys.each do |user|
+    %li
+      = link_to user, user_path(user)
+      = t('.last_login_in')
+      %span.red-color
+        = user.sign_in_address.city if user.sign_in_address

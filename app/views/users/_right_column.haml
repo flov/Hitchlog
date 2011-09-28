@@ -1,12 +1,26 @@
 %h1.text_center= link_to @user, user_path(@user)
 .text_center=gravatar_image_tag @user.email
-%p
-  #{t('.total_amount_of_kilometers_hitchhiked')}: #{@user.hitchhiked_kms} km<br/>
-  #{t('.hitchhiked_countries')}: #{@user.hitchhiked_countries}<br/>
-  #{t('.cars_seen_from_inside')}: #{@rides.size}<br/>
-  = "#{t('.average_drivers_age')}: #{@user.average_drivers_age}</br>".html_safe if @user.average_drivers_age
-  = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes<br/>".html_safe if @user.average_waiting_time
-  #{t('.written_stories')}: #{@user.stories.size}<br/>
-  #{t('.uploaded_photos')}: #{@user.number_of_photos}<br/>
 
-  = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'
+- if user_signed_in? and current_user == @user and current_user.nearbys.any?
+  .section
+    = render 'shared/nearby_hitchhikers'
+
+.section
+  %h3= t('.statistics')
+  %ul
+    %li
+      #{t('.kms_hitchhiked')}: #{@user.hitchhiked_kms} km
+    %li
+      #{t('.hitchhiked_countries')}: #{@user.hitchhiked_countries}
+    %li
+      #{t('.cars_seen_from_inside')}: #{@rides.size}
+    %li
+      = "#{t('.average_drivers_age')}: #{@user.average_drivers_age}".html_safe if @user.average_drivers_age
+    %li
+      = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe if @user.average_waiting_time
+    %li
+      #{t('.written_stories')}: #{@user.stories.size}
+    %li
+      #{t('.uploaded_photos')}: #{@user.number_of_photos}
+
+    = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'

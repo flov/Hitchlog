@@ -28,9 +28,9 @@ class User < ActiveRecord::Base
     if self.current_sign_in_ip
       if search = Geocoder.search(self.current_sign_in_ip).first
         self.build_sign_in_address if self.sign_in_address.nil?
-        self.sign_in_address.country      = search.country if search.country
-        self.sign_in_address.country_code = search.country_code if search.country
-        self.sign_in_address.city         = search.city if search.country
+        self.sign_in_address.country      = search.country
+        self.sign_in_address.country_code = search.country_code
+        self.sign_in_address.city         = search.city
         self.sign_in_lat                  = search.latitude
         self.sign_in_lng                  = search.longitude
       end

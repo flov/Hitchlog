@@ -49,6 +49,10 @@ en:
     negative: negative
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
+  shared:
+    nearby_hitchhikers:
+      nearby_hitchhikers: Nearby hitchhikers
+      last_login_in: last login in
   welcome:
     home:
       newest_hh_stories: Newest Hitchhiking Stories
@@ -60,20 +64,27 @@ en:
       sign_in: 'Sign In' 
       welcome: Welcome! 
       newest_hitchhiking_trips: Newest hitchhiking trips
-      find_hitchlog_on: "Find Hitchlog On:"
+      find_hitchlog_on: "Find Hitchlog On"
       more_trips: More Trips
       more_stories: More Stories
+      hitchhiked_by: hitchhiked_by
+      more_hitchhikers: More Hitchhikers
 
       text1: |
           We are making the world a more hitchhiker friendly place.<br>
-          By logging personal hitchhiking experiences, we are trying to paint
+          By logging your personal hitchhiking experiences, we can paint
           an authentic picture about what hitchhiking is like.
+          Together with your data we want to create statistics
+          about hitchhiking. In the end we can tell the average waiting time in
+          different countries, or we can compare positive against negative
+          experiences and tell something about the security situation of hitchhiking.<br />
+          Moreover your data will create your own personal hitchhiking profile. Giving you
+          information about: <br/>
+          Your hitchhiked kms, your positive/negative experiences, your average waiting times,
+          your longest/fastest ride, the countries where you hitchhiked, and more. <br />
           If you have ever hitchhiked, you are welcome to
           <a href="/trips/new">share your experience with us</a>.
           With the information that you enter here you will be part of the project.
-          It will create statistical data and then we can tell the amount of positive/negative
-          experiences, average waiting times, your longest/fastest ride, the
-          countries where you hitchhiked, and more.
       text2:  |
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
@@ -90,7 +101,7 @@ en:
       hitchhiked_countries: Hitchhiked countries
       hitchhiked_kms: Hitchhiked kms
       average_waiting_time: Average waiting time
-      total_amount_of_kilometers_hitchhiked: Total amount of kms hitchhiked
+      kms_hitchhiked: Kms hitchhiked
       waiting_time_per_ride: Waiting time per ride
       written_stories: Written stories
       uploaded_photos: Uploaded photos
@@ -100,18 +111,20 @@ en:
       hitchhikers: Hitchhikers
       title: Users
       username: Username
-      last_sign_in: Last sign in
+      last_sign_in: Last login
       search: Search
       sort_by: Sort by
     user:
+      statistics: Statistics
       kilometers_hitchhiked: Kms hitchhiked
       hitchhiked_countries: Hitchhiked countries
       cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
+      in: in
       trips: Trips
-      last_sign_in: Last sign in
-
+      last_sign_in: Last login
+      ago: ago
 
   hours:
     one: "%{count} hour"
