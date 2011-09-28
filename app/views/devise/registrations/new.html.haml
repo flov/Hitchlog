@@ -3,18 +3,18 @@
 - content_for :topmenu do
   %h1
     =t('.sign_up')
-    
+
 %table#sign_up
   %tr
     %td
       = facebook_authentication
       %br/
       = render :partial => 'shared/facepile'
-     
+
     %td
       =t('.or')
     %td
-      %h2 Create a Hitchlog account
+      %h2= t('.create_a_hitchlog_account')
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
         = devise_error_messages!
         .text_field.username
@@ -33,6 +33,10 @@
           = f.label :password_confirmation
           %br
           = f.password_field :password_confirmation
+        .text_field.gender
+          = f.label :gender
+          %br
+          = f.select :gender, [t('activerecord.models.male'), t('activerecord.models.female')]
         %p= f.submit "Sign up"
 
 .help

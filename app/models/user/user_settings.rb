@@ -4,7 +4,7 @@ class User
   end
 
   def hitchhiked_countries
-    self.trips.map{|trip| trip.country_distances.map{|cd|cd.country}}.flatten.uniq.size
+    self.trips.map{|trip| trip.country_distances.map(&:country)}.flatten.uniq.size
   end
 
   def rides

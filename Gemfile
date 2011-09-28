@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.9.2'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.10'
 gem 'sqlite3'
 gem 'mysql2', '0.2.7'
 
@@ -15,6 +15,8 @@ gem 'hoptoad_notifier'
 
 gem 'meta_where'
 gem "meta_search"
+
+gem 'geocoder'
 
 gem 'jammit'
 gem 'mongrel', '~> 1.2.0.pre2'
@@ -29,7 +31,7 @@ gem 'fancy-buttons'
 
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => 'rails-3.0'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'i18n_data'
 gem 'friendly_id', '~> 3.2.1'
@@ -38,33 +40,33 @@ gem 'friendly_id', '~> 3.2.1'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
+gem 'capistrano'
+gem 'capistrano-ext'
+
+group :test, :development do
+  gem "rspec-rails"
 end
 
-gem "rspec-rails", :group => [:test, :development]
-
 group :test do
-  gem 'guard'
-  gem "guard-rspec"
-  gem "factory_girl_rails"
-  gem "capybara"
+  gem 'spork', '0.9.0.rc9'
 
-  gem 'shoulda'
-  # fixture replacement
+  gem 'guard'
+  gem "guard-livereload"
+  gem "guard-rspec"
+  gem 'guard-bundler'
+  gem 'guard-spork'
+
+  gem "factory_girl_rails"
   gem 'factory_girl_generator'
 
-  # guard process manager, spork drb-testserver
-  gem 'spork', '~> 0.9.0.rc8'
-  gem 'guard-spork'
-  gem 'guard-bundler'
-  gem 'guard-livereload'
-  gem 'guard-rspec'
+  gem 'shoulda'
+  gem "capybara"
+  gem 'launchy' # to use save_and_open_page
 
   # growl notifications
-  gem 'rb-fsevent'
   gem 'growl'
+  gem 'growl_notify'
+  gem 'rb-fsevent'
 
   gem 'nokogiri'
   gem 'livereload'

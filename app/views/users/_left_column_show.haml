@@ -5,6 +5,5 @@
   - else
     %p= link_to 'Log New Trip', new_trip_path
 
-= render 'shared/country_chart', :user => @user unless @user.trips.empty?
 #trips
   = render 'trips/list', :trips => @trips unless @trips.empty?

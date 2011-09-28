@@ -1,7 +1,10 @@
 require 'factory_girl'
 
 Factory.sequence :email do |n|
-  "user#{n}@example.com"
+  "testuser#{n}@example.com"
+end
+
+Factory.define :sign_in_address do |sign_in_address|
 end
 
 Factory.define :user do |user|
@@ -9,11 +12,18 @@ Factory.define :user do |user|
   user.username              { |u| u.email.split("@").first }
   user.password              "password"
   user.password_confirmation "password"
+  user.last_sign_in_at        Time.zone.now
+  user.sign_in_lat            0.0          # if tested offline
+  user.sign_in_lng            0.0          # it must not be null for tests
+  user.association            :sign_in_address
 end
 
-Factory.define :alex, :parent => :user do |user|
-  user.username 'alex'
-  user.email 'alexander.supertramp@hitchlog.com'
+Factory.define :munich_user, :parent => :user do |user|
+  user.current_sign_in_ip "195.71.11.67"
+end
+
+Factory.define :berlin_user, :parent => :user do |user|
+  user.current_sign_in_ip "88.73.54.0"
 end
 
 Factory.define :trip do |trip|
@@ -32,7 +42,7 @@ Factory.define :ride do |ride|
   ride.story 'A crazy new story about hitchhiking'
   ride.waiting_time 15
   ride.duration 2
-  ride.person {|h| h.association(:person)}
+  ride.association :person
 end
 
 Factory.define :person do |person|
@@ -42,9 +52,4 @@ Factory.define :person do |person|
   person.origin       'USA'
   person.age          21
   person.gender       'female'
-end
-
-Factory.define :address_not_routable_ride, :parent => :ride do |f|
-  f.from  'Kabul' 
-  f.to    'New Delhi' 
 end

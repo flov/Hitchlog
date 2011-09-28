@@ -4,12 +4,12 @@
   = f.label :username_contains, t('.username')
   = f.text_field :username_contains
   = f.submit t('.search')
+
 %p
   #{t('.sort_by')}:
   = sort_link @search, :username
   |
   = sort_link @search, :last_sign_in_at
-
-= will_paginate @users
+= will_paginate @users, :class => 'digg_pagination'
 = render @users
-= will_paginate @users
+= will_paginate @users, :class => 'digg_pagination'

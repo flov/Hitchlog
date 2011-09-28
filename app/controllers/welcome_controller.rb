@@ -3,13 +3,13 @@ class WelcomeController < ApplicationController
 
   def home
     @chart_image = chart_image(Trip.all)
-    @paginated_trips = Trip.all.paginate :per_page => 5, :page => 1
     @trips = Trip.all
+    @paginated_trips = Trip.paginate :per_page => 5, :page => 1
     @trip_size = @trips.size
     @country_size = CountryDistance.all.map(&:country).uniq.size
     @active_hitchhikers = User.all.size
     @hitchhike_size = Ride.all.size
-    @story_size = Ride.all.collect{|hh| hh.story}.flatten.compact.delete_if{|x|x==''}.size
+    @story_size = Ride.all.collect(&:story).flatten.compact.delete_if{|x|x==''}.size
     @photo_size = Ride.with_photo.size
     @hitchhiked_km = @trips.collect{|t| t.distance}.flatten.compact.sum / 1000
     @rides_with_story = Ride.with_story.order("created_at DESC").paginate :per_page => 5, :page => params[:page]
