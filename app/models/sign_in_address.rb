@@ -6,6 +6,8 @@ class SignInAddress < ActiveRecord::Base
       "#{city}, #{country}"
     elsif !country.blank?
       country
+    else
+      "Unknown City"
     end
   end
 end
