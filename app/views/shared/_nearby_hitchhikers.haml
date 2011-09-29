@@ -3,6 +3,4 @@
   - current_user.nearbys.each do |user|
     %li
       = link_to user, user_path(user)
-      = t('.last_login_in')
-      %span.red-color
-        = user.sign_in_address.city if user.sign_in_address
+      = render 'shared/last_sign_in', :user => user
