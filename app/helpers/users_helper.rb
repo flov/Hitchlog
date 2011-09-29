@@ -18,6 +18,6 @@ module UsersHelper
   end
 
   def last_login_location(user)
-    link_to user.sign_in_address.city, "http://maps.google.com/?q=#{user.sign_in_address.city}"
+    link_to user.sign_in_address, "http://maps.google.com/?q=#{user.sign_in_address}"
   end
 end

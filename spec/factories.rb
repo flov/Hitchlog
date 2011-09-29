@@ -5,6 +5,7 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :sign_in_address do |sign_in_address|
+  user.association            :user
 end
 
 Factory.define :user do |user|
