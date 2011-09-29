@@ -1,10 +1,11 @@
+- title trip_show_title(@trip)
+
 #trips_show
   .left_column
     = render 'trips/show_left_column', :trip => @trip
   .right_column
     = render 'users/right_column'
 
-- title trip_show_title(@trip)
 - content_for :topmenu do
   - if @photos.empty?
     #map.map_show{:style=>"width:950px"}

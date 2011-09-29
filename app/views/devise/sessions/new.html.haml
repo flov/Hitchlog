@@ -12,7 +12,7 @@
       =t('.or')
     %td
       %h2= t('.login_using_normal_font') 
-      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'fancy_form'}) do |f|
         .text_field
           = f.label :username
           = f.text_field :username
