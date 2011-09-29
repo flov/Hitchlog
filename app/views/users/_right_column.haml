@@ -9,7 +9,8 @@
   %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
   %ul
     %li
-      #{t('.kms_hitchhiked')}: #{@user.hitchhiked_kms} km
+      #{t('.kms_hitchhiked')}:
+      #{number_with_delimiter(@user.hitchhiked_kms, :delimiter => ".")} km
     %li
       #{t('.hitchhiked_countries')}: #{@user.hitchhiked_countries}
     %li
