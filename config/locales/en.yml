@@ -121,10 +121,11 @@ en:
       cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
-      in: in
       trips: Trips
+    last_sign_in:
       last_sign_in: Last login
       ago: ago
+      in: in
 
   hours:
     one: "%{count} hour"
