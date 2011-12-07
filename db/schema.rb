@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110914121958) do
+ActiveRecord::Schema.define(:version => 20110928081644) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20110914121958) do
     t.string  "origin"
     t.integer "ride_id"
     t.integer "age"
-    t.string  "gender"
+    t.string  "gender",     :default => "male"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110914121958) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,17 +53,14 @@ ActiveRecord::Schema.define(:version => 20110914121958) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
-    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
-    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
@@ -131,7 +128,6 @@ ActiveRecord::Schema.define(:version => 20110914121958) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",     :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
-    t.string   "password_salt",                       :default => "",     :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
