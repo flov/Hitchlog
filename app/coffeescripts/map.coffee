@@ -42,7 +42,7 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
         window.log =directionsDisplay.directions
-        $("#trip_route").val JSON.stringify(directionsDisplay.directions.ag)
+        $("#trip_route").val JSON.stringify(directionsDisplay.directions.Zf)
         $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
         $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
         if $("#trip_distance_display")

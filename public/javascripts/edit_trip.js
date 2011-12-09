@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Tue, 05 Jul 2011 12:25:03 GMT from
- * /Users/florianvallen/code/hitchlog/app/coffeescripts/edit_trip.coffee
+/* DO NOT MODIFY. This file was compiled Fri, 09 Dec 2011 16:29:15 GMT from
+ * /Users/flov/code/Hitchlog/app/coffeescripts/edit_trip.coffee
  */
 
 (function() {
