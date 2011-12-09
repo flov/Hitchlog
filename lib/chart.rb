@@ -20,7 +20,7 @@ module Chart
     else
       title = nil
       chart_label          ||= chart_label(array)
-      options[:resolution] ||= '540x280'
+      options[:resolution] ||= '540x350'
     end
 
 
