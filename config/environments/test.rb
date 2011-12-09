@@ -32,10 +32,4 @@ Hitchlog::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-
-
-  # Custom Attributes
-  config.host = 'localhost:3000'
-  config.facebook_id = 'bc52bf6b4ea8fa42df28d66569e840d7'
-  config.facebook_secret = 'f2bd94d90abef946d0f4fa70a1ebfbdc'
 end

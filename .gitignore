@@ -14,4 +14,4 @@ Capfile
 config/deploy.rb
 config/deploy/
 .idea
-notes
+config/hitchlog.local.yml

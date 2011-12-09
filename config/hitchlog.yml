@@ -1,0 +1,24 @@
+defaults: &defaults
+  hello: 'hello world'
+
+development:
+  <<: *defaults
+  #facebook id and sercret, please adapt
+  host: 'localhost:3000'
+  facebook_id: 'bc74bf6b4ea8fa68df28d66569e840d7'
+  facebook_secret: 'f2bd148d90abef85d0f4fa70a1ebfbdc'
+
+test: &testing
+  <<: *defaults
+  host: 'localhost:3000'
+  facebook_id: 'bc52bf6b4ea8fa42df45d66569e840d7'
+  facebook_secret: 'f2bd116d0abef969d0f4fa70a1ebfbdc'
+
+production:
+  <<: *defaults
+  host: 'test.com'
+  facebook_id: 'dd99a73ebab7f0774f310d0c63ba4140'
+  facebook_secret: 'a27c4401e2c4aa4e173ae4ddeea821be'
+
+cucumber:
+  <<: *testing

@@ -36,6 +36,8 @@ gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'i18n_data'
 gem 'friendly_id', '~> 3.2.1'
 
+# external settings in Rails app
+gem 'choices'
 
 # coffeescript
 gem 'barista', '~> 1.0'
