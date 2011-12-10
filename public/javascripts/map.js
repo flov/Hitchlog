@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 09 Dec 2011 16:31:50 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 10 Dec 2011 07:48:41 GMT from
  * /Users/flov/code/Hitchlog/app/coffeescripts/map.coffee
  */
 
@@ -67,6 +67,7 @@
         if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
           window.log = directionsDisplay.directions;
           $("#trip_route").val(JSON.stringify(directionsDisplay.directions.Zf));
+          console.log(directionsDisplay.directions);
           $("#trip_distance").val(directionsDisplay.directions.routes[0].legs[0].distance.value);
           $("#trip_gmaps_duration").val(directionsDisplay.directions.routes[0].legs[0].duration.value);
           if ($("#trip_distance_display")) {
