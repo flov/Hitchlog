@@ -26,7 +26,7 @@ module TripsHelper
     end
   end
 
-  def country_images(trip)
+  def country_images_for_trip(trip)
     array = []
     
     trip.countries_with_distance.each do |hash|
@@ -35,18 +35,32 @@ module TripsHelper
     array.join(' ').html_safe
   end
 
-  def country_image(country, country_distance)
+  def all_country_images
+    array = []
+    CountryDistance.all.map(&:country).uniq.each do |country|
+      unless country == 'unknown'
+        array << link_to(country_image(country), "trips/?country=#{country}")
+      end
+    end
+    array.join(' ').html_safe
+  end
+
+  def country_image(country, country_distance=nil)
     case country
       when "The Netherlands" then country = "Netherlands"
+      when "Macedonia (FYROM)" then country = "Macedonia"
       # Add more exceptions...
     end
 
     unless I18nData.country_code(country).nil?
-      image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", :class => 'tooltip', :alt => "#{country} #{distance( country_distance )}"
+      if country_distance == nil
+        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", :class => 'tooltip', :alt => "#{country}"
+      else
+        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", :class => 'tooltip', :alt => "#{country} #{distance( country_distance )}"
+      end
     end
   end
 
-  
   def link_to_trip(trip, options ={})
     array = []
     array << photo_image unless trip.rides.collect{|h| h.photo.file?}.delete_if{|x|!x}.compact.empty?
@@ -81,5 +95,13 @@ module TripsHelper
     array << "ride"
     array << "last" if i == trip.rides.size
     array.join ' '
+  end
+
+  def options_for_countries
+    countries = CountryDistance.all.map(&:country).uniq.sort
+    array =[]
+    array << "<option disabled='disabled'>#{I18n.t('trips.index.choose_a_country')}</option>"
+    countries.each{|country| array << "<option>#{country}</option>"}
+    array.join ''
   end
 end
