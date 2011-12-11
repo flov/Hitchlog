@@ -6,7 +6,12 @@
   = link_to t(".log_new_trip"), new_trip_path 
 - else
   = render 'shared/sign_in_and_out'
-  to log a new hitchhiking trip.
+  = t('.to_log_a_new_hitchhiking_trip')
+
+= form_tag '', :method => 'get' do
+  = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
+  
+  = submit_tag t('.search')
 
 #trips
   = render 'list', :trips => @trips

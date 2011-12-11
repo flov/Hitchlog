@@ -24,7 +24,12 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.order("created_at DESC").paginate(:page => params[:page])
+    @countries = CountryDistance.all.map(&:country).uniq
+    if params[:country]
+      @trips = Trip.joins(:country_distances).where(:country_distances => {:country => params[:country]}).paginate(:page => params[:page])
+    else
+      @trips = Trip.order("created_at DESC").paginate(:page => params[:page])
+    end
     @rides = Ride.not_empty
     respond_to do |wants|
       wants.html

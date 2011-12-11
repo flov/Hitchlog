@@ -50,6 +50,10 @@ en:
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   shared:
+    sign_in_and_out:
+      sign_out: Sign out
+      sign_up: Sign up
+      sign_in: Sign in
     nearby_hitchhikers:
       nearby_hitchhikers: Nearby hitchhikers
       last_login_in: last login in
@@ -65,10 +69,12 @@ en:
       welcome: Welcome! 
       newest_hitchhiking_trips: Newest hitchhiking trips
       find_hitchlog_on: "Find Hitchlog On"
-      more_trips: More Trips
+      more_t t('.search')rips: More Trips
       more_stories: More Stories
       hitchhiked_by: hitchhiked by
       more_hitchhikers: More Hitchhikers
+      we_have_gathered:
+        "We have gathered <b>%{trip_size}</b> hitchhiking experiences in <b>%{country_size}</b> countries.  Click on one of the countriesr to explore these trips."
 
       text1: |
           We are making the world a more hitchhiker friendly place.<br>
@@ -141,6 +147,10 @@ en:
     index:
       latest_hitchhiking_trips: Latest hitchhiking trips
       log_new_trip: Log New Trip
+      to_log_a_new_hitchhiking_trip: to log a new hitchhiking trip.
+      select_country: Select Country
+      search: Search
+      choose_a_country: Choose a country
     edit:
       trip_details: Trip details
       hitchhiked: Hitchhiked

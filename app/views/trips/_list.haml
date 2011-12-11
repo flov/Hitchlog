@@ -16,7 +16,7 @@
           = images_for_trip(trip)
           = images_missing_for_trip(trip) if current_user == trip.user
         %td.countries
-          = country_images(trip)
+          = country_images_for_trip(trip)
         %td
           = trip.rides.size
           = ride_image(trip.rides.size)
