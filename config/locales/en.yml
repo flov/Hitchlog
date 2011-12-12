@@ -74,7 +74,7 @@ en:
       hitchhiked_by: hitchhiked by
       more_hitchhikers: More Hitchhikers
       we_have_gathered:
-        "We have gathered <b>%{trip_size}</b> hitchhiking experiences in <b>%{country_size}</b> countries.  Click on one of the countriesr to explore these trips."
+        "We have gathered <b>%{trip_size}</b> hitchhiking experiences in <b>%{country_size}</b> countries. Click on one of the countries above to explore the trips."
 
       text1: |
           We are making the world a more hitchhiker friendly place.<br>
