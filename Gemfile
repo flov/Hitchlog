@@ -63,7 +63,7 @@ group :test do
 
   gem 'shoulda'
   gem "capybara"
-  gem 'launchy' # to use save_and_open_page
+  gem 'launchy', '~> 2.0.5' # to use save_and_open_page
 
   # growl notifications
   gem 'growl'
