@@ -1,8 +1,8 @@
 %h1 #{t('.hitchhikers')}:
 
-= form_for @search do |f|
-  = f.label :username_contains, t('.username')
-  = f.text_field :username_contains
+= search_form_for @search do |f|
+  = f.label :username_cont, t('.username')
+  = f.text_field :username_cont
   = f.submit t('.search')
 
 %p
