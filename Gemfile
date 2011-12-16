@@ -58,6 +58,8 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-spork'
 
+  gem 'database_cleaner'
+
   gem "factory_girl_rails"
   gem 'factory_girl_generator'
 
