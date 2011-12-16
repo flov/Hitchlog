@@ -1,7 +1,7 @@
 .column_wrapper
   .left_column#map
   .right_column
-    - form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
+    = form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
       = f.hidden_field :distance
       = f.hidden_field :gmaps_duration

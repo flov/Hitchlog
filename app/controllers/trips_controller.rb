@@ -24,13 +24,11 @@ class TripsController < ApplicationController
   end
 
   def index
-    @countries = CountryDistance.all.map(&:country).uniq
+    @trips = Trip.order("created_at DESC")
     if params[:country]
-      @trips = Trip.joins(:country_distances).where(:country_distances => {:country => params[:country]}).paginate(:page => params[:page])
-    else
-      @trips = Trip.order("created_at DESC").paginate(:page => params[:page])
+      @trips = @trips.joins(:country_distances).where(:country_distances => {:country => params[:country]})
     end
-    @rides = Ride.not_empty
+    @trips = @trips.paginate(:page => params[:page])
     respond_to do |wants|
       wants.html
       wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }
