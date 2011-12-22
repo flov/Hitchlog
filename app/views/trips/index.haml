@@ -10,6 +10,10 @@
 
 = form_tag '', :method => 'get' do
   = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
+  %br/
+  %label{:for => 'stories'}= t('.only_stories')
+  = check_box_tag 'stories'
+  %br/
   
   = submit_tag t('.search')
 
