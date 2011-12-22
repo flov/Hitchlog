@@ -25,8 +25,11 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.order("created_at DESC")
-    if params[:country]
+    unless params[:country].blank?
       @trips = @trips.joins(:country_distances).where(:country_distances => {:country => params[:country]})
+    end
+    if params[:stories]
+      @trips = @trips.where("story IS NOT NULL")
     end
     @trips = @trips.paginate(:page => params[:page])
     respond_to do |wants|

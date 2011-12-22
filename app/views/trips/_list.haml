@@ -10,11 +10,12 @@
       %th Date
     - trips.each do |trip|
       %tr
-        %td
+        %td.title
           %h5= link_to trip.to_s.html_safe, trip
+          - unless trip.story.blank?
+            = truncate(trip.story, :length => 200, :separator => ' ')
         %td.icons
           = images_for_trip(trip)
-          = images_missing_for_trip(trip) if current_user == trip.user
         %td.countries
           = country_images_for_trip(trip)
         %td

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928081644) do
+ActiveRecord::Schema.define(:version => 20111221200012) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(:version => 20110928081644) do
     t.integer "ride_id"
     t.integer "age"
     t.string  "gender",     :default => "male"
+  end
+
+  create_table "photo", :force => true do |t|
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "trip_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -120,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20110928081644) do
     t.string   "to_formatted_address"
     t.text     "route"
     t.integer  "gmaps_duration"
+    t.text     "story"
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"

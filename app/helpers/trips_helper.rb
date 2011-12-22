@@ -100,7 +100,6 @@ module TripsHelper
   def options_for_countries
     countries = CountryDistance.all.map(&:country).uniq.sort
     array =[]
-    array << "<option disabled='disabled'>#{I18n.t('trips.index.choose_a_country')}</option>"
     countries.each{|country| array << "<option>#{country}</option>"}
     array.join ''
   end
