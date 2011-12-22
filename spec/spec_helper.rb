@@ -48,5 +48,6 @@ end
 
 Spork.each_run do
   FactoryGirl.reload
+  I18n.backend.reload!
 end
 
