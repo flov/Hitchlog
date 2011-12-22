@@ -28,7 +28,6 @@ module TripsHelper
 
   def country_images_for_trip(trip)
     array = []
-    
     trip.countries_with_distance.each do |hash|
       array << country_image(hash[:country], hash[:distance])
     end
@@ -49,6 +48,7 @@ module TripsHelper
     case country
       when "The Netherlands" then country = "Netherlands"
       when "Macedonia (FYROM)" then country = "Macedonia"
+      when "Kingdom of Sweden" then country = "Sweden"
       # Add more exceptions...
     end
 

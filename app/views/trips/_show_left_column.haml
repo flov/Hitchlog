@@ -13,10 +13,12 @@
 %h1.text_center
   = hitchhiking_with_image(trip.travelling_with)
   = country_images_for_trip(trip)
-  = trip.from_city
-  &rarr;
-  = trip.to_city
+  = trip.to_s
   = link_to t('.edit_trip'), edit_trip_path(trip) if trip.user == current_user
 
-- trip.rides.not_empty.each do |ride|
+- trip.rides.each do |ride|
   = render 'show_ride', :ride => ride
+
+.trip_story
+  = RDiscount.new(trip.story).to_html.html_safe
+

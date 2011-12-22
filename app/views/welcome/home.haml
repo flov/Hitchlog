@@ -42,16 +42,6 @@
         = render 'shared/nearby_hitchhikers'
 
     .box.welcome_box
-      %h3= t(".newest_hitchhiking_trips")
-      %ul
-        -@paginated_trips.each do |trip|
-          %li
-            = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
-            = t('.hitchhiked_by')
-            = link_to h(trip.user), user_path(trip.user)
-        %li.text_center=link_to "... #{t('.more_trips')}", trips_path
-
-    .box.welcome_box
       %h3= t('.newest_hh_stories')
       %ul
         -@rides_with_story.each do |ride|
@@ -59,7 +49,19 @@
             = link_to "#{ride_title(ride)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
             by 
             = link_to h(ride.trip.user), user_path(ride.trip.user)
-        %li.text_center=link_to "... #{t('.more_stories')}", trips_path 
+        %li.text_center
+          %strong=link_to t('.more_stories'), "/trips?stories=1"
+
+    .box.welcome_box
+      %h3= t(".newest_hitchhiking_trips")
+      %ul
+        -@paginated_trips.each do |trip|
+          %li
+            = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
+            = t('.hitchhiked_by')
+            = link_to h(trip.user), user_path(trip.user)
+        %li.text_center
+          %strong=link_to t('.more_trips'), trips_path
 
 
     .box.welcome_box
@@ -68,7 +70,8 @@
         -@hitchhikers.each do |hitchhiker|
           %li
             = link_to "#{hitchhiker.username}, #{t('.logged', :trips_size => hitchhiker.trips.size)}", user_path(hitchhiker)
-        %li.text_center=link_to "... #{t('.more_hitchhikers')}", users_path 
+        %li.text_center
+          %strong=link_to t('.more_hitchhikers'), users_path 
 
     .box.welcome_box
       %h3 Flattr
