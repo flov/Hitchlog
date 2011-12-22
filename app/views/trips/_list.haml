@@ -13,7 +13,8 @@
         %td.title
           %h5= link_to trip.to_s.html_safe, trip
           - unless trip.story.blank?
-            = truncate(trip.story, :length => 200, :separator => ' ')
+            = RDiscount.new(truncate(trip.story, :length => 250, :separator => ' ', :omission => "... #{t('.read_on')}")).to_html.html_safe
+            
         %td.icons
           = images_for_trip(trip)
         %td.countries

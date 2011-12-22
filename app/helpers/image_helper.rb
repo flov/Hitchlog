@@ -1,8 +1,6 @@
 module ImageHelper
   def images_missing_for_ride(ride)
     array = []
-    array << photo_missing_image unless ride.photo.file?
-    array << story_missing_image if ride.story.blank?
     array << waiting_time_missing_image unless ride.waiting_time
     array << driving_time_missing_image unless ride.duration
     link_to array.join(' ').html_safe, edit_trip_path(ride.trip)

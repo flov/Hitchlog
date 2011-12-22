@@ -29,7 +29,7 @@ class TripsController < ApplicationController
       @trips = @trips.joins(:country_distances).where(:country_distances => {:country => params[:country]})
     end
     if params[:stories]
-      @trips = @trips.where("story IS NOT NULL")
+      @trips = @trips.where("story IS NOT NULL").where("story != ''")
     end
     @trips = @trips.paginate(:page => params[:page])
     respond_to do |wants|
