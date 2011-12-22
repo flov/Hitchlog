@@ -70,8 +70,7 @@ group :test do
   gem 'shoulda'
   gem "capybara"
 
-  # growl notifications
-  gem 'growl'
+  # growl notifications (doesn't work yet with growl 1.3, hmpf)
   gem 'growl_notify'
   gem 'rb-fsevent'
 
