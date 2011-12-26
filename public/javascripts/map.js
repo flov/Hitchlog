@@ -1,9 +1,9 @@
-/* DO NOT MODIFY. This file was compiled Sat, 10 Dec 2011 07:48:41 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 26 Dec 2011 08:13:49 GMT from
  * /Users/flov/code/Hitchlog/app/coffeescripts/map.coffee
  */
 
 (function() {
-  var convert_lat_lng, parse_route_request, set_field, tripDateStart;
+  var convert_lat_lng, directions_hash, parse_route_request, set_field, tripDateStart;
   tripDateStart = $("input#trip_start").datetimepicker({
     maxDate: new Date(),
     dateFormat: 'dd/mm/yy'
@@ -66,14 +66,13 @@
       return google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
         if (directionsDisplay.directions.status === google.maps.DirectionsStatus.OK) {
           window.log = directionsDisplay.directions;
-          $("#trip_route").val(JSON.stringify(directionsDisplay.directions.Zf));
-          console.log(directionsDisplay.directions);
+          $("#trip_route").val(directions_hash(directionsDisplay));
           $("#trip_distance").val(directionsDisplay.directions.routes[0].legs[0].distance.value);
           $("#trip_gmaps_duration").val(directionsDisplay.directions.routes[0].legs[0].duration.value);
           if ($("#trip_distance_display")) {
             $("#trip_distance_display").html(directionsDisplay.directions.routes[0].legs[0].distance.text);
           }
-          return $("#trip_form").submit();
+          return $("form#trip_form").submit();
         }
       });
     }
@@ -100,7 +99,27 @@
       });
     }
   };
-  window.calc_route = function() {};
+  directions_hash = function(directionsDisplay) {
+    var directions, i, leg, waypoint, waypoints, _len, _ref;
+    waypoints = [];
+    leg = directionsDisplay.directions.routes[0].legs[0];
+    directions = {
+      origin: new google.maps.LatLng(leg.start_location.lat(), leg.start_location.lng()),
+      destination: new google.maps.LatLng(leg.end_location.lat(), leg.end_location.lng()),
+      travelMode: google.maps.DirectionsTravelMode.DRIVING,
+      provideRouteAlternatives: false
+    };
+    _ref = leg.via_waypoints;
+    for (i = 0, _len = _ref.length; i < _len; i++) {
+      waypoint = _ref[i];
+      waypoints[i] = {
+        location: new google.maps.LatLng(waypoint.lat(), waypoint.lng()),
+        stopover: false
+      };
+    }
+    directions.waypoints = waypoints;
+    return JSON.stringify(directions);
+  };
   window.get_location = function(location, suggest_field, destination) {
     var geocoder, geocoderRequest;
     if (suggest_field == null) {

@@ -1,6 +1,5 @@
 tripDateStart = $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})
 
-
 window.map = null
 window.geocoder = null
 window.marker = null
@@ -38,27 +37,35 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     }
     window.map = new google.maps.Map($('#map')[0], options)
     window.directionsDisplay.setMap(window.map)
-    # When dragging Route:
+
+    #
+    # When changing Route by dragging, construct new directions hash
+    # with waypoints and store it in trip:
+    #
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
-        window.log =directionsDisplay.directions
-        $("#trip_route").val JSON.stringify(directionsDisplay.directions.Zf)
-        console.log directionsDisplay.directions
+        window.log = directionsDisplay.directions
+
+        # Route with waypoints
+        $("#trip_route").val directions_hash(directionsDisplay)
+        # Distance:
         $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
+        # Google Maps duratiorn
         $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
-        if $("#trip_distance_display")
-          $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text
-        $("#trip_form").submit()
+        # Display Distance
+        $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
+        # Submit form
+        $("form#trip_form").submit()
 
 window.set_new_route = (request = "") ->
   if google?
     if request == ""
-      request = {
+      request =
         origin: $("#trip_from").val()
         destination: $("#trip_to").val()
-        waypoints: [],
+        waypoints: []
         travelMode: google.maps.DirectionsTravelMode.DRIVING
-      }
+
     else
       request = parse_route_request(request)
     window.directionsService.route request, (response, status) ->
@@ -66,9 +73,40 @@ window.set_new_route = (request = "") ->
         window.directionsDisplay.setDirections response
 
 
-window.calc_route = ->
-  # Route the directions and pass the response to a
-  # function to create markers for each step.
+
+#
+# DirectionsRequest should look like that:
+# {
+#   origin: "Chicago, IL",
+#   destination: "Los Angeles, CA",
+#   waypoints: [
+#     {
+#       location:"Joplin, MO",
+#       stopover:false
+#     },{
+#       location:"Oklahoma City, OK",
+#       stopover:true
+#     }],
+#   provideRouteAlternatives: false,
+#   travelMode: TravelMode.DRIVING
+# }
+#
+directions_hash = (directionsDisplay) ->
+  waypoints = []
+  leg = directionsDisplay.directions.routes[0].legs[0]
+  directions =
+    origin:                   new google.maps.LatLng(leg.start_location.lat(), leg.start_location.lng())
+    destination:              new google.maps.LatLng(leg.end_location.lat(), leg.end_location.lng())
+    travelMode:               google.maps.DirectionsTravelMode.DRIVING
+    provideRouteAlternatives: false
+
+  for waypoint, i in leg.via_waypoints
+    waypoints[i] =
+      location: new google.maps.LatLng(waypoint.lat(), waypoint.lng())
+      stopover: false
+
+  directions.waypoints = waypoints
+  JSON.stringify(directions)
 
 
 window.get_location = (location, suggest_field=null, destination=null) ->
