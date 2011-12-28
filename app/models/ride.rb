@@ -13,7 +13,7 @@ class Ride < ActiveRecord::Base
   concerned_with  :photo_procession
   
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
-  scope :not_empty, where("story IS NOT NULL AND story <> '' OR photo_file_name IS NOT NULL")
+  scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story IS NOT NULL AND story <> ''")
   
