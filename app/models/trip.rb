@@ -84,8 +84,6 @@ class Trip < ActiveRecord::Base
     difference
   end
 
-  private
-
   def sanitize_address(direction)
     if !self.send("#{direction}_city").blank?
       address = self.send("#{direction}_city")
@@ -95,6 +93,8 @@ class Trip < ActiveRecord::Base
       address = self.send(direction)
     end
   end
+
+  private
 
   def sanitize_param(param)
     param.gsub(/[^[:alnum:]]/,'_').gsub(/-{2,}/,'_')
