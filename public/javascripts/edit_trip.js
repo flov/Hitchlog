@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 09 Dec 2011 16:29:15 GMT from
+/* DO NOT MODIFY. This file was compiled Wed, 28 Dec 2011 07:19:05 GMT from
  * /Users/flov/code/Hitchlog/app/coffeescripts/edit_trip.coffee
  */
 
@@ -10,6 +10,12 @@
       collapsible: true,
       autoHeight: false
     });
-    return $(".tabs").tabs();
+    $(".tabs").tabs();
+    $('#trip_story').markItUp(mySettings);
+    return $("#add_story").button().click(function() {
+      return $("#tripstory").dialog({
+        minWidth: 532
+      });
+    });
   });
 }).call(this);

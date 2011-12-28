@@ -2,28 +2,25 @@
   %table
     %tr
       %th Trips
-      %th 
-      %th
-      %th
-      %th
-      %th By
-      %th Date
+      %th= t('activerecord.attributes.ride.gender')
+      %th= t('.countries')
+      %th= t('.rides')
+      %th= t('activerecord.attributes.trip.distance')
+      %th= t('.by')
+      %th= t('.date')
     - trips.each do |trip|
       %tr
         %td.title
           %h5= link_to trip.to_s.html_safe, trip
           - unless trip.story.blank?
             = RDiscount.new(truncate(trip.story, :length => 250, :separator => ' ', :omission => "... #{t('.read_on')}")).to_html.html_safe
-            
         %td.icons
           = images_for_trip(trip)
         %td.countries
           = country_images_for_trip(trip)
-        %td
+        %td.rides
           = trip.rides.size
           = ride_image(trip.rides.size)
         %td.distance= distance( trip.distance )
         %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
         %td.started_at= "#{time_ago_in_words trip.start} ago" unless trip.start.nil?
-
-= will_paginate trips

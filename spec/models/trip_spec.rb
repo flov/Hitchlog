@@ -28,4 +28,29 @@ describe Trip do
       @trip.to_param.should == "#{@trip.id}_berliner_str__2fb1_2fb5_2c_hoppegarten_to_warszawa"
     end
   end
+
+  describe "not_empty scope" do
+    before do
+      @ride = @trip.rides.first
+      @ride.build_person(:gender => '')
+    end
+
+    it "displays rides with waiting time" do
+      @ride.waiting_time = 13
+      @ride.save!
+      @trip.rides.not_empty.should == [@ride]
+    end
+
+    it "displays rides with driving time" do
+      @ride.duration = 4
+      @ride.save!
+      @trip.rides.not_empty.should == [@ride]
+    end
+
+    xit "displays rides with gender" do
+      @ride.person.gender = 'malek'
+      @ride.save!
+      @trip.rides.not_empty.should == [@ride]
+    end
+  end
 end

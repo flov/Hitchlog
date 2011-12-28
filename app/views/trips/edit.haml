@@ -1,6 +1,10 @@
 .column_wrapper
   .left_column#map
   .right_column
+    #tripstory.hidden
+      = form_for @trip do |f|
+        = f.text_area :story, :rows => 4
+        = submit_tag
     = form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
       = f.hidden_field :distance
@@ -17,21 +21,22 @@
         %h3
           = t('.trip_details')
           #{link_to delete_trip_image, trip_path(@trip), :method => :delete, :confirm => t('general.confirm')}:
-          = country_images_for_trip(@trip)
-
+        -# Crossed countries needs to be repaired
+        -# = country_images_for_trip(@trip)
         %ul
           %li 
-            #{t('.from')} #{@trip.from_formatted_address}
+            #{t('.from')} #{@trip.sanitize_address("from")}
           %li
-            #{t('.to')} #{@trip.to_formatted_address}
+            #{t('.to')} #{@trip.sanitize_address("to")}
           %li
-            #{t('.hitchhiked')} #{hitchhiked_with(@trip.travelling_with)}
+            = t('.hitchhiked_at', :time => @trip.to_date) if @trip.to_date
           %li
-            - if @trip.to_date
-              Hitchhiked at #{@trip.to_date}
+            = hitchhiking_with_image(@trip.travelling_with)
+            = driving_time_image(human_hours(@trip.duration)) 
+          -# %li
+          -#   = t('.duration', :duration => @trip.duration) if @trip.duration
           %li
-            - if @trip.duration
-              Duration #{@trip.duration} hours
+            %button#add_story= t('.add_story')
 
     #accordion
       = render @trip.rides

@@ -12,11 +12,13 @@ en:
         start: Started at
         duration: Duration (in hours)
         travelling_with: Travelling
+        distance: Distance
       ride:
         experience: Experience
         duration: Driving time (in hours)
         waiting_time: Waiting time (in minutes)
         photo: Photo
+        gender: Gender
       user:
         username: Username
         email: Email
@@ -69,7 +71,7 @@ en:
       welcome: Welcome! 
       newest_hitchhiking_trips: Newest hitchhiking trips
       find_hitchlog_on: "Find Hitchlog On"
-      more_trips: More Trips
+      more_trips: See More Trips
       more_stories: Read More Stories
       hitchhiked_by: hitchhiked by
       more_hitchhikers: Get To Know More Hitchhikers
@@ -157,8 +159,15 @@ en:
       hitchhiked: Hitchhiked
       from: From
       to: To
+      add_story: Add Story
+      hitchhiked_at: "Hitchhiked at %{time}"
+      duration: "Duration: %{duration} hours"
     list:
       read_on: "(read on in Trip)"
+      countries: Countries
+      rides: Rides
+      by: By
+      date: Date
     form:
       step1_2: "Continue"
     show_ride:
