@@ -134,7 +134,9 @@ h3.date
     $table-color: lighten($orange,60)
     +table-scaffolding
     +alternating-rows-and-columns2($table-color, darken($table-color, 4), black)
-    td.started_at, td.created_at
+    width: 100%
+    margin: 10px auto
+    td.started_at, td.created_at, td.rides, td.distance
       text-align: center
     td.title
       h1,h2,h3,h4,h5
@@ -228,7 +230,10 @@ table.gmaps_comparison
   width: 600px
 
 .display_rides
-  width: 60px
+  +clearfix
+
+.ride
+  width: 80px
   text-align: center
   margin: 10px
   float: left

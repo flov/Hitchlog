@@ -1,8 +1,8 @@
-package_assets: always
+# package_assets: always
 
 javascripts:
   workspace:
-    - public/javascripts/vendor/jquery-1.4.3.min.js
+    - public/javascripts/vendor/jquery-1.7.1.min.js
     - public/javascripts/vendor/jquery-ui-1.8.14.custom.min.js
     - public/javascripts/vendor/jquery-ui-timepicker-addon.js
     #- public/javascripts/vendor/jquery.autogrowtextarea.js
@@ -11,6 +11,8 @@ javascripts:
     - public/javascripts/vendor/jquery.observe_field.js
     - public/javascripts/vendor/rails.js
     - public/javascripts/vendor/tipsy.js
-    #- public/javascripts/vendor/showdown.js
-
+    - public/javascripts/vendor/showdown.js
+    # For markitup:
+    - public/javascripts/vendor/jquery.markitup.js
+    - public/javascripts/vendor/markitup_settings.js
     #- public/javascripts/lib/*.js

@@ -17,5 +17,8 @@
   
   = submit_tag t('.search')
 
+= will_paginate @trips, :class => 'digg_pagination'
 #trips
   = render 'list', :trips => @trips
+= will_paginate @trips, :class => 'digg_pagination'
+

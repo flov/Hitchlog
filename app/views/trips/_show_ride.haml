@@ -1,10 +1,9 @@
-.display_rides.box
-  %div{:id => "ride_#{ride.number}"}
-    %strong
-      = t('.ride')
-      = ride.number
-    %br/
-    = images_for_ride(ride)
-    = images_missing_for_ride(ride)
-    - if ride.trip.user == current_user
-      = link_to add_information_image, edit_trip_path(ride.trip)
+%div{:id => "ride_#{ride.number}", :class => 'box ride'}
+  %strong
+    = t('.ride')
+    #{ride.number}/#{ride.trip.rides.size}
+  %br/
+  = images_for_ride(ride)
+  -# = images_missing_for_ride(ride)
+  -# - if ride.trip.user == current_user
+  -#   = link_to add_information_image, edit_trip_path(ride.trip)

@@ -12,8 +12,8 @@
           %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
         %li
           %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
-        %li
-          %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
+        -# %li
+        -#   %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
 
       .tab_content{:id => "time_tab_#{ride.number}"}
         = f.label :duration
@@ -56,15 +56,13 @@
           = builder.label :age
           %br/
           = builder.text_field :age
-                        
         = submit_tag
-      .tab_content{:id => "add_story_tab_#{ride.number}"}
-        = f.label :title
-        %br/
-        = f.text_field :title
-        %br/
-        = f.label :story
-        %br/
-        = f.text_area :story, :rows => 4
-        
-        = submit_tag
+      -# .tab_content{:id => "add_story_tab_#{ride.number}"}
+      -#   = f.label :title
+      -#   %br/
+      -#   = f.text_field :title
+      -#   %br/
+      -#   = f.label :story
+      -#   %br/
+      -#   = f.text_area :story, :rows => 4
+      -#   = submit_tag

@@ -66,13 +66,47 @@ describe "trips" do
                       :to => 'Shiraz',
                       :distance => 100_000, 
                       :hitchhikes => 3)
+      @ride = @trip.rides.first
+      @ride.waiting_time = 20
+      @ride2 = @trip.rides.last
+      @ride2.duration = 3
+      @ride.save!; @ride2.save!
     end
 
     it "should display rides properly" do
       visit trip_path(@trip)
-      page.should have_content "Ride 1"
-      page.should have_content "Ride 2"
-      page.should have_content "Ride 3"
+      page.should have_content "Ride 1/3"
+      page.should have_content "Ride 3/3"
+    end
+  end
+
+  describe "GET /trips/edit" do
+    before do
+      @user = Factory(:user)
+      @trip = Factory(:trip, 
+                      :story => Faker::Lorem::paragraph(sentence_count = 10),
+                      :from => 'Tehran',
+                      :to => 'Shiraz',
+                      :distance => 100_000, 
+                      :hitchhikes => 3,
+                      :user => @user)
+      visit new_user_session_path
+      fill_in "Username", :with => @user.username
+      fill_in "Password", :with => 'password'
+      click_button "Sign in"
+      visit edit_trip_path(@trip)
+    end
+
+    it "attaches stories to trips" do
+      fill_in "Story", :with => "What a hilarious Trip!"
+    end
+
+    it "should not attach stories to rides" do
+
+    end
+
+    xit "should display rides properly" do
+      page.should have_content "Add Story"
     end
   end
 end

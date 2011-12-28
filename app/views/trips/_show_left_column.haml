@@ -16,9 +16,11 @@
   = trip.to_s
   = link_to t('.edit_trip'), edit_trip_path(trip) if trip.user == current_user
 
-- trip.rides.each do |ride|
-  = render 'show_ride', :ride => ride
+.display_rides
+  - trip.rides.not_empty.each do |ride|
+    = render 'show_ride', :ride => ride
 
-.trip_story
-  = RDiscount.new(trip.story).to_html.html_safe
+- if trip.story
+  .trip_story
+    = RDiscount.new(trip.story).to_html.html_safe
 
