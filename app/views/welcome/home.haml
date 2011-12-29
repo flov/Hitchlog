@@ -11,10 +11,9 @@
       %br/
   #right-message
     - unless user_signed_in?
-      = facebook_button
-      = link_to t('.sign_up'), new_user_registration_path, :class => 'button light'
-      = link_to t('.sign_in'), new_user_session_path, :class => 'button light'
-
+      %p
+        = link_to t('.sign_up'), new_user_registration_path, :class => 'pretty_button'
+        = link_to t('.sign_in'), new_user_session_path, :class => 'pretty_button'
 = content_for :topmenu do
   = render :partial => 'layouts/statistics'
 
