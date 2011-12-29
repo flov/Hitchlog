@@ -24,9 +24,9 @@ en:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
-      create_a_hitchlog_account: Create a Hitchlog account
-      signed_up: 'Welcome aboard!'
       new:
+        create_a_hitchlog_account: Create a Hitchlog account
+        signed_up: 'Welcome aboard!'
         sign_up: 'Sign up'
         or: Or
       updated: 'You updated your account successfully.'
@@ -36,6 +36,7 @@ en:
         sign_in: 'Sign in'
         or: 'Or'
         login_using_normal_font: Login in using the normal form
+        sign_up: "Sign up"
         
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'

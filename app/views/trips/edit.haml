@@ -2,6 +2,7 @@
   .left_column#map
   .right_column
     #tripstory.hidden
+      -# Story textarea
       = form_for @trip do |f|
         = f.text_area :story, :rows => 4
         = submit_tag
@@ -36,7 +37,8 @@
           -# %li
           -#   = t('.duration', :duration => @trip.duration) if @trip.duration
           %li
-            %button#add_story= t('.add_story')
+            %a.pretty_button#add_story
+              = t('.add_story')
 
     #accordion
       = render @trip.rides

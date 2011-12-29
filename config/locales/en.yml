@@ -159,7 +159,7 @@ en:
       hitchhiked: Hitchhiked
       from: From
       to: To
-      add_story: Add Story
+      add_story: "Add/Edit Story"
       hitchhiked_at: "Hitchhiked at %{time}"
       duration: "Duration: %{duration} hours"
     list:

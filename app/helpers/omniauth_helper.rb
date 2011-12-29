@@ -11,6 +11,6 @@ module OmniauthHelper
   
   def facebook_login
     #link_to "Login with Facebook", "/auth/facebook", :id => 'facebook_login'
-    link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :id => 'facebook_authentication'
+    link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :id => 'facebook_login'
   end
 end
