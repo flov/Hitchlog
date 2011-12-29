@@ -21,8 +21,10 @@ class MigrateStoryDataToTrip < ActiveRecord::Migration
         string << ride.story
         string << "\n\n"
       end
-      trip.story = string unless string.blank?
-      trip.save!
+      unless string.blank?
+        trip.story = string
+        trip.save!
+      end
     end
   end
 
