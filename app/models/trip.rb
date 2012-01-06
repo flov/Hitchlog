@@ -39,7 +39,35 @@ class Trip < ActiveRecord::Base
   end
   
   def to_date
-    start.nil? ? '' : start.strftime("%d %B %Y")    
+    self.start.nil? ? nil : self.start.strftime("%d %B %Y")
+  end
+
+  def arrival
+    self.start.nil? ? nil : self.start.strftime("%d %B %Y %H:%S")
+  end
+
+  def departure
+    self.end.nil? ? nil : self.end.strftime("%d %B %Y %H:%S")
+  end
+
+  def duration
+    self.end - self.start
+  end
+
+  def hitchability
+    if self.gmaps_duration && self.gmaps_duration != 0
+      (self.duration / self.gmaps_duration).round 2
+    else
+      nil
+    end
+  end
+
+  def gmaps_difference
+    if self.gmaps_duration
+      self.duration - self.gmaps_duration
+    else
+      nil
+    end
   end
 
   def to_city_sanitized

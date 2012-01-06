@@ -9,10 +9,13 @@ en:
         from: From
         to: To
         hitchhikes: Number of rides
-        start: Started at
+        start: Departure
+        end: Arrival
         duration: Duration (in hours)
         travelling_with: Travelling
         distance: Distance
+        gmaps_duration: Gmap duration
+        duration: Duration
       ride:
         experience: Experience
         duration: Driving time (in hours)
@@ -61,6 +64,7 @@ en:
       last_login_in: last login in
   welcome:
     home:
+      sign_in_with_facebook: Sign in with Facebook
       newest_hh_stories: Newest Hitchhiking Stories
       newest_hitchhikers: Newest Hitchhikers
       logged: "logged %{trips_size} Trips"
@@ -160,8 +164,9 @@ en:
       from: From
       to: To
       add_story: "Add/Edit Story"
-      hitchhiked_at: "Hitchhiked at %{time}"
-      duration: "Duration: %{duration} hours"
+      hitchability_factor: "Hitchability factor:"
+      it_took_you_longer: According to Google Maps it took you <b>%{hours} longer</b> than if you drove directly.
+      you_were_faster: According to Google Maps you were <b>%{hours} faster</b> than if you drove directly.
     list:
       read_on: "(read on in Trip)"
       countries: Countries
@@ -184,7 +189,7 @@ en:
           most of the time just one day.  For longer trips you can continue a trip
           later. That way you will be able to see the waypoints on the map.
     helper:
-      about_person_image: About the driver
+      about_person_image: About the people
       photo: Photo
       rides: "%{number} Rides"
       photo_missing: Missing Photo, Upload Photo

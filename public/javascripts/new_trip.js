@@ -1,5 +1,5 @@
-/* DO NOT MODIFY. This file was compiled Mon, 11 Jul 2011 10:54:52 GMT from
- * /Users/florianvallen/code/hitchlog/app/coffeescripts/new_trip.coffee
+/* DO NOT MODIFY. This file was compiled Thu, 29 Dec 2011 16:33:23 GMT from
+ * /Users/flov/code/Hitchlog/app/coffeescripts/new_trip.coffee
  */
 
 (function() {
@@ -28,6 +28,14 @@
     $('#suggest_to a').live('click', function() {
       $("#trip_to").val($(this).html());
       return false;
+    });
+    $("input#trip_start").datetimepicker({
+      maxDate: new Date(),
+      dateFormat: 'dd/mm/yy'
+    });
+    return $("input#trip_end").datetimepicker({
+      maxDate: new Date(),
+      dateFormat: 'dd/mm/yy'
     });
   });
 }).call(this);

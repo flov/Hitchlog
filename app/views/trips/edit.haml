@@ -25,17 +25,38 @@
         -# Crossed countries needs to be repaired
         -# = country_images_for_trip(@trip)
         %ul
-          %li 
-            #{t('.from')} #{@trip.sanitize_address("from")}
-          %li
-            #{t('.to')} #{@trip.sanitize_address("to")}
-          %li
-            = t('.hitchhiked_at', :time => @trip.to_date) if @trip.to_date
           %li
             = hitchhiking_with_image(@trip.travelling_with)
-            = driving_time_image(human_hours(@trip.duration)) 
-          -# %li
-          -#   = t('.duration', :duration => @trip.duration) if @trip.duration
+            = driving_time_image(human_seconds(@trip.duration)) 
+          %li 
+            #{t('activerecord.attributes.trip.from')}: #{@trip.sanitize_address("from")}
+          %li
+            #{t('activerecord.attributes.trip.to')}: #{@trip.sanitize_address("to")}
+          - if @trip.arrival
+            %li
+              #{t('activerecord.attributes.trip.start')}:
+              = @trip.arrival
+          - if @trip.departure
+            %li
+              #{t('activerecord.attributes.trip.end')}:
+              = @trip.departure
+          - if @trip.gmaps_duration && @trip.gmaps_duration != 0
+            %li
+              #{t('activerecord.attributes.trip.gmaps_duration')}:
+              = human_seconds(@trip.gmaps_duration) 
+          - if @trip.duration
+            %li#duration
+              #{t('activerecord.attributes.trip.duration')}:
+              = human_seconds(@trip.duration) 
+          - if @trip.hitchability
+            %li
+              = t('.hitchability_factor')
+              = @trip.hitchability
+            %li
+              - if @trip.gmaps_difference > 0
+                = t('.it_took_you_longer', :hours => human_seconds(@trip.gmaps_difference)).html_safe
+              - else
+                = t('.you_were_faster', :hours => human_seconds(@trip.gmaps_difference * (-1))).html_safe
           %li
             %a.pretty_button#add_story
               = t('.add_story')

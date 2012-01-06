@@ -22,4 +22,5 @@ $(document).ready ->
     $("#trip_to").val($(this).html())
     return false
 
-  return
+  $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})
+  $("input#trip_end").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})

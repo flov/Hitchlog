@@ -1,13 +1,9 @@
-/* DO NOT MODIFY. This file was compiled Mon, 26 Dec 2011 08:13:49 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 29 Dec 2011 16:33:23 GMT from
  * /Users/flov/code/Hitchlog/app/coffeescripts/map.coffee
  */
 
 (function() {
-  var convert_lat_lng, directions_hash, parse_route_request, set_field, tripDateStart;
-  tripDateStart = $("input#trip_start").datetimepicker({
-    maxDate: new Date(),
-    dateFormat: 'dd/mm/yy'
-  });
+  var convert_lat_lng, directions_hash, parse_route_request, set_field;
   window.map = null;
   window.geocoder = null;
   window.marker = null;
