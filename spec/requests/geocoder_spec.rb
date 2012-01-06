@@ -22,7 +22,6 @@ describe "Nearby Hitchhikers" do
       fill_in "Username", :with => user.username
       fill_in "Password", :with => 'password'
       click_button "Sign in"
-      # save_and_open_page
       visit users_path
     end
   end

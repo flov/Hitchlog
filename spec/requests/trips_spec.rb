@@ -49,12 +49,14 @@ describe "trips" do
       click_link "Log Your First Trip"
       fill_in "From", :with => "Berlin"
       fill_in "To", :with => "Freiburg"
-      fill_in "Started at", :with => "07/12/2011 10:00"
+      fill_in "Departure", :with => "07/12/2011 10:00"
+      fill_in "Arrival", :with => "07/12/2011 20:00"
       fill_in "Number of rides", :with => "2"
       fill_in "From", :with => "Berlin"
-      fill_in "Duration (in hours)", :with => "5"
       click_button "Continue"
-      page.should have_content "Trip details"
+      page.should have_content "Duration: 10 hours"
+      page.should have_content "Arrival: 07 December 2011 20:00"
+      page.should have_content "Departure: 07 December 2011 10:00"
     end
   end
 
@@ -87,6 +89,9 @@ describe "trips" do
                       :story => Faker::Lorem::paragraph(sentence_count = 10),
                       :from => 'Tehran',
                       :to => 'Shiraz',
+                      :start => "07/12/2011 10:00",
+                      :end   => "07/12/2011 20:00",
+                      :gmaps_duration   => 9.hours.to_f,
                       :distance => 100_000, 
                       :hitchhikes => 3,
                       :user => @user)
@@ -97,16 +102,35 @@ describe "trips" do
       visit edit_trip_path(@trip)
     end
 
-    it "attaches stories to trips" do
+    xit "attaches stories to trips" do
       fill_in "Story", :with => "What a hilarious Trip!"
     end
 
-    it "should not attach stories to rides" do
-
+    it "displays gmaps_difference if slower" do
+      page.should have_content "According to Google Maps it took you 1 hour longer than if you drove directly"
     end
 
-    xit "should display rides properly" do
-      page.should have_content "Add Story"
+    it "displays gmaps_difference if faster" do
+      @trip.gmaps_duration = 11.hours.to_f
+      @trip.save!
+      visit edit_trip_path(@trip)
+      page.should have_content "According to Google Maps you were 1 hour faster than if you drove directly"
+    end
+
+    it "displays duration" do
+      page.should have_content "Duration: 10 hours"
+    end
+
+    it "should display hitchability factor" do
+      page.should have_content "Hitchability factor: #{@trip.hitchability}"
+    end
+
+    it "should display Gmap Duration" do
+      page.should have_content "Gmap duration: 9 hours"
+    end
+
+    it "should display rides properly" do
+      page.should have_content "Add/Edit Story"
     end
   end
 end

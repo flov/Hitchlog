@@ -29,11 +29,10 @@ end
 Factory.define :trip do |trip|
   trip.from  'Barcelona'
   trip.to 'Madrid'
-  trip.start '22/11/2009'
-  trip.duration 6
+  trip.start '07/11/2009 10:00'
+  trip.end   '07/11/2009 20:00'
   trip.distance 1646989
   trip.association(:user)
-  # trip.rides {|r| [r.association(:ride)]} 
   trip.hitchhikes 3
 end
 

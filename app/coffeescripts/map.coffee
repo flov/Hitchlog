@@ -1,5 +1,3 @@
-tripDateStart = $("input#trip_start").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})
-
 window.map = null
 window.geocoder = null
 window.marker = null
