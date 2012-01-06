@@ -12,19 +12,19 @@ class MigrateStoryDataToTrip < ActiveRecord::Migration
     #   ---------------------
     #   2nd Ride story etc...
 
-    Trip.all.each do |trip|
+    Trip.includes(:rides).where(['rides.story IS NOT NULL']).all.each do |trip|
       string = ''
-      trip.rides.not_empty.each do |ride|
-        string << "Ride #{ride.number}"
-        string << " - #{ride.title}" unless ride.title.blank?
-        string << "\n---------------\n\n"
-        string << ride.story
-        string << "\n\n"
+      trip.rides.each do |ride|
+        unless ride.story.blank?
+          string << "Ride #{ride.number}"
+          string << " - #{ride.title}" unless ride.title.blank?
+          string << "\n---------------\n\n"
+          string << ride.story
+          string << "\n\n"
+        end
       end
-      unless string.blank?
-        trip.story = string
-        trip.save!
-      end
+      trip.story = string
+      trip.save!
     end
   end
 
