@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106151948) do
+ActiveRecord::Schema.define(:version => 20120107044041) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -137,9 +137,9 @@ ActiveRecord::Schema.define(:version => 20120106151948) do
   add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",     :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",     :null => false
-    t.string   "password_salt",                       :default => "",     :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20120106151948) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "admin",                               :default => false
-    t.string   "gender",                              :default => "male"
+    t.string   "gender"
     t.float    "sign_in_lat"
     t.float    "sign_in_lng"
   end
