@@ -2,7 +2,7 @@
   %table
     %tr
       %th Trips
-      %th= t('activerecord.attributes.ride.gender')
+      %th
       %th= t('.countries')
       %th= t('.rides')
       %th= t('activerecord.attributes.trip.distance')
@@ -10,10 +10,10 @@
       %th= t('.date')
     - trips.each do |trip|
       %tr
-        %td.title
+        %td.title.neutralize_fonts
           %h5= link_to trip.to_s.html_safe, trip
           - unless trip.story.blank?
-            = RDiscount.new(truncate(trip.story, :length => 250, :separator => ' ', :omission => "... #{t('.read_on')}")).to_html.html_safe
+            = truncated_redmark(trip.story)
         %td.icons
           = images_for_trip(trip)
         %td.countries
@@ -23,4 +23,8 @@
           = ride_image(trip.rides.size)
         %td.distance= distance( trip.distance )
         %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
-        %td.started_at= "#{time_ago_in_words trip.start} ago" unless trip.start.nil?
+        - unless trip.start.nil?
+          - if trip.start > 1.month.ago
+            %td.started_at= t('.start', :time => time_ago_in_words(trip.start))
+          - else
+            %td.started_at= "#{trip.start.strftime("%d %B %Y")}"

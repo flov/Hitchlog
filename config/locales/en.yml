@@ -78,6 +78,7 @@ en:
       more_trips: See More Trips
       more_stories: Read More Stories
       hitchhiked_by: hitchhiked by
+      by: by
       more_hitchhikers: Get To Know More Hitchhikers
       we_have_gathered:
         "We have gathered <b>%{trip_size}</b> hitchhiking experiences in <b>%{country_size}</b> countries. Click on one of the countries above to explore the trips."
@@ -172,7 +173,8 @@ en:
       countries: Countries
       rides: Rides
       by: By
-      date: Date
+      date: Hitchhiked Date
+      start: "%{time} ago"
     form:
       step1_2: "Continue"
     show_ride:

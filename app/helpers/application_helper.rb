@@ -57,7 +57,7 @@ module ApplicationHelper
   end
 
   def human_seconds(seconds)
-    "#{human_hours(seconds/60/60)}"
+    "#{human_hours(seconds.to_f/60/60)}"
   end
 
   def number_to_ordinal(num)

@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
     @story_size = Ride.all.collect(&:story).flatten.compact.delete_if{|x|x==''}.size
     @photo_size = Ride.with_photo.size
     @hitchhiked_km = @trips.collect{|t| t.distance}.flatten.compact.sum / 1000
-    @rides_with_story = Ride.with_story.order("created_at DESC").paginate :per_page => 5, :page => params[:page]
+    @trips_with_story = Trip.with_story.order("created_at DESC").paginate :per_page => 5, :page => params[:page]
     @hitchhikers = User.order("created_at DESC").paginate :per_page => 5, :page => 1
   end
   
