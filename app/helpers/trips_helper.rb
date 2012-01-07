@@ -103,4 +103,8 @@ module TripsHelper
     countries.each{|country| array << "<option>#{country}</option>"}
     array.join ''
   end
+
+  def truncated_redmark(string)
+    RDiscount.new(truncate(string, :length => 250, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
+  end
 end

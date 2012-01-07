@@ -44,19 +44,20 @@
 
     .box.welcome_box
       %h3= t('.newest_hh_stories')
-      %ul
-        -@rides_with_story.each do |ride|
+      %ul.neutralize_fonts
+        - @trips_with_story.each do |trip|
           %li
-            = link_to "#{ride_title(ride)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
-            by 
-            = link_to h(ride.trip.user), user_path(ride.trip.user)
+            = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
+            = t '.by' 
+            = link_to h(trip.user), user_path(trip.user)
+            = truncated_redmark(trip.story)
         %li.text_center
           %strong=link_to t('.more_stories'), "/trips?stories=1"
 
     .box.welcome_box
       %h3= t(".newest_hitchhiking_trips")
       %ul
-        -@paginated_trips.each do |trip|
+        - @paginated_trips.each do |trip|
           %li
             = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
             = t('.hitchhiked_by')
