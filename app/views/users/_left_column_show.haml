@@ -1,9 +1,12 @@
-%h1= @user
+%h1
+  = @user
+  - if @user == current_user
+    (#{link_to t('.edit_profile'), edit_user_path(@user)})
 - if user_signed_in? and current_user == @user
-  -if @user.trips.empty?
-    %h3= link_to 'Log Your First Trip', new_trip_path
+  - if @user.trips.empty?
+    %p= link_to t('.log_your_first_trip'), new_trip_path
   - else
-    %p= link_to 'Log New Trip', new_trip_path
+    %p= link_to t('.log_new_trip'), new_trip_path
 
 #trips
   = render 'trips/list', :trips => @trips unless @trips.empty?
