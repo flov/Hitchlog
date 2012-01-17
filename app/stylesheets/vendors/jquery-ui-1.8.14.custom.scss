@@ -496,6 +496,17 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
+
+// Custom:
+body .ui-datepicker{
+	font-size: 70% !important;
+}
+
+.ui-datepicker table {
+	font-size: 1em;
+}
+// Custom end
+
 .ui-datepicker { width: 17em; padding: .2em .2em 0; display: none; font: 80% "Trebuchet MS", sans-serif; }
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
