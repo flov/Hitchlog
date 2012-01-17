@@ -12,8 +12,12 @@
       %tr
         %td.title.neutralize_fonts
           %h5= link_to trip.to_s.html_safe, trip
-          - unless trip.story.blank?
-            = truncated_redmark(trip.story)
+          - trip.rides.select {|ride| !ride.story.blank? }.each do |ride|
+            - unless ride.title.blank?
+              %p
+                %b= ride.title
+            .story
+              = truncated_redmark(ride.story)
         %td.icons
           = images_for_trip(trip)
         %td.countries

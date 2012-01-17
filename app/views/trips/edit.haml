@@ -57,9 +57,6 @@
                 = t('.it_took_you_longer', :hours => human_seconds(@trip.gmaps_difference)).html_safe
               - else
                 = t('.you_were_faster', :hours => human_seconds(@trip.gmaps_difference * (-1))).html_safe
-          %li
-            %a.pretty_button#add_story
-              = t('.add_story')
 
     #accordion
       = render @trip.rides
