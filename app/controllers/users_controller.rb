@@ -8,7 +8,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @trips = current_user.trips
+
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+     redirect_to edit_user_path(@user)
+    else
+      render :action => 'edit'
+    end
   end
 
   def index

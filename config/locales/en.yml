@@ -23,13 +23,13 @@ en:
         photo: Photo
         gender: Gender
       user:
+        cs_user: CS user
         username: Username
         email: Email
         password: Password
         password_confirmation: Password confirmation
         gender: Gender
         about_you: About you
-        cs_user: Cs user
 
   meta:
     description: |
@@ -125,6 +125,11 @@ en:
       uploaded_photos: Uploaded photos
     show:
       title: User
+    edit:
+      your_avatar: Your Avatar
+      hitchlog_only_supports_gravatar: |
+          Hitchlog only supports avatars through <a href='http://gravatar.com'>Gravatar</a>.<br/>
+          If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a>.
     index:
       hitchhikers: Hitchhikers
       title: Users
