@@ -46,7 +46,7 @@ describe "trips" do
       fill_in "Username", :with => @user.username
       fill_in "Password", :with => 'password'
       click_button "Sign in"
-      click_link "Log Your First Trip"
+      click_link "Log your first Trip"
       fill_in "From", :with => "Berlin"
       fill_in "To", :with => "Freiburg"
       fill_in "Departure", :with => "07/12/2011 10:00"
