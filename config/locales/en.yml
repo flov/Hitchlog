@@ -28,6 +28,8 @@ en:
         password: Password
         password_confirmation: Password confirmation
         gender: Gender
+        about_you: About you
+        cs_user: Cs user
 
   meta:
     description: |
@@ -72,7 +74,6 @@ en:
       get_in_touch_with_hitchhikers: "Get in touch with Hitchhikers who already hitched a route."
       sign_up: 'Sign Up' 
       sign_in: 'Sign In' 
-      welcome: Welcome! 
       newest_hitchhiking_trips: Newest hitchhiking trips
       find_hitchlog_on: "Find Hitchlog On"
       more_trips: See More Trips
@@ -108,6 +109,10 @@ en:
   back: Back
   edit: Edit
   users:
+    left_column_show:
+      log_your_first_trip: Log your first Trip
+      log_new_trip: Log new Trip
+      edit_profile: Edit Profile
     right_column:
       cars_seen_from_inside: Cars seen from inside
       average_drivers_age: "Average driver's age"
