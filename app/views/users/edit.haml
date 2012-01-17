@@ -21,7 +21,7 @@
   .float_right
     = t('.your_avatar')
     %br/
-    = gravatar_image_tag current_user.email
+    = link_to gravatar_image_tag(current_user.email), current_user
     %br/
     = t('.hitchlog_only_supports_gravatar').html_safe
 
