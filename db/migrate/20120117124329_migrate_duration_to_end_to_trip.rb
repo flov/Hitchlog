@@ -1,8 +1,8 @@
 class MigrateDurationToEndToTrip < ActiveRecord::Migration
   def up
     Trip.where("duration IS NOT NULL AND start IS NOT NULL").each do |trip|
-      trip.end = trip.start + (trip.duration*60*60)
-      trip.save!
+      trip.end = trip.start + (trip.attributes["duration"]*60*60)
+      trip.save! :validate => false
     end
   end
 

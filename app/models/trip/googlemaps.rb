@@ -54,6 +54,4 @@ class Trip
     get_formatted_addresses
     save!
   end
-
-  after_update :get_country_distance
 end
