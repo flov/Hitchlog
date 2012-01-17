@@ -48,7 +48,7 @@ window.init_map = (rendererOptions = { draggable: true }) ->
         $("#trip_route").val directions_hash(directionsDisplay)
         # Distance:
         $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
-        # Google Maps duratiorn
+        # Google Maps duration
         $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
         # Display Distance
         $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
