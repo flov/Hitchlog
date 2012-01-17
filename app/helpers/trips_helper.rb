@@ -105,6 +105,6 @@ module TripsHelper
   end
 
   def truncated_redmark(string)
-    RDiscount.new(truncate(string, :length => 250, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
+    RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
 end

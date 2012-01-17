@@ -14,7 +14,6 @@
   %label{:for => 'stories'}= t('.only_stories')
   = check_box_tag 'stories', nil, params[:stories]
   %br/
-  
   = submit_tag t('.search')
 
 = will_paginate @trips, :class => 'digg_pagination'
