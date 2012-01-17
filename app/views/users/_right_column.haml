@@ -1,4 +1,6 @@
-%h1.text_center= link_to @user, user_path(@user)
+%h1.text_center
+  = link_to @user, user_path(@user)
+  = gender_image @user.gender
 .text_center=gravatar_image_tag @user.email
 
 - if user_signed_in? and current_user == @user and current_user.nearbys.any?
