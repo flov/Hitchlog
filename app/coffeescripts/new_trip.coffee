@@ -22,18 +22,22 @@ $(document).ready ->
     $("#trip_to").val($(this).html())
     return false
 
-  $("input#trip_start").datetimepicker({
+  $("input#trip_start").datetimepicker(
     maxDate: new Date()
     dateFormat: 'dd/mm/yy'
     changeYear: true
     changeMonth: true
-  })
-  $("input#trip_start").change ->
-    $("input#trip_end").datetimepicker({
-      maxDate: new Date()
-      dateFormat: 'dd/mm/yy'
-      # minDate: new Date($("input#trip_start").val())
-      changeYear: true
-      changeMonth: true
-    })
-  # $("input#trip_end").datetimepicker({maxDate: new Date(), dateFormat: 'dd/mm/yy'})
+    # numberOfMonths: 3
+    defaultDate: "-1w"
+    onSelect: (selectedDate, inst) ->
+      date = $.datepicker.parseDate( inst.settings.dateFormat, selectedDate, inst.settings )
+      trip_end.datepicker( "option", "minDate", date )
+      trip_end.datepicker( "option", "defaultDate", date )
+  )
+
+  trip_end = $("input#trip_end").datetimepicker(
+    maxDate: new Date()
+    dateFormat: 'dd/mm/yy'
+    changeYear: true
+    changeMonth: true
+  )
