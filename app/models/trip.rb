@@ -21,7 +21,9 @@ class Trip < ActiveRecord::Base
 
   attr_accessor :hitchhikes, :start_time, :end_time
 
-  before_save do
+
+  after_create :get_country_distance
+  before_create do
     # build as much rides on top of the ride as needed
     hitchhikes.to_i.times{|i| rides.build(:number => i+1) }
   end
@@ -53,7 +55,11 @@ class Trip < ActiveRecord::Base
   end
 
   def duration
-    self.end - self.start
+    if self.end and self.start
+      self.end - self.start
+    else
+      self.duration
+    end
   end
 
   def hitchability
@@ -89,16 +95,6 @@ class Trip < ActiveRecord::Base
       self.from_country 
     else
       self.from
-    end
-  end
-
-  def new_duration
-    if !self.duration.nil?
-      self.duration
-    elsif !self.start.nil? && self.end.nil?
-      (self.end - self.start)/60/60
-    else
-      nil
     end
   end
 
