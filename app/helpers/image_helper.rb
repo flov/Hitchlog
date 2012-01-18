@@ -108,7 +108,7 @@ module ImageHelper
   end
 
   def ride_image(number)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.rides', :number => number))
+    image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.rides', :count => number))
   end
 
   def driving_time_image(time)

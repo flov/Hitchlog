@@ -204,7 +204,9 @@ en:
     helper:
       about_person_image: About the people
       photo: Photo
-      rides: "%{number} Rides"
+      rides: 
+        one: "%{count} Ride"
+        other: "%{count} Rides"
       photo_missing: Missing Photo, Upload Photo
       story: Story
       add_story_image: Story to this ride
