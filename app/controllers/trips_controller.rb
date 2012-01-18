@@ -31,6 +31,9 @@ class TripsController < ApplicationController
     if params[:stories]
       @trips = @trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
     end
+    if params[:photos]
+      @trips = @trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
+    end
     @trips = @trips.paginate(:page => params[:page])
     respond_to do |wants|
       wants.html
