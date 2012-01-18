@@ -12,11 +12,12 @@
       %tr
         %td.title.neutralize_fonts
           %h5= link_to trip.to_s.html_safe, trip
-          - trip.rides.select {|ride| !ride.story.blank? }.each do |ride|
+          - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
+          - rides_with_story.each_with_index do |ride, i|
             - unless ride.title.blank?
               %p
                 %b= ride.title
-            .story
+            .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
               = truncated_redmark(ride.story)
         %td.icons
           = images_for_trip(trip)
