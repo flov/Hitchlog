@@ -46,7 +46,7 @@
       %ul
         -@rides_with_story.each do |ride|
           %li
-            = link_to "#{ride_title(ride)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
+            = link_to "#{truncate(ride.title, :length => 50)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
             by 
             = link_to h(ride.trip.user), user_path(ride.trip.user)
             = truncated_redmark(ride.story)

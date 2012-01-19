@@ -122,15 +122,15 @@ module ImageHelper
   def photo_missing_image
     image_tag("icons/photo_delete.png", :class => 'tooltip', :alt => t('trips.helper.photo_missing'))
   end
-  
+
   def photo_image
     image_tag("icons/photo.png", :class => 'tooltip', :alt => t('trips.helper.photo'))
   end
-  
+
   def photo_image_button
     image_tag("icons/photo.png")
   end
-  
+
   def story_image
     image_tag("icons/story.png", :class => 'tooltip')
   end
@@ -138,11 +138,11 @@ module ImageHelper
   def add_story_image
     image_tag("icons/story.png", :class => 'tooltip', :alt => t('trips.helper.add_story_image'))
   end
-  
+
   def story_missing_image
     image_tag("icons/script_delete.png", :class => 'tooltip', :alt => t('trips.helper.story_missing'))
   end
-  
+
   def add_image
     image_tag('icons/add.png', :class => 'tooltip', :alt => t('trips.helper.add_information'))
   end
@@ -153,6 +153,10 @@ module ImageHelper
 
   def twitter_account
     link_to "Find Hitchlog On Twitter", 'http://twitter.com/#!/hitchlog', :id => 'twitter_button'
+  end
+
+  def gmaps_duration_image(duration)
+    image_tag('icons/google.png', :class => 'tooltip', :alt => t('trips.helper.gmaps_duration', :duration => duration))
   end
 end
 

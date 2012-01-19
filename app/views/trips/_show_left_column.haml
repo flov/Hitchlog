@@ -11,10 +11,11 @@
     = trip.start.strftime("%Y")
 
 %h1.text_center
-  = hitchhiking_with_image(trip.travelling_with)
-  = country_images_for_trip(trip)
   = trip.to_s
   = link_to t('.edit_trip'), edit_trip_path(trip) if trip.user == current_user
+
+= hitchhiking_with_image(trip.travelling_with)
+= country_images_for_trip(trip)
 
 .display_rides
   - trip.rides.not_empty.each do |ride|
