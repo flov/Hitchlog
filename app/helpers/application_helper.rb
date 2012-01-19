@@ -51,10 +51,6 @@ module ApplicationHelper
       t('hours_with_minutes', :count => hours.to_i, :minutes => minutes)
     end
   end  
-  
-  def human_minutes(minutes)
-    "#{minutes}min"
-  end
 
   def human_seconds(seconds)
     "#{human_hours(seconds.to_f/60/60)}"
