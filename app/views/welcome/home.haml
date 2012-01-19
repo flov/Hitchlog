@@ -14,6 +14,8 @@
       %p
         = link_to t('.sign_up'), new_user_registration_path, :class => 'pretty_button'
         = link_to t('.sign_in'), new_user_session_path, :class => 'pretty_button'
+        %br/
+        %br/
       %p
         = link_to t('.sign_in_with_facebook'), user_omniauth_authorize_path(:facebook), :class => 'pretty_button'
 = content_for :topmenu do
