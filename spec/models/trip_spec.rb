@@ -7,7 +7,7 @@ describe Trip do
 
   it { should have_many(:rides) }
   it { should belong_to(:user) }
-  it { @trip.to_s.should == "Barcelona &rarr; Madrid" }
+  it { @trip.to_s.should == "Tehran &rarr; Shiraz" }
 
   describe "factories" do
     it "should generate a valid trip" do
@@ -16,16 +16,20 @@ describe Trip do
   end
 
   describe "to_param" do
-    it "should output correctly" do
-      @trip.from_city = 'Cologne'
-      @trip.to_city = 'Berlin'
-      @trip.to_param.should == "#{@trip.id}_cologne_to_berlin"
+    context "has attribute from_city and to_city" do
+      it "should output correctly" do
+        @trip.from_city = 'Cologne'
+        @trip.to_city = 'Berlin'
+        @trip.to_param.should == "#{@trip.id}_cologne_to_berlin"
+      end
     end
 
-    it "should output correctly" do
-      @trip.from = "Berliner Str./B1/B5, Hoppegarten"
-      @trip.to   = "Warszawa"
-      @trip.to_param.should == "#{@trip.id}_berliner_str__2fb1_2fb5_2c_hoppegarten_to_warszawa"
+    context "has attribute from and to, but not from_city and to_city" do
+      it "should output correctly" do
+        @trip.from = "Berliner Str./B1/B5, Hoppegarten"
+        @trip.to   = "Warszawa"
+        @trip.to_param.should == "#{@trip.id}_berliner_str__2fb1_2fb5_2c_hoppegarten_to_warszawa"
+      end
     end
   end
 

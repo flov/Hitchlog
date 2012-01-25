@@ -1,35 +1,34 @@
-#trips_list
-  %table
+%table#trips_list
+  %tr
+    %th Trips
+    %th
+    %th= t('.countries')
+    %th= t('.rides')
+    %th= t('activerecord.attributes.trip.distance')
+    %th= t('.by')
+    %th= t('.date')
+  - trips.each do |trip|
     %tr
-      %th Trips
-      %th
-      %th= t('.countries')
-      %th= t('.rides')
-      %th= t('activerecord.attributes.trip.distance')
-      %th= t('.by')
-      %th= t('.date')
-    - trips.each do |trip|
-      %tr
-        %td.title.neutralize_fonts
-          %h5= link_to trip.to_s.html_safe, trip
-          - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
-          - rides_with_story.each_with_index do |ride, i|
-            - unless ride.title.blank?
-              %p
-                %b= ride.title
-            .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
-              = truncated_redmark(ride.story)
-        %td.icons
-          = images_for_trip(trip)
-        %td.countries
-          = country_images_for_trip(trip)
-        %td.rides
-          = trip.rides.size
-          = ride_image(trip.rides.size)
-        %td.distance= distance( trip.distance )
-        %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
-        - unless trip.start.nil?
-          - if trip.start > 1.month.ago
-            %td.started_at= t('.start', :time => time_ago_in_words(trip.start))
-          - else
-            %td.started_at= "#{trip.start.strftime("%d %B %Y")}"
+      %td.title.neutralize_fonts
+        %h5= link_to trip.to_s.html_safe, trip
+        - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
+        - rides_with_story.each_with_index do |ride, i|
+          - unless ride.title.blank?
+            %p
+              %b= ride.title
+          .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
+            = truncated_redmark(ride.story)
+      %td.icons
+        = images_for_trip(trip)
+      %td.countries
+        = country_images_for_trip(trip)
+      %td.rides
+        = trip.rides.size
+        = ride_image(trip.rides.size)
+      %td.distance= distance( trip.distance )
+      %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
+      - unless trip.start.nil?
+        - if trip.start > 1.month.ago
+          %td.started_at= t('.start', :time => time_ago_in_words(trip.start))
+        - else
+          %td.started_at= "#{trip.start.strftime("%d %B %Y")}"

@@ -11,8 +11,6 @@ class Trip < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :hitchhikes, :presence => true, :if => :new_record
 
-  scope :with_story, where("story IS NOT NULL AND story <> ''")
-
   concerned_with :googlemaps,
                  :countries
 

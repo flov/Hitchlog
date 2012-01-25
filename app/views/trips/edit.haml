@@ -1,11 +1,6 @@
 .column_wrapper
   .left_column#map
   .right_column
-    #tripstory.hidden
-      -# Story textarea
-      = form_for @trip do |f|
-        = f.text_area :story, :rows => 4
-        = submit_tag
     = form_for @trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
       = f.hidden_field :distance

@@ -97,6 +97,10 @@ module TripsHelper
     array.join ' '
   end
 
+  def options_for_gender
+    "<option>male</option><option>female</option><option>mixed</option>"
+  end
+
   def options_for_countries
     countries = CountryDistance.all.map(&:country).uniq.sort
     array =[]

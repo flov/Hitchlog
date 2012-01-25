@@ -7,20 +7,20 @@ class Ride < ActiveRecord::Base
   belongs_to :trip
   has_one :person, :dependent => :destroy
   accepts_nested_attributes_for :person, :allow_destroy => true
-  
+
   #validates :trip, :presence => true
-  
+
   concerned_with  :photo_procession
-  
+
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story IS NOT NULL AND story <> ''")
-  
+
   def to_s
     self.trip
   end
-  
+
   def to_param
     from_param = trip.from.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
     to_param   = trip.to.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
