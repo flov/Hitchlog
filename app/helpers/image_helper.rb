@@ -44,51 +44,51 @@ module ImageHelper
   end
 
   def about_person_image
-    image_tag("icons/user_comment.png", :class => 'tooltip', :alt => t('trips.helper.about_person_image'))
+    image_tag("icons/user_comment.png", :class => 'tooltip', :alt => t('helper.about_person_image'))
   end
 
   def alone_image
-    image_tag("icons/alone.png", :class => 'tooltip', :alt => t('trips.helper.alone'))
+    image_tag("icons/alone.png", :class => 'tooltip', :alt => t('helper.alone'))
   end
 
   def two_people_image
-    image_tag("icons/two_people.png", :class => 'tooltip', :alt => t('trips.helper.two'))
+    image_tag("icons/two_people.png", :class => 'tooltip', :alt => t('helper.two'))
   end
 
   def three_people_image
-    image_tag("icons/three_people.png", :class => 'tooltip', :alt => t('trips.helper.three'))
+    image_tag("icons/three_people.png", :class => 'tooltip', :alt => t('helper.three'))
   end
 
   def more_than_three_people_image  
-    image_tag("icons/more_than_three_people.png", :class => 'tooltip', :alt => t('trips.helper.more_than_three'))
+    image_tag("icons/more_than_three_people.png", :class => 'tooltip', :alt => t('helper.more_than_three'))
   end
   
  def add_information_image
-    image_tag("icons/add.png", :class => 'tooltip', :alt => t('trips.helper.add_information_to_hitchhike'))
+    image_tag("icons/add.png", :class => 'tooltip', :alt => t('helper.add_information_to_hitchhike'))
   end
 
   def gender_driver_image(gender)
     if gender == 'male'
-      image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male_driver'))
+      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_driver'))
     elsif gender == 'female'
-      image_tag("icons/female.png", :class => 'tooltip', :alt => t('trips.helper.female_driver'))
+      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female_driver'))
     end
   end
 
   def gender_image(gender)
     if gender == 'male'
-      image_tag("icons/male.png", :class => 'tooltip', :alt => t('trips.helper.male'))
+      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male'))
     elsif gender == 'female'
-      image_tag("icons/female.png", :class => 'tooltip', :alt => t('trips.helper.female'))
+      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female'))
     end
   end
 
   def delete_ride_image
-    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('trips.helper.delete_hitchhike'))
+    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('helper.delete_hitchhike'))
   end
 
   def delete_trip_image
-    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('trips.helper.delete_trip'))
+    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('helper.delete_trip'))
   end
 
   def user_image
@@ -99,32 +99,32 @@ module ImageHelper
     if time.nil?
       image_tag("icons/time.png")
     else
-      image_tag("icons/time.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time', :time => time))
+      image_tag("icons/time.png", :class => 'tooltip', :alt => t('helper.waiting_time', :time => time))
     end
   end
 
   def waiting_time_missing_image
-    image_tag("icons/time_delete.png", :class => 'tooltip', :alt => t('trips.helper.waiting_time_missing'))
+    image_tag("icons/time_delete.png", :class => 'tooltip', :alt => t('helper.waiting_time_missing'))
   end
 
   def ride_image(number)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.rides', :count => number))
+    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.rides', :count => number))
   end
 
   def driving_time_image(time)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('trips.helper.driving_time', :time => time))
+    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
   end
 
   def driving_time_missing_image
-    image_tag("icons/car_delete.png", :class => 'tooltip', :alt => t('trips.helper.driving_time_missing'))
+    image_tag("icons/car_delete.png", :class => 'tooltip', :alt => t('helper.driving_time_missing'))
   end
 
   def photo_missing_image
-    image_tag("icons/photo_delete.png", :class => 'tooltip', :alt => t('trips.helper.photo_missing'))
+    image_tag("icons/photo_delete.png", :class => 'tooltip', :alt => t('helper.photo_missing'))
   end
 
   def photo_image
-    image_tag("icons/photo.png", :class => 'tooltip', :alt => t('trips.helper.photo'))
+    image_tag("icons/photo.png", :class => 'tooltip', :alt => t('helper.photo'))
   end
 
   def photo_image_button
@@ -136,15 +136,15 @@ module ImageHelper
   end
 
   def add_story_image
-    image_tag("icons/story.png", :class => 'tooltip', :alt => t('trips.helper.add_story_image'))
+    image_tag("icons/story.png", :class => 'tooltip', :alt => t('helper.add_story_image'))
   end
 
   def story_missing_image
-    image_tag("icons/script_delete.png", :class => 'tooltip', :alt => t('trips.helper.story_missing'))
+    image_tag("icons/script_delete.png", :class => 'tooltip', :alt => t('helper.story_missing'))
   end
 
   def add_image
-    image_tag('icons/add.png', :class => 'tooltip', :alt => t('trips.helper.add_information'))
+    image_tag('icons/add.png', :class => 'tooltip', :alt => t('helper.add_information'))
   end
 
   def facebook_page
@@ -156,7 +156,7 @@ module ImageHelper
   end
 
   def gmaps_duration_image(duration)
-    image_tag('icons/google.png', :class => 'tooltip', :alt => t('trips.helper.gmaps_duration', :duration => duration))
+    image_tag('icons/google.png', :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => duration))
   end
 end
 
