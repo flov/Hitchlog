@@ -9,11 +9,6 @@ describe "trips" do
       @english_trip = Factory.build(:trip, :from => 'London', :to => 'Manchester')
       @english_trip.country_distances <<  CountryDistance.new(:country => 'United Kingodm', :distance => 123123)
       @english_trip.save!
-      @trip_with_story = Factory.create(:trip,
-                                        :story => Faker::Lorem::paragraph(sentence_count = 10),
-                                        :from => 'Tehran',
-                                        :to => 'Shiraz',
-                                        :distance => 555555)
     end
 
     it "should be able to sort trips by country" do
@@ -27,11 +22,15 @@ describe "trips" do
     end
 
     it "should sort trips after stories" do
+      @trip_with_story = Factory.create(:trip)
+      ride = @trip_with_story.rides.first
+      ride.story = Faker::Lorem::paragraph(sentence_count = 10)
+      ride.save!
       visit trips_path
-      check "Only stories"
+      check "Story"
       click_button "Search"
       page.should have_content @trip_with_story.from
-      page.should have_content "#{@trip_with_story.story[0..150]}"
+      page.should have_content "#{ride.story[0..150]}"
       page.should_not have_content @german_trip.from
     end
   end
@@ -62,39 +61,29 @@ describe "trips" do
 
   describe "GET /trips/show" do
     before do
-      @trip = Factory(:trip, 
-                      :story => Faker::Lorem::paragraph(sentence_count = 10),
-                      :from => 'Tehran',
-                      :to => 'Shiraz',
-                      :distance => 100_000, 
-                      :hitchhikes => 3)
-      @ride = @trip.rides.first
-      @ride.waiting_time = 20
-      @ride2 = @trip.rides.last
-      @ride2.duration = 3
-      @ride.save!; @ride2.save!
+      @trip = Factory(:trip)
+      @ride1 = @trip.rides.first
+      @ride1.waiting_time = 20
+      @ride3 = @trip.rides.last
+      @ride3.duration = 3
+      @ride1.save!; @ride3.save!
     end
 
     it "should display rides properly" do
       visit trip_path(@trip)
-      page.should have_content "Ride 1/3"
-      page.should have_content "Ride 3/3"
+      page.should have_content "Ride 1"
+      page.should have_content "Ride 3"
+      page.should have_content "Gmaps Duration #{@trip.gmaps_duration}"
+      page.should have_content "Trip Duration #{@trip.duration}"
+      page.should have_content "Hitchability #{@trip.hitchability}"
+      page.should have_content "#{@trip.rides.size} Rides"
     end
   end
 
   describe "GET /trips/edit" do
     before do
       @user = Factory(:user)
-      @trip = Factory(:trip, 
-                      :story => Faker::Lorem::paragraph(sentence_count = 10),
-                      :from => 'Tehran',
-                      :to => 'Shiraz',
-                      :start => "07/12/2011 10:00",
-                      :end   => "07/12/2011 20:00",
-                      :gmaps_duration   => 9.hours.to_f,
-                      :distance => 100_000, 
-                      :hitchhikes => 3,
-                      :user => @user)
+      @trip = Factory(:trip, :user => @user)
       visit new_user_session_path
       fill_in "Username", :with => @user.username
       fill_in "Password", :with => 'password'
@@ -127,10 +116,6 @@ describe "trips" do
 
     it "should display Gmap Duration" do
       page.should have_content "Gmap duration: 9 hours"
-    end
-
-    it "should display rides properly" do
-      page.should have_content "Add/Edit Story"
     end
   end
 end

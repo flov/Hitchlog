@@ -2,7 +2,48 @@
 
 #trips_show
   .left_column
-    = render 'trips/show_left_column', :trip => @trip
+    = hidden_field_tag :trip_from,  @trip.to_formatted_address 
+    = hidden_field_tag :trip_to,    @trip.from_formatted_address
+    = hidden_field_tag :trip_route, @trip.route
+
+    - unless @trip.to_date.blank?
+      #trip_date
+        = @trip.start.strftime("%d")
+        %br/
+        = @trip.start.strftime("%B")
+        %br/
+        = @trip.start.strftime("%Y")
+
+    %h1.text_center
+      = @trip.to_s
+      = link_to t('.edit_trip'), edit_trip_path(@trip) if @trip.user == current_user
+
+    .images_for_trip
+      = hitchhiking_with_image(@trip.travelling_with)
+      = country_images_for_trip(@trip)
+
+    .display_rides
+      %table#rides_list
+        - @trip.rides.not_empty.each do |ride|
+          %tr{ :id => "ride_#{ride.number}" }
+            %td
+              %b
+                = t('.ride')
+                #{ride.number}/#{ride.trip.rides.size}
+            %td
+              = images_for_ride(ride)
+
+    - @trip.rides.select {|ride| not ride.story.blank?}.each do |ride|
+      %h2
+        = ride.title if ride.title
+        %span.subtitle
+          (#{t('.ride')} #{ride.number})
+
+      - unless ride.story.blank?
+        .trip_story
+          = RDiscount.new(ride.story).to_html.html_safe
+
+
   .right_column
     = render 'users/right_column'
 

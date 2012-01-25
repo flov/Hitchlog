@@ -27,10 +27,11 @@ Factory.define :berlin_user, :parent => :user do |user|
 end
 
 Factory.define :trip do |trip|
-  trip.from  'Barcelona'
-  trip.to 'Madrid'
-  trip.start '07/11/2009 10:00'
-  trip.end   '07/11/2009 20:00'
+  trip.from 'Tehran'
+  trip.to 'Shiraz'
+  trip.start "07/12/2011 10:00"
+  trip.end   "07/12/2011 20:00"
+  trip.gmaps_duration   9.hours.to_f
   trip.distance 1646989
   trip.association(:user)
   trip.hitchhikes 3

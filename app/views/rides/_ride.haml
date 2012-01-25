@@ -39,7 +39,7 @@
         = f.fields_for :person do |builder|
           = builder.label :gender
           %br/
-          = builder.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.both')], {:include_blank => true})
+          = builder.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
           %br/
           = builder.label :mission
           %br/

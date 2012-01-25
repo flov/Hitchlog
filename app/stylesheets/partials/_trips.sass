@@ -60,29 +60,6 @@ ul.person
   padding: 0 0 0 25px
   list-style: none
 
-.hitchhike-subtitle  
-  padding: 0
-  margin: 0
-  +clearfix
-  li
-    margin-right: 70px
-    float: left
-    list-style: none
-      
-h3.date
-  margin: 0 0 0 -200px
-  position: absolute
-  text-align: right
-  text-transform: uppercase
-  width: 190px
-  line-height: 20px
-  color: #999999
-  letter-spacing: -1px
-  font-family: "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif
-  font-weight: normal
-  strong
-    color: #D4D4D4
-
 #trips_listing
   p
     margin-bottom: 0
@@ -129,23 +106,24 @@ h3.date
   .right
     background-color: blue
 
-#trips_list
-  table
-    $table-color: lighten($orange,60)
-    +table-scaffolding
-    +alternating-rows-and-columns2($table-color, darken($table-color, 4), black)
-    width: 100%
-    margin: 10px auto
-    td.started_at, td.created_at, td.rides, td.distance
-      text-align: center
-    td.title
-      max-width: 430px
-    td.distance
-      width: 60px
-    td.icons
-      width: 90px
-    td.hitchhiked_by
-      text-align: center
+table#trips_list, table#rides_list
+  $table-color: lighten($orange,60)
+  +table-scaffolding
+  +alternating-rows-and-columns2($table-color, darken($table-color, 4), black)
+  margin: 10px auto
+  td.started_at, td.created_at, td.rides, td.distance
+    text-align: center
+  td.title
+    max-width: 430px
+  td.distance
+    width: 60px
+  td.icons
+    width: 90px
+  td.hitchhiked_by
+    text-align: center
+
+table#trips_list
+  width: 100%
 
 .neutralize_fonts
   p,h1,h2,h3,h4,h5
@@ -248,3 +226,10 @@ table.gmaps_comparison
     border-bottom: 1px dashed gray
   .last
     border-bottom: 0
+
+.images_for_trip
+  margin: 10px 0
+  text-align: center
+
+span.subtitle
+  font-size: 10px
