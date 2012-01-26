@@ -91,10 +91,6 @@ describe "trips" do
       visit edit_trip_path(@trip)
     end
 
-    xit "attaches stories to trips" do
-      fill_in "Story", :with => "What a hilarious Trip!"
-    end
-
     it "displays gmaps_difference if slower" do
       page.should have_content "According to Google Maps it took you 1 hour longer than if you drove directly"
     end
