@@ -111,4 +111,8 @@ module TripsHelper
   def truncated_redmark(string)
     RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
+
+  def hitchability(trip)
+    "<span class='tooltip' alt='Hitchability: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe
+  end
 end
