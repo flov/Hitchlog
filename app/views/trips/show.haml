@@ -19,7 +19,11 @@
       = link_to t('.edit_trip'), edit_trip_path(@trip) if @trip.user == current_user
 
     .images_for_trip
+      = hitchability(@trip)
       = hitchhiking_with_image(@trip.travelling_with)
+      = gmaps_duration_image(@trip)
+      = trip_duration_image(@trip)
+      = ride_image(@trip.rides.size)
       = country_images_for_trip(@trip)
 
     .display_rides

@@ -8,7 +8,7 @@ module ImageHelper
 
   def images_for_ride(ride)
     array = []
-    array << gender_driver_image(ride.person.gender) if ride.person
+    array << gender_people_image(ride.person.gender) if ride.person
     array << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
     array << driving_time_image(human_hours(ride.duration)) if ride.duration
     array << photo_image if ride.photo.file?
@@ -19,7 +19,7 @@ module ImageHelper
   def images_for_trip(trip)
     images = []
     trip.rides.each do |ride|
-      images << gender_driver_image(ride.person.gender) if ride.person
+      images << gender_people_image(ride.person.gender) if ride.person
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
       images << photo_image if ride.photo.file?
@@ -67,11 +67,13 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tooltip', :alt => t('helper.add_information_to_hitchhike'))
   end
 
-  def gender_driver_image(gender)
+  def gender_people_image(gender)
     if gender == 'male'
-      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_driver'))
+      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_people'))
     elsif gender == 'female'
-      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female_driver'))
+      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female_people'))
+    elsif gender == 'mixed'
+      image_tag("icons/mixed_gender.png", :class => 'tooltip', :alt => t('helper.mixed_people'))
     end
   end
 
@@ -109,10 +111,6 @@ module ImageHelper
 
   def ride_image(number)
     image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.rides', :count => number))
-  end
-
-  def driving_time_image(time)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
   end
 
   def driving_time_missing_image
@@ -155,8 +153,16 @@ module ImageHelper
     link_to "Find Hitchlog On Twitter", 'http://twitter.com/#!/hitchlog', :id => 'twitter_button'
   end
 
-  def gmaps_duration_image(duration)
-    image_tag('icons/google.png', :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => duration))
+  def gmaps_duration_image(trip)
+    image_tag("icons/google.png", :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => human_seconds(trip.duration)))
+  end
+
+  def trip_duration_image(trip)
+    image_tag("icons/car_red.png", :class => 'tooltip', :alt => t('helper.trip_duration', :duration => human_seconds(trip.duration)))
+  end
+
+  def driving_time_image(time)
+    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
   end
 end
 
