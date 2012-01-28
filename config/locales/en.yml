@@ -36,6 +36,11 @@ en:
         A website for logging rides and hitchhiking stories. 
         It generates statistics about hitchhiking in certain countries and 
         gives an overview of the experiences as a hitchhiker.
+  flash:
+    users:
+      update:
+        error: "Could not edit profile"
+        notice: "Successfully edited profile"
   helper:
     no_results_for_this_route: no results for this route
     unknown_distance: unknown distance
