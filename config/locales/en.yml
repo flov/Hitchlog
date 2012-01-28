@@ -145,11 +145,6 @@ en:
   back: Back
   edit: Edit
   users:
-    left_column_show:
-      log_your_first_trip: Log your first Trip
-      log_new_trip: Log new Trip
-      edit_profile: Edit Profile
-      about: About
     right_column:
       cars_seen_from_inside: Cars seen from inside
       average_drivers_age: "Average driver's age"
@@ -162,6 +157,16 @@ en:
       cs_user: CS User
       uploaded_photos: Uploaded photos
     show:
+      alone: alone
+      with_two: with two
+      with_three: with three
+      with_four: with four
+      log_your_first_trip: Log your first Trip
+      log_new_trip: Log new Trip
+      edit: Edit
+      delete: Delete
+      about: About
+      trips: Trips
       title: User
     edit:
       your_avatar: Your Avatar
@@ -212,6 +217,7 @@ en:
       search: Search
       choose_a_country: Choose a country
     edit:
+      edit_title: Edit Trip
       trip_details: Trip details
       hitchhiked: Hitchhiked
       from: From
