@@ -154,6 +154,7 @@ en:
       kms_hitchhiked: Kms hitchhiked
       waiting_time_per_ride: Waiting time per ride
       written_stories: Written stories
+      cs_user: CS User
       uploaded_photos: Uploaded photos
     show:
       title: User
