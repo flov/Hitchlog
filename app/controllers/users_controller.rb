@@ -3,8 +3,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @trips = @user.trips.paginate(:page => params[:page], :per_page => 20)
-    @rides = @user.trips.map{|trip| trip.rides}.flatten
+    @trips = @user.trips
+    @rides = @trips.map{|trip| trip.rides}.flatten
+    @x_times_alone = @trips.select {|trip| trip.travelling_with == 0}.size
+    @x_times_with_two = @trips.select {|trip| trip.travelling_with == 1}.size
+    @x_times_with_three = @trips.select {|trip| trip.travelling_with == 2}.size
+    @x_times_with_four = @trips.select {|trip| trip.travelling_with == 3}.size
+    @trips = @trips.paginate(:page => params[:page], :per_page => 20)
   end
 
   def edit

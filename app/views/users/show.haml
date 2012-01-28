@@ -2,7 +2,39 @@
 
 #users_show
   .left_column
-    = render 'left_column_show'
+    %h1.text_center
+      = @user
+      - if @user == current_user
+        (#{link_to t('.edit'), edit_user_path(@user)}
+        |
+        #{link_to t('.delete'), user_path(@user), :method => :delete, :confirm => t('general.confirm')})
+    - if user_signed_in? and current_user == @user
+      - if @user.trips.empty?
+        %p= link_to t('.log_your_first_trip'), new_trip_path
+      - else
+        %p= link_to t('.log_new_trip'), new_trip_path
+
+    - if !@user.about_you.blank?
+      %h3 #{t('.about')} #{@user}:
+      %p= RDiscount.new(@user.about_you).to_html.html_safe
+
+    .trips_count
+      .float_left
+        %h3 #{ @user.trips.size } #{ t('.trips') }
+      .float_right
+        - unless @x_times_with_alone == 0
+          %p #{@x_times_alone}x #{t('.alone')}
+        - unless @x_times_with_two == 0
+          %p #{@x_times_with_two}x #{t('.with_two')}
+        - unless @x_times_with_three == 0
+          %p #{@x_times_with_three}x #{t('.with_three')}
+        - unless @x_times_with_four == 0
+          %p #{@x_times_with_four}x #{t('.with_four')} 
+
+    #trips
+      = will_paginate @trips, :class => 'digg_pagination'
+      = render 'trips/list', :trips => @trips unless @trips.empty?
+      = will_paginate @trips, :class => 'digg_pagination'
 
   .right_column
     = render 'users/right_column'
