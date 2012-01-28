@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe User do
   it { should have_many(:trips) }
+  it { should have_many(:comments) }
   it { should have_one(:sign_in_address) }
   let(:user) { Factory(:user) }
 
