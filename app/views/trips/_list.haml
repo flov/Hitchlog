@@ -17,7 +17,7 @@
             %p
               %b= ride.title
           .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
-            = truncated_redmark(ride.story)
+            = truncated_markdown(ride.story)
       %td.icons
         = images_for_trip(trip)
       %td.countries

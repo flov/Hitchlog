@@ -51,7 +51,7 @@
             = link_to "#{truncate(ride.title, :length => 50)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
             by 
             = link_to h(ride.trip.user), user_path(ride.trip.user)
-            = truncated_redmark(ride.story)
+            = truncated_markdown(ride.story)
         %li.text_center
           %strong=link_to t('.more_stories'), "/trips?stories=1"
 

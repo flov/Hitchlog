@@ -108,7 +108,7 @@ module TripsHelper
     array.join ''
   end
 
-  def truncated_redmark(string)
+  def truncated_markdown(string)
     RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
 
