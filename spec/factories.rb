@@ -12,10 +12,11 @@ Factory.define :user do |user|
   user.username              { |u| u.email.split("@").first }
   user.password              "password"
   user.password_confirmation "password"
-  user.last_sign_in_at        Time.zone.now
-  user.sign_in_lat            0.0          # if tested offline
-  user.sign_in_lng            0.0          # it must not be null for tests
-  user.association            :sign_in_address
+  user.cs_user               Faker::Name.first_name
+  user.last_sign_in_at       Time.zone.now
+  user.sign_in_lat           0.0          # if tested offline
+  user.sign_in_lng           0.0          # it must not be null for tests
+  user.association           :sign_in_address
 end
 
 Factory.define :munich_user, :parent => :user do |user|

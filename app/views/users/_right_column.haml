@@ -17,10 +17,15 @@
       #{t('.hitchhiked_countries')}: #{@user.hitchhiked_countries}
     %li
       #{t('.cars_seen_from_inside')}: #{@rides.size}
-    %li
-      = "#{t('.average_drivers_age')}: #{@user.average_drivers_age}".html_safe if @user.average_drivers_age
-    %li
-      = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe if @user.average_waiting_time
+    - if @user.average_drivers_age
+      %li
+        = "#{t('.average_drivers_age')}: #{@user.average_drivers_age}".html_safe
+    - if @user.average_waiting_time
+      %li
+        = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
+    - if @user.cs_user
+      %li
+        #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/flov")}
     %li
       #{t('.written_stories')}: #{@user.stories.size}
     %li

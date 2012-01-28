@@ -5,6 +5,16 @@ describe "users" do
     @user = Factory(:user)
   end
 
+  describe "GET /users/show" do
+    before do
+      visit user_path(@user)
+    end
+
+    it do
+      page.should have_content "CS User: #{@user.cs_user}"
+    end
+  end
+
   describe "GET /users/edit" do
     context "logged in" do
       before do
