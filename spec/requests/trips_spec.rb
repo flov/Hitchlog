@@ -73,10 +73,6 @@ describe "trips" do
       visit trip_path(@trip)
       page.should have_content "Ride 1"
       page.should have_content "Ride 3"
-      page.should have_content "Gmaps Duration #{@trip.gmaps_duration}"
-      page.should have_content "Trip Duration #{@trip.duration}"
-      page.should have_content "Hitchability #{@trip.hitchability}"
-      page.should have_content "#{@trip.rides.size} Rides"
     end
   end
 
