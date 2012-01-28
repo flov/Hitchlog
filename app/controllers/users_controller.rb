@@ -14,8 +14,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-     redirect_to edit_user_path(@user)
+      flash[:notice] = I18n.t('flash.users.update.notice')
+      redirect_to user_path(@user)
     else
+      flash[:error] = I18n.t('flash.users.update.error')
       render :action => 'edit'
     end
   end
