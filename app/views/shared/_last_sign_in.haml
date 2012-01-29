@@ -1,6 +1,6 @@
 #{t('.last_sign_in')}:
 = time_ago_in_words user.last_sign_in_at if user.last_sign_in_at
 = t('.ago')
-- if user.sign_in_address
-  = t('.in')
-  = last_login_location(user)
+-# - if user.sign_in_address
+-#   = t('.in')
+-#   = last_login_location(user)
