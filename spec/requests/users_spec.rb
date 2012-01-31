@@ -23,7 +23,7 @@ describe "users" do
         fill_in "Password", :with => 'password'
         click_button "Sign in"
         visit user_path(@user)
-        click_link "Edit Profile"
+        click_link "Edit"
       end
 
       it "displays fields for editing profil" do

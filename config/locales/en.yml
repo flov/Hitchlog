@@ -168,6 +168,8 @@ en:
       about: About
       trips: Trips
       title: User
+      rides: Rides
+      experiences: experiences
     edit:
       your_avatar: Your Avatar
       hitchlog_only_supports_gravatar: |

@@ -2,10 +2,30 @@ require 'spec_helper'
 
 describe User do
   it { should have_many(:trips) }
-  it { should have_many(:comments) }
   it { should have_one(:sign_in_address) }
   let(:user) { Factory(:user) }
 
+  describe "experiences" do
+    before do
+      user.trips << Factory(:trip, :hitchhikes => 0)
+    end
+
+    it "should return an array of experiences" do
+      user.trips[0].rides << Factory(:ride, :experience => 'positive')
+      user.trips[0].rides << Factory(:ride, :experience => 'negative')
+      user.trips[0].rides << Factory(:ride, :experience => 'neutral')
+      user.experiences.should == ['positive', 'negative', 'neutral']
+      user.experiences_in_percentage.should == {'positive' => 0.33, 'neutral' => 0.33, 'negative' => 0.33}
+    end
+
+    context "only positive experiences" do
+      it do
+        2.times{user.trips[0].rides << Factory(:ride, :experience => 'positive')}
+        user.experiences_in_percentage.should == {'positive' => 1.0}
+      end
+    end
+  end
+  
   describe "hitchhiked kms" do
     it "should return total amount of kms hitchhiked" do
       user.trips << Factory(:trip, :distance => 100_000)

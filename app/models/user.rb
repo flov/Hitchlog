@@ -49,6 +49,18 @@ class User < ActiveRecord::Base
     trips.collect{|trip| trip.rides}.flatten
   end
 
+  def experiences
+    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.experience }
+  end
+
+  def experiences_in_percentage
+    hash = {}
+    self.experiences.uniq.each do |experience|
+      hash[experience] = ( self.experiences.select{|exp| exp == experience}.size.to_f / self.experiences.size ).round(2)
+    end
+    hash
+  end
+
   private
   def sanitize_username
     self.username.downcase
