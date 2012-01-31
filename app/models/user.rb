@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     hash
   end
 
+  def gender_of_rides_in_percentage
+    
+  end
+
   private
   def sanitize_username
     self.username.downcase
