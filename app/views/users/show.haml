@@ -30,6 +30,13 @@
           %p #{@x_times_with_three}x #{t('.with_three')}
         - unless @x_times_with_four == 0
           %p #{@x_times_with_four}x #{t('.with_four')} 
+    .profile_section
+      %h3 #{ @rides.size} #{t('.rides')}:
+      - @user.experiences_in_percentage.each do |experience, val|
+        %span{:class => "#{experience}"}
+          #{val*100}%
+          = experience 
+          = t('.experiences')
 
     #trips
       = will_paginate @trips, :class => 'digg_pagination'
