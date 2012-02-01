@@ -61,8 +61,16 @@ class User < ActiveRecord::Base
     hash
   end
 
-  def gender_of_rides_in_percentage
-    
+  def genders
+    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.gender }.select{|gender| !gender.nil?}
+  end
+
+  def genders_in_percentage
+    hash = {}
+    self.genders.uniq.each do |gender|
+      hash[gender] = ( self.genders.select{|gen| gen == gender}.size.to_f / self.genders.size ).round(2)
+    end
+    hash
   end
 
   private

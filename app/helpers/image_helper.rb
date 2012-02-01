@@ -8,7 +8,7 @@ module ImageHelper
 
   def images_for_ride(ride)
     array = []
-    array << gender_people_image(ride.person.gender) if ride.person
+    array << gender_people_image(ride.gender) if ride.gender
     array << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
     array << driving_time_image(human_hours(ride.duration)) if ride.duration
     array << photo_image if ride.photo.file?
@@ -19,7 +19,7 @@ module ImageHelper
   def images_for_trip(trip)
     images = []
     trip.rides.each do |ride|
-      images << gender_people_image(ride.person.gender) if ride.person
+      images << gender_people_image(ride.gender) if ride.gender
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
       images << photo_image if ride.photo.file?

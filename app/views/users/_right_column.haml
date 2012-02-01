@@ -17,9 +17,6 @@
       #{t('.hitchhiked_countries')}: #{@user.hitchhiked_countries}
     %li
       #{t('.cars_seen_from_inside')}: #{@rides.size}
-    - if @user.average_drivers_age
-      %li
-        = "#{t('.average_drivers_age')}: #{@user.average_drivers_age}".html_safe
     - if @user.average_waiting_time
       %li
         = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe

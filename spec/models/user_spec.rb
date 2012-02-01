@@ -20,9 +20,29 @@ describe User do
 
     context "only positive experiences" do
       it do
-        2.times{user.trips[0].rides << Factory(:ride, :experience => 'positive')}
+        user.trips[0].rides << Factory(:ride, :experience => 'positive')
         user.experiences_in_percentage.should == {'positive' => 1.0}
       end
+    end
+  end
+
+  describe "gender" do 
+    before do
+      user.trips << Factory(:trip, :hitchhikes => 0)
+    end
+
+    it "should display percentage of genders of people who picked you up" do
+      user.trips[0].rides << Factory(:ride)
+      user.trips[0].rides << Factory(:ride, :gender => 'male')
+      user.trips[0].rides << Factory(:ride, :gender => 'female')
+      user.trips[0].rides << Factory(:ride, :gender => 'mixed')
+      user.genders.should == ['male', 'female', 'mixed']
+      user.genders_in_percentage.should == {'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33}
+    end
+
+    it "only male driver" do
+      user.trips[0].rides << Factory(:ride, :gender => 'male')
+      user.genders_in_percentage.should == {'male' => 1.0}
     end
   end
   

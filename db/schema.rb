@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119045206) do
+ActiveRecord::Schema.define(:version => 20120201043417) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -29,13 +29,10 @@ ActiveRecord::Schema.define(:version => 20120119045206) do
   end
 
   create_table "people", :force => true do |t|
-    t.string  "name"
     t.string  "occupation"
     t.string  "mission"
     t.string  "origin"
     t.integer "ride_id"
-    t.integer "age"
-    t.string  "gender",     :default => "male"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -65,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20120119045206) do
     t.float    "duration"
     t.integer  "number"
     t.string   "experience",         :default => "positive"
+    t.string   "gender"
   end
 
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"

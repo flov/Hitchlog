@@ -40,6 +40,12 @@
           #{val*100}%
           = experience 
           = t('.experiences')
+      .float_left.column
+        %h3 #{t('.gender_of_drivers')}:
+        - @user.genders_in_percentage.each do |gender, val|
+          %p{:class => "#{gender}"}
+            #{val*100}%
+            = gender 
 
     #trips
       = will_paginate @trips, :class => 'digg_pagination'
