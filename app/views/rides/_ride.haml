@@ -36,10 +36,10 @@
         %br/
         = submit_tag
       .tab_content{:id => "person_info_tab_#{ride.number}"}
+        = f.label :gender
+        %br/
+        = f.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
         = f.fields_for :person do |builder|
-          = builder.label :gender
-          %br/
-          = builder.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
           %br/
           = builder.label :mission
           %br/
@@ -52,10 +52,6 @@
           = builder.label :occupation
           %br/
           = builder.text_field :occupation
-          %br/
-          = builder.label :age
-          %br/
-          = builder.text_field :age
         = submit_tag
       .tab_content{:id => "add_story_tab_#{ride.number}"}
         = f.label :title

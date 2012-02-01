@@ -45,10 +45,7 @@ Factory.define :ride do |ride|
 end
 
 Factory.define :person do |person|
-  person.name         'Penny Lane'
   person.occupation   'Groupie'
   person.mission      'Tour around with the Beatles'
   person.origin       'USA'
-  person.age          21
-  person.gender       'female'
 end
