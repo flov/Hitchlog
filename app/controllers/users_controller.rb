@@ -28,8 +28,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    params[:q] ||= {}
-    params[:q][:s] ||= 'last_sign_in_at+desc'
     @search = User.search(params[:q])
     @users = @search.result.paginate(:page => params[:page], :per_page => 10)
   end
