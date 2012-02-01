@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about_you, :cs_user
 
+  default_scope :order => 'current_sign_in_at DESC'
 
   concerned_with :oauth, :user_settings
 
