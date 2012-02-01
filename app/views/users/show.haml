@@ -5,41 +5,44 @@
     %h1.text_center
       = @user
       - if @user == current_user
-        (#{link_to t('.edit'), edit_user_path(@user)}
-        |
-        #{link_to t('.delete'), user_path(@user), :method => :delete, :confirm => t('general.confirm')})
+        (#{link_to t('.edit'), edit_user_path(@user)})
+
     .profile_section.text_center
       = country_images_for_user(@user)
 
     - if user_signed_in? and current_user == @user
-      - if @user.trips.empty?
-        %p= link_to t('.log_your_first_trip'), new_trip_path
-      - else
-        %p= link_to t('.log_new_trip'), new_trip_path
+      .profile_section
+        - if @user.trips.empty?
+          %p= link_to t('.log_your_first_trip'), new_trip_path
+        - else
+          %p= link_to t('.log_new_trip'), new_trip_path
 
     - if !@user.about_you.blank?
-      %h3 #{t('.about')} #{@user}:
-      %p= RDiscount.new(@user.about_you).to_html.html_safe
+      .profile_section
+        %h3 #{t('.about')} #{@user}:
+        .about
+          %p= RDiscount.new(h(@user.about_you)).to_html.html_safe
 
-    .trips_count
-      .float_left
-        %h3 #{ @user.trips.size } #{ t('.trips') }
-      .float_right
+    .profile_section.trips_and_rides
+      .float_left.column
+        %h3 #{ @user.trips.size } #{ t('.trips') }:
         - unless @x_times_with_alone == 0
-          %p #{@x_times_alone}x #{t('.alone')}
+          %p #{@x_times_alone}x #{t('.alone')} #{hitchhiking_with_image(0)}
         - unless @x_times_with_two == 0
-          %p #{@x_times_with_two}x #{t('.with_two')}
+          %p #{@x_times_with_two}x #{t('.with_two')} #{hitchhiking_with_image(1)}
         - unless @x_times_with_three == 0
-          %p #{@x_times_with_three}x #{t('.with_three')}
+          %p #{@x_times_with_three}x #{t('.with_three')} #{hitchhiking_with_image(2)}
         - unless @x_times_with_four == 0
-          %p #{@x_times_with_four}x #{t('.with_four')} 
-    .profile_section
-      %h3 #{ @rides.size} #{t('.rides')}:
-      - @user.experiences_in_percentage.each do |experience, val|
-        %span{:class => "#{experience}"}
-          #{val*100}%
-          = experience 
-          = t('.experiences')
+          %p #{@x_times_with_four}x #{t('.with_four')} #{hitchhiking_with_image(3)}
+
+      .float_left.column
+        %h3 #{ @rides.size} #{t('.rides')}:
+        - @user.experiences_in_percentage.each do |experience, val|
+          %span{:class => "#{experience}"}
+            #{val*100}%
+            = experience 
+            = t('.experiences')
+
       .float_left.column
         %h3 #{t('.gender_of_drivers')}:
         - @user.genders_in_percentage.each do |gender, val|

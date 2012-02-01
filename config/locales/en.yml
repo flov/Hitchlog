@@ -64,10 +64,10 @@ en:
     add_information_to_hitchhike: Add inforation to ride
     delete_hitchhike: Delete Hitchhike
     delete_trip: Delete Trip
-    alone: Hitchhiking alone
-    two: "2 Hitchhikers"
-    three: "3 Hitchhikers"
-    more_than_three: "4 Hitchhikers"
+    alone: Hitchhiked alone
+    two: "Hitchhiked in pairs"
+    three: "Hitchhiked with two others"
+    more_than_three: "Hitchhiked with three others"
     driving_time: "%{time} driving time"
     driving_time_missing: Driving time is missing
     waiting_time: "%{time} waiting time"
@@ -84,6 +84,7 @@ en:
       with_more_than_4: "with more than 4 people"
 
   general:
+    supports_markdown: supports markdown
     male: "male"
     female: "female"
     mixed: "mixed"
@@ -151,15 +152,15 @@ en:
       hitchhiked_countries: Hitchhiked countries
       hitchhiked_kms: Hitchhiked kms
       average_waiting_time: Average waiting time
-      kms_hitchhiked: Kms hitchhiked
-      waiting_time_per_ride: Waiting time per ride
+      kms_hitchhiked: Hitchhiked kms
+      waiting_time_per_ride: Avg. waiting time
       written_stories: Written stories
       cs_user: CS User
       uploaded_photos: Uploaded photos
     show:
       alone: alone
-      with_two: with two
       gender_of_drivers: Gender of drivers
+      with_two: in pairs
       with_three: with three
       with_four: with four
       log_your_first_trip: Log your first Trip
@@ -172,6 +173,7 @@ en:
       rides: Rides
       experiences: experiences
     edit:
+      edit_profile: Edit Profile
       your_avatar: Your Avatar
       hitchlog_only_supports_gravatar: |
           Hitchlog only supports avatars through <a href='http://gravatar.com'>Gravatar</a>.<br/>
@@ -185,7 +187,7 @@ en:
       sort_by: Sort by
     user:
       statistics: Statistics
-      kilometers_hitchhiked: Kms hitchhiked
+      kilometers_hitchhiked: Hitchhiked KMs
       hitchhiked_countries: Hitchhiked countries
       cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
       gender: Gender
