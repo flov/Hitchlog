@@ -48,7 +48,7 @@
         - @user.genders_in_percentage.each do |gender, val|
           %p{:class => "#{gender}"}
             #{val*100}%
-            = gender 
+            = gender_people_image gender 
 
     #trips
       = will_paginate @trips, :class => 'digg_pagination'
