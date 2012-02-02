@@ -237,6 +237,7 @@ en:
     list:
       read_on: "(read on in Trip)"
       countries: Countries
+      edit: '(Edit)'
       rides: Rides
       by: By
       date: Hitchhiked Date
