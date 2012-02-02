@@ -22,6 +22,7 @@
         = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
     - if @user.cs_user
       %li
+        = image_tag 'cs.ico'
         #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/flov")}
     %li
       #{t('.written_stories')}: #{@user.stories.size}
