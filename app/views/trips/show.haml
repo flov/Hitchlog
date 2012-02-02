@@ -47,6 +47,7 @@
         .trip_story
           = RDiscount.new(ride.story).to_html.html_safe
 
+    #disqus_thread
 
   .right_column
     = render 'users/right_column'
@@ -65,3 +66,16 @@
 - content_for :head do
   :css
     body #content .container {padding-top: 0; padding-bottom: 40px;}
+
+:javascript
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'hitchlog'; // required: replace example with your forum shortname
+  if (document.URL.search(/hitchlog.com/ == -1)) var disqus_developer = 1;
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+
