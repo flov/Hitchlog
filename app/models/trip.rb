@@ -3,7 +3,7 @@ class Trip < ActiveRecord::Base
   has_many :country_distances, :dependent => :destroy
   belongs_to :user
 
-  default_scope :order => 'start DESC'
+  default_scope :order => 'created_at DESC'
   
   validates :from, :presence => true
   validates :to, :presence => true
