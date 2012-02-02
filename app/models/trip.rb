@@ -118,6 +118,17 @@ class Trip < ActiveRecord::Base
     end
   end
 
+  def overall_experience
+    experiences = self.rides.map{|ride| ride.experience}
+    if experiences.include? 'negative'
+      'negative'
+    elsif experiences.include? 'neutral'
+      'neutral'
+    elsif experiences.include? 'positive'
+      'positive'
+    end
+  end
+
   private
 
   def sanitize_param(param)
