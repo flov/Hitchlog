@@ -42,6 +42,9 @@ en:
         error: "Could not edit profile"
         notice: "Successfully edited profile"
   helper:
+    positive_experience: positive experience
+    neutral_experience: neutral experience
+    neutral_experience: negative experience
     no_results_for_this_route: no results for this route
     unknown_distance: unknown distance
     about_person_image: About the people

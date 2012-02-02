@@ -85,6 +85,16 @@ module ImageHelper
     end
   end
 
+  def experience_image(exp)
+    if exp == 'positive'
+      image_tag("icons/bullet_green.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
+    elsif exp == 'neutral'
+      image_tag("icons/bullet_yellow.png", :class => 'tooltip', :alt => t('helper.neutral_experience'))
+    elsif exp == 'negative'
+      image_tag("icons/bullet_yellow.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
+    end
+  end
+
   def delete_ride_image
     image_tag("icons/cross.png", :class => 'tooltip', :alt => t('helper.delete_hitchhike'))
   end

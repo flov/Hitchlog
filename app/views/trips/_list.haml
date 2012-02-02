@@ -25,6 +25,7 @@
       %td.rides
         = trip.rides.size
         = ride_image(trip.rides.size)
+        = experience_image(trip.overall_experience)
       %td.distance= distance( trip.distance )
       %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
       - unless trip.start.nil?
