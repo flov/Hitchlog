@@ -243,7 +243,7 @@ en:
       date: Hitchhiked Date
       start: "%{time} ago"
     show:
-      title: "Hitchhiking from %{from_city} to #{to_city}"
+      title: "Hitchhiking from %{from_city} to %{to_city}"
       you_were: you were
       edit_trip: "(Edit Trip)"
       hitchhiked_in: 'Hitchhiked in:'
