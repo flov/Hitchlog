@@ -164,7 +164,7 @@ module ImageHelper
   end
 
   def gmaps_duration_image(trip)
-    image_tag("icons/google.png", :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => human_seconds(trip.gmaps_duration)))
+    image_tag("icons/google.png", :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => human_seconds(trip.gmaps_duration))) if trip.gmaps_duration
   end
 
   def trip_duration_image(trip)
