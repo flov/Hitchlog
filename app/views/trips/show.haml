@@ -14,6 +14,7 @@
         %br/
         = @trip.start.strftime("%Y")
 
+
     %h1.text_center
       = @trip.to_s
       = link_to t('.edit_trip'), edit_trip_path(@trip) if @trip.user == current_user
@@ -55,13 +56,17 @@
     = render 'users/right_column'
 
 - content_for :topmenu do
-  - if @photos.empty?
+  - if @photo_rides.empty?
     #map.map_show{:style=>"width:950px"}
   - else
     #map.map_show{:style=>"width:450px"}
-    #hitchhike-photo= image_tag @photos.first.url(:cropped), :id => 'hitchhike-photo-photo'
+    .nivo-theme-default
+      #slider
+        - @photo_rides.each do |ride|
+          = image_tag ride.photo.url(:cropped), :title => "#{ride.photo_caption}"
 
 -content_for :javascript_at_bottom do
+  = javascript_include_tag "jquery.nivo.slider.pack"
   = javascript_include_tag "map"
   = javascript_include_tag "show_trip"
 
@@ -70,6 +75,7 @@
     body #content .container {padding-top: 0; padding-bottom: 40px;}
 
 :javascript
+
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = 'hitchlog'; // required: replace example with your forum shortname
   if (document.URL.search(/hitchlog.com/ == -1)) var disqus_developer = 1;

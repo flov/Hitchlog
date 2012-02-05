@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user = @trip.user
-    @photos = @trip.rides.map{|t| t.photo}.delete_if{|photo| !photo.file?}
+    @photo_rides = @trip.rides.select{|ride| ride.photo.file?}
     @rides = @user.trips.map{|trip| trip.rides}.flatten
   end
 

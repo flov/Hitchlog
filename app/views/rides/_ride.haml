@@ -30,6 +30,10 @@
           = link_to image_tag(ride.photo(:thumb)), ride.photo.to_s
           = link_to t('.delete_image'), delete_photo_ride_path(ride), :method => :delete, :confirm => 'Are you sure?'
           %br/
+        = f.label :photo_caption
+        %br/
+        = f.text_field :photo_caption
+        %br/
         = f.label :photo
         %br/
         = f.file_field :photo
