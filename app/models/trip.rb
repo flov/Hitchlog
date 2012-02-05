@@ -34,10 +34,10 @@ class Trip < ActiveRecord::Base
   end
 
   def to_param
-      origin = sanitize_param(CGI::escape(sanitize_address('from')))
-      destin = sanitize_param(CGI::escape(sanitize_address('to')))
+      origin = CGI::escape(self.from.parameterize)
+      destin = CGI::escape(self.to.parameterize)
 
-    "#{id}_#{origin}_to_#{destin}".downcase
+    "#{id}-#{origin}-to-#{destin}".downcase
   end
   
   def to_date
@@ -127,11 +127,5 @@ class Trip < ActiveRecord::Base
     elsif experiences.include? 'positive'
       'positive'
     end
-  end
-
-  private
-
-  def sanitize_param(param)
-    param.gsub(/[^[:alnum:]]/,'_').gsub(/-{2,}/,'_')
   end
 end
