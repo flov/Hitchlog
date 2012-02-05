@@ -10,7 +10,8 @@ class User
                                      :uid => access_token['uid'])
       end
     else # Create a user with a stub password. 
-      user = User.new(:email => data["email"],
+      user = User.new(:email => data['email'],
+                      :gender => data['gender'],
                       :password => Devise.friendly_token[0,20],
                       :username => self.facebook_username(access_token['user_info'])) 
       user.authentications.build(:provider => access_token['provider'],
@@ -23,7 +24,7 @@ class User
   def self.facebook_username(user_info)
     # A user does not need to have a nickname configured:
     # nickname: profile.php?id=100002244415511
-    if user_info['nickname'].include? '?'
+    if user_info['nickname'].nil? or user_info['nickname'].include? '?'
       user_info['first_name']
     else
       user_info['nickname']
@@ -31,33 +32,24 @@ class User
   end
 end
 
-## Example Data returned from facebook:
-#--- 
-#provider: facebook
-#uid: "100002244415511"
-#credentials: 
-  #token: 133141056704542|56b0473a54317c16f42188cf-100002244415511|XlkdyCu1k_rl-m6MWqNfJZbqLeg
-#user_info: 
-  #nickname: profile.php?id=100002244415511
-  #email: florian@example.com
-  #first_name: Klaus
-  #last_name: Taler
-  #name: Klaus Taler
-  #image: http://graph.facebook.com/100002244415511/picture?type=square
-  #urls: 
-    #Facebook: http://www.facebook.com/profile.php?id=100002244415511
-    #Website: 
-#extra: 
-  #user_hash: 
-    #id: "100002244415511"
-    #name: Klaus Taler
-    #first_name: Klaus
-    #last_name: Taler
-    #link: http://www.facebook.com/profile.php?id=100002244415511
-    #gender: male
-    #email: florian@example.com
-    #timezone: 2
-    #locale: en_US
-    #updated_time: 2011-04-09T13:54:55+0000
-
-
+# {"provider"=>"facebook", "uid"=>"100002089022176",
+#   "credentials"=>{"token"=>"AAAEu9KV9HBUBAA2ZAxJwKXGOt70IJR6HqMNi3nvWgscBuq8VTX6Eiw0GvrUMmjpC1nEghkNY0ClZAVJ6j2dqT4yNcGIvrebqL2hO2PHgZDZD"},
+#   "user_info"=>{
+#     "nickname"=>nil,
+#     "email"=>"jesus@example.com",
+#     "first_name"=>"Jesus",
+#     "last_name"=>"Garcia",
+#     "name"=>"Jesus Garcia",
+#     "image"=>"http://graph.facebook.com/100002089022176/picture?type=square",
+#     "urls"=>{
+#       "Facebook"=>"http://www.facebook.com/profile.php?id=100002089022176",
+#       "Website"=>nil
+#     }
+#   },
+#   "extra"=>{
+#     "user_hash"=>{
+#     "id"=>"100002089022176",
+#       "name"=>"Jesus Garcia", "first_name"=>"Jesus", "last_name"=>"Garcia",
+#       "link"=>"http://www.facebook.com/profile.php?id=100002089022176",
+#       "gender"=>"male", "email"=>"jesus@example.com", "timezone"=>5.5,
+#       "locale"=>"en_US", "updated_time"=>"2011-02-10T16:13:54+0000"}}}
