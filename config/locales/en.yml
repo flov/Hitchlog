@@ -1,8 +1,8 @@
 en:
   activerecord:
     models:
-      male: Male
-      female: Female
+      male: male
+      female: female
       user: User
     attributes:
       trip:
@@ -56,10 +56,10 @@ en:
     story: Story
     add_story_image: Story to this ride
     story_missing: Missing Story, write a story about the ride
-    male: Male
-    female: Female
-    male_people: Male people
-    female_people: Female people
+    male: male
+    female: female
+    male_people: male people
+    female_people: female people
     mixed_people: Mixed gender people
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "Trip Duration %{duration}"

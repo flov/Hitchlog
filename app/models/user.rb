@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about_you, :cs_user
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about_you, :cs_user, :gender
 
   default_scope :order => 'current_sign_in_at DESC'
 
