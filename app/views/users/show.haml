@@ -38,10 +38,10 @@
       .float_left.column
         %h3 #{ @rides.size} #{t('.rides')}:
         - @user.experiences_in_percentage.each do |experience, val|
-          %span{:class => "#{experience}"}
-            #{val*100}%
-            = experience 
-            = t('.experiences')
+          %p.experience{:class => "#{experience}"}
+            #{(val*100).to_i}%
+            = experience_image experience 
+
 
       .float_left.column
         %h3 #{t('.gender_of_drivers')}:

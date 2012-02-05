@@ -10,12 +10,14 @@ describe User do
       user.trips << Factory(:trip, :hitchhikes => 0)
     end
 
-    it "should return an array of experiences" do
-      user.trips[0].rides << Factory(:ride, :experience => 'positive')
-      user.trips[0].rides << Factory(:ride, :experience => 'negative')
-      user.trips[0].rides << Factory(:ride, :experience => 'neutral')
-      user.experiences.should == ['positive', 'negative', 'neutral']
-      user.experiences_in_percentage.should == {'positive' => 0.33, 'neutral' => 0.33, 'negative' => 0.33}
+    context "unequal number of experiences" do
+      it "should return an array of experiences" do
+        user.trips[0].rides << Factory(:ride, :experience => 'positive')
+        user.trips[0].rides << Factory(:ride, :experience => 'negative')
+        user.trips[0].rides << Factory(:ride, :experience => 'neutral')
+        user.experiences.should == ['positive', 'negative', 'neutral']
+        user.experiences_in_percentage.should == {'positive' => 0.33, 'neutral' => 0.33, 'negative' => 0.33}
+      end
     end
 
     context "only positive experiences" do
