@@ -91,7 +91,7 @@ module ImageHelper
     elsif exp == 'neutral'
       image_tag("icons/bullet_yellow.png", :class => 'tooltip', :alt => t('helper.neutral_experience'))
     elsif exp == 'negative'
-      image_tag("icons/bullet_yellow.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
+      image_tag("icons/bullet_red.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
     end
   end
 
