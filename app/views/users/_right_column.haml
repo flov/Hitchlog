@@ -20,7 +20,7 @@
     - if @user.average_waiting_time
       %li
         = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
-    - if @user.cs_user
+    - unless @user.cs_user.blank?
       %li
         = image_tag 'cs.ico'
         #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/flov")}
