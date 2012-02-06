@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201043417) do
+ActiveRecord::Schema.define(:version => 20120205163002) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20120201043417) do
     t.integer "ride_id"
   end
 
+  create_table "photos", :force => true do |t|
+    t.integer  "trip_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
@@ -50,19 +57,23 @@ ActiveRecord::Schema.define(:version => 20120201043417) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
+    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
+    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
     t.string   "experience",         :default => "positive"
     t.string   "gender"
+    t.string   "photo_caption"
   end
 
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
@@ -91,7 +102,6 @@ ActiveRecord::Schema.define(:version => 20120201043417) do
   create_table "trips", :force => true do |t|
     t.integer  "distance"
     t.datetime "start"
-    t.integer  "duration"
     t.string   "from"
     t.string   "to"
     t.datetime "created_at"
@@ -126,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20120201043417) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

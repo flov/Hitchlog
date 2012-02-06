@@ -56,12 +56,12 @@ class Trip < ActiveRecord::Base
     if self.end and self.start
       self.end - self.start
     else
-      self.duration
+      nil
     end
   end
 
   def hitchability
-    if self.gmaps_duration && self.gmaps_duration != 0
+    if self.gmaps_duration && self.gmaps_duration != 0 && self.duration
       (self.duration / self.gmaps_duration).round 2
     else
       nil
