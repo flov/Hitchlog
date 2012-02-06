@@ -2,8 +2,8 @@
 
 #trips_show
   .left_column
-    = hidden_field_tag :trip_from,  @trip.to_formatted_address 
-    = hidden_field_tag :trip_to,    @trip.from_formatted_address
+    = hidden_field_tag :trip_from,  @trip.from_formatted_address 
+    = hidden_field_tag :trip_to,    @trip.to_formatted_address
     = hidden_field_tag :trip_route, @trip.route
 
     - unless @trip.start.blank?
