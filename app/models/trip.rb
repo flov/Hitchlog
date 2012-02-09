@@ -34,10 +34,10 @@ class Trip < ActiveRecord::Base
   end
 
   def to_param
-      origin = CGI::escape(self.from.parameterize)
-      destin = CGI::escape(self.to.parameterize)
+    origin = CGI::escape(sanitize_address('from'))
+    destin = CGI::escape(sanitize_address('to'))
 
-    "#{id}-#{origin}-to-#{destin}".downcase
+    "#{id}-#{origin}-to-#{destin}".parameterize
   end
   
   def to_date

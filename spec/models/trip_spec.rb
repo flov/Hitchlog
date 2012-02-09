@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Trip do
-  let(:trip) { Factory.build(:trip) }
+  let(:trip) { Factory.create(:trip) }
 
   it { should have_many(:rides) }
   it { should belong_to(:user) }
@@ -18,7 +18,8 @@ describe Trip do
       it "should output correctly" do
         trip.from_city = 'Cologne'
         trip.to_city = 'Berlin'
-        trip.to_param.should == "#{trip.id}_cologne_to_berlin"
+        trip.from_city.should == 'Cologne'
+        trip.to_param.should == "#{trip.id}-cologne-to-berlin"
       end
     end
 
@@ -26,7 +27,7 @@ describe Trip do
       it "should output correctly" do
         trip.from = "Berliner Str./B1/B5, Hoppegarten"
         trip.to   = "Warszawa"
-        trip.to_param.should == "#{trip.id}_berliner_str__2fb1_2fb5_2c_hoppegarten_to_warszawa"
+        trip.to_param.should == "#{trip.id}-berliner-str-2fb1-2fb5-2c-hoppegarten-to-warszawa"
       end
     end
   end
