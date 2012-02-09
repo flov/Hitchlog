@@ -34,7 +34,6 @@ describe User do
     end
 
     it "should display percentage of genders of people who picked you up" do
-      user.trips[0].rides << Factory(:ride)
       user.trips[0].rides << Factory(:ride, :gender => 'male')
       user.trips[0].rides << Factory(:ride, :gender => 'female')
       user.trips[0].rides << Factory(:ride, :gender => 'mixed')
