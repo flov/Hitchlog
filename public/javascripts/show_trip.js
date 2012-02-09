@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Mon, 06 Feb 2012 14:49:55 GMT from
+/* DO NOT MODIFY. This file was compiled Thu, 09 Feb 2012 16:29:45 GMT from
  * /Users/flov/code/Hitchlog/app/coffeescripts/show_trip.coffee
  */
 
@@ -12,7 +12,8 @@
       controlNav: false
     });
     if ($("#slider img").size() === 1) {
-      return $('#slider').data('nivoslider').stop();
+      $('#slider').data('nivoslider').stop();
+      return $(".nivo-directionNav").remove();
     }
   });
 }).call(this);

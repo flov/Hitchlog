@@ -23,6 +23,7 @@ $(document).ready ->
     # afterChange: function(){}, # Triggers after a slide transition
     # slideshowEnd: function(){}, # Triggers after all slides have been shown
     # lastSlide: function(){}, # Triggers when last slide is shown
-    # afterLoad: function(){} # Triggers when slider has loaded
+    # afterLoad: -> # Triggers when slider has loaded
   if $("#slider img").size() == 1
     $('#slider').data('nivoslider').stop(); # Stop the Slider
+    $(".nivo-directionNav").remove()
