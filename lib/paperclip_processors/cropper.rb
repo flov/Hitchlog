@@ -12,10 +12,11 @@ module Paperclip
     # -crop '221x221+0+0' -resize "x100" +repage
     # -crop '221x221+0+0' -resize "500x500>"
 
-    
+    protected
+
     def crop_command
       target = @attachment.instance
-      if target.cropping?
+      if target.cropping? and @current_geometry.transformation_to(@target_geometry, crop?).first == '500x'
         ["-crop","#{target.crop_w.to_i}x#{target.crop_h.to_i}+#{target.crop_x.to_i}+#{target.crop_y.to_i}"]
       end
     end
