@@ -63,7 +63,7 @@
     .nivo-theme-default
       #slider
         - @photo_rides.each do |ride|
-          = image_tag ride.photo.url(:cropped), :title => "#{ride.photo_caption}"
+          = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:original)
 
 -content_for :javascript_at_bottom do
   = javascript_include_tag "jquery.nivo.slider.pack"
