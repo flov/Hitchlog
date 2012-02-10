@@ -6,14 +6,14 @@
     .tabs
       %ul
         %li
+          %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
+        %li
           %a{:href => "#time_tab_#{ride.number}"}
             = waiting_time_image
         %li
           %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
         %li
           %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
-        %li
-          %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
 
       .tab_content{:id => "time_tab_#{ride.number}"}
         = f.label :duration
@@ -62,4 +62,4 @@
         = f.label :story
         %br/
         = f.text_area :story, :rows => 4
-  = submit_tag
+    = submit_tag

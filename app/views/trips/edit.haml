@@ -17,14 +17,19 @@
         .float_right#trip_distance_display.trip_km_display
 
         %h3
-          = t('.trip_details')
-          #{link_to delete_trip_image, trip_path(@trip), :method => :delete, :confirm => t('general.confirm')}:
+
+          #{t('.trip_from')} #{@trip.to_s.html_safe}
+          = link_to delete_trip_image, trip_path(@trip), :method => :delete, :confirm => t('general.confirm')
         -# Crossed countries needs to be repaired
-        -# = country_images_for_trip(@trip)
         %ul
           %li
+            = country_images_for_trip(@trip)
+          %li
+            = hitchability(@trip)
             = hitchhiking_with_image(@trip.travelling_with)
-            = driving_time_image(human_seconds(@trip.duration)) 
+            = gmaps_duration_image(@trip)
+            = trip_duration_image(@trip)
+            = ride_image(@trip.rides.size)
           %li 
             #{t('activerecord.attributes.trip.from')}: #{@trip.sanitize_address("from")}
           %li
