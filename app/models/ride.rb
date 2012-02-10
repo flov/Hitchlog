@@ -1,21 +1,26 @@
 class Ride < ActiveRecord::Base  
   # used to create custom json (http://github.com/qoobaa/to_hash)
   # custom functions to get distances
-  include ToHash  
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   belongs_to :user
   belongs_to :trip
   has_one :person, :dependent => :destroy
   accepts_nested_attributes_for :person, :allow_destroy => true
 
-  #validates :trip, :presence => true
-
-  concerned_with  :photo_procession
-
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story IS NOT NULL AND story <> ''")
+
+  has_attached_file :photo, 
+                    :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },
+                    :processors => [:cropper],
+                    :default_url => "/images/missingphoto.jpg"                    
+
+  after_update do 
+    reprocess_photo if cropping?
+  end
 
   def to_s
     self.trip
@@ -30,41 +35,26 @@ class Ride < ActiveRecord::Base
   def empty?
     [photo_file_name, title, story, waiting_time, duration, person.nil?].compact.delete_if{|x| x == '' || x == true}.empty?
   end
-  
-  def next
-    result = Ride.not_empty.where('id > ?', self.id).first
-    result.nil? ? self.class.not_empty.first : result
-  end
-
-  def prev
-    result = Ride.not_empty.where('id < ?', self.id).order('id DESC').first
-    result.nil? ? self.class.not_empty.last : result
-  end
-  
-  def self.random_item
-    not_empty.order('RAND()').first
-  end
-  
-  def to_json
-    hash = self.to_hash(:title, :story, :id)
-    hash[:next]     = "/rides/#{self.next.to_param}"
-    hash[:prev]     = "/rides/#{self.prev.to_param}"
-    hash[:from]     = trip.from
-    hash[:to]       = trip.to
-    hash[:date]     = trip.to_date
-    hash[:distance] = trip.distance
-    hash[:username] = trip.user.username
-    hash[:rides]    = trip.rides.size
-    hash[:person]   = person.build_hash if person
-    if self.photo.file?
-      hash[:photo] = {:small => self.photo.url(:cropped), :large => self.photo.url(:original)} 
-    else
-      hash[:photo] = {:small => '/images/missingphoto.jpg', :large => '/images/missingphoto.jpg'} 
-    end
-    JSON.pretty_generate(hash)
-  end
 
   def no_in_trip
     trip.rides.index(self) + 1
   end  
+
+  def delete_photo!
+    self.photo = nil
+    self.save!
+  end
+
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+
+  def photo_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(photo.path(style))
+  end
+
+  def reprocess_photo
+    photo.reprocess!
+  end
 end
