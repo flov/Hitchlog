@@ -13,12 +13,12 @@ class Ride < ActiveRecord::Base
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story IS NOT NULL AND story <> ''")
 
-  has_attached_file :photo, 
+  has_attached_file :photo,
                     :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },
                     :processors => [:cropper],
                     :default_url => "/images/missingphoto.jpg"
 
-  after_update do 
+  after_update do
     reprocess_photo if cropping?
   end
 
@@ -38,7 +38,7 @@ class Ride < ActiveRecord::Base
 
   def no_in_trip
     trip.rides.index(self) + 1
-  end  
+  end
 
   def delete_photo!
     self.photo = nil
