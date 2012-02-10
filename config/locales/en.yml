@@ -21,7 +21,7 @@ en:
         duration: Driving time (in hours)
         waiting_time: Waiting time (in minutes)
         photo: Photo
-        gender: Gender
+        gender: Gender of passengers
       user:
         cs_user: CS user
         username: Username
@@ -47,7 +47,7 @@ en:
     negative_experience: negative experience
     no_results_for_this_route: no results for this route
     unknown_distance: unknown distance
-    about_person_image: About the people
+    about_person_image: About the passengers
     photo: Photo
     rides: 
       one: "%{count} Ride"
@@ -58,9 +58,9 @@ en:
     story_missing: Missing Story, write a story about the ride
     male: male
     female: female
-    male_people: male people
-    female_people: female people
-    mixed_people: Mixed gender people
+    male_people: male passengers
+    female_people: female passengers
+    mixed_people: Mixed gender passengers
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "Trip Duration %{duration}"
     add_information: Add inforation to ride
