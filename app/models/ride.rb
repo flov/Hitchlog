@@ -16,7 +16,7 @@ class Ride < ActiveRecord::Base
   has_attached_file :photo, 
                     :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },
                     :processors => [:cropper],
-                    :default_url => "/images/missingphoto.jpg"                    
+                    :default_url => "/images/missingphoto.jpg"
 
   after_update do 
     reprocess_photo if cropping?
