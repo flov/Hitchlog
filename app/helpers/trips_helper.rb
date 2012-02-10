@@ -130,6 +130,6 @@ module TripsHelper
   end
 
   def hitchability(trip)
-    "<span class='tooltip' alt='Hitchability: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe if trip.hitchability
+    "<span class='tooltip hitchability' alt='Hitchability: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe if trip.hitchability
   end
 end
