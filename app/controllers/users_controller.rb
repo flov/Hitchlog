@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @x_times_with_two = @trips.select {|trip| trip.travelling_with == 1}.size
     @x_times_with_three = @trips.select {|trip| trip.travelling_with == 2}.size
     @x_times_with_four = @trips.select {|trip| trip.travelling_with == 3}.size
-    @trips = @trips.paginate(:page => params[:page], :per_page => 20)
+    @trips = @trips.order("id DESC").paginate(:page => params[:page], :per_page => 20)
   end
 
   def edit
