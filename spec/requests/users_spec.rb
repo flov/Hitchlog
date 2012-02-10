@@ -28,7 +28,7 @@ describe "users" do
 
       it "displays fields for editing profil" do
         fill_in "About you", :with => 'Hello everyone!'
-        select  "Female", :from => "Gender"
+        select  "female", :from => "Gender"
         fill_in "CS user", :with => "flov"
         page.should have_content   "Avatar"
         page.should have_content   "Hitchlog only supports avatars through Gravatar."
