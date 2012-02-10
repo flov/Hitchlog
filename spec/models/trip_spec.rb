@@ -91,12 +91,6 @@ describe Trip do
       @ride.save!
       trip.rides.not_empty.should == [@ride]
     end
-
-    xit "displays rides with gender" do
-      @ride.person.gender = 'male'
-      @ride.save!
-      trip.rides.not_empty.should == [@ride]
-    end
   end
 
   describe "experience" do
