@@ -24,7 +24,6 @@
         %br/
         = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
         %br/
-        = submit_tag
       .tab_content{:id => "picture_tab_#{ride.number}"}
         - if ride.photo.file?
           = link_to image_tag(ride.photo(:thumb)), ride.photo.to_s
@@ -38,7 +37,6 @@
         %br/
         = f.file_field :photo
         %br/
-        = submit_tag
       .tab_content{:id => "person_info_tab_#{ride.number}"}
         = f.label :gender
         %br/
@@ -56,7 +54,6 @@
           = builder.label :occupation
           %br/
           = builder.text_field :occupation
-        = submit_tag
       .tab_content{:id => "add_story_tab_#{ride.number}"}
         = f.label :title
         %br/
@@ -65,4 +62,4 @@
         = f.label :story
         %br/
         = f.text_area :story, :rows => 4
-        = submit_tag
+  = submit_tag

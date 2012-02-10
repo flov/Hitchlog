@@ -29,6 +29,6 @@ class UsersController < ApplicationController
 
   def index
     @search = User.search(params[:q])
-    @users = @search.result.paginate(:page => params[:page], :per_page => 10)
+    @users = @search.result.order('current_sign_in_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 end
