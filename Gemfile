@@ -2,11 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.9.2'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.0'
 gem 'sqlite3'
 gem 'mysql2',  '>=0.3'
 
-gem 'devise'
+gem 'devise', '1.4.5'
 gem 'rdiscount'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'hirb'
@@ -22,13 +22,13 @@ gem 'geocoder'
 gem 'paperclip'
 
 gem 'jammit'
-gem 'mongrel', '~> 1.2.0.pre2'
+gem 'mongrel'
 gem 'json'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'hpricot'
 
 gem 'compass'
-gem 'haml', '~> 3.1'
+gem 'haml', '~> 3.1.4'
 gem 'compass-colors'
 gem 'fancy-buttons'
 
