@@ -1,0 +1,9 @@
+%p
+  = form_tag '', :method => 'get' do
+    = t('.sort_by')
+    = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
+    = check_box_tag 'photos', nil, params[:photos]
+    %label{:for => 'photos'}= t('.photo')
+    = check_box_tag 'stories', nil, params[:stories]
+    %label{:for => 'stories'}= t('.story')
+    = submit_tag t('.search')

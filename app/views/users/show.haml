@@ -50,10 +50,11 @@
             #{(val*100).to_i}%
             = gender_people_image gender 
 
+    = will_paginate @trips, :class => 'digg_pagination'
+    = render 'trips/search_interface'
     #trips
-      = will_paginate @trips, :class => 'digg_pagination'
       = render 'trips/list', :trips => @trips unless @trips.empty?
-      = will_paginate @trips, :class => 'digg_pagination'
+    = will_paginate @trips, :class => 'digg_pagination'
 
   .right_column
     = render 'users/right_column'

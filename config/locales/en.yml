@@ -216,14 +216,15 @@ en:
       latest_hitchhiking_trips: Latest hitchhiking trips
       log_new_trip: Log New Trip
       to_log_a_new_hitchhiking_trip: to log a new hitchhiking trip.
-      sort_by: "Sort by:"
-      select_country: Select Country
       select_gender: Select Gender
       gender: gender
-      story: Story
-      photo: Photo
-      search: Search
       choose_a_country: Choose a country
+    search_interface:
+      sort_by: "Sort by:"
+      photo: Photo
+      select_country: Select Country
+      search: Search
+      story: Story
     edit:
       edit_title: Edit Trip
       trip_from: Trip from

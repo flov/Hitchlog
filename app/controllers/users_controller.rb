@@ -3,13 +3,23 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @rides = @user.trips.map{|trip| trip.rides}.flatten
+    @x_times_alone = @user.trips.select {|trip| trip.travelling_with == 0}.size
+    @x_times_with_two = @user.trips.select {|trip| trip.travelling_with == 1}.size
+    @x_times_with_three = @user.trips.select {|trip| trip.travelling_with == 2}.size
+    @x_times_with_four = @user.trips.select {|trip| trip.travelling_with == 3}.size
+
     @trips = @user.trips
-    @rides = @trips.map{|trip| trip.rides}.flatten
-    @x_times_alone = @trips.select {|trip| trip.travelling_with == 0}.size
-    @x_times_with_two = @trips.select {|trip| trip.travelling_with == 1}.size
-    @x_times_with_three = @trips.select {|trip| trip.travelling_with == 2}.size
-    @x_times_with_four = @trips.select {|trip| trip.travelling_with == 3}.size
-    @trips = @trips.order("id DESC").paginate(:page => params[:page], :per_page => 20)
+    unless params[:country].blank?
+      @trips = @trips.includes(:country_distances).where(:country_distances => {:country => params[:country]})
+    end
+    if params[:stories]
+      @trips = @trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
+    end
+    if params[:photos]
+      @trips = @trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
+    end
+    @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
   end
 
   def edit
