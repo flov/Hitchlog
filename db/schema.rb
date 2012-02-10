@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205105705) do
+ActiveRecord::Schema.define(:version => 20120210100726) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -76,7 +76,11 @@ ActiveRecord::Schema.define(:version => 20120205105705) do
     t.string   "photo_caption"
   end
 
+  add_index "rides", ["experience"], :name => "index_rides_on_experience"
+  add_index "rides", ["gender"], :name => "index_rides_on_gender"
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
+  add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
+  add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
 
   create_table "sign_in_addresses", :force => true do |t|
     t.string   "city"
