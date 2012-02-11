@@ -27,13 +27,21 @@
       .float_left.column
         %h3 #{ @user.trips.size } #{ t('.trips') }:
         - unless @x_times_with_alone == 0
-          %p #{@x_times_alone}x #{t('.alone')} #{hitchhiking_with_image(0)}
+          %p
+            #{@x_times_alone}x #{t('.alone')}
+            = link_to hitchhiking_with_image(0), "/hitchhikers/#{@user.username}/?hitchhiked_with=0"
         - unless @x_times_with_two == 0
-          %p #{@x_times_with_two}x #{t('.with_two')} #{hitchhiking_with_image(1)}
+          %p 
+            #{@x_times_with_two}x #{t('.with_two')}
+            = link_to hitchhiking_with_image(1), "/hitchhikers/#{@user.username}/?hitchhiked_with=1"
         - unless @x_times_with_three == 0
-          %p #{@x_times_with_three}x #{t('.with_three')} #{hitchhiking_with_image(2)}
+          %p 
+            #{@x_times_with_three}x #{t('.with_three')}
+            = link_to hitchhiking_with_image(2), "/hitchhikers/#{@user.username}/?hitchhiked_with=2"
         - unless @x_times_with_four == 0
-          %p #{@x_times_with_four}x #{t('.with_four')} #{hitchhiking_with_image(3)}
+          %p
+            #{@x_times_with_four}x #{t('.with_four')}
+            = link_to hitchhiking_with_image(3), "/hitchhikers/#{@user.username}/?hitchhiked_with=3"
 
       .float_left.column
         %h3 #{ @rides.size} #{t('.rides')}:

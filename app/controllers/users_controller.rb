@@ -16,6 +16,9 @@ class UsersController < ApplicationController
     if params[:stories]
       @trips = @trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
     end
+    if params[:hitchhiked_with]
+      @trips = @trips.where(travelling_with: params[:hitchhiked_with])
+    end
     if params[:photos]
       @trips = @trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
     end
