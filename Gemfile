@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 gem 'rake', '0.9.2'
 
 gem 'rails', '3.2.0'
-gem 'sqlite3'
 gem 'mysql2',  '>=0.3'
 
 gem 'devise', '1.4.5'
@@ -45,8 +44,10 @@ gem 'choices'
 # coffeescript
 gem 'barista', '~> 1.0'
 
-gem 'capistrano'
-gem 'capistrano-ext'
+group :development do
+  gem 'capistrano-ext'
+  gem 'capistrano'
+end
 
 group :test, :development do
   gem "rspec-rails"
