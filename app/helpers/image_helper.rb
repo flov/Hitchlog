@@ -18,6 +18,7 @@ module ImageHelper
 
   def images_for_trip(trip)
     images = []
+    images << hitchhiking_with_image(trip.travelling_with) if trip.travelling_with
     trip.rides.each do |ride|
       images << gender_people_image(ride.gender) if ride.gender
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time

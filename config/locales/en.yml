@@ -164,8 +164,8 @@ en:
       alone: alone
       gender_of_drivers: Gender of passengers
       with_two: in pairs
-      with_three: with three
-      with_four: with four
+      with_three: with two others
+      with_four: with three others
       log_your_first_trip: Log your first Trip
       log_new_trip: Log new Trip
       edit: Edit
