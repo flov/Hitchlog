@@ -1,5 +1,4 @@
 defaults: &defaults
-  hello: 'hello world'
   smtp_settings:
     :domain:         domain.com         # the domain your emails will come from
     :address:        smtp.sendgrid.net  # SMTP server used to send emails
