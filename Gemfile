@@ -21,7 +21,12 @@ gem 'mongrel', '1.2.0.pre2'
 gem 'json'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'hpricot'
-gem 'haml', '~> 3.1.4'
+
+gem 'compass'
+gem 'haml-rails'
+gem 'compass-colors'
+gem 'fancy-buttons'
+
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
 gem 'oa-oauth', :require => 'omniauth/oauth'
