@@ -1,7 +1,11 @@
 class UserMailer < ActionMailer::Base
-  default :from => "no-reply@hitchlog.com"
-  
+
   def registration_confirmation(user)
-    mail(:to => user.email, :subject => "Registered")
+    mail(:to => user.email, :subject => "Registered", :from => "no-reply@hitchlog.com")
+  end
+
+  def mail_to_user(user, message, subject)
+    @message = message
+    mail(:to => user.email, :subject => subject, :from => user.email)
   end
 end

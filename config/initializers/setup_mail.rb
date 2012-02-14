@@ -7,3 +7,5 @@ ActionMailer::Base.smtp_settings = {
   :authentication       => Rails.configuration.smtp_settings[:authentication],
   :enable_starttls_auto => true
 }
+
+ActionMailer::Base.default_url_options[:host] = Rails.configuration.host

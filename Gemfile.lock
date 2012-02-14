@@ -145,11 +145,6 @@ GEM
       guard (>= 0.10.0)
       spork (>= 0.8.4)
     haml (3.1.4)
-    haml-rails (0.3.4)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      haml (~> 3.0)
-      railties (~> 3.0)
     hashie (1.2.0)
     highline (1.6.11)
     hike (1.2.1)
@@ -326,7 +321,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-spork
-  haml-rails
+  haml (~> 3.1.4)
   hirb
   hoptoad_notifier
   hpricot
