@@ -13,6 +13,15 @@ describe Trip do
     end
   end
 
+  describe "#kmh" do
+    it "returns km/h" do
+      trip.distance   = 50_000 # 50 kms
+      trip.start      = "07/12/2011 10:00"
+      trip.end        = "07/12/2011 13:00" 
+      trip.kmh.should == 16
+    end
+  end
+
   describe "#to_param" do
     context "has attribute from_city and to_city" do
       it "should output correctly" do
@@ -34,7 +43,7 @@ describe Trip do
 
   describe '#gmaps_difference' do
     context "you were slower than gmaps_difference" do
-      it "has postive gmaps_difference" do
+      it "has a postive gmaps_difference" do
         trip.start = '07/11/2009 10:00'
         trip.end   = '07/11/2009 13:00'
         trip.gmaps_duration = 2.hours.to_i
@@ -43,7 +52,7 @@ describe Trip do
     end
 
     context "you were faster than gmaps_difference" do
-      it "has negative gmaps_difference when you were faster" do
+      it "has a negative gmaps_difference" do
         trip.start = '07/11/2009 10:00'
         trip.end   = '07/11/2009 13:00'
         trip.gmaps_duration = 4.hours.to_i

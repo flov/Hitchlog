@@ -37,7 +37,7 @@ class Trip < ActiveRecord::Base
 
     "#{id}-#{origin}-to-#{destin}".parameterize
   end
-  
+
   def to_date
     self.start.nil? ? nil : self.start.strftime("%d %B %Y")
   end
@@ -56,6 +56,12 @@ class Trip < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def kmh
+    kilometers = self.distance.to_f / 1000
+    hour       = self.duration / 60 / 60
+    kilometers / hour
   end
 
   def hitchability
