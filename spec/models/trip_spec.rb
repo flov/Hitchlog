@@ -13,7 +13,7 @@ describe Trip do
     end
   end
 
-  describe "to_param" do
+  describe "#to_param" do
     context "has attribute from_city and to_city" do
       it "should output correctly" do
         trip.from_city = 'Cologne'
@@ -32,41 +32,49 @@ describe Trip do
     end
   end
 
-  describe 'gmaps_difference' do
-    it "has postive gmaps_difference when you were slower" do
-      trip.start = '07/11/2009 10:00'
-      trip.end   = '07/11/2009 13:00'
-      trip.gmaps_duration = 2.hours.to_i
-      trip.gmaps_difference.should == 3600
+  describe '#gmaps_difference' do
+    context "you were slower than gmaps_difference" do
+      it "has postive gmaps_difference" do
+        trip.start = '07/11/2009 10:00'
+        trip.end   = '07/11/2009 13:00'
+        trip.gmaps_duration = 2.hours.to_i
+        trip.gmaps_difference.should == 3600
+      end
     end
 
-    it "has negative gmaps_difference when you were faster" do
-      trip.start = '07/11/2009 10:00'
-      trip.end   = '07/11/2009 13:00'
-      trip.gmaps_duration = 4.hours.to_i
-      trip.gmaps_difference.should == -3600
+    context "you were faster than gmaps_difference" do
+      it "has negative gmaps_difference when you were faster" do
+        trip.start = '07/11/2009 10:00'
+        trip.end   = '07/11/2009 13:00'
+        trip.gmaps_duration = 4.hours.to_i
+        trip.gmaps_difference.should == -3600
+      end
     end
   end
 
-  describe 'duration' do
+  describe '#duration' do
     it "should reckon duration with end - start" do
       trip.duration.should == trip.end - trip.start
     end
   end
 
-  describe 'hitchability' do
-    it 'reckons hitchability when gmaps_duration is set' do
-      trip.gmaps_duration = 9.hours.to_f
-      trip.start = '07/11/2009 10:00'
-      trip.end   = '07/11/2009 20:00'
-      trip.hitchability.should == 1.11
+  describe '#hitchability' do
+    context "gmaps_duration is set" do
+      it 'reckons hitchability' do
+        trip.gmaps_duration = 9.hours.to_f
+        trip.start = '07/11/2009 10:00'
+        trip.end   = '07/11/2009 20:00'
+        trip.hitchability.should == 1.11
+      end
     end
 
-    it 'does not reckon hitchability when gmaps_duration is not set' do
-      trip.gmaps_duration = nil
-      trip.start = '07/11/2009 10:00'
-      trip.end   = '07/11/2009 20:00'
-      trip.hitchability.should == nil
+    context "gmaps_duration is not set" do
+      it 'does not reckon hitchability' do
+        trip.gmaps_duration = nil
+        trip.start = '07/11/2009 10:00'
+        trip.end   = '07/11/2009 20:00'
+        trip.hitchability.should == nil
+      end
     end
   end
 
@@ -93,7 +101,7 @@ describe Trip do
     end
   end
 
-  describe "experience" do
+  describe "#experience" do
     context "has only positive experiences" do
       it "returns a positive experience" do
         trip.rides << Factory(:ride, :experience => 'positive')
