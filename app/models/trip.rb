@@ -61,7 +61,7 @@ class Trip < ActiveRecord::Base
   def kmh
     kilometers = self.distance.to_f / 1000
     hour       = self.duration / 60 / 60
-    kilometers / hour
+    (kilometers / hour).to_i
   end
 
   def hitchability
@@ -74,7 +74,7 @@ class Trip < ActiveRecord::Base
 
   def gmaps_difference
     if self.gmaps_duration
-      self.duration - self.gmaps_duration
+      (self.duration - self.gmaps_duration).to_i
     else
       nil
     end
