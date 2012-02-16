@@ -1,7 +1,7 @@
 Feature: Show all trips
   Scenario: sort trips by country
-    Given a German trip
-    And an English trip
+    Given a German trip exists
+    And an English trip exists
     When I go to the trips page
     Then I should see a German trip
     And I should see an English trip

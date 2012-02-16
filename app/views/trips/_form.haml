@@ -21,12 +21,12 @@
     %tr.text_field
       %td= f.label :start
       - if trip.start.nil?
-        %td= f.text_field :start, :placeholder => t('activerecord.attributes.trip.start')
+        %td= f.text_field :start, :required => '', :placeholder => t('activerecord.attributes.trip.start')
       - else
         %td= text_field_tag 'trip[start]', trip.start.strftime("%d/%m/%Y %H:%M"), :size => 30, :placeholder => t('activerecord.attributes.trip.start')
     %tr.text_field
       %td= f.label :end
-      %td= f.text_field :end, :placeholder => t('activerecord.attributes.trip.end')
+      %td= f.text_field :end, :required => '', :placeholder => t('activerecord.attributes.trip.end')
     %tr.select_field
       %td= f.label :travelling_with, :required=>''
       %td

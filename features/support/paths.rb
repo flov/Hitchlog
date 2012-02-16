@@ -20,6 +20,8 @@ module NavigationHelpers
       '/hitchhikers/supertramp'
     when /^the hitchhikers page$/
       '/hitchhikers'
+    when /^the page of this trip$/
+      trip_path(@trip)
     when /^the edit profile page$/
       "/hitchhikers/#{@user.username}/edit"
 

@@ -29,6 +29,27 @@ module ImageHelper
     string.html_safe 
   end
   
+  def hitchhiking_with_text(number)
+    unless number.nil?
+      case number
+      when 0
+        t('helper.trip.alone')
+      when 1
+        t('helper.trip.with_1')
+      when 2
+        t('helper.trip.with_2')
+      when 3
+        t('helper.trip.with_3')
+      when 4
+        t('helper.trip.with_4')
+      when 5
+        t('helper.trip.with_more_than_4')
+      else
+        more_than_three_people_image
+      end
+    end
+  end
+
   def hitchhiking_with_image(number)
     unless number.nil?
       case number

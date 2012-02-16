@@ -18,6 +18,7 @@ Factory.define :user do |user|
   user.sign_in_lat           0.0          # if tested offline
   user.sign_in_lng           0.0          # it must not be null for tests
   user.association           :sign_in_address
+  user.gender                'male'
 end
 
 Factory.define :munich_user, :parent => :user do |user|
@@ -34,8 +35,8 @@ Factory.define :trip do |trip|
   trip.start "07/12/2011 10:00"
   trip.end   "07/12/2011 20:00"
   trip.travelling_with 0
-  trip.gmaps_duration   9.hours.to_f
-  trip.distance 1646989
+  trip.gmaps_duration   9.hours.to_i
+  trip.distance 1_646_989
   trip.association(:user)
   trip.hitchhikes 1
 end

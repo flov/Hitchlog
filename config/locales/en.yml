@@ -42,6 +42,8 @@ en:
         error: "Could not edit profile"
         notice: "Successfully edited profile"
   helper:
+    time_faster: "%{time} faster"
+    time_slower: "%{time} slower"
     positive_experience: positive experience
     neutral_experience: neutral experience
     negative_experience: negative experience
@@ -77,6 +79,7 @@ en:
     waiting_time_without_time: "waiting time"
     waiting_time_missing: Waiting time is missing
     faster_than_gmaps: faster than Google Maps
+    hitchability: Hitchability (Gmaps Duration / Trip Duration)
     slower_than_gmaps: slower than Google Maps
     trip:
       alone: alone
@@ -207,6 +210,9 @@ en:
   hours_with_minutes:
     one: "%{count} hour %{minutes} minutes"
     other: "%{count} hours %{minutes} minutes"
+  minutes_without_hours:
+    one: "%{count} minute"
+    other: "%{count} minutes"
 
   rides:
     ride:
@@ -233,8 +239,8 @@ en:
       to: To
       add_story: "Add/Edit Story"
       hitchability_factor: "Hitchability factor:"
-      it_took_you_longer: According to Google Maps it took you <b>%{hours} longer</b> than if you drove directly.
-      you_were_faster: According to Google Maps you were <b>%{hours} faster</b> than if you drove directly.
+      it_took_you_longer: It took you %{hours} longer than a direct ride.
+      you_were_faster: You were %{hours} faster than a direct ride.
     list:
       read_on: "(read on in Trip)"
       countries: Countries
@@ -244,11 +250,20 @@ en:
       date: Hitchhiked Date
       start: "%{time} ago"
     show:
+      it_was_slower: (the trip took %{time} longer than a direct ride)
+      it_was_faster: (the trip was %{time} <b>faster</b> than a direct ride)
       title: "Hitchhiking from %{from_city} to %{to_city}"
       you_were: you were
       edit_trip: "(Edit Trip)"
       hitchhiked_in: 'Hitchhiked in:'
-      gmaps_duration: 'Gmaps Duration:'
+      gmaps_duration: 'Gmaps Duration'
+      time_ago: "%{time} ago"
+      user_hitchhiked_text: "%{user} hitchhiked <b>%{distance}</b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
+      it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
+      google_maps_text: |
+          <b>Google maps</b> says it takes <b>%{gmaps_duration}</b> for
+          this route, so %{user} was <b>%{gmaps_difference}</b>.
+
     form:
       step1_2: "Continue"
     show_ride:

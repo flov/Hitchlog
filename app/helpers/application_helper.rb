@@ -47,10 +47,12 @@ module ApplicationHelper
 
     if minutes == 0
       t('hours', :count => hours.to_i)
+    elsif hours < 1
+      t('minutes_without_hours', :count => minutes)
     else
       t('hours_with_minutes', :count => hours.to_i, :minutes => minutes)
     end
-  end  
+  end
 
   def human_seconds(seconds)
     "#{human_hours(seconds.to_f/60/60)}"

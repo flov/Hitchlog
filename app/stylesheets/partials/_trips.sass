@@ -105,7 +105,7 @@ ul.person
   .right
     background-color: blue
 
-table#trips_list, table#rides_list
+.colorize_table
   $table-color: lighten($orange,60)
   +table-scaffolding
   +alternating-rows-and-columns2($table-color, darken($table-color, 4), black)
@@ -130,7 +130,6 @@ table#trips_list
   h1,h2,h3,h4,h5
     font-weight: bold
     font-size: 12px !important
-
 
 #trip_date
   width: 63px
@@ -249,3 +248,7 @@ span.hitchability
   width: 300px
   float: right
 
+table.trip_list
+  th
+    vertical-align: top
+    padding-right: 20px

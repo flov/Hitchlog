@@ -97,4 +97,22 @@ module TripsHelper
   def hitchability(trip)
     "<span class='tooltip' alt='#{t('helper.hitchability')}: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe if trip.hitchability
   end
+
+  def him_or_her(user)
+    if user.gender == 'male'
+      'him'
+    else
+      'her'
+    end
+  end
+
+  def gmaps_difference(trip)
+    if trip.gmaps_difference
+      if trip.gmaps_difference > 0
+        t('helper.time_slower', :time => human_seconds(trip.gmaps_difference)).html_safe
+      else
+        t('helper.time_faster', :time => human_seconds(trip.gmaps_difference * (-1))).html_safe
+      end
+    end
+  end
 end

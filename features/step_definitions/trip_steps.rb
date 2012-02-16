@@ -1,10 +1,37 @@
-Given /^a German trip$/ do
+Given /^a trip exists$/ do
+  @trip = Factory :trip
+end
+
+Given /^the user of this trip is "([^"]*)"$/ do |username|
+  user = @trip.user
+  user.username = username
+  user.save!
+end
+
+Given /^the distance was (\d+) km$/ do |number|
+  @trip.distance = number.to_i * 1000
+end
+
+Given /^he did the trip (\d+) days ago$/ do |number|
+  @trip.start = number.to_i.days.ago
+end
+
+Given /^it took him (\d+) hours$/ do |number|
+  @trip.end = @trip.start + number.to_i.hours
+end
+
+Given /^google maps says it takes 9 hours and 15 minutes$/ do
+  @trip.gmaps_duration = (9.hours + 15.minutes).to_i
+  @trip.save!
+end
+
+Given /^a German trip exists$/ do
   @german_trip = Factory.build(:trip, :from => 'Berlin', :to => 'Freiburg')
   @german_trip.country_distances <<  CountryDistance.new(:country => 'Germany', :distance => 123123)
   @german_trip.save!
 end
 
-Given /^an English trip$/ do
+Given /^an English trip exists$/ do
   @english_trip = Factory.build(:trip, :from => 'London', :to => 'Manchester')
   @english_trip.country_distances <<  CountryDistance.new(:country => 'United Kingodm', :distance => 123123)
   @english_trip.save!

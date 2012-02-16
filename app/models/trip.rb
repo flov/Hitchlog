@@ -3,8 +3,7 @@ class Trip < ActiveRecord::Base
   has_many :country_distances, :dependent => :destroy
   belongs_to :user
 
-  validates :from, :presence => true
-  validates :to, :presence => true
+  validates :from, :to, :start, :end, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
   validates :hitchhikes, :presence => true, :if => :new_record
@@ -16,11 +15,31 @@ class Trip < ActiveRecord::Base
   @@per_page = 20
 
   attr_accessor   :hitchhikes, :start_time, :end_time
-  attr_accessible :from, :to, :hitchhikes, :start, :end, :travelling_with,
-                  :route, :distance, :gmaps_duration, :from_lat, :from_lng,
-                  :from_formatted_address, :from_city, :from_country, :from_postal_code,
-                  :from_street, :from_street_no, :to_lat, :to_lng, :to_formatted_address,
-                  :to_city, :to_country, :to_postal_code, :to_street, :to_street_no
+  attr_accessible :from,
+                  :to,
+                  :hitchhikes,
+                  :start,
+                  :end,
+                  :travelling_with,
+                  :route,
+                  :distance,
+                  :gmaps_duration,
+                  :from_lat,
+                  :from_lng,
+                  :from_formatted_address,
+                  :from_city,
+                  :from_country,
+                  :from_postal_code,
+                  :from_street,
+                  :from_street_no,
+                  :to_lat,
+                  :to_lng,
+                  :to_formatted_address,
+                  :to_city,
+                  :to_country,
+                  :to_postal_code,
+                  :to_street,
+                  :to_street_no
 
 
   after_create :get_country_distance
