@@ -14,8 +14,8 @@ gem 'nokogiri'
 gem 'hoptoad_notifier'
 
 # gem 'meta_where'
-# gem "meta_search"
-gem "ransack"  # replacement for meta_search which isn't compatible with rails 3.1
+# gem 'meta_search'
+gem 'ransack'  # replacement for meta_search which isn't compatible with rails 3.1
 
 gem 'geocoder'
 
@@ -48,35 +48,28 @@ gem 'barista', '~> 1.0'
 group :development do
   gem 'capistrano-ext'
   gem 'capistrano'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'guard-bundler'
+  gem 'livereload'
 end
 
 group :test, :development do
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'launchy', '~> 2.0.5' # to use save_and_open_page
 end
 
 group :test do
   gem 'spork', '0.9.0.rc9'
-
-  gem 'guard'
-  gem "guard-livereload"
-  gem "guard-rspec"
-  gem 'guard-bundler'
-  gem 'guard-spork'
-
   gem 'database_cleaner'
-
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
   gem 'factory_girl_generator'
-
   gem 'shoulda'
-  gem "capybara"
-
+  gem 'capybara'
   # growl notifications (doesn't work yet with growl 1.3, hmpf)
   gem 'growl_notify'
   gem 'rb-fsevent'
-
-  gem 'nokogiri'
-  gem 'livereload'
   gem 'faker'
 end
