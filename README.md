@@ -37,52 +37,14 @@ and run:
     rake db:migrate
     rails s
 
-Documenting A Hitchhike
------------------------
-
-The current flow of documenting hitchhikes:
-
-* Log in
-* Click on new Trip
-* Fill in: 
-  - from
-  - to
-  - date
-  - duration
-  - number of rides
-* Now that you defined a trip and the number of rides, you can provide additional
-  information specific hitchhikes of a trip.
-  - title and story
-  - photo
-  - waiting time and duration of ride
-  
-  Person:
-    - Name
-    - Occupation
-    - Origin
-    - Mission
-    - Age
-    - Gender
-
-* If you provided an image, crop it
-* Submit
-
-Upcoming Features / TODOs
--------
-
-* Implementation with other sites:
-  - combining the [Mediawiki API](http://www.mediawiki.org/wiki/API:Login) of hitchwiki  with the
-    Hitchlog Login process
-  - Javascript embed to show your personal hitchhiking experiences on other sites like hitchwiki
 
 Environment
 -----------
 
-* Ruby 1.9.2
-* Rails 3.0.3
-* Rspec 2.0.1
-* Cucumber 0.9.2
-* Mysql
-* ... (see Gemfile)
+The application tries to stay on top of edge technology and tries to use
+the newest gems and ruby versions.
 
-We are using the Famfamfam icon collection
+* Ruby 1.9.3
+* Rails 3.2
+* Rspec 2
+* ... (see Gemfile)
