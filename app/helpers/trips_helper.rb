@@ -26,41 +26,6 @@ module TripsHelper
     end
   end
 
-  def country_images_for_user(user)
-    array = []; hash = {}
-    user.trips.map{|x| x.country_distances}.flatten.each do |cd|
-      if hash[cd.country]
-        hash[cd.country] += cd.distance 
-      else
-        hash[cd.country] =  cd.distance 
-      end
-    end
-
-    hash.each do |country, distance|
-      array << country_image(country, distance)
-    end
-
-    array.join(' ').html_safe
-  end
-
-  def country_images_for_trip(trip)
-    array = []
-    trip.countries_with_distance.each do |hash|
-      array << country_image(hash[:country], hash[:distance])
-    end
-    array.join(' ').html_safe
-  end
-
-  def all_country_images
-    array = []
-    CountryDistance.all.map(&:country).uniq.each do |country|
-      unless country == 'unknown'
-        array << link_to(country_image(country), "trips/?country=#{country}")
-      end
-    end
-    array.join(' ').html_safe
-  end
-
   def country_image(country, country_distance=nil)
     case country
       when "The Netherlands" then country = "Netherlands"
