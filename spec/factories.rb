@@ -35,7 +35,7 @@ Factory.define :trip do |trip|
   trip.gmaps_duration   9.hours.to_f
   trip.distance 1646989
   trip.association(:user)
-  trip.hitchhikes 3
+  trip.hitchhikes 1
 end
 
 Factory.define :ride do |ride|

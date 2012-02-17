@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe Trip do
-  let(:trip) { Factory.create(:trip) }
+  let(:trip) { Factory.build(:trip) }
 
   it { should have_many(:rides) }
   it { should belong_to(:user) }
-  it { trip.to_s.should == "Tehran &rarr; Shiraz" }
 
   describe "factories" do
     it "should generate a valid trip" do
@@ -25,15 +24,16 @@ describe Trip do
   describe "#to_param" do
     context "has attribute from_city and to_city" do
       it "should output correctly" do
+        trip.stub(:id).and_return(123)
         trip.from_city = 'Cologne'
         trip.to_city = 'Berlin'
-        trip.from_city.should == 'Cologne'
         trip.to_param.should == "#{trip.id}-cologne-to-berlin"
       end
     end
 
     context "has attribute from and to, but not from_city and to_city" do
       it "should output correctly" do
+        trip.stub(:id).and_return(123)
         trip.from = "Berliner Str./B1/B5, Hoppegarten"
         trip.to   = "Warszawa"
         trip.to_param.should == "#{trip.id}-berliner-str-2fb1-2fb5-2c-hoppegarten-to-warszawa"
@@ -42,7 +42,7 @@ describe Trip do
   end
 
   describe '#gmaps_difference' do
-    context "you were slower than gmaps_difference" do
+    context "if you are slower than gmaps_difference" do
       it "has a postive gmaps_difference" do
         trip.start = '07/11/2009 10:00'
         trip.end   = '07/11/2009 13:00'
@@ -51,7 +51,7 @@ describe Trip do
       end
     end
 
-    context "you were faster than gmaps_difference" do
+    context "if you are faster than gmaps_difference" do
       it "has a negative gmaps_difference" do
         trip.start = '07/11/2009 10:00'
         trip.end   = '07/11/2009 13:00'
