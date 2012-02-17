@@ -96,20 +96,6 @@ describe Trip do
     it { trip.departure.should == "07 November 2009 20:00" }
   end
 
-  describe "not_empty scope" do
-    before do
-      2.times{|i| trip.rides.build(:number => i+1) }
-      @ride = trip.rides.first
-      @ride.build_person(:gender => '')
-    end
-
-    it "displays rides with waiting time" do
-      @ride.waiting_time = 13
-      @ride.save!
-      trip.rides.not_empty.should == [@ride]
-    end
-  end
-
   describe "#experience" do
     context "has only positive experiences" do
       it "returns a positive experience" do
