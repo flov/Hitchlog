@@ -244,7 +244,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
-    shoulda (2.11.3)
+    shoulda-matchers (1.0.0)
     spork (0.9.0.rc9)
     sprockets (2.1.2)
       hike (~> 1.2)
@@ -314,7 +314,7 @@ DEPENDENCIES
   rb-fsevent
   rdiscount
   rspec-rails
-  shoulda
+  shoulda-matchers
   spork (= 0.9.0.rc9)
   sqlite3
   will_paginate (~> 3.0.pre2)

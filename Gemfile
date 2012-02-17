@@ -66,7 +66,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'factory_girl_generator'
-  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'capybara'
   # growl notifications (doesn't work yet with growl 1.3, hmpf)
   gem 'growl_notify'
