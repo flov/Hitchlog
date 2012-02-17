@@ -63,13 +63,10 @@ end
 
 group :test do
   gem 'spork', '0.9.0.rc9'
-  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'factory_girl_generator'
   gem 'shoulda-matchers'
   gem 'capybara'
-  # growl notifications (doesn't work yet with growl 1.3, hmpf)
-  gem 'growl_notify'
-  gem 'rb-fsevent'
   gem 'faker'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 end
