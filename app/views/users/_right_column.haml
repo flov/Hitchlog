@@ -3,10 +3,6 @@
   = gender_image @user.gender
 .text_center=gravatar_image_tag @user.email
 
-- if user_signed_in? and current_user == @user and current_user.nearbys.any?
-  .section
-    = render 'shared/nearby_hitchhikers'
-
 .section
   %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
   %ul
