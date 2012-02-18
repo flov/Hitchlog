@@ -10,7 +10,7 @@ describe "users" do
       visit user_path(@user)
     end
 
-    it do
+    xit do
       page.should have_content "CS User: #{@user.cs_user}"
     end
   end
@@ -26,7 +26,7 @@ describe "users" do
         click_link "Edit"
       end
 
-      it "displays fields for editing profil" do
+      xit "displays fields for editing profil" do
         fill_in "About you", :with => 'Hello everyone!'
         select  "female", :from => "Gender"
         fill_in "CS user", :with => "flov"
@@ -37,7 +37,7 @@ describe "users" do
     end
 
     context "logged out" do
-      it "should not see Edit Profile" do
+      xit "should not see Edit Profile" do
         visit user_path(@user)
         page.should_not have_content  "Edit Profile" 
       end
