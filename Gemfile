@@ -58,10 +58,12 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'cucumber-rails'
   gem 'launchy', '~> 2.0.5' # to use save_and_open_page
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'spork', '0.9.0.rc9'
   gem 'factory_girl_rails'
   gem 'factory_girl_generator'
