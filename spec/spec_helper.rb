@@ -6,6 +6,9 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
+  require 'database_cleaner'
+
+  DatabaseCleaner.strategy = :truncation
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -13,6 +16,17 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.mock_with :rspec
+
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
 
     # focus tag for running only one test of a spec file
     # see http://railscasts.com/episodes/285-spork
@@ -31,3 +45,4 @@ Spork.each_run do
   FactoryGirl.reload
   I18n.backend.reload!
 end
+
