@@ -72,7 +72,6 @@ describe "trips" do
     it "should display rides properly" do
       visit trip_path(@trip)
       page.should have_content "Ride 1"
-      page.should have_content "Ride 3"
     end
   end
 
