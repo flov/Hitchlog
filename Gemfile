@@ -9,43 +9,33 @@ gem 'mysql2',  '>=0.3'
 gem 'devise', '1.4.5'
 gem 'rdiscount'
 gem 'will_paginate', '~> 3.0.pre2'
-gem 'hirb'
 gem 'nokogiri'
 gem 'hoptoad_notifier'
 
-# gem 'meta_where'
-# gem 'meta_search'
-gem 'ransack'  # replacement for meta_search which isn't compatible with rails 3.1
-
+# replacement for meta_search which isn't compatible with rails 3.1
+gem 'ransack' 
 gem 'geocoder'
-
 gem 'paperclip'
-
 gem 'jammit'
-gem 'mongrel'
+gem 'mongrel', '1.2.0.pre2'
 gem 'json'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'hpricot'
-
 gem 'compass'
 gem 'haml', '~> 3.1.4'
 gem 'compass-colors'
 gem 'fancy-buttons'
-
 gem 'gravatar_image_tag'
-gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
-# gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => 'rails-3.0'
 gem 'oa-oauth', :require => 'omniauth/oauth'
 gem 'i18n_data'
 gem 'friendly_id', '~> 3.2.1'
-
-# external settings in Rails app
-gem 'choices'
+gem 'choices' # external settings in Rails app
 
 # coffeescript
 gem 'barista', '~> 1.0'
 
 group :development do
+  gem 'hirb'
   gem 'capistrano-ext'
   gem 'capistrano'
   gem 'guard'
