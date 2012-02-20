@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   geocoded_by :current_sign_in_ip, :latitude => :sign_in_lat, :longitude => :sign_in_lng
 
   def geocode_address
-    if self.current_sign_in_ip
+    if self.current_sign_in_ip && Rails.env != 'test'
       if search = Geocoder.search(self.current_sign_in_ip).first
         self.build_sign_in_address if self.sign_in_address.nil?
         self.sign_in_address.country      = search.country
