@@ -8,7 +8,7 @@
     %th= t('.by')
     %th= t('.date')
   - trips.each do |trip|
-    %tr
+    %tr{:id => "trip_#{trip.id}"}
       %td.title.neutralize_fonts
         %h5
           = link_to trip.to_s.html_safe, trip

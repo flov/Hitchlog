@@ -12,10 +12,14 @@ module NavigationHelpers
       '/'
     when /^the profile page of florian/
       '/hitchhikers/florian'
+    when /^the login page/
+      '/users/login'
     when /^the signup page/
       '/users/sign_up'
     when /^the profile of "supertramp"$/
       '/hitchhikers/supertramp'
+    when /^the hitchhikers page$/
+      '/hitchhikers'
     when /^the edit profile page$/
       "/hitchhikers/#{@user.username}/edit"
 
