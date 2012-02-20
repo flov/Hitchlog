@@ -14,7 +14,7 @@ guard 'livereload' do
   watch(%r{app/stylesheets/.+\.(scss|sass)})
 end
 
-guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' } do
+guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -38,4 +38,10 @@ guard 'rspec', :version => 2, :cli => "--drb" do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
   # watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+end
+
+guard 'cucumber', :cli => "--drb" do
+  watch(%r{^features/.+\.feature$})
+  watch(%r{^features/support/.+$})          { 'features' }
+  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
 end
