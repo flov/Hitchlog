@@ -1,4 +1,5 @@
 require 'factory_girl'
+require 'faker'
 
 Factory.sequence :email do |n|
   "testuser#{n}@example.com"
