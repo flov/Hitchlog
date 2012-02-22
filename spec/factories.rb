@@ -33,6 +33,7 @@ Factory.define :trip do |trip|
   trip.to 'Shiraz'
   trip.start "07/12/2011 10:00"
   trip.end   "07/12/2011 20:00"
+  trip.travelling_with 0
   trip.gmaps_duration   9.hours.to_f
   trip.distance 1646989
   trip.association(:user)
