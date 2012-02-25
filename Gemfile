@@ -62,5 +62,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'faker'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent'
 end
