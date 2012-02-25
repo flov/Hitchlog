@@ -1,68 +1,29 @@
 - title(t('.title', :from_city => @trip.from_city_sanitized, :to_city => @trip.to_city_sanitized))
 
-#trips_show
-  .left_column
-    = hidden_field_tag :trip_from,  @trip.from_formatted_address 
-    = hidden_field_tag :trip_to,    @trip.to_formatted_address
-    = hidden_field_tag :trip_route, @trip.route
-
-    %h1.text_center
-      = @trip.to_s
-      = link_to t('.edit_trip'), edit_trip_path(@trip) if @trip.user == current_user
-
-    .images_for_trip
-      = hitchhiking_with_image(@trip.travelling_with)
-      = country_images_for_trip(@trip)
-
-    %p
-      - if @trip.start
-        = t('.time_ago', time: time_ago_in_words(@trip.start).capitalize)
-      = t('.user_hitchhiked_text', user: @user.to_s, distance: distance(@trip.distance), from: @trip.from, to: @trip.to, rides_size: @trip.rides.size).html_safe
-      %br/
-      - if @trip.duration && @trip.duration != 0
-        = t('.it_took_him_text', him_or_her: him_or_her(@user), time: human_seconds(@trip.duration)).html_safe
-      - if @trip.gmaps_duration && @trip.gmaps_duration != 0
-        = t('.google_maps_text', gmaps_duration: human_seconds(@trip.gmaps_duration), user: @user.to_s, gmaps_difference: gmaps_difference(@trip)).html_safe
-
-    .display_rides
-      %table#rides_list.colorize_table
-        - @trip.rides.not_empty.each do |ride|
-          %tr{ :id => "ride_#{ride.number}" }
-            %th
-              = t('.ride')
-              #{ride.number}/#{ride.trip.rides.size}
-            %td
-              = images_for_ride(ride)
-              = experience_image(ride.experience)
-
-    - @trip.rides.select {|ride| not ride.story.blank?}.each do |ride|
-      %h2
-        = ride.title if ride.title
-        %span.subtitle
-          (#{t('.ride')} #{ride.number})
-          = experience_image(ride.experience)
-
-      - unless ride.story.blank?
-        .trip_story
-          = RDiscount.new(ride.story).to_html.html_safe
-
-    #disqus_thread
-
-  .right_column
-    = render 'users/right_column'
-
 - content_for :topmenu do
-  - if @photo_rides.empty?
+  - if @rides_with_photos.empty?
     #map.map_show{:style=>"width:950px"}
   - else
     #map.map_show{:style=>"width:450px"}
     .nivo-theme-default
       #slider
-        - @photo_rides.each do |ride|
+        - @rides_with_photos.each do |ride|
           = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:large)
+
+.columns
+  .left_column
+    = render 'trips/trip', trip: @trip
+
+  .right_column
+    = render 'users/right_column'
+
+= hidden_field_tag :trip_from,  @trip.from_formatted_address 
+= hidden_field_tag :trip_to,    @trip.to_formatted_address
+= hidden_field_tag :trip_route, @trip.route
 
 -content_for :javascript_at_bottom do
   = javascript_include_tag "jquery.nivo.slider.pack"
+  %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
   = javascript_include_tag "map"
   = javascript_include_tag "show_trip"
 

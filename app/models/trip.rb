@@ -3,6 +3,8 @@ class Trip < ActiveRecord::Base
   has_many :country_distances, :dependent => :destroy
   belongs_to :user
 
+  validates_associated :user
+
   validates :from, :to, :start, :end, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true

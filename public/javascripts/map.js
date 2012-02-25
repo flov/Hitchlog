@@ -1,16 +1,24 @@
-/* DO NOT MODIFY. This file was compiled Thu, 29 Dec 2011 16:33:23 GMT from
- * /Users/flov/code/Hitchlog/app/coffeescripts/map.coffee
+/* DO NOT MODIFY. This file was compiled Sat, 25 Feb 2012 13:49:49 GMT from
+ * /Users/flov/code/hitchlog/app/coffeescripts/map.coffee
  */
 
 (function() {
   var convert_lat_lng, directions_hash, parse_route_request, set_field;
+
   window.map = null;
+
   window.geocoder = null;
+
   window.marker = null;
+
   window.infowindow = null;
+
   window.directionsService = null;
+
   window.directionsDisplay = null;
+
   window.a = null;
+
   convert_lat_lng = function(object) {
     var key, lat_lng, value;
     lat_lng = (function() {
@@ -28,6 +36,7 @@
       return object;
     }
   };
+
   parse_route_request = function(request) {
     var waypoint, _i, _len, _ref;
     if (request !== "") {
@@ -42,6 +51,7 @@
       return request;
     }
   };
+
   window.init_map = function(rendererOptions) {
     var options;
     if (rendererOptions == null) {
@@ -65,6 +75,13 @@
           $("#trip_route").val(directions_hash(directionsDisplay));
           $("#trip_distance").val(directionsDisplay.directions.routes[0].legs[0].distance.value);
           $("#trip_gmaps_duration").val(directionsDisplay.directions.routes[0].legs[0].duration.value);
+          $("#trip_distance_display").animate({
+            opacity: 0.25
+          }, 500, function() {
+            return $("#trip_distance_display").animate({
+              opacity: 1
+            });
+          });
           if ($("#trip_distance_display")) {
             $("#trip_distance_display").html(directionsDisplay.directions.routes[0].legs[0].distance.text);
           }
@@ -73,10 +90,9 @@
       });
     }
   };
+
   window.set_new_route = function(request) {
-    if (request == null) {
-      request = "";
-    }
+    if (request == null) request = "";
     if (typeof google !== "undefined" && google !== null) {
       if (request === "") {
         request = {
@@ -95,6 +111,7 @@
       });
     }
   };
+
   directions_hash = function(directionsDisplay) {
     var directions, i, leg, waypoint, waypoints, _len, _ref;
     waypoints = [];
@@ -116,14 +133,11 @@
     directions.waypoints = waypoints;
     return JSON.stringify(directions);
   };
+
   window.get_location = function(location, suggest_field, destination) {
     var geocoder, geocoderRequest;
-    if (suggest_field == null) {
-      suggest_field = null;
-    }
-    if (destination == null) {
-      destination = null;
-    }
+    if (suggest_field == null) suggest_field = null;
+    if (destination == null) destination = null;
     if (typeof google !== "undefined" && google !== null) {
       if (!(typeof geocoder !== "undefined" && geocoder !== null)) {
         geocoder = new google.maps.Geocoder();
@@ -147,7 +161,7 @@
                             link_to = "<a href='#' data-full-address='#{full_address}' class='set_map_search'>#{full_address}</a><br />"
                             $(suggest_field).append link_to
                         $(suggest_field).show()
-                      */
+            */
           } else {
             location = results[0].geometry.location;
             if (destination === 'from') {
@@ -163,20 +177,25 @@
               for (x = 0, _ref = address_components.length - 1; 0 <= _ref ? x <= _ref : x >= _ref; 0 <= _ref ? x++ : x--) {
                 type = address_components[x].types[0];
                 value = address_components[x].long_name;
-                _results.push((function() {
-                  switch (type) {
-                    case 'locality':
-                      return set_field('city', destination, value);
-                    case 'country':
-                      return set_field('country', destination, value);
-                    case 'postal_code':
-                      return set_field('zip', destination, value);
-                    case 'route':
-                      return set_field('street', destination, value);
-                    case 'street_number':
-                      return set_field('street_no', destination, value);
-                  }
-                })());
+                switch (type) {
+                  case 'locality':
+                    _results.push(set_field('city', destination, value));
+                    break;
+                  case 'country':
+                    _results.push(set_field('country', destination, value));
+                    break;
+                  case 'postal_code':
+                    _results.push(set_field('zip', destination, value));
+                    break;
+                  case 'route':
+                    _results.push(set_field('street', destination, value));
+                    break;
+                  case 'street_number':
+                    _results.push(set_field('street_no', destination, value));
+                    break;
+                  default:
+                    _results.push(void 0);
+                }
               }
               return _results;
             }
@@ -185,7 +204,9 @@
       });
     }
   };
+
   set_field = function(type, destination, value) {
     $("input#trip_" + destination + "_" + type).val(value);
   };
+
 }).call(this);

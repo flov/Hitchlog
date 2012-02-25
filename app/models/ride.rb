@@ -8,8 +8,7 @@ class Ride < ActiveRecord::Base
   has_one :person, :dependent => :destroy
   accepts_nested_attributes_for :person, :allow_destroy => true
 
-  validates :story, presence: true, if: :title_is_present?
-  validates :title, presence: true, if: :story_is_present?
+  validates_associated :trip
 
   # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
@@ -59,15 +58,5 @@ class Ride < ActiveRecord::Base
 
   def reprocess_photo
     photo.reprocess!
-  end
-
-  private
-
-  def story_is_present?
-    !self.story.blank?
-  end
-
-  def title_is_present?
-    !self.title.blank?
   end
 end

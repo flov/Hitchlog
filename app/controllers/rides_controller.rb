@@ -19,7 +19,7 @@ class RidesController < ApplicationController
         render :action => "crop"
       end
     else
-      render :action => 'new'
+      redirect_to edit_trip_path(@ride.trip)
     end
   end
 
@@ -42,10 +42,10 @@ class RidesController < ApplicationController
         render :action => "crop"
       end
     else
-      render :action => 'edit'
+      redirect_to edit_trip_path(@ride.trip)
     end
   end
-  
+
   def destroy
     @ride = Ride.find(params[:id])
     if @ride.trip.user == current_user

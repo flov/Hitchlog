@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user = @trip.user
-    @photo_rides = @trip.rides.select{|ride| ride.photo.file?}
+    @rides_with_photos = @trip.rides.select{|ride| ride.photo.file?}
     @rides = @user.trips.map{|trip| trip.rides}.flatten
   end
 
@@ -42,6 +42,10 @@ class TripsController < ApplicationController
   end
 
   def edit
+    @user = @trip.user
+    @rides_with_photos = @trip.rides.select{|ride| ride.photo.file?}
+    @rides = @user.trips.map{|trip| trip.rides}.flatten
+    
     @trip.rides.each do |ride|
       if ride.person.nil?
         ride.build_person

@@ -55,11 +55,11 @@
           %br/
           = builder.text_field :occupation
       .tab_content{:id => "add_story_tab_#{ride.number}"}
-        = f.label :title
+        = f.label :title, t('.title_required')
         %br/
         = f.text_field :title
         %br/
-        = f.label :story
+        = f.label :story, t('.story_required')
         %br/
         = f.text_area :story, :rows => 4
     = submit_tag

@@ -163,6 +163,7 @@ en:
       written_stories: Written stories
       cs_user: CS User
       uploaded_photos: Uploaded photos
+      statistics: Statistics
     show:
       alone: alone
       gender_of_drivers: Gender of passengers
@@ -217,6 +218,9 @@ en:
   rides:
     ride:
       delete_image: "Delete Photo"
+      title_required: Title (required)
+      story_required: Story (required)
+
   trips:
     index:
       latest_hitchhiking_trips: Latest hitchhiking trips
@@ -233,7 +237,6 @@ en:
       story: Story
     edit:
       edit_title: Edit Trip
-      trip_from: Trip from
       hitchhiked: Hitchhiked
       from: From
       to: To
@@ -250,20 +253,17 @@ en:
       date: Hitchhiked Date
       start: "%{time} ago"
     show:
-      it_was_slower: (the trip took %{time} longer than a direct ride)
-      it_was_faster: (the trip was %{time} <b>faster</b> than a direct ride)
       title: "Hitchhiking from %{from_city} to %{to_city}"
-      you_were: you were
+    trip:
       edit_trip: "(Edit Trip)"
-      hitchhiked_in: 'Hitchhiked in:'
+      ride: Ride
       gmaps_duration: 'Gmaps Duration'
       time_ago: "%{time} ago"
-      user_hitchhiked_text: "%{user} hitchhiked <b>%{distance}</b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
+      user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
       it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
       google_maps_text: |
           <b>Google maps</b> says it takes <b>%{gmaps_duration}</b> for
           this route, so %{user} was <b>%{gmaps_difference}</b>.
-
     form:
       step1_2: "Continue"
     show_ride:

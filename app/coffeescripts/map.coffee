@@ -50,6 +50,7 @@ window.init_map = (rendererOptions = { draggable: true }) ->
         $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
         # Google Maps duration
         $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
+        $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
         # Display Distance
         $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
         # Submit form
