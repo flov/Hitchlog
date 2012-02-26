@@ -99,7 +99,7 @@ class Trip < ActiveRecord::Base
   end
 
   def gmaps_difference
-    if self.gmaps_duration
+    if self.gmaps_duration and self.duration
       (self.duration - self.gmaps_duration).to_i
     else
       nil
