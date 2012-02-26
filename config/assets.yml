@@ -1,4 +1,4 @@
-# package_assets: always
+package_assets: never
 
 javascripts:
   workspace:
