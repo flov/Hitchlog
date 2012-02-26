@@ -48,7 +48,11 @@
       %ul
         -@rides_with_story.each do |ride|
           %li
-            = link_to "#{truncate(h(ride.title), :length => 50)} #{experience_image(ride.experience)} #{images_for_ride(ride)}".html_safe, trip_path(ride.trip)
+            = link_to trip_path(ride.trip) do
+              = truncate(ride.title, :length => 50)
+              = experience_image(ride.experience)
+              = country_images_for_trip(ride.trip)
+              = images_for_ride(ride)
             by 
             = link_to h(ride.trip.user), user_path(ride.trip.user)
             = truncated_markdown(ride.story)
