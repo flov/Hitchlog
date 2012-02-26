@@ -41,5 +41,8 @@
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
     <%= f.hidden_field attribute, :id => attribute %>
   <% end %>
+  <%= f.label :photo_caption %>
+  <br/>
+  <%= f.text_field :photo_caption %>
   <p><%= f.submit "Crop" %></p>
 <% end %>
