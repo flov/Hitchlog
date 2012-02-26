@@ -20,19 +20,19 @@
         .text_field.username
           = f.label :username
           %br
-          = f.text_field :username
+          = f.text_field :username, autofocus: true, required: true
         .text_field.email
           = f.label :email
           %br
-          = f.text_field :email
+          = f.text_field :email, required: true
         .text_field.password
           = f.label :password
           %br
-          = f.password_field :password
+          = f.password_field :password, required: true
         .text_field.email
           = f.label :password_confirmation
           %br
-          = f.password_field :password_confirmation
+          = f.password_field :password_confirmation, required: true
         .text_field.gender
           = f.label :gender
           %br

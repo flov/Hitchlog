@@ -15,9 +15,9 @@
       = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'fancy_form'}) do |f|
         .text_field
           = f.label :username
-          = f.text_field :username
+          = f.text_field :username, autofocus: 'true', required: true
         .text_field
-          = f.label :password
+          = f.label :password, required: true
           = f.password_field :password
         - if devise_mapping.rememberable?
           %p
