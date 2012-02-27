@@ -1,16 +1,12 @@
-/* DO NOT MODIFY. This file was compiled Tue, 17 Jan 2012 07:30:30 GMT from
- * /Users/flov/code/Hitchlog/app/coffeescripts/new_trip.coffee
+/* DO NOT MODIFY. This file was compiled Wed, 29 Feb 2012 18:45:29 GMT from
+ * /Users/flov/code/hitchlog/app/coffeescripts/new_trip.coffee
  */
 
 (function() {
+
   $(document).ready(function() {
     var trip_end;
     init_map();
-    $("#trip_from").observe_field(0.3, function() {
-      if (this.value.length > 1) {
-        return get_location($("#trip_from").val(), $("#suggest_from"), "from");
-      }
-    });
     $("#trip_to").observe_field(0.3, function() {
       if (this.value.length > 1) {
         return get_location($("#trip_to").val(), $("#suggest_to"), "to");
@@ -50,4 +46,5 @@
       changeMonth: true
     });
   });
+
 }).call(this);

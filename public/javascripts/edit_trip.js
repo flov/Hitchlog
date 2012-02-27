@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 25 Feb 2012 04:38:12 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 16 Mar 2012 03:16:26 GMT from
  * /Users/flov/code/hitchlog/app/coffeescripts/edit_trip.coffee
  */
 
@@ -17,8 +17,9 @@
         minWidth: 532
       });
     });
-    $('#trip_story').markItUp(mySettings);
     $('#slider').nivoSlider({
+      effect: 'fade',
+      pauseTime: 8000,
       controlNav: false
     });
     if ($("#slider img").size() === 1) {

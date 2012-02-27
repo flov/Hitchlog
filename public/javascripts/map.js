@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 25 Feb 2012 13:49:49 GMT from
+/* DO NOT MODIFY. This file was compiled Mon, 27 Feb 2012 12:20:25 GMT from
  * /Users/flov/code/hitchlog/app/coffeescripts/map.coffee
  */
 

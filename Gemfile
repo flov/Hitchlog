@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake', '0.9.2'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'mysql2',  '>=0.3'
 
@@ -21,10 +21,7 @@ gem 'mongrel', '1.2.0.pre2'
 gem 'json'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'hpricot'
-gem 'compass'
 gem 'haml', '~> 3.1.4'
-gem 'compass-colors'
-gem 'fancy-buttons'
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
 gem 'oa-oauth', :require => 'omniauth/oauth'
@@ -34,6 +31,18 @@ gem 'choices' # external settings in Rails app
 
 # coffeescript
 gem 'barista', '~> 1.0'
+
+# Gems only used for assets and not required by default
+# in production environments by default.
+group :assets do
+  gem 'sass-rails'
+  gem 'compass-rails'
+  gem 'compass-colors'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
 
 group :development do
   gem 'hirb'

@@ -4,10 +4,23 @@ require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  Bundler.require *Rails.groups(:assets => %w(development test))
+end
 
 module Hitchlog
   class Application < Rails::Application
+    # Sass configuration
+    config.sass.line_comments = false
+    config.sass.style = :nested
+
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Versions of your assets, change this line if you want to expire all your assets
+    config.asset_version = '1.0'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

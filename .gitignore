@@ -15,3 +15,5 @@ config/deploy.rb
 config/deploy/
 .idea
 config/hitchlog.local.yml
+.sass-cache
+.DS_Store

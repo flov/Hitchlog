@@ -7,9 +7,7 @@
     = csrf_meta_tag 
     = yield(:head)
 
-    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    /[if IE]
-      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'screen'
 
   %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
     = render 'shared/banners_in_corners'
@@ -17,7 +15,7 @@
     #wrap
       #header
         .container
-          .logo=link_to image_tag("hitchlog_logo.png"), root_path
+          .logo=link_to image_tag("hitchlog_logo.png", width: 225, height: 55, alt: 'Hitchlog logo'), root_path
           = render 'layouts/navigation'
 
       #second-header
@@ -28,17 +26,18 @@
         .container
           = yield(:topmenu)
           - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}"
+            = content_tag :div, msg, id: "flash_#{name}"
 
       #content
         .container
           = yield
 
-    %script{:src=>"http://connect.facebook.net/en_US/all.js#xfbml=1"}
+    %script{src:"http://connect.facebook.net/en_US/all.js#xfbml=1"}
     #footer
       &copy; 2011 Hitchlog - #{link_to 'About', 'http://hitchlog.com/about'}
-    
-  = include_javascripts :workspace
+
+  = javascript_include_tag 'application', debug: true
+  -# = include_javascripts :workspace
   = javascript_google_stats
   = yield(:javascript_at_bottom)
 
