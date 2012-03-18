@@ -30,7 +30,6 @@ Hitchlog::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # Do not compress assets
   config.assets.compress = true
 
   # serve all files or put all of them into one file:

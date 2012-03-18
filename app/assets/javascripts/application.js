@@ -8,4 +8,4 @@
 //= require vendor/jquery.nivo.slider.pack.js
 //= require vendor/tipsy.js
 //= require vendor/showdown.js
-//= require settings/nivo_settings.js
+//= require map
