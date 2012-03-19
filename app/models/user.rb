@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def genders
-    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.gender }.select{|gender| !gender.nil?}
+    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.gender }.select{|gender| !gender.blank?}
   end
 
   def genders_in_percentage
