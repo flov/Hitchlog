@@ -9,22 +9,12 @@
         %li
           %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
         %li
-          %a{:href => "#time_tab_#{ride.number}"}
+          %a{:href => "#person_info_tab_#{ride.number}"}
+            = about_person_image
             = waiting_time_image
         %li
           %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
-        %li
-          %a{:href => "#person_info_tab_#{ride.number}"}= about_person_image
 
-      .tab_content{:id => "time_tab_#{ride.number}"}
-        = f.label :duration
-        %br/
-        = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
-        %br/
-        = f.label :waiting_time
-        %br/
-        = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
-        %br/
       .tab_content{:id => "picture_tab_#{ride.number}"}
         - if ride.photo.file?
           = image_tag(ride.photo(:thumb))
@@ -42,19 +32,14 @@
         = f.label :gender
         %br/
         = f.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
-        = f.fields_for :person do |builder|
-          %br/
-          = builder.label :mission
-          %br/
-          = builder.text_field :mission
-          %br/
-          = builder.label :origin
-          %br/
-          = builder.text_field :origin
-          %br/
-          = builder.label :occupation
-          %br/
-          = builder.text_field :occupation
+        %br/
+        = f.label :duration
+        %br/
+        = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
+        %br/
+        = f.label :waiting_time
+        %br/
+        = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
       .tab_content{:id => "add_story_tab_#{ride.number}"}
         = f.label :title, t('.title_required')
         %br/
