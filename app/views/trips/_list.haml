@@ -1,3 +1,5 @@
+- by ||= false
+
 %table#trips_list.colorize_table
   %tr
     %th Trips
@@ -5,7 +7,8 @@
     %th= t('.countries')
     %th= t('.rides')
     %th= t('activerecord.attributes.trip.distance')
-    %th= t('.by')
+    - if by
+      %th= t('.by')
     %th= t('.date')
   - trips.each do |trip|
     %tr{:id => "trip_#{trip.id}"}
@@ -28,7 +31,8 @@
         = trip.rides.size
         = link_to experience_image((trip.overall_experience)), trip_path(trip)
       %td.distance= distance( trip.distance )
-      %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_image(trip.user.gender)}".html_safe, user_path(trip.user)
+      - if by
+        %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_image(trip.user.gender)}".html_safe, user_path(trip.user)
       - unless trip.start.nil?
         - if trip.start > 1.month.ago
           %td.started_at= t('.start', :time => time_ago_in_words(trip.start))
