@@ -232,6 +232,9 @@ en:
     other: "%{count} minutes"
 
   rides:
+    crop:
+      crop_the_photo: "Crop the photo"
+      crop: Crop
     ride:
       delete_image: "Delete Photo"
       title_required: Title (required)

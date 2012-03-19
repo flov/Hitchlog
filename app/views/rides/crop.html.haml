@@ -1,0 +1,55 @@
+- title t('.crop_the_photo')
+
+- content_for :topmenu do
+  #map.map_show{:style=>"width:450px"}
+  %div{style: "width:500px; height:250px; overflow:hidden"}
+    = image_tag @ride.photo.url(:large), :id => "preview"
+
+%h1= t('.crop_the_photo')
+
+= image_tag @ride.photo.url(:large), :id => "cropbox" 
+
+= form_for @ride, :url => trip_ride_path(@ride.trip, @ride) do |f|
+  - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+    = f.hidden_field attribute, :id => attribute
+  = f.label :photo_caption
+  %br/
+  = f.text_field :photo_caption
+  %p= f.submit t(".crop")
+
+
+
+
+= hidden_field_tag :trip_from,  @ride.trip.from_formatted_address 
+= hidden_field_tag :trip_to,    @ride.trip.to_formatted_address
+= hidden_field_tag :trip_route, @ride.trip.route
+
+- content_for(:javascript_at_bottom) do
+  :javascript
+    $(function() {
+      $('#cropbox').Jcrop({
+        onChange: update_crop,
+        onSelect: update_crop,
+        setSelect: [0, 0, 500, 250],
+        aspectRatio: 2
+      });
+
+      init_map({draggable: false})
+      set_new_route($("#trip_route").val())
+    });
+
+    function update_crop(coords) {
+      var rx = 500/coords.w;
+      var ry = 250/coords.h;
+      $('#preview').css({
+        width: Math.round(rx * #{ @ride.photo_geometry(:large).width }) + 'px',
+        height: Math.round(ry * #{ @ride.photo_geometry(:large  ).height }) + 'px',
+        marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+        marginTop: '-' + Math.round(ry * coords.y) + 'px'
+      });
+      var ratio = #{ @ride.photo_geometry(:original).width } / #{ @ride.photo_geometry(:large).width };
+      $("#crop_x").val(Math.round(coords.x * ratio));
+      $("#crop_y").val(Math.round(coords.y * ratio));
+      $("#crop_w").val(Math.round(coords.w * ratio));
+      $("#crop_h").val(Math.round(coords.h * ratio));
+    }
