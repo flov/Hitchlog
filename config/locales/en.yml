@@ -41,6 +41,11 @@ en:
       update:
         error: "Could not edit profile"
         notice: "Successfully edited profile"
+      send_mail:
+        error: You cannot send a mail to yourself
+      mail_sent:
+        notice: "Mail has been sent to %{user}"
+
   helper:
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
@@ -152,6 +157,11 @@ en:
   back: Back
   edit: Edit
   users:
+    send_mail:
+      message_placeholder: Message
+      title: "Send a message to %{user}"
+      send_mail: Send Mail
+      send_a_mail_to: "Send Message to %{user}"
     right_column:
       cars_seen_from_inside: Cars seen from inside
       average_drivers_age: "Average driver's age"
@@ -164,6 +174,7 @@ en:
       cs_user: CS User
       uploaded_photos: Uploaded photos
       statistics: Statistics
+      send_mail: Send Mail
     show:
       alone: alone
       gender_of_drivers: Gender of passengers

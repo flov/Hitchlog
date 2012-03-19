@@ -1,1 +1,17 @@
+Hello <%= @to_user %>!
+
+<%= @from_user %> sent you a mail:
+
+---------------------------------------------
 <%= @message %>
+---------------------------------------------
+
+To reply <%= @to_user %>, please reply to this email address: <%= @from_user.email %>
+
+Your Hitchlog Profile: <%= user_url(@to_user) %>
+<%= @from_user%>'s Hitchlog Profile: <%= "http://hitchlog.com/#{@from_user.username}" %>
+Edit your Hitchlog Profile: <%= edit_user_url(@to_user) %>
+
+
+Happy Hitchhiking :)
+The Hitchlog

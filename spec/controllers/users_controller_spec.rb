@@ -1,4 +1,77 @@
 require 'spec_helper'
 
 describe UsersController do
+  describe "GET send_mail" do
+    before do
+      @to_user = Factory :user
+    end
+
+    context "if not logged in" do
+      it "should redirect to login page" do
+        get :send_mail, :id => @to_user.id
+        response.should redirect_to('/users/login')
+      end
+    end
+
+    context "if logged in" do
+      before do
+        @user = Factory :user
+        sign_in :user, @user
+      end
+
+      context "user sends mail to himself" do
+        before do
+          get :send_mail, :id => @user.id
+        end
+
+        it "should redirect" do
+          response.should redirect_to(user_path(@user))
+        end
+
+        it "should set the flash" do
+          flash[:alert].should eq("You cannot send a mail to yourself")
+        end
+      end
+
+
+      it "should render get_mail action" do
+        get :send_mail, :id => @to_user.id
+        response.should render_template(action: 'get_mail')
+      end
+    end
+  end
+
+  describe "POST mail_sent" do
+    before do
+      @to_user = Factory :user
+    end
+
+    context "if not logged in" do
+      it "redirects to log in page" do
+        post :mail_sent
+        response.should redirect_to('/users/login')
+      end
+    end
+
+    context "if logged in" do
+      before do 
+        @user = Factory :user
+        sign_in :user, @user
+      end
+
+      context "when mail sends successfully" do
+        before do
+          post :mail_sent, id: @user.id
+        end
+
+        it "redirects to the trips index" do
+          response.should redirect_to("/hitchhikers/#{@user.username}")
+        end
+
+        it "sets the flash" do
+          flash[:notice].should eq("Mail has been sent to #{@user}")
+        end
+      end
+    end
+  end
 end

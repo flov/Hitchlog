@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :send_mail, :destroy, :update]
+  before_filter :authenticate_user!, :only => [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def show
     @user = User.find(params[:id])
@@ -35,14 +35,26 @@ class UsersController < ApplicationController
       flash[:notice] = I18n.t('flash.users.update.notice')
       redirect_to user_path(@user)
     else
-      flash[:error] = I18n.t('flash.users.update.error')
+      flash[:alert] = I18n.t('flash.users.update.error')
       render :action => 'edit'
     end
   end
 
   def send_mail
-    user = User.find(params[:id])
-    UserMailer.mail_to_user(user, "message", "subject").deliver
+    @user = User.find(params[:id])
+    if @user == current_user
+      redirect_to user_path(@user)
+      flash[:alert] = I18n.t('flash.users.send_mail.error')
+    end
+  end
+
+  def mail_sent
+    @user = User.find(params[:id])
+    user_mailer = UserMailer.mail_to_user(current_user, @user, params[:message_body])
+    if user_mailer.deliver
+      flash[:notice] = I18n.t('flash.users.mail_sent.notice', user: @user)
+      redirect_to user_path(@user)
+    end
   end
 
   def index

@@ -1,0 +1,9 @@
+- title t('.title', user: @user)
+
+%h1= t('.send_a_mail_to', user: @user)
+= form_tag mail_sent_user_path(@user) do
+  = label_tag 'message_body'
+  %br/
+  = text_area_tag :message_body, '', placeholder: t('.message_placeholder'), rows: 10, cols: 50, required: true
+  %br/
+  = submit_tag t('.send_mail')
