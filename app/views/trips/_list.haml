@@ -29,7 +29,7 @@
         = ride_image(trip.rides.size)
         = experience_image(trip.overall_experience)
       %td.distance= distance( trip.distance )
-      %td.hitchhiked_by= link_to trip.user, user_path(trip.user)
+      %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_image(trip.user.gender)}".html_safe, user_path(trip.user)
       - unless trip.start.nil?
         - if trip.start > 1.month.ago
           %td.started_at= t('.start', :time => time_ago_in_words(trip.start))

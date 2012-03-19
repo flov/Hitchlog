@@ -1,6 +1,9 @@
+- gender ||= false
 %p
   = form_tag '', :method => 'get' do
     = t('.sort_by')
+    - if gender
+      = select_tag "gender", options_for_gender.html_safe, :prompt => t('.select_gender')
     = select_tag "experience", options_for_experiences.html_safe, :prompt => t('.select_experience')
     = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
     = check_box_tag 'photos', nil, params[:photos]

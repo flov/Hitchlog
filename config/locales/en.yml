@@ -67,6 +67,7 @@ en:
     story_missing: Missing Story, write a story about the ride
     male: male
     female: female
+
     male_people: male passengers
     female_people: female passengers
     mixed_people: Mixed gender passengers
@@ -241,11 +242,10 @@ en:
       latest_hitchhiking_trips: Latest hitchhiking trips
       log_new_trip: Log New Trip
       to_log_a_new_hitchhiking_trip: to log a new hitchhiking trip.
-      select_gender: Select Gender
-      select_experience: Select Experience
-      gender: gender
       choose_a_country: Choose a country
     search_interface:
+      select_experience: Select Experience
+      select_gender: Select Gender
       sort_by: "Sort by:"
       photo: Photo
       select_country: Select Country

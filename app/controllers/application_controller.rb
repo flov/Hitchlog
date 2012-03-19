@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
     unless params[:experience].blank?
       @trips = @trips.includes(:rides).where(rides: { experience: params[:experience] })
     end
+    unless params[:gender].blank?
+      @trips = @trips.joins(:user).where(users: { gender: params[:gender] })
+    end
     if params[:hitchhiked_with]
       @trips = @trips.where(travelling_with: params[:hitchhiked_with])
     end

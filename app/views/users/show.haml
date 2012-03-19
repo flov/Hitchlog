@@ -55,7 +55,7 @@
         .float_left.column
           %h3 #{t('.gender_of_drivers')}:
           - @user.genders_in_percentage.each do |gender, val|
-            %p{:class => "#{gender}"}
+            %p.gender{:class => "#{gender}"}
               #{(val*100).to_i}%
               = gender_people_image gender 
 

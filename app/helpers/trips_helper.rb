@@ -80,7 +80,7 @@ module TripsHelper
   end
 
   def options_for_gender
-    "<option>male</option><option>female</option><option>mixed</option>"
+    "<option>#{t('general.male')}</option><option>#{t('general.female')}</option>"
   end
 
   def experiences

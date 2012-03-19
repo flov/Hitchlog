@@ -10,7 +10,7 @@
   #{t('.latest_hitchhiking_trips')}:
 
 
-= render 'trips/search_interface'
+= render 'trips/search_interface', gender: true
 = will_paginate @trips, :class => 'digg_pagination'
 #trips
   = render 'list', :trips => @trips
