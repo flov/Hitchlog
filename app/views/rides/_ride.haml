@@ -1,8 +1,9 @@
 %p.headline Ride #{ride.number}
 .accordion_content
   = form_for ride, :html => {:multipart => true} do |f|
+    = experience_image(ride.experience)
     = f.label("experience")
-    = f.select("experience", [I18n.t('general.positive'), I18n.t('general.neutral'), I18n.t('general.negative')])
+    = f.select("experience", [I18n.t('general.extremely_positive'), I18n.t('general.positive'), I18n.t('general.neutral'), I18n.t('general.negative'), I18n.t('general.extremely_negative')])
     .tabs
       %ul
         %li

@@ -49,9 +49,11 @@ en:
   helper:
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
+    extremely_positive_experience: extremely positive experience
     positive_experience: positive experience
     neutral_experience: neutral experience
     negative_experience: negative experience
+    extremely_negative_experience: extremely negative experience
     no_results_for_this_route: no results for this route
     unknown_distance: unknown distance
     about_person_image: About the passengers
@@ -99,9 +101,11 @@ en:
     male: "male"
     female: "female"
     mixed: "mixed"
+    extremely_positive: extremely positive
     positive: positive
     neutral: neutral
     negative: negative
+    extremely_negative: extremely negative
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   shared:
