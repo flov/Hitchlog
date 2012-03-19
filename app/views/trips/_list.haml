@@ -26,8 +26,7 @@
         = country_images_for_trip(trip)
       %td.rides
         = trip.rides.size
-        = ride_image(trip.rides.size)
-        = experience_image(trip.overall_experience)
+        = link_to experience_image(h(trip.overall_experience)), trip_path(trip)
       %td.distance= distance( trip.distance )
       %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_image(trip.user.gender)}".html_safe, user_path(trip.user)
       - unless trip.start.nil?
