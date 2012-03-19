@@ -152,14 +152,14 @@ class Trip < ActiveRecord::Base
     experiences = self.rides.map{|ride| ride.experience}
     if experiences.include? 'extremely negative'
       'extremely negative'
+    elsif experiences.include? 'extremely positive'
+      'extremely positive'
     elsif experiences.include? 'negative'
       'negative'
     elsif experiences.include? 'neutral'
       'neutral'
     elsif experiences.include? 'positive'
       'positive'
-    elsif experiences.include? 'extremely positive'
-      'extremely positive'
     end
   end
 end
