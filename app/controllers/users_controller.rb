@@ -10,18 +10,7 @@ class UsersController < ApplicationController
     @x_times_with_four = @user.trips.select {|trip| trip.travelling_with == 3}.size
 
     @trips = @user.trips
-    unless params[:country].blank?
-      @trips = @trips.includes(:country_distances).where(:country_distances => {:country => params[:country]})
-    end
-    if params[:stories]
-      @trips = @trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
-    end
-    if params[:hitchhiked_with]
-      @trips = @trips.where(travelling_with: params[:hitchhiked_with])
-    end
-    if params[:photos]
-      @trips = @trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
-    end
+    @trips = build_search_trips(@trips)
     @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
   end
 

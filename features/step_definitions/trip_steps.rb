@@ -1,8 +1,5 @@
-Given /^a trip exists$/ do
-  @trip = Factory :trip
-end
-
 Given /^the user of this trip is "([^"]*)"$/ do |username|
+  @trip = Trip.last
   user = @trip.user
   user.username = username
   user.save!
@@ -95,11 +92,26 @@ When /^I fill in the new trip form and I submit it$/ do
   click_button "Continue"
 end
 
-Given /^I logged the following trip:$/ do |table|
-  @user = Factory :user unless @user
-  @trip = Factory.build :trip
-  table.rows_hash.each do |name, value|
-    # Todo: evaluate table and fill attributes of @trip
+Given /^each one of these 6 trips have a different experience$/ do
+  experiences = ['extremely positive', 'positive', 'neutral', 'negative', 'extremely negative']
+  trips = Trip.all
+  6.times do |i|
+    ride = trips[i].rides.first
+    ride.experience = experiences[i]
+    ride.save!
   end
-  @trip.save!
 end
+
+When /^I search for trips with an "([^"]*)" experience$/ do |experience|
+  select experience, :from => "experience"
+  click_button "Search"
+end
+
+Then /^I should see a trip with an? "([^"]*)" experience$/ do |experience|
+  page.should have_content("#{experience}.png")
+end
+
+Then /^I should not see a trip with an? "([^"]*)" experience$/ do |experience|
+  page.should_not have_content("#{experience}.png")
+end
+

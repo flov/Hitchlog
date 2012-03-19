@@ -25,15 +25,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip
-    unless params[:country].blank?
-      @trips = @trips.includes(:country_distances).where(:country_distances => {:country => params[:country]})
-    end
-    if params[:stories]
-      @trips = @trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
-    end
-    if params[:photos]
-      @trips = @trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
-    end
+    @trips = build_search_trips(@trips)
     @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
     respond_to do |wants|
       wants.html
@@ -45,7 +37,6 @@ class TripsController < ApplicationController
     @user = @trip.user
     @rides_with_photos = @trip.rides.select{|ride| ride.photo.file?}
     @rides = @user.trips.map{|trip| trip.rides}.flatten
-    
     @trip.rides.each do |ride|
       if ride.person.nil?
         ride.build_person
@@ -69,7 +60,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @trip.destroy
     redirect_to trips_url
-  end  
+  end
 
   private
 

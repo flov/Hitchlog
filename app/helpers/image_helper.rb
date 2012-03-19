@@ -144,15 +144,15 @@ module ImageHelper
 
   def experience_image(exp)
     if exp == 'positive'
-      image_tag("icons/bullet_green.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
+      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
     elsif exp == 'extremely positive'
-      image_tag("icons/emoticon_smile.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'))
+      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'))
     elsif exp == 'neutral'
-      image_tag("icons/bullet_yellow.png", :class => 'tooltip', :alt => t('helper.neutral_experience'))
+      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.neutral_experience'))
     elsif exp == 'negative'
-      image_tag("icons/bullet_red.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
+      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
     elsif exp == 'extremely negative'
-      image_tag("icons/emoticon_unhappy.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'))
+      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'))
     end
   end
 

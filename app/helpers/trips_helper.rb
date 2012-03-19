@@ -83,6 +83,22 @@ module TripsHelper
     "<option>male</option><option>female</option><option>mixed</option>"
   end
 
+  def experiences
+    [
+      t('general.extremely_positive'),
+      t('general.positive'),
+      t('general.neutral'),
+      t('general.negative'),
+      t('general.extremely_negative')
+    ]
+  end
+
+  def options_for_experiences
+    array =[]
+    experiences.each{|experience| array << "<option>#{experience}</option>"}
+    array.join ''
+  end
+
   def options_for_countries
     countries = CountryDistance.all.map(&:country).uniq.sort
     array =[]

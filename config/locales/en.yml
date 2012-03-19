@@ -242,6 +242,7 @@ en:
       log_new_trip: Log New Trip
       to_log_a_new_hitchhiking_trip: to log a new hitchhiking trip.
       select_gender: Select Gender
+      select_experience: Select Experience
       gender: gender
       choose_a_country: Choose a country
     search_interface:

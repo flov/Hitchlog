@@ -62,6 +62,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'launchy', '~> 2.0.5' # to use save_and_open_page
+  gem 'pickle'
 end
 
 group :test do
