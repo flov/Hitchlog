@@ -11,10 +11,6 @@ end
 
 module Hitchlog
   class Application < Rails::Application
-    # Sass configuration
-    config.sass.line_comments = false
-    config.sass.style = :nested
-
     # Enable the asset pipeline
     config.assets.enabled = true
 
