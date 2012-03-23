@@ -334,7 +334,6 @@ DEPENDENCIES
   rb-fsevent
   rdiscount
   rspec-rails
-  sass (= 3.1.15)
   sass-rails
   shoulda-matchers
   spork (= 0.9.0.rc9)

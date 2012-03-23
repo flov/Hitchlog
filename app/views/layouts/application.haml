@@ -7,7 +7,7 @@
     = csrf_meta_tag 
     = yield(:head)
 
-    = stylesheet_link_tag 'screen'
+    = stylesheet_link_tag 'application'
 
   %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
     = render 'shared/banners_in_corners'

@@ -5,7 +5,7 @@ config/database.yml
 log/*.log
 tmp/**/*
 public/system
-public/assets/workspace*
+public/assets/
 public/stylesheets/*.css
 public/stylesheets/backup
 public/stylesheets/partials
