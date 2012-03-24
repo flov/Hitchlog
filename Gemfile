@@ -45,6 +45,7 @@ end
 gem 'jquery-rails'
 
 group :development do
+  gem 'thin' # use thin web-server instead of webrick
   gem 'hirb'
   gem 'capistrano-ext'
   gem 'capistrano'
