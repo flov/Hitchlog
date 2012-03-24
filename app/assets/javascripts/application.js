@@ -6,6 +6,7 @@
 //= require vendor/jquery.Jcrop.min.js
 //= require vendor/jquery.observe_field.js
 //= require vendor/jquery.nivo.slider.pack.js
-//= require tipsy_settings.js
 //= require vendor/showdown.js
+//
+//= require tipsy_settings.js
 //= require map
