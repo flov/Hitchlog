@@ -1,8 +1,8 @@
 $(document).ready ->
   init_map()
-  # $("#trip_from").observe_field 0.3, ->
-  #   if this.value.length > 1
-  #     get_location $("#trip_from").val(), $("#suggest_from"), "from"
+  $("#trip_from").observe_field 0.3, ->
+    if this.value.length > 1
+      get_location $("#trip_from").val(), $("#suggest_from"), "from"
 
   $("#trip_to").observe_field 0.3, ->
     if this.value.length > 1
