@@ -10,8 +10,7 @@ guard 'livereload' do
   watch(%r{app/.+\.(erb|haml)})
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})
-  watch(%r{app/coffeescripts/.+\.(coffee)})
-  watch(%r{app/stylesheets/.+\.(scss|sass)})
+  watch(%r{app/assets/.+\.(coffee|scss|sass)})
 end
 
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
