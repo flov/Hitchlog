@@ -34,7 +34,5 @@ Hitchlog::Application.configure do
 
   # serve all files or put all of them into one file:
   config.assets.debug = false
-
-  config.assets.digest = true
 end
 

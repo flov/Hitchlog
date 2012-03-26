@@ -1,0 +1,39 @@
+.hitchslide
+  color: white
+  position: relative
+  background: white url(/stylesheets/loading.gif) no-repeat 50% 50%
+  //img
+    //position: absolute
+    //top: 0px
+    //left: 0px
+    //display: block
+  a
+    border: 0
+    display: block
+  .hitchslide-left
+    width: 450px
+    height: 250px
+    float: left
+  .hitchslide-right
+    float: right
+  .nivo-directionNav a
+    display: block
+    width: 30px
+    height: 30px
+    background: url(/stylesheets/arrows.png) no-repeat
+    text-indent: -9999px
+    border: 0
+  a
+    &.nivo-nextNav
+      background-position: -30px 0
+      right: 15px
+    &.nivo-prevNav
+      left: 15px
+  .nivo-caption
+    opacity: 0.8
+    font-family: Helvetica, Arial, sans-serif
+    a
+      color: #fff
+      border-bottom: 1px dotted #fff
+      &:hover
+        color: #fff

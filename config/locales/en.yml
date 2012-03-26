@@ -239,8 +239,8 @@ en:
       crop: Crop
     ride:
       delete_image: "Delete Photo"
-      title_required: Title (required)
-      story_required: Story (required)
+      title_required: Title
+      story_required: Story
 
   trips:
     index:

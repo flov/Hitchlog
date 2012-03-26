@@ -1,11 +1,4 @@
 module ImageHelper
-  def images_missing_for_ride(ride)
-    array = []
-    array << waiting_time_missing_image unless ride.waiting_time
-    array << driving_time_missing_image unless ride.duration
-    link_to array.join(' ').html_safe, edit_trip_path(ride.trip)
-  end
-
   def images_for_ride(ride)
     array = []
     array << gender_people_image(ride.gender) if ride.gender
