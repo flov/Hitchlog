@@ -1,41 +1,51 @@
-.hitchslide-left
-  float: left
-.hitchslide-right
-  float: right
-
-
-.hitchslider
+.hitchslide
   position: relative
-  background: white url(/stylesheets/loading.gif) no-repeat 50% 50%
-  width: 500px
+  width: 950px
   height: 250px
-  .hitchslider-directionNav a
-    position: absolute
-    top: 45%
-    width: 30px
-    z-index: 9
-    height: 30px
-    background: url(/stylesheets/arrows.png) no-repeat
-    text-indent: -9999px
-    cursor: pointer
-  a
-    &.hitchslider-nextNav
-      background-position: -30px 0
-      right: 15px
-    &.hitchslider-prevNav
-      left: 15px
+  z-index: 17
   .hitchslider-caption
-    p
-      padding: 5px
     position: absolute
     bottom: 0
     background-color: black
     opacity: 0.8
     font-family: Helvetica, Arial, sans-serif
     width: 100%
+    p
+      padding: 5px
     a
       color: #fff
       border-bottom: 1px dotted #fff
       &:hover
         color: #fff
+  .hitchslide-left
+    float: left
+    .hitchslider
+      position: relative
+      background: white url(/stylesheets/loading.gif) no-repeat 50% 50%
+      width: 500px
+      height: 250px
+      .hitchslider-directionNav a
+        position: absolute
+        top: 45%
+        width: 30px
+        z-index: 9
+        height: 30px
+        background: url(/stylesheets/arrows.png) no-repeat
+        text-indent: -9999px
+        cursor: pointer
+      a
+        &.hitchslider-nextNav
+          background-position: -30px 0
+          right: 15px
+        &.hitchslider-prevNav
+          left: 15px
+    
+  .hitchslide-right
+    float: right
+    .hitchslide-map
+      background-color: gray
+      width: 450px
+      height: 250px
+
+
   

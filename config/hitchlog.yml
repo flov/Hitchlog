@@ -1,4 +1,5 @@
 defaults: &defaults
+  google_maps_key: AIzaSyAoRZxn3x2YppDC6ZpnUjE8v9RKBRa1oWA
   smtp_settings:
     :domain:         domain.com         # the domain your emails will come from
     :address:        smtp.sendgrid.net  # SMTP server used to send emails

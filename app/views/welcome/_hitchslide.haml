@@ -6,26 +6,33 @@
     .hitchslider
       = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
         = image_tag(ride.photo.url(:cropped), style: 'display: block;')
-      .hitchslider-caption
-        %p
-          = ride.caption_or_title
-          = hitchhiking_with_image(ride.trip.travelling_with)
-          = country_images_for_trip(ride.trip)
-          = experience_image(ride.experience)
-          = gender_people_image(ride.gender) if ride.gender
-          = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
-          = driving_time_image(human_hours(ride.duration)) if ride.duration
 
       .hitchslider-directionNav
         %a.hitchslider-prevNav Prev
         %a.hitchslider-nextNav Next
+
   .hitchslide-right
-    #map
+    .hitchslide-map#hitchslider_map
 
-
+  .hitchslider-caption
+    %p
+      = t('trips.trip.time_ago', time: time_ago_in_words(ride.trip.start).capitalize) if ride.trip.start
+      = t('trips.trip.user_hitchhiked_text', user: ride.trip.user.to_s, distance: distance(ride.trip.distance), from: ride.trip.from, to: ride.trip.to, rides_size: ride.trip.rides.size).html_safe
+      = ride.caption_or_title
+      = hitchhiking_with_image(ride.trip.travelling_with)
+      = country_images_for_trip(ride.trip)
+      = experience_image(ride.experience)
+      = gender_people_image(ride.gender) if ride.gender
+      = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+      = driving_time_image(human_hours(ride.duration)) if ride.duration
+      = link_to "(more)", trip_path(ride.trip)
 
 - content_for :javascript_at_bottom do
-  %script{:src => "maps.googleapis.com/maps/api/js?sensor=false", :type => "text/javascript"}  
-    
+  = google_maps_js
   :javascript
-    window.Hitchmap.init_map({draggable: false}, "#hitchslide_map")
+    var hitchslider_route = "#{escape_javascript(ride.trip.route)}"
+    var hitchslider_from  = "#{escape_javascript(ride.trip.from)}"
+    var hitchslider_to    = "#{escape_javascript(ride.trip.to)}"
+
+    Hitchmap.init_map({draggable: false}, "#hitchslider_map")
+    Hitchmap.set_new_route(hitchslider_route, hitchslider_from, hitchslider_to)
