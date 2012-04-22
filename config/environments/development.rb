@@ -33,6 +33,6 @@ Hitchlog::Application.configure do
   config.assets.compress = true
 
   # serve all files or put all of them into one file:
-  config.assets.debug = false
+  config.assets.debug = true
 end
 
