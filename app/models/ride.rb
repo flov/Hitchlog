@@ -59,4 +59,12 @@ class Ride < ActiveRecord::Base
   def reprocess_photo
     photo.reprocess!
   end
+
+  def caption_or_title
+    if photo_caption
+      photo_caption
+    elsif title
+      title
+    end
+  end
 end

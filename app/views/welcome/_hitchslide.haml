@@ -1,25 +1,31 @@
 -# This is just a temporary var, when feature finished, it will be deleted
-- photo_ride = Trip.find(592).rides.first
+- ride = Ride.where("photo_file_name is not null").sample
 
 .hitchslide
   .hitchslide-left
+    .hitchslider
+      = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
+        = image_tag(ride.photo.url(:cropped), style: 'display: block;')
+      .hitchslider-caption
+        %p
+          = ride.caption_or_title
+          = hitchhiking_with_image(ride.trip.travelling_with)
+          = country_images_for_trip(ride.trip)
+          = experience_image(ride.experience)
+          = gender_people_image(ride.gender) if ride.gender
+          = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+          = driving_time_image(human_hours(ride.duration)) if ride.duration
 
+      .hitchslider-directionNav
+        %a.hitchslider-prevNav Prev
+        %a.hitchslider-nextNav Next
   .hitchslide-right
-    .nivo-theme-default
-      #slider.nivoSlider
-        = link_to trip_path(photo_ride.trip), class: 'nivo-imageLink' do
-          = image_tag(photo_ride.photo.url(:cropped), style: 'display: block;')
-        .nivo-caption
-          %p
-            Hitchhiking in Iran
-            = hitchhiking_with_image(photo_ride.trip.travelling_with)
-            = country_images_for_trip(photo_ride.trip)
-            = experience_image(photo_ride.experience)
-            = gender_people_image(photo_ride.gender) if photo_ride.gender
-            = waiting_time_image(human_minutes(photo_ride.waiting_time)) if photo_ride.waiting_time
-            = driving_time_image(human_hours(photo_ride.duration)) if photo_ride.duration
-            = country_images_for_trip(photo_ride.trip)
+    #map
 
-        .nivo-directionNav
-          %a.nivo-prevNav Prev
-          %a.nivo-nextNav Next
+
+
+- content_for :javascript_at_bottom do
+  %script{:src => "maps.googleapis.com/maps/api/js?sensor=false", :type => "text/javascript"}  
+    
+  :javascript
+    window.Hitchmap.init_map({draggable: false}, "#hitchslide_map")
