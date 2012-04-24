@@ -17,8 +17,9 @@
   .hitchslider-caption
     %p
       = t('trips.trip.time_ago', time: time_ago_in_words(ride.trip.start).capitalize) if ride.trip.start
-      = t('trips.trip.user_hitchhiked_text', user: ride.trip.user.to_s, distance: distance(ride.trip.distance), from: ride.trip.from, to: ride.trip.to, rides_size: ride.trip.rides.size).html_safe
+      = t('trips.trip.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)), distance: distance(ride.trip.distance), from: ride.trip.from, to: ride.trip.to, rides_size: ride.trip.rides.size).html_safe
       = ride.caption_or_title
+      = link_to "(more)", trip_path(ride.trip)
       = hitchhiking_with_image(ride.trip.travelling_with)
       = country_images_for_trip(ride.trip)
       = experience_image(ride.experience)
