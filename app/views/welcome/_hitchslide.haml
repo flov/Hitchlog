@@ -18,13 +18,23 @@
     = hitchhiking_with_image(ride.trip.travelling_with)
     = country_images_for_trip(ride.trip)
     = experience_image(ride.experience)
+    = gender_people_image(ride.gender) if ride.gender
+    = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+    = driving_time_image(human_hours(ride.duration)) if ride.duration
 
   .hitchslider-caption
     %p
       = t('trips.trip.time_ago', time: time_ago_in_words(ride.trip.start).capitalize) if ride.trip.start
-      = t('trips.trip.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)), distance: distance(ride.trip.distance), from: ride.trip.from, to: ride.trip.to, rides_size: ride.trip.rides.size).html_safe
-      = ride.caption_or_title
+      = t('trips.trip.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)),
+                                             distance: distance(ride.trip.distance),
+                                             from: ride.trip.from,
+                                             to: ride.trip.to,
+                                             rides_size: ride.trip.rides.size).html_safe
       = link_to "(more)", trip_path(ride.trip)
+      - unless ride.caption_or_title.blank?
+        %br/
+        Title:
+        = ride.caption_or_title
 
 - content_for :javascript_at_bottom do
   = google_maps_js
