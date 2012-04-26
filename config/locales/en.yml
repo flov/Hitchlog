@@ -283,7 +283,7 @@ en:
       user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
       it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
       google_maps_text: |
-          <b>Google maps</b> says it takes <b>%{gmaps_duration}</b> for
+          Google maps says it takes <b>%{gmaps_duration}</b> for
           this route, so %{user} was <b>%{gmaps_difference}</b>.
     form:
       step1_2: "Continue"
