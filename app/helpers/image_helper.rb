@@ -98,19 +98,19 @@ module ImageHelper
   end
 
   def alone_image
-    image_tag("icons/alone.png", :class => 'tooltip', :alt => t('helper.alone'))
+    image_tag("icons/alone.png", :class => 'tooltip', :alt => t('helper.one_person_hitchhike'))
   end
 
   def two_people_image
-    image_tag("icons/two_people.png", :class => 'tooltip', :alt => t('helper.two'))
+    image_tag("icons/two_people.png", :class => 'tooltip', :alt => t('helper.two_people_hitchhike'))
   end
 
   def three_people_image
-    image_tag("icons/three_people.png", :class => 'tooltip', :alt => t('helper.three'))
+    image_tag("icons/three_people.png", :class => 'tooltip', :alt => t('helper.three_people_hitchhike'))
   end
 
   def more_than_three_people_image  
-    image_tag("icons/more_than_three_people.png", :class => 'tooltip', :alt => t('helper.more_than_three'))
+    image_tag("icons/more_than_three_people.png", :class => 'tooltip', :alt => t('helper.more_than_three_people_hitchhike'))
   end
   
  def add_information_image
