@@ -137,7 +137,7 @@ module ImageHelper
 
   def experience_image(exp)
     if exp == 'positive'
-      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
+      image_tag("icons/positiv.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
     elsif exp == 'extremely positive'
       image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'))
     elsif exp == 'neutral'
