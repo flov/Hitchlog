@@ -1,12 +1,19 @@
 class RidesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:json, :show, :index]
+  before_filter :authenticate_user!, :except => [:random_photo, :show, :index]
 
-  def json
+  def show
+    @ride = Ride.find(params[:id])
+  end
+
+  def random_photo
     if params[:id]
-      render :json => Ride.find(params[:id]).to_json
+      @ride = Ride.find(params[:id])
     else
-      render :json => Ride.random_item.to_json
+      @ride = Ride.where('photo_file_name is not null').sample
     end
+    #respond_to do |format|
+      #format.json { render json: @ride.as_json(only: [:photo_file_name, :experience, :title])}
+    #end
   end
 
   def create
@@ -28,7 +35,7 @@ class RidesController < ApplicationController
     if @ride.delete_photo!
       redirect_to edit_trip_path(@ride.trip)
     else
-      flash[:error] = 'Could not delete photo'
+      flash[:alert] = 'Could not delete photo'
       render :edit
     end
   end

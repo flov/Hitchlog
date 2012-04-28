@@ -4,6 +4,7 @@ Hitchlog::Application.routes.draw do
 
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
+  match '/random_photo' => 'rides#random_photo'  
   
   resources :users, :path => 'hitchhikers' do
     member do 
