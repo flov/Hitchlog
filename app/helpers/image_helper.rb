@@ -117,6 +117,22 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tooltip', :alt => t('helper.add_information_to_hitchhike'))
   end
 
+  def female_image
+    image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female'), width: 16, height: 16)
+  end
+
+  def male_image
+    image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_people'), width: 16, height: 16)
+  end
+
+  def gender_image(gender)
+    if gender == 'male'
+      male_image
+    elsif gender == 'female'
+      female_image
+    end
+  end
+
   def gender_people_image(gender)
     if gender == 'male'
       image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_people'))
@@ -127,25 +143,17 @@ module ImageHelper
     end
   end
 
-  def gender_image(gender)
-    if gender == 'male'
-      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male'))
-    elsif gender == 'female'
-      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female'))
-    end
-  end
-
   def experience_image(exp)
     if exp == 'positive'
-      image_tag("icons/positiv.png", :class => 'tooltip', :alt => t('helper.positive_experience'))
+      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.positive_experience'), width: 16, height: 16)
     elsif exp == 'extremely positive'
-      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'))
+      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'), width: 16, height: 16)
     elsif exp == 'neutral'
-      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.neutral_experience'))
+      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.neutral_experience'), width: 16, height: 16)
     elsif exp == 'negative'
-      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.negative_experience'))
+      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.negative_experience'), width: 16, height: 16)
     elsif exp == 'extremely negative'
-      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'))
+      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'), width: 16, height: 16)
     end
   end
 
