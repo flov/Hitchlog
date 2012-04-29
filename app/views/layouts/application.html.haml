@@ -17,7 +17,7 @@
     #wrap
       #header
         .container
-          .logo=link_to image_tag("hitchlogo.png", width: 195, height: 30, alt: 'Hitchlog logo'), root_path
+          .logo=link_to image_tag("Hitchlogo.png", width: 195, height: 30, alt: 'Hitchlog logo'), root_path
           = render 'layouts/navigation'
 
       #second-header
@@ -27,11 +27,11 @@
       #third-header
         .container
           = yield(:topmenu)
-          - flash.each do |name, msg|
-            = content_tag :div, msg, id: "flash_#{name}"
 
       #content
         .container
+          - flash.each do |name, msg|
+            = content_tag :div, msg, id: "flash_#{name}"
           = yield
 
     #footer

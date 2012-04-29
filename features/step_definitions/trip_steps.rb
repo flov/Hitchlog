@@ -115,3 +115,11 @@ Then /^I should not see a trip with an? "([^"]*)" experience$/ do |experience|
   page.should_not have_content("#{experience}.png")
 end
 
+When /^I fill in a comment with "([^"]*)"$/ do |comment|
+  fill_in "Comment", :with => comment
+end
+
+Then /^I should see Wow! in the comments dialog$/ do
+  page.find("#comments").should have_content('Wow!')
+end
+

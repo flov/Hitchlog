@@ -1,0 +1,17 @@
+Hello <%= @author %>!
+
+<%= @comment.user %> commented on '<%= @trip %>'.
+You are receiving this Mail because you commented on this Trip.
+
+---------------------------------------------
+<%= @comment %>
+---------------------------------------------
+
+To comment on the trip as well, please visit the trip's page.
+
+Trip: <%= trip_url(@trip) %>
+<%= @comment.user %>'s Hitchlog Profile: <%= "http://hitchlog.com/#{@comment.user.username}" %>
+Your Hitchlog Profile: <%= user_url(@author) %>
+
+Happy Hitchhiking :)
+The Hitchlog

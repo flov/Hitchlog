@@ -1,6 +1,10 @@
 - title t('.title', user: @user)
 
 %h1= t('.send_a_mail_to', user: @user)
+
+%p
+  = t('.mail_text', username: @user).html_safe
+
 = form_tag mail_sent_user_path(@user) do
   = label_tag 'message_body'
   %br/

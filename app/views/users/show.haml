@@ -62,7 +62,7 @@
     = will_paginate @trips, :class => 'digg_pagination'
     = render 'trips/search_interface'
     #trips
-      = render 'trips/list', :trips => @trips unless @trips.empty?
+      = render 'trips/list', :trips => @trips
     = will_paginate @trips, :class => 'digg_pagination'
 
   .right_column

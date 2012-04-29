@@ -20,6 +20,65 @@ describe TripsController do
     end
   end
 
+  describe 'POST create_coment' do
+    context 'user is not logged in' do
+      it "redirects to log in page" do
+        post :create_comment
+        response.should redirect_to('/users/login')
+      end
+    end
+
+    context 'user is logged in' do
+      let(:comment) { mock_model(Comment).as_null_object }
+      let(:trip)    { Factory.create(:trip) }
+      let(:user)    { Factory.create(:user) }
+
+      before do
+        @user = Factory :user
+        sign_in :user, @user
+        comment.stub(:trip).and_return(trip)
+        comment.stub(:user).and_return(user)
+        Comment.stub(:new).and_return(comment)
+      end
+
+      it "creates a new comment" do
+        Comment.should_receive(:new)
+               .with(body: 'New Comment')
+               .and_return(comment)
+        post :create_comment, body: "New Comment"
+      end
+
+      context 'when the comment saves successfully' do
+        before do
+          comment.stub(:save).and_return(true)
+        end
+
+        it 'sets the notice flash' do
+          post :create_comment
+          flash[:notice].should_not be_empty
+        end
+
+        it 'sends a mail to the trip owner and everyone who commented on the trip' do
+          CommentMailer.should_receive(:notify_trip_owner_and_comment_authors)
+          post :create_comment
+        end
+      end
+
+      context 'when the comment fails to save' do
+        it 'sets the alert flash' do
+          post :create_comment
+          comment.stub(:save).and_return(false)
+          flash[:alert].should eq("Comment failed to save!")
+        end
+      end
+
+      it 'redirects to the trip page' do
+        post :create_comment
+        response.should redirect_to(trip_path(comment.trip))
+      end
+    end
+  end
+
   describe 'POST create' do
     context 'user is not logged in' do
       it "redirects to log in page" do

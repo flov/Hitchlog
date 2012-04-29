@@ -42,8 +42,8 @@ class UsersController < ApplicationController
     user_mailer = UserMailer.mail_to_user(current_user, @user, params[:message_body])
     if user_mailer.deliver
       flash[:notice] = I18n.t('flash.users.mail_sent.notice', user: @user)
-      redirect_to user_path(@user)
     end
+    redirect_to user_path(@user)
   end
 
   def index

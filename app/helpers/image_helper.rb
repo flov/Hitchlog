@@ -16,10 +16,8 @@ module ImageHelper
       hitchhiking_with_image(trip.travelling_with) 
     ]
     trip.rides.each do |ride|
-      images << gender_people_image(ride.gender) if ride.gender
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
-      images << photo_image if ride.photo.file?
     end
     images.join(' ').html_safe
   end
@@ -164,6 +162,20 @@ module ImageHelper
       image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.negative_experience'), width: 16, height: 16)
     elsif exp == 'extremely negative'
       image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'), width: 16, height: 16)
+    end
+  end
+
+  def overall_experience_image(exp)
+    if exp == 'positive'
+      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.overall_positive_experience'), width: 16, height: 16)
+    elsif exp == 'extremely positive'
+      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.overall_extremely_positive_experience'), width: 16, height: 16)
+    elsif exp == 'neutral'
+      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.overall_neutral_experience'), width: 16, height: 16)
+    elsif exp == 'negative'
+      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.overall_negative_experience'), width: 16, height: 16)
+    elsif exp == 'extremely negative'
+      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.overall_extremely_negative_experience'), width: 16, height: 16)
     end
   end
 

@@ -1,6 +1,14 @@
 require 'factory_girl'
 require 'faker'
 
+FactoryGirl.define do
+  factory :comment do
+    body "Great Example Comment"
+    association :user
+    association :trip
+  end
+end
+
 Factory.sequence :email do |n|
   "testuser#{n}@example.com"
 end

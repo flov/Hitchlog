@@ -59,7 +59,7 @@ class RidesController < ApplicationController
       @ride.destroy
       flash[:notice] = "Successfully destroyed ride."
     else
-      flash[:error] = "You are not allowed to do that!"
+      flash[:alert] = "You are not allowed to do that!"
     end
     redirect_to edit_trip_path(@ride.trip)
   end

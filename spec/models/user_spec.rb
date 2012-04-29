@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_many(:trips) }
-  it { should have_one(:sign_in_address) }
   let(:user) { Factory.build(:user) }
+
+  it { should have_many(:trips) }
+  it { should have_many(:comments) }
+  it { should have_many(:authentications) }
+  it { should have_one(:sign_in_address) }
 
   before do
     user.trips << Factory.build(:trip)

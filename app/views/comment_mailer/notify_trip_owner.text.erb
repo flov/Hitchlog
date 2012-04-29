@@ -1,0 +1,17 @@
+Hello <%= @trip.user %>!
+
+<%= @comment.user %> commented on your trip '<%= @trip %>':
+
+---------------------------------------------
+<%= @comment %>
+---------------------------------------------
+
+To comment on the trip as well, please visit the trip's page.
+
+Your Trip: <%= trip_url(@trip) %>
+<%= @comment.user%>'s Hitchlog Profile: <%= "http://hitchlog.com/#{@comment.user.username}" %>
+Your Hitchlog Profile: <%= user_url(@trip.user) %>
+
+Happy Hitchhiking :)
+The Hitchlog
+

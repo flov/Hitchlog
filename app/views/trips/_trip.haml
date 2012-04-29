@@ -4,12 +4,13 @@
 
 .images_for_trip
   = hitchhiking_with_image(trip.travelling_with)
-  = experience_image(trip.overall_experience)
+  = overall_experience_image(trip.overall_experience)
   = country_images_for_trip(trip)
 
-%p
-  = t('hitchslider.time_ago', time: time_ago_in_words(trip.start).capitalize) if trip.start
-  = t('hitchslider.user_hitchhiked_text', user: trip.user.to_s,
+%p.user_hitchhiked_text
+  - if trip.start
+    = t('.time_ago', time: time_ago_in_words(trip.start).capitalize)
+  = t('.user_hitchhiked_text', user: trip.user.to_s,
                                distance: distance(trip.distance),
                                from: trip.from,
                                to: trip.to,
@@ -32,13 +33,12 @@
         = gender_people_image(ride.gender)
         = waiting_time_image(human_minutes(ride.waiting_time))
         = driving_time_image(human_hours(ride.duration))
-        
 
     - unless ride.story.blank?
       .trip_story
         = RDiscount.new(ride.story).to_html.html_safe
 
-.display_rides
+-#.display_rides
   %table#rides_list.colorize_table
     - trip.rides.not_empty.each do |ride|
       %tr{ :id => "ride_#{ride.number}" }
@@ -51,4 +51,18 @@
           = waiting_time_image(human_minutes(ride.waiting_time))
           = driving_time_image(human_hours(ride.duration))
 
-#disqus_thread
+= render 'comments', comments: trip.comments
+
+- if user_signed_in?
+  = form_tag create_comment_trip_path(@trip) do
+    %h2
+      = label_tag :body, t('.add_comment')
+    = text_area_tag :body, '', class: 'comment_body'
+    %br/
+    = submit_tag t('.add_comment')
+- else
+  %p
+    = link_to t('.log_in'), new_user_session_path
+    = t('.or')
+    = link_to t('.register'), new_user_registration_path
+    = t('.to_comment')

@@ -23,6 +23,19 @@ class TripsController < ApplicationController
     end
   end
 
+  def create_comment
+    @comment = Comment.new(body: params[:body])
+    @comment.trip_id = params[:id]
+    @comment.user_id = current_user.id
+    if @comment.save
+      CommentMailer.notify_trip_owner_and_comment_authors(@comment)
+      flash[:notice] = I18n.t('flash.trips.create_comment.comment_saved')
+    else
+      flash[:alert]  = t('flash.trips.create_comment.alert')
+    end
+    redirect_to trip_path(@comment.trip)
+  end
+
   def index
     @trips = Trip
     @trips = build_search_trips(@trips)
@@ -63,7 +76,7 @@ class TripsController < ApplicationController
   def find_trip_and_redirect_if_not_owner
     @trip = Trip.find(params[:id])
     if @trip.user != current_user
-      flash[:error] = "This is not your trip."
+      flash[:alert] = "This is not your trip."
       redirect_to trips_path
     end
   end

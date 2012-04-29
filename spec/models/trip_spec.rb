@@ -4,6 +4,7 @@ describe Trip do
   let(:trip) { Factory.build(:trip) }
 
   it { should have_many(:rides) }
+  it { should have_many(:comments) }
   it { should belong_to(:user) }
   it { should validate_presence_of(:start) }
   it { should validate_presence_of(:end) }

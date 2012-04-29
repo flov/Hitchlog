@@ -27,7 +27,7 @@
 
   .right
     - if user_signed_in? and current_user.nearbys.any?
-      .welcome_box
+      .box.welcome_box
         = render 'shared/nearby_hitchhikers'
 
     .box.welcome_box

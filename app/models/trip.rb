@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
   has_many :rides, :dependent => :destroy
   has_many :country_distances, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   belongs_to :user
 
   validates_associated :user

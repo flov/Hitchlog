@@ -14,7 +14,10 @@ Hitchlog::Application.routes.draw do
   end
 
   resources :trips do
-    resources :rides, :except => [:index]
+    resources :rides, :except => [:index] 
+    member do
+      post 'create_comment'
+    end
   end
   
   resources :rides, :except => [:index] do

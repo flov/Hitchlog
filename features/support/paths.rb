@@ -21,7 +21,7 @@ module NavigationHelpers
     when /^the hitchhikers page$/
       '/hitchhikers'
     when /^the page of this trip$/
-      trip_path(@trip)
+      trip_path(Trip.last)
     when /^the edit profile page$/
       "/hitchhikers/#{@user.username}/edit"
 

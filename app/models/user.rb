@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :trips, :dependent => :destroy
   has_many :authentications, :dependent => :destroy
+  has_many :comments
   has_one  :sign_in_address
 
   validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[A-Za-z\d_-]+$/}
