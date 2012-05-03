@@ -12,7 +12,7 @@ class RidesController < ApplicationController
       @ride = Ride.where('photo_file_name is not null').sample
     end
     #respond_to do |format|
-      #format.json { render json: @ride.as_json(only: [:photo_file_name, :experience, :title])}
+      #format.json { render json: @ride.as_json(only: [:photo_file_name, :experience, :title], include: [trip: {only: [:id, :from]}]) }
     #end
   end
 

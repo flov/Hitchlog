@@ -1,27 +1,28 @@
 module ImageHelper
   def images_for_ride(ride)
-    array = []
-    array << gender_people_image(ride.gender) if ride.gender
-    array << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
-    array << driving_time_image(human_hours(ride.duration)) if ride.duration
-    array << photo_image if ride.photo.file?
-    string = array.join(' ')
-    string.html_safe 
+    [
+      hitchhiking_with_image(ride.trip.travelling_with),
+      country_images_for_trip(ride.trip),
+      experience_image(ride.experience),
+      gender_people_image(ride.gender),
+      waiting_time_image(human_minutes(ride.waiting_time)),
+      driving_time_image(human_hours(ride.duration))
+    ].join(' ').html_safe
   end
 
   def images_for_trip(trip)
-    images = []
-    images << hitchhiking_with_image(trip.travelling_with) if trip.travelling_with
+    images = [
+      hitchhiking_with_image(trip.travelling_with) 
+    ]
     trip.rides.each do |ride|
       images << gender_people_image(ride.gender) if ride.gender
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
       images << photo_image if ride.photo.file?
     end
-    string = images.join(' ')
-    string.html_safe 
+    images.join(' ').html_safe
   end
-  
+
   def hitchhiking_with_text(number)
     unless number.nil?
       case number
@@ -234,7 +235,10 @@ module ImageHelper
   end
 
   def driving_time_image(time)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
+    if time
+      image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
+    end
   end
+
 end
 

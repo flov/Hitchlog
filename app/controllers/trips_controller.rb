@@ -27,10 +27,6 @@ class TripsController < ApplicationController
     @trips = Trip
     @trips = build_search_trips(@trips)
     @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
-    respond_to do |wants|
-      wants.html
-      wants.js { render :partial => 'trips/trips', :locals => {:trips => @trips} }
-    end
   end
 
   def edit

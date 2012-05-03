@@ -116,9 +116,9 @@ module TripsHelper
 
   def him_or_her(user)
     if user.gender == 'male'
-      'him'
+      t('helper.him')
     else
-      'her'
+      t('helper.her')
     end
   end
 

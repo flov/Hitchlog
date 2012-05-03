@@ -1,0 +1,32 @@
+-# This is just a temporary var, when feature finished, it will be deleted
+- ride = Ride.where("photo_file_name is not null").sample
+
+.hitchslide
+  .hitchslide-left
+    .hitchslider
+      = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
+        = image_tag(ride.photo.url(:cropped), style: 'display: block;')
+
+      .hitchslider-directionNav
+        %a.hitchslider-prevNav Prev
+        %a.hitchslider-nextNav Next
+
+  .hitchslide-right
+    .hitchslide-map#hitchslider_map
+
+  .hitchslider-information
+    = images_for_ride(ride)
+
+  .hitchslider-caption
+    %p
+      = render 'rides/hitchslider/caption', ride: ride
+
+- content_for :javascript_at_bottom do
+  = google_maps_js
+  :javascript
+    var hitchslider_route = "#{escape_javascript(ride.trip.route)}"
+    var hitchslider_from  = "#{escape_javascript(ride.trip.from)}"
+    var hitchslider_to    = "#{escape_javascript(ride.trip.to)}"
+
+    Hitchmap.init_map({draggable: false}, "#hitchslider_map")
+    Hitchmap.set_new_route(hitchslider_route, hitchslider_from, hitchslider_to)

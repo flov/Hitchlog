@@ -8,18 +8,17 @@
   = country_images_for_trip(trip)
 
 %p
-  - if trip.start
-    = t('.time_ago', time: time_ago_in_words(trip.start).capitalize)
-  = t('.user_hitchhiked_text', user: trip.user.to_s,
+  = t('hitchslider.time_ago', time: time_ago_in_words(trip.start).capitalize) if trip.start
+  = t('hitchslider.user_hitchhiked_text', user: trip.user.to_s,
                                distance: distance(trip.distance),
                                from: trip.from,
                                to: trip.to,
                                rides_size: trip.rides.size).html_safe
   %br/
   - if trip.duration && trip.duration != 0
-    = t('.it_took_him_text', him_or_her: him_or_her(trip.user), time: human_seconds(trip.duration)).html_safe
+    = t('hitchslider.it_took_him_text', him_or_her: him_or_her(trip.user), time: human_seconds(trip.duration)).html_safe
   - if trip.gmaps_duration && trip.gmaps_duration != 0
-    = t('.google_maps_text', gmaps_duration: human_seconds(trip.gmaps_duration),
+    = t('hitchslider.google_maps_text', gmaps_duration: human_seconds(trip.gmaps_duration),
                              user: trip.user.to_s,
                              gmaps_difference: gmaps_difference(trip)).html_safe
 

@@ -47,6 +47,8 @@ en:
         notice: "Mail has been sent to %{user}"
 
   helper:
+    him: him
+    her: her
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
     extremely_positive_experience: extremely positive experience
@@ -242,6 +244,15 @@ en:
       title_required: Title
       story_required: Story
 
+  hitchslider:
+    user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
+    it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
+    google_maps_text: |
+        Google maps says it takes <b>%{gmaps_duration}</b> for
+        this route, so %{user} was <b>%{gmaps_difference}</b>.
+    time_ago: "%{time} ago"
+    caption: 'Title:'
+
   trips:
     index:
       latest_hitchhiking_trips: Latest hitchhiking trips
@@ -279,12 +290,6 @@ en:
       edit_trip: "(Edit Trip)"
       ride: Ride
       gmaps_duration: 'Gmaps Duration'
-      time_ago: "%{time} ago"
-      user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
-      it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
-      google_maps_text: |
-          Google maps says it takes <b>%{gmaps_duration}</b> for
-          this route, so %{user} was <b>%{gmaps_difference}</b>.
     form:
       step1_2: "Continue"
     show_ride:
