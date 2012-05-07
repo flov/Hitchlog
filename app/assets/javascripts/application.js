@@ -10,4 +10,5 @@
 //
 //= require tipsy_settings.js
 //= require map
-//= require hitchmap.js
+//= require hitchmap
+//= require hitchslider

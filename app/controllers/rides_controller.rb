@@ -9,7 +9,7 @@ class RidesController < ApplicationController
     if params[:id]
       @ride = Ride.find(params[:id])
     else
-      @ride = Ride.where('photo_file_name is not null').sample
+      @ride = Ride.where('photo_file_name is not null').order('RAND()').first
     end
     #respond_to do |format|
       #format.json { render json: @ride.as_json(only: [:photo_file_name, :experience, :title], include: [trip: {only: [:id, :from]}]) }
