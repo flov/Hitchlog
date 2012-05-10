@@ -6,6 +6,9 @@
     = meta_description
     = csrf_meta_tag 
     = stylesheet_link_tag 'application'
+    - unless Rails.env = 'development'
+      %link{href:'http://fonts.googleapis.com/css?family=Architects+Daughter|Imprima',rel:'stylesheet',type:'text/css'}
+
     = yield(:head)
 
   %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
@@ -14,7 +17,7 @@
     #wrap
       #header
         .container
-          .logo=link_to image_tag("hitchlog_logo.png", width: 225, height: 55, alt: 'Hitchlog logo'), root_path
+          .logo=link_to image_tag("hitchlogo.png", width: 195, height: 30, alt: 'Hitchlog logo'), root_path
           = render 'layouts/navigation'
 
       #second-header
@@ -35,7 +38,8 @@
       &copy; 2011 Hitchlog - #{link_to 'About', 'http://hitchlog.com/about'}
 
   = javascript_include_tag 'application'
-  = javascript_google_stats
   %script{src:"http://connect.facebook.net/en_US/all.js#xfbml=1"}
+  - unless Rails.env = 'development'
+    = javascript_google_stats
   = yield(:javascript_at_bottom)
 

@@ -13,20 +13,25 @@ window.Hitchmap = {
       map = new google.maps.Map($(mapdiv)[0], options)
       directionsDisplay.setMap(map)
 
-  set_new_route: (directionsRequest, from = '', to = '') ->
+  set_new_route: (directionsRequest = '', from = '', to = '') ->
     if google?
-      if directionsRequest == "" and from != '' and to != ''
+      if directionsRequest != ''
+        directionsRequest = parse_route_request(directionsRequest)
+      else if from != '' and to != ''
         directionsRequest =
           origin: from
           destination: to
           waypoints: []
           travelMode: google.maps.DirectionsTravelMode.DRIVING
-      else
-        directionsRequest = parse_route_request(directionsRequest)
 
-      window.directionsService.route directionsRequest, (response, status) ->
-        if status == google.maps.DirectionsStatus.OK
-          window.directionsDisplay.setDirections response
+      if directionsRequest != ''
+        window.directionsService.route directionsRequest, (response, status) ->
+          if status == google.maps.DirectionsStatus.OK
+            window.directionsDisplay.setDirections response
+          else
+            console.log "Routing failed, status: #{status}, response: #{response}"
+      else
+        console.log 'cannot route, need at least origin and destination'
 }
 
 
@@ -39,7 +44,7 @@ convert_lat_lng = (object) ->
     object
 
 parse_route_request = (route) ->
-  if route != ""
+  if route and route != ""
     route = JSON.parse(route)
     route.origin = convert_lat_lng(route.origin)
     route.destination = convert_lat_lng(route.destination)

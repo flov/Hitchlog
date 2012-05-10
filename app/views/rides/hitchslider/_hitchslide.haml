@@ -1,13 +1,14 @@
 -# This is just a temporary var, when feature finished, it will be deleted
 - ride = Ride.where("photo_file_name is not null").sample
-
 .hitchslide#hitchslide
   .hitchslide_left
     .hitchslider#hitchslider
-      = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
-        = image_tag(ride.photo.url(:cropped), style: 'display: block;')
+      #hitchslider_loader
+      .hitchslider_image#hitchslider_image
+        = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
+          = image_tag(ride.photo.url(:cropped), style: 'display: block;')
 
-      -#.hitchslider_directionNav
+      .hitchslider_directionNav
         =link_to 'Prev', random_photo_path, remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
         =link_to 'Next', random_photo_path, remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
 

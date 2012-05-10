@@ -21,7 +21,7 @@ en:
         duration: Driving time (in hours)
         waiting_time: Waiting time (in minutes)
         photo: Photo
-        gender: Gender of passengers
+        gender: Gender of passenger(s)
       user:
         cs_user: CS user
         username: Username
@@ -65,14 +65,17 @@ en:
       other: "%{count} Rides"
     photo_missing: Missing Photo, Upload Photo
     story: Story
+    ride_has_story: Ride has Story
     add_story_image: Story to this ride
     story_missing: Missing Story, write a story about the ride
     male: male
     female: female
 
-    male_people: male passengers
-    female_people: female passengers
-    mixed_people: Mixed gender passengers
+    male_hitchhiker: Male Hitchhiker
+    female_hitchhiker: Female Hitchhiker
+    male_people: male passenger(s)
+    female_people: female passenger(s)
+    mixed_people: Mixed gender passenger(s)
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "Trip Duration %{duration}"
     add_information: Add inforation to ride
@@ -112,6 +115,10 @@ en:
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   shared:
+    last_sign_in:
+      last_sign_in: Last seen
+      ago: ago
+      in: in
     banners_in_corners:
       fork_me_on_github: Fork Me On Github
     sign_in_and_out:
@@ -123,6 +130,8 @@ en:
       last_login_in: last login in
   welcome:
     home:
+      share_and_keep_track: Share and keep track of your hitchhiking experiences
+      countries_logged: Countries logged
       sign_in_with_facebook: Sign in with Facebook
       newest_hh_stories: Newest Hitchhiking Stories
       newest_hitchhikers: Newest Hitchhikers
@@ -135,28 +144,28 @@ en:
       find_hitchlog_on: "Find Hitchlog On"
       more_trips: See More Trips
       more_stories: Read More Stories
-      hitchhiked_by: hitchhiked by
+      hitchhiked_by_user: "hitchhiked %{time} ago by %{user}"
       by: by
       more_hitchhikers: Get To Know More Hitchhikers
-      we_have_gathered:
-        "We have gathered <b>%{trip_size}</b> hitchhiking experiences in <b>%{country_size}</b> countries. Click on one of the countries above to explore the trips."
 
       text1: |
           It's about time to make the world a more hitchhiker friendly place.
-          Log your personal hitchhiking experiences and we can paint
-          an authentic picture about what hitchhiking is like.
-          Together with your data we want to create statistics
-          about hitchhiking. In the end we can tell the average waiting time in
-          different countries, or we can compare positive against negative
-          experiences and tell something about the security situation of hitchhiking.<br />
-          Moreover your data will create your own personal hitchhiking profile. Giving you
+          <a href='/trips/new'>Log your personal hitchhiking experiences</a>
+          and the Hitchlog paints a picture about what hitchhiking is actually
+          like.
+          Together with this data the Hitchlog creates statistics.
+          It tells the average waiting time in different countries, it
+          compares positive against negative experiences...
+
+      text2: |
+          Your data will create your own personal hitchhiking profile. Giving you
           information about: <br/>
           Your hitchhiked kms, your positive/negative experiences, your average waiting times,
           your longest/fastest ride, the countries where you hitchhiked, and more. <br />
           If you have ever hitchhiked, you are welcome to
           <a href="/trips/new">share your experience with us</a>.
           With the information that you enter here you will be part of the project.
-      text2:  |
+      text3:  |
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
@@ -220,10 +229,6 @@ en:
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
       trips: Trips
-    last_sign_in:
-      last_sign_in: Last login
-      ago: ago
-      in: in
 
   hours:
     one: "%{count} hour"
@@ -283,6 +288,7 @@ en:
       rides: Rides
       by: By
       date: Hitchhiked Date
+      icons: Icons
       start: "%{time} ago"
     show:
       title: "Hitchhiking from %{from_city} to %{to_city}"

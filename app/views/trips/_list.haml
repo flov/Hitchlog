@@ -3,19 +3,20 @@
 %table#trips_list.colorize_table
   %tr
     %th Trips
-    %th
+    - if by
+      %th= t('.by')
+    %th= t('.icons')
     %th= t('.countries')
     %th= t('.rides')
     %th= t('activerecord.attributes.trip.distance')
-    - if by
-      %th= t('.by')
     %th= t('.date')
   - trips.each do |trip|
     %tr{:id => "trip_#{trip.id}"}
       %td.title.neutralize_fonts
-        %h5
-          = link_to trip.to_s.html_safe, trip
-          = link_to t('.edit'), edit_trip_path(trip) if trip.user == current_user
+        %p
+          %b
+            = link_to trip.to_s.html_safe, trip
+            = link_to t('.edit'), edit_trip_path(trip) if trip.user == current_user
         - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
         - rides_with_story.each_with_index do |ride, i|
           - unless ride.title.blank?
@@ -23,6 +24,8 @@
               %b= ride.title
           .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
             = truncated_markdown(ride.story)
+      - if by
+        %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_hitchhiker_image(trip.user.gender)}".html_safe, user_path(trip.user)
       %td.icons
         = images_for_trip(trip)
       %td.countries
@@ -31,8 +34,6 @@
         = trip.rides.size
         = link_to experience_image((trip.overall_experience)), trip_path(trip)
       %td.distance= distance( trip.distance )
-      - if by
-        %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_image(trip.user.gender)}".html_safe, user_path(trip.user)
       - unless trip.start.nil?
         - if trip.start > 1.month.ago
           %td.started_at= t('.start', :time => time_ago_in_words(trip.start))

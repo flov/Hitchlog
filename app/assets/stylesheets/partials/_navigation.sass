@@ -1,47 +1,23 @@
-ul#nav_menu
-  font-family: Arial
-  font-size: 12px
-  padding: 0
-  height: 28px
-  list-style-type: none
-  margin-top: 18px
-  margin-right: 45px
-
-  a
-    +border-radius(5px)
-    background-color: darken($orange, 30)
-    padding: 5px 10px
-    margin-right: 20px
-    color: white
-
-  a:hover
-    color: orange
-
-  > li
+nav
+  margin-top: 5px
+  float: right
+  ul
+    display: inline-block
+    font-weight: bold
+    text-transform: uppercase
+  li
     margin: 0
     position: relative
-    //padding: 7px 25px 
     float: left
-    //&:hover
-      //#nav_trips_dropdown
-        //display:block
-    ul
-      +border-radius(0 0 15px 15px)
-      display: none
-      list-style-type: none
-      background-color: black
-      left: 9px
-      padding: 5px
-      position: absolute
-      top: 28px
-      width: 113px
-      li
-        padding-left: 10px
-      li.last
-        margin-bottom: 4px
-  //li:hover
-    //ul
-      //display: block
-  li.right
-    padding-right: 0
+    text-shadow: rgba(0, 0, 0, 0.75) 0 1px 1px
+    color: white
+    font-weight: bold
+    text-transform: uppercase
 
+    a
+      font-size: 12px
+      padding: 5px 10px
+      color: white
+
+    a:hover
+      color: orange

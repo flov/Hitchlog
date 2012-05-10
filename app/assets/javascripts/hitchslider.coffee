@@ -1,35 +1,35 @@
-# Get DOM references.
-hitchslider             = $( "#hitchslider" )
-hitchslider_nextNav     = $( "#hitchslider_nextNav" )
-hitchslider_prevNav     = $( "#hitchslider_prevNav" )
-hitchslider_map         = $( "#hitchslider_map" )
-hitchslider_caption     = $( "#hitchslider_caption" )
-hitchslider_information = $( "#hitchslider_information" )
 
+$(".hitchslider_directionNav").bind("ajax:beforeSend", ->
+  # show Loader image
+  $("#hitchslider_loader").fadeIn('slow')
+  # show trip information at bottom
+  $("#hitchslider_caption").fadeOut('slow')
+  # show icons of trip ( countries, experience, ...)
+  $("#hitchslider_information").fadeOut('slow')
 
-window.Hitchslider =
-  show_information: ->
-    $( "#hitchslider_information" ).animate(
-      { left: 0 },
-      {
-        duration: 150, 
-        # When complete, flag all animations as being done.
-        complete: ->
-          console.log 'complete show_information'
-      })
-  hide_information: ->
-    $( "#hitchslider_information" ).animate( { left: '-200px'},
-      {
-        duration: 150, 
-        # When complete, flag all animations as being done.
-        complete: ->
-          console.log 'complete hide_information'
-      })
+).on("ajax:complete", (event, data, status) ->
+  # hide Loader image
+  $("#hitchslider_loader").fadeOut('slow')
+  response = $.parseJSON(data.responseText)
+  # change trip information
+  $("#hitchslider_caption").html("<p>#{response.caption}</p>")
+  # change icons of trip
+  $("#hitchslider_information").html(response.images_for_ride)
+  # show new image
+  $("#hitchslider_image img").fadeOut 'slow', ->
+    $("#hitchslider_image").append("<a href='#{response.trip_path}'><img src='#{response.photo_url}' /></a>")
 
+  # fade in information
+  $("#hitchslider_caption").fadeIn('slow')
+  # fade in icons
+  $("#hitchslider_information").fadeIn('slow')
 
-# Mouse over handler:
-#$( [] ).add( hitchslider ).add( hitchslider_information ).add( hitchslider_nextNav ).add( hitchslider_caption ).add( hitchslider_prevNav ).mouseover ->
-  #return( false )
+  # Set new route
+  if response.route
+    Hitchmap.set_new_route(response.route)
+  else
+    Hitchmap.set_new_route(null, response.from, response.to)
+).on("ajax:error", ->
+  console.log("ajax:error")
+)
 
-#$( [] ).add( hitchslider ).add( hitchslider_information ).add( hitchslider_nextNav ).add( hitchslider_caption ).add( hitchslider_prevNav ).mouseover ->
-  #return( false )

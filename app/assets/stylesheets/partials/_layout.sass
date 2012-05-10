@@ -9,52 +9,29 @@
 
 #header
   +clearfix
+  height: 49px
   background-color: $orange
   .container
     padding: 10px 0 0
   .logo
     float: left
 
-#second-header, #third-header
-  +clearfix
-  h1
-    color: white
-    font-family: georgia,serif
-    padding-bottom: 2px
-    font-size: 40px
-    font-weight: bold
-    // text-shadow(#222, 2px, 2px, 2px )
-    text-shadow: rgba(0, 0, 0, 0.8) 1px 2px 4px
-    line-height: 1.25em
-  h1.padding
-    padding: 10px
-  h2
-    color: white
-    font-size: 18px
-    text-shadow: 1px 1px 1px #222
-
-
-
 #second-header
   background-color: lighten($orange, 20)
-  #main-message
+  h1
+    text-shadow: black 0 1px 0
+    color: white
+    font-size: 20px
+    line-height: 1.3
+    font-family: Architects Daughter, 'Helvetica Neue', sans-serif
+  .main-message
+    +clearfix
     a
       color: white
-    h2
-      padding-top: 10px
-    +clearfix
-    width: 500px
-    float: left
     padding: 20px 0
-  #right-message
-    padding-top: 30px
-    width: 400px
-    float: right
 
 #third-header
   background-color: lighten($orange, 35)
-  h1
-    border-bottom: 0px
 
   .statistics
     +clearfix
@@ -92,8 +69,7 @@
     padding-top: 20px
     padding-bottom: 84px
     margin: 0 auto
-    color: #000 
-    font: 13.34px/20px helvetica,arial,freesans,clean,sans-serif
+    color: #000
   p
     line-height: 21px
     padding-bottom: 6px

@@ -1,14 +1,11 @@
 = t('hitchslider.time_ago', time: time_ago_in_words(ride.trip.start).capitalize) if ride.trip.start
 = t('hitchslider.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)),
-                                       distance: distance(ride.trip.distance),
-                                       from: ride.trip.from,
-                                       to: ride.trip.to,
-                                       rides_size: ride.trip.rides.size).html_safe
+                                        distance: distance(ride.trip.distance),
+                                        from: ride.trip.from,
+                                        to: ride.trip.to,
+                                        rides_size: ride.trip.rides.size).html_safe
 - if ride.trip.duration && ride.trip.duration != 0
   = t('hitchslider.it_took_him_text', time: human_seconds(ride.trip.duration),
-                                     him_or_her: him_or_her(ride.trip.user)).html_safe
+                                      him_or_her: him_or_her(ride.trip.user)).html_safe
+
 = link_to "(more)", trip_path(ride.trip)
-- unless ride.caption_or_title.blank?
-  %br/
-  = t('hitchslider.caption')
-  = ride.caption_or_title

@@ -2,22 +2,69 @@
 
 = content_for :layout_header do
 
-  #main-message
-    %h1=t('general.slogan')
+  .main-message
+    %h1
+      = t('.share_and_keep_track')
 
-    -#%h2
-      = link_to t('.share_your_trip_with_us'), new_trip_path
-      %br/
-      = t('.get_in_touch_with_hitchhikers')
-      %br/
-  #right-message
     - unless user_signed_in?
-      %p
+      %p.sign_in
         = link_to t('.sign_up'), new_user_registration_path, :class => 'pretty_button'
         = link_to t('.sign_in'), new_user_session_path, :class => 'pretty_button'
         = link_to t('.sign_in_with_facebook'), user_omniauth_authorize_path(:facebook), :class => 'pretty_button'
 
-= content_for :topmenu do
-  = render 'rides/hitchslider/hitchslide'
+.country_images
+  = all_country_images
+
+= render 'rides/hitchslider/hitchslide'
 
 .home
+  .left
+    %p!= t('.text1')
+    %p!= t('.text2')
+    -#%p!= t('.text3')
+    -#.chart_image
+      = image_tag @chart_image
+
+  .right
+    - if user_signed_in? and current_user.nearbys.any?
+      .welcome_box
+        = render 'shared/nearby_hitchhikers'
+
+    .box.welcome_box
+      %h3= t('.newest_hh_stories')
+      %ul
+        -@rides_with_story.each do |ride|
+          %li
+            = link_to trip_path(ride.trip) do
+              = truncate(ride.title, :length => 50)
+              = images_for_ride(ride)
+            = t('.hitchhiked_by_user', user: link_to(h(ride.trip.user), user_path(ride.trip.user)),
+                                       time: time_ago_in_words(ride.trip.start)).html_safe
+            = gender_hitchhiker_image(ride.trip.user.gender)
+
+            = truncated_markdown(ride.story)
+        %li.text_center
+          %strong=link_to t('.more_stories'), "/trips?stories=1"
+
+    .box.welcome_box
+      %h3= t(".newest_hitchhiking_trips")
+      %ul
+        - @trips.each do |trip|
+          %li
+            = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
+            = t('.hitchhiked_by_user', user: link_to(h(trip.user), user_path(trip.user)),
+                                       time: time_ago_in_words(trip.start)).html_safe
+            = gender_image(trip.user.gender)
+
+        %li.text_center
+          %strong=link_to t('.more_trips'), trips_path
+
+
+    .box.welcome_box
+      %h3= t('.newest_hitchhikers')
+      %ul
+        -@hitchhikers.each do |hitchhiker|
+          %li
+            = link_to "#{hitchhiker.username}, #{t('.logged', :trips_size => hitchhiker.trips.size)}", user_path(hitchhiker)
+        %li.text_center
+          %strong=link_to t('.more_hitchhikers'), users_path 

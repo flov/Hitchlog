@@ -23,15 +23,20 @@
                              gmaps_difference: gmaps_difference(trip)).html_safe
 
 - trip.rides.select {|ride| not ride.story.blank?}.each do |ride|
-  %h2
-    = ride.title if ride.title
-    %span.subtitle
-      (#{t('.ride')} #{ride.number})
-      = experience_image(ride.experience)
+  .ride_story
+    %h2
+      = ride.title if ride.title
+      %span.subtitle
+        (#{t('.ride')} #{ride.number})
+        = experience_image(ride.experience)
+        = gender_people_image(ride.gender)
+        = waiting_time_image(human_minutes(ride.waiting_time))
+        = driving_time_image(human_hours(ride.duration))
+        
 
-  - unless ride.story.blank?
-    .trip_story
-      = RDiscount.new(ride.story).to_html.html_safe
+    - unless ride.story.blank?
+      .trip_story
+        = RDiscount.new(ride.story).to_html.html_safe
 
 .display_rides
   %table#rides_list.colorize_table
@@ -41,7 +46,9 @@
           = t('.ride')
           #{ride.number}/#{ride.trip.rides.size}
         %td
-          = images_for_ride(ride)
           = experience_image(ride.experience)
+          = gender_people_image(ride.gender)
+          = waiting_time_image(human_minutes(ride.waiting_time))
+          = driving_time_image(human_hours(ride.duration))
 
 #disqus_thread

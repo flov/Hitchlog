@@ -6,7 +6,8 @@ module ImageHelper
       experience_image(ride.experience),
       gender_people_image(ride.gender),
       waiting_time_image(human_minutes(ride.waiting_time)),
-      driving_time_image(human_hours(ride.duration))
+      driving_time_image(human_hours(ride.duration)),
+      ride_has_story_image(ride)
     ].join(' ').html_safe
   end
 
@@ -118,12 +119,12 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tooltip', :alt => t('helper.add_information_to_hitchhike'))
   end
 
-  def female_image
-    image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female'), width: 16, height: 16)
+  def female_image(i18n = 'helper.female')
+    image_tag("icons/female.png", :class => 'tooltip', :alt => t(i18n), width: 16, height: 16)
   end
 
-  def male_image
-    image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_people'), width: 16, height: 16)
+  def male_image(i18n = 'helper.male_people')
+    image_tag("icons/male.png", :class => 'tooltip', :alt => t(i18n), width: 16, height: 16)
   end
 
   def gender_image(gender)
@@ -131,6 +132,14 @@ module ImageHelper
       male_image
     elsif gender == 'female'
       female_image
+    end
+  end
+
+  def gender_hitchhiker_image(gender)
+    if gender == 'male'
+      male_image('helper.male_hitchhiker')
+    elsif gender == 'female'
+      female_image('helper.female_hitchhiker')
     end
   end
 
@@ -200,6 +209,10 @@ module ImageHelper
 
   def photo_image_button
     image_tag("icons/photo.png")
+  end
+
+  def ride_has_story_image(ride)
+    image_tag("icons/story.png", :class => 'tooltip', alt: t('helper.ride_has_story')) unless ride.story.blank?
   end
 
   def story_image

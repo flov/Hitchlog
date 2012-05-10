@@ -1,8 +1,17 @@
+$hitchslide_width: 800px
+$hitchslide_left_width: 500px
 .hitchslide
+  margin: 0 auto
+  color: white
   position: relative
-  width: 950px
+  width: $hitchslide_width
   height: 250px
   z-index: 17
+  .hitchslider_image
+    img
+      position: absolute
+      top: 0
+      left: 0
   .hitchslider_information
     position: absolute
     top: 0
@@ -28,7 +37,7 @@
     float: right
     .hitchslide_map
       background-color: gray
-      width: 450px
+      width: $hitchslide_width - $hitchslide_left_width
       height: 250px
       //background: image-url('gmaps.jpg') no-repeat
 
@@ -36,8 +45,16 @@
 .hitchslider
   position: relative
   background: white url(/stylesheets/loading.gif) no-repeat 50% 50%
-  width: 500px
+  width: $hitchslide_left_width
   height: 250px
+  #hitchslider_loader
+    position: absolute
+    display: none
+    top: 117px
+    left: 242px
+    height: 16px
+    width: 16px
+    background: url(/stylesheets/loading.gif) no-repeat 50% 50%
   .hitchslider_directionNav a
     position: absolute
     top: 45%
