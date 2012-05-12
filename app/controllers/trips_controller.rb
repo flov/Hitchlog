@@ -28,7 +28,8 @@ class TripsController < ApplicationController
     @comment.trip_id = params[:id]
     @comment.user_id = current_user.id
     if @comment.save
-      CommentMailer.notify_trip_owner_and_comment_authors(@comment)
+      # TODO move this to comment model and append to after_create callback
+      notify_trip_owner_and_comment_authors(@comment)
       flash[:notice] = I18n.t('flash.trips.create_comment.comment_saved')
     else
       flash[:alert]  = t('flash.trips.create_comment.alert')
@@ -78,6 +79,23 @@ class TripsController < ApplicationController
     if @trip.user != current_user
       flash[:alert] = "This is not your trip."
       redirect_to trips_path
+    end
+  end
+
+  def notify_trip_owner_and_comment_authors(comment)
+    # notify all comment authors who are not the trip owner and not the comment author
+    comment_authors = Comment.where(trip_id: comment.trip_id)
+                             .where("user_id != #{comment.user.id}")
+                             .where("user_id != #{comment.trip.user.id}")
+                             .select('DISTINCT user_id')
+                             .map{|comment| comment.user}
+
+    comment_authors.each do |author|
+      CommentMailer.notify_comment_authors(comment, author).deliver
+    end
+
+    unless comment.user == comment.trip.user
+      CommentMailer.notify_trip_owner(comment).deliver
     end
   end
 end

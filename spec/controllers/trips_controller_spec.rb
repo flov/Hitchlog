@@ -58,10 +58,6 @@ describe TripsController do
           flash[:notice].should_not be_empty
         end
 
-        it 'sends a mail to the trip owner and everyone who commented on the trip' do
-          CommentMailer.should_receive(:notify_trip_owner_and_comment_authors)
-          post :create_comment
-        end
       end
 
       context 'when the comment fails to save' do
