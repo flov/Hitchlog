@@ -46,6 +46,7 @@ group :development do
   gem 'hirb'
   gem 'capistrano-ext'
   gem 'capistrano'
+  gem 'growl'
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
