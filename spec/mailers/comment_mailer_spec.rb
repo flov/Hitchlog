@@ -5,7 +5,7 @@ describe CommentMailer do
     it "renders template" do
       @trip = Factory(:trip)
       @user = Factory(:user)
-      @comment = Factory(:comment, user_id: @user)
+      @comment = Factory(:comment, user_id: @user.id, trip_id: @trip.id)
       lambda { CommentMailer.notify_comment_authors(@comment, @user) }.should_not raise_error
     end
   end
