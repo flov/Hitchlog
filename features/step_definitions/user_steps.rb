@@ -12,7 +12,7 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  @user = Factory.create(:user) unless @user
+  @user = User.find_by_email('florian@hitchlog.com') || Factory.create(:user, email: "florian@hitchlog.com") unless @user
   visit new_user_session_path
   fill_in "Username", with: @user.username
   fill_in "Password", with: 'password'

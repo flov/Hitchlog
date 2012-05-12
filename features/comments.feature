@@ -7,7 +7,6 @@ Feature: Comments Feature
     When I fill in a comment with "Wow!"
     And I press "Add Comment"
     Then I should see Wow! in the comments dialog
-    And a mail should have been delivered to the trip owner
 
   Scenario: Comments if not signed in
     Given a trip exists

@@ -161,7 +161,7 @@ en:
 
       text1: |
           It's about time to make the world a more hitchhiker friendly place.
-          <a href='/trips/new'>Log your personal hitchhiking experiences</a>
+          <a href='/trips/new'>Log your hitchhiking experiences</a>
           and the Hitchlog paints a picture about what hitchhiking is actually
           like.
           Together with this data the Hitchlog creates statistics.

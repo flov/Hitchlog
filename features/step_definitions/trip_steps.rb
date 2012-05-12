@@ -1,3 +1,7 @@
+Given /^a trip exists$/ do
+  @trip = Factory(:trip)
+end
+
 Given /^the user of this trip is "([^"]*)"$/ do |username|
   @trip = Trip.last
   user = @trip.user
