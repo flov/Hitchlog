@@ -9,8 +9,9 @@
       %li
         = image_tag 'cs.ico'
         #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/flov")}
-    %li
-      =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(@user)
+    - unless current_user == @user
+      %li
+        =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(@user)
 
 .section
   %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
@@ -31,8 +32,6 @@
     - if @user.average_waiting_time
       %li
         = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
-      
-
 
 
     = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'

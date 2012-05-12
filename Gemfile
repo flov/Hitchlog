@@ -71,5 +71,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'faker'
+  gem 'email_spec'
   gem 'rb-fsevent'
 end
