@@ -3,10 +3,6 @@ module ApplicationHelper
     "<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3.7&key=#{Rails.configuration.google_maps_key}&sensor=false'></script>".html_safe
   end
 
-  def javascript_google_stats
-    render :partial => 'shared/google_stats'
-  end
-  
   def uservoice_feedback
     render :partial => 'shared/uservoice_feedback'
   end
