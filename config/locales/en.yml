@@ -114,6 +114,7 @@ en:
       with_more_than_4: "with more than 4 people"
 
   general:
+    or: or
     supports_markdown: supports markdown
     male: "male"
     female: "female"
