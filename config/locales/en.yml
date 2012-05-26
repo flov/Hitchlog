@@ -14,7 +14,7 @@ en:
         start: Departure
         end: Arrival
         duration: Duration (in hours)
-        travelling_with: Travelling
+        travelling_with: Traveling with
         distance: Distance
         gmaps_duration: Gmap duration
         duration: Duration
