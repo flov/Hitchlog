@@ -1,9 +1,13 @@
 Hitchlog::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'login' },
+                     path: 'hitchhikers',
                      :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  filter :locale
 
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
+
   match '/random_photo' => 'rides#random_photo'  
   
   resources :users, :path => 'hitchhikers' do

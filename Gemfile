@@ -29,6 +29,7 @@ gem 'compass', '~> 0.12.0'
 
 gem 'json'
 gem 'jbuilder'
+gem 'routing-filter'
 
 # Gems only used for assets and not required by default
 # in production environments by default.
