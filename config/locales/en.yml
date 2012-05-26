@@ -103,10 +103,10 @@ en:
     slower_than_gmaps: "slower than Google Maps"
     trip:
       alone: alone
-      with_1: "with 1 person"
-      with_2: "with 2 people"
-      with_3: "with 3 people"
-      with_4: "with 4 people"
+      with_1: "1 person"
+      with_2: "2 people"
+      with_3: "3 people"
+      with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
     or: or
