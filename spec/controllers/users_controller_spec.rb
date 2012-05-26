@@ -9,7 +9,7 @@ describe UsersController do
     context "if not logged in" do
       it "should redirect to login page" do
         get :send_mail, :id => @to_user.id
-        response.should redirect_to('/users/login')
+        response.should redirect_to(user_session_path)
       end
     end
 
@@ -49,7 +49,7 @@ describe UsersController do
     context "if not logged in" do
       it "redirects to log in page" do
         post :mail_sent
-        response.should redirect_to('/users/login')
+        response.should redirect_to(user_session_path)
       end
     end
 
@@ -65,7 +65,7 @@ describe UsersController do
         end
 
         it "redirects to the trips index" do
-          response.should redirect_to("/hitchhikers/#{@user.username}")
+          response.should redirect_to("/en/hitchhikers/#{@user.username}")
         end
 
         it "sets the flash" do

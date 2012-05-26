@@ -24,7 +24,7 @@ describe TripsController do
     context 'user is not logged in' do
       it "redirects to log in page" do
         post :create_comment
-        response.should redirect_to('/users/login')
+        response.should redirect_to('/en/hitchhikers/login')
       end
     end
 
@@ -79,7 +79,7 @@ describe TripsController do
     context 'user is not logged in' do
       it "redirects to log in page" do
         post :create
-        response.should redirect_to('/users/login')
+        response.should redirect_to('/en/hitchhikers/login')
       end
     end
 
