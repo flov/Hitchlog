@@ -5,8 +5,8 @@
     .hitchslider#hitchslider
       #hitchslider_loader
       .hitchslider_image#hitchslider_image
-        = link_to trip_path(ride.trip), class: 'nivo-imageLink' do
-          = image_tag(ride.photo.url(:cropped), style: 'display: block;')
+        = link_to trip_path(ride.trip) do
+          = image_tag(ride.photo.url(:cropped))
 
       .hitchslider_directionNav
         =link_to 'Prev', random_photo_path, remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
