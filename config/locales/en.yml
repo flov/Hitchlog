@@ -10,33 +10,31 @@ en:
       trip:
         from: From
         to: To
-        hitchhikes: Number of rides
+        hitchhikes: "Number of rides"
         start: Departure
         end: Arrival
-        duration: Duration (in hours)
+        duration: Duration
         travelling_with: Traveling with
         distance: Distance
-        gmaps_duration: Gmap duration
-        duration: Duration
+        gmaps_duration: "Gmap duration"
       ride:
         experience: Experience
-        duration: Driving time (in hours)
-        waiting_time: Waiting time (in minutes)
+        duration: "Driving time (in hours)"
+        waiting_time: "Waiting time (in minutes)"
         photo: Photo
-        gender: Gender of passenger(s)
+        gender: "Gender of passenger(s)"
       user:
-        cs_user: CS user
+        cs_user: "CS user"
         username: Username
         email: Email
         password: Password
-        password_confirmation: Password confirmation
+        password_confirmation: "Password confirmation"
         gender: Gender
-        about_you: About you
-
+        about_you: "About you"
   meta:
     description: |
-        A website for logging rides and hitchhiking stories. 
-        It generates statistics about hitchhiking in certain countries and 
+        A website for logging rides and hitchhiking stories.
+        It generates statistics about hitchhiking in certain countries and
         gives an overview of the experiences as a hitchhiker.
   flash:
     trips:
@@ -48,10 +46,9 @@ en:
         error: "Could not edit profile own"
         notice: "Successfully edited profile"
       send_mail:
-        error: You cannot send a mail to yourself
+        error: "You cannot send a mail to yourself"
       mail_sent:
         notice: "Mail has been sent to %{user}"
-
   helper:
     him: him
     her: her
@@ -62,49 +59,48 @@ en:
     overall_neutral_experience: "Overall experience: neutral"
     overall_negative_experience: "Overall experience: negative"
     overall_extremely_negative_experience: "Overall experience: extremely negative"
-    extremely_positive_experience: extremely positive experience
-    positive_experience: positive experience
-    neutral_experience: neutral experience
-    negative_experience: negative experience
-    extremely_negative_experience: extremely negative experience
-    no_results_for_this_route: no results for this route
-    unknown_distance: unknown distance
-    about_person_image: About the passengers
+    extremely_positive_experience: "extremely positive experience"
+    positive_experience: "positive experience"
+    neutral_experience: "neutral experience"
+    negative_experience: "negative experience"
+    extremely_negative_experience: "extremely negative experience"
+    no_results_for_this_route: "no results for this route"
+    unknown_distance: "unknown distance"
+    about_person_image: "About the passengers"
     photo: Photo
-    rides: 
+    rides:
       one: "%{count} Ride"
       other: "%{count} Rides"
-    photo_missing: Missing Photo, Upload Photo
+    photo_missing: "Missing Photo, Upload Photo"
     story: Story
-    ride_has_story: Ride has Story
-    add_story_image: Story to this ride
-    story_missing: Missing Story, write a story about the ride
+    ride_has_story: "Ride has Story"
+    add_story_image: "Story to this ride"
+    story_missing: "Missing Story, write a story about the ride"
     male: male
     female: female
-
-    male_hitchhiker: Male Hitchhiker
-    female_hitchhiker: Female Hitchhiker
-    male_people: male passenger(s)
-    female_people: female passenger(s)
-    mixed_people: Mixed gender passenger(s)
+    male_hitchhiker: "Male Hitchhiker"
+    female_hitchhiker: "Female Hitchhiker"
+    male_people: "male passenger(s)"
+    female_people: "female passenger(s)"
+    mixed_people: "Mixed gender passenger(s)"
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "Trip Duration %{duration}"
-    add_information: Add inforation to ride
-    add_information_to_hitchhike: Add inforation to ride
-    delete_hitchhike: Delete Hitchhike
-    delete_trip: Delete Trip
+    add_information: "Add inforation to ride"
+    add_information_to_hitchhike: "Add inforation to ride"
+    delete_hitchhike: "Delete Hitchhike"
+    delete_trip: "Delete Trip"
     one_person_hitchhike: "One person hitchhike"
     two_people_hitchhike: "Two people hitchhike"
     three_people_hitchhike: "Three people hitchhike"
     more_than_three_people_hitchhike: "More than three person hitchhike"
     driving_time: "%{time} driving time"
-    driving_time_missing: Driving time is missing
+    driving_time_missing: "Driving time is missing"
     waiting_time: "%{time} waiting time"
     waiting_time_without_time: "waiting time"
-    waiting_time_missing: Waiting time is missing
-    faster_than_gmaps: faster than Google Maps
-    hitchability: Hitchability (Gmaps Duration / Trip Duration)
-    slower_than_gmaps: slower than Google Maps
+    waiting_time_missing: "Waiting time is missing"
+    faster_than_gmaps: "faster than Google Maps"
+    hitchability: "Hitchability (Gmaps Duration / Trip Duration)"
+    slower_than_gmaps: "slower than Google Maps"
     trip:
       alone: alone
       with_1: "with 1 person"
@@ -112,54 +108,52 @@ en:
       with_3: "with 3 people"
       with_4: "with 4 people"
       with_more_than_4: "with more than 4 people"
-
   general:
     or: or
-    supports_markdown: supports markdown
-    male: "male"
-    female: "female"
-    mixed: "mixed"
-    extremely_positive: extremely positive
+    supports_markdown: "supports markdown"
+    male: male
+    female: female
+    mixed: mixed
+    extremely_positive: "extremely positive"
     positive: positive
     neutral: neutral
     negative: negative
-    extremely_negative: extremely negative
+    extremely_negative: "extremely negative"
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   shared:
     last_sign_in:
-      last_sign_in: Last seen
+      last_sign_in: "Last seen"
       ago: ago
       in: in
     banners_in_corners:
-      fork_me_on_github: Fork Me On Github
+      fork_me_on_github: "Fork Me On Github"
     sign_in_and_out:
-      sign_out: Sign out
-      sign_up: Sign up
-      sign_in: Sign in
+      sign_out: "Sign out"
+      sign_up: "Sign up"
+      sign_in: "Sign in"
     nearby_hitchhikers:
-      nearby_hitchhikers: Nearby hitchhikers
-      last_login_in: last login in
+      nearby_hitchhikers: "Nearby hitchhikers"
+      last_login_in: "last login in"
   welcome:
     home:
-      share_and_keep_track: Share and keep track of your hitchhiking experiences
-      countries_logged: Countries logged
-      sign_in_with_facebook: Sign in with Facebook
-      newest_hh_stories: Newest Hitchhiking Stories
-      newest_hitchhikers: Newest Hitchhikers
+      share_and_keep_track: "Share and keep track of your hitchhiking experiences"
+      countries_logged: "Countries logged"
+      sign_in_with_facebook: "Sign in with Facebook"
+      newest_hh_stories: "Newest Hitchhiking Stories"
+      newest_hitchhikers: "Newest Hitchhikers"
       logged: "logged %{trips_size} Trips"
-      share_your_trip_with_us: 'Share your hitchhiking experience with us.'
+      share_your_trip_with_us: "Share your hitchhiking experience with us."
       get_in_touch_with_hitchhikers: "Get in touch with Hitchhikers who already hitched a route."
-      sign_up: 'Sign Up' 
-      sign_in: 'Sign In' 
-      newest_hitchhiking_trips: Newest hitchhiking trips
+      sign_up: "Sign Up"
+      sign_in: "Sign In"
+      newest_hitchhiking_trips: "Newest hitchhiking trips"
       find_hitchlog_on: "Find Hitchlog On"
-      more_trips: See More Trips
-      more_stories: Read More Stories
+      more_trips: "See More Trips"
+      more_stories: "Read More Stories"
       hitchhiked_by_user: "hitchhiked %{time} ago by %{user}"
       by: by
-      more_hitchhikers: Get To Know More Hitchhikers
-
+      more_hitchhikers: "Get To Know More Hitchhikers"
       text1: |
           It's about time to make the world a more hitchhiker friendly place.
           <a href='/trips/new'>Log your hitchhiking experiences</a>
@@ -168,7 +162,6 @@ en:
           Together with this data the Hitchlog creates statistics.
           It tells the average waiting time in different countries, it
           compares positive against negative experiences...
-
       text2: |
           Your data will create your own personal hitchhiking profile. Giving you
           information about: <br/>
@@ -177,11 +170,10 @@ en:
           If you have ever hitchhiked, you are welcome to
           <a href="/trips/new">share your experience with us</a>.
           With the information that you enter here you will be part of the project.
-      text3:  |
+      text3: |
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
-
   facebook:
     login_with_facebook: "Login with Facebook"
   back: Back
@@ -190,32 +182,32 @@ en:
     send_mail:
       message_placeholder: Message
       title: "Send a message to %{user}"
-      send_mail: Send Mail
+      send_mail: "Send Mail"
       send_a_mail_to: "Send Message to %{user}"
-      mail_text:  |
+      mail_text: |
           When you send the email, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
-      cars_seen_from_inside: Cars seen from inside
+      cars_seen_from_inside: "Cars seen from inside"
       average_drivers_age: "Average driver's age"
-      hitchhiked_countries: Hitchhiked countries
-      hitchhiked_kms: Hitchhiked kms
-      average_waiting_time: Average waiting time
-      kms_hitchhiked: Hitchhiked kms
-      waiting_time_per_ride: Avg. waiting time
-      written_stories: Written stories
-      cs_user: CS User
-      uploaded_photos: Uploaded photos
+      hitchhiked_countries: "Hitchhiked countries"
+      hitchhiked_kms: "Hitchhiked kms"
+      average_waiting_time: "Average waiting time"
+      kms_hitchhiked: "Hitchhiked kms"
+      waiting_time_per_ride: "Avg. waiting time"
+      written_stories: "Written stories"
+      cs_user: "CS User"
+      uploaded_photos: "Uploaded photos"
       statistics: Statistics
-      send_mail: Send Mail
+      send_mail: "Send Mail"
     show:
       alone: alone
-      gender_of_drivers: Gender of passengers
-      with_two: in pairs
-      with_three: with two others
-      with_four: with three others
-      log_your_first_trip: Log your first Trip
-      log_new_trip: Log new Trip
+      gender_of_drivers: "Gender of passengers"
+      with_two: "in pairs"
+      with_three: "with two others"
+      with_four: "with three others"
+      log_your_first_trip: "Log your first Trip"
+      log_new_trip: "Log new Trip"
       edit: Edit
       delete: Delete
       about: About
@@ -224,8 +216,8 @@ en:
       rides: Rides
       experiences: experiences
     edit:
-      edit_profile: Edit Profile
-      your_avatar: Your Avatar
+      edit_profile: "Edit Profile"
+      your_avatar: "Your Avatar"
       hitchlog_only_supports_gravatar: |
           Hitchlog only supports avatars through <a href='http://gravatar.com'>Gravatar</a>.<br/>
           If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a>.
@@ -233,18 +225,17 @@ en:
       hitchhikers: Hitchhikers
       title: Users
       username: Username
-      last_sign_in: Last login
+      last_sign_in: "Last login"
       search: Search
-      sort_by: Sort by
+      sort_by: "Sort by"
     user:
       statistics: Statistics
-      kilometers_hitchhiked: Hitchhiked KMs
-      hitchhiked_countries: Hitchhiked countries
-      cars_seen_from_inside_while_hitchhiking: Cars seen from inside while hitchhiking
+      kilometers_hitchhiked: "Hitchhiked KMs"
+      hitchhiked_countries: "Hitchhiked countries"
+      cars_seen_from_inside_while_hitchhiking: "Cars seen from inside while hitchhiking"
       gender: Gender
       logged_trips: "logged %{trips_size} trips"
       trips: Trips
-
   hours:
     one: "%{count} hour"
     other: "%{count} hours"
@@ -254,7 +245,6 @@ en:
   minutes_without_hours:
     one: "%{count} minute"
     other: "%{count} minutes"
-
   rides:
     crop:
       crop_the_photo: "Crop the photo"
@@ -263,70 +253,68 @@ en:
       delete_image: "Delete Photo"
       title_required: Title
       story_required: Story
-
   hitchslider:
     user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
-    it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
+    it_took_him_text: "It took %{him_or_her} <b>%{time}</b> to do the trip."
     google_maps_text: |
         Google maps says it takes <b>%{gmaps_duration}</b> for
         this route, so %{user} was <b>%{gmaps_difference}</b>.
     time_ago: "%{time} ago"
-    caption: 'Title:'
-
+    caption: "Title:"
   trips:
     index:
-      latest_hitchhiking_trips: Latest hitchhiking trips
-      log_new_trip: Log New Trip
-      to_log_a_new_hitchhiking_trip: to log a new hitchhiking trip.
-      choose_a_country: Choose a country
+      latest_hitchhiking_trips: "Latest hitchhiking trips"
+      log_new_trip: "Log New Trip"
+      to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
+      choose_a_country: "Choose a country"
     search_interface:
-      select_experience: Select Experience
-      select_gender: Select Gender
+      select_experience: "Select Experience"
+      select_gender: "Select Gender"
       sort_by: "Sort by:"
       photo: Photo
-      select_country: Select Country
+      select_country: "Select Country"
       search: Search
       story: Story
     edit:
-      edit_title: Edit Trip
+      edit_title: "Edit Trip"
       hitchhiked: Hitchhiked
       from: From
       to: To
       add_story: "Add/Edit Story"
       hitchability_factor: "Hitchability factor:"
-      it_took_you_longer: It took you %{hours} longer than a direct ride.
-      you_were_faster: You were %{hours} faster than a direct ride.
+      it_took_you_longer: "It took you %{hours} longer than a direct ride."
+      you_were_faster: "You were %{hours} faster than a direct ride."
     list:
-      no_trips_logged: No Trips Logged
+      no_trips_logged: "No Trips Logged"
       read_on: "(read on in Trip)"
       countries: Countries
       rides: Rides
       by: By
-      date: Hitchhiked Date
+      date: "Hitchhiked Date"
       icons: Icons
       start: "%{time} ago"
     show:
       title: "Hitchhiking from %{from_city} to %{to_city}"
     comments:
-      there_are_no_comments: There are no comments for this trip
+      there_are_no_comments: "There are no comments for this trip"
       user_wrote: "%{time} ago %{user} wrote:"
     trip:
       edit_trip: "(Edit Trip)"
       ride: Ride
-      gmaps_duration: 'Gmaps Duration'
+      gmaps_duration: "Gmaps Duration"
       time_ago: "%{time} ago"
       user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
-      log_in: Log in
+      log_in: "Log in"
       or: or
       register: register
-      add_comment: Add Comment
-      to_comment: to comment on this trip
-      it_took_him_text: It took %{him_or_her} <b>%{time}</b> to do the trip.
+      add_comment: "Add Comment"
+      to_comment: "to comment on this trip"
+      it_took_him_text: "It took %{him_or_her} <b>%{time}</b> to do the trip."
       google_maps_text: |
           Google maps says it takes <b>%{gmaps_duration}</b> for
           this route, so %{user} was <b>%{gmaps_difference}</b>.
     form:
-      step1_2: "Continue"
+      step1_2: Continue
     show_ride:
       ride: Ride
     new:
