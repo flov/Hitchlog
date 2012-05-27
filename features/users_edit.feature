@@ -9,5 +9,4 @@ Feature: Edit user
      When I go to the edit profile page
      Then I should see "About you"
      And  I should see "CS user"
-     And  I should see "Avatar"
-     And  I should see "Hitchlog only supports avatars through Gravatar."
+     And  I should see "Your Avatar"

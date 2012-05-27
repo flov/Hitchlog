@@ -2,7 +2,7 @@
   = link_to @user, user_path(@user)
   = gender_image @user.gender
 .text_center
-  = render 'profile_image', user: @user, type: "large"
+  = render 'users/profile_image', user: @user, type: "large"
 
 .section
   %ul
