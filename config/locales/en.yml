@@ -214,9 +214,13 @@ en:
       edit: Edit
       delete: Delete
       about: About
-      trips: Trips
+      trip:
+        one: "1 Trip"
+        other: "%{count} Trips"
       title: User
-      rides: Rides
+      ride:
+        one: "1 Ride"
+        one: "#{count} Rides"
       experiences: experiences
     edit:
       edit_profile: "Edit Profile"
@@ -243,7 +247,7 @@ en:
       logged_trips: "logged %{trips_size} trips"
       trips: Trips
   hours:
-    one: "%{count} hour"
+    one: "1 hour"
     other: "%{count} hours"
   hours_with_minutes:
     one: "%{count} hour %{minutes} minutes"
