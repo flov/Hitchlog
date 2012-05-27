@@ -8,7 +8,7 @@
     - unless @user.cs_user.blank?
       %li
         = image_tag 'cs.ico'
-        #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/flov")}
+        #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/#{@user.cs_user}")}
     - unless current_user == @user
       %li
         =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(@user)
