@@ -2,7 +2,7 @@
 
 = content_for :layout_header do
 
-  .main-message
+  .text_center.main-message
     %h1
       = t('.share_and_keep_track')
 
@@ -29,6 +29,12 @@
     - if user_signed_in? and current_user.nearbys.any?
       .box.welcome_box
         = render 'shared/nearby_hitchhikers'
+
+    .box.welcome_box
+      %h3= t(".find_hitchlog_on")
+      .find_hitchlog_on
+        = find_hitchlog_on_facebook
+        = find_hitchlog_on_twitter
 
     .box.welcome_box
       %h3= t('.newest_hh_stories')
