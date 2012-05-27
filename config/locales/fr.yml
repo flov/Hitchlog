@@ -1,0 +1,295 @@
+fr:
+  activerecord:
+    models:
+      male: ~
+      female: ~
+      user: ~
+    attributes:
+      comment:
+        body: ~
+      trip:
+        from: ~
+        to: ~
+        hitchhikes: ~
+        start: ~
+        end: ~
+        duration: ~
+        travelling_with: ~
+        distance: ~
+        gmaps_duration: ~
+      ride:
+        experience: ~
+        duration: ~
+        waiting_time: ~
+        photo: ~
+        gender: ~
+      user:
+        cs_user: ~
+        username: ~
+        email: ~
+        password: ~
+        password_confirmation: ~
+        gender: ~
+        about_you: ~
+  meta:
+    description: ~
+  flash:
+    trips:
+      create_comment:
+        alert: ~
+        comment_saved: ~
+    users:
+      update:
+        error: ~
+        notice: ~
+      send_mail:
+        error: ~
+      mail_sent:
+        notice: ~
+  helper:
+    him: ~
+    her: ~
+    time_faster: ~
+    time_slower: ~
+    overall_extremely_positive_experience: ~
+    overall_positive_experience: ~
+    overall_neutral_experience: ~
+    overall_negative_experience: ~
+    overall_extremely_negative_experience: ~
+    extremely_positive_experience: ~
+    positive_experience: ~
+    neutral_experience: ~
+    negative_experience: ~
+    extremely_negative_experience: ~
+    no_results_for_this_route: ~
+    unknown_distance: ~
+    about_person_image: ~
+    photo: ~
+    rides:
+      one: ~
+      other: ~
+    photo_missing: ~
+    story: ~
+    ride_has_story: ~
+    add_story_image: ~
+    story_missing: ~
+    male: ~
+    female: ~
+    male_hitchhiker: ~
+    female_hitchhiker: ~
+    male_people: ~
+    female_people: ~
+    mixed_people: ~
+    gmaps_duration: ~
+    trip_duration: ~
+    add_information: ~
+    add_information_to_hitchhike: ~
+    delete_hitchhike: ~
+    delete_trip: ~
+    one_person_hitchhike: ~
+    two_people_hitchhike: ~
+    three_people_hitchhike: ~
+    more_than_three_people_hitchhike: ~
+    driving_time: ~
+    driving_time_missing: ~
+    waiting_time: ~
+    waiting_time_without_time: ~
+    waiting_time_missing: ~
+    faster_than_gmaps: ~
+    hitchability: ~
+    slower_than_gmaps: ~
+    trip:
+      alone: ~
+      with_1: ~
+      with_2: ~
+      with_3: ~
+      with_4: ~
+      with_more_than_4: ~
+  general:
+    or: ~
+    supports_markdown: ~
+    male: ~
+    female: ~
+    mixed: ~
+    extremely_positive: ~
+    positive: ~
+    neutral: ~
+    negative: ~
+    extremely_negative: ~
+    confirm: ~
+    slogan: ~
+  shared:
+    last_sign_in:
+      last_sign_in: ~
+      ago: ~
+      in: ~
+    banners_in_corners:
+      fork_me_on_github: ~
+    sign_in_and_out:
+      sign_out: ~
+      sign_up: ~
+      sign_in: ~
+    nearby_hitchhikers:
+      nearby_hitchhikers: ~
+      last_login_in: ~
+  welcome:
+    home:
+      share_and_keep_track: ~
+      countries_logged: ~
+      sign_in_with_facebook: ~
+      newest_hh_stories: ~
+      newest_hitchhikers: ~
+      logged: ~
+      share_your_trip_with_us: ~
+      get_in_touch_with_hitchhikers: ~
+      sign_up: ~
+      sign_in: ~
+      newest_hitchhiking_trips: ~
+      find_hitchlog_on: ~
+      more_trips: ~
+      more_stories: ~
+      hitchhiked_by_user: ~
+      by: ~
+      more_hitchhikers: ~
+      text1: ~
+      text2: ~
+      text3: ~
+      login_with_facebook: ~
+  facebook:
+    login_with_facebook: ~
+  back: ~
+  edit: ~
+  users:
+    send_mail:
+      message_placeholder: ~
+      title: ~
+      send_mail: ~
+      send_a_mail_to: ~
+      mail_text: ~
+    right_column:
+      cars_seen_from_inside: ~
+      average_drivers_age: ~
+      hitchhiked_countries: ~
+      hitchhiked_kms: ~
+      average_waiting_time: ~
+      kms_hitchhiked: ~
+      waiting_time_per_ride: ~
+      written_stories: ~
+      cs_user: ~
+      uploaded_photos: ~
+      statistics: ~
+      send_mail: ~
+    show:
+      alone: ~
+      gender_of_drivers: ~
+      with_two: ~
+      with_three: ~
+      with_four: ~
+      log_your_first_trip: ~
+      log_new_trip: ~
+      edit: ~
+      delete: ~
+      about: ~
+      trips: ~
+      title: ~
+      rides: ~
+      experiences: ~
+    edit:
+      edit_profile: ~
+      your_avatar: ~
+      hitchlog_only_supports_gravatar: ~
+    index:
+      hitchhikers: ~
+      title: ~
+      username: ~
+      last_sign_in: ~
+      search: ~
+      sort_by: ~
+    user:
+      statistics: ~
+      kilometers_hitchhiked: ~
+      hitchhiked_countries: ~
+      cars_seen_from_inside_while_hitchhiking: ~
+      gender: ~
+      logged_trips: ~
+      trips: ~
+  hours:
+    one: ~
+    other: ~
+  hours_with_minutes:
+    one: ~
+    other: ~
+  minutes_without_hours:
+    one: ~
+    other: ~
+  rides:
+    crop:
+      crop_the_photo: ~
+      crop: ~
+    ride:
+      delete_image: ~
+      title_required: ~
+      story_required: ~
+  hitchslider:
+    user_hitchhiked_text: ~
+    it_took_him_text: ~
+    google_maps_text: ~
+    time_ago: ~
+    caption: ~
+  trips:
+    index:
+      latest_hitchhiking_trips: ~
+      log_new_trip: ~
+      to_log_a_new_hitchhiking_trip: ~
+      choose_a_country: ~
+    search_interface:
+      select_experience: ~
+      select_gender: ~
+      sort_by: ~
+      photo: ~
+      select_country: ~
+      search: ~
+      story: ~
+    edit:
+      edit_title: ~
+      hitchhiked: ~
+      from: ~
+      to: ~
+      add_story: ~
+      hitchability_factor: ~
+      it_took_you_longer: ~
+      you_were_faster: ~
+    list:
+      no_trips_logged: ~
+      read_on: ~
+      countries: ~
+      rides: ~
+      by: ~
+      date: ~
+      icons: ~
+      start: ~
+    show:
+      title: ~
+    comments:
+      there_are_no_comments: ~
+      user_wrote: ~
+    trip:
+      edit_trip: ~
+      ride: ~
+      gmaps_duration: ~
+      time_ago: ~
+      user_hitchhiked_text: ~
+      log_in: ~
+      or: ~
+      register: ~
+      add_comment: ~
+      to_comment: ~
+      it_took_him_text: ~
+      google_maps_text: ~
+    form:
+      step1_2: ~
+    show_ride:
+      ride: ~
+    new:
+      log_your_trip_please: ~
+      new_trip_description: ~
