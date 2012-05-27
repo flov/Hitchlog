@@ -12,6 +12,8 @@
     = yield(:head)
 
   %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
+    <div id="fb-root"></div>
+    = render 'shared/facebook_sdk'
     = render 'shared/banners_in_corners'
 
     #wrap
@@ -38,7 +40,6 @@
       &copy; 2011 Hitchlog - #{link_to 'About', 'http://hitchlog.com/about'}
 
   = javascript_include_tag 'application'
-  %script{src:"http://connect.facebook.net/en_US/all.js#xfbml=1"}
   = render 'shared/google_stats'
 
   = yield(:javascript_at_bottom)
