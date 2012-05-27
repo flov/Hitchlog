@@ -11,19 +11,19 @@ module NavigationHelpers
     when /^the homepage$/
       '/'
     when /^the profile page of florian/
-      '/hitchhikers/florian'
+      '/en/hitchhikers/florian'
     when /^the login page/
-      '/users/login'
+      '/en/hitchhikers/login'
     when /^the signup page/
-      '/users/sign_up'
+      '/en/hitchhikers/sign_up'
     when /^the profile of "supertramp"$/
-      '/hitchhikers/supertramp'
+      '/en/hitchhikers/supertramp'
     when /^the hitchhikers page$/
-      '/hitchhikers'
+      '/en/hitchhikers'
     when /^the page of this trip$/
       trip_path(Trip.last)
     when /^the edit profile page$/
-      "/hitchhikers/#{@user.username}/edit"
+      "/en/hitchhikers/#{@user.username}/edit"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

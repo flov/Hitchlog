@@ -8,6 +8,6 @@ Feature: Create new trip
       | Departure                  | 07/12/2011 10:00 |
       | Arrival                    | 07/12/2011 20:00 |
       | Number of rides            | 1                |
-      | Traveling with    (select) | Alone            |
+      | Traveling with    (select) | alone            |
     And I press "Continue"
     Then I should see "Edit Trip"
