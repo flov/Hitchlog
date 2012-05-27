@@ -147,7 +147,7 @@ en:
       get_in_touch_with_hitchhikers: "Get in touch with Hitchhikers who already hitched a route."
       sign_up: "Sign Up"
       sign_in: "Sign In"
-      newest_hitchhiking_trips: "Newest hitchhiking trips"
+      eewest_hitchhiking_trips: "Newest hitchhiking trips"
       find_hitchlog_on: "Find Hitchlog On"
       more_trips: "See More Trips"
       more_stories: "Read More Stories"
@@ -218,9 +218,12 @@ en:
     edit:
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
-      hitchlog_only_supports_gravatar: |
-          Hitchlog only supports avatars through <a href='http://gravatar.com'>Gravatar</a>.<br/>
-          If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a>.
+      hitchlog_supports_gravatar_and_facebook_image: |
+          If you authenticate with Facebook, Hitchlog
+          will take your Facebook profile image, otherwise
+          it will use <a href='http://gravatar.com'>Gravatar</a>.<br/>
+          If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a>
+          or authenticate your account with facebook.
     index:
       hitchhikers: Hitchhikers
       title: Users

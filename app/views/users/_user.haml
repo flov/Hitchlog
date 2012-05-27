@@ -17,4 +17,4 @@
     = user.hitchhiked_cars
 
   .float_right
-    = link_to gravatar_image_tag(user.email), user_path(user)
+    = render 'profile_image', user: user, type: 'small'

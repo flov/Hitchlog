@@ -1,0 +1,6 @@
+- type ||= "normal"
+
+- if fb_user = user.authentications.where(provider: 'facebook').first
+  = image_tag "https://graph.facebook.com/#{fb_user.uid}/picture?type=#{type}"
+- else
+  = gravatar_image_tag user.email
