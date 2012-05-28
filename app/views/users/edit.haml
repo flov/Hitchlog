@@ -27,5 +27,9 @@
   %br/
   = render 'users/profile_image', user: current_user
   %br/
-  = t('.hitchlog_supports_gravatar_and_facebook_image').html_safe
-
+  - if current_user.facebook_user?
+    = t('.your_avatar_is_from_facebook')
+  - else
+    = t('.hitchlog_supports_gravatar_and_facebook_image').html_safe
+    %br/
+    .text_center= facebook_login

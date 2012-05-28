@@ -225,6 +225,9 @@ en:
     edit:
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
+      your_avatar_is_from_facebook: |
+          You authenticated with facebook and your profile
+          image is your facebook profile image
       hitchlog_supports_gravatar_and_facebook_image: |
           If you authenticate with Facebook, Hitchlog
           will take your Facebook profile image, otherwise

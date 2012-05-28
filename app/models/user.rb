@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   before_save        :geocode_address, :if => lambda{ |obj| obj.current_sign_in_ip_changed? }
   geocoded_by :current_sign_in_ip, :latitude => :sign_in_lat, :longitude => :sign_in_lng
 
+  def facebook_user?
+    self.authentications.where(provider: 'facebook').any?
+  end
+
   def geocode_address
     if self.current_sign_in_ip && Rails.env != 'test'
       if search = Geocoder.search(self.current_sign_in_ip).first

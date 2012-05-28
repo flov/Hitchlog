@@ -12,6 +12,17 @@ describe User do
     user.trips << Factory.build(:trip)
   end
 
+  describe "#facebook_user" do
+    it 'should test if the user has authenticated via facebook' do
+      user.authentications = []
+      user.facebook_user?.should be_false
+
+      user.authentications.build(provider: 'facebook', uid: 1011496368)
+      user.save!
+      user.facebook_user?.should be_true
+    end
+  end
+
   describe "experiences" do
     context "unequal number of experiences" do
       it "should return an array of experiences" do
