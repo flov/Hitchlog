@@ -9,5 +9,6 @@
     - if user_signed_in?
       %li.nav_your_profile
         -# ▼ #Todo Add Dropdown Box with fields: Edit Profile, Log new trip
-        = link_to t('.your_profile'), user_path(current_user)
-        = render 'users/profile_image', user: current_user, type: 'square'
+        = link_to user_path(current_user) do
+          = render 'users/profile_image', user: current_user, type: 'square'
+          = t('.your_profile')
