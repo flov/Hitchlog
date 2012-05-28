@@ -122,6 +122,9 @@ en:
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
   shared:
+    navigation:
+      your_profile:
+        Your Profile
     last_sign_in:
       last_sign_in: "Last seen"
       ago: ago

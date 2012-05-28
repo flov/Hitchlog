@@ -1,0 +1,13 @@
+%nav
+  %ul
+    %li= link_to 'About', about_path
+    %li= link_to 'Home', root_path
+    %li= link_to 'Blog', 'http://blog.hitchlog.com/'
+    %li= link_to 'Trips', trips_path
+    %li= link_to 'Hitchhikers', users_path
+    %li= render :partial => 'shared/sign_in_and_out'
+    - if user_signed_in?
+      %li.nav_your_profile
+        -# ▼ #Todo Add Dropdown Box with fields: Edit Profile, Log new trip
+        = link_to t('.your_profile'), user_path(current_user)
+        = render 'users/profile_image', user: current_user, type: 'square'
