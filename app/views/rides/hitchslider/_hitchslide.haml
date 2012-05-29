@@ -16,7 +16,10 @@
     .hitchslide_map#hitchslider_map
 
   .hitchslider_information#hitchslider_information
-    = images_for_ride(ride)
+    = hitchhiking_with_image(ride.trip.travelling_with)
+    = country_images_for_trip(ride.trip)
+    = experience_image(ride.experience)
+    = ride_has_story_image(ride)
 
   .hitchslider_caption#hitchslider_caption
     %p
