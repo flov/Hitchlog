@@ -6,14 +6,17 @@ class RidesController < ApplicationController
   end
 
   def random_photo
-    if params[:id]
-      @ride = Ride.find(params[:id])
+    if params[:id] and params[:next]
+      @ride = Ride.where('photo_file_name is not null')
+                  .where("id > #{params[:id]}")
+                  .order(:id).first
+    elsif params[:id] and params[:prev]
+      @ride = Ride.where('photo_file_name is not null')
+                  .where("id < #{params[:id]}")
+                  .order(:id).last
     else
       @ride = Ride.where('photo_file_name is not null').order('RAND()').first
     end
-    #respond_to do |format|
-      #format.json { render json: @ride.as_json(only: [:photo_file_name, :experience, :title], include: [trip: {only: [:id, :from]}]) }
-    #end
   end
 
   def create

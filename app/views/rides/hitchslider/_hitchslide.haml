@@ -9,11 +9,15 @@
           = image_tag(ride.photo.url(:cropped))
 
       .hitchslider_directionNav
-        =link_to 'Prev', random_photo_path, remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
-        =link_to 'Next', random_photo_path, remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
+        =link_to 'Prev', random_photo_path(prev: true, id: ride.id), remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
+        =link_to 'Next', random_photo_path(next: true, id: ride.id), remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
 
-  .hitchslide_right
-    .hitchslide_map#hitchslider_map
+  .hitchslide_map#hitchslider_map
+  .story_wrapper
+    .hitchslider_story
+      - unless ride.title.blank?
+        %h2= link_to ride.title, trip_path(ride.trip)
+      = ride.markdown_story
 
   .hitchslider_information#hitchslider_information
     = hitchhiking_with_image(ride.trip.travelling_with)
@@ -22,8 +26,7 @@
     = ride_has_story_image(ride)
 
   .hitchslider_caption#hitchslider_caption
-    %p
-      = render 'rides/hitchslider/caption', ride: ride
+    = render 'rides/hitchslider/caption', ride: ride
 
 - content_for :javascript_at_bottom do
   = google_maps_js
@@ -32,5 +35,4 @@
     var hitchslider_from  = "#{escape_javascript(ride.trip.from)}"
     var hitchslider_to    = "#{escape_javascript(ride.trip.to)}"
 
-    Hitchmap.init_map({draggable: false}, "#hitchslider_map")
-    Hitchmap.set_new_route(hitchslider_route, hitchslider_from, hitchslider_to)
+    Hitchslider.init(hitchslider_route, hitchslider_from, hitchslider_to)

@@ -36,20 +36,8 @@
 
     - unless ride.story.blank?
       .trip_story
-        = RDiscount.new(ride.story).to_html.html_safe
+        = ride.markdown_story
 
--#.display_rides
-  %table#rides_list.colorize_table
-    - trip.rides.not_empty.each do |ride|
-      %tr{ :id => "ride_#{ride.number}" }
-        %th
-          = t('.ride')
-          #{ride.number}/#{ride.trip.rides.size}
-        %td
-          = experience_image(ride.experience)
-          = gender_people_image(ride.gender)
-          = waiting_time_image(human_minutes(ride.waiting_time))
-          = driving_time_image(human_hours(ride.duration))
 
 = render 'comments', comments: trip.comments
 

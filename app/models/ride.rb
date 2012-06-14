@@ -67,4 +67,12 @@ class Ride < ActiveRecord::Base
       title
     end
   end
+
+  def markdown_story
+    if not self.story.blank?
+      RDiscount.new(self.story).to_html.html_safe 
+    else
+      ''
+    end
+  end
 end

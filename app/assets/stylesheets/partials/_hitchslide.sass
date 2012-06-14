@@ -1,19 +1,21 @@
 $hitchslide_width: 950px
 $hitchslide_left_width: 500px
+$hitchslide_right_width: $hitchslide_width - $hitchslide_left_width
 
 .hitchslide
+  overflow: auto
   margin: 0 auto
   color: white
   position: relative
   width: $hitchslide_width
   height: 250px
-  z-index: 17
   .hitchslider_image
     img
       position: absolute
       top: 0
       left: 0
   .hitchslider_information
+    z-index: 10
     position: absolute
     top: 0
     left: 0px
@@ -24,23 +26,47 @@ $hitchslide_left_width: 500px
     height: 24px
 
   .hitchslider_caption
+    z-index: 20
     position: absolute
     bottom: 0
     background-color: black
     opacity: 0.8
     font-family: Helvetica, Arial, sans-serif
-    width: 100%
+    width: 500px
     p
       margin: 5px !important
   .hitchslide_left
-    float: left
-  .hitchslide_right
+    z-index: 1
+    position: absolute
+    left: 0
+    top: 0
+  .hitchslide_map
+    width: 215px
+    height: 250px
     float: right
-    .hitchslide_map
-      background-color: gray
-      width: $hitchslide_width - $hitchslide_left_width
-      height: 250px
-      //background: image-url('gmaps.jpg') no-repeat
+    right: 0
+    background-color: gray
+
+  .story_wrapper
+    width: 235px
+    background-color: black
+    overflow: auto
+    height: 250px
+    position: relative
+    float: right
+    .hitchslider_story
+      p
+        font-size: 12px
+        line-height: 16px
+      h2
+        font-size: 17px
+        line-height: 24px
+      position: absolute
+      width: (($hitchslide_right_width - 20) / 2)
+      padding: 10px
+      left: 0
+      background-color: black
+
 
 
 .hitchslider
