@@ -35,4 +35,5 @@
         = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
 
 
-    = render 'shared/country_chart', :user => @user, :resolution => '200x100', :size => 'tiny'
+    = render 'shared/country_chart', :user => @user, :size => 'tiny'
+

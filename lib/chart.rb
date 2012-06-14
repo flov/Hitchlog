@@ -15,7 +15,7 @@ module Chart
       title = nil
     elsif options[:size] == 'tiny'
       title = nil
-      options[:resolution] = '300x180'
+      options[:resolution] = '280x140'
       chart_label = tiny_chart_label(array)
     else
       title = nil
