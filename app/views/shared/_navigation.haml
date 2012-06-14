@@ -10,6 +10,6 @@
       %li.nav_your_profile
         = link_to user_path(current_user) do
           = render 'users/profile_image', user: current_user, type: 'square'
-          ▼
+          -#▼
           = t('.your_profile')
 
