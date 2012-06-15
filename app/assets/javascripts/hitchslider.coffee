@@ -4,9 +4,8 @@ window.Hitchslider = {
   init: (route, from, to) ->
     Hitchmap.init_map({draggable: false}, "#hitchslider_map")
     Hitchmap.set_new_route(route, from, to)
-    if !!$('.hitchslider_story').html().match(/\S/g)
+    if $('.hitchslider_story').html().match(/\S/g) == null 
       $('#hitchslider_map').css('width', '450px')
-    
 
 
   hide_objects: ->
