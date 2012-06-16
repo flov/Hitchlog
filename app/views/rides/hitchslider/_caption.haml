@@ -6,6 +6,6 @@
                                           to: ride.trip.to,
                                           rides_size: ride.trip.rides.size).html_safe
   - if ride.trip.duration && ride.trip.duration != 0
-    = t('hitchslider.it_took_him_text', time: human_seconds(ride.trip.duration)).html_safe
+    = t('hitchslider.it_took_text', time: human_seconds(ride.trip.duration)).html_safe
 
   = link_to "(more)", trip_path(ride.trip)

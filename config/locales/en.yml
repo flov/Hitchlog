@@ -276,11 +276,11 @@ en:
   hitchslider:
     user_hitchhiked_text: "%{time} ago %{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
     it_took_text: "It took <b>%{time}</b> to do the trip."
-    google_maps_text: |
-        Google maps says it takes <b>%{gmaps_duration}</b> for
-        this route, so %{user} was <b>%{gmaps_difference}</b>.
+    google_maps_text: "Google maps says it takes <b>%{gmaps_duration}</b> for this route, so %{user} was <b>%{gmaps_difference}</b>."
     time_ago: "%{time} ago"
     caption: "Title:"
+    comments: "Comments:"
+    user_wrote: "%{user} wrote:"
   trips:
     index:
       latest_hitchhiking_trips: "Hitchhiking trips"
@@ -323,9 +323,9 @@ en:
       ride: Ride
       gmaps_duration: "Gmaps Duration"
       time_ago: "%{time} ago"
-      log_in: "Log in"
-      or: or
+    add_comment:
       register: register
+      log_in: "Log in"
       add_comment: "Add Comment"
       to_comment: "to comment on this trip"
     form:

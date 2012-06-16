@@ -1,4 +1,3 @@
--# This is just a temporary var, when feature finished, it will be deleted
 - ride = Ride.where("photo_file_name is not null").sample
 .hitchslide#hitchslide
   .hitchslide_left
@@ -15,9 +14,13 @@
   .hitchslide_map#hitchslider_map
   .story_wrapper
     .hitchslider_story
-      - unless ride.title.blank?
+      - unless ride.story.blank?
         %h2= link_to ride.title, trip_path(ride.trip)
-      = ride.markdown_story
+        = ride.markdown_story
+
+        = render 'rides/hitchslider/comments', comments: ride.trip.comments
+
+        = render 'trips/add_comment', trip: ride.trip
 
   .hitchslider_information#hitchslider_information
     = hitchhiking_with_image(ride.trip.travelling_with)

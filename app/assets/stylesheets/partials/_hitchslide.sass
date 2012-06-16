@@ -14,6 +14,7 @@ $hitchslide_right_width: $hitchslide_width - $hitchslide_left_width
       position: absolute
       top: 0
       left: 0
+
   .hitchslider_information
     z-index: 10
     position: absolute
@@ -68,8 +69,7 @@ $hitchslide_right_width: $hitchslide_width - $hitchslide_left_width
       h2
         font-size: 17px
         line-height: 24px
-
-
+        color: $orange
 
 .hitchslider
   position: relative
@@ -100,3 +100,13 @@ $hitchslide_right_width: $hitchslide_width - $hitchslide_left_width
     &.hitchslider_prevNav
       left: 15px
 
+.hitchslider_comments
+  .hitchslider_comment
+    margin-bottom: 5px
+    p
+      margin: 0
+
+.hitchslide textarea.comment_body
+  width: 190px
+  height: 50px
+  padding: 0

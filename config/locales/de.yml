@@ -301,6 +301,7 @@ de:
     show:
       title: "Trampen von %{from_city} nach %{to_city}"
     comments:
+      comments: Kommentare
       there_are_no_comments: "Es gibt keine Kommentare für diesen Trip"
       user_wrote: "vor %{time} hat %{user} geschrieben:"
     trip:
@@ -308,11 +309,12 @@ de:
       ride: Ride
       gmaps_duration: "Gmaps Dauer"
       time_ago: "vor %{time}"
-      log_in: "Einloggen"
       or: oder
-      register: anmelden
+    add_comment:
+      log_in: "Log Dich ein"
+      register: meld Dich an
+      to_comment: "um einen Kommentar zu hinerlassen"
       add_comment: "Kommentar hinzufügen"
-      to_comment: "um auf diesen Trip zu kommentieren"
     form:
       step1_2: Weiter
     show_ride:

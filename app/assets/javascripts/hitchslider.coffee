@@ -47,6 +47,8 @@ window.Hitchslider = {
   show_story: (response) ->
     $(".hitchslider_story").html(response.title)
     $(".hitchslider_story").append(response.story)
+    $(".hitchslider_story").append(response.comments)
+    $(".hitchslider_story").append(response.add_comment)
     $("#hitchslider_map").animate({width: '215px'})
 
   set_prev_and_next_buttons: (response) ->
