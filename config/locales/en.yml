@@ -11,8 +11,8 @@ en:
         from: From
         to: To
         hitchhikes: "Number of rides"
-        start: Departure
-        end: Arrival
+        departure: Departure
+        arrival: Arrival
         duration: Duration
         travelling_with: Traveling with
         distance: Distance

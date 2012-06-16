@@ -14,11 +14,11 @@ Given /^the distance was (\d+) km$/ do |number|
 end
 
 Given /^he did the trip (\d+) days ago$/ do |number|
-  @trip.start = number.to_i.days.ago
+  @trip.departure = number.to_i.days.ago
 end
 
 Given /^it took him (\d+) hours$/ do |number|
-  @trip.end = @trip.start + number.to_i.hours
+  @trip.arrival = @trip.departure + number.to_i.hours
 end
 
 Given /^google maps says it takes 9 hours and 15 minutes$/ do

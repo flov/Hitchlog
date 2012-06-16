@@ -6,8 +6,8 @@ describe Trip do
   it { should have_many(:rides) }
   it { should have_many(:comments) }
   it { should belong_to(:user) }
-  it { should validate_presence_of(:start) }
-  it { should validate_presence_of(:end) }
+  it { should validate_presence_of(:departure) }
+  it { should validate_presence_of(:arrival) }
 
   describe "factories" do
     it "should generate a valid trip" do
@@ -18,8 +18,8 @@ describe Trip do
   describe "#kmh" do
     it "returns km/h" do
       trip.distance   = 50_000 # 50 kms
-      trip.start      = "07/12/2011 10:00"
-      trip.end        = "07/12/2011 13:00" 
+      trip.departure  = "07/12/2011 10:00"
+      trip.arrival    = "07/12/2011 13:00" 
       trip.kmh.should == 16
     end
   end
@@ -47,8 +47,8 @@ describe Trip do
   describe '#gmaps_difference' do
     context "if you are slower than gmaps_difference" do
       it "has a postive gmaps_difference" do
-        trip.start = '07/11/2009 10:00'
-        trip.end   = '07/11/2009 13:00'
+        trip.departure = '07/11/2009 10:00'
+        trip.arrival   = '07/11/2009 13:00'
         trip.gmaps_duration = 2.hours.to_i
         trip.gmaps_difference.should == 3600
       end
@@ -56,8 +56,8 @@ describe Trip do
 
     context "if you are faster than gmaps_difference" do
       it "has a negative gmaps_difference" do
-        trip.start = '07/11/2009 10:00'
-        trip.end   = '07/11/2009 13:00'
+        trip.departure = '07/11/2009 10:00'
+        trip.arrival   = '07/11/2009 13:00'
         trip.gmaps_duration = 4.hours.to_i
         trip.gmaps_difference.should == -3600
       end
@@ -65,8 +65,8 @@ describe Trip do
   end
 
   describe '#duration' do
-    it "should reckon duration with end - start" do
-      trip.duration.should == trip.end - trip.start
+    it "should reckon duration with arrival - departure" do
+      trip.duration.should == trip.arrival - trip.departure
     end
   end
 
@@ -74,8 +74,8 @@ describe Trip do
     context "gmaps_duration is set" do
       it 'reckons hitchability' do
         trip.gmaps_duration = 9.hours.to_f
-        trip.start = '07/11/2009 10:00'
-        trip.end   = '07/11/2009 20:00'
+        trip.departure = '07/11/2009 10:00'
+        trip.arrival   = '07/11/2009 20:00'
         trip.hitchability.should == 1.11
       end
     end
@@ -83,20 +83,20 @@ describe Trip do
     context "gmaps_duration is not set" do
       it 'does not reckon hitchability' do
         trip.gmaps_duration = nil
-        trip.start = '07/11/2009 10:00'
-        trip.end   = '07/11/2009 20:00'
+        trip.departure = '07/11/2009 10:00'
+        trip.arrival   = '07/11/2009 20:00'
         trip.hitchability.should == nil
       end
     end
   end
 
-  describe "arrival departure" do
+  describe "#arrival_text departure_text" do
     before do
-      trip.start = '07/11/2009 10:00'
-      trip.end   = '07/11/2009 20:00'
+      trip.departure = '07/11/2009 10:00'
+      trip.arrival   = '07/11/2009 20:00'
     end
-    it { trip.arrival.should == "07 November 2009 10:00" }
-    it { trip.departure.should == "07 November 2009 20:00" }
+    it { trip.arrival_text.should == "07 November 2009 10:00" }
+    it { trip.departure_text.should == "07 November 2009 20:00" }
   end
 
   describe "#experience" do

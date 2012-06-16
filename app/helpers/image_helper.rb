@@ -18,6 +18,8 @@ module ImageHelper
     trip.rides.each do |ride|
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
+      images << photo_image if ride.photo_file_name
+      
     end
     images.join(' ').html_safe
   end

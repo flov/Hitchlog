@@ -22,7 +22,7 @@ $(document).ready ->
     $("#trip_to").val($(this).html())
     return false
 
-  $("input#trip_start").datetimepicker(
+  $("input#trip_departure").datetimepicker(
     maxDate: new Date()
     dateFormat: 'dd/mm/yy'
     changeYear: true
@@ -31,11 +31,11 @@ $(document).ready ->
     defaultDate: "-1w"
     onSelect: (selectedDate, inst) ->
       date = $.datepicker.parseDate( inst.settings.dateFormat, selectedDate, inst.settings )
-      trip_end.datepicker( "option", "minDate", date )
-      trip_end.datepicker( "option", "defaultDate", date )
+      trip_arrival.datepicker( "option", "minDate", date )
+      trip_arrival.datepicker( "option", "defaultDate", date )
   )
 
-  trip_end = $("input#trip_end").datetimepicker(
+  trip_arrival = $("input#trip_arrival").datetimepicker(
     maxDate: new Date()
     dateFormat: 'dd/mm/yy'
     changeYear: true

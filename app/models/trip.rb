@@ -6,7 +6,7 @@ class Trip < ActiveRecord::Base
 
   validates_associated :user
 
-  validates :from, :to, :start, :end, :presence => true
+  validates :from, :to, :departure, :arrival, :presence => true
   validates :distance, :numericality => true
   validates :user_id, :presence => true
   validates :hitchhikes, :presence => true, :if => :new_record
@@ -21,8 +21,8 @@ class Trip < ActiveRecord::Base
   attr_accessible :from,
                   :to,
                   :hitchhikes,
-                  :start,
-                  :end,
+                  :departure,
+                  :arrival,
                   :travelling_with,
                   :route,
                   :distance,
@@ -66,20 +66,20 @@ class Trip < ActiveRecord::Base
   end
 
   def to_date
-    self.start.nil? ? nil : self.start.strftime("%d %B %Y")
+    self.departure.nil? ? nil : self.departure.strftime("%d %B %Y")
   end
 
-  def arrival
-    self.start.nil? ? nil : self.start.strftime("%d %B %Y %H:%S")
+  def arrival_text
+    self.departure.nil? ? nil : self.departure.strftime("%d %B %Y %H:%S")
   end
 
-  def departure
-    self.end.nil? ? nil : self.end.strftime("%d %B %Y %H:%S")
+  def departure_text
+    self.arrival.nil? ? nil : self.arrival.strftime("%d %B %Y %H:%S")
   end
 
   def duration
-    if self.end and self.start
-      self.end - self.start
+    if self.arrival and self.departure
+      self.arrival - self.departure
     else
       nil
     end

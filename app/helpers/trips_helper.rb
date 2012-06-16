@@ -69,7 +69,7 @@ module TripsHelper
   end
   
   def trip_has_duration(trip)
-    (!trip.duration.nil? and trip.duration > 0) or (trip.start.nil? and trip.end.nil?)
+    (!trip.duration.nil? and trip.duration > 0) or (trip.departure.nil? and trip.departure.nil?)
   end  
 
   def ride_box_attributes(i, trip)

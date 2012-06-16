@@ -10,26 +10,26 @@ Hitchlog::Application.routes.draw do
 
   resources :users, :path => 'hitchhikers' do
     member do 
-      get 'send_mail'
-      post 'mail_sent'
+      get :send_mail
+      post :mail_sent
     end
   end
 
   resources :trips do
     resources :rides, :except => [:index]
     member do
-      post 'create_comment'
+      post :create_comment
     end
   end
   
   resources :rides, :except => [:index] do
     collection do
-      get    'random'
+      get    :random
     end
     member do
-      get    'next'
-      get    'prev'
-      delete 'delete_photo'
+      get    :next
+      get    :prev
+      delete :delete_photo
     end
   end
   

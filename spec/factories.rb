@@ -47,16 +47,16 @@ FactoryGirl.define do
     mission      'Tour around with the Beatles'
     origin       'USA'
   end
-end
 
-Factory.define :trip do |trip|
-  trip.from 'Tehran'
-  trip.to 'Shiraz'
-  trip.start "07/12/2011 10:00"
-  trip.end   "07/12/2011 20:00"
-  trip.travelling_with 0
-  trip.gmaps_duration   9.hours.to_i
-  trip.distance 1_646_989
-  trip.association(:user)
-  trip.hitchhikes 1
+  factory :trip do
+    from 'Tehran'
+    to 'Shiraz'
+    departure "07/12/2011 10:00"
+    arrival   "07/12/2011 20:00"
+    travelling_with 0
+    gmaps_duration   9.hours.to_i
+    distance 1_646_989
+    association(:user)
+    hitchhikes 1
+  end
 end

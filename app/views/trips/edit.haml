@@ -31,14 +31,14 @@
           = link_to delete_trip_image, trip_path(@trip), :method => :delete, :confirm => t('general.confirm')
         -# Crossed countries needs to be repaired
         %ul
-          - if @trip.arrival
+          - if @trip.arrival_text
             %li
-              #{t('activerecord.attributes.trip.start')}:
-              = @trip.arrival
-          - if @trip.departure
+              #{t('activerecord.attributes.trip.departure')}:
+              = @trip.arrival_text
+          - if @trip.departure_text
             %li
-              #{t('activerecord.attributes.trip.end')}:
-              = @trip.departure
+              #{t('activerecord.attributes.trip.arrival')}:
+              = @trip.departure_text
 
     #accordion
       = render @trip.rides

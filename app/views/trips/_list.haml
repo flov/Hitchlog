@@ -33,8 +33,8 @@
         = trip.rides.size
         = link_to experience_image((trip.overall_experience)), trip_path(trip)
       %td.distance= distance( trip.distance )
-      - unless trip.start.nil?
-        - if trip.start > 1.month.ago
-          %td.started_at= t('.start', :time => time_ago_in_words(trip.start))
+      - unless trip.departure.nil?
+        - if trip.departure > 1.month.ago
+          %td.started_at= t('.departure', :time => time_ago_in_words(trip.departure))
         - else
-          %td.started_at= "#{trip.start.strftime("%d %B %Y")}"
+          %td.started_at= "#{trip.departure.strftime("%d %B %Y")}"

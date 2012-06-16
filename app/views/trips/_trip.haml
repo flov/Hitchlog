@@ -8,8 +8,8 @@
   = country_images_for_trip(trip)
 
 %p.user_hitchhiked_text
-  - if trip.start
-    = t('.time_ago', time: time_ago_in_words(trip.start).capitalize)
+  - if trip.departure
+    = t('.time_ago', time: time_ago_in_words(trip.departure).capitalize)
   = t('.user_hitchhiked_text', user: trip.user.to_s,
                                distance: distance(trip.distance),
                                from: trip.from,

@@ -1,5 +1,5 @@
 %p
-  = t('hitchslider.time_ago', time: time_ago_in_words(ride.trip.start).capitalize) if ride.trip.start
+  = t('hitchslider.time_ago', time: time_ago_in_words(ride.trip.departure).capitalize) if ride.trip.departure
   = t('hitchslider.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)),
                                           distance: distance(ride.trip.distance),
                                           from: ride.trip.from,

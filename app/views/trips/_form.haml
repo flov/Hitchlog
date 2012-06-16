@@ -19,14 +19,14 @@
         %td= f.text_field :hitchhikes, :required => '', :placeholder => t('activerecord.attributes.trip.hitchhikes')
       
     %tr.text_field
-      %td= f.label :start
-      - if trip.start.nil?
-        %td= f.text_field :start, :required => '', :placeholder => t('activerecord.attributes.trip.start')
+      %td= f.label :departure
+      - if trip.departure.nil?
+        %td= f.text_field :departure, :required => '', :placeholder => t('activerecord.attributes.trip.departure')
       - else
-        %td= text_field_tag 'trip[start]', trip.start.strftime("%d/%m/%Y %H:%M"), :size => 30, :placeholder => t('activerecord.attributes.trip.start')
+        %td= text_field_tag 'trip[departure]', trip.departure.strftime("%d/%m/%Y %H:%M"), :size => 30, :placeholder => t('activerecord.attributes.trip.departure')
     %tr.text_field
-      %td= f.label :end
-      %td= f.text_field :end, :required => '', :placeholder => t('activerecord.attributes.trip.end')
+      %td= f.label :arrival
+      %td= f.text_field :arrival, :required => '', :placeholder => t('activerecord.attributes.trip.arrival')
     %tr.select_field
       %td= f.label :travelling_with, :required=>''
       %td

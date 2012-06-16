@@ -47,7 +47,7 @@
               = truncate(ride.title, :length => 50)
               = images_for_ride(ride)
             = t('.hitchhiked_by_user', user: link_to(h(ride.trip.user), user_path(ride.trip.user)),
-                                       time: time_ago_in_words(ride.trip.start)).html_safe
+                                       time: time_ago_in_words(ride.trip.departure)).html_safe
             = gender_hitchhiker_image(ride.trip.user.gender)
 
             = truncated_markdown(ride.story)
@@ -61,7 +61,7 @@
           %li
             = link_to "#{trip} #{images_for_trip(trip)}".html_safe, trip_path(trip)
             = t('.hitchhiked_by_user', user: link_to(h(trip.user), user_path(trip.user)),
-                                       time: time_ago_in_words(trip.start)).html_safe
+                                       time: time_ago_in_words(trip.departure)).html_safe
             = gender_image(trip.user.gender)
 
         %li.text_center

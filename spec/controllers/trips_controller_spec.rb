@@ -20,10 +20,10 @@ describe TripsController do
     end
   end
 
-  describe 'POST create_coment' do
+  describe 'POST create_comment' do
     context 'user is not logged in' do
       it "redirects to log in page" do
-        post :create_comment
+        post :create_comment, id: 1
         response.should redirect_to('/en/hitchhikers/login')
       end
     end
@@ -45,7 +45,7 @@ describe TripsController do
         Comment.should_receive(:new)
                .with(body: 'New Comment')
                .and_return(comment)
-        post :create_comment, body: "New Comment"
+        post :create_comment, body: "New Comment", id: 1
       end
 
       context 'when the comment saves successfully' do
@@ -54,7 +54,7 @@ describe TripsController do
         end
 
         it 'sets the notice flash' do
-          post :create_comment
+          post :create_comment, id: 1
           flash[:notice].should_not be_empty
         end
 
@@ -62,14 +62,14 @@ describe TripsController do
 
       context 'when the comment fails to save' do
         it 'sets the alert flash' do
-          post :create_comment
+          post :create_comment, id: 1
           comment.stub(:save).and_return(false)
           flash[:alert].should eq("Comment failed to save!")
         end
       end
 
       it 'redirects to the trip page' do
-        post :create_comment
+        post :create_comment, id: 1
         response.should redirect_to(trip_path(comment.trip))
       end
     end

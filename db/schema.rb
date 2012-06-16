@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120428070056) do
+ActiveRecord::Schema.define(:version => 20120616161850) do
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(:version => 20120428070056) do
 
   create_table "trips", :force => true do |t|
     t.integer  "distance"
-    t.datetime "start"
+    t.datetime "departure"
     t.string   "from"
     t.string   "to"
     t.datetime "created_at"
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20120428070056) do
     t.string   "to_city"
     t.integer  "money_spent"
     t.integer  "travelling_with"
-    t.datetime "end"
+    t.datetime "arrival"
     t.float    "to_lng"
     t.float    "to_lat"
     t.float    "from_lng"

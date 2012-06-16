@@ -48,7 +48,7 @@ describe UsersController do
 
     context "if not logged in" do
       it "redirects to log in page" do
-        post :mail_sent
+        post :mail_sent, id: 1
         response.should redirect_to(user_session_path)
       end
     end
