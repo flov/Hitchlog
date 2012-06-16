@@ -11,7 +11,7 @@ describe UserMailer do
   describe "#mail_to_user" do
     it "renders template" do
       @user = FactoryGirl.create(:user)
-      @from_user = Factory(:user)
+      @from_user = FactoryGirl.create(:user)
       lambda { UserMailer.mail_to_user(@from_user, @user, "test message") }.should_not raise_error
     end
   end
