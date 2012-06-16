@@ -1,21 +1,42 @@
 class RidesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:random_photo, :show, :index]
+  before_filter :authenticate_user!, :except => [:next, :prev, :random, :show, :index]
 
   def show
     @ride = Ride.find(params[:id])
   end
 
-  def random_photo
-    if params[:id] and params[:next]
-      @ride = Ride.where('photo_file_name is not null')
-                  .where("id > #{params[:id]}")
-                  .order(:id).first
-    elsif params[:id] and params[:prev]
-      @ride = Ride.where('photo_file_name is not null')
-                  .where("id < #{params[:id]}")
-                  .order(:id).last
-    else
-      @ride = Ride.where('photo_file_name is not null').order('RAND()').first
+  def random
+    @ride = Ride.where('photo_file_name is not null').order('RAND()').first
+    respond_to do |format|
+      format.json { render "rides/show.json" }
+    end
+  end
+
+  def next
+    @ride = Ride.where('photo_file_name is not null')
+                .where("id > #{params[:id].to_i}")
+                .order(:id).first
+
+    if @ride.nil?
+      @ride = Ride.where('photo_file_name is not null').order(:id).first
+    end
+
+    respond_to do |format|
+      format.json { render "rides/show.json" }
+    end
+  end
+
+  def prev
+    @ride = Ride.where('photo_file_name is not null')
+                .where("id < #{params[:id].to_i}")
+                .order(:id).last
+
+    if @ride.nil?
+      @ride = Ride.where('photo_file_name is not null').order(:id).last
+    end
+
+    respond_to do |format|
+      format.json { render "rides/show.json" }
     end
   end
 

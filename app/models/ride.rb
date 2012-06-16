@@ -29,9 +29,10 @@ class Ride < ActiveRecord::Base
   end
 
   def to_param
-    from_param = trip.from.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
-    to_param   = trip.to.strip.gsub(/[^[:alnum:]]/,'-').gsub(/-{2,}/,'-')
-    "#{id}-#{from_param}->#{to_param}"
+    origin = CGI::escape(self.trip.sanitize_address('from'))
+    destin = CGI::escape(self.trip.sanitize_address('to'))
+
+    "#{id}-#{origin}-to-#{destin}".parameterize
   end
 
   def empty?

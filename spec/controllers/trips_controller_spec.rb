@@ -10,7 +10,7 @@ describe TripsController do
 
   describe 'GET index' do
     it "should be successful" do
-      get :index
+      get :index, formats: "json"
       response.should be_success
     end
 

@@ -9,8 +9,8 @@
           = image_tag(ride.photo.url(:cropped))
 
       .hitchslider_directionNav
-        =link_to 'Prev', random_photo_path(prev: true, id: ride.id), remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
-        =link_to 'Next', random_photo_path(next: true, id: ride.id), remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
+        =link_to 'Prev', prev_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
+        =link_to 'Next', next_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
 
   .hitchslide_map#hitchslider_map
   .story_wrapper

@@ -8,8 +8,6 @@ Hitchlog::Application.routes.draw do
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
 
-  match '/random_photo' => 'rides#random_photo'  
-  
   resources :users, :path => 'hitchhikers' do
     member do 
       get 'send_mail'
@@ -18,14 +16,21 @@ Hitchlog::Application.routes.draw do
   end
 
   resources :trips do
-    resources :rides, :except => [:index] 
+    resources :rides, :except => [:index]
     member do
       post 'create_comment'
     end
   end
   
   resources :rides, :except => [:index] do
-    member{ delete 'delete_photo' }
+    collection do
+      get    'random'
+    end
+    member do
+      get    'next'
+      get    'prev'
+      delete 'delete_photo'
+    end
   end
   
   match 'hitchhikers' => 'users#index'
