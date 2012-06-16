@@ -46,26 +46,28 @@ $hitchslide_right_width: $hitchslide_width - $hitchslide_left_width
     float: right
     right: 0
     background-color: gray
+    overflow: hidden
 
   .story_wrapper
     width: 235px
     background-color: black
-    overflow: auto
+    overflow-y: auto
+    overflow-x: hidden
     height: 250px
     position: relative
     float: right
     .hitchslider_story
+      position: absolute
+      width: 200px
+      padding: 10px
+      left: 0
+      background-color: black
       p
         font-size: 12px
         line-height: 16px
       h2
         font-size: 17px
         line-height: 24px
-      position: absolute
-      width: (($hitchslide_right_width - 20) / 2)
-      padding: 10px
-      left: 0
-      background-color: black
 
 
 
