@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Trip do
-  let(:trip) { Factory.build(:trip) }
+  let(:trip) { FactoryGirl.build(:trip) }
 
   it { should have_many(:rides) }
   it { should have_many(:comments) }
@@ -102,24 +102,24 @@ describe Trip do
   describe "#experience" do
     context "has only positive experiences" do
       it "returns a positive experience" do
-        trip.rides << Factory(:ride, :experience => 'positive')
+        trip.rides << FactoryGirl.create(:ride, :experience => 'positive')
         trip.overall_experience.should == 'positive'
       end
     end
 
     context "has a neutral experience" do
       it "returns a neutral experience" do
-        trip.rides << Factory( :ride, :experience => 'positive' )
-        trip.rides << Factory( :ride, :experience => 'neutral' )
+        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'positive' )
+        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'neutral' )
         trip.overall_experience.should == 'neutral'
       end
     end
 
     context "has a negative experience" do
       it "returns a negative experience" do
-        trip.rides << Factory(:ride, :experience => 'positive')
-        trip.rides << Factory(:ride, :experience => 'neutral')
-        trip.rides << Factory(:ride, :experience => 'negative')
+        trip.rides << FactoryGirl.build(:ride, :experience => 'positive')
+        trip.rides << FactoryGirl.build(:ride, :experience => 'neutral')
+        trip.rides << FactoryGirl.build(:ride, :experience => 'negative')
         trip.overall_experience.should == 'negative'
       end
     end

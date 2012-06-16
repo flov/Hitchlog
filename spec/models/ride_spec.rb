@@ -4,7 +4,7 @@ describe Ride do
   it { should have_one :person }
   it { should belong_to :trip }
 
-  let(:ride) { Factory.build :ride }
+  let(:ride) { FactoryGirl.build :ride }
 
   describe "#caption_or_title" do
     it "returns caption_or_title or caption" do

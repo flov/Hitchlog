@@ -1,5 +1,5 @@
 Given /^a trip exists$/ do
-  @trip = Factory(:trip)
+  @trip = FactoryGirl.create(:trip)
 end
 
 Given /^the user of this trip is "([^"]*)"$/ do |username|
@@ -27,13 +27,13 @@ Given /^google maps says it takes 9 hours and 15 minutes$/ do
 end
 
 Given /^a German trip exists$/ do
-  @german_trip = Factory.build(:trip, :from => 'Berlin', :to => 'Freiburg')
+  @german_trip = FactoryGirl.build(:trip, :from => 'Berlin', :to => 'Freiburg')
   @german_trip.country_distances <<  CountryDistance.new(:country => 'Germany', :distance => 123123)
   @german_trip.save!
 end
 
 Given /^an English trip exists$/ do
-  @english_trip = Factory.build(:trip, :from => 'London', :to => 'Manchester')
+  @english_trip = FactoryGirl.build(:trip, :from => 'London', :to => 'Manchester')
   @english_trip.country_distances <<  CountryDistance.new(:country => 'United Kingodm', :distance => 123123)
   @english_trip.save!
 end
@@ -56,13 +56,13 @@ Then /^I should not see an English trip$/ do
 end
 
 Given /^a trip with a story$/ do
-  @trip_with_story = Factory.build(:trip, hitchhikes: 0)
-  @trip_with_story.rides << Factory(:ride, story: Faker::Lorem::paragraph(sentence_count = 10))
+  @trip_with_story = FactoryGirl.build(:trip, hitchhikes: 0)
+  @trip_with_story.rides << FactoryGirl.create(:ride, story: Faker::Lorem::paragraph(sentence_count = 10))
   @trip_with_story.save!
 end
 
 Given /^a trip without a story$/ do
-  @trip_without_story = Factory.create(:trip)
+  @trip_without_story = FactoryGirl.create(:trip)
 end
 
 Then /^I should see a trip with a story$/ do

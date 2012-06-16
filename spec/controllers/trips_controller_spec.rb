@@ -30,11 +30,11 @@ describe TripsController do
 
     context 'user is logged in' do
       let(:comment) { mock_model(Comment).as_null_object }
-      let(:trip)    { Factory.create(:trip) }
-      let(:user)    { Factory.create(:user) }
+      let(:trip)    { FactoryGirl.create(:trip) }
+      let(:user)    { FactoryGirl.create(:user) }
 
       before do
-        @user = Factory :user
+        @user = FactoryGirl.create :user
         sign_in :user, @user
         comment.stub(:trip).and_return(trip)
         comment.stub(:user).and_return(user)
@@ -87,7 +87,7 @@ describe TripsController do
       let(:trip) { mock_model(Trip).as_null_object }
 
       before do
-        @user = Factory :user
+        @user = FactoryGirl.create :user
         sign_in :user, @user
         Trip.stub(:new).and_return(trip)
       end

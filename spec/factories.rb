@@ -2,39 +2,51 @@ require 'factory_girl'
 require 'faker'
 
 FactoryGirl.define do
+  sequence :email do |n|
+    "testuser#{n}@example.com"
+  end
+
   factory :comment do
     body "Great Example Comment"
     association :user
     association :trip
   end
-end
 
-Factory.sequence :email do |n|
-  "testuser#{n}@example.com"
-end
+  factory :sign_in_address do
+  end
 
-Factory.define :sign_in_address do |sign_in_address|
-end
+  factory :user do
+    email                 { generate(:email) }
+    username              { |u| u.email.split("@").first }
+    password              "password"
+    password_confirmation "password"
+    cs_user               Faker::Name.first_name
+    last_sign_in_at       Time.zone.now
+    sign_in_lat           0.0          # if tested offline
+    sign_in_lng           0.0          # it must not be null for tests
+    association           :sign_in_address
+    gender                'male'
+  end
 
-Factory.define :user do |user|
-  user.email                 { Factory.next :email }
-  user.username              { |u| u.email.split("@").first }
-  user.password              "password"
-  user.password_confirmation "password"
-  user.cs_user               Faker::Name.first_name
-  user.last_sign_in_at       Time.zone.now
-  user.sign_in_lat           0.0          # if tested offline
-  user.sign_in_lng           0.0          # it must not be null for tests
-  user.association           :sign_in_address
-  user.gender                'male'
-end
+  factory :munich_user, :parent => :user do
+    current_sign_in_ip "195.71.11.67"
+  end
 
-Factory.define :munich_user, :parent => :user do |user|
-  user.current_sign_in_ip "195.71.11.67"
-end
+  factory :berlin_user, :parent => :user do
+    current_sign_in_ip "88.73.54.0"
+  end
 
-Factory.define :berlin_user, :parent => :user do |user|
-  user.current_sign_in_ip "88.73.54.0"
+  factory :ride do
+    waiting_time 15
+    duration 2
+    association(:person)
+  end
+
+  factory :person do
+    occupation   'Groupie'
+    mission      'Tour around with the Beatles'
+    origin       'USA'
+  end
 end
 
 Factory.define :trip do |trip|
@@ -47,16 +59,4 @@ Factory.define :trip do |trip|
   trip.distance 1_646_989
   trip.association(:user)
   trip.hitchhikes 1
-end
-
-Factory.define :ride do |ride|
-  ride.waiting_time 15
-  ride.duration 2
-  ride.association(:person)
-end
-
-Factory.define :person do |person|
-  person.occupation   'Groupie'
-  person.mission      'Tour around with the Beatles'
-  person.origin       'USA'
 end

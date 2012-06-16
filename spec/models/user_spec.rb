@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory.build(:user) }
+  let(:user) { FactoryGirl.build(:user) }
 
   it { should have_many(:trips) }
   it { should have_many(:comments) }
@@ -9,7 +9,7 @@ describe User do
   it { should have_one(:sign_in_address) }
 
   before do
-    user.trips << Factory.build(:trip)
+    user.trips << FactoryGirl.build(:trip)
   end
 
   describe "#facebook_user" do
@@ -26,9 +26,9 @@ describe User do
   describe "experiences" do
     context "unequal number of experiences" do
       it "should return an array of experiences" do
-        user.trips[0].rides << Factory.build(:ride, :experience => 'positive')
-        user.trips[0].rides << Factory.build(:ride, :experience => 'negative')
-        user.trips[0].rides << Factory.build(:ride, :experience => 'neutral')
+        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
+        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'negative')
+        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'neutral')
         user.experiences.should == ['positive', 'negative', 'neutral']
         user.experiences_in_percentage.should == {'positive' => 0.33, 'neutral' => 0.33, 'negative' => 0.33}
       end
@@ -36,7 +36,7 @@ describe User do
 
     context "only positive experiences" do
       it do
-        user.trips[0].rides << Factory.build(:ride, :experience => 'positive')
+        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
         user.experiences_in_percentage.should == {'positive' => 1.0}
       end
     end
@@ -44,15 +44,15 @@ describe User do
 
   describe "gender" do 
     it "should display percentage of genders of people who picked you up" do
-      user.trips[0].rides << Factory.build(:ride, :gender => 'male')
-      user.trips[0].rides << Factory.build(:ride, :gender => 'female')
-      user.trips[0].rides << Factory.build(:ride, :gender => 'mixed')
+      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
+      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'female')
+      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'mixed')
       user.genders.should == ['male', 'female', 'mixed']
       user.genders_in_percentage.should == {'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33}
     end
 
     it "only male driver" do
-      user.trips[0].rides << Factory.build(:ride, :gender => 'male')
+      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
       user.genders_in_percentage.should == {'male' => 1.0}
     end
   end

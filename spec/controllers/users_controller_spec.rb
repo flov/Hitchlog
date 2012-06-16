@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UsersController do
   describe "GET send_mail" do
     before do
-      @to_user = Factory :user
+      @to_user = FactoryGirl.create :user
     end
 
     context "if not logged in" do
@@ -15,7 +15,7 @@ describe UsersController do
 
     context "if logged in" do
       before do
-        @user = Factory :user
+        @user = FactoryGirl.create :user
         sign_in :user, @user
       end
 
@@ -43,7 +43,7 @@ describe UsersController do
 
   describe "POST mail_sent" do
     before do
-      @to_user = Factory :user
+      @to_user = FactoryGirl.create :user
     end
 
     context "if not logged in" do
@@ -55,7 +55,7 @@ describe UsersController do
 
     context "if logged in" do
       before do 
-        @user = Factory :user
+        @user = FactoryGirl.create :user
         sign_in :user, @user
       end
 

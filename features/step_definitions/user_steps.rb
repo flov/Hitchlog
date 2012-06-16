@@ -1,9 +1,9 @@
 Given /^a hitchhiker$/ do
-  @user = Factory.create :user
+  @user = FactoryGirl.create :user
 end
 
 Given /^a hitchhiker called "([^"]*)"$/ do |username|
-  @user = Factory.create :user, username: username.downcase
+  @user = FactoryGirl.create :user, username: username.downcase
 end
 
 Given /^his CS user is "([^"]*)"$/ do |cs_username|
@@ -12,7 +12,7 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  @user = User.find_by_email('florian@hitchlog.com') || Factory.create(:user, email: "florian@hitchlog.com") unless @user
+  @user = User.find_by_email('florian@hitchlog.com') || FactoryGirl.create(:user, email: "florian@hitchlog.com") unless @user
   visit new_user_session_path
   fill_in "Username", with: @user.username
   fill_in "Password", with: 'password'
@@ -20,7 +20,7 @@ Given /^I am logged in$/ do
 end
 
 Given /^I logged a trip$/ do
-  @user.trips << Factory(:trip)
+  @user.trips << FactoryGirl(:trip)
 end
 
 When /^I sign up as "([^"]*)"$/ do |arg1|
@@ -33,7 +33,7 @@ When /^I sign up as "([^"]*)"$/ do |arg1|
 end
 
 Given /^(\d+) hitchhikers$/ do |number|
-  number.to_i.times { Factory(:user) }
+  number.to_i.times { FactoryGirl.create(:user) }
 end
 
 Then /^I should be able to see both hitchhikers$/ do
