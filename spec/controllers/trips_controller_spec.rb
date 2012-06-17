@@ -36,12 +36,13 @@ describe TripsController do
       before do
         @user = FactoryGirl.create :user
         sign_in :user, @user
+        comment.stub(:id).and_return('1')
         comment.stub(:trip).and_return(trip)
         comment.stub(:user).and_return(user)
         Comment.stub(:new).and_return(comment)
       end
 
-      it "creates a new comment" do
+      it "build a new comment" do
         Comment.should_receive(:new)
                .with(body: 'New Comment')
                .and_return(comment)
@@ -62,8 +63,8 @@ describe TripsController do
 
       context 'when the comment fails to save' do
         it 'sets the alert flash' do
-          post :create_comment, id: 1
           comment.stub(:save).and_return(false)
+          post :create_comment, id: 1
           flash[:alert].should eq("Comment failed to save!")
         end
       end
