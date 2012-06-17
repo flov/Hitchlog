@@ -156,13 +156,14 @@ en:
       by: by
       more_hitchhikers: "Get To Know More Hitchhikers"
       text1: |
-          It's about time to make the world a more hitchhiker friendly place.
+          The Hitchlog helps hitchhiker to log their hitchhiking experience and gives
+          an authentic view on hitchhiking untouched of it's bad reputation that is
+          spread by public media/movies and tries to make the world a more
+          hitchhiker friendly place.
+
           <a href='/trips/new'>Log your hitchhiking experiences</a>
           and the Hitchlog paints a picture about what hitchhiking is actually
           like.
-          Together with this data the Hitchlog creates statistics.
-          It tells the average waiting time in different countries, it
-          compares positive against negative experiences...
       text2: |
           Your data will create your own personal hitchhiking profile. Giving you
           information about: <br/>
