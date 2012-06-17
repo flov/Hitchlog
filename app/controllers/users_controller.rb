@@ -46,6 +46,18 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user == current_user
+      @user.destroy
+      flash[:notice] = t('flash.users.destroy.success')
+      redirect_to root_path
+    else
+      flash[:alert] = t('flash.users.destroy.not_allowed')
+      redirect_to user_path(current_user)
+    end
+  end
+
   def index
     @search = User.search(params[:q])
     @users = @search.result.order('current_sign_in_at DESC').paginate(:page => params[:page], :per_page => 10)

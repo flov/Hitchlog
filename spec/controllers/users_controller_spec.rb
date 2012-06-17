@@ -74,4 +74,35 @@ describe UsersController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    context "if not logged in" do
+      it "redirects to log in page" do
+        delete :destroy, id: 1
+        response.should redirect_to(user_session_path)
+      end
+    end
+
+    context "if logged in" do
+      before do 
+        @user = FactoryGirl.create :user
+        sign_in :user, @user
+      end
+
+      context "signed in user tries to destroy another user" do
+        before do
+          @another_user = FactoryGirl.create :user
+          delete :destroy, id: @another_user.to_param
+        end
+
+        it "should not delete another user" do
+          flash[:alert].should == 'You are not allowed to do that!'
+        end
+
+        it "should redirect to the profile path" do
+          response.should redirect_to(user_path(@user))
+        end
+      end
+    end
+  end
 end

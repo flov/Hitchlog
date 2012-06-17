@@ -47,8 +47,6 @@ de:
       mail_sent:
         notice: "Mail wurde zu %{user} gesendet"
   helper:
-    him: ihm
-    her: ihr
     time_faster: "%{time} schneller"
     time_slower: "%{time} langsamer"
     overall_extremely_positive_experience: "Insgesamte Erfahrung: extrem positiv"
@@ -106,6 +104,7 @@ de:
       with_4: "4 Personen"
       with_more_than_4: "mehr als 4 Personen"
   general:
+    time_ago: "vor %{time}"
     or: oder
     supports_markdown: "unterstützt Markdown"
     male: männlich
@@ -121,10 +120,13 @@ de:
   shared:
     navigation:
       your_profile: Dein Profil
+      about: Über Hitchlog
+      blog: Blog
+      trips: Trips
+      hitchhikers: Tramper
     last_sign_in:
-      last_sign_in: "zuletzt gesehen"
-      ago: vor
-      in: ~
+      last_sign_in: "vor %{time} gesehen"
+      in: in
     banners_in_corners:
       fork_me_on_github: "Fork me on Github"
     sign_in_and_out:
@@ -148,7 +150,7 @@ de:
       find_hitchlog_on: "Finde Hitchlog Auf"
       more_trips: "Lese mehr Trips"
       more_stories: "Lese mehr Stories"
-      hitchhiked_by_user: "%{time} Tage her getrampt von %{user}"
+      hitchhiked_by_user: "%{time} her getrampt von %{user}"
       by: von
       more_hitchhikers: "Lerne mehr Tramper kennen"
       text1: |
@@ -253,16 +255,15 @@ de:
       title_required: Titel
       story_required: Story
   hitchslider:
-    user_hitchhiked_text: "%{user} trampte <b><span id='trip_distance_display'>%{distance}</span></b> von <b>%{from}</b> nach <b>%{to}</b> mit %{rides_size} Rides."
-    it_took_him_text: "Es hat %{him_or_her} <b>%{time}</b> um diesen Trip zu machen."
+    user_hitchhiked_text: "%{user} trampte vor %{time} <b><span id='trip_distance_display'>%{distance}</span></b> von <b>%{from}</b> nach <b>%{to}</b> mit %{rides_size} Rides."
+    it_took_text: "Der Trip hat <b>%{time}</b> gedauert."
     google_maps_text: |
-        Google maps sagt man brauch ca. <b>%{gmaps_duration}</b> für diese Route,
-        also war %{user} <b>%{gmaps_difference}</b>.
-    time_ago: "vor %{time}"
+        Google maps zeigt an dass man ca. <b>%{gmaps_duration}</b> für diese Route brauch,
+        %{user} war also <b>%{gmaps_difference}</b>.
     caption: "Titel:"
   trips:
     index:
-      latest_hitchhiking_trips: "Letzte Tramp-Trips"
+      latest_hitchhiking_trips: "Getrampte Trips"
       log_new_trip: "Log einen neuen Trip"
       to_log_a_new_hitchhiking_trip: "um einen neuen tramp trip zu loggen"
       choose_a_country: "Wähle ein Land"
@@ -302,16 +303,11 @@ de:
       ride: Ride
       gmaps_duration: "Gmaps Dauer"
       time_ago: "vor %{time}"
-      user_hitchhiked_text: "%{user} trampte <b><span id='trip_distance_display'>%{distance}</span></b> von <b>%{from}</b> nach <b>%{to}</b> mit %{rides_size} rides."
       log_in: "Einloggen"
       or: oder
       register: anmelden
       add_comment: "Kommentar hinzufügen"
       to_comment: "um auf diesen Trip zu kommentieren"
-      it_took_him_text: "%{him_or_her} hat <b>%{time}</b> gebraucht für diesen Trip."
-      google_maps_text: |
-          Google maps sagt dass es <b>%{gmaps_duration}</b> dauert für diese Route,
-          also war %{user} <b>%{gmaps_difference}</b>.
     form:
       step1_2: Weiter
     show_ride:
@@ -361,3 +357,60 @@ de:
       x_months: 
         one: "1 Monat"
         other: "%{count} Monate"
+
+
+  will_paginate:
+    previous_label: "&#8592; Vor"
+    next_label: "Nächste &#8594;"
+    page_gap: "&hellip;"
+
+
+
+  errors:
+    messages:
+      not_found: "nicht gefunden"
+      already_confirmed: "schon bestätigt"
+      not_locked: "war nicht gelockt"
+
+
+  devise:
+    failure:
+      unauthenticated: 'Du musst dich anmelden um hier reinzukommen'
+      unconfirmed: 'Du musst Dein Profil bestätigen.'
+      locked: 'Dein Profil ist gesperrt.'
+      invalid: 'Invalider Benutzername'
+      invalid_token: 'Invalides authentication token.'
+      timeout: 'Deine Session ist vorbei, bitte melde Dich neu an'
+      inactive: 'Dein Profill ist noch nicht aktiviert'
+    sessions:
+      signed_in: 'Willkommen zurück!'
+      signed_out: 'Bis Bald!'
+    passwords:
+      send_instructions: 'Bitte check deine Mails.'
+      updated: 'Dein Passwort wurde erfolgreich geändert. Melde dich jetzt an.'
+    confirmations:
+      send_instructions: 'Bitte check deine Mails.'
+      confirmed: 'Dein Profil wurde bestätigt.'
+    registrations:
+      signed_up: 'Willkommen an Board!'
+      new:
+        use_the_normal_form: Benutze das normale Formular
+        create_a_hitchlog_account: Erstelle dein Hitchlog Account!
+        sign_up: 'Anmelden'
+      updated: 'Dein Profil wurde erfolgreich geändert!'
+      destroyed: 'Und Tschüss! Dein Profil wurde gelöscht!'
+    sessions:
+      new:
+        sign_in: 'Anmelden'
+        login_using_normal_font: Login mit dem normalen Formular
+    unlocks:
+      send_instructions: 'Check Deine Mails!'
+      unlocked: 'Dein Konto wurde erfolgreich aktiviert! Du bist jetzt angemeldet.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Bestätigungs Informationen'
+      reset_password_instructions:
+        subject: 'Informationen zum Passwort zurücksetzen'
+      unlock_instructions:
+        subject: 'Unlock Informationen'
+

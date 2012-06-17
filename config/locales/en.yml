@@ -49,9 +49,10 @@ en:
         error: "You cannot send a mail to yourself"
       mail_sent:
         notice: "Mail has been sent to %{user}"
+      destroy:
+        success: 'Good Bye! Your account has been deleted!'
+        not_allowed: 'You are not allowed to do that!'
   helper:
-    him: him
-    her: her
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
     overall_extremely_positive_experience: "Overall experience: extremely positive"
@@ -109,6 +110,7 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    time_ago: "%{time} ago"
     or: or
     supports_markdown: "supports markdown"
     male: male
@@ -124,9 +126,12 @@ en:
   shared:
     navigation:
       your_profile: "Your Profile"
+      about: About
+      blog: Blog
+      trips: Trips
+      hitchhikers: Hitchhikers
     last_sign_in:
-      last_sign_in: "Last seen"
-      ago: ago
+      last_sign_in: "Last seen %{time} ago"
       in: in
     banners_in_corners:
       fork_me_on_github: "Fork Me On Github"
@@ -264,8 +269,8 @@ en:
       title_required: Title
       story_required: Story
   hitchslider:
-    user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
-    it_took_him_text: "It took %{him_or_her} <b>%{time}</b> to do the trip."
+    user_hitchhiked_text: "%{time} ago %{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
+    it_took_text: "It took <b>%{time}</b> to do the trip."
     google_maps_text: |
         Google maps says it takes <b>%{gmaps_duration}</b> for
         this route, so %{user} was <b>%{gmaps_difference}</b>.
@@ -273,7 +278,7 @@ en:
     caption: "Title:"
   trips:
     index:
-      latest_hitchhiking_trips: "Latest hitchhiking trips"
+      latest_hitchhiking_trips: "Hitchhiking trips"
       log_new_trip: "Log New Trip"
       to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
       choose_a_country: "Choose a country"
@@ -313,16 +318,11 @@ en:
       ride: Ride
       gmaps_duration: "Gmaps Duration"
       time_ago: "%{time} ago"
-      user_hitchhiked_text: "%{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
       log_in: "Log in"
       or: or
       register: register
       add_comment: "Add Comment"
       to_comment: "to comment on this trip"
-      it_took_him_text: "It took %{him_or_her} <b>%{time}</b> to do the trip."
-      google_maps_text: |
-          Google maps says it takes <b>%{gmaps_duration}</b> for
-          this route, so %{user} was <b>%{gmaps_difference}</b>.
     form:
       step1_2: Continue
     show_ride:
@@ -370,3 +370,72 @@ en:
       over_x_years:
         one:   "over 1 year"
         other: "over %{count} years"
+
+
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+
+
+
+  errors:
+    messages:
+      not_found: "not found"
+      already_confirmed: "was already confirmed"
+      not_locked: "was not locked"
+
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid username or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: 'Welcome Back!'
+      signed_out: 'Good bye.'
+    passwords:
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'Welcome aboard!'
+      new:
+        use_the_normal_form: Use the normal Form
+        create_a_hitchlog_account: Create Your Hitchlog Account
+        sign_up: 'Sign up'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    sessions:
+      new:
+        sign_in: 'Sign in'
+        login_using_normal_font: Login in using the normal form
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
+

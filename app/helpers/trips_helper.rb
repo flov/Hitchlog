@@ -114,14 +114,6 @@ module TripsHelper
     "<span class='tooltip' alt='#{t('helper.hitchability')}: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe if trip.hitchability
   end
 
-  def him_or_her(user)
-    if user.gender == 'male'
-      t('helper.him')
-    else
-      t('helper.her')
-    end
-  end
-
   def gmaps_difference(trip)
     if trip.gmaps_difference
       if trip.gmaps_difference > 0

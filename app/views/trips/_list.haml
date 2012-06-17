@@ -35,6 +35,6 @@
       %td.distance= distance( trip.distance )
       - unless trip.departure.nil?
         - if trip.departure > 1.month.ago
-          %td.started_at= t('.departure', :time => time_ago_in_words(trip.departure))
+          %td.started_at= t('general.time_ago', :time => time_ago_in_words(trip.departure))
         - else
           %td.started_at= "#{trip.departure.strftime("%d %B %Y")}"
