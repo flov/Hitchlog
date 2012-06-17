@@ -11,10 +11,10 @@ de:
         from: Von
         to: Nach
         hitchhikes: "Anzahl der Rides"
-        start: Abreisetag
-        end: Ankunftstag
+        departure: Abreise
+        arrival: Ankunft
         duration: Dauer
-        travelling_with: ~
+        travelling_with: Gereist mit
         distance: Entfernung
         gmaps_duration: "Gmap Dauer"
       ride:
@@ -22,274 +22,342 @@ de:
         duration: "Fahrtzeit (in Stunden)"
         waiting_time: "Wartezeit (in Minuten)"
         photo: Foto
-        gender: ~
+        gender: "Geschlecht der Mitfahrer"
       user:
-        cs_user: ~
-        username: ~
-        email: ~
-        password: ~
-        password_confirmation: ~
-        gender: ~
-        about_you: ~
+        cs_user: "CS Benutzer"
+        username: Nutzername
+        email: Email
+        password: Passwort
+        password_confirmation: "Passwort bestätigen"
+        gender: Geschlecht
+        about_you: "Über Dich"
   meta:
-    description: ~
+    description: "Mit Hitchlog werden per Anhalter / Tramper Erfahrungen geteilt. Diese Erfahrungen generieren statistische Informationen welches die Tramp Erfahrungen von mehreren in einem größeren Bild zusammenfasst."
   flash:
     trips:
       create_comment:
-        alert: ~
-        comment_saved: ~
+        alert: "Kommentar konnte nicht gespeichert werden!"
+        comment_saved: "Kommentar gespeichert, danke!"
     users:
       update:
-        error: ~
-        notice: ~
+        error: "Profil konnte nicht editiert werden"
+        notice: "Profil erfolgreich editiert"
       send_mail:
-        error: ~
+        error: "Du kannst Dir selber keine Mail schicken"
       mail_sent:
-        notice: ~
+        notice: "Mail wurde zu %{user} gesendet"
   helper:
-    him: ~
-    her: ~
-    time_faster: ~
-    time_slower: ~
-    overall_extremely_positive_experience: ~
-    overall_positive_experience: ~
-    overall_neutral_experience: ~
-    overall_negative_experience: ~
-    overall_extremely_negative_experience: ~
-    extremely_positive_experience: ~
-    positive_experience: ~
-    neutral_experience: ~
-    negative_experience: ~
-    extremely_negative_experience: ~
-    no_results_for_this_route: ~
-    unknown_distance: ~
-    about_person_image: ~
-    photo: ~
+    him: ihm
+    her: ihr
+    time_faster: "%{time} schneller"
+    time_slower: "%{time} langsamer"
+    overall_extremely_positive_experience: "Insgesamte Erfahrung: extrem positiv"
+    overall_positive_experience: "Insgesamte Erfahrung: positiv"
+    overall_neutral_experience: "Insgesamte Erfahrung: neutral"
+    overall_negative_experience: "Insgesamte Erfahrung: negativ"
+    overall_extremely_negative_experience: "Insgesamte Erfahrung: extrem negative"
+    extremely_positive_experience: "sehr positive Erfahrung"
+    positive_experience: "positive Erfahrung"
+    neutral_experience: "neutrale Erfahrung"
+    negative_experience: "negative Erfahrung"
+    extremely_negative_experience: "sehr negative Erfahrung"
+    no_results_for_this_route: "keine Ergebnisse für diese Route"
+    unknown_distance: "unbekannte Distanz"
+    about_person_image: "Über die Mitfahrer"
+    photo: Foto
     rides:
-      one: ~
-      other: ~
-    photo_missing: ~
-    story: ~
-    ride_has_story: ~
-    add_story_image: ~
-    story_missing: ~
-    male: ~
-    female: ~
-    male_hitchhiker: ~
-    female_hitchhiker: ~
-    male_people: ~
-    female_people: ~
-    mixed_people: ~
-    gmaps_duration: ~
-    trip_duration: ~
-    add_information: ~
-    add_information_to_hitchhike: ~
-    delete_hitchhike: ~
-    delete_trip: ~
-    one_person_hitchhike: ~
-    two_people_hitchhike: ~
-    three_people_hitchhike: ~
-    more_than_three_people_hitchhike: ~
-    driving_time: ~
-    driving_time_missing: ~
-    waiting_time: ~
-    waiting_time_without_time: ~
-    waiting_time_missing: ~
-    faster_than_gmaps: ~
-    hitchability: ~
-    slower_than_gmaps: ~
+      one: "%{count} Ride"
+      other: "%{count} Rides"
+    photo_missing: "kein Foto, Foto hochladen"
+    story: Story
+    ride_has_story: "Ride hat eine Story"
+    add_story_image: "Story zu dieser Ride"
+    story_missing: "Keine Story, schreibe eine Geschichte über diese Ride"
+    male: Männlich
+    female: Weiblich
+    male_hitchhiker: "Männlicher Tramper"
+    female_hitchhiker: "Weiblicher Tramper"
+    male_people: "Männliche Mitfahrer"
+    female_people: "Weibliche Mitfahrer"
+    mixed_people: "Gemixtes Geschlecht der Mitfahrer"
+    gmaps_duration: "Google Maps Dauer: %{duration}"
+    trip_duration: "Trip Dauer: %{duration}"
+    add_information: "Informationen zu Ride hinzufügen"
+    add_information_to_hitchhike: "Infoormationen zu Ride hinzufügen"
+    delete_hitchhike: "Delete Ride"
+    delete_trip: "Trip löschen"
+    one_person_hitchhike: "1 Person Tramp"
+    two_people_hitchhike: "2 Personen Tramp"
+    three_people_hitchhike: "3 Personen Tramp"
+    more_than_three_people_hitchhike: "mehr als 3 Personen Tramp"
+    driving_time: "%{time} Fahrtzeit"
+    driving_time_missing: "Fahrtzeit fehlt"
+    waiting_time: "%{time} Wartezeit"
+    waiting_time_without_time: Wartezeit
+    waiting_time_missing: "Wartezeit fehlt"
+    faster_than_gmaps: "schneller als Google Maps"
+    hitchability: "Hitchability (Gmaps Dauer / Trip Dauer)"
+    slower_than_gmaps: "langsamer als Google Maps"
     trip:
-      alone: ~
-      with_1: ~
-      with_2: ~
-      with_3: ~
-      with_4: ~
-      with_more_than_4: ~
+      alone: alleine
+      with_1: "1 Person"
+      with_2: "2 Personen"
+      with_3: "3 Personen"
+      with_4: "4 Personen"
+      with_more_than_4: "mehr als 4 Personen"
   general:
-    or: ~
-    supports_markdown: ~
-    male: ~
-    female: ~
-    mixed: ~
-    extremely_positive: ~
-    positive: ~
-    neutral: ~
-    negative: ~
-    extremely_negative: ~
-    confirm: ~
-    slogan: ~
+    or: oder
+    supports_markdown: "unterstützt Markdown"
+    male: männlich
+    female: weiblich
+    mixed: gemixt
+    extremely_positive: "sehr positiv"
+    positive: positiv
+    neutral: neutral
+    negative: negativ
+    extremely_negative: "sehr negativ"
+    confirm: "Bist du sicher?"
+    slogan: "Das Tramper Logbuch"
   shared:
+    navigation:
+      your_profile: Dein Profil
     last_sign_in:
-      last_sign_in: ~
-      ago: ~
+      last_sign_in: "zuletzt gesehen"
+      ago: vor
       in: ~
     banners_in_corners:
-      fork_me_on_github: ~
+      fork_me_on_github: "Fork me on Github"
     sign_in_and_out:
-      sign_out: ~
-      sign_up: ~
-      sign_in: ~
+      sign_out: Ausloggen
+      sign_up: Anmelden
+      sign_in: Einloggen
     nearby_hitchhikers:
-      nearby_hitchhikers: ~
-      last_login_in: ~
+      nearby_hitchhikers: "Tramper in deiner Nähe"
+      last_login_in: "letzter login in"
   welcome:
     home:
-      share_and_keep_track: ~
-      countries_logged: ~
-      sign_in_with_facebook: ~
-      newest_hh_stories: ~
-      newest_hitchhikers: ~
-      logged: ~
-      share_your_trip_with_us: ~
-      get_in_touch_with_hitchhikers: ~
-      sign_up: ~
-      sign_in: ~
-      newest_hitchhiking_trips: ~
-      find_hitchlog_on: ~
-      more_trips: ~
-      more_stories: ~
-      hitchhiked_by_user: ~
-      by: ~
-      more_hitchhikers: ~
-      text1: ~
-      text2: ~
-      text3: ~
-      login_with_facebook: ~
+      share_and_keep_track: "Log Deine Tramp Erfahrungen"
+      countries_logged: "Länder gelogged"
+      sign_in_with_facebook: "Mit Facebook anmelden"
+      newest_hh_stories: "Neueste Tramp stories"
+      newest_hitchhikers: "Neueste Tramper"
+      logged: "%{trips_size} Trips geloggt"
+      sign_up: Anmelden
+      sign_in: Einloggen
+      newest_hitchhiking_trips: "Neueste Tramp Trips"
+      find_hitchlog_on: "Finde Hitchlog Auf"
+      more_trips: "Lese mehr Trips"
+      more_stories: "Lese mehr Stories"
+      hitchhiked_by_user: "%{time} Tage her getrampt von %{user}"
+      by: von
+      more_hitchhikers: "Lerne mehr Tramper kennen"
+      text1: |
+          Log deine Tramp Erfahrung mit dem Hitchlog und es reflektiert deine Ups und 
+          Downs auf der Straße. Es zeigt Dir deine getrampten kilometeren, deine durchschnittliche
+          Wartezeit, deine schnellsten und langsamsten Trips, die Länder durch die du getrampt bist
+          und vieles mehr
+
+      text2: |
+          Das Hitchlog spiegelt die Tramp-Erfahrung mit Efahrungsberichten und Bildern 
+          von verschiedenen Trampern wieder und versucht somit ein möglichst authentisches Bild zu 
+          erstellen welches unberührt ist von dem schlechten Ruf der von der Filmindustrie und der Presse
+          verbreitet wird.
+      text3: 
+
+      login_with_facebook: "Mit Facebook anmelden"
   facebook:
-    login_with_facebook: ~
-  back: ~
-  edit: ~
+    login_with_facebook: "Mit Facebook anmelden"
+  back: Zurück
+  edit: edit
   users:
     send_mail:
-      message_placeholder: ~
-      title: ~
-      send_mail: ~
-      send_a_mail_to: ~
-      mail_text: ~
+      message_placeholder: Nachricht
+      title: "Sende eine Nachricht zu %{user}"
+      send_mail: "Sende Mail"
+      send_a_mail_to: "Sende Nachricht zu %{user}"
+      mail_text: |
+          Wenn Du diese Nachricht sendest wird %{username} eine Email mit deiner Email addresse empfangen.
+          Auf diese Weise wird %{username} Dir antworten können.
     right_column:
-      cars_seen_from_inside: ~
-      average_drivers_age: ~
-      hitchhiked_countries: ~
-      hitchhiked_kms: ~
-      average_waiting_time: ~
-      kms_hitchhiked: ~
-      waiting_time_per_ride: ~
-      written_stories: ~
-      cs_user: ~
-      uploaded_photos: ~
-      statistics: ~
-      send_mail: ~
+      cars_seen_from_inside: "Autos von innen gesehen"
+      average_drivers_age: "durchschnittliches Fahrer Alter"
+      hitchhiked_countries: "getrampte Länder"
+      hitchhiked_kms: "getrampte kms"
+      average_waiting_time: "durchschnittliche Wartezeit"
+      kms_hitchhiked: "getrampte kms"
+      waiting_time_per_ride: "durchschnittliche Wartezeit"
+      written_stories: "Geschriebene Stories"
+      cs_user: "CS Benutzer"
+      uploaded_photos: "hochgeladenen Fotos"
+      statistics: Statistik
+      send_mail: "Sende Mail"
     show:
-      alone: ~
-      gender_of_drivers: ~
-      with_two: ~
-      with_three: ~
-      with_four: ~
-      log_your_first_trip: ~
-      log_new_trip: ~
-      edit: ~
-      delete: ~
-      about: ~
-      trips: ~
-      title: ~
-      rides: ~
-      experiences: ~
+      alone: alleine
+      gender_of_drivers: "Geschlecht der Mitfahrer"
+      with_two: "mit einer anderen Person"
+      with_three: "mit zwei anderen Personen"
+      with_four: "mit drei anderen Personen"
+      log_your_first_trip: "Log deinen ersten Trip"
+      log_new_trip: Log neuen Trip
+      edit: Bearbeiten
+      delete: Löschen
+      about: Über
+      trip:
+        one: Trip
+        other: Trips
+      title: Titel
+      ride:
+        one: Ride
+        other: Rides
+      experiences: Erfahrung
     edit:
-      edit_profile: ~
-      your_avatar: ~
-      hitchlog_only_supports_gravatar: ~
+      edit_profile: Profil bearbeiten
+      your_avatar: Dein Avatar
+      your_avatar_is_from_facebook: |
+          Du hast Dich mit Facebook angemeldet und somit ist dein Avatar dein Facebook Profilbild
+      hitchlog_supports_gravatar_and_facebook_image: |
+          Wenn Du dich mit Facebook anmeldest, nimmt Hitchlog dein
+          Profilbild von Facebook, andernfalls wird es <a href='http://gravatar.com'>Gravatar</a>
+          nutzen.<br/>. Falls Du dein eigenes Bild hochladen möchtest, melde dich
+          bei Gravatar.com an.
     index:
-      hitchhikers: ~
-      title: ~
-      username: ~
-      last_sign_in: ~
-      search: ~
-      sort_by: ~
+      hitchhikers: Tramper
+      title: Titel
+      username: Benutzername
+      last_sign_in: letzter Login
+      search: Suche
+      sort_by: Sortieren nach
     user:
-      statistics: ~
-      kilometers_hitchhiked: ~
-      hitchhiked_countries: ~
-      cars_seen_from_inside_while_hitchhiking: ~
-      gender: ~
-      logged_trips: ~
-      trips: ~
+      statistics: Statistik
+      kilometers_hitchhiked: getrampte Kilometer
+      hitchhiked_countries: getrampte Länder
+      cars_seen_from_inside_while_hitchhiking: Autos von innen gesehen
+      gender: Geschlecht
+      logged_trips: geloggte Trips
+      trips: Trips
   hours:
-    one: ~
-    other: ~
+    one: 1 Stunde
+    other: "%{count} Stunden"
   hours_with_minutes:
-    one: ~
-    other: ~
+    one: "%{count} Stunde %{minutes} Minuten"
+    other: "%{count} Stunden %{minutes} Minuten"
   minutes_without_hours:
-    one: ~
-    other: ~
+    one: "%{count} Minute"
+    other: "%{count} Minuten"
   rides:
     crop:
-      crop_the_photo: ~
-      crop: ~
+      crop_the_photo: "Schneide das Foto ab"
+      crop: abschneiden
     ride:
-      delete_image: ~
-      title_required: ~
-      story_required: ~
+      delete_image: "Foto löschen"
+      title_required: Titel
+      story_required: Story
   hitchslider:
-    user_hitchhiked_text: ~
-    it_took_him_text: ~
-    google_maps_text: ~
-    time_ago: ~
-    caption: ~
+    user_hitchhiked_text: "%{user} trampte <b><span id='trip_distance_display'>%{distance}</span></b> von <b>%{from}</b> nach <b>%{to}</b> mit %{rides_size} Rides."
+    it_took_him_text: "Es hat %{him_or_her} <b>%{time}</b> um diesen Trip zu machen."
+    google_maps_text: |
+        Google maps sagt man brauch ca. <b>%{gmaps_duration}</b> für diese Route,
+        also war %{user} <b>%{gmaps_difference}</b>.
+    time_ago: "vor %{time}"
+    caption: "Titel:"
   trips:
     index:
-      latest_hitchhiking_trips: ~
-      log_new_trip: ~
-      to_log_a_new_hitchhiking_trip: ~
-      choose_a_country: ~
+      latest_hitchhiking_trips: "Letzte Tramp-Trips"
+      log_new_trip: "Log einen neuen Trip"
+      to_log_a_new_hitchhiking_trip: "um einen neuen tramp trip zu loggen"
+      choose_a_country: "Wähle ein Land"
     search_interface:
-      select_experience: ~
-      select_gender: ~
-      sort_by: ~
-      photo: ~
-      select_country: ~
-      search: ~
-      story: ~
+      select_experience: "Wähle Erfahrung"
+      select_gender: "Wähle Geschlect"
+      sort_by: "Sortiere nach:"
+      photo: Foto
+      select_country: "Wähle Land"
+      search: Suche
+      story: Story
     edit:
-      edit_title: ~
-      hitchhiked: ~
-      from: ~
-      to: ~
-      add_story: ~
-      hitchability_factor: ~
-      it_took_you_longer: ~
-      you_were_faster: ~
+      edit_title: "Trip bearbeiten"
+      hitchhiked: Getrampt
+      from: Von
+      to: Nach
+      add_story: "Story bearbeiten"
+      hitchability_factor: "Hitchability factor:"
+      it_took_you_longer: "Du brauchtest %{hours} länger als eine direkte Verbindung."
+      you_were_faster: "Du warst %{hours} schneller als eine direkte Verbindung."
     list:
-      no_trips_logged: ~
-      read_on: ~
-      countries: ~
-      rides: ~
-      by: ~
-      date: ~
-      icons: ~
-      start: ~
+      no_trips_logged: "Keine Trips geloggt"
+      read_on: "(lese mehr in Trips)"
+      countries: Länder
+      rides: Rides
+      by: Von
+      date: "Getramptes Datum"
+      icons: Symbole
+      start: "vor %{time}"
     show:
-      title: ~
+      title: "Trampen von %{from_city} nach %{to_city}"
     comments:
-      there_are_no_comments: ~
-      user_wrote: ~
+      there_are_no_comments: "Es gibt keine Kommentare für diesen Trip"
+      user_wrote: "vor %{time} hat %{user} geschrieben:"
     trip:
-      edit_trip: ~
-      ride: ~
-      gmaps_duration: ~
-      time_ago: ~
-      user_hitchhiked_text: ~
-      log_in: ~
-      or: ~
-      register: ~
-      add_comment: ~
-      to_comment: ~
-      it_took_him_text: ~
-      google_maps_text: ~
+      edit_trip: "(Trip bearbeiten)"
+      ride: Ride
+      gmaps_duration: "Gmaps Dauer"
+      time_ago: "vor %{time}"
+      user_hitchhiked_text: "%{user} trampte <b><span id='trip_distance_display'>%{distance}</span></b> von <b>%{from}</b> nach <b>%{to}</b> mit %{rides_size} rides."
+      log_in: "Einloggen"
+      or: oder
+      register: anmelden
+      add_comment: "Kommentar hinzufügen"
+      to_comment: "um auf diesen Trip zu kommentieren"
+      it_took_him_text: "%{him_or_her} hat <b>%{time}</b> gebraucht für diesen Trip."
+      google_maps_text: |
+          Google maps sagt dass es <b>%{gmaps_duration}</b> dauert für diese Route,
+          also war %{user} <b>%{gmaps_difference}</b>.
     form:
-      step1_2: ~
+      step1_2: Weiter
     show_ride:
-      ride: ~
+      ride: Ride
     new:
-      log_your_trip_please: ~
-      new_trip_description: ~
+      log_your_trip_please: "Log deine Tramp Erfahrung :)"
+      new_trip_description: |
+          A trip is a hitchhiking trip from <b>one city to another city</b> which is
+          most of the time just one day.  For longer trips you can continue a trip
+          later. That way you will be able to see the waypoints on the map.
+
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words: 
+      half_a_minute: "halbe Minute"
+      less_than_x_seconds: 
+        one: "weniger als 1 Sekunde"
+        other: "weniger als %{count} Sekunden"
+      x_seconds: 
+        one: "1 Sekunde"
+        other: "%{count} Sekunden"
+      less_than_x_minutes: 
+        one: "weniger als 1 Minute"
+        other: "weniger als %{count} Minuten"
+      x_minutes: 
+        one: "1 Minute"
+        other: "%{count} Minuten"
+      about_x_hours: 
+        one: "circa 1 Stunde"
+        other: "circa %{count} Stunden"
+      about_x_months: 
+        one: "circa 1 Monat"
+        other: "circa %{count} Monate"
+      about_x_years: 
+        one: "circa 1 Jahr"
+        other: "circa %{count} Jahre"
+      almost_x_years: 
+        one: "fast ein Jahr"
+        other: "fast %{count} Jahre"
+      over_x_years: 
+        one: "über 1 Jahr"
+        other: "über %{count} Jahre"
+      x_days: 
+        one: "1 Tag"
+        other: "%{count} Tage"
+      x_months: 
+        one: "1 Monat"
+        other: "%{count} Monate"

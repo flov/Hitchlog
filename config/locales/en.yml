@@ -14,7 +14,7 @@ en:
         departure: Departure
         arrival: Arrival
         duration: Duration
-        travelling_with: Traveling with
+        travelling_with: "Traveling with"
         distance: Distance
         gmaps_duration: "Gmap duration"
       ride:
@@ -123,8 +123,7 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
-      your_profile:
-        Your Profile
+      your_profile: "Your Profile"
     last_sign_in:
       last_sign_in: "Last seen"
       ago: ago
@@ -187,7 +186,7 @@ en:
       send_mail: "Send Mail"
       send_a_mail_to: "Send Message to %{user}"
       mail_text: |
-          When you send the email, %{username} will receive a mail with your email address
+          When you send the message, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
       cars_seen_from_inside: "Cars seen from inside"
@@ -218,7 +217,6 @@ en:
         other: "%{count} Trips"
       title: User
       ride:
-        one: "1 Ride"
         one: "#{count} Rides"
       experiences: experiences
     edit:
@@ -335,3 +333,40 @@ en:
           A trip is a hitchhiking trip from <b>one city to another city</b> which is
           most of the time just one day.  For longer trips you can continue a trip
           later. That way you will be able to see the waypoints on the map.
+
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    time_ago: "%{time_ago_in_words} ago"
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "now"
+        other: "now"
+      x_seconds:
+        one:   "now"
+        other: "now"
+      less_than_x_minutes:
+        one:   "now"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one:   "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one:   "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one:   "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one:   "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over %{count} years"
