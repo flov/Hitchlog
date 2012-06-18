@@ -10,7 +10,7 @@
         .dropped-down
           %p
             = link_to t('.english'), url_for(:locale => :en)
-          %p
+            %br/
             = link_to t('.german'),  url_for(:locale => :de)
 
     %li= render 'shared/sign_in_and_out'

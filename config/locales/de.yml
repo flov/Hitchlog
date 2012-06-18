@@ -124,6 +124,9 @@ de:
       blog: Blog
       trips: Trips
       hitchhikers: Tramper
+      language: Sprache
+      english: Englisch
+      german: Deutsch
     last_sign_in:
       last_sign_in: "vor %{time} gesehen"
       in: in
