@@ -4,7 +4,18 @@
     %li= link_to t('.blog'), 'http://blog.hitchlog.com/'
     %li= link_to t('.trips'), trips_path
     %li= link_to t('.hitchhikers'), users_path
-    %li= render :partial => 'shared/sign_in_and_out'
+    %li.dropdown
+      = link_to 'Language', ''
+      .dropped-down-container
+        .dropped-down
+          .arrow
+          %h2 Select language
+          %p
+            English
+          %p
+            German
+
+    %li= render 'shared/sign_in_and_out'
     - if user_signed_in?
       %li.nav_your_profile
         = link_to user_path(current_user) do

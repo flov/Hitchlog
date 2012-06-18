@@ -24,6 +24,60 @@ nav
       a:hover
         color: orange
 
+li.dropdown
+  position: relative
+
+li.dropdown:hover
+  .dropped-down-container
+    display: block
+    .dropped-down
+      display: block
+.dropped-down-container
+  position: absolute
+  display: none
+  right: 50%
+  top: 100%
+
+  .dropped-down
+    text-transform: none
+    text-shadow: none
+    z-index: 99
+    background: white
+    padding: 10px
+    white-space: nowrap
+    display: none
+    position: absolute
+    top: 5px
+    right: -23px
+    border: 1px solid #DFDFDF
+    +border-radius(3px)
+    +box-shadow(0 2px 5px -1px rgba(0, 0, 0, .25))
+    color: black
+    h2, p
+      line-height: normal
+      font-size: 12px
+      font-family: sans-serif
+
+    &:before, &:after
+      position: absolute
+      bottom: 100%
+      right: 8px
+      content: ''
+      position: absolute
+      border: 8px solid transparent
+      border-top: 0
+      border-bottom-color: inherit
+
+  .dropped-down:after
+    border-width: 5px
+    border-bottom-color: white
+    margin-right: 2px
+
+  .dropped-down:before
+    border-width: 7px
+    border-bottom-color: #dfdfdf
+
+
 li.nav_your_profile
   +border-radius(5px)
   position: relative
