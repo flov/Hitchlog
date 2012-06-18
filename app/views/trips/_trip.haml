@@ -9,11 +9,11 @@
 
 %p.user_hitchhiked_text
   = t('hitchslider.user_hitchhiked_text', user: trip.user.to_s,
-                               time: time_ago_in_words(trip.departure),
-                               distance: distance(trip.distance),
-                               from: trip.from,
-                               to: trip.to,
-                               rides_size: trip.rides.size).html_safe
+                                          time: (trip.departure ? time_ago_in_words(trip.departure) : nil),
+                                          distance: distance(trip.distance),
+                                          from: trip.from,
+                                          to: trip.to,
+                                          rides_size: trip.rides.size).html_safe
   %br/
   - if trip.duration && trip.duration != 0
     = t('hitchslider.it_took_text', time: human_seconds(trip.duration)).html_safe
