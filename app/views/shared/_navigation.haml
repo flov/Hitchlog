@@ -15,9 +15,15 @@
 
     %li= render 'shared/sign_in_and_out'
     - if user_signed_in?
-      %li.nav_your_profile
+      %li.nav_your_profile.dropdown
         = link_to user_path(current_user) do
           = render 'users/profile_image', user: current_user, type: 'square'
-          -#▼
+          ▼
           = t('.your_profile')
 
+        .dropped-down-container
+          .dropped-down
+            %p
+              = link_to t('.log_new_trip'), new_trip_path
+              %br/
+              = link_to t('.edit_profile'), edit_user_path(current_user)
