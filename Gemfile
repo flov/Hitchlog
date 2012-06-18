@@ -29,7 +29,7 @@ gem 'compass'
 
 gem 'json'
 gem 'jbuilder'
-gem 'routing-filter'
+gem 'routing-filter' # wraps I18n.locale around routing engine
 
 # Gems only used for assets and not required by default
 # in production environments by default.

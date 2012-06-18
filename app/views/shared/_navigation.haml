@@ -5,15 +5,13 @@
     %li= link_to t('.trips'), trips_path
     %li= link_to t('.hitchhikers'), users_path
     %li.dropdown
-      = link_to 'Language', ''
+      = link_to t('.language'), '', id: 'choose_language'
       .dropped-down-container
         .dropped-down
-          .arrow
-          %h2 Select language
           %p
-            English
+            = link_to t('.english'), url_for(:locale => :en)
           %p
-            German
+            = link_to t('.german'),  url_for(:locale => :de)
 
     %li= render 'shared/sign_in_and_out'
     - if user_signed_in?

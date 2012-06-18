@@ -130,6 +130,9 @@ en:
       blog: Blog
       trips: Trips
       hitchhikers: Hitchhikers
+      language: Language
+      english: English
+      german: German
     last_sign_in:
       last_sign_in: "Last seen %{time} ago"
       in: in

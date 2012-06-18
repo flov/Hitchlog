@@ -12,3 +12,4 @@
 //= require map
 //= require hitchmap
 //= require hitchslider
+//= require navigation
