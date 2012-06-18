@@ -120,6 +120,8 @@ de:
   shared:
     navigation:
       your_profile: Dein Profil
+      log_new_trip: "Neuen Trip Loggen"
+      edit_profile: "Profil bearbeiten"
       about: Über Hitchlog
       blog: Blog
       trips: Trips

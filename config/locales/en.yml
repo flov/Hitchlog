@@ -125,6 +125,8 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
+      log_new_trip: "Log a new trip"
+      edit_profile: "Edit profile"
       your_profile: "Your Profile"
       about: About
       blog: Blog
