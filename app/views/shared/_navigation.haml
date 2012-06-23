@@ -9,14 +9,11 @@
       .dropped-down-container
         .dropped-down
           %ul
-            %li
-              = link_to url_for(:locale => :en) do
-                = image_tag 'flags/png/us.png'
-              != "&larr;" if I18n.locale == :en
-            %li
-              = link_to url_for(:locale => :de) do
-                = image_tag 'flags/png/de.png'
-              != "&larr;" if I18n.locale == :de
+            - [:en, :de].each do |locale|
+              %li
+                = link_to url_for(:locale => locale) do
+                  = image_tag "language/#{locale}.png"
+                != "&larr;" if I18n.locale == locale
 
     %li= render 'shared/sign_in_and_out'
     - if user_signed_in?
