@@ -8,10 +8,15 @@
       = link_to t('.language'), '', id: 'choose_language'
       .dropped-down-container
         .dropped-down
-          %p
-            = link_to t('.english'), url_for(:locale => :en)
-            %br/
-            = link_to t('.german'),  url_for(:locale => :de)
+          %ul
+            %li
+              = link_to url_for(:locale => :en) do
+                = image_tag 'flags/png/us.png'
+              != "&larr;" if I18n.locale == :en
+            %li
+              = link_to url_for(:locale => :de) do
+                = image_tag 'flags/png/de.png'
+              != "&larr;" if I18n.locale == :de
 
     %li= render 'shared/sign_in_and_out'
     - if user_signed_in?
@@ -23,7 +28,8 @@
 
         .dropped-down-container
           .dropped-down
-            %p
-              = link_to t('.log_new_trip'), new_trip_path
-              %br/
-              = link_to t('.edit_profile'), edit_user_path(current_user)
+            %ul
+              %li
+                = link_to t('.log_new_trip'), new_trip_path
+              %li
+                = link_to t('.edit_profile'), edit_user_path(current_user)
