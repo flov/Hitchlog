@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_one  :sign_in_address
 
-  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[A-Za-z\d_-]+$/}
+  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[ A-Za-z\d_-]+$/}
 
   before_validation  :sanitize_username
   before_save        :geocode_address, :if => lambda{ |obj| obj.current_sign_in_ip_changed? }
