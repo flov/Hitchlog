@@ -10,7 +10,7 @@ gem 'devise', '1.4.5'
 gem 'rdiscount' # Markdown
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser
-gem 'hoptoad_notifier'
+gem 'airbrake'
 
 gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.1
 

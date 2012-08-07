@@ -29,6 +29,9 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.6)
+    airbrake (3.1.2)
+      activesupport
+      builder
     arel (3.0.2)
     babosa (0.3.6)
     bcrypt-ruby (3.0.1)
@@ -141,9 +144,6 @@ GEM
     highline (1.6.11)
     hike (1.2.1)
     hirb (0.6.0)
-    hoptoad_notifier (2.4.11)
-      activesupport
-      builder
     i18n (0.6.0)
     i18n_data (0.2.8)
       activesupport
@@ -290,6 +290,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   capistrano
   capistrano-ext
   capybara
@@ -317,7 +318,6 @@ DEPENDENCIES
   guard-spork
   haml (~> 3.1.4)
   hirb
-  hoptoad_notifier
   i18n_data
   jbuilder
   jquery-rails

@@ -19,3 +19,4 @@ config/hitchlog.local.yml
 .sass-cache
 .DS_Store
 TODO
+/tmp
