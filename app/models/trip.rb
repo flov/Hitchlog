@@ -1,15 +1,18 @@
 class Trip < ActiveRecord::Base
-  has_many :rides, :dependent => :destroy
-  has_many :country_distances, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+  has_many :rides, dependent: :destroy
+  has_many :country_distances, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   belongs_to :user
 
-  validates_associated :user
+  validates :from,       presence: true
+  validates :to,         presence: true
+  validates :arrival,    presence: true
+  validates :departure,  presence: true
+  validates :user_id,    presence: true
+  validates :hitchhikes, presence: true, :if => :new_record
 
-  validates :from, :to, :departure, :arrival, :presence => true
-  validates :distance, :numericality => true
-  validates :user_id, :presence => true
-  validates :hitchhikes, :presence => true, :if => :new_record
+  validates :distance,   numericality: true
 
   concerned_with :googlemaps,
                  :countries
@@ -18,6 +21,7 @@ class Trip < ActiveRecord::Base
   @@per_page = 20
 
   attr_accessor   :hitchhikes, :start_time, :end_time
+
   attr_accessible :from,
                   :to,
                   :hitchhikes,
@@ -44,8 +48,9 @@ class Trip < ActiveRecord::Base
                   :to_street,
                   :to_street_no
 
-
   after_create :get_country_distance
+
+
   before_create do
     # build as much rides on top of the ride as needed
     hitchhikes.to_i.times{|i| rides.build(:number => i+1) }

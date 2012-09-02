@@ -17,6 +17,9 @@ Spork.prefork do
   RSpec.configure do |config|
     config.mock_with :rspec
 
+    config.include Devise::TestHelpers, type: :controller
+    config.include ControllerHelpers,   type: :controller
+
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
       DatabaseCleaner.clean_with(:truncation)

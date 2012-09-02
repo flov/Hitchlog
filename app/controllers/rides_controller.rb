@@ -1,14 +1,15 @@
 class RidesController < ApplicationController
   before_filter :authenticate_user!, :except => [:next, :prev, :random, :show, :index]
 
+  expose :ride
+
   def show
-    @ride = Ride.find(params[:id])
   end
 
   def random
     @ride = Ride.where('photo_file_name is not null').order('RAND()').first
     respond_to do |format|
-      format.json { render "rides/show.json" }
+      format.json { render "rides/show", formats: [:json] }
     end
   end
 
@@ -22,7 +23,7 @@ class RidesController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render "rides/show.json" }
+      format.json { render "rides/show", formats: [:json] }
     end
   end
 
@@ -36,7 +37,7 @@ class RidesController < ApplicationController
     end
 
     respond_to do |format|
-      format.json { render "rides/show.json" }
+      format.json { render "rides/show", formats: [:json] }
     end
   end
 

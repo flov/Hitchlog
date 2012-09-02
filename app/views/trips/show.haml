@@ -5,13 +5,13 @@
   = hidden_field_tag :trip_to,    @trip.to_formatted_address
   = hidden_field_tag :trip_route, @trip.route
 
-  - if @rides_with_photos.empty?
+  - if trip.rides.with_photo.empty?
     #map.map_show{:style=>"width:950px"}
   - else
     #map.map_show{:style=>"width:450px"}
     .nivo-theme-default
       #slider
-        - @rides_with_photos.each do |ride|
+        - trip.rides.with_photo.each do |ride|
           = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:large)
 
 .columns
@@ -19,7 +19,7 @@
     = render 'trips/trip', trip: @trip
 
   .right_column
-    = render 'users/right_column'
+    = render 'users/right_column', user: @trip.user
 
 -content_for :javascript_at_bottom do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  

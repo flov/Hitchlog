@@ -83,6 +83,7 @@ GEM
       nokogiri (>= 1.5.0)
     daemons (1.0.10)
     database_cleaner (0.7.1)
+    decent_exposure (1.0.2)
     devise (1.4.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -154,7 +155,7 @@ GEM
     jquery-rails (2.1.1)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
-    json (1.7.3)
+    json (1.7.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     livereload (1.6.1)
@@ -305,6 +306,7 @@ DEPENDENCIES
   compass-rails
   cucumber-rails
   database_cleaner
+  decent_exposure
   devise (= 1.4.5)
   email_spec
   escape_utils
