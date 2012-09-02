@@ -2,39 +2,35 @@ class TripsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_trip_and_redirect_if_not_owner, :only => [:edit]
 
+  expose( :trip )
+
   def new
-    @trip = Trip.new
   end
 
   def show
-    @trip = Trip.find(params[:id])
-    @user = @trip.user
-    @rides_with_photos = @trip.rides.select{|ride| ride.photo.file?}
-    @rides = @user.trips.map{|trip| trip.rides}.flatten
   end
 
   def create
-    @trip = Trip.new(params[:trip])
-    @trip.user = current_user
-    if @trip.save
-      redirect_to edit_trip_path(@trip)
+    trip.user = current_user
+    if trip.save
+      redirect_to(edit_trip_path(trip))
     else
       render :new
     end
   end
 
   def create_comment
-    @comment = Comment.new(body: params[:body])
-    @comment.trip_id = params[:id]
-    @comment.user_id = current_user.id
-    if @comment.save
+    comment = Comment.new(body: params[:body])
+    comment.trip_id = params[:id]
+    comment.user_id = current_user.id
+    if comment.save
       # TODO move this to comment model and append to after_create callback
-      notify_trip_owner_and_comment_authors(@comment)
+      notify_trip_owner_and_comment_authors(comment)
       flash[:notice] = I18n.t('flash.trips.create_comment.comment_saved')
     else
       flash[:alert]  = t('flash.trips.create_comment.alert')
     end
-    redirect_to trip_path(@comment.trip)
+    redirect_to trip_path(comment.trip)
   end
 
   def index

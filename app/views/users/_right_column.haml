@@ -1,18 +1,18 @@
 %h1.text_center
-  = link_to @user, user_path(@user)
-  = gender_image @user.gender
+  = link_to user, user_path(user)
+  = gender_image user.gender
 .text_center
-  = render 'users/profile_image', user: @user, type: "large"
+  = render 'users/profile_image', user: user, type: "large"
 
 .section
   %ul
-    - unless @user.cs_user.blank?
+    - unless user.cs_user.blank?
       %li
         = image_tag 'cs.ico'
-        #{t('.cs_user')}: #{link_to(@user.cs_user.capitalize, "http://couchsurfing.com/people/#{@user.cs_user}")}
-    - unless current_user == @user
+        #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
+    - unless current_user == user
       %li
-        =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(@user)
+        =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(user)
 
 .section
   %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
@@ -20,20 +20,20 @@
     %li
       #{t('.hitchhiked_countries')}: 
       %br/
-      #{country_images_for_user(@user)}
+      #{country_images_for_user(user)}
     %li
-      #{t('.written_stories')}: #{@user.stories.size}
+      #{t('.written_stories')}: #{user.stories.size}
     %li
-      #{t('.uploaded_photos')}: #{@user.number_of_photos}
+      #{t('.uploaded_photos')}: #{user.number_of_photos}
     %li
       #{t('.kms_hitchhiked')}:
-      #{number_with_delimiter(@user.hitchhiked_kms, :delimiter => ".")} km
+      #{number_with_delimiter(user.hitchhiked_kms, :delimiter => ".")} km
     %li
-      #{t('.cars_seen_from_inside')}: #{@rides.size}
-    - if @user.average_waiting_time
+      #{t('.cars_seen_from_inside')}: #{rides.size}
+    - if user.average_waiting_time
       %li
-        = "#{t('.waiting_time_per_ride')}: #{@user.average_waiting_time} minutes".html_safe
+        = "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} minutes".html_safe
 
 
-    = render 'shared/country_chart', :user => @user, :size => 'tiny'
+    = render 'shared/country_chart', :user => user, :size => 'tiny'
 

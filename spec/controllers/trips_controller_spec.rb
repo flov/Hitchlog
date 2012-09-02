@@ -1,77 +1,90 @@
 require 'spec_helper'
 
 describe TripsController do
-  describe 'GET show' do
-    it { assigns[:trip] }
-    it { assigns[:user] }
-    it { assigns[:photo_rides] }
-    it { assigns[:rides] }
-  end
+  describe '#new' do
+    let(:trip) { double('trip') }
 
-  describe 'GET index' do
-    it "should be successful" do
-      get :index, formats: "json"
-      response.should be_success
+    it 'blocks unauthenticated access' do
+      get :new
+
+      response.should redirect_to(new_user_session_path)
     end
 
-    it "should render index template" do
+    it 'renders show view' do
+      sign_in :user, double(:user)
+      Trip.stub(:new){ trip }
+
+      get :new
+
+      response.should render_template(:new)
+    end
+  end
+
+  describe '#index' do
+    it 'renders the index view' do
+      get :index
+      response.should render_template(:index)
+    end
+  end
+
+  describe '#show' do
+    let(:trip) { double('trip', user: double('user')) }
+
+    it 'renders show view' do
+      Trip.stub(:find){ trip }
+      get :show, id: 1
+      response.should render_template('show')
+    end
+  end
+
+  describe '#index' do
+    it "renders index view" do
       get :index
       response.should render_template('index')
     end
   end
 
-  describe 'POST create_comment' do
-    context 'user is not logged in' do
-      it "redirects to log in page" do
-        post :create_comment, id: 1
-        response.should redirect_to('/en/hitchhikers/login')
-      end
-    end
+  describe '#create_comment' do
+    let(:action) { post :create_comment, body: "New Comment", id: 1 }
+
+    it_blocks_unauthenticated_access
 
     context 'user is logged in' do
-      let(:comment) { mock_model(Comment).as_null_object }
-      let(:trip)    { FactoryGirl.create(:trip) }
-      let(:user)    { FactoryGirl.create(:user) }
+      let(:trip)    { double('trip') }
+      let(:user)    { double('user') }
+      let(:comment) { double('comment', id: 1, trip: trip, user: user, :trip_id= => nil, :user_id= => nil) }
 
       before do
-        @user = FactoryGirl.create :user
-        sign_in :user, @user
-        comment.stub(:id).and_return('1')
-        comment.stub(:trip).and_return(trip)
-        comment.stub(:user).and_return(user)
+        sign_in :user, double('user', id: 2)
+
         Comment.stub(:new).and_return(comment)
+        comment.should_receive(:trip_id=).with( '1' )
+        comment.should_receive(:user_id=).with( 2 )
       end
 
-      it "build a new comment" do
-        Comment.should_receive(:new)
-               .with(body: 'New Comment')
-               .and_return(comment)
-        post :create_comment, body: "New Comment", id: 1
-      end
-
-      context 'when the comment saves successfully' do
+      context 'comment saves succesfully' do
         before do
           comment.stub(:save).and_return(true)
+          controller.stub(:notify_trip_owner_and_comment_authors)
+
+          action
         end
 
         it 'sets the notice flash' do
-          post :create_comment, id: 1
           flash[:notice].should_not be_empty
         end
 
-      end
-
-      context 'when the comment fails to save' do
-        it 'sets the alert flash' do
-          comment.stub(:save).and_return(false)
-          post :create_comment, id: 1
-          flash[:alert].should eq("Comment failed to save!")
+        it 'redirects to trip_path' do
+          response.should redirect_to(trip_path(comment.trip))
         end
       end
 
-      it 'redirects to the trip page' do
-        post :create_comment, id: 1
-        response.should redirect_to(trip_path(comment.trip))
+      it 'sets the alert flash when the comment fails to save' do
+        comment.stub(:save).and_return(false)
+
+        action
+
+        flash[:alert].should eq("Comment failed to save!")
       end
     end
   end
@@ -89,7 +102,7 @@ describe TripsController do
 
       before do
         @user = FactoryGirl.create :user
-        sign_in :user, @user
+        sign_in :user, double('user')
         Trip.stub(:new).and_return(trip)
       end
 
@@ -120,11 +133,6 @@ describe TripsController do
       context "when the trip fails to save" do
         before do
           trip.stub(:save).and_return(false)
-        end
-
-        it "assigns @trip" do
-          post :create
-          assigns[:trip].should eq(trip)
         end
 
         it "renders the edit action" do
