@@ -50,6 +50,12 @@ class Trip < ActiveRecord::Base
 
   after_create :get_country_distance
 
+  default_scope     order("trips.id DESC")
+
+  scope :alone,      where(travelling_with: 0)
+  scope :in_pairs,   where(travelling_with: 1)
+  scope :with_three, where(travelling_with: 2)
+  scope :with_four,  where(travelling_with: 3)
 
   before_create do
     # build as much rides on top of the ride as needed

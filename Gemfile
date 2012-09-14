@@ -27,6 +27,7 @@ gem 'i18n_data'
 gem 'choices' # external settings in Rails app
 gem 'friendly_id', '~> 3.2.1'
 
+gem 'simple_form'
 gem 'compass'
 
 gem 'json'

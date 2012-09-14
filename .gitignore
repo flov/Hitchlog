@@ -20,3 +20,5 @@ config/hitchlog.local.yml
 .DS_Store
 TODO
 /tmp
+a.log
+zeus.json

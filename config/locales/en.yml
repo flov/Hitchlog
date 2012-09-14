@@ -110,6 +110,7 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    save: Save
     time_ago: "%{time} ago"
     or: or
     supports_markdown: "supports markdown"

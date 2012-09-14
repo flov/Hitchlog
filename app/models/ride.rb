@@ -14,6 +14,7 @@ class Ride < ActiveRecord::Base
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story <> ''")
+  scope :random_photo, where("photo_file_name IS NOT NULL").order('RAND()')
 
   has_attached_file :photo,
                     :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },

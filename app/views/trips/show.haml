@@ -1,9 +1,9 @@
-- title(t('.title', :from_city => @trip.from_city_sanitized, :to_city => @trip.to_city_sanitized))
+- title(t('.title', :from_city => trip.from_city_sanitized, :to_city => trip.to_city_sanitized))
 
 - content_for :topmenu do
-  = hidden_field_tag :trip_from,  @trip.from_formatted_address 
-  = hidden_field_tag :trip_to,    @trip.to_formatted_address
-  = hidden_field_tag :trip_route, @trip.route
+  = hidden_field_tag :trip_from,  trip.from_formatted_address 
+  = hidden_field_tag :trip_to,    trip.to_formatted_address
+  = hidden_field_tag :trip_route, trip.route
 
   - if trip.rides.with_photo.empty?
     #map.map_show{:style=>"width:950px"}
@@ -16,10 +16,10 @@
 
 .columns
   .left_column
-    = render 'trips/trip', trip: @trip
+    = render 'trips/trip', trip: trip
 
   .right_column
-    = render 'users/right_column', user: @trip.user
+    = render 'users/right_column', user: trip.user
 
 -content_for :javascript_at_bottom do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  

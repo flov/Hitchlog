@@ -1,14 +1,9 @@
 class TripsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :find_trip_and_redirect_if_not_owner, :only => [:edit]
+  expose( :trip )  { trip_in_context }
+  expose( :trips ) { trips_in_context }
 
-  expose( :trip )
-
-  def new
-  end
-
-  def show
-  end
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_trip_owner, only: [:edit]
 
   def create
     trip.user = current_user
@@ -24,26 +19,17 @@ class TripsController < ApplicationController
     comment.trip_id = params[:id]
     comment.user_id = current_user.id
     if comment.save
-      # TODO move this to comment model and append to after_create callback
+      # TODO move this to a notification service
       notify_trip_owner_and_comment_authors(comment)
       flash[:notice] = I18n.t('flash.trips.create_comment.comment_saved')
     else
-      flash[:alert]  = t('flash.trips.create_comment.alert')
+      flash[:alert] = t('flash.trips.create_comment.alert')
     end
     redirect_to trip_path(comment.trip)
   end
 
-  def index
-    @trips = Trip
-    @trips = build_search_trips(@trips)
-    @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
-  end
-
   def edit
-    @user = @trip.user
-    @rides_with_photos = @trip.rides.select{|ride| ride.photo.file?}
-    @rides = @user.trips.map{|trip| trip.rides}.flatten
-    @trip.rides.each do |ride|
+    trip.rides.each do |ride|
       if ride.person.nil?
         ride.build_person
       end
@@ -51,28 +37,26 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find(params[:id])
-    if @trip.update_attributes(params[:trip])
+    trip = Trip.find(params[:id])
+    if trip.update_attributes(params[:trip])
       respond_to do |wants|
-        wants.html { redirect_to edit_trip_path(@trip) }
-        wants.js {}
+        wants.html { redirect_to edit_trip_path(trip) }
+        wants.js
       end
     else
-      render :action => 'edit'
+      render action: 'edit'
     end
   end
 
   def destroy
-    @trip = Trip.find(params[:id])
-    @trip.destroy
+    trip.destroy
     redirect_to trips_url
   end
 
   private
 
-  def find_trip_and_redirect_if_not_owner
-    @trip = Trip.find(params[:id])
-    if @trip.user != current_user
+  def authenticate_trip_owner
+    if trip.user != current_user
       flash[:alert] = "This is not your trip."
       redirect_to trips_path
     end
@@ -84,14 +68,25 @@ class TripsController < ApplicationController
                              .where("user_id != #{comment.user.id}")
                              .where("user_id != #{comment.trip.user.id}")
                              .select('DISTINCT user_id')
-                             .map{|comment| comment.user}
+                             .map(&:user)
 
     comment_authors.each do |author|
       CommentMailer.notify_comment_authors(comment, author).deliver
     end
 
-    unless comment.user == comment.trip.user
-      CommentMailer.notify_trip_owner(comment).deliver
+    CommentMailer.notify_trip_owner(comment).deliver unless comment.user == comment.trip.user
+  end
+
+  def trip_in_context
+    if params[:id]
+      Trip.find(params[:id])
+    else
+      Trip.new(params[:trip])
     end
+  end
+
+  def trips_in_context
+    trips = build_search_trips(Trip)
+    trips = trips.order("trips.id DESC").paginate(:page => params[:page])
   end
 end
