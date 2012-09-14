@@ -44,6 +44,25 @@ describe TripsController do
     end
   end
 
+  describe '#edit' do
+    let(:trip)   { double('trip') }
+    let(:action) { get :edit, id: 1 }
+
+    before do
+      Trip.stub(:find){ trip }
+    end
+
+    it_blocks_unauthenticated_access
+
+    it 'renders the edit view' do
+      sign_in :user, double(:user)
+
+      action
+
+      response.should render_template(:edit)
+    end
+  end
+
   describe '#create_comment' do
     let(:action) { post :create_comment, body: "New Comment", id: 1 }
 

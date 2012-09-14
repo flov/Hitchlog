@@ -1,7 +1,10 @@
 - title (t('.edit_profile'))
 %h1
   =t('.edit_profile')
-  (#{link_to t('.delete'), user_path(current_user), :method => :delete, :confirm => t('general.confirm')})
+  = link_to t('.delete'), user_path(current_user),
+                          method: :delete,
+                          data: { confirm: t('general.confirm') }
+
 = form_for current_user, :html => {:class => 'fancy_form'} do |f|
   .float_left
     = f.label :username
@@ -21,7 +24,7 @@
     %br/
     = f.text_field :cs_user
     %br/
-    = f.submit
+    = f.submit t('general.save')
 .float_right.edit_profile_right
   = t('.your_avatar')
   %br/

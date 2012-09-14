@@ -1,77 +1,48 @@
 require 'spec_helper'
 
 describe UsersController do
-  describe "GET send_mail" do
-    before do
-      @to_user = FactoryGirl.create :user
-    end
+  describe "#send_mail" do
+    let(:action) { get :send_mail, :id => 1 }
 
-    context "if not logged in" do
-      it "should redirect to login page" do
-        get :send_mail, :id => @to_user.id
-        response.should redirect_to(user_session_path)
-      end
-    end
+    it_blocks_unauthenticated_access
 
-    context "if logged in" do
-      before do
-        @user = FactoryGirl.create :user
-        sign_in :user, @user
-      end
-
-      context "user sends mail to himself" do
-        before do
-          get :send_mail, :id => @user.id
-        end
-
-        it "should redirect" do
-          response.should redirect_to(user_path(@user))
-        end
-
-        it "should set the flash" do
-          flash[:alert].should eq("You cannot send a mail to yourself")
-        end
-      end
-
-
-      it "should render get_mail action" do
-        get :send_mail, :id => @to_user.id
-        response.should render_template(action: 'get_mail')
-      end
+    it "renders get_mail template" do
+      sign_in :user, double('user')
+      response.should render_template(action: 'get_mail')
     end
   end
 
-  describe "POST mail_sent" do
+  describe "#mail_sent" do
+    let(:action) { post :mail_sent, id: 'flov', message_body: 'text' }
+    let(:current_user) { double('user',
+                                to_param: 'flov',
+                                email: 'flov@hitchlog.com') }
+    let(:mail_to_user) { double('user',
+                                'attributes=' => '',
+                                username: 'Malte',
+                                email: 'malte@tramprennen.org') }
+    let(:user_mailer) { double('UserMailer') }
+
+    it_blocks_unauthenticated_access
+
     before do
-      @to_user = FactoryGirl.create :user
+      sign_in :user, current_user
+      User.stub(:find).and_return(mail_to_user)
+      user_mailer.stub(:deliver){ true }
     end
 
-    context "if not logged in" do
-      it "redirects to log in page" do
-        post :mail_sent, id: 1
-        response.should redirect_to(user_session_path)
-      end
+    it 'sends out mail' do
+      UserMailer.should_receive(:mail_to_user)
+        .with(current_user, mail_to_user, 'text')
+        .and_return(user_mailer)
+
+      action
     end
 
-    context "if logged in" do
-      before do 
-        @user = FactoryGirl.create :user
-        sign_in :user, @user
-      end
+    it "redirects to the trips index" do
+      action
 
-      context "when mail sends successfully" do
-        before do
-          post :mail_sent, id: @user.id
-        end
-
-        it "redirects to the trips index" do
-          response.should redirect_to("/en/hitchhikers/#{@user.username}")
-        end
-
-        it "sets the flash" do
-          flash[:notice].should eq("Mail has been sent to #{@user}")
-        end
-      end
+      response.should redirect_to("/en/hitchhikers/flov")
     end
   end
 

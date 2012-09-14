@@ -1,6 +1,8 @@
-Feature: Show Trip
-
-  Scenario: Show the trip
+Feature: Visitors views trips
+  In order to view my trips
+  As a visitor
+  I want to see all trips and see particular trips
+  Scenario: Show user story on trip
     Given a trip exists
     And the user of this trip is "supertramp"
     And he did the trip 3 days ago

@@ -1,22 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :mail_sent, :send_mail, :destroy, :update]
+  expose(:user)
+  expose(:trips) { build_search_trips(user.trips).paginate(page: params[:page]) }
 
-  def show
-    @user = User.find(params[:id])
-    @rides = @user.trips.map{|trip| trip.rides}.flatten
-    @x_times_alone = @user.trips.select {|trip| trip.travelling_with == 0}.size
-    @x_times_with_two = @user.trips.select {|trip| trip.travelling_with == 1}.size
-    @x_times_with_three = @user.trips.select {|trip| trip.travelling_with == 2}.size
-    @x_times_with_four = @user.trips.select {|trip| trip.travelling_with == 3}.size
-
-    @trips = @user.trips
-    @trips = build_search_trips(@trips)
-    @trips = @trips.order("trips.id DESC").paginate(:page => params[:page])
-  end
-
-  def edit
-
-  end
+  before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def update
     @user = current_user
@@ -29,21 +15,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def send_mail
-    @user = User.find(params[:id])
-    if @user == current_user
-      redirect_to user_path(@user)
-      flash[:alert] = I18n.t('flash.users.send_mail.error')
-    end
-  end
-
   def mail_sent
-    @user = User.find(params[:id])
-    user_mailer = UserMailer.mail_to_user(current_user, @user, params[:message_body])
-    if user_mailer.deliver
-      flash[:notice] = I18n.t('flash.users.mail_sent.notice', user: @user)
+    mailer = UserMailer.mail_to_user(current_user, user, params[:message_body])
+    if mailer.deliver
+      flash[:notice] = I18n.t('flash.users.mail_sent.notice', user: user)
     end
-    redirect_to user_path(@user)
+    redirect_to user_path(user)
   end
 
   def destroy

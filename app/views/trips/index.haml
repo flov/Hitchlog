@@ -11,8 +11,8 @@
 
 
 = render 'trips/search_interface', gender: true
-= will_paginate @trips, :class => 'digg_pagination'
+= will_paginate trips, :class => 'digg_pagination'
 #trips
-  = render 'list', trips: @trips, by: true
-= will_paginate @trips, :class => 'digg_pagination'
+  = render 'list', trips: trips, by: true
+= will_paginate trips, :class => 'digg_pagination'
 

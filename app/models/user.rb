@@ -13,16 +13,20 @@ class User < ActiveRecord::Base
   # chart_image method
   include Chart
 
-  has_many :trips, :dependent => :destroy
-  has_many :authentications, :dependent => :destroy
+  has_many :rides, through: :trips
+  has_many :trips, dependent: :destroy
+  has_many :authentications, dependent: :destroy
   has_many :comments
   has_one  :sign_in_address
 
-  validates :username, :presence => true, :uniqueness => true, :format => {:with => /^[ A-Za-z\d_-]+$/}
+  validates :username, presence: true,
+                       uniqueness: true,
+                       format: {with: /^[ A-Za-z\d_-]+$/}
 
   before_validation  :sanitize_username
-  before_save        :geocode_address, :if => lambda{ |obj| obj.current_sign_in_ip_changed? }
-  geocoded_by :current_sign_in_ip, :latitude => :sign_in_lat, :longitude => :sign_in_lng
+  before_save        :geocode_address, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
+
+  geocoded_by :current_sign_in_ip, latitude: :sign_in_lat, longitude: :sign_in_lng
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
@@ -47,10 +51,6 @@ class User < ActiveRecord::Base
 
   def to_param
     username
-  end
-
-  def rides
-    trips.collect{|trip| trip.rides}.flatten
   end
 
   def experiences
