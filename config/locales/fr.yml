@@ -124,6 +124,8 @@ fr:
     slogan: "Un journal d'auto-stoppeur."
   shared:
     navigation:
+      log_new_trip: ~
+      edit_profile: ~
       your_profile: "Ton Profil"
       about: "À propos"
       blog: Blogue
@@ -275,6 +277,8 @@ fr:
     google_maps_text: "Google maps prévoit <b>%{gmaps_duration}</b> pour conduire cet parcours, alors %{user} a pris <b>%{gmaps_difference}</b>. \n"
     time_ago: "avant %{time}"
     caption: "Titre :"
+    comments: ~
+    user_wrote: ~
   trips:
     index:
       latest_hitchhiking_trips: "Voyages à la pouce"
@@ -317,11 +321,11 @@ fr:
       ride: Étape
       gmaps_duration: "Duration prévu par Gmaps"
       time_ago: "il y a %{time}"
-      log_in: "Se connecter"
-      or: ou
-      register: S'inscrire
-      add_comment: "Ajouter un commentaire"
-      to_comment: "pour donner son avis sur cette voyage"
+    add_comment:
+      register: ~
+      log_in: ~
+      add_comment: ~
+      to_comment: ~
     form:
       step1_2: "Au suivant"
     show_ride:
