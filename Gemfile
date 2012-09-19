@@ -40,10 +40,11 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.1'
+gem 'thin'
 
 group :development do
-  gem 'thin' # use thin web-server instead of webrick
+  gem 'web_translate_it'
   gem 'hirb'
   gem 'capistrano-ext'
   gem 'capistrano'

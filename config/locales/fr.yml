@@ -1,0 +1,420 @@
+fr:
+  activerecord:
+    models:
+      male: homme
+      female: femme
+      user: Utilisateur
+    attributes:
+      comment:
+        body: Commentaire
+      trip:
+        from: "En provenance de"
+        to: Vers
+        hitchhikes: "Nombre d'étapes"
+        departure: Départ
+        arrival: Arrivée
+        duration: Durée
+        travelling_with: "Avec qui?"
+        distance: "Distance parcouru"
+        gmaps_duration: "Durée Gmaps"
+      ride:
+        experience: Expérience
+        duration: "Temps de conduite (heures)"
+        waiting_time: "Temps d'attente (minutes)"
+        photo: Photos
+        gender: "Sexe des passagers"
+      user:
+        cs_user: "Pseudonyme CouchSurfing"
+        username: Pseudonyme
+        email: Courriel
+        password: "Mot de passe"
+        password_confirmation: "Mot de passe (confirmation)"
+        gender: Sexe
+        about_you: "À propos de toi"
+  meta:
+    description: |
+        Un site web où noter et raconter les voyages à pouce.
+        Il produit des statistiques à propos de l'autostop dans des differents pays et donne une vue d'ensemble sur les éxperiences d'un stoppeur.
+  flash:
+    trips:
+      create_comment:
+        alert: "L'enregistrement du commentaire a échoué!"
+        comment_saved: "Ton commentaire a été enregistré, merci!"
+    users:
+      update:
+        error: "La mise à jour du profil a échoué!"
+        notice: "Ton profil a bien été mis à jour, merci!"
+      send_mail:
+        error: "Tu ne peux pas envoyer du courriel à toi-même!"
+      mail_sent:
+        notice: "Courriel envoyé à %{user}"
+      destroy:
+        success: "Au revoir! Ton compte est dès maintenant supprimé."
+        not_allowed: "Tu n'es pas autorisé à faire cela!"
+  helper:
+    time_faster: "%{time} moins"
+    time_slower: "%{time} plus"
+    overall_extremely_positive_experience: "Expérience globale : très positive"
+    overall_positive_experience: "Expérience globale : positive"
+    overall_neutral_experience: "Expérience globale : neutre"
+    overall_negative_experience: "Expérience globale : négative"
+    overall_extremely_negative_experience: "Expérience globale : très négative"
+    extremely_positive_experience: "une expérience extrémement positive"
+    positive_experience: "une expérience positive"
+    neutral_experience: "une expérience neutre"
+    negative_experience: "une expérience négative"
+    extremely_negative_experience: "une expérience extrémement négative"
+    no_results_for_this_route: "aucun résultat pour cet parcours"
+    unknown_distance: "distance incalculable"
+    about_person_image: "À propos des passagers"
+    photo: Photo
+    rides:
+      one: "%{count} Étape"
+      other: "%{count} Étapes"
+    photo_missing: "Il manque une phote, mets-une en ligne"
+    story: L'histoire
+    ride_has_story: "Trajet avec histoire"
+    add_story_image: "L'histoire de ce trajet"
+    story_missing: "Il manque une histoire, écris-une à propos de ce trajet"
+    male: homme
+    female: femme
+    male_hitchhiker: Stoppeur
+    female_hitchhiker: Stoppeuse
+    male_people: "passagers hommes"
+    female_people: "passagers femmes"
+    mixed_people: "passagers hommes et femmes"
+    gmaps_duration: "Duration selon Google Maps %{duration}"
+    trip_duration: "Duration du voyage %{duration}"
+    add_information: "Ajouter des infos sur ce trajet"
+    add_information_to_hitchhike: "Ajouter des infos sur ce trajet"
+    delete_hitchhike: "Effacer voyage"
+    delete_trip: "Effacer trajet"
+    one_person_hitchhike: "La pouce toute seule"
+    two_people_hitchhike: "La pouce à deux"
+    three_people_hitchhike: "La pouce à trois"
+    more_than_three_people_hitchhike: "La pouce à plusieurs"
+    driving_time: "%{time} temps de conduite"
+    driving_time_missing: "Il manque le temps de conduite"
+    waiting_time: "%{time} temps d'attente"
+    waiting_time_without_time: "temps d'attente"
+    waiting_time_missing: "Il manque le temps d'attente"
+    faster_than_gmaps: "moins que prévoyait Google Maps"
+    hitchability: "Pouce-abilité (Duration par Google / Duration réelle)"
+    slower_than_gmaps: "plus que prévoyait Google Maps"
+    trip:
+      alone: "toute seul(e)"
+      with_1: "1 personne"
+      with_2: "2 personnes"
+      with_3: "3 personnes"
+      with_4: "4 personnes"
+      with_more_than_4: "avec plus que 4 personnes"
+  general:
+    time_ago: "il y a %{time}"
+    or: ou
+    supports_markdown: "soutien de markdown"
+    male: homme
+    female: femme
+    mixed: "homme et femme"
+    extremely_positive: "extrèmement positive"
+    positive: positive
+    neutral: neutre
+    negative: négative
+    extremely_negative: "extrèmement négative"
+    confirm: "T'es sûr?"
+    slogan: "Un journal d'auto-stoppeur."
+  shared:
+    navigation:
+      your_profile: "Ton Profil"
+      about: "À propos"
+      blog: Blogue
+      trips: Voyages
+      hitchhikers: "Autostoppeur/euse"
+      language: Langue
+      english: Anglais
+      german: Allemand
+    last_sign_in:
+      last_sign_in: "Dernière connexion il y a %{time}"
+      in: à
+    banners_in_corners:
+      fork_me_on_github: "Fork-moi sur Github"
+    sign_in_and_out:
+      sign_out: "Se déconnecter"
+      sign_up: S'inscrire
+      sign_in: "Se connecter"
+    nearby_hitchhikers:
+      nearby_hitchhikers: "Stoppeurs à proximité"
+      last_login_in: "dernière connexion à"
+  welcome:
+    home:
+      share_and_keep_track: "Partage tes expériences de la pouce"
+      countries_logged: "Pays visités à la pouce"
+      sign_in_with_facebook: "Se connecter avec Facebook"
+      newest_hh_stories: "Dernières histoires de l'auto-stop"
+      newest_hitchhikers: "Stoppeurs récemments inscrits"
+      logged: "%{trips_size} voyages notées"
+      sign_up: S'inscrire
+      sign_in: "Se connecter"
+      newest_hitchhiking_trips: "Dernières voyages à la pouce notées"
+      find_hitchlog_on: "Trouver Hitchlog sur"
+      more_trips: "Voir encore de voyages"
+      more_stories: "Lire encore d'histoires"
+      hitchhiked_by_user: "poucé il y a %{time} par %{user}"
+      by: par
+      more_hitchhikers: "Faire la connaissance d'autres stoppeurs et stoppeuses"
+      text1: |
+          Le Hitchlog aide le stoppeur à faire noter leurs expériences de l'auto-stop
+          et donne une vue d'ensemble authentique sur 'la Pouce', sans parti pris
+          dès sa mauvaise réputation, comme répandue dans les films et les médias.
+          Hitchlog veut faire du monde un endroit plus acceuilant au stoppeur.
+
+          <a href='/trips/new'>Notes tes expériences du stop ici</a>
+          pour que ton Hitchlog puisse dépeindre le stop d'une façon plus vraie.
+      text2: |
+          Tes données formera ton profil personnel de stoppeur, en te donnant les
+          infos sur:  <br/>
+          Tes kilométres voyagés, tes éxperiences, soit positives, soit négatives, tes
+          temps moyens d'attente, tes trajets les plus longs, les plus vites, l'ensemble
+          des pays visités, et encore plus  <br />
+          Si t'as fait le stop, t'es le bienvenu(e) de venir
+          <a href="/trips/new">partager tes expériences avec nous</a>.
+          Avec les infos qu tu mets ici, tu deviendras partie du projet.
+      text3: |
+          Le 'camembert' ci-dessous réprésente les pays déjà enrégistrés
+          par les stoppeurs dans le Hitchlog.
+      login_with_facebook: "Se connecter avec Facebook"
+  facebook:
+    login_with_facebook: "Se connecter avec Facebook"
+  back: retour
+  edit: "mettre à jour"
+  users:
+    send_mail:
+      message_placeholder: Message
+      title: "Envoyer un message à %{user}"
+      send_mail: "Envoyer un courriel"
+      send_a_mail_to: "Send Message to %{user}"
+      mail_text: |
+          Une fois ton message sera envoyé, %{username} recevra un courriel avec ton addresse
+          dans le champ 'de'. <br/>Comme %{username} peut te répondre direct par courriel.
+    right_column:
+      cars_seen_from_inside: "No. de voitures vues de l'intérieur"
+      average_drivers_age: "Age moyenne de conducteur"
+      hitchhiked_countries: "Pays visités à la pouce"
+      hitchhiked_kms: "Kms parcourues à la pouce"
+      average_waiting_time: "Temps moyen d'attente"
+      kms_hitchhiked: "Kms parcourues à la pouce"
+      waiting_time_per_ride: "Temps moyen d'attente"
+      written_stories: "Histoires écrits"
+      cs_user: "Pseudonyme CouchSurfing"
+      uploaded_photos: "Photos mises en ligne"
+      statistics: Statistique
+      send_mail: "Envoyer un courriel"
+    show:
+      alone: "toute seul(e)"
+      gender_of_drivers: "Sexe des passagers"
+      with_two: "en couple"
+      with_three: "avec deux autres"
+      with_four: "avec trois autres"
+      log_your_first_trip: "Faire noter ton premier voyage"
+      log_new_trip: "Faire noter un nouveau voyage"
+      edit: "Mettre à jour"
+      delete: Effacer
+      about: "À propos de"
+      trip:
+        one: "1 Voyage"
+        other: "%{count} Voyages"
+      title: Utilisateur
+      ride:
+        one: "#{count} Étape"
+        other: "#{count} Étapes"
+      experiences: expériences
+    edit:
+      edit_profile: "Mettre le profil à jour"
+      your_avatar: "Choisir son avatar"
+      your_avatar_is_from_facebook: "Comme tu t'es inscrit avec Facebook, ta photo de profil est celle de ton profil Facebook.\n"
+      hitchlog_supports_gravatar_and_facebook_image: |
+          Si tu t'inscris avec Facebook, Hitchlog
+          prendra ta photo de profil Facebook, sinon
+          il se servira de  <a href='http://gravatar.com'>Gravatar</a>.<br/>
+          Si tu souhaites utiliser ta propre photo, mettes-la sur <a href='http://gravatar.com'>gravatar.com</a>
+          ou bien t'inscris avec ton compte Facebook.
+    index:
+      hitchhikers: "Stoppeurs et Stoppeuses"
+      title: Utilisateurs
+      username: Pseudonyme
+      last_sign_in: "Dernière Connexion"
+      search: Rechercher
+      sort_by: "Trier par"
+    user:
+      statistics: Statistique
+      kilometers_hitchhiked: "Kms parcourues à la pouce"
+      hitchhiked_countries: "Pays visités à la pouce"
+      cars_seen_from_inside_while_hitchhiking: "No. de voitures vues de l'intérieur"
+      gender: Sexe
+      logged_trips: "%{trips_size} voyages notées"
+      trips: Voyages
+  hours:
+    one: "1 heure"
+    other: "%{count} heures"
+  hours_with_minutes:
+    one: "%{count} heure et %{minutes} minutes"
+    other: "%{count} heures et %{minutes} minutes"
+  minutes_without_hours:
+    one: "%{count} minute"
+    other: "%{count} minutes"
+  rides:
+    crop:
+      crop_the_photo: "Rogner la photo"
+      crop: Rogner
+    ride:
+      delete_image: "Supprimer la photo"
+      title_required: Titre
+      story_required: L'histoire
+  hitchslider:
+    user_hitchhiked_text: "Il y a %{time}, %{user} a parcouru <b><span id='trip_distance_display'>%{distance}</span></b> à pouce, de <b>%{from}</b> à <b>%{to}</b> avec %{rides_size} differents conducteurs."
+    it_took_text: "Ça a pris <b>%{time}</b> à faire ce voyage."
+    google_maps_text: "Google maps prévoit <b>%{gmaps_duration}</b> pour conduire cet parcours, alors %{user} a pris <b>%{gmaps_difference}</b>. \n"
+    time_ago: "avant %{time}"
+    caption: "Titre :"
+  trips:
+    index:
+      latest_hitchhiking_trips: "Voyages à la pouce"
+      log_new_trip: "Faire noter un nouveau voyage"
+      to_log_a_new_hitchhiking_trip: "pour noter un nouveau voyage à la pouce."
+      choose_a_country: "Sélectionner un pays"
+    search_interface:
+      select_experience: "Sélectionner expérience"
+      select_gender: "Sélectionner sexe"
+      sort_by: "Trier par"
+      photo: Photo
+      select_country: "Sélectionner un pays"
+      search: Rechercher
+      story: L'histoire
+    edit:
+      edit_title: "Mettre le voyage à jour"
+      hitchhiked: Parcouru
+      from: "En provenance de"
+      to: À
+      add_story: "Ajouter / Modifier histoire"
+      hitchability_factor: "Score de Pouce-abilité"
+      it_took_you_longer: "Tu as pris %{hours} de plus qu'un trajet direct."
+      you_were_faster: "Tu as pris %{hours} moins qu'un trajet direct."
+    list:
+      no_trips_logged: "Aucun voyage noté"
+      read_on: "(en lire plus)"
+      countries: Pays
+      rides: Trajets
+      by: par
+      date: "Date Parcouru"
+      icons: Icônes
+      start: "il y a %{time}"
+    show:
+      title: "À la pouce de %{from_city} à %{to_city}"
+    comments:
+      there_are_no_comments: "Il n'y a aucun commentaire sur cette voyage à présent"
+      user_wrote: "Il y a %{time}, %{user} a écrit:"
+    trip:
+      edit_trip: "(Modifier Voyage)"
+      ride: Étape
+      gmaps_duration: "Duration prévu par Gmaps"
+      time_ago: "il y a %{time}"
+      log_in: "Se connecter"
+      or: ou
+      register: S'inscrire
+      add_comment: "Ajouter un commentaire"
+      to_comment: "pour donner son avis sur cette voyage"
+    form:
+      step1_2: "Au suivant"
+    show_ride:
+      ride: Étape
+    new:
+      log_your_trip_please: "Notes ici ton voyage en auto-stop, s.t.p.! :)"
+      new_trip_description: |
+          Un voyage, c'est un voyage en auto-stop <b>d'une ville à l'autre</b>, normalement pendant une journée.  Pour les voyages plus longs, tu peux continuer
+          plus tard. Comme ça tu pourras voir les points de cheminement sur la carte.
+  datetime:
+    time_ago: "Il y a %{time_ago_in_words}"
+    distance_in_words:
+      half_a_minute: "30 secondes"
+      less_than_x_seconds:
+        one: Maintenant
+        other: Maintenant
+      x_seconds: Maintenant
+      less_than_x_minutes:
+        one: Maintenant
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "environ 1 heure"
+        other: "environ %{count} heures\n"
+      x_days:
+        one: "1 jour"
+        other: "%{count} jours"
+      about_x_months:
+        one: "environ 1 mois"
+        other: "environ %{count} months"
+      x_months:
+        one: "1 mois"
+        other: "%{count} mois"
+      about_x_years:
+        one: "environ 1 an"
+        other: "environ %{count} ans"
+      over_x_years:
+        one: "plus qu'un an"
+        other: "plus que %{count} ans"
+  will_paginate:
+    previous_label: "&#8592; Précédent"
+    next_label: "Suivant &#8594;"
+    page_gap: "&hellip"
+    page_entries_info:
+      single_page:
+        one: ~
+        other: ~
+      single_page_html:
+        one: ~
+        other: ~
+      multi_page: ~
+      multi_page_html: ~
+  errors:
+    messages:
+      not_found: "Fichier introuvable"
+      already_confirmed: "a déjà été confirmé"
+      not_locked: "n'a pas été bloqué"
+  devise:
+    failure:
+      unauthenticated: "Tu dois te connecter ou t'inscrire pour continuer."
+      unconfirmed: "Tu dois valider ton compte pour continuer."
+      locked: "Ton compte est bloqué."
+      invalid: "Pseudo ou mot de passe invalide."
+      invalid_token: "Validation incorrecte."
+      timeout: "Ton session n'est plus en cours, reconnecte-toi pour continuer s.t.p."
+      inactive: "Ton compte n'est pas encore activé."
+    sessions:
+      new:
+        sign_in: "Se connecter"
+        login_using_normal_font: "Se connecter en utilisant la fiche standard."
+    passwords:
+      send_instructions: "Dans quelques minutes, tu vas recevoir un courriel avec des instructions pour réinitialiser ton mot de passe."
+      updated: "Ton mot de passe a bien été modifié. Tu es maintenant connecté(e)."
+    confirmations:
+      send_instructions: "Tu vas vite recevoir par courriel les démarches nécessaires pour confirmer ton compte."
+      confirmed: "Ton compte a été confirmé. Tu es maintenant connecté(e)."
+    registrations:
+      signed_up: "Bienvenue à bord!"
+      new:
+        use_the_normal_form: "Utilise la fiche standard"
+        create_a_hitchlog_account: "Créer son compte Hitchlog"
+        sign_up: S'inscrire
+      updated: "Tu as bien mis à jour ton compte."
+      destroyed: "Au revoir! Ton compte a bien été supprimé. Nous espérons te revoir bientôt."
+    unlocks:
+      send_instructions: "Tu vas vite recevoir par courriel les démarches nécessaires pour débloquer ton compte."
+      unlocked: "Ton compte est dès maintenant débloqué, et tu es de nouveau connecté (e)."
+    mailer:
+      confirmation_instructions:
+        subject: "Démarches pour confirmer le compte"
+      reset_password_instructions:
+        subject: "Démarches pour réinitialiser le mot de passe"
+      unlock_instructions:
+        subject: "Démarches pour débloquer le compte"

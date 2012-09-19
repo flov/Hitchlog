@@ -9,7 +9,7 @@
       .dropped-down-container
         .dropped-down
           %ul
-            - [:en, :de].each do |locale|
+            - [:en, :de, :fr].each do |locale|
               %li
                 = link_to url_for(:locale => locale) do
                   = image_tag "language/#{locale}.png"
