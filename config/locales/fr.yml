@@ -124,13 +124,13 @@ fr:
     slogan: "Un journal d'auto-stoppeur."
   shared:
     navigation:
-      log_new_trip: ~
-      edit_profile: ~
+      log_new_trip: "Noter un nouveau voyage"
+      edit_profile: "Modifier profil"
       your_profile: "Ton Profil"
       about: "À propos"
-      blog: Blogue
+      blog: Blog
       trips: Voyages
-      hitchhikers: "Autostoppeur/euse"
+      hitchhikers: Autostoppeurs
       language: Langue
       english: Anglais
       german: Allemand
@@ -148,7 +148,7 @@ fr:
       last_login_in: "dernière connexion à"
   welcome:
     home:
-      share_and_keep_track: "Partage tes expériences de la pouce"
+      share_and_keep_track: "Partage tes expériences d'auto-stop"
       countries_logged: "Pays visités à la pouce"
       sign_in_with_facebook: "Se connecter avec Facebook"
       newest_hh_stories: "Dernières histoires de l'auto-stop"
@@ -160,7 +160,7 @@ fr:
       find_hitchlog_on: "Trouver Hitchlog sur"
       more_trips: "Voir encore de voyages"
       more_stories: "Lire encore d'histoires"
-      hitchhiked_by_user: "poucé il y a %{time} par %{user}"
+      hitchhiked_by_user: "parcouru il y a %{time} par %{user}"
       by: par
       more_hitchhikers: "Faire la connaissance d'autres stoppeurs et stoppeuses"
       text1: |
@@ -174,12 +174,12 @@ fr:
       text2: |
           Tes données formera ton profil personnel de stoppeur, en te donnant les
           infos sur:  <br/>
-          Tes kilométres voyagés, tes éxperiences, soit positives, soit négatives, tes
+          Tes kilométres voyagés, tes experiences, soit positives, soit négatives, tes
           temps moyens d'attente, tes trajets les plus longs, les plus vites, l'ensemble
           des pays visités, et encore plus  <br />
           Si t'as fait le stop, t'es le bienvenu(e) de venir
           <a href="/trips/new">partager tes expériences avec nous</a>.
-          Avec les infos qu tu mets ici, tu deviendras partie du projet.
+          Avec les infos que tu mets ici, tu deviendras partie du projet.
       text3: |
           Le 'camembert' ci-dessous réprésente les pays déjà enrégistrés
           par les stoppeurs dans le Hitchlog.
@@ -272,13 +272,13 @@ fr:
       title_required: Titre
       story_required: L'histoire
   hitchslider:
-    user_hitchhiked_text: "Il y a %{time}, %{user} a parcouru <b><span id='trip_distance_display'>%{distance}</span></b> à pouce, de <b>%{from}</b> à <b>%{to}</b> avec %{rides_size} differents conducteurs."
+    user_hitchhiked_text: "Il y a %{time}, %{user} a parcouru <b><span id='trip_distance_display'>%{distance}</span></b> à la pouce, de <b>%{from}</b> à <b>%{to}</b> avec %{rides_size} differents conducteurs."
     it_took_text: "Ça a pris <b>%{time}</b> à faire ce voyage."
     google_maps_text: "Google maps prévoit <b>%{gmaps_duration}</b> pour conduire cet parcours, alors %{user} a pris <b>%{gmaps_difference}</b>. \n"
     time_ago: "avant %{time}"
     caption: "Titre :"
-    comments: ~
-    user_wrote: ~
+    comments: "Commentaires :"
+    user_wrote: "%{user} a écrit"
   trips:
     index:
       latest_hitchhiking_trips: "Voyages à la pouce"
@@ -322,10 +322,10 @@ fr:
       gmaps_duration: "Duration prévu par Gmaps"
       time_ago: "il y a %{time}"
     add_comment:
-      register: ~
-      log_in: ~
-      add_comment: ~
-      to_comment: ~
+      register: s'inscrire
+      log_in: "Se connecter"
+      add_comment: "Ajouter un commentaire"
+      to_comment: "pour faire un commentaire sur ce voyage"
     form:
       step1_2: "Au suivant"
     show_ride:
@@ -373,13 +373,15 @@ fr:
     page_gap: "&hellip"
     page_entries_info:
       single_page:
-        one: ~
-        other: ~
+        one: "Commentaire 1 %{model}"
+        other: "Tous le commentaires %{count}%{model}"
+        zero: "Aucun %{model} trouvé"
       single_page_html:
-        one: ~
-        other: ~
-      multi_page: ~
-      multi_page_html: ~
+        one: "Commentaire <b>1</b> %{model}"
+        other: "Commentaires <b>all&nbsp;%{count}</b> %{model}"
+        zero: "Aucun %{model} trouvé"
+      multi_page: "Commentaires %{model} %{from} - %{to} de  %{count}"
+      multi_page_html: "Commentaires %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>  de <b>%{count}</b>."
   errors:
     messages:
       not_found: "Fichier introuvable"
