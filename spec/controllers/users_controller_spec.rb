@@ -14,14 +14,15 @@ describe UsersController do
 
   describe "#mail_sent" do
     let(:action) { post :mail_sent, id: 'flov', message_body: 'text' }
-    let(:current_user) { double('user',
+    let(:current_user) { double('user1',
+                                username: 'flov',
                                 to_param: 'flov',
                                 email: 'flov@hitchlog.com') }
-    let(:mail_to_user) { double('user',
+    let(:mail_to_user) { double('user2',
                                 'attributes=' => '',
                                 username: 'Malte',
-                                email: 'malte@tramprennen.org',
-                                to_param: 'malte') }
+                                to_param: 'malte',
+                                email: 'malte@tramprennen.org') }
     let(:user_mailer) { double('UserMailer') }
 
     it_blocks_unauthenticated_access
@@ -46,7 +47,7 @@ describe UsersController do
 
       action
 
-      response.should redirect_to("/en/hitchhikers/malte")
+      response.should redirect_to(user_path(mail_to_user))
     end
   end
 
