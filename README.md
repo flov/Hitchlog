@@ -7,8 +7,9 @@ direct interaction and many more things. On top of it it's free and
 heaps of fun (**yay**)
 
 For a person who has never hitchhiked, hitchhiking might seem weird,
-dangerous or short-minded. To change this image, the
-Hitchlog gathers actual hitchhiking experiences and paints an authentic
+dangerous or short-minded. The 
+Hitchlog aims at changing this image by gathering data of actual hitchhiking
+experiences which paints an authentic, real
 picture about what Hitchhiking is actually like. 
 
 Contribution

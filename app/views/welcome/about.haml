@@ -2,20 +2,38 @@
 
 .about
   %h1 About
-
   %p
-    The Hitchlog helps hitchhiker to log their hitchhiking experience and gives
-    an authentic view on hitchhiking untouched of it's bad reputation that is
-    spread by public media/movies and tries to make the world a more
+    Hitchhiking is an awesome way of traveling!
+    <br/>
+    Other than getting from A to B, hitchhiking is a lot more than just a way
+    of getting from A to B. Hitchhiking enables the traveler to have an eventful
+    journey, to shake hands with interesting and generous drivers and to learn
+    and experience the diversity of our society along the way.
+  %p
+    To a person who has never hitchhiked before, hitchhiking might seem weird,
+    dangerous or short-minded. The Hitchlog aims at changing this image by
+    gathering data of actual hitchhiking experiences by real hitchhikers,
+    which, in the end, will paint an authentic picture about what Hitchhiking
+    is actually like.
+    A picture that is untouched of it's bad reputation which is
+    spread by public media/movies
+  %p
+    The Hitchlog tries to make the world a more
     hitchhiker friendly place.
   %p
-    The information that is entered by hitchhikers (waiting time, stories,
-    routes) generates statistics data like the average waiting time, the
+    The information that is entered by hitchhikers,
+    generates statistical data like the average waiting time, the
     longest/shortest ride of a user, the total number of kilometers hitchhiked
     by a user in for example Mexico, etc...
+
+  %h2 Contributors
   %p
-    Stories can be attached to rides so that rides become like blog entries
-    telling a bit about the situation, the person and the ride.
+    The Hitchlog wouldn't be what it is today with the help of Benjamin
+    Mceldowney <bpm501@york.ac.uk> who helped translating this page into the
+    french language.
+  %p
+    = link_to 'Florian Vallen', user_path('flov')
+    is developing and maintaining the site.
 
   %h2 Friends:
   .about-paragraph
@@ -43,11 +61,6 @@
       Just like Wikipedia, Hitchwiki is a wiki but for hitchhiking.
       Hitchhikers from all around the world share tips and information all around hitchhiking.
       It helped many hitchhikers to find a good spot to leave the city and is really useful.
-  .about-paragraph
-    %h3 Euroadtrip
-    %p
-      Just like Tramprennen, Euroadtrip is hitchhiking in a big group from Istanbul to Berlin,
-      check it out on <a href='http://www.euroadtrip2012.org'>Euroadtrip2012.org</a>.
 
   .about-paragraph
     .float_left.contributer_picture
@@ -61,8 +74,6 @@
       we can give away that is representable for our culture.
 
 
-
-
   %h2 Contribute
   .float_right
     =image_tag 'open-source.png'
@@ -72,8 +83,11 @@
     telling some stories is already really helpful. You can also spread the
     word by telling your fellow hitchhiking friends about the site. 
   %p
-    #{link_to "Florian", user_path(id: @flov)} is developing this application all on his onw
-    and he is searching for coders who are willing to contribute to the codebase of the project.
+    At the moment #{link_to "Florian", user_path('flov')} is developing and
+    maintaining this application. He is always on the lookout for other
+    developers who would like to get involved. Also he gets very happy if
+    someone shoots him a mail, telling him that he likes the idea of the Hitchlog.
+    %br/
     The application is completely open-source and available on 
     <a href='http://github.com/flov/Hitchlog'>Github</a>
 
@@ -99,9 +113,10 @@
       Log Hitchhiking Trips
 
   %p
-    If you have some valuable, constructive feedback or if you want to help
-    to build the Hitchlog, get in touch by sending 
-    #{link_to 'Florian', user_path(id: @flov)} an email:
+    If you would like to give some feedback, help or if you just want to say
+    hello, please get in touch by sending 
+    #{link_to 'Florian', user_path('flov')}
+    an email:
     %br/
     florian@hitchlog.com
 
