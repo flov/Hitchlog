@@ -45,7 +45,8 @@ describe TripsController do
   end
 
   describe '#edit' do
-    let(:trip)   { double('trip') }
+    let(:current_user) { double('user') }
+    let(:trip)   { double('trip', user: current_user, rides: [] ) }
     let(:action) { get :edit, id: 1 }
 
     before do
@@ -53,6 +54,14 @@ describe TripsController do
     end
 
     it_blocks_unauthenticated_access
+
+    it 'renders the edit view' do
+      sign_in :user, current_user
+
+      action
+
+      response.should render_template(:edit)
+    end
   end
 
   describe '#create_comment' do
