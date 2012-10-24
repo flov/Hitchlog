@@ -1,8 +1,10 @@
 Feature: Edit user
-  As a user I want to be able to edit my profile
+  In order to maintain the profiles
+  As a user
+  I want to be able to edit my profile
 
   Background:
-    Given a hitchhiker 
+    Given a hitchhiker
       And I am logged in
 
   Scenario: 
