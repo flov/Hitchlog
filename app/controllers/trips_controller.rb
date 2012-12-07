@@ -37,7 +37,6 @@ class TripsController < ApplicationController
   end
 
   def update
-    trip = Trip.find(params[:id])
     if trip.update_attributes(params[:trip])
       respond_to do |wants|
         wants.html { redirect_to edit_trip_path(trip) }

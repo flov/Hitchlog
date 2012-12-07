@@ -20,7 +20,8 @@ describe UsersController do
     let(:mail_to_user) { double('user',
                                 'attributes=' => '',
                                 username: 'Malte',
-                                email: 'malte@tramprennen.org') }
+                                email: 'malte@tramprennen.org',
+                                to_param: 'malte') }
     let(:user_mailer) { double('UserMailer') }
 
     it_blocks_unauthenticated_access
@@ -39,10 +40,13 @@ describe UsersController do
       action
     end
 
-    it "redirects to the trips index" do
+    it "redirects to the hitchhikers page" do
+      user_mailer.stub(deliver: true)
+      UserMailer.stub(:mail_to_user).and_return(user_mailer)
+
       action
 
-      response.should redirect_to("/en/hitchhikers/flov")
+      response.should redirect_to("/en/hitchhikers/malte")
     end
   end
 
