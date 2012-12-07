@@ -53,14 +53,6 @@ describe TripsController do
     end
 
     it_blocks_unauthenticated_access
-
-    it 'renders the edit view' do
-      sign_in :user, double(:user)
-
-      action
-
-      response.should render_template(:edit)
-    end
   end
 
   describe '#create_comment' do
