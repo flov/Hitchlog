@@ -24,7 +24,11 @@ class RidesController < ApplicationController
       render :edit
     end
   end
-  
+
+  def show
+    @ride = Ride.find(params[:id])
+  end
+
   def update
     if ride.update_attributes(params[:ride])
       if params[:ride][:photo].blank?
@@ -45,5 +49,33 @@ class RidesController < ApplicationController
       flash[:alert] = "You are not allowed to do that!"
     end
     redirect_to edit_trip_path(ride.trip)
+  end
+
+  def next
+    @ride = Ride.where('photo_file_name is not null')
+                .where("id > #{params[:id].to_i}")
+                .order(:id).first
+
+    if @ride.nil?
+      @ride = Ride.where('photo_file_name is not null').order(:id).first
+    end
+
+    respond_to do |format|
+      format.json { render "rides/show", formats: [:json]}
+    end
+  end
+
+  def prev
+    @ride = Ride.where('photo_file_name is not null')
+                .where("id < #{params[:id].to_i}")
+                .order(:id).last
+
+    if @ride.nil?
+      @ride = Ride.where('photo_file_name is not null').order(:id).last
+    end
+
+    respond_to do |format|
+      format.json { render "rides/show", formats: [:json] }
+    end
   end
 end

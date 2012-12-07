@@ -1,6 +1,6 @@
 %p
   = t('hitchslider.user_hitchhiked_text', user: link_to(ride.trip.user.to_s, user_path(ride.trip.user)),
-                                          time: (ride.trip.departure ? time_ago_in_words(ride.trip.departure) : nil),
+                                          time: (ride.trip.departure ? time_ago_in_words(ride.trip.departure).capitalize : nil),
                                           distance: distance(ride.trip.distance),
                                           from: ride.trip.from,
                                           to: ride.trip.to,
