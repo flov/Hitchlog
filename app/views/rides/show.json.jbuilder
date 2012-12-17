@@ -11,4 +11,4 @@ json.story             @ride.markdown_story
 json.comments          render 'rides/hitchslider/comments', comments: @ride.trip.comments
 json.add_comment       render 'trips/add_comment', trip: @ride.trip
 json.next_link         next_ride_path(id: @ride.to_param)
-json.prev_link         next_ride_path(id: @ride.to_param)
+json.prev_link         prev_ride_path(id: @ride.to_param)
