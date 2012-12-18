@@ -5,8 +5,6 @@ class MoveSignInAddaressData < ActiveRecord::Migration
       sign_in_address.user.update_column(:country, sign_in_address.country)
       sign_in_address.user.update_column(:country_code, sign_in_address.country_code)
     end
-
-    drop_table :sign_in_addresses
   end
 
   def down
