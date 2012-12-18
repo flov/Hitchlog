@@ -82,8 +82,8 @@ describe User do
     end
 
     it "should geocode ip" do
-      user.sign_in_lat.should == 40.728
-      user.sign_in_lng.should == -73.9453
+      user.lat.should == 40.728
+      user.lng.should == -73.9453
     end
 
     it "should geocode address" do
