@@ -127,3 +127,17 @@ Then /^I should see Wow! in the comments dialog$/ do
   page.find("#comments").should have_content('Wow!')
 end
 
+Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
+  trip = FactoryGirl.create(:trip, from: from, to: to)
+  ride = trip.rides.first
+  ride.photo = File.open("#{Rails.root}/features/support/images/thumb.png")
+  ride.save
+end
+
+Then /^I should see the trip from "([^"]*)" to "([^"]*)" in the hitchslide$/ do |from, to|
+  page.find("#hitchslide").should have_content("from #{from} to #{to}")
+end
+
+When /^I click on the next button$/ do
+  click_link("Next")
+end

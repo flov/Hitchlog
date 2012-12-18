@@ -1,41 +1,42 @@
 - ride = Ride.where("photo_file_name is not null").sample
-.hitchslide#hitchslide
-  .hitchslide_left
-    .hitchslider#hitchslider
-      #hitchslider_loader
-      .hitchslider_image#hitchslider_image
-        = link_to trip_path(ride.trip) do
-          = image_tag(ride.photo.url(:cropped))
+- unless ride.nil?
+  .hitchslide#hitchslide
+    .hitchslide_left
+      .hitchslider#hitchslider
+        #hitchslider_loader
+        .hitchslider_image#hitchslider_image
+          = link_to trip_path(ride.trip) do
+            = image_tag(ride.photo.url(:cropped))
 
-      .hitchslider_directionNav
-        =link_to 'Prev', prev_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
-        =link_to 'Next', next_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
+        .hitchslider_directionNav
+          =link_to 'Prev', prev_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_prevNav', id: 'hitchslider_prevNav'
+          =link_to 'Next', next_ride_path(id: ride.to_param), remote: true, class: 'hitchslider_nextNav', id: 'hitchslider_nextNav'
 
-  .hitchslide_map#hitchslider_map
-  .story_wrapper
-    .hitchslider_story
-      - unless ride.story.blank?
-        %h2= link_to ride.title, trip_path(ride.trip)
-        = ride.markdown_story
+    .hitchslide_map#hitchslider_map
+    .story_wrapper
+      .hitchslider_story
+        - unless ride.story.blank?
+          %h2= link_to ride.title, trip_path(ride.trip)
+          = ride.markdown_story
 
-        = render 'rides/hitchslider/comments', comments: ride.trip.comments
+          = render 'rides/hitchslider/comments', comments: ride.trip.comments
 
-        = render 'trips/add_comment', trip: ride.trip
+          = render 'trips/add_comment', trip: ride.trip
 
-  .hitchslider_information#hitchslider_information
-    = hitchhiking_with_image(ride.trip.travelling_with)
-    = country_images_for_trip(ride.trip)
-    = experience_image(ride.experience)
-    = ride_has_story_image(ride)
+    .hitchslider_information#hitchslider_information
+      = hitchhiking_with_image(ride.trip.travelling_with)
+      = country_images_for_trip(ride.trip)
+      = experience_image(ride.experience)
+      = ride_has_story_image(ride)
 
-  .hitchslider_caption#hitchslider_caption
-    = render 'rides/hitchslider/caption', ride: ride
+    .hitchslider_caption#hitchslider_caption
+      = render 'rides/hitchslider/caption', ride: ride
 
-- content_for :javascript_at_bottom do
-  = google_maps_js
-  :javascript
-    var hitchslider_route = "#{escape_javascript(ride.trip.route)}"
-    var hitchslider_from  = "#{escape_javascript(ride.trip.from)}"
-    var hitchslider_to    = "#{escape_javascript(ride.trip.to)}"
+  - content_for :javascript_at_bottom do
+    = google_maps_js
+    :javascript
+      var hitchslider_route = "#{escape_javascript(ride.trip.route)}"
+      var hitchslider_from  = "#{escape_javascript(ride.trip.from)}"
+      var hitchslider_to    = "#{escape_javascript(ride.trip.to)}"
 
-    Hitchslider.init(hitchslider_route, hitchslider_from, hitchslider_to)
+      Hitchslider.init(hitchslider_route, hitchslider_from, hitchslider_to)
