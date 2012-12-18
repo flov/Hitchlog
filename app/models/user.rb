@@ -24,25 +24,19 @@ class User < ActiveRecord::Base
                        format: {with: /^[ A-Za-z\d_-]+$/}
 
   before_validation  :sanitize_username
-  before_save        :geocode_address, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
 
-  geocoded_by :current_sign_in_ip, latitude: :sign_in_lat, longitude: :sign_in_lng
+  geocoded_by :current_sign_in_ip, latitude: :lat, longitude: :lng
+  reverse_geocoded_by :lat, :lng do |obj,results|
+    if geo = results.first
+      obj.city         = geo.city
+      obj.country      = geo.country
+      obj.country_code = geo.country_code
+    end
+  end
+  after_validation :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
-  end
-
-  def geocode_address
-    if self.current_sign_in_ip && Rails.env != 'test'
-      if search = Geocoder.search(self.current_sign_in_ip).first
-        self.build_sign_in_address if self.sign_in_address.nil?
-        self.sign_in_address.country      = search.country
-        self.sign_in_address.country_code = search.country_code
-        self.sign_in_address.city         = search.city
-        self.sign_in_lat                  = search.latitude
-        self.sign_in_lng                  = search.longitude
-      end
-    end
   end
 
   def to_s
@@ -77,7 +71,20 @@ class User < ActiveRecord::Base
     hash
   end
 
+  def geocoded_address
+    if city.present? && country.present?
+      "#{city}, #{country}"
+    elsif country.present?
+      country
+    elsif city.present?
+      city
+    else
+      "Unknown"
+    end
+  end
+
   private
+
   def sanitize_username
     self.username.downcase
   end

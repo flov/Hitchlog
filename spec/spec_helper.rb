@@ -7,6 +7,9 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'database_cleaner'
 
+require 'vcr'
+require 'fakeweb'
+
 DatabaseCleaner.strategy = :truncation
 
 # Requires supporting ruby files with custom matchers and macros, etc,

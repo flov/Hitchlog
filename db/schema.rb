@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218054349) do
+ActiveRecord::Schema.define(:version => 20121218115000) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -104,15 +104,6 @@ ActiveRecord::Schema.define(:version => 20121218054349) do
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
 
-  create_table "sign_in_addresses", :force => true do |t|
-    t.string   "city"
-    t.string   "country_code"
-    t.string   "country"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "slugs", :force => true do |t|
     t.string   "name"
     t.integer  "sluggable_id"
@@ -180,6 +171,9 @@ ActiveRecord::Schema.define(:version => 20121218054349) do
     t.float    "lng"
     t.text     "about_you"
     t.string   "cs_user"
+    t.string   "city"
+    t.string   "country_code"
+    t.string   "country"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
