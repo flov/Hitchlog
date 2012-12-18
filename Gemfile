@@ -55,25 +55,24 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'guard-cucumber'
-  gem 'guard-spork'
   gem 'guard-bundler'
   gem 'livereload'
 end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'launchy', '~> 2.0.5' # to use save_and_open_page
+  gem 'launchy'
 end
 
 group :test do
   gem 'cucumber-rails', require: false
   gem 'pickle'
   gem 'database_cleaner'
-  gem 'spork', '0.9.0.rc9'
   gem 'factory_girl_rails'
   gem 'factory_girl_generator'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'faker'
   gem 'email_spec'
   gem 'rb-fsevent'
