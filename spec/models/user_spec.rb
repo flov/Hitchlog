@@ -65,10 +65,11 @@ describe User do
 
   describe "hitchhiked countries" do
     it "should return number of countries hitchhiked" do
-      pending('too slow')
       user.trips.first.from = "Berlin"
       user.trips.first.to   = "Amsterdam"
-      user.save!
+      VCR.use_cassette('hitchhiked_countries') do
+        user.save!
+      end
       user.hitchhiked_countries.should == 2
     end
   end
