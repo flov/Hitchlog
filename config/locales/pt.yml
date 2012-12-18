@@ -1,0 +1,438 @@
+pt:
+  activerecord:
+    models:
+      male: Masculino
+      female: Feminino
+      user: Utilizador
+    attributes:
+      comment:
+        body: Comentário
+      trip:
+        from: De
+        to: Até
+        hitchhikes: "Quantas boleias"
+        departure: Partida
+        arrival: Chegada
+        duration: Duração
+        travelling_with: "Viajando com"
+        distance: Distância
+        gmaps_duration: "Duração Gmap"
+        start: Partida
+        end: Chegada
+      ride:
+        experience: Experiência
+        duration: "Tempo de viagem (em horas)"
+        waiting_time: "Tempo de espera (em minutos)"
+        photo: Foto
+        gender: "Genero de passgeiro(s)"
+      user:
+        cs_user: "Membro CS"
+        username: "Nome de Utilizador"
+        email: "Correio Eletrónico"
+        password: Senha
+        password_confirmation: "Confirmação de senha"
+        gender: Sexo
+        about_you: "Sobre ti"
+  meta:
+    description: |
+        Um sítio para partilhar histórias de boleias.
+        Gera estatisticas sobre boleias em diferentes países e
+        faz um apanhado das experiências como mochileiro.
+  flash:
+    trips:
+      create_comment:
+        alert: "Falha a guardar o comentário!"
+        comment_saved: "Comentário guardado, obrigado!"
+    users:
+      update:
+        error: "Incapaz de editar o próprio perfil"
+        notice: "Perfil editado com sucesso"
+      send_mail:
+        error: "Não podes enviar um email para ti próprio"
+      mail_sent:
+        notice: "Correio enviado com sucesso para %{user}"
+      destroy:
+        success: "Adeus! A sua viagem foi apagada com sucesso!"
+        not_allowed: "Não tem permissão para fazer isso!"
+  helper:
+    time_faster: "%{time} mais rápido"
+    time_slower: "%{time} mais devagar"
+    overall_extremely_positive_experience: "Experiência geral: extremamente positiva"
+    overall_positive_experience: "Experiência geral: positiva"
+    overall_neutral_experience: "Experiência geral: neutra"
+    overall_negative_experience: "Experiência geral: negativa"
+    overall_extremely_negative_experience: "Experiência geral: extremamente negativa"
+    extremely_positive_experience: "experiência extremamente positiva"
+    positive_experience: "experiência positiva"
+    neutral_experience: "experiência neutra"
+    negative_experience: "experiência negativa"
+    extremely_negative_experience: "extremamente negativa experiência"
+    no_results_for_this_route: "Sem resultados para este endereço"
+    unknown_distance: "Distância desconhecida"
+    about_person_image: "Sobre os passageiros"
+    photo: Foto
+    rides:
+      one: "%{count} Boleia"
+      other: "%{count} Boleias"
+    photo_missing: "Falta a foto, carregue a foto"
+    story: História
+    ride_has_story: "Boleia como história"
+    add_story_image: "História para esta boleia"
+    story_missing: "Sem história, escreve um história sobre a boleia"
+    male: masculino
+    female: feminino
+    male_hitchhiker: "Mochileiro masculino"
+    female_hitchhiker: "Mochileiro feminino"
+    male_people: "passageiro(s) de sexo masculino"
+    female_people: "passageiro(s) de sexo feminino"
+    mixed_people: "passageiro(s) de ambos os sexos"
+    gmaps_duration: "Duração segundo o Google Maps %{duration}"
+    trip_duration: "Duração da viagem %{duration}"
+    add_information: "Adicionar informação à viagem"
+    add_information_to_hitchhike: "Adicionar informação à boleia"
+    delete_hitchhike: "Apagar boleia"
+    delete_trip: "Apagar viagem"
+    one_person_hitchhike: "Uma pessoa à boleia"
+    two_people_hitchhike: "Duas pessoas à boleia"
+    three_people_hitchhike: "Três pessoas à boleia"
+    more_than_three_people_hitchhike: "Mais que três pessoas à boleia"
+    driving_time: "%{time} tempo de viagem"
+    driving_time_missing: "Falta tempo de viagem"
+    waiting_time: "%{time} tempo de espera"
+    waiting_time_without_time: "tempo de espera"
+    waiting_time_missing: "Falta tempo de espera"
+    faster_than_gmaps: "mais rápido que o Google Maps"
+    hitchability: "Hitchability (Duração Gmaps / Duração da viagem)"
+    slower_than_gmaps: "Mais lento que o Google Maps"
+    trip:
+      alone: sozinho
+      with_1: "1 pessoa"
+      with_2: "2 pessoas"
+      with_3: "3 pessoas"
+      with_4: "4 pessoas"
+      with_more_than_4: "Mais de 4 pessoas"
+    him: ele
+    her: ela
+  general:
+    time_ago: "${time} atrás"
+    or: ou
+    supports_markdown: "suporta markdown"
+    male: masculino
+    female: feminino
+    mixed: misturado
+    extremely_positive: "extremamente positivo"
+    positive: positivo
+    neutral: neutro
+    negative: negativo
+    extremely_negative: "extremamente negativo"
+    confirm: "Tens a certeza?"
+    slogan: "Livro de registos de um hitchhiker"
+  shared:
+    navigation:
+      log_new_trip: "Registra uma nova viagem"
+      edit_profile: "Editar Perfil"
+      your_profile: "O teu Perfil"
+      about: Sobre
+      blog: Blog
+      trips: Viagens
+      hitchhikers: Hitchhikers
+      language: Linguagem
+      english: Inglês
+      german: Alemão
+    last_sign_in:
+      last_sign_in: "Visto à %{time}"
+      in: em
+      ago: atrás
+    banners_in_corners:
+      fork_me_on_github: "Faz fork do projeto no Github"
+    sign_in_and_out:
+      sign_out: Sair
+      sign_up: Resgitar
+      sign_in: Entrar
+    nearby_hitchhikers:
+      nearby_hitchhikers: "Hitchhikers próximos"
+      last_login_in: "Última entrada em"
+  welcome:
+    home:
+      share_and_keep_track: "Partilha as tuas experiências"
+      countries_logged: "Países registados"
+      sign_in_with_facebook: "Entra com o Facebook"
+      newest_hh_stories: "Histórias de boleias mais recentes"
+      newest_hitchhikers: "Novos hitchhikers"
+      logged: "Registadas %{trips_size} viagens"
+      sign_up: Registar
+      sign_in: Entrar
+      newest_hitchhiking_trips: "Novas boleias"
+      find_hitchlog_on: "Encontra o registo de boleias em"
+      more_trips: "Ver mais viagens"
+      more_stories: "Lê mais histórias"
+      hitchhiked_by_user: "Viajado hà %{time} pelo %{user}"
+      by: por
+      more_hitchhikers: "Conhece mais mochileiros"
+      text1: |
+          O Hitchlog ajuda viajantes a registar as suas boleias e a passar uma visão
+          autêntica do que é a boleia, ao contrário da má reputação criada pela
+          comunicação social/filmes. Tenta fazer do mundo um local amigável para
+          a prática de pedir boleia.
+
+          <a href='/trips/new'>Regista as tuas experiências à boleia</a>
+          e o Hitchlog pinta uma imagem sobre o que a cultura de apanhar boleia
+          é na actualidade.
+      text2: |
+          A tua informação criará o teu perfil de viajante à boleia. Dando-te
+          iformação sobre: <br/>
+          Os teus kms à boleia, experiências positivas e negativas, os tempos médios de espera,
+          as tuas vijens mais longas/rápidas, os países por onde andaste, entre outras. <br />
+          Se alguma vez andas-te à boleia, estás convidado a
+          <a href="/trips/new">partilhar a tua experiência conosco</a>.
+          Com a informação introduzida farás parte do projecto.
+      text3: |
+          O gráfico que se segue, consiste dos países registados pelos
+          viajantes do Hitchlog.
+      login_with_facebook: "Entrar pelo Facebook"
+  facebook:
+    login_with_facebook: "Entra com o Facebook"
+  back: Voltar
+  edit: Editar
+  users:
+    send_mail:
+      message_placeholder: Mensagem
+      title: "Envia mensagem a %{user}"
+      send_mail: "Envia correio"
+      send_a_mail_to: "Envia mensagem a %{user}"
+      mail_text: |+
+          Quando enviares a mensagem, %{username} receberá um correio com o teu endereço eletronico.
+          Desta forma %{username} será capaz de te responder.
+
+    right_column:
+      cars_seen_from_inside: "Carros vistos por dentro"
+      average_drivers_age: "Média de idades dos condutores"
+      hitchhiked_countries: "Países viajados à boleia"
+      hitchhiked_kms: "Kilometros à boleia"
+      average_waiting_time: "Média de tempo de espera"
+      kms_hitchhiked: "Kilometros à boleia"
+      waiting_time_per_ride: "Tempo médio de espera"
+      written_stories: "Histórias contadas"
+      cs_user: "Membro CS"
+      uploaded_photos: "Fotos carregadas"
+      statistics: Estatisticas
+      send_mail: "Envia correio"
+    show:
+      alone: sozinho
+      gender_of_drivers: "Sexo dos passageiros"
+      with_two: "aos pares"
+      with_three: "com dois outros"
+      with_four: "com três outros"
+      log_your_first_trip: "Registra a tua primeira viagem"
+      log_new_trip: "Registra uma nova viagem"
+      edit: Editar
+      delete: Apagar
+      about: Sobre
+      trip:
+        one: "1 Viagem"
+        other: "%{count} viagens"
+      title: Utilizador
+      ride:
+        one: "#{count} Boleias"
+        other: ""
+      experiences: experiências
+    edit:
+      edit_profile: "Editar Perfil"
+      your_avatar: "O teu avatar"
+      your_avatar_is_from_facebook: |
+          Autenticaste-te com o facebook e a tua imagem de
+          perfil é a mesma do facebook
+      hitchlog_supports_gravatar_and_facebook_image: |
+          Se te autênticares com o facebook, o Hitchlog
+          vai tirar a tua imagem de perfil. De outra forama
+          vai usar <a href='http://gravatar.com'>Gravatar</a>.<br/>
+          Se quiseres meter a tua própria imagem, por favor carrega a imagem em <a href='http://gravatar.com'>gravatar.com</a>
+          ou autêntica-te com o facebook.
+    index:
+      hitchhikers: Hitchhikers
+      title: Utilizadores
+      username: "Nome de utilizador"
+      last_sign_in: "Último Acesso"
+      search: Procura
+      sort_by: "Ordenar por"
+    user:
+      statistics: Estatisticas
+      kilometers_hitchhiked: "Kilometros à boleia"
+      hitchhiked_countries: "Países viajados à boleia"
+      cars_seen_from_inside_while_hitchhiking: "Carros vistos por dentro enquanta à boleia"
+      gender: Sexo
+      logged_trips: "Registadas %{trips_size} viagens"
+      trips: Viagens
+  hours:
+    one: "1 hora"
+    other: "%{count} horas"
+  hours_with_minutes:
+    one: "%{count} hora %{minutes} minutos"
+    other: "%{count} horas %{minutes} minutos"
+  minutes_without_hours:
+    one: "%{count} minute"
+    other: "%{count} minutes"
+  rides:
+    crop:
+      crop_the_photo: "Cortar a foto"
+      crop: cortar
+    ride:
+      delete_image: "Apagar foto"
+      title_required: Título
+      story_required: História
+  hitchslider:
+    user_hitchhiked_text: "Há %{time}, %{user} viajou <b><span id='trip_distance_display'>%{distance}</span></b> de  <b>%{from}</b> até <b>%{to}</b> com %{rides_size} boleias."
+    it_took_text: "A viagem levou <b>%{time}%</b> minutos."
+    google_maps_text: "Goggle maps indica que a viagem demora <b>%{gmaps_duration}</b>, portanto %{user} foi <b>%{gmaps_difference}</b>."
+    time_ago: "${time} atrás"
+    caption: Títuto
+    comments: Comentários
+    user_wrote: "%{user} escreveu:"
+  trips:
+    index:
+      latest_hitchhiking_trips: "Viagens à boleia"
+      log_new_trip: "Registra uma nova viagem"
+      to_log_a_new_hitchhiking_trip: "para registrar uma nova viagem."
+      choose_a_country: "Escolha um país"
+    search_interface:
+      select_experience: "Selecionar Experiência"
+      select_gender: "Selécionar género"
+      sort_by: "Ordenar por:"
+      photo: Foto
+      select_country: "Escolher País"
+      search: Procurar
+      story: História
+    edit:
+      edit_title: "Editar Viagem"
+      hitchhiked: "Viajado à boleia"
+      from: Desde
+      to: Até
+      add_story: "Adicionar/Editar História"
+      hitchability_factor: "Factor de boleia:"
+      it_took_you_longer: "Custou-lhe mais %{hours} horas do que a viagem directa."
+      you_were_faster: "Foi %{hours} horas  mais rápido do que a viagem directa."
+    list:
+      no_trips_logged: "Não tem viagens registadas"
+      read_on: "(continua a ler na viagem)"
+      countries: Países
+      rides: Boleias
+      by: por
+      date: "Data de boleia"
+      icons: Ícones
+      start: "Há %{time} atrás"
+    show:
+      title: "Boleia desde %{from_city} até %{to_city}"
+    comments:
+      there_are_no_comments: "Não existem comentários para esta viagem"
+      user_wrote: "%{time} atrás %{user} escreveu:"
+    trip:
+      edit_trip: "(Editar Viagem)"
+      ride: Boleia
+      gmaps_duration: "Duração Gmaps"
+      time_ago: "${time} atrás"
+    add_comment:
+      register: Registrar
+      log_in: Entrar
+      add_comment: "Adicionar comentário"
+      to_comment: "para comentar nesta viagem"
+    form:
+      step1_2: Continuar
+    show_ride:
+      ride: Boleia
+    new:
+      log_your_trip_please: "Registra a tua boleia por favor :)"
+      new_trip_description: |
+          Uma viagem é uma boleia de <b>de uma cidade a outra<b>, que na maior parte
+          das vezes dura apenas um dia. Para viagens mais longas podes continuar a
+          viagem depois. Dessa forma será possível ver os pontos do caminho no mapa.
+  datetime:
+    time_ago: "Faz %{time_ago_in_words}"
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one: agora
+        other: agora
+      x_seconds:
+        one: agora
+        other: agora
+      less_than_x_minutes:
+        one: Agora
+        other: "Hà menos de %{count} minutos"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one: "Hà cerca de 1 hora"
+        other: "Hà cerca de %{count} horas"
+      x_days:
+        one: "1 dia"
+        other: "%{count} dias"
+      about_x_months:
+        one: "aproximadamente 1 mês"
+        other: "aproximadamente %{count} meses"
+      x_months:
+        one: "1 mês"
+        other: "%{count} meses"
+      about_x_years:
+        one: "cerca de 1 ano"
+        other: "cerca de %{count} anos"
+      over_x_years:
+        one: "mais de 1 ano"
+        other: "mais de %{count} anos"
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        one: "Mostrando 1 %{model}"
+        other: "Mostrando todos %{count} %{model}"
+        zero: "%{model} não encontrado"
+      single_page_html:
+        one: "Mostrando  <b>1</b> %{model}"
+        other: "Mostrando <b>all&nbsp;%{count}</b> %{model}"
+        zero: "%{model} não foi encontrado"
+      multi_page: "Mostrando %{model} %{from} - %{to} de %{count} em total"
+      multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> em total"
+  errors:
+    messages:
+      not_found: "Não encontrado"
+      already_confirmed: "já foi confirmado"
+      not_locked: "não foi bloqueado"
+  devise:
+    failure:
+      unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
+      unconfirmed: "Tem que confirmar a sua conta antes de continuar."
+      locked: "Sua conta está bloqueada."
+      invalid: "Endereço de email ou palavra-passe inválidos."
+      invalid_token: "Token de autenticação invalido."
+      timeout: "Sessão expirou, entre novamente para continuar."
+      inactive: "Sua conta ainda não foi ativada."
+    sessions:
+      new:
+        sign_in: Entrar
+        login_using_normal_font: "Entrar utilizando o formulário normal"
+    passwords:
+      send_instructions: "Vais receber um email com instruções de como redefenir a tua palavra chave dentro de pouco tempo."
+      updated: "A sua conta foi confirmada com sucesso. A sessão foi iniciada."
+    confirmations:
+      send_instructions: "Vais receber um email com os detalhes de como desbloquear a tua conta dentro de pouco tempo."
+      confirmed: "A sua conta foi confirmada com sucesso. A sessão foi iniciada."
+    registrations:
+      signed_up: "Bem vindo a bordo!"
+      new:
+        use_the_normal_form: "Utiliza o formulário normal"
+        create_a_hitchlog_account: "Cria a tua conta Hitchlog"
+        sign_up: Resgitar
+      updated: "A tua conta foi actualizada com sucesso."
+      destroyed: "Adeus! A tua conta foi cancelada. Esperamos ver-te em breve novamente."
+    unlocks:
+      send_instructions: "Vais receber um email com os detalhes de como desbloquear a tua conta dentro de pouco tempo."
+      unlocked: "A sua conta foi desbloqueada com sucesso. A sessão foi iniciada."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+      reset_password_instructions:
+        subject: "Instruções para redefinir sua senha"
+      unlock_instructions:
+        subject: "Desbloqueia instruções"
