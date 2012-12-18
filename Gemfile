@@ -61,6 +61,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'vcr'
   gem 'rspec-rails'
   gem 'launchy'
 end
@@ -74,6 +75,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'fakeweb'
   gem 'faker'
   gem 'email_spec'
   gem 'rb-fsevent'

@@ -6,7 +6,6 @@ describe User do
   it { should have_many(:trips) }
   it { should have_many(:comments) }
   it { should have_many(:authentications) }
-  it { should have_one(:sign_in_address) }
 
   before do
     user.trips << FactoryGirl.build(:trip)
@@ -56,7 +55,7 @@ describe User do
       user.genders_in_percentage.should == {'male' => 1.0}
     end
   end
-  
+
   describe "hitchhiked kms" do
     it "should return total amount of kms hitchhiked" do
       user.trips.first.distance = 100_000
@@ -66,36 +65,67 @@ describe User do
 
   describe "hitchhiked countries" do
     it "should return number of countries hitchhiked" do
-      pending('too slow')
       user.trips.first.from = "Berlin"
       user.trips.first.to   = "Amsterdam"
-      user.save!
+      VCR.use_cassette('hitchhiked_countries') do
+        user.save!
+      end
       user.hitchhiked_countries.should == 2
     end
   end
 
   describe "geocode" do
     before do
-      pending ('too slow')
-      user.current_sign_in_ip = "24.193.83.1"
-      user.save!
+      VCR.use_cassette('brooklyn_ip_address') do
+        user.current_sign_in_ip = "24.193.83.1"
+        user.save!
+      end
     end
 
-    it "should geocode ip" do
-      user.sign_in_lat.should == 40.728
-      user.sign_in_lng.should == -73.9453
+    it "should geocode lat and lng from ip" do
+      user.lat.should == 40.728
+      user.lng.should == -73.9453
     end
 
     it "should geocode address" do
-      user.sign_in_address.city.should == "Brooklyn"
-      user.sign_in_address.country.should == "United States"
-      user.sign_in_address.country_code.should == "US"
+      user.country_code.should == "US"
+      user.city.should == "Brooklyn"
+      user.country.should == "United States"
     end
 
     it "should change the address when the ip changes" do
-      user.current_sign_in_ip = "85.183.206.162"
-      user.save!
-      user.sign_in_address.city.should == "Hamburg"
+      VCR.use_cassette('hamburg_ip_address') do
+        user.current_sign_in_ip = "85.183.206.162"
+        user.save!
+      end
+      user.lat.should == 53.55
+      user.lng.should == 10.0
+    end
+  end
+
+  describe "#geocoded_address" do
+    it "should display the city name and the country if present" do
+      user.city = 'Cairns'
+      user.country = 'Australia'
+      user.geocoded_address.should == 'Cairns, Australia'
+    end
+
+    it "should display the country name if present" do
+      user.city =    'Cairns'
+      user.country = nil
+      user.geocoded_address.should == 'Cairns'
+    end
+
+    it "should display the city name if present" do
+      user.city = nil
+      user.country = 'Australia'
+      user.geocoded_address.should == 'Australia'
+    end
+
+    it "should display `Unknown` if there is no address" do
+      user.city = nil
+      user.country = nil
+      user.geocoded_address.should == 'Unknown'
     end
   end
 end

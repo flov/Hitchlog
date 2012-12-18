@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616161850) do
+ActiveRecord::Schema.define(:version => 20121218115000) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer "user_id"
+    t.integer "race_id"
+  end
 
   create_table "authentications", :force => true do |t|
     t.string   "user_id"
@@ -41,6 +46,26 @@ ActiveRecord::Schema.define(:version => 20120616161850) do
     t.string  "mission"
     t.string  "origin"
     t.integer "ride_id"
+  end
+
+  create_table "races", :force => true do |t|
+    t.string   "name"
+    t.string   "from_location"
+    t.string   "to_location"
+    t.float    "from_lat"
+    t.float    "to_lat"
+    t.string   "from_address"
+    t.string   "to_address"
+    t.string   "from_country"
+    t.string   "to_country"
+    t.string   "from_city"
+    t.string   "to_city"
+    t.string   "from_postal_code"
+    t.string   "to_postal_code"
+    t.string   "from_formatted_address"
+    t.string   "to_formatted_address"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -78,15 +103,6 @@ ActiveRecord::Schema.define(:version => 20120616161850) do
   add_index "rides", ["gender"], :name => "index_rides_on_gender"
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
-
-  create_table "sign_in_addresses", :force => true do |t|
-    t.string   "city"
-    t.string   "country_code"
-    t.string   "country"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -151,10 +167,13 @@ ActiveRecord::Schema.define(:version => 20120616161850) do
     t.string   "username"
     t.boolean  "admin",                               :default => false
     t.string   "gender"
-    t.float    "sign_in_lat"
-    t.float    "sign_in_lng"
+    t.float    "lat"
+    t.float    "lng"
     t.text     "about_you"
     t.string   "cs_user"
+    t.string   "city"
+    t.string   "country_code"
+    t.string   "country"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

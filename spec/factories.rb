@@ -12,9 +12,6 @@ FactoryGirl.define do
     association :trip
   end
 
-  factory :sign_in_address do
-  end
-
   factory :user do
     email                 { generate(:email) }
     username              { |u| u.email.split("@").first }
@@ -22,9 +19,8 @@ FactoryGirl.define do
     password_confirmation "password"
     cs_user               Faker::Name.first_name
     last_sign_in_at       Time.zone.now
-    sign_in_lat           0.0          # if tested offline
-    sign_in_lng           0.0          # it must not be null for tests
-    association           :sign_in_address
+    lat                   0.0
+    lng                   0.0
     gender                'male'
   end
 
