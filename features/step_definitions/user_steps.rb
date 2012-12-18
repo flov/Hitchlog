@@ -26,7 +26,7 @@ end
 When /^I sign up as "([^"]*)"$/ do |arg1|
   fill_in "Username", :with => 'florian'
   fill_in "Email", :with => 'florian@hitchlog.com'
-  fill_in "Password", :with => 'password'
+  fill_in "user_password", :with => 'password'
   fill_in "Password confirmation", :with => 'password'
   select  "male", :from => "Gender"
   click_button "Sign up"
