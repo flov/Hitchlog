@@ -8,6 +8,8 @@ Hitchlog::Application.routes.draw do
   # omniauth:
   match '/auth/:provider/callback' => 'authentications#create'  
 
+  resources :buddies, :path => 'hitchhiking-buddies', only: [:index]
+
   resources :users, :path => 'hitchhikers' do
     member do 
       get :send_mail

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :trips, dependent: :destroy
   has_many :authentications, dependent: :destroy
   has_many :comments
+  has_many :future_travels
   has_one  :sign_in_address
 
   validates :username, presence: true,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218115000) do
+ActiveRecord::Schema.define(:version => 20121219064057) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
     t.integer "distance"
     t.integer "trip_id"
     t.string  "country"
+  end
+
+  create_table "future_travels", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.integer  "user_id"
+    t.datetime "departure"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "people", :force => true do |t|
@@ -176,6 +185,9 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
     t.string   "country"
   end
 
+  add_index "users", ["city"], :name => "index_users_on_city"
+  add_index "users", ["country"], :name => "index_users_on_country"
+  add_index "users", ["country_code"], :name => "index_users_on_country_code"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username"

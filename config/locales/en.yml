@@ -186,6 +186,9 @@ en:
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
+  buddies:
+    index:
+      hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel buddies
   facebook:
     login_with_facebook: "Login with Facebook"
   back: Back

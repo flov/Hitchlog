@@ -6,6 +6,7 @@ describe User do
   it { should have_many(:trips) }
   it { should have_many(:comments) }
   it { should have_many(:authentications) }
+  it { should have_many(:future_travels) }
 
   before do
     user.trips << FactoryGirl.build(:trip)

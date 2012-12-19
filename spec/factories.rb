@@ -55,4 +55,10 @@ FactoryGirl.define do
     association(:user)
     hitchhikes 1
   end
+
+  factory :future_travel do
+    from "Barcelona"
+    to "Madrid"
+    depaerture 10.days.from_now
+  end
 end

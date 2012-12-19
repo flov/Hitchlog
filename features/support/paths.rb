@@ -24,6 +24,8 @@ module NavigationHelpers
       trip_path(Trip.last)
     when /^the edit profile page$/
       "/en/hitchhikers/#{@user.username}/edit"
+    when /^the hitchhiking buddies page$/
+      "/en/hitchhiking-buddies"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
