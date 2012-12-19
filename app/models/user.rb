@@ -24,9 +24,6 @@ class User < ActiveRecord::Base
                        format: {with: /^[ A-Za-z\d_-]+$/}
 
   before_validation  :sanitize_username
-  before_save        :geocode_address, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
-
-  geocoded_by :current_sign_in_ip, latitude: :sign_in_lat, longitude: :sign_in_lng
 
   geocoded_by :current_sign_in_ip, latitude: :lat, longitude: :lng
   reverse_geocoded_by :lat, :lng do |obj,results|
@@ -36,7 +33,8 @@ class User < ActiveRecord::Base
       obj.country_code = geo.country_code
     end
   end
-  after_validation :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
+
+  before_create :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?

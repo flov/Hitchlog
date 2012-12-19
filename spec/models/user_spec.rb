@@ -92,15 +92,6 @@ describe User do
       user.city.should == "Brooklyn"
       user.country.should == "United States"
     end
-
-    it "should change the address when the ip changes" do
-      VCR.use_cassette('hamburg_ip_address') do
-        user.current_sign_in_ip = "85.183.206.162"
-        user.save!
-      end
-      user.lat.should == 53.55
-      user.lng.should == 10.0
-    end
   end
 
   describe "#geocoded_address" do
