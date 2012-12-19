@@ -1,7 +1,6 @@
-Feature: Visitors views trips
-  In order to view my trips
-  As a visitor
-  I want to see all trips and see particular trips
+Feature: Visitors views trip
+  In order to view a trip nicer
+  I want to see details for a trip
   Scenario: Show user story on trip
     Given a trip exists
     And the user of this trip is "supertramp"
