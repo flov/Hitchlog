@@ -76,4 +76,6 @@ When /^I attach the file "([^"]*)" to "([^"]*)"$/ do |file, field|
   attach_file(field, path)
 end
 
-
+When /^I submit the form$/ do
+  click_button(page.find('input[type="submit"]'))
+end

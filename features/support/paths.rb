@@ -26,6 +26,8 @@ module NavigationHelpers
       "/en/hitchhikers/#{@user.username}/edit"
     when /^the hitchhiking buddies page$/
       "/en/hitchhiking-buddies"
+    when /^the profile page of (.*)$/
+      "/en/hitchhikers/#{$1.downcase}"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
