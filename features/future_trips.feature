@@ -30,3 +30,7 @@ Feature: Future Trips
     And I click on delete future trip
     Then I should see "Your future trip from Barcelona to Madrid has been deleted"
 
+  Scenario: View Future Trips
+    Given "Malte" logged a future trip from "Cairns" to "Byron Bay" at the "21. December 2015"
+     When I go to the future trips page
+     Then I should see "Malte wants to hitchhike from Cairns to Byron Bay at the 21 December 2015"
