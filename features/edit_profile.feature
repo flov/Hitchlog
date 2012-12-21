@@ -4,11 +4,21 @@ Feature: Edit user
   I want to be able to edit my profile
 
   Background:
-    Given a hitchhiker
-      And I am logged in
+    Given I am logged in as "flov"
 
-  Scenario: 
+  Scenario: Edit attributes
      When I go to the edit profile page
-     Then I should see "About you"
-     And  I should see "CS user"
-     And  I should see "Your Avatar"
+     And I fill in the following:
+       | About you         | About me |
+       | CS user           | My_cs_user |
+       | Gender (select)   | male     |
+     And I press "Save"
+     Then I should see "About me"
+     And  I should see "My_cs_user"
+
+  #@javascript
+  Scenario: change location
+     When I go to the edit profile page
+     And I change my location to "Cairns, Australia"
+     And I press "Save"
+     Then the current location of "flov" should be "Cairns, Australia"
