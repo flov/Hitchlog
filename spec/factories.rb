@@ -56,7 +56,7 @@ FactoryGirl.define do
     hitchhikes 1
   end
 
-  factory :future_travel do
+  factory :future_trip do
     from "Barcelona"
     to "Madrid"
     depaerture 10.days.from_now

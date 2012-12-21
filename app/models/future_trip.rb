@@ -1,4 +1,4 @@
-class FutureTravel < ActiveRecord::Base
+class FutureTrip < ActiveRecord::Base
   attr_accessible :from, :departure, :to
 
   belongs_to :user

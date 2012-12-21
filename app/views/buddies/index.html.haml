@@ -1,4 +1,6 @@
 %h1= t('.hitchhikers_searching_for_travel_buddies')
 %ul
-  - future_travels.each do |future_travel|
-    %li= "#{future_travel.user.username} wants to hitchhike from #{future_travel.from} to #{future_travel.to} at the #{future_travel.departure.strftime("%d %B %Y %H:%S")}"
+  - future_trips.each do |future_trip|
+    %li
+      = link_to future_trip.user.username.capitalize, user_path(future_trip.user.username)
+      = "wants to hitchhike from #{future_trip.from} to #{future_trip.to} at the #{future_trip.departure.strftime("%d %B %Y")}"

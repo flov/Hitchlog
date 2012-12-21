@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
     t.string  "country"
   end
 
-  create_table "future_travels", :force => true do |t|
+  create_table "future_trips", :force => true do |t|
     t.string   "from"
     t.string   "to"
     t.integer  "user_id"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
     t.string  "mission"
     t.string  "origin"
     t.integer "ride_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "trip_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "races", :force => true do |t|
@@ -92,14 +99,17 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
+    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
+    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
@@ -112,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
   add_index "rides", ["gender"], :name => "index_rides_on_gender"
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
+  add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -163,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -185,7 +197,6 @@ ActiveRecord::Schema.define(:version => 20121219064057) do
     t.string   "country"
   end
 
-  add_index "users", ["city"], :name => "index_users_on_city"
   add_index "users", ["country"], :name => "index_users_on_country"
   add_index "users", ["country_code"], :name => "index_users_on_country_code"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

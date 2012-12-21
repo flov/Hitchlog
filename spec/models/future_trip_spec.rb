@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe FutureTravel do
+describe FutureTrip do
   it { should belong_to(:user) }
 end

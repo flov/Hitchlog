@@ -1,3 +1,3 @@
 class BuddiesController < ApplicationController
-  expose(:future_travels) { FutureTravel.all }
+  expose(:future_trips) { FutureTrip.all }
 end

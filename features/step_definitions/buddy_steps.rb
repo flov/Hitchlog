@@ -1,11 +1,11 @@
 Given /^"([^"]*)" logged a future trip from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |username, from, to, departure|
   user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
-  user.future_travels.create(from: from, to: to, departure: departure)
+  user.future_trips.create(from: from, to: to, departure: departure)
 
 end
 
 Then /^I should see the future trip from "([^"]*)" to "([^"]*)" in the profile page$/ do |from, to|
-  FutureTravel.where from: from, to: to
+  FutureTrip.where from: from, to: to
 end
 
 Then /^all hitchhikers around "([^"]*)" should receive a notification email$/ do |city|

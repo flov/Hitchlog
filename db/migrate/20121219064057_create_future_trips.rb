@@ -1,6 +1,6 @@
-class CreateFutureTravels < ActiveRecord::Migration
+class CreateFutureTrips < ActiveRecord::Migration
   def change
-    create_table :future_travels do |t|
+    create_table :future_trips do |t|
       t.string :from
       t.string :to
       t.integer :user_id
