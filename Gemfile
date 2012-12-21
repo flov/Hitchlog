@@ -54,6 +54,7 @@ group :development do
   gem 'growl'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'guard-zeus'
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'guard-bundler'
