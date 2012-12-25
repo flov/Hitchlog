@@ -1,0 +1,10 @@
+= simple_form_for future_trip do |f|
+  = f.input :from
+  = f.input :to
+  = f.input :departure, as: :date,
+                        start_year: Date.today.year + 2,
+                        end_year: Date.today.year,
+                        order: [:day, :month, :year]
+  = f.input :description, as: :text
+
+  = f.submit

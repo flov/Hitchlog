@@ -6,26 +6,44 @@ Feature: Future Trips
   Background:
     Given I am logged in as "Flov" from "Cairns"
 
-  Scenario: New future trip where a different hitchhiker lives close by
+  Scenario: New future trip with a nearby hitchhiker
     Given a hitchhiker called "Malte" from "Cairns"
     When I go to the homepage
     And I follow "Find a new Hitchhiking Buddy"
-    And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2020"
+    And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
     And I submit the form
-    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
-    And "Malte" should receive a notification email
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    And "Malte" should receive an email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy"
 
-  Scenario: View and edit a future trip
-    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
-    When I go to the profile page of Flov
-    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
-    When I follow the edit future trip link
-    And I fill in the future trip form with from "Barcelona" to "Paris" at the "20 Feb 2020"
+  Scenario: New future trip without a nearby hitchhiker
+    Given a hitchhiker called "Malte" from "Brisbane"
+    When I go to the homepage
+    And I follow "Find a new Hitchhiking Buddy"
+    And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
     And I submit the form
-    Then I should see the future trip from "Barcelona" to "Paris" at the "20 Feb 2020"
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    And "Malte" should receive no email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy"
+
+  Scenario: View and edit a future trip in your profile
+    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I go to the profile page of Flov
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I follow the edit future trip link
+    And I fill in the future trip form with from "Barcelona" to "Paris" at the "20 Feb 2014"
+    And I submit the form
+    Then I should see the future trip from "Barcelona" to "Paris" at the "20 Feb 2014"
+
+  Scenario: View a future trip in someone elses profile and send him a message
+    Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I go to the profile page of Malte
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I follow the send a message link besides the future trip
+    And I fill in the message form
+    And I submit the form
+    Then I should see "Mail has been sent to Malte"
 
   Scenario: Delete a future trip
-    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
+    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I go to the profile page of Flov
     And I click on delete future trip
     Then I should see "Your future trip from Barcelona to Madrid has been deleted"

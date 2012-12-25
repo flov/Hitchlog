@@ -23,8 +23,10 @@
         .about
           %p= RDiscount.new(h(user.about_you)).to_html.html_safe
 
+    = render 'future_trips', user: user
+
     .profile_section.trips_and_rides
-      - if user.trips.size > 0
+      - if user.trips.any?
         .float_left.column
           %h3 #{ t('.trip', count: user.trips.size) }:
           - unless user.trips.alone.size == 0

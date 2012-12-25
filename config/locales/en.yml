@@ -37,6 +37,9 @@ en:
         It generates statistics about hitchhiking in certain countries and
         gives an overview of the experiences as a hitchhiker.
   flash:
+    future_trips:
+      destroy:
+        success: "Your future trip from %{from} to %{to} has been deleted"
     trips:
       create_comment:
         alert: "Comment failed to save!"
@@ -110,7 +113,10 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    edit: Edit
     save: Save
+    delete: Delete
+    confirm: "Are you sure?"
     time_ago: "%{time} ago"
     or: or
     supports_markdown: "supports markdown"
@@ -126,6 +132,7 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
+      find_hitchhiking_buddy: "Find a new Hitchhiking Buddy"
       log_new_trip: "Log a new trip"
       edit_profile: "Edit profile"
       your_profile: "Your Profile"
@@ -186,7 +193,12 @@ en:
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
-  buddies:
+  future_trips:
+    new:
+      new_future_trip: Log your planned hitchhiking trips
+      tell_others_about_your_plans: Tell others about your hitchhiking plans if you want company
+    edit:
+      edit_future_trip: Edit your future trip
     index:
       hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel buddies
   facebook:
@@ -194,6 +206,10 @@ en:
   back: Back
   edit: Edit
   users:
+    future_trips:
+      future_trips: Future Trips
+      user_wants_to_hitchhike_from_a_to_b: "%{user} wants to hitchhike from %{from} to %{to} at the %{departure}"
+      send_a_message: send message
     send_mail:
       message_placeholder: Message
       title: "Send a message to %{user}"
@@ -234,6 +250,7 @@ en:
         one: "#{count} Rides"
       experiences: experiences
     edit:
+      edit_profile: "Edit Profile"
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
       your_avatar_is_from_facebook: |
@@ -337,6 +354,7 @@ en:
     show_ride:
       ride: Ride
     new:
+      new_trip: New Trip
       log_your_trip_please: "Log your hitchhiking trip please :)"
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is
