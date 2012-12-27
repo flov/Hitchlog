@@ -6,7 +6,7 @@ Feature: Location
   Background:
     Given I am logged in as "Flov" from "Cairns"
 
-  @javascript
+  @javascript @google_maps
   Scenario: Changing location
     When I go to the edit profile page of Flov
     And I enter a new location "Melbourne, Australia"
