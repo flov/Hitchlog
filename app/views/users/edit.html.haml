@@ -1,31 +1,27 @@
 - title (t('.edit_profile'))
+
 %h1
-  =t('.edit_profile')
-  = link_to t('.delete'), user_path(current_user),
+  = t('.edit_profile')
+  = link_to t('general.delete'), user_path(current_user),
                           method: :delete,
                           data: { confirm: t('general.confirm') }
 
-= form_for current_user, :html => {:class => 'fancy_form'} do |f|
-  .float_left
-    = f.label :username
-    %br/
-    = f.text_field :username
-    %br/
-    = f.label :about_you
-    (#{ t('general.supports_markdown')})
-    %br/
-    = f.text_area :about_you
-    %br/
-    = f.label :gender
-    %br/
-    = f.select :gender, [t('activerecord.models.male'), t('activerecord.models.female')]
-    %br/
-    = f.label :cs_user
-    %br/
-    = f.text_field :cs_user
-    %br/
-    = f.submit t('general.save')
-.float_right.edit_profile_right
+.float_left
+  = simple_form_for current_user do |f|
+    = f.input :username
+    = f.input :location, placeholder: t('.loaction_placeholder')
+    = f.input :lat, as: :hidden
+    = f.input :lng, as: :hidden
+    = f.input :city, as: :hidden
+    = f.input :country, as: :hidden
+    = f.input :country_code, as: :hidden
+    = f.input :about_you, as: :text
+    = f.input :gender, collection: [t('activerecord.models.male'), t('activerecord.models.female')]
+    = f.input :cs_user
+
+    = f.submit
+
+.edit_profile_right
   = t('.your_avatar')
   %br/
   = render 'users/profile_image', user: current_user
@@ -36,3 +32,8 @@
     = t('.hitchlog_supports_gravatar_and_facebook_image').html_safe
     %br/
     .text_center= facebook_login
+
+
+- content_for :javascript_at_bottom do
+  %script{src: "http://maps.google.com/maps/api/js?sensor=false", type: "text/javascript"}
+  = javascript_include_tag 'location'

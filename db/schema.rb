@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221094949) do
+ActiveRecord::Schema.define(:version => 20121226132614) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(:version => 20121221094949) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.text     "description"
+    t.float    "from_lng"
+    t.float    "from_lat"
+    t.float    "to_lng"
+    t.float    "to_lat"
   end
 
   create_table "people", :force => true do |t|
@@ -196,6 +200,7 @@ ActiveRecord::Schema.define(:version => 20121221094949) do
     t.string   "city"
     t.string   "country_code"
     t.string   "country"
+    t.string   "location"
   end
 
   add_index "users", ["country"], :name => "index_users_on_country"

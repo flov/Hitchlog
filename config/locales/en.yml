@@ -36,6 +36,10 @@ en:
         A website for logging rides and hitchhiking stories.
         It generates statistics about hitchhiking in certain countries and
         gives an overview of the experiences as a hitchhiker.
+  mailer:
+    future_trips:
+      nearby_hitchhikers:
+        subject: "[Hitchlog] %{user} is searching for a hitchhiking buddy in %{city}"
   flash:
     future_trips:
       destroy:
@@ -250,6 +254,8 @@ en:
         one: "#{count} Rides"
       experiences: experiences
     edit:
+      location: Location
+      loaction_placeholder: Type in address
       edit_profile: "Edit Profile"
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
