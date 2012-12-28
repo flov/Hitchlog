@@ -12,6 +12,23 @@ describe User do
     user.trips << FactoryGirl.build(:trip)
   end
 
+  describe "#location_updated_at" do
+    it 'should not change if the location does not change' do
+      user.save!
+      location_updated_at = user.location_updated_at
+      user.save!
+      user.location_updated_at.should == location_updated_at
+    end
+
+    it 'should change when I update location' do
+      user.save!
+      location_updated_at = user.location_updated_at
+      user.location = 'Cairns, Australia'
+      user.save!
+      user.location_updated_at.should be > location_updated_at
+    end
+  end
+
   describe "#facebook_user" do
     it 'should test if the user has authenticated via facebook' do
       user.authentications = []

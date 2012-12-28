@@ -13,7 +13,7 @@ Feature: Future Trips
     And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
     And I submit the form
     Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    And "Malte" should receive an email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy"
+    And "Malte" should receive an email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy in Cairns"
 
   Scenario: New future trip without a nearby hitchhiker
     Given a hitchhiker called "Malte" from "Brisbane"

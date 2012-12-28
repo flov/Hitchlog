@@ -223,6 +223,7 @@ en:
           When you send the message, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
+      located_in: "Located in:"
       cars_seen_from_inside: "Cars seen from inside"
       average_drivers_age: "Average driver's age"
       hitchhiked_countries: "Hitchhiked countries"
@@ -236,6 +237,7 @@ en:
       statistics: Statistics
       send_mail: "Send Mail"
     show:
+      current_location: "Current location: %{location}"
       alone: alone
       gender_of_drivers: "Gender of passengers"
       with_two: "in pairs"

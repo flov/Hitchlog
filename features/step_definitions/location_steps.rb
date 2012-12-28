@@ -12,3 +12,10 @@ Then /^"([^"]*)" should have the lat and lng from Melbourne$/ do |username|
   user.lat.should == -37.8141
   user.lng.should == 144.963
 end
+
+Then /^on the profile page of "([^"]*)" I should see that he is currently in "([^"]*)"$/ do |username, city|
+  user = User.find_by_username(username)
+  visit(user_path(user))
+  page.should have_content(
+    "Current location: #{city} (#{user.location_updated_at.strftime("%d %b %y")})")
+end

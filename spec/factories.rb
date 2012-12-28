@@ -22,6 +22,7 @@ FactoryGirl.define do
     lat                   0.0
     lng                   0.0
     gender                'male'
+    location              'Melbourne, Australia'
   end
 
   factory :munich_user, :parent => :user do

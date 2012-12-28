@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226132614) do
+ActiveRecord::Schema.define(:version => 20121227081340) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -201,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20121226132614) do
     t.string   "country_code"
     t.string   "country"
     t.string   "location"
+    t.datetime "location_updated_at"
   end
 
   add_index "users", ["country"], :name => "index_users_on_country"
