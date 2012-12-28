@@ -267,5 +267,8 @@ module ImageHelper
     end
   end
 
+  def flag(country_code, country)
+    image_tag "flags/png/#{country_code.downcase}.png", class: 'tooltip', alt: "#{country}"
+  end
 end
 

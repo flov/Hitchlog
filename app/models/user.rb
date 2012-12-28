@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
                        uniqueness: true,
                        format: {with: /^[ A-Za-z\d_-]+$/}
 
-  before_validation  :sanitize_username
+  before_validation :sanitize_username
+  before_validation :update_location_updated_at, if: 'location_changed?'
 
   geocoded_by :current_sign_in_ip, latitude: :lat, longitude: :lng
   reverse_geocoded_by :lat, :lng do |obj,results|
@@ -99,6 +100,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def update_location_updated_at
+    self.location_updated_at = Time.now
+  end
 
   def sanitize_username
     self.username.downcase
