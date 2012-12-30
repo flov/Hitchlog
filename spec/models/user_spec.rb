@@ -11,6 +11,20 @@ describe User do
     user.trips << FactoryGirl.build(:trip)
   end
 
+  describe 'valid?' do
+    describe 'validates usernae' do
+      it 'allows all those letters: /A-Za-z\d_-/' do
+        user.username = 'Abc1239_-'
+        user.should be_valid
+      end
+
+      it 'does not allow other letters:' do
+        user.username = '#$%?'
+        user.should_not be_valid
+      end
+    end
+  end
+
   describe "#facebook_user" do
     it 'should test if the user has authenticated via facebook' do
       user.authentications = []

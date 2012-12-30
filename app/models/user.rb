@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true,
                        uniqueness: true,
-                       format: {with: /^[ A-Za-z\d_-]+$/}
+                       format: {with: /^[\.A-Za-z\d_-]+$/}
 
   before_validation  :sanitize_username
   before_save        :geocode_address, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
