@@ -204,3 +204,8 @@ end
 Then /^save and open all raw emails$/ do
   EmailSpec::EmailViewer::save_and_open_all_raw_emails
 end
+
+Then /^a mail should have been delivered to "([^"]*)"$/ do |username|
+  user = User.find username
+  unread_emails_for(user.email).size.should == parse_email_count(1)
+end

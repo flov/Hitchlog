@@ -19,7 +19,6 @@ module ImageHelper
       images << waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
       images << driving_time_image(human_hours(ride.duration)) if ride.duration
       images << photo_image if ride.photo_file_name
-      
     end
     images.join(' ').html_safe
   end
@@ -267,8 +266,12 @@ module ImageHelper
     end
   end
 
-  def flag(country_code, country)
-    image_tag "flags/png/#{country_code.downcase}.png", class: 'tooltip', alt: "#{country}"
+  def flag(country_code)
+    unless country_code.nil?
+      image_tag "flags/png/#{country_code.downcase}.png", 
+        class: 'tooltip',
+        alt: "#{I18nData.countries["#{country_code}"]}"
+    end
   end
 end
 

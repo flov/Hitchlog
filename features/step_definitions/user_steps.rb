@@ -37,7 +37,7 @@ Given /^I am logged in as "([^"]*)"$/ do |username|
 end
 
 Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
-  user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
+  user = FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
   user.update_column :city, city
 
   visit new_user_session_path
@@ -73,4 +73,8 @@ end
 
 Then /^the current location of "([^"]*)" should be "([^"]*)"$/ do |username, arg2|
   pending # express the regexp above with the code you wish you had
+end
+
+When /^I visit the profile page of "([^"]*)"$/ do |username|
+  visit user_path(username)
 end

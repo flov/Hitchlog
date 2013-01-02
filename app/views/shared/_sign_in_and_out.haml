@@ -1,6 +1,4 @@
-- if user_signed_in? 
-  = link_to t('.sign_out'), destroy_user_session_path
-- else
+- unless user_signed_in?
   = link_to t('.sign_up'), new_user_registration_path
   = t('general.or')
   = link_to t('.sign_in'), new_user_session_path  

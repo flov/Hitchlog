@@ -26,7 +26,7 @@
     - if user.city.present?
       %li
         = t('.located_in')
-        = flag(user.country_code, user.country)
+        = flag(user.country_code)
         = user.city
         = updated_location_at(user)
 

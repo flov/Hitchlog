@@ -32,3 +32,5 @@
                 = link_to t('.edit_profile'), edit_user_path(current_user)
               %li
                 = link_to t('.find_hitchhiking_buddy'), new_future_trip_path
+              %li
+                = link_to t('.sign_out'), destroy_user_session_path

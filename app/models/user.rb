@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :comments
   has_many :future_trips
-  has_one  :sign_in_address
 
   validates :username, presence: true,
                        uniqueness: true,

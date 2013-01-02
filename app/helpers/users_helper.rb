@@ -24,4 +24,16 @@ module UsersHelper
   def updated_location_at(user)
     "(#{user.location_updated_at.strftime("%d %b %y")})" unless user.location_updated_at.nil?
   end
+
+  def florian
+    link_to 'Florian', user_path('flov')
+  end
+
+  def ben
+    link_to "Benjamin Mceldowney", user_path('benjemce')
+  end
+
+  def samuel
+    link_to "Samuel Del Bello", user_path("sdelbello")
+  end
 end
