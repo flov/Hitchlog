@@ -2,6 +2,10 @@ Given /^a trip exists from "([^"]*)" to "([^"]*)"$/ do |from, to|
   @trip = FactoryGirl.create(:trip, from: from, to: to)
 end
 
+Given /^a trip exists$/ do
+  FactoryGirl.create(:trip)
+end
+
 Given /^the user the trip from "([^"]*)" to "([^"]*)" is "([^"]*)"$/ do |from, to, username|
   trip = Trip.where(from: from, to: to).first
   user = trip.user

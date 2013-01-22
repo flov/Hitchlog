@@ -60,6 +60,6 @@ FactoryGirl.define do
   factory :future_trip do
     from "Barcelona"
     to "Madrid"
-    depaerture 10.days.from_now
+    departure 10.days.from_now
   end
 end

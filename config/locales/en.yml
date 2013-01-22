@@ -39,7 +39,7 @@ en:
   mailer:
     future_trips:
       nearby_hitchhikers:
-        subject: "[Hitchlog] %{user} is searching for a hitchhiking buddy in %{city}"
+        subject: "[Hitchlog] %{user} is looking for a hitchhiking buddy from %{from_city} to %{to_city}"
   flash:
     future_trips:
       destroy:
@@ -200,7 +200,7 @@ en:
   future_trips:
     new:
       new_future_trip: Log your planned hitchhiking trips
-      tell_others_about_your_plans: Tell others about your hitchhiking plans if you want company
+      tell_others_about_your_plans: Find a hitchhiking buddy by telling others about your travel plans.
     edit:
       edit_future_trip: Edit your future trip
     index:

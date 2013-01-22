@@ -17,8 +17,8 @@ module UsersHelper
     link_to(user, user_path(user))
   end
 
-  def last_login_location(user)
-    link_to user.geocoded_address, "http://maps.google.com/?q=#{user.geocoded_address}"
+  def user_location(user)
+    link_to user.formatted_address, "http://maps.google.com/?q=#{user.formatted_address}"
   end
 
   def updated_location_at(user)

@@ -19,7 +19,7 @@
 
     - if user.location.present?
       %p
-        = t('.current_location', location: user.location)
+        != t('.current_location', location: user_location(user))
         = updated_location_at(user)
 
     = render 'future_trips', user: user

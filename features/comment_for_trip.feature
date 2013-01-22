@@ -1,4 +1,4 @@
-Feature: Comments Feature
+Feature: Comment for trip Feature
   In order to write comments on a trip
   As a user
   I want to be able to post a comment on a trip

@@ -118,7 +118,7 @@ GEM
     friendly_id (3.2.1.1)
       babosa (~> 0.3.0)
     fssm (0.2.9)
-    geocoder (1.1.0)
+    geocoder (1.1.6)
     gherkin (2.8.0)
       json (>= 1.4.6)
     gravatar_image_tag (1.0.0)

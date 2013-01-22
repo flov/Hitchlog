@@ -40,7 +40,7 @@ describe FutureTripsController do
 
       action
 
-      response.should render_template(:edit)
+      response.should render_template(:new)
     end
   end
 
@@ -76,7 +76,8 @@ describe FutureTripsController do
   end
 
   describe "#destroy" do
-    let(:future_trip)  { double('future_trip', id: 1) }
+    let(:future_trip)  { double('future_trip', id: 1, from: 'Melbourne',
+                                to: 'Sydnery', 'attributes=' => '', destroy: true) }
     let(:action)       { delete :destroy, id: future_trip.id }
     let(:current_user) { double('user', to_param: 'flov') }
 
@@ -91,8 +92,18 @@ describe FutureTripsController do
       future_trip.should_receive(:destroy)
 
       action
+    end
+
+    it "redirects back to the user page" do
+      action
 
       response.should redirect_to(user_path('flov'))
+    end
+
+    it "notes the change" do
+      action
+
+      flash[:notice].should == 'Your future trip from Melbourne to Sydnery has been deleted'
     end
   end
 end

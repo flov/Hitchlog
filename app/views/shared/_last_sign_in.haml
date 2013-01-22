@@ -1,4 +1,4 @@
 - if user.current_sign_in_at
   #{t('.last_sign_in', time: time_ago_in_words(user.current_sign_in_at))}
   - if user.lat && user.lng
-    != t('.in', location: last_login_location(user))
+    != t('.in', location: user_location(user))

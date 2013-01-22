@@ -9,7 +9,7 @@
 .float_left
   = simple_form_for current_user do |f|
     = f.input :username
-    = f.input :location, placeholder: t('.loaction_placeholder')
+    = f.input :location, input_html: {id: 'user'}
     = f.input :lat, as: :hidden
     = f.input :lng, as: :hidden
     = f.input :city, as: :hidden
@@ -36,4 +36,4 @@
 
 - content_for :javascript_at_bottom do
   %script{src: "http://maps.google.com/maps/api/js?sensor=false", type: "text/javascript"}
-  = javascript_include_tag 'location'
+  = javascript_include_tag 'edit_user'

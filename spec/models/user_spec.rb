@@ -112,29 +112,29 @@ describe User do
     end
   end
 
-  describe "#geocoded_address" do
+  describe "#formatted_address" do
     it "should display the city name and the country if present" do
       user.city = 'Cairns'
       user.country = 'Australia'
-      user.geocoded_address.should == 'Cairns, Australia'
+      user.formatted_address.should == 'Cairns, Australia'
     end
 
     it "should display the country name if present" do
       user.city =    'Cairns'
       user.country = nil
-      user.geocoded_address.should == 'Cairns'
+      user.formatted_address.should == 'Cairns'
     end
 
     it "should display the city name if present" do
       user.city = nil
       user.country = 'Australia'
-      user.geocoded_address.should == 'Australia'
+      user.formatted_address.should == 'Australia'
     end
 
     it "should display `Unknown` if there is no address" do
       user.city = nil
       user.country = nil
-      user.geocoded_address.should == 'Unknown'
+      user.formatted_address.should == 'Unknown'
     end
   end
 end

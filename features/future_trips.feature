@@ -6,24 +6,27 @@ Feature: Future Trips
   Background:
     Given I am logged in as "Flov" from "Cairns"
 
-  Scenario: New future trip with a nearby hitchhiker
+  @javascript @geocode_1 @geocode_2 @geocode_3 @geocode_4 @wip
+  Scenario: New future trip WITH a nearby hitchhiker
     Given a hitchhiker called "Malte" from "Cairns"
-    When I go to the homepage
-    And I follow "Find a new Hitchhiking Buddy"
+    When I go to the new future trip page
     And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
     And I submit the form
     Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    And "Malte" should receive an email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy in Cairns"
+    And the future trip from Barcelona to Madrid should be geocoded
+    And "Malte" should receive an email with subject "[Hitchlog] Flov is looking for a hitchhiking buddy from Barcelona to Madrid"
 
-  Scenario: New future trip without a nearby hitchhiker
+  @javascript @wip
+  Scenario: New future trip WITHOUT a nearby hitchhiker
     Given a hitchhiker called "Malte" from "Brisbane"
     When I go to the homepage
     And I follow "Find a new Hitchhiking Buddy"
     And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
     And I submit the form
     Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    And "Malte" should receive no email with subject "[Hitchlog] Flov is searching for a hitchhiking buddy"
+    And "Malte" should receive no email
 
+  @javascript @wip
   Scenario: View and edit a future trip in your profile
     Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I go to the profile page of Flov
@@ -32,6 +35,7 @@ Feature: Future Trips
     And I fill in the future trip form with from "Barcelona" to "Paris" at the "20 Feb 2014"
     And I submit the form
     Then I should see the future trip from "Barcelona" to "Paris" at the "20 Feb 2014"
+    And the future trip from Barcelona to Paris should be geocoded
 
   Scenario: View a future trip in someone elses profile and send him a message
     Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"

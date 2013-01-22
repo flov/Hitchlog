@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227081340) do
+ActiveRecord::Schema.define(:version => 20130102074229) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -46,13 +46,19 @@ ActiveRecord::Schema.define(:version => 20121227081340) do
     t.string   "to"
     t.integer  "user_id"
     t.datetime "departure"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.text     "description"
     t.float    "from_lng"
     t.float    "from_lat"
     t.float    "to_lng"
     t.float    "to_lat"
+    t.string   "from_city"
+    t.string   "from_country_code"
+    t.string   "from_country"
+    t.string   "to_city"
+    t.string   "to_country_code"
+    t.string   "to_country"
   end
 
   create_table "people", :force => true do |t|

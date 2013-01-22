@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
     hash
   end
 
-  def geocoded_address
+  def formatted_address
     if city.present? && country.present?
       "#{city}, #{country}"
     elsif country.present?
