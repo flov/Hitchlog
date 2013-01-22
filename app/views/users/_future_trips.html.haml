@@ -1,16 +1,4 @@
-.profile_section#future_trips
-  - if user.future_trips.any?
-    %h3 #{ t('.future_trips', count: user.trips.size) }:
-    %ul
-      - user.future_trips.each do |future_trip|
-        %li
-          = t('.user_wants_to_hitchhike_from_a_to_b', user: user,
-                                                      from: future_trip.from,
-                                                      to: future_trip.to,
-                                                      departure: future_trip.departure.strftime("%d %b %Y"))
-          - if user != current_user
-            = link_to t('.send_a_message'), send_mail_user_path(user)
-          - else
-            = link_to t('general.edit'), edit_future_trip_path(future_trip)
-            |
-            = link_to t('general.delete'), future_trip_path(future_trip), method: :delete, data: {confirm: t('general.confirm')}
+- if user.future_trips.any?
+  %h3= t('.future_trips')
+
+  = render 'future_trips/future_trips', future_trips: user.future_trips

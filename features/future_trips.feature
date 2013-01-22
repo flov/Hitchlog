@@ -55,4 +55,9 @@ Feature: Future Trips
   Scenario: View Future Trips
     Given "Malte" logged a future trip from "Cairns" to "Byron Bay" at the "21. December 2015"
      When I go to the future trips page
-     Then I should see "Malte wants to hitchhike from Cairns to Byron Bay at the 21 December 2015"
+     Then I should see the future trip of "Malte" from "Cairns" to "Byron Bay"
+
+  Scenario: Do not show past future trips
+    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"
+    When I go to the profile page of Flov
+    Then I should not see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"

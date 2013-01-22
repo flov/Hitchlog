@@ -15,7 +15,7 @@
                         start_year: Date.today.year + 2,
                         end_year: Date.today.year,
                         order: [:day, :month, :year]
-  = f.input :description, as: :text
+  = f.input :description, as: :text, input_html: { rows: 5 }
 
   = f.submit
 

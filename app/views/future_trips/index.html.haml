@@ -1,7 +1,9 @@
-%h1= t('.hitchhikers_searching_for_travel_buddies')
-%ul
-  - future_trips.each do |future_trip|
-    %li
-      = link_to future_trip.user.username.capitalize, user_path(future_trip.user.username)
-      = "wants to hitchhike from #{future_trip.from} to #{future_trip.to} at the #{future_trip.departure.strftime("%d %B %Y")}"
+- title t('.title')
 
+
+%h1= t('.hitchhikers_searching_for_travel_buddies')
+
+- if future_trips.any?
+  = render 'future_trips', future_trips: future_trips
+- else future_trips.any?
+  %h3= t('.currently_no_future_trips')

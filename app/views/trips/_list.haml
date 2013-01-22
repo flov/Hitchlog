@@ -24,7 +24,7 @@
           .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
             = truncated_markdown(ride.story)
       - if by
-        %td.hitchhiked_by= link_to "#{h(trip.user)} #{gender_hitchhiker_image(trip.user.gender)}".html_safe, user_path(trip.user)
+        %td.hitchhiked_by= user_with_gender(trip.user)
       %td.icons
         = images_for_trip(trip)
       %td.countries

@@ -22,9 +22,10 @@
         != t('.current_location', location: user_location(user))
         = updated_location_at(user)
 
-    = render 'future_trips', user: user
 
     = render 'about_you', user: user
+
+    = render 'future_trips', future_trips: user.future_trips
 
     = render 'trips_and_rides', user: user
 

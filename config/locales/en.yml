@@ -136,10 +136,13 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
-      find_hitchhiking_buddy: "Find a new Hitchhiking Buddy"
+      people_searching_for_travel_partner: "Hitchhikers searching for travel partners"
+      find_other_hitchhikers: "Search through Hitchhikers"
+      find_hitchhiking_buddy: "Find a hitchhiking partner"
       log_new_trip: "Log a new trip"
       edit_profile: "Edit profile"
       your_profile: "Your Profile"
+      sign_out: Sign Out
       about: About
       blog: Blog
       trips: Trips
@@ -199,19 +202,30 @@ en:
       login_with_facebook: "Login with Facebook"
   future_trips:
     new:
-      new_future_trip: Log your planned hitchhiking trips
+      new_future_trip: Where Would You Like To Hitchhike To?
       tell_others_about_your_plans: Find a hitchhiking buddy by telling others about your travel plans.
     edit:
       edit_future_trip: Edit your future trip
     index:
-      hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel buddies
+      currently_no_future_trips: Currently there are no planned hitchhiking trips.
+      hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel partner
+      title: Find a Hitchhiking partner
+    future_trips:
+      future_trip: Future Trip
+      departure: Departure
+      by: By
+      country: Country
+      edit: (Edit)
+      send_a_message: send message
   facebook:
     login_with_facebook: "Login with Facebook"
   back: Back
   edit: Edit
   users:
+    about_you:
+      about: About
     future_trips:
-      future_trips: Future Trips
+      future_trips: Planned Future Trips
       user_wants_to_hitchhike_from_a_to_b: "%{user} wants to hitchhike from %{from} to %{to} at the %{departure}"
       send_a_message: send message
     send_mail:

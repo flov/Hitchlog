@@ -36,4 +36,8 @@ module UsersHelper
   def samuel
     link_to "Samuel Del Bello", user_path("sdelbello")
   end
+
+  def user_with_gender(user)
+    link_to "#{h(user)} #{gender_hitchhiker_image(user.gender)}".html_safe, user_path(user)
+  end
 end

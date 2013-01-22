@@ -3,7 +3,15 @@
     %li= link_to t('.about'), about_path
     %li= link_to t('.blog'), 'http://blog.hitchlog.com/'
     %li= link_to t('.trips'), trips_path
-    %li= link_to t('.hitchhikers'), users_path
+    %li.dropdown
+      = link_to t('.hitchhikers'), users_path
+      .dropped-down-container
+        .dropped-down
+          %ul
+            %li
+              = link_to t('.people_searching_for_travel_partner'), future_trips_path
+            %li
+              = link_to t('.find_other_hitchhikers'), users_path
     %li.dropdown
       = link_to t('.language'), '', id: 'choose_language'
       .dropped-down-container
@@ -27,10 +35,10 @@
           .dropped-down
             %ul
               %li
+                = link_to t('.find_hitchhiking_buddy'), new_future_trip_path
+              %li
                 = link_to t('.log_new_trip'), new_trip_path
               %li
                 = link_to t('.edit_profile'), edit_user_path(current_user)
-              %li
-                = link_to t('.find_hitchhiking_buddy'), new_future_trip_path
               %li
                 = link_to t('.sign_out'), destroy_user_session_path
