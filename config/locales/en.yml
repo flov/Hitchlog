@@ -137,9 +137,9 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
-      people_searching_for_travel_partner: "Hitchhikers searching for travel partners"
-      find_other_hitchhikers: "Search through Hitchhikers"
-      find_hitchhiking_buddy: "Find a hitchhiking partner"
+      people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
+      find_other_hitchhikers: "Connect with hitchhikers"
+      find_hitchhiking_buddy: "Find a hitchhiking buddy"
       log_new_trip: "Log a new trip"
       edit_profile: "Edit profile"
       your_profile: "Your Profile"
@@ -206,7 +206,7 @@ en:
       new_future_trip: Where Would You Like To Hitchhike To?
       tell_others_about_your_plans: |
           Tell the other hitchhikers on the Hitchlog where you would like to
-          hitchhike to so that you can find a hitchhiking buddy.
+          hitchhike to so that you can find a new hitchhiking buddy.
     edit:
       edit_future_trip: Edit your future trip
     index:
