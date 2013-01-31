@@ -12,7 +12,7 @@ gem 'devise', '1.4.5'
 gem 'rdiscount' # Markdown
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser
-gem 'crashlog', git: 'git://github.com/crashlog/crashlog.git'
+gem 'crashlog', '~> 1.0.6'
 
 
 gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.1
@@ -54,7 +54,6 @@ group :development do
   gem 'capistrano'
   gem 'growl'
   gem 'guard'
-  gem 'guard-livereload'
   gem 'guard-zeus'
   gem 'guard-rspec'
   gem 'guard-cucumber'
