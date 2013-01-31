@@ -6,9 +6,23 @@ describe FutureTrip do
 
   it { should belong_to(:user) }
 
-  it { should validate_presence_of(:from) }
-  it { should validate_presence_of(:to) }
-  it { should validate_presence_of(:departure) }
+  describe "#valid?" do
+    it { should validate_presence_of(:from) }
+    it { should validate_presence_of(:to) }
+    it { should validate_presence_of(:departure) }
+
+    describe '#departure' do
+      it "cannot be in the past" do
+        future_trip.departure = 1.day.ago
+        future_trip.should have(1).error_on :departure
+      end
+
+      it "can be in the future" do
+        future_trip.departure = 1.day.from_now
+        future_trip.should have(0).error_on :departure
+      end
+    end
+  end
 
   describe '#to_s' do
     it "outputs correct string" do
@@ -23,7 +37,7 @@ describe FutureTrip do
     it 'formats the time' do
       time = 1.day.from_now
       future_trip.departure = time
-      future_trip.formatted_time.should == "#{time.day} #{time.strftime("%b")} #{time.year}"
+      future_trip.formatted_time.should == future_trip.departure.strftime("%d %b %Y")
     end
   end
 

@@ -20,7 +20,7 @@ class FutureTrip < ActiveRecord::Base
 
   validates :from, presence: true
   validates :to, presence: true
-  validates :departure, presence: true
+  validates :departure, presence: true, not_in_past: true
 
   default_scope where("departure >= ?", Time.now)
 

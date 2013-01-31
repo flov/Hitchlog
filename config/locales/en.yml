@@ -117,6 +117,7 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    cannot_be_in_past: "can't be in past"
     edit: Edit
     save: Save
     delete: Delete
@@ -203,7 +204,9 @@ en:
   future_trips:
     new:
       new_future_trip: Where Would You Like To Hitchhike To?
-      tell_others_about_your_plans: Find a hitchhiking buddy by telling others about your travel plans.
+      tell_others_about_your_plans: |
+          Tell the other hitchhikers on the Hitchlog where you would like to
+          hitchhike to so that you can find a hitchhiking buddy.
     edit:
       edit_future_trip: Edit your future trip
     index:
