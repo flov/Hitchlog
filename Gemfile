@@ -12,7 +12,8 @@ gem 'devise', '1.4.5'
 gem 'rdiscount' # Markdown
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser
-gem 'airbrake'
+gem 'crashlog', '~> 1.0.6'
+
 
 gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.1
 
@@ -34,6 +35,9 @@ gem 'json'
 gem 'jbuilder'
 gem 'routing-filter' # wraps I18n.locale around routing engine
 
+gem 'jquery-rails', '2.1.1'
+gem 'thin'
+
 # Gems only used for assets and not required by default
 # in production environments by default.
 group :assets do
@@ -43,9 +47,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails', '2.1.1'
-gem 'thin'
-
 group :development do
   gem 'web_translate_it'
   gem 'hirb'
@@ -53,7 +54,6 @@ group :development do
   gem 'capistrano'
   gem 'growl'
   gem 'guard'
-  gem 'guard-livereload'
   gem 'guard-zeus'
   gem 'guard-rspec'
   gem 'guard-cucumber'
