@@ -20,8 +20,7 @@
     - if user.location.present?
       %p
         = t('.current_location')
-        != location_of(user)
-
+        = flag_with_country_name(user)
 
     = render 'about_you', user: user
 

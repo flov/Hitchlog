@@ -117,6 +117,7 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    located_in: "Located in: %{location}"
     cannot_be_in_past: "can't be in past"
     edit: Edit
     save: Save
@@ -151,9 +152,6 @@ en:
       language: Language
       english: English
       german: German
-    last_sign_in:
-      last_sign_in: "Last seen %{time} ago"
-      in: "in %{location}"
     banners_in_corners:
       fork_me_on_github: "Fork Me On Github"
     sign_in_and_out:

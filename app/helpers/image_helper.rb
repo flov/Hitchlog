@@ -273,5 +273,9 @@ module ImageHelper
         alt: "#{I18nData.countries["#{country_code}"]}"
     end
   end
+
+  def flag_with_country_name(user)
+    "#{flag(user.country_code)} #{user.city}".html_safe
+  end
 end
 

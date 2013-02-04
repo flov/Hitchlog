@@ -11,7 +11,7 @@
     #{t('.gender')}:
     #{gender_image(user.gender)}
     %br/
-    = render 'shared/last_sign_in', :user => user
+    = flag_with_country_name(user)
     %br/
     #{t(".cars_seen_from_inside_while_hitchhiking")}:
     = user.hitchhiked_cars

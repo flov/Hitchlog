@@ -21,10 +21,6 @@ module UsersHelper
     link_to user.formatted_address, "http://maps.google.com/?q=#{user.formatted_address}"
   end
 
-  def location_of(user)
-    "#{flag(user.country_code)} #{user.city}"
-  end
-
   def florian
     link_to 'Florian', user_path('flov')
   end
