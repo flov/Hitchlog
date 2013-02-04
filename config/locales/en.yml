@@ -254,7 +254,7 @@ en:
       statistics: Statistics
       send_mail: "Send Mail"
     show:
-      current_location: "Current location: %{location}"
+      current_location: "Current location:"
       alone: alone
       gender_of_drivers: "Gender of passengers"
       with_two: "in pairs"

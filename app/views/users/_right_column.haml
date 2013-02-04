@@ -26,8 +26,7 @@
     - if user.city.present?
       %li
         = t('.located_in')
-        = flag(user.country_code)
-        = user.city
+        = location_of(user)
 
     %li
       #{t('.uploaded_photos')}: #{user.number_of_photos}

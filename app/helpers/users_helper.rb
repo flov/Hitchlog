@@ -21,8 +21,8 @@ module UsersHelper
     link_to user.formatted_address, "http://maps.google.com/?q=#{user.formatted_address}"
   end
 
-  def updated_location_at(user)
-    "(#{user.location_updated_at.strftime("%d %b %y")})" unless user.location_updated_at.nil?
+  def location_of(user)
+    "#{flag(user.country_code)} #{user.city}"
   end
 
   def florian

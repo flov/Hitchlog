@@ -19,8 +19,8 @@
 
     - if user.location.present?
       %p
-        != t('.current_location', location: user_location(user))
-        = updated_location_at(user)
+        = t('.current_location')
+        != location_of(user)
 
 
     = render 'about_you', user: user
