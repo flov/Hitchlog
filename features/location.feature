@@ -13,4 +13,4 @@ Feature: Location
     And I submit the form
     Then "Flov" should have "Melbourne" as city
     And "Flov" should have the lat and lng from Melbourne
-    And on the profile page of "Flov" I should see that he is currently in "Melbourne, Australia"
+    And on the profile page of "Flov" I should see that he is currently in "Melbourne"
