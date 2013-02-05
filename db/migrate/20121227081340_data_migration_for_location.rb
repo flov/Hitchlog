@@ -1,11 +1,11 @@
 class DataMigrationForLocation < ActiveRecord::Migration
   def up
     User.all.each do |user|
-      if user.current_sign_in_ip == '127.0.0.1'
+      if user.current_sign_in_ip == '127.0.0.1' or user.current_sign_in_ip.nil?
         next
       end
 
-      if user.location.nil? and user.lat.present? and user.lng.present?
+      if user.location.nil? and user.lat.present? and user.lng.present? and [user.lat, user.lng] != [0, 0]
         puts "Locating `#{user}` (#{user.id})..."
         results = Geocoder.search("#{user.lat},#{user.lng}")
         user.location = "#{results[0].city}, #{results[0].country}"
