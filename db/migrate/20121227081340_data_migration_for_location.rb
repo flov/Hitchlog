@@ -21,6 +21,7 @@ class DataMigrationForLocation < ActiveRecord::Migration
         user.update_column(:location_updated_at, user.current_sign_in_at)
         puts "Location updated at: #{user.location_updated_at.strftime("%d %b %y")}"
         puts "-------------------"
+        sleep 1
       elsif user.location_updated_at.nil? and user.lat.present? and user.lng.present?
         puts "Updated location updated at: #{user.country_code.strftime("%d %b %y")}"
         puts "-------------------"
@@ -40,6 +41,8 @@ class DataMigrationForLocation < ActiveRecord::Migration
         user.update_column(:location_updated_at, user.current_sign_in_at)
         puts "Location updated at: #{user.location_updated_at.strftime("%d %b %y")}"
         puts "-------------------"
+
+        sleep 1
       else
         puts "#{user} has the location already set up"
         puts "-------------------"
