@@ -117,6 +117,8 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    sign_in_with_facebook: "Login with Facebook"
+    sign_up_with_facebook: "Sign up with Facebook"
     located_in: "Located in: %{location}"
     cannot_be_in_past: "can't be in past"
     edit: Edit
@@ -165,7 +167,6 @@ en:
     home:
       share_and_keep_track: "Share your hitchhiking experiences"
       countries_logged: "Countries logged"
-      sign_in_with_facebook: "Sign in with Facebook"
       newest_hh_stories: "Newest Hitchhiking Stories"
       newest_hitchhikers: "Newest Hitchhikers"
       logged: "logged %{trips_size} Trips"

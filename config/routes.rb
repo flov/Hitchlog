@@ -1,12 +1,13 @@
 Hitchlog::Application.routes.draw do
-  devise_for :users, :path_names => { :sign_in => 'login' },
-                     path: 'hitchhikers',
-                     :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, path_names: { :sign_in => 'login' }, path: 'hitchhikers'
 
   filter :locale
 
+  match 'auth/:provider/callback', to: 'omniauth#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
   # omniauth:
-  match '/auth/:provider/callback' => 'authentications#create'  
 
   resources :future_trips, except: [:show]
 

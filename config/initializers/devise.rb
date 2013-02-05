@@ -5,11 +5,6 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "florian.vallen@gmail.com"
 
-  config.omniauth :facebook, Hitchlog::Application.config.facebook_id,
-                             Hitchlog::Application.config.facebook_secret,
-                             :scope => 'email,offline_access'
-  
-
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
