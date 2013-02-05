@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
                   :country,
                   :country_code
 
-  concerned_with :oauth, :user_settings
+  concerned_with :user_settings
 
   has_friendly_id :username
 

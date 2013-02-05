@@ -14,7 +14,6 @@ gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser
 gem 'crashlog', '~> 1.0.6'
 
-
 gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.1
 
 gem 'geocoder'
@@ -23,7 +22,8 @@ gem 'haml', '~> 3.1.4'
 
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
-gem 'oa-oauth', :require => 'omniauth/oauth'
+gem 'omniauth-facebook'
+
 gem 'i18n_data'
 gem 'choices' # external settings in Rails app
 gem 'friendly_id', '~> 3.2.1'
