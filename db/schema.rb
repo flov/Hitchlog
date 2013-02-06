@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102074229) do
+ActiveRecord::Schema.define(:version => 20130206130225) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -210,8 +210,6 @@ ActiveRecord::Schema.define(:version => 20130102074229) do
     t.datetime "location_updated_at"
   end
 
-  add_index "users", ["country"], :name => "index_users_on_country"
-  add_index "users", ["country_code"], :name => "index_users_on_country_code"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username"
