@@ -208,9 +208,11 @@ en:
     edit:
       edit_future_trip: Edit your future trip
     index:
+      tell_others_about_your_plans: Tell others about your hitchhiking plans.
       currently_no_future_trips: Currently there are no planned hitchhiking trips.
       hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel partner
       title: Find a Hitchhiking partner
+      be_the_first: Be the first to log a future trip.
     future_trips:
       future_trip: Future Trip
       departure: Departure

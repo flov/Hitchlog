@@ -1,9 +1,10 @@
 - title t('.title')
 
-
 %h1= t('.hitchhikers_searching_for_travel_buddies')
+%p= link_to t('.tell_others_about_your_plans'), new_future_trip_path
 
 - if future_trips.any?
   = render 'future_trips', future_trips: future_trips
 - else future_trips.any?
   %h3= t('.currently_no_future_trips')
+  %p= link_to t('.be_the_first'), new_future_trip_path
