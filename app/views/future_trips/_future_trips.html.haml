@@ -1,0 +1,20 @@
+%table.future_trips.colorize_table
+  %tr
+    %th= t('.future_trip')
+    %th= t('.by')
+    %th= t('.country')
+    %th= t('.departure')
+  - future_trips.each do |future_trip|
+    %tr{:id => "future_trip_#{future_trip.id}"}
+      %td.title.neutralize_fonts
+        = future_trip.to_s
+        - if future_trip.user != current_user
+          = link_to t('.send_a_message'), send_mail_user_path(future_trip.user)
+        - else
+          = link_to t('general.edit'), edit_future_trip_path(future_trip)
+          |
+          = link_to t('general.delete'), future_trip_path(future_trip), method: :delete, data: {confirm: t('general.confirm')}
+
+      %td.by= user_with_gender(future_trip.user)
+      %td.country= flag(future_trip.from_country_code)
+      %td.departure= future_trip.departure.strftime("%d %b %Y")

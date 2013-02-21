@@ -1,12 +1,25 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about_you, :cs_user, :gender
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :remember_me,
+                  :username,
+                  :about_you,
+                  :cs_user,
+                  :gender,
+                  :lat,
+                  :lng,
+                  :city,
+                  :location,
+                  :country,
+                  :country_code
 
-  concerned_with :oauth, :user_settings
+  concerned_with :user_settings
 
   has_friendly_id :username
 
@@ -17,16 +30,14 @@ class User < ActiveRecord::Base
   has_many :trips, dependent: :destroy
   has_many :authentications, dependent: :destroy
   has_many :comments
-  has_one  :sign_in_address
+  has_many :future_trips
 
   validates :username, presence: true,
                        uniqueness: true,
                        format: {with: /^[\.A-Za-z\d_-]+$/}
 
-  before_validation  :sanitize_username
-  before_save        :geocode_address, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
-
-  geocoded_by :current_sign_in_ip, latitude: :sign_in_lat, longitude: :sign_in_lng
+  before_validation :sanitize_username
+  before_validation :update_location_updated_at, if: 'location_changed?'
 
   geocoded_by :current_sign_in_ip, latitude: :lat, longitude: :lng
   reverse_geocoded_by :lat, :lng do |obj,results|
@@ -36,7 +47,8 @@ class User < ActiveRecord::Base
       obj.country_code = geo.country_code
     end
   end
-  after_validation :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
+
+  before_create :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
@@ -74,7 +86,7 @@ class User < ActiveRecord::Base
     hash
   end
 
-  def geocoded_address
+  def formatted_address
     if city.present? && country.present?
       "#{city}, #{country}"
     elsif country.present?
@@ -87,6 +99,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def update_location_updated_at
+    self.location_updated_at = Time.now
+  end
 
   def sanitize_username
     self.username.downcase

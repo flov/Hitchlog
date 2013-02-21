@@ -1,20 +1,27 @@
-Given /^a trip exists$/ do
-  @trip = FactoryGirl.create(:trip)
+Given /^a trip exists from "([^"]*)" to "([^"]*)"$/ do |from, to|
+  @trip = FactoryGirl.create(:trip, from: from, to: to)
 end
 
-Given /^the user of this trip is "([^"]*)"$/ do |username|
-  @trip = Trip.last
-  user = @trip.user
+Given /^a trip exists$/ do
+  FactoryGirl.create(:trip)
+end
+
+Given /^the user the trip from "([^"]*)" to "([^"]*)" is "([^"]*)"$/ do |from, to, username|
+  trip = Trip.where(from: from, to: to).first
+  user = trip.user
   user.username = username
   user.save!
 end
 
-Given /^the distance was (\d+) km$/ do |number|
-  @trip.distance = number.to_i * 1000
+Given /^the distance of the trip from "([^"]*)" to "([^"]*)" was (\d+) km$/ do |from, to, number|
+  trip = Trip.where(from: from, to: to).first
+  trip.distance = number.to_i * 1000
+  trip.save!
 end
 
 Given /^he did the trip (\d+) days ago$/ do |number|
   @trip.departure = number.to_i.days.ago
+  @trip.save!
 end
 
 Given /^it took him (\d+) hours$/ do |number|

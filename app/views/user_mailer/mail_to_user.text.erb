@@ -9,9 +9,8 @@ Hello <%= @to_user %>!
 To reply <%= @to_user %>, please reply to this email address: <%= @from_user.email %>
 
 Your Hitchlog Profile: <%= user_url(@to_user) %>
-<%= @from_user%>'s Hitchlog Profile: <%= "http://hitchlog.com/#{@from_user.username}" %>
+<%= @from_user%>'s Hitchlog Profile: <%= user_url(@from_user) %>
 Edit your Hitchlog Profile: <%= edit_user_url(@to_user) %>
-
 
 Happy Hitchhiking :)
 The Hitchlog

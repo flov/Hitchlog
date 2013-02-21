@@ -27,6 +27,10 @@
           .dropped-down
             %ul
               %li
+                = link_to t('.find_hitchhiking_buddy'), future_trips_path
+              %li
                 = link_to t('.log_new_trip'), new_trip_path
               %li
                 = link_to t('.edit_profile'), edit_user_path(current_user)
+              %li
+                = link_to t('.sign_out'), destroy_user_session_path

@@ -1,4 +1,5 @@
 require 'cucumber/rails'
+require 'email_spec/cucumber'
 
 Capybara.default_selector = :css
 

@@ -10,20 +10,20 @@ module NavigationHelpers
 
     when /^the homepage$/
       '/'
-    when /^the profile page of florian/
-      '/en/hitchhikers/florian'
     when /^the login page/
       '/en/hitchhikers/login'
     when /^the signup page/
       '/en/hitchhikers/sign_up'
-    when /^the profile of "supertramp"$/
-      '/en/hitchhikers/supertramp'
+    when /^the profile page of (.*)$/
+      user_path($1.downcase)
     when /^the hitchhikers page$/
       '/en/hitchhikers'
     when /^the page of this trip$/
       trip_path(Trip.last)
-    when /^the edit profile page$/
-      "/en/hitchhikers/#{@user.username}/edit"
+    when /^the edit profile page of (.*)$/
+      "/en/hitchhikers/#{$1.downcase}/edit"
+    when /^the future trips page$/
+      future_trips_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218115000) do
+ActiveRecord::Schema.define(:version => 20130206130225) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -41,11 +41,38 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
     t.string  "country"
   end
 
+  create_table "future_trips", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.integer  "user_id"
+    t.datetime "departure"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.text     "description"
+    t.float    "from_lng"
+    t.float    "from_lat"
+    t.float    "to_lng"
+    t.float    "to_lat"
+    t.string   "from_city"
+    t.string   "from_country_code"
+    t.string   "from_country"
+    t.string   "to_city"
+    t.string   "to_country_code"
+    t.string   "to_country"
+  end
+
   create_table "people", :force => true do |t|
     t.string  "occupation"
     t.string  "mission"
     t.string  "origin"
     t.integer "ride_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "trip_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "races", :force => true do |t|
@@ -83,14 +110,17 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
+    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
+    t.datetime "date"
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
@@ -103,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
   add_index "rides", ["gender"], :name => "index_rides_on_gender"
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
+  add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -154,6 +185,7 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -174,6 +206,8 @@ ActiveRecord::Schema.define(:version => 20121218115000) do
     t.string   "city"
     t.string   "country_code"
     t.string   "country"
+    t.string   "location"
+    t.datetime "location_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

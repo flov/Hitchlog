@@ -122,6 +122,7 @@ fr:
     extremely_negative: "extrèmement négative"
     confirm: "T'es sûr?"
     slogan: "Un journal d'auto-stoppeur."
+    save: Save
   shared:
     navigation:
       log_new_trip: "Noter un nouveau voyage"

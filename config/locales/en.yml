@@ -36,7 +36,14 @@ en:
         A website for logging rides and hitchhiking stories.
         It generates statistics about hitchhiking in certain countries and
         gives an overview of the experiences as a hitchhiker.
+  mailer:
+    future_trips:
+      nearby_hitchhikers:
+        subject: "[Hitchlog] %{user} is looking for a hitchhiking buddy from %{from_city} to %{to_city}"
   flash:
+    future_trips:
+      destroy:
+        success: "Your future trip from %{from} to %{to} has been deleted"
     trips:
       create_comment:
         alert: "Comment failed to save!"
@@ -110,7 +117,14 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    sign_in_with_facebook: "Login with Facebook"
+    sign_up_with_facebook: "Sign up with Facebook"
+    located_in: "Located in: %{location}"
+    cannot_be_in_past: "can't be in past"
+    edit: Edit
     save: Save
+    delete: Delete
+    confirm: "Are you sure?"
     time_ago: "%{time} ago"
     or: or
     supports_markdown: "supports markdown"
@@ -126,9 +140,13 @@ en:
     slogan: "A Hitchhiker's Logbook"
   shared:
     navigation:
+      people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
+      find_other_hitchhikers: "Connect with hitchhikers"
+      find_hitchhiking_buddy: "Find a hitchhiking buddy"
       log_new_trip: "Log a new trip"
       edit_profile: "Edit profile"
       your_profile: "Your Profile"
+      sign_out: Sign Out
       about: About
       blog: Blog
       trips: Trips
@@ -136,9 +154,6 @@ en:
       language: Language
       english: English
       german: German
-    last_sign_in:
-      last_sign_in: "Last seen %{time} ago"
-      in: "in %{location}"
     banners_in_corners:
       fork_me_on_github: "Fork Me On Github"
     sign_in_and_out:
@@ -152,7 +167,6 @@ en:
     home:
       share_and_keep_track: "Share your hitchhiking experiences"
       countries_logged: "Countries logged"
-      sign_in_with_facebook: "Sign in with Facebook"
       newest_hh_stories: "Newest Hitchhiking Stories"
       newest_hitchhikers: "Newest Hitchhikers"
       logged: "logged %{trips_size} Trips"
@@ -186,11 +200,38 @@ en:
           The piechart below consists of the hitchhiked countries that have
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
+  future_trips:
+    new:
+      new_future_trip: Where Would You Like To Hitchhike To?
+      tell_others_about_your_plans: |
+          Tell the other hitchhikers on the Hitchlog where you would like to
+          hitchhike to so that you can find a new hitchhiking buddy.
+    edit:
+      edit_future_trip: Edit your future trip
+    index:
+      tell_others_about_your_plans: Tell others about your hitchhiking plans.
+      currently_no_future_trips: Currently there are no planned hitchhiking trips.
+      hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel partner
+      title: Find a Hitchhiking partner
+      be_the_first: Be the first to log a future trip.
+    future_trips:
+      future_trip: Future Trip
+      departure: Departure
+      by: By
+      country: Country
+      edit: (Edit)
+      send_a_message: send message
   facebook:
     login_with_facebook: "Login with Facebook"
   back: Back
   edit: Edit
   users:
+    about_you:
+      about: About
+    future_trips:
+      future_trips: Planned Future Trips
+      user_wants_to_hitchhike_from_a_to_b: "%{user} wants to hitchhike from %{from} to %{to} at the %{departure}"
+      send_a_message: send message
     send_mail:
       message_placeholder: Message
       title: "Send a message to %{user}"
@@ -200,6 +241,7 @@ en:
           When you send the message, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
+      located_in: "Located in:"
       cars_seen_from_inside: "Cars seen from inside"
       average_drivers_age: "Average driver's age"
       hitchhiked_countries: "Hitchhiked countries"
@@ -213,6 +255,7 @@ en:
       statistics: Statistics
       send_mail: "Send Mail"
     show:
+      current_location: "Current location:"
       alone: alone
       gender_of_drivers: "Gender of passengers"
       with_two: "in pairs"
@@ -231,6 +274,9 @@ en:
         one: "#{count} Rides"
       experiences: experiences
     edit:
+      location: Location
+      loaction_placeholder: Type in address
+      edit_profile: "Edit Profile"
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
       your_avatar_is_from_facebook: |
@@ -334,6 +380,7 @@ en:
     show_ride:
       ride: Ride
     new:
+      new_trip: New Trip
       log_your_trip_please: "Log your hitchhiking trip please :)"
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is

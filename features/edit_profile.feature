@@ -4,11 +4,15 @@ Feature: Edit user
   I want to be able to edit my profile
 
   Background:
-    Given a hitchhiker
-      And I am logged in
+    Given I am logged in as "flov"
+     And I go to the edit profile page of Flov
 
-  Scenario: 
-     When I go to the edit profile page
-     Then I should see "About you"
-     And  I should see "CS user"
-     And  I should see "Your Avatar"
+  Scenario: Edit attributes
+     When I fill in the following:
+       | About you         | About me |
+       | CS user           | My_cs_user |
+       | Gender (select)   | male     |
+     And I submit the form
+     Then I should see "About me"
+     And  I should see "My_cs_user"
+

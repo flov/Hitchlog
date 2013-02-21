@@ -22,6 +22,7 @@ FactoryGirl.define do
     lat                   0.0
     lng                   0.0
     gender                'male'
+    location              'Melbourne, Australia'
   end
 
   factory :munich_user, :parent => :user do
@@ -54,5 +55,11 @@ FactoryGirl.define do
     distance 1_646_989
     association(:user)
     hitchhikes 1
+  end
+
+  factory :future_trip do
+    from "Barcelona"
+    to "Madrid"
+    departure 10.days.from_now
   end
 end

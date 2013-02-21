@@ -6,11 +6,13 @@ describe User do
   it { should have_many(:trips) }
   it { should have_many(:comments) }
   it { should have_many(:authentications) }
+  it { should have_many(:future_trips) }
 
   before do
     user.trips << FactoryGirl.build(:trip)
   end
 
+<<<<<<< HEAD
   describe 'valid?' do
     describe 'validates usernae' do
       it 'allows all those letters: /A-Za-z\d_-/' do
@@ -22,6 +24,22 @@ describe User do
         user.username = '#$%?'
         user.should_not be_valid
       end
+=======
+  describe "#location_updated_at" do
+    it 'should not change if the location does not change' do
+      user.save!
+      location_updated_at = user.location_updated_at
+      user.save!
+      user.location_updated_at.should == location_updated_at
+    end
+
+    it 'should change when I update location' do
+      user.save!
+      location_updated_at = user.location_updated_at
+      user.location = 'Cairns, Australia'
+      user.save!
+      user.location_updated_at.should be > location_updated_at
+>>>>>>> develop
     end
   end
 
@@ -106,40 +124,31 @@ describe User do
       user.city.should == "Brooklyn"
       user.country.should == "United States"
     end
-
-    it "should change the address when the ip changes" do
-      VCR.use_cassette('hamburg_ip_address') do
-        user.current_sign_in_ip = "85.183.206.162"
-        user.save!
-      end
-      user.lat.should == 53.55
-      user.lng.should == 10.0
-    end
   end
 
-  describe "#geocoded_address" do
+  describe "#formatted_address" do
     it "should display the city name and the country if present" do
       user.city = 'Cairns'
       user.country = 'Australia'
-      user.geocoded_address.should == 'Cairns, Australia'
+      user.formatted_address.should == 'Cairns, Australia'
     end
 
     it "should display the country name if present" do
       user.city =    'Cairns'
       user.country = nil
-      user.geocoded_address.should == 'Cairns'
+      user.formatted_address.should == 'Cairns'
     end
 
     it "should display the city name if present" do
       user.city = nil
       user.country = 'Australia'
-      user.geocoded_address.should == 'Australia'
+      user.formatted_address.should == 'Australia'
     end
 
     it "should display `Unknown` if there is no address" do
       user.city = nil
       user.country = nil
-      user.geocoded_address.should == 'Unknown'
+      user.formatted_address.should == 'Unknown'
     end
   end
 end
