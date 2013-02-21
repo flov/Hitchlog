@@ -60,15 +60,17 @@ describe UsersController do
     end
 
     context "if logged in" do
+      let(:current_user) { double('user') }
+      let(:another_user) { double('another_user', to_param: 'another_user') }
+
       before do 
-        @user = FactoryGirl.create :user
-        sign_in :user, @user
+        sign_in :user, current_user
       end
 
       context "signed in user tries to destroy another user" do
         before do
-          @another_user = FactoryGirl.create :user
-          delete :destroy, id: @another_user.to_param
+          User.stub(:find).and_return(another_user)
+          delete :destroy, id: another_user.to_param
         end
 
         it "should not delete another user" do
@@ -76,7 +78,7 @@ describe UsersController do
         end
 
         it "should redirect to the profile path" do
-          response.should redirect_to(user_path(@user))
+          response.should redirect_to(user_path(current_user))
         end
       end
     end
