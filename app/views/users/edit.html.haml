@@ -9,7 +9,7 @@
 .float_left
   = simple_form_for current_user do |f|
     = f.input :username
-    = f.input :location, input_html: {id: 'user'}
+    = f.input :location, input_html: {id: 'user'}, hint: t('.when_changing')
     = f.input :lat, as: :hidden
     = f.input :lng, as: :hidden
     = f.input :city, as: :hidden
