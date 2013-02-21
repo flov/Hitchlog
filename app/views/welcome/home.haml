@@ -25,7 +25,7 @@
       = image_tag @chart_image
 
   .right
-    - if user_signed_in? and current_user.nearbys.any?
+    - if user_signed_in? and !current_user.nearbys.nil?
       .box.welcome_box
         = render 'shared/nearby_hitchhikers'
 
