@@ -41,10 +41,10 @@ class OmniauthController < ApplicationController
   def facebook_username(hash)
     # A user does not need to have a nickname configured:
     # nickname: profile.php?id=100002244415511
-    if hash['nickname'].nil? or hash['nickname'].include? '?'
+    if hash['nickname'].include? '?'
       hash['first_name']
     else
-      hash['nickname']
+      hash['nickname'].gsub('.', '_')
     end
   end
 end

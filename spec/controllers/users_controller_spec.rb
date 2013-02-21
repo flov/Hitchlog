@@ -51,7 +51,22 @@ describe UsersController do
     end
   end
 
-  describe "DELETE destroy" do
+  describe '#show' do
+    let(:action) { get :show, id: 'flov' }
+    let(:user) { double('user') }
+
+    describe 'user exists' do
+      before { User.stub(:find).and_return user }
+
+      it 'renders show view' do
+        action
+
+        response.should render_template :show
+      end
+    end
+  end
+
+  describe "#destroy" do
     context "if not logged in" do
       it "redirects to log in page" do
         delete :destroy, id: 1
