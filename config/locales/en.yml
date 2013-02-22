@@ -117,6 +117,7 @@ en:
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
   general:
+    current_location: "Current location:"
     sign_in_with_facebook: "Login with Facebook"
     sign_up_with_facebook: "Sign up with Facebook"
     located_in: "Located in: %{location}"
@@ -282,6 +283,7 @@ en:
       your_avatar_is_from_facebook: |
           You authenticated with facebook and your profile
           image is your facebook profile image
+      when_changing: 'When changing, click on the autocomplete field'
       hitchlog_supports_gravatar_and_facebook_image: |
           If you authenticate with Facebook, Hitchlog
           will take your Facebook profile image, otherwise
