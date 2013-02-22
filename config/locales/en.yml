@@ -283,7 +283,7 @@ en:
       your_avatar_is_from_facebook: |
           You authenticated with facebook and your profile
           image is your facebook profile image
-      when_changing: 'When changing, click on the autocomplete field'
+      when_changing: 'When changing, click on the dropdown field'
       hitchlog_supports_gravatar_and_facebook_image: |
           If you authenticate with Facebook, Hitchlog
           will take your Facebook profile image, otherwise
