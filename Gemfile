@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 gem 'sqlite3'
 gem 'mysql2',  '>=0.3'
 
