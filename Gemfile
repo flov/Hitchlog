@@ -38,6 +38,10 @@ gem 'routing-filter' # wraps I18n.locale around routing engine
 gem 'jquery-rails', '2.1.1'
 gem 'thin'
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
 # Gems only used for assets and not required by default
 # in production environments by default.
 group :assets do
