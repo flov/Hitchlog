@@ -275,7 +275,13 @@ module ImageHelper
   end
 
   def flag_with_country_name(user)
-    "#{flag(user.country_code)} #{user.city}".html_safe
+    if user.country_code.blank? and user.city.blank?
+      user.location
+    elsif user.country_code.blank?
+      user.city
+    else
+      "#{flag(user.country_code)} #{user.city}".html_safe
+    end
   end
 end
 

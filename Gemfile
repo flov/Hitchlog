@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 gem 'sqlite3'
 gem 'mysql2',  '>=0.3'
 
@@ -37,6 +37,10 @@ gem 'routing-filter' # wraps I18n.locale around routing engine
 
 gem 'jquery-rails', '2.1.1'
 gem 'thin'
+
+group :production do
+  gem 'newrelic_rpm'
+end
 
 # Gems only used for assets and not required by default
 # in production environments by default.
