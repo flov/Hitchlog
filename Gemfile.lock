@@ -33,6 +33,8 @@ GEM
     babosa (0.3.6)
     bcrypt-ruby (3.0.1)
     blankslate (2.1.2.4)
+    bootstrap-sass (2.3.1.0)
+      sass (~> 3.2)
     builder (3.0.4)
     capistrano (2.9.0)
       highline
@@ -141,14 +143,15 @@ GEM
     guard-zeus (0.0.1)
       guard
       zeus
-    haml (3.1.4)
+    haml (3.2.0.rc.4)
+      tilt
     hashie (1.2.0)
     hashr (0.0.22)
     highline (1.6.11)
     hike (1.2.1)
     hirb (0.6.0)
     httpauth (0.2.0)
-    i18n (0.6.2)
+    i18n (0.6.4)
     i18n_data (0.2.8)
       activesupport
     jbuilder (0.4.0)
@@ -178,7 +181,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.21)
-    multi_json (1.6.1)
+    multi_json (1.7.2)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     net-scp (1.0.4)
@@ -241,7 +244,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.3)
+    rake (10.0.4)
     ransack (0.7.2)
       actionpack (~> 3.0)
       activerecord (~> 3.0)
@@ -266,8 +269,8 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.10.0)
     rubyzip (0.9.9)
-    sass (3.1.19)
-    sass-rails (3.2.4)
+    sass (3.2.7)
+    sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
@@ -285,7 +288,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
     systemu (2.5.2)
     term-ansicolor (1.0.7)
     thin (1.3.1)
@@ -293,7 +295,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.14.6)
-    tilt (1.3.3)
+    tilt (1.3.6)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
@@ -322,6 +324,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 2.3.1.0)
   capistrano
   capistrano-ext
   capybara
@@ -349,7 +352,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   guard-zeus
-  haml (~> 3.1.4)
+  haml (~> 3.2.0.rc.4)
   hirb
   i18n_data
   jbuilder
@@ -374,7 +377,6 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple_form
-  sqlite3
   thin
   uglifier
   vcr

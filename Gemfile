@@ -17,7 +17,7 @@ gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.
 
 gem 'geocoder'
 gem 'paperclip'
-gem 'haml', '~> 3.1.4'
+gem 'haml', '~> 3.2.0.rc.4'
 
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
@@ -45,6 +45,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
+  gem 'bootstrap-sass', '~> 2.3.1.0'
   gem 'compass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
