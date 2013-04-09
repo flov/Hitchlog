@@ -373,7 +373,7 @@ DEPENDENCIES
   rdiscount
   routing-filter
   rspec-rails
-  sass-rails
+  sass-rails (~> 3.2.6)
   selenium-webdriver
   shoulda-matchers
   simple_form
