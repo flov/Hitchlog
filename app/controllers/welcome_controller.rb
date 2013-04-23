@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   include Chart
+  layout 'bootstrap'
 
   def home
     @chart_image = chart_image(Trip.all)
@@ -21,6 +22,5 @@ class WelcomeController < ApplicationController
   end
 
   def bootstrap
-    render layout: 'bootstrap'
   end
 end
