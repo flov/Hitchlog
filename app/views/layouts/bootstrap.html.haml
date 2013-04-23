@@ -13,15 +13,15 @@
           = link_to 'Hitchlog', '', class: 'brand'
           .nav-collapse.collapse
             %ul.nav
-              %li.active
-                %a{:href => "#"} Home
+              %li.active= link_to t('.home'), root_path
               %li= link_to t('.about'), about_path
               %li= link_to t('.trips'), trips_path
               %li= link_to t('.hitchhikers'), users_path
+            = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary float-right'
 
     .container
       = yield
 
-  = javascript_include_tag 'bootstrap', debug: true
+  = javascript_include_tag 'bootstrap'
   = yield(:javascript_at_bottom)
 

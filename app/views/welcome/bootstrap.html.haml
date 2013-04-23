@@ -1,7 +1,9 @@
+- title(t('general.slogan'))
+
 .jumbotron
   %h1#headline
     Hitchlog
-  %p.lead share your hitchhiking experience
+  %p.lead= t('welcome.home.share_and_keep_track')
   = link_to t('general.sign_in_with_facebook'), '/auth/facebook', class: 'btn btn-large btn-success'
 
 %hr/
