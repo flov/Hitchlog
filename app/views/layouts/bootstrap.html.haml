@@ -22,6 +22,11 @@
     .container
       = yield
 
+  %footer#footer
+    .container
+      .row-fluid
+        %h1 Hitchlog
+
   = javascript_include_tag 'bootstrap'
   = yield(:javascript_at_bottom)
 

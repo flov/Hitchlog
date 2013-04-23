@@ -1,0 +1,14 @@
+footer {
+  padding: 30px 0;
+  margin-top: 20px;
+  background: $mainBgColor;
+  border-top: 3px solid lighten($mainBgColor, 10%);
+  color: #bababa;
+
+  p {
+    padding: 15px 0px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
