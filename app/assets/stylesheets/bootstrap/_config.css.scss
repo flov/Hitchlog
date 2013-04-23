@@ -23,3 +23,15 @@
 .navbar-inner {
   @include border-radius(0);
 }
+
+.dropdown-menu{
+  min-width: 75px;
+  li {
+    padding: 0 10px;
+  }
+  .right-caret {
+    margin-top: 7px;
+    position: absolute;
+    left: 20px;
+  }
+}

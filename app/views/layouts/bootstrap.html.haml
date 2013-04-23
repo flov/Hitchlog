@@ -15,13 +15,24 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          .nav-collapse.collapse
             %ul.nav
               %li.active= link_to t('.home'), root_path
               %li= link_to t('.about'), about_path
               %li= link_to t('.trips'), trips_path
               %li= link_to t('.hitchhikers'), users_path
-            = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-primary float-right'
+
+              %li.dropdown
+                %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
+                  = t('shared.navigation.language')
+                  %b.caret
+                %ul.dropdown-menu
+                  - [ :en, :fr, :pt, :de ].each do |locale|
+                    %li
+                      = link_to url_for(:locale => locale) do
+                        != "<b class='right-caret'></b>" if I18n.locale == locale
+                        = image_tag "flags/png/#{locale}.png"
+
+            = link_to t('.sign_in'), new_user_session_path, class: 'btn float-right'
 
     .container
       = yield
