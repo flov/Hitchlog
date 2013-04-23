@@ -1,0 +1,15 @@
+.span4
+  %h4= t("welcome.home.newest_hitchhiking_trips")
+  %ul
+    - Trip.paginate(per_page: 7, page: 1).each do |trip|
+      %li
+        %p
+          = link_to trip, trip_path(trip)
+          = images_for_trip(trip)
+          %br/
+          = t('welcome.home.hitchhiked_by_user',
+            user: link_to(h(trip.user), user_path(trip.user)),
+            time: time_ago_in_words(trip.departure)).html_safe
+          = gender_hitchhiker_image(trip.user.gender)
+
+  %strong=link_to t('welcome.home.more_trips'), trips_path

@@ -44,12 +44,13 @@ end
 # Gems only used for assets and not required by default
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 3.2.6'
-  gem 'bootstrap-sass', '~> 2.3.1.0'
+  gem 'sass-rails', '~> 3.2'
   gem 'compass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
 end
+
+gem 'bootstrap-sass-rails'
 
 group :development do
   gem 'web_translate_it'
@@ -62,7 +63,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'guard-bundler'
-  gem 'livereload'
+  gem 'guard-livereload'
 end
 
 group :test, :development do

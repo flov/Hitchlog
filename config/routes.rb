@@ -38,6 +38,7 @@ Hitchlog::Application.routes.draw do
   
   match 'hitchhikers' => 'users#index'
   match 'about' => 'welcome#about'
+  match 'bootstrap' => 'welcome#bootstrap'
 
   root :to => "welcome#home"
 end

@@ -12,11 +12,15 @@ class WelcomeController < ApplicationController
     @hitchhiked_km = Trip.all.map(&:distance).sum / 1000
     @rides_with_story = Ride.with_story.order("id DESC").paginate :per_page => 2, :page => 1
     @hitchhikers = User.order("id DESC").paginate :per_page => 5, :page => 1
-    @trips = Trip.order('id DESC').paginate :per_page => 5, :page => 1
+    @trips = Trip.paginate :per_page => 5, :page => 1
   end
 
   def about
     @flov = User.find_by_username('flov')
     @hitchhikers_with_trips = User.all.collect{|user| user unless user.trips.nil? }.compact
+  end
+
+  def bootstrap
+    render layout: 'bootstrap'
   end
 end

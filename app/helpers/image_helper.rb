@@ -95,35 +95,35 @@ module ImageHelper
   end
 
   def about_person_image
-    image_tag("icons/user_comment.png", :class => 'tooltip', :alt => t('helper.about_person_image'))
+    image_tag("icons/user_comment.png", class: 'tip', title: t('helper.about_person_image'))
   end
 
   def alone_image
-    image_tag("icons/alone.png", :class => 'tooltip', :alt => t('helper.one_person_hitchhike'))
+    image_tag("icons/alone.png", :class => 'tip', title: t('helper.one_person_hitchhike'))
   end
 
   def two_people_image
-    image_tag("icons/two_people.png", :class => 'tooltip', :alt => t('helper.two_people_hitchhike'))
+    image_tag("icons/two_people.png", :class => 'tip', :title => t('helper.two_people_hitchhike'))
   end
 
   def three_people_image
-    image_tag("icons/three_people.png", :class => 'tooltip', :alt => t('helper.three_people_hitchhike'))
+    image_tag("icons/three_people.png", :class => 'tip', :title => t('helper.three_people_hitchhike'))
   end
 
   def more_than_three_people_image  
-    image_tag("icons/more_than_three_people.png", :class => 'tooltip', :alt => t('helper.more_than_three_people_hitchhike'))
+    image_tag("icons/more_than_three_people.png", :class => 'tip', :title => t('helper.more_than_three_people_hitchhike'))
   end
   
  def add_information_image
-    image_tag("icons/add.png", :class => 'tooltip', :alt => t('helper.add_information_to_hitchhike'))
+    image_tag("icons/add.png", :class => 'tip', :title => t('helper.add_information_to_hitchhike'))
   end
 
   def female_image(i18n = 'helper.female')
-    image_tag("icons/female.png", :class => 'tooltip', :alt => t(i18n), width: 16, height: 16)
+    image_tag("icons/female.png", :class => 'tip', :title => t(i18n), width: 16, height: 16)
   end
 
   def male_image(i18n = 'helper.male_people')
-    image_tag("icons/male.png", :class => 'tooltip', :alt => t(i18n), width: 16, height: 16)
+    image_tag("icons/male.png", :class => 'tip', :title => t(i18n), width: 16, height: 16)
   end
 
   def gender_image(gender)
@@ -144,80 +144,80 @@ module ImageHelper
 
   def gender_people_image(gender)
     if gender == 'male'
-      image_tag("icons/male.png", :class => 'tooltip', :alt => t('helper.male_people'))
+      image_tag("icons/male.png", :class => 'tip', :title => t('helper.male_people'))
     elsif gender == 'female'
-      image_tag("icons/female.png", :class => 'tooltip', :alt => t('helper.female_people'))
+      image_tag("icons/female.png", :class => 'tip', :title => t('helper.female_people'))
     elsif gender == 'mixed'
-      image_tag("icons/mixed_gender.png", :class => 'tooltip', :alt => t('helper.mixed_people'))
+      image_tag("icons/mixed_gender.png", :class => 'tip', :title => t('helper.mixed_people'))
     end
   end
 
   def experience_image(exp)
     if exp == 'positive'
-      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.positive_experience'), width: 16, height: 16)
+      image_tag("icons/positive.png", :class => 'tip', :title => t('helper.positive_experience'), width: 16, height: 16)
     elsif exp == 'extremely positive'
-      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.extremely_positive_experience'), width: 16, height: 16)
+      image_tag("icons/extremely_positive.png", :class => 'tip', :title => t('helper.extremely_positive_experience'), width: 16, height: 16)
     elsif exp == 'neutral'
-      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.neutral_experience'), width: 16, height: 16)
+      image_tag("icons/neutral.png", :class => 'tip', :title => t('helper.neutral_experience'), width: 16, height: 16)
     elsif exp == 'negative'
-      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.negative_experience'), width: 16, height: 16)
+      image_tag("icons/negative.png", :class => 'tip', :title => t('helper.negative_experience'), width: 16, height: 16)
     elsif exp == 'extremely negative'
-      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.extremely_negative_experience'), width: 16, height: 16)
+      image_tag("icons/extremely_negative.png", :class => 'tip', :title => t('helper.extremely_negative_experience'), width: 16, height: 16)
     end
   end
 
   def overall_experience_image(exp)
     if exp == 'positive'
-      image_tag("icons/positive.png", :class => 'tooltip', :alt => t('helper.overall_positive_experience'), width: 16, height: 16)
+      image_tag("icons/positive.png", :class => 'tip', :title => t('helper.overall_positive_experience'), width: 16, height: 16)
     elsif exp == 'extremely positive'
-      image_tag("icons/extremely_positive.png", :class => 'tooltip', :alt => t('helper.overall_extremely_positive_experience'), width: 16, height: 16)
+      image_tag("icons/extremely_positive.png", :class => 'tip', :title => t('helper.overall_extremely_positive_experience'), width: 16, height: 16)
     elsif exp == 'neutral'
-      image_tag("icons/neutral.png", :class => 'tooltip', :alt => t('helper.overall_neutral_experience'), width: 16, height: 16)
+      image_tag("icons/neutral.png", :class => 'tip', :title => t('helper.overall_neutral_experience'), width: 16, height: 16)
     elsif exp == 'negative'
-      image_tag("icons/negative.png", :class => 'tooltip', :alt => t('helper.overall_negative_experience'), width: 16, height: 16)
+      image_tag("icons/negative.png", :class => 'tip', :title => t('helper.overall_negative_experience'), width: 16, height: 16)
     elsif exp == 'extremely negative'
-      image_tag("icons/extremely_negative.png", :class => 'tooltip', :alt => t('helper.overall_extremely_negative_experience'), width: 16, height: 16)
+      image_tag("icons/extremely_negative.png", :class => 'tip', :title => t('helper.overall_extremely_negative_experience'), width: 16, height: 16)
     end
   end
 
   def delete_ride_image
-    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('helper.delete_hitchhike'))
+    image_tag("icons/cross.png", :class => 'tip', :title => t('helper.delete_hitchhike'))
   end
 
   def delete_trip_image
-    image_tag("icons/cross.png", :class => 'tooltip', :alt => t('helper.delete_trip'))
+    image_tag("icons/cross.png", :class => 'tip', :title => t('helper.delete_trip'))
   end
 
   def user_image
-    image_tag("icons/user.png", :class => 'tooltip')
+    image_tag("icons/user.png", :class => 'tip')
   end
 
   def waiting_time_image(time=nil)
     if time.nil?
       image_tag("icons/time.png")
     else
-      image_tag("icons/time.png", :class => 'tooltip', :alt => t('helper.waiting_time', :time => time))
+      image_tag("icons/time.png", :class => 'tip', :title => t('helper.waiting_time', :time => time))
     end
   end
 
   def waiting_time_missing_image
-    image_tag("icons/time_delete.png", :class => 'tooltip', :alt => t('helper.waiting_time_missing'))
+    image_tag("icons/time_delete.png", :class => 'tip', :title => t('helper.waiting_time_missing'))
   end
 
   def ride_image(number)
-    image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.rides', :count => number))
+    image_tag("icons/car.png", :class => 'tip', :title => t('helper.rides', :count => number))
   end
 
   def driving_time_missing_image
-    image_tag("icons/car_delete.png", :class => 'tooltip', :alt => t('helper.driving_time_missing'))
+    image_tag("icons/car_delete.png", :class => 'tip', :title => t('helper.driving_time_missing'))
   end
 
   def photo_missing_image
-    image_tag("icons/photo_delete.png", :class => 'tooltip', :alt => t('helper.photo_missing'))
+    image_tag("icons/photo_delete.png", :class => 'tip', :title => t('helper.photo_missing'))
   end
 
   def photo_image
-    image_tag("icons/photo.png", :class => 'tooltip', :alt => t('helper.photo'))
+    image_tag("icons/photo.png", :class => 'tip', :title => t('helper.photo'))
   end
 
   def photo_image_button
@@ -225,23 +225,23 @@ module ImageHelper
   end
 
   def ride_has_story_image(ride)
-    image_tag("icons/story.png", :class => 'tooltip', alt: t('helper.ride_has_story')) unless ride.story.blank?
+    image_tag("icons/story.png", :class => 'tip', title: t('helper.ride_has_story')) unless ride.story.blank?
   end
 
   def story_image
-    image_tag("icons/story.png", :class => 'tooltip')
+    image_tag("icons/story.png", :class => 'tip')
   end
 
   def add_story_image
-    image_tag("icons/story.png", :class => 'tooltip', :alt => t('helper.add_story_image'))
+    image_tag("icons/story.png", :class => 'tip', :title => t('helper.add_story_image'))
   end
 
   def story_missing_image
-    image_tag("icons/script_delete.png", :class => 'tooltip', :alt => t('helper.story_missing'))
+    image_tag("icons/script_delete.png", :class => 'tip', :title => t('helper.story_missing'))
   end
 
   def add_image
-    image_tag('icons/add.png', :class => 'tooltip', :alt => t('helper.add_information'))
+    image_tag('icons/add.png', :class => 'tip', :title => t('helper.add_information'))
   end
 
   def facebook_page
@@ -253,24 +253,24 @@ module ImageHelper
   end
 
   def gmaps_duration_image(trip)
-    image_tag("icons/google.png", :class => 'tooltip', :alt => t('helper.gmaps_duration', :duration => human_seconds(trip.gmaps_duration))) if trip.gmaps_duration
+    image_tag("icons/google.png", :class => 'tip', :title => t('helper.gmaps_duration', :duration => human_seconds(trip.gmaps_duration))) if trip.gmaps_duration
   end
 
   def trip_duration_image(trip)
-    image_tag("icons/car_red.png", :class => 'tooltip', :alt => t('helper.trip_duration', :duration => human_seconds(trip.duration)))
+    image_tag("icons/car_red.png", :class => 'tip', :title => t('helper.trip_duration', :duration => human_seconds(trip.duration)))
   end
 
   def driving_time_image(time)
     if time
-      image_tag("icons/car.png", :class => 'tooltip', :alt => t('helper.driving_time', :time => time))
+      image_tag("icons/car.png", :class => 'tip', :title => t('helper.driving_time', :time => time))
     end
   end
 
   def flag(country_code)
     unless country_code.nil?
-      image_tag "flags/png/#{country_code.downcase}.png", 
-        class: 'tooltip',
-        alt: "#{I18nData.countries["#{country_code}"]}"
+      image_tag "flags/png/#{country_code.downcase}.png",
+        class: 'tip',
+        title: "#{I18nData.countries["#{country_code}"]}"
     end
   end
 

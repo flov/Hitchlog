@@ -1,0 +1,14 @@
+.jumbotron
+  %h1#headline
+    Hitchlog
+  %p.lead share your hitchhiking experience
+  = link_to t('general.sign_in_with_facebook'), '/auth/facebook', class: 'btn btn-large btn-success'
+
+%hr/
+
+.row-fluid
+  = render 'newest_stories'
+
+  = render 'newest_trips'
+
+  = render 'newest_hitchhikers'

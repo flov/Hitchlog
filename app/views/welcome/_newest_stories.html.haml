@@ -1,0 +1,17 @@
+.span4
+  %h4= t('welcome.home.newest_hh_stories')
+  %ul
+    - Ride.with_story.paginate(per_page: 3, page: 1).each do |ride|
+      %li
+        = link_to trip_path(ride.trip) do
+          = truncate(ride.title, :length => 50)
+        = images_for_ride(ride)
+        %br/
+        = t('welcome.home.hitchhiked_by_user',
+          user: link_to_user(ride.trip.user),
+          time: time_ago_in_words(ride.trip.departure)).html_safe
+        = gender_hitchhiker_image(ride.trip.user.gender)
+
+        = truncated_markdown(ride.story)
+
+  %strong=link_to t('welcome.home.more_stories'), "/trips?stories=1"

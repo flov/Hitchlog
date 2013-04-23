@@ -1,0 +1,27 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title= content_for?(:title) ? "Hitchlog - #{yield(:title)}".html_safe : "Hitchlog"
+    = csrf_meta_tag 
+    = stylesheet_link_tag 'bootstrap_app'
+    = yield(:head)
+
+  %body
+    .navbar.navbar-inverse
+      .navbar-inner
+        .container
+          = link_to 'Hitchlog', '', class: 'brand'
+          .nav-collapse.collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li= link_to t('.about'), about_path
+              %li= link_to t('.trips'), trips_path
+              %li= link_to t('.hitchhikers'), users_path
+
+    .container
+      = yield
+
+  = javascript_include_tag 'bootstrap', debug: true
+  = yield(:javascript_at_bottom)
+

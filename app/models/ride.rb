@@ -10,7 +10,6 @@ class Ride < ActiveRecord::Base
 
   validates_associated :trip
 
-  # scope :not_empty, where("photo_file_name IS NOT NULL OR title IS NOT NULL OR story IS NOT NULL OR duration IS NOT NULL OR waiting_time IS NOT NULL")
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story <> ''")
@@ -20,6 +19,8 @@ class Ride < ActiveRecord::Base
                     :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },
                     :processors => [:cropper],
                     :default_url => "/images/missingphoto.jpg"
+
+  default_scope     order("rides.id DESC")
 
   after_update do
     reprocess_photo if cropping?
