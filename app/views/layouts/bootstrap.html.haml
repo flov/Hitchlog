@@ -29,10 +29,10 @@
                   - [ :en, :fr, :pt, :de ].each do |locale|
                     %li
                       = link_to url_for(:locale => locale) do
-                        != "<b class='right-caret'></b>" if I18n.locale == locale
+                        != "<i class='icon-hand-right'></i>" if I18n.locale == locale
                         = image_tag "flags/png/#{locale}.png"
 
-            = link_to t('.sign_in'), new_user_session_path, class: 'btn float-right'
+            = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-small float-right'
 
     .container
       = yield

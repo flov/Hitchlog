@@ -17,6 +17,8 @@ module Hitchlog
     # Versions of your assets, change this line if you want to expire all your assets
     config.asset_version = '1.0'
 
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

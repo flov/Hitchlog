@@ -48,9 +48,9 @@ group :assets do
   gem 'compass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'bootstrap-sass-rails'
 end
 
-gem 'bootstrap-sass-rails'
 
 group :development do
   gem 'web_translate_it'
