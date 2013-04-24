@@ -1,24 +1,17 @@
-footer {
-  padding: 30px 0;
-  margin-top: 20px;
-  background: $mainBgColor;
-  border-top: 3px solid lighten($mainBgColor, 10%);
-  color: #bababa;
-
-  p {
-    padding: 15px 0px;
-  }
-  h1 {
-    font-size: 20px;
-  }
-}
 .navbar {
   .navbar-inner {
     @include border-radius(0);
   }
 
-  .pull-right{
+  .login-button{
     margin-top: 9px;
+  }
+
+  .dropdown-menu{
+    min-width: 75px;
+    li a {
+      padding: 7px;
+    }
   }
 }
 
@@ -45,8 +38,24 @@ footer {
 }
 
 
-.dropdown-menu{
-  min-width: 75px;
-
+.field_with_errors {
+  .control-label, .help-block, .help-inline {
+    color: #b94a48;
+  }
+  .checkbox, .radio, input, select, textarea {
+    color: #b94a48;
+  }
+  input, select, textarea {
+    border-color: #b94a48;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: #953b39;
+  }
+  span.error {
+    color: #fa4700;
+  }
+  span {
+    padding-left: 5px
+  }
 }
 

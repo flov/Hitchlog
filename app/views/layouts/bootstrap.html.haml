@@ -29,18 +29,18 @@
                   - [ :en, :fr, :pt, :de ].each do |locale|
                     %li
                       = link_to url_for(:locale => locale) do
-                        != "<i class='icon-hand-right'></i>" if I18n.locale == locale
+                        != "<i class='icon-hand-right pull-left'></i>" if I18n.locale == locale
                         = image_tag "flags/png/#{locale}.png"
 
           - if user_signed_in?
             You are signed in
           - else
             = link_to new_user_session_path do
-              .pull-right
+              .pull-right.login-button
                 %i.icon-user
                 = t('general.login')
 
-    .container
+    .container#main-content
       = yield
 
   %footer#footer

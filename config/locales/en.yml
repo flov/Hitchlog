@@ -464,6 +464,7 @@ en:
       timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'Your account was not activated yet.'
     sessions:
+      remember_me: Remember Me
       signed_in: 'Welcome Back!'
       signed_out: 'Good bye.'
     passwords:
