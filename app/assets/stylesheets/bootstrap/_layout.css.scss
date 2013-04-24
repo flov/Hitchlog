@@ -12,6 +12,15 @@ footer {
     font-size: 20px;
   }
 }
+.navbar {
+  .navbar-inner {
+    @include border-radius(0);
+  }
+
+  .pull-right{
+    margin-top: 9px;
+  }
+}
 
 .container {
   max-width: 1000px;
@@ -35,9 +44,6 @@ footer {
   }
 }
 
-.navbar-inner {
-  @include border-radius(0);
-}
 
 .dropdown-menu{
   min-width: 75px;

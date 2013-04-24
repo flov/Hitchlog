@@ -139,6 +139,7 @@ en:
     extremely_negative: "extremely negative"
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
+    login: Login
   shared:
     navigation:
       people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
