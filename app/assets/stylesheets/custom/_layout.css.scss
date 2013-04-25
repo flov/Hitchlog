@@ -1,10 +1,20 @@
 .navbar {
+  .brand {
+    img {
+      display: inline !important;
+    }
+    padding: 14px 20px 10px;
+  }
+  .nav>li>a {
+    padding: 18px 15px;
+  }
+
   .navbar-inner {
     @include border-radius(0);
   }
 
   .login-button{
-    margin-top: 9px;
+    margin-top: 17px;
   }
 
   .dropdown-menu{
