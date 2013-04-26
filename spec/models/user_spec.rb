@@ -12,7 +12,6 @@ describe User do
     user.trips << FactoryGirl.build(:trip)
   end
 
-<<<<<<< HEAD
   describe 'valid?' do
     describe 'validates usernae' do
       it 'allows all those letters: /A-Za-z\d_-/' do
@@ -24,7 +23,9 @@ describe User do
         user.username = '#$%?'
         user.should_not be_valid
       end
-=======
+    end
+  end
+
   describe "#location_updated_at" do
     it 'should not change if the location does not change' do
       user.save!
@@ -33,14 +34,6 @@ describe User do
       user.location_updated_at.should == location_updated_at
     end
 
-    it 'should change when I update location' do
-      user.save!
-      location_updated_at = user.location_updated_at
-      user.location = 'Cairns, Australia'
-      user.save!
-      user.location_updated_at.should be > location_updated_at
->>>>>>> develop
-    end
   end
 
   describe "#facebook_user" do

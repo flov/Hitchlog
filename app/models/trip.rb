@@ -66,7 +66,7 @@ class Trip < ActiveRecord::Base
     origin = sanitize_address('from')
     destin = sanitize_address('to')
 
-    "#{origin} &rarr; #{destin}".html_safe
+    "#{origin} -> #{destin}".html_safe
   end
 
   def to_param

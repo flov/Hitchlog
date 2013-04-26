@@ -8,21 +8,25 @@
   .login-wrapper.clearfix
     .float-right
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'login_form'}) do |f|
-        = f.label :email
+        = f.label :username
         .input-prepend
-          %span.add-on @
-          = f.text_field :email, autofocus: 'true', required: true, type: 'email'
+          %span.add-on
+            %i.icon-envelope
+
+          = f.text_field :username, autofocus: 'true', required: true
         = f.label :password
         .input-prepend
-          %span.add-on #
+          %span.add-on
+            %i.icon-key
           = f.text_field :password,  required: true, type: 'password'
 
 
         = f.label :remember_me, class: 'checkbox inline' do
           = f.check_box :remember_me
-          = t('devise.sessions.remember_me')
+          Remember Me
 
-        = f.submit
+        .submit
+          = f.submit "Hitch me up", class: 'btn btn-danger'
 
       %footer.clearfix
         %a.forgotpw{:href => "#"} Forgot Password?
@@ -34,6 +38,6 @@
 
       %p
         = link_to new_user_registration_path do
-          Not a member? Join today!
+          Not on Hitchlog yet? Register here
 
 

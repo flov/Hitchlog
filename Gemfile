@@ -51,6 +51,7 @@ group :assets do
   gem 'bootstrap-sass-rails'
 end
 
+gem "font-awesome-rails"
 
 group :development do
   gem 'web_translate_it'

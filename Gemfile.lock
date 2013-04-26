@@ -121,6 +121,8 @@ GEM
     faraday (0.8.5)
       multipart-post (~> 1.1)
     ffi (1.2.0)
+    font-awesome-rails (3.0.2.0)
+      railties (>= 3.1)
     friendly_id (3.2.1.1)
       babosa (~> 0.3.0)
     fssm (0.2.9)
@@ -344,6 +346,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fakeweb
+  font-awesome-rails
   friendly_id (~> 3.2.1)
   geocoder
   gravatar_image_tag

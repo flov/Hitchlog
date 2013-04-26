@@ -10,15 +10,16 @@
     .navbar.navbar-inverse
       .navbar-inner
         .container
-          = link_to 'Hitchlog', '', class: 'brand'
+          = link_to "#{image_tag("hitchlog_icon.png")} Hitchlog".html_safe, '', class: 'brand'
           %a{ class: "btn btn-navbar", 'data-toggle'=>"collapse", "data-target" => ".nav-collapse"}
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
+          .nav-collapse.collapse
             %ul.nav
-              %li.active= link_to t('.home'), root_path
+              %li= link_to '<i class="icon-home"></i> Home'.html_safe, root_path
               %li= link_to t('.about'), about_path
-              %li= link_to t('.trips'), trips_path
+              %li= link_to "<i class='icon-suitcase'></i> #{t('.trips')}".html_safe, trips_path
               %li= link_to t('.hitchhikers'), users_path
 
               %li.dropdown
@@ -32,13 +33,13 @@
                         != "<i class='icon-hand-right pull-left'></i>" if I18n.locale == locale
                         = image_tag "flags/png/#{locale}.png"
 
-          - if user_signed_in?
-            You are signed in
-          - else
-            = link_to new_user_session_path do
-              .pull-right.login-button
-                %i.icon-user
-                = t('general.login')
+            - if user_signed_in?
+              You are signed in
+            - else
+              = link_to new_user_session_path do
+                .pull-right.login-button
+                  %i.icon-user
+                  = t('general.login')
 
     .container#main-content
       = yield
