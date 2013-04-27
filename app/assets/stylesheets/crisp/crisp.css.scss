@@ -37,10 +37,11 @@ html {
 
 /*	Text Color
 ========================================================== */
-body, html, a { color: #576674 }
-h1, h2, h3, h4, h5, h6, .slide-to-top .trigger { color: #758694 }
+body, html { color: $mainColor }
+a { color: lighten($mainColor, 8) }
+h1, h2, h3, h4, h5, h6, .slide-to-top .trigger { color: $headingsColor }
 h1 a, h2 a, h3 a, h5 a, h4 a { color: inherit }
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: #0290b3 }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: lighten($headingsColor, 10) }
 
 /* Font Selection
 ================================================== */
@@ -193,7 +194,7 @@ q q:before { content: "\2018" }
 q q:after { content: "\2019" }
 .dropcap {
     display: block;
-    color:#758694;
+    color: $headingsColor;
     float: left;
     font-size: 45px;
     line-height: 45px;
@@ -398,12 +399,12 @@ ul.breadcrumb { background: transparent }
     text-align: center;
     font-size: 400%;
     width: 100%;
-    color: #53a3b7;
+    color: $lightblue;
     text-decoration: none;
 }
 .biggieicon:hover { color: #9bd9e9 }
 .bumpdown { font-size: 92% }
-.highlight-color { color: #53a3b7 }
+.highlight-color { color: $lightblue }
 .border-t { border-top: 1px solid #d8dfe5 }
 .border-b { border-bottom: 1px solid #d8dfe5 }
 .border-tb {
@@ -449,15 +450,13 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 /*	bootstrap hero-unit reset
 ============================================================ */
 .hero-unit {
-    position: relative;
-    clear: both;
-    margin: -1% 0 0 0;
-    padding: 0 0 2% 0;
-    background: transparent;
+  position: relative;
+  clear: both;
+  margin: -1% 0 0 0;
+  padding: 0 0 2% 0;
+  background: transparent;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
-}
-.hero-unit h1,
-.hero-unit h2 {
+  h1, h2 {
     margin: 0;
     background: image-url("hr.png") 0 100% repeat-x;
     padding-bottom: 20px;
@@ -466,6 +465,7 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
     line-height: 1.2;
     margin:0;
     color:#a3b0bb;
+  }
 }
 .hero-unit.center {
     text-align: center;
