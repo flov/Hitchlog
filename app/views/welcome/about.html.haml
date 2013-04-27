@@ -4,18 +4,22 @@
   %h1 About
 
 %p.big
-  The Experiences shared on the Hitchlog shall give the viewer an authentic view about
-  Hitchhiking. Our mission is to paint a beautiful image of this way of transport.
+  The Hitchlog gives an authentic picture on hitchhiking.
+  %br/
+  Let us paint this
+  %i.icon-picture
+  beautifully.
 
 .row-fluid
   .span4
+    %h2 Why?
     %p
-      Hitchhiking is an awesome way of traveling!
+      <span class="dropcap">H</span>itchhiking is an awesome way of traveling!
       <br/>
-      It is much more than just a way of getting from A to B.<br/>
-      Hitchhiking enables the traveler to have an eventful
+      It enables the traveler to have an eventful
       journey, to shake hands with interesting and generous drivers and to learn
       and experience the diversity of our society along the way.
+      It is much more than just a way of getting from A to B.<br/>
 
   .span4
     %p
@@ -35,6 +39,41 @@
     -#longest/shortest ride of a user, the total number of kilometers hitchhiked
     -#by a user in for example Mexico, etc...
 
+%h2 Friends
+.row-fluid
+  .span4
+    %h3 Tramprennen
+    = link_to(image_tag('tramprennen_logo.png'), "http://www.vivaconagua.org/")
+    %p
+      Since 2006 a growing group of hitchhikers are racing around Europe
+      by hitchhiking. They are organized in teams and within two weeks
+      the teams arrive step by step at a final destiniation.
+    %p
+      Since 2008 Tramprennen supports the NGO VivaConAgua. VivaConAgua build clean water
+      suplies in third world countries. Together with 96 Teams and 232 attendees,
+      Tramprennen managed in 2011 to gather money worth building 6 remarkable
+      water suplies around the equator.
+    %p
+      Visit <a href='http://tramprennen.org/'>Trampprenenn.org</a> to find out about the
+      latest project where <b>you</b> could become part of as well.
+  .span4
+    %h3 Hitchwiki
+    %p
+      Just like Wikipedia, Hitchwiki is a wiki but for hitchhiking.
+      Hitchhikers from all around the world share tips and information all around hitchhiking.
+      It helped many hitchhikers to find a good spot to leave the city and is really useful.
+
+  .span4
+    %h3 Random Roads
+    = link_to(image_tag('Random_Roads.jpg'), "http://randomroads.org/")
+    %p
+      RandomRoads is a printed magazine, one that travels from one person 
+      to another, one that travelers can give to their drivers or other 
+      people they meet on the road. As such, the magazine is a great way 
+      to create further bonding between hitchhikers, and to have something 
+      we can give away that is representable for our culture.
+
+
 %h2 Contributors
 %p
   The Hitchlog would not be what it is today without the help of the following people:
@@ -48,42 +87,6 @@
   translation. It is pretty easy and whether you believe it or not, it is even fun!
 %p
   #{florian} is developing and maintaining the site.
-
-%h2 Friends:
-.about-paragraph
-  .float_left.contributer_picture
-    =link_to(image_tag('tramprennen_logo.png'), "http://www.vivaconagua.org/")
-  %h3 Tramprennen
-  %p
-    Since 2006 a growing group of hitchhikers are racing around Europe
-    by hitchhiking. They are organized in teams and within two weeks
-    the teams arrive step by step at a final destiniation.
-  %p
-    Since 2008 Tramprennen supports the NGO VivaConAgua. VivaConAgua build clean water
-    suplies in third world countries. Together with 96 Teams and 232 attendees,
-    Tramprennen managed in 2011 to gather money worth building 6 remarkable
-    water suplies around the equator.
-  %p
-    Visit <a href='http://tramprennen.org/'>Trampprenenn.org</a> to find out about the
-    latest project where <b>you</b> could become part of as well.
-.about-paragraph
-  .float_left.contributer_picture=link_to(image_tag('Hitchwiki.png'), 'http://hitchwiki.org/')
-  %h3 Hitchwiki
-  %p
-    Just like Wikipedia, Hitchwiki is a wiki but for hitchhiking.
-    Hitchhikers from all around the world share tips and information all around hitchhiking.
-    It helped many hitchhikers to find a good spot to leave the city and is really useful.
-
-.about-paragraph
-  .float_left.contributer_picture
-    =link_to(image_tag('Random_Roads.jpg'), "http://randomroads.org/")
-  %h3 Random Roads
-  %p
-    RandomRoads is a printed magazine, one that travels from one person 
-    to another, one that travelers can give to their drivers or other 
-    people they meet on the road. As such, the magazine is a great way 
-    to create further bonding between hitchhikers, and to have something 
-    we can give away that is representable for our culture.
 
 
 %h2 Contribute
