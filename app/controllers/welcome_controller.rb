@@ -20,7 +20,4 @@ class WelcomeController < ApplicationController
     @flov = User.find_by_username('flov')
     @hitchhikers_with_trips = User.all.collect{|user| user unless user.trips.nil? }.compact
   end
-
-  def bootstrap
-  end
 end

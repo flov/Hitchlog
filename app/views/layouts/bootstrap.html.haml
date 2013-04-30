@@ -7,39 +7,7 @@
     = yield(:head)
 
   %body
-    .navbar.navbar-inverse
-      .navbar-inner
-        .container
-          = link_to "#{image_tag("hitchlog_icon.png")} Hitchlog".html_safe, '', class: 'brand'
-          %a{ class: "btn btn-navbar", 'data-toggle'=>"collapse", "data-target" => ".nav-collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          .nav-collapse.collapse
-            %ul.nav
-              %li= link_to '<i class="icon-home"></i> Home'.html_safe, root_path
-              %li= link_to t('.about'), about_path
-              %li= link_to "<i class='icon-suitcase'></i> #{t('.trips')}".html_safe, trips_path
-              %li= link_to t('.hitchhikers'), users_path
-
-              %li.dropdown
-                %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
-                  = t('shared.navigation.language')
-                  %b.caret
-                %ul.dropdown-menu
-                  - [ :en, :fr, :pt, :de ].each do |locale|
-                    %li
-                      = link_to url_for(:locale => locale) do
-                        != "<i class='icon-hand-right pull-left'></i>" if I18n.locale == locale
-                        = image_tag "flags/png/#{locale}.png"
-
-            - if user_signed_in?
-              You are signed in
-            - else
-              = link_to new_user_session_path do
-                .pull-right.login-button
-                  %i.icon-user
-                  = t('general.login')
+    = render 'layouts/navigation'
 
     .container#main-content
       = yield

@@ -13,17 +13,19 @@
     @include border-radius(0);
   }
 
-  .login-button{
-    margin-top: 17px;
+  .pull-right{
+    margin-top: 9px;
   }
 
   .dropdown-menu{
     min-width: 75px;
-    li a {
-      padding: 7px;
-    }
+  }
+
+  .dropdown-menu>li>a {
+    text-align: left;
   }
 }
+
 
 .container {
   max-width: 1000px;
