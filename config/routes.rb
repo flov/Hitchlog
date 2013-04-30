@@ -24,7 +24,7 @@ Hitchlog::Application.routes.draw do
       post :create_comment
     end
   end
-  
+
   resources :rides, :except => [:index] do
     collection do
       get    :random
@@ -35,11 +35,14 @@ Hitchlog::Application.routes.draw do
       delete :delete_photo
     end
   end
-  
+
   match 'hitchhikers' => 'users#index'
   match 'home' => 'welcome#home'
   match 'about' => 'welcome#about'
   match 'bootstrap' => 'welcome#bootstrap'
+
+  # making static crisp html templates available to see if they are displayed correctly
+  match 'crisp/:action', controller: :crisp if Rails.env == 'development'
 
   root :to => "welcome#bootstrap"
 end
