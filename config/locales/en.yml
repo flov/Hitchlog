@@ -116,6 +116,22 @@ en:
       with_3: "3 people"
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
+  layouts:
+    navigation:
+      people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
+      find_other_hitchhikers: "Connect with hitchhikers"
+      find_hitchhiking_buddy: "Hitchhiking Buddies"
+      log_new_trip: "Log New Trip"
+      edit_profile: "Edit"
+      your_profile: "Your Profile"
+      sign_out: Sign Out
+      about: About
+      blog: Blog
+      trips: Trips
+      hitchhikers: Hitchhikers
+      language: Language
+      english: English
+      german: German
   general:
     current_location: "Current location:"
     sign_in_with_facebook: "Login with Facebook"
@@ -141,21 +157,6 @@ en:
     slogan: "A Hitchhiker's Logbook"
     login: Login
   shared:
-    navigation:
-      people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
-      find_other_hitchhikers: "Connect with hitchhikers"
-      find_hitchhiking_buddy: "Find a hitchhiking buddy"
-      log_new_trip: "Log a new trip"
-      edit_profile: "Edit profile"
-      your_profile: "Your Profile"
-      sign_out: Sign Out
-      about: About
-      blog: Blog
-      trips: Trips
-      hitchhikers: Hitchhikers
-      language: Language
-      english: English
-      german: German
     banners_in_corners:
       fork_me_on_github: "Fork Me On Github"
     sign_in_and_out:
@@ -278,7 +279,6 @@ en:
     edit:
       location: Location
       loaction_placeholder: Type in address
-      edit_profile: "Edit Profile"
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
       your_avatar_is_from_facebook: |

@@ -4,15 +4,18 @@
   %h1 About
 
 %p.big
-  The Hitchlog gives an authentic picture on hitchhiking.
-  %br/
-  Let us paint this
+  The Hitchlog gives a real
   %i.icon-picture
-  beautifully.
+  on hitchhiking
+  %br/
+  We try to paint it with 
+  %i.icon-heart-empty
+  and give back to the hundreds of
+  %i.icon-group
+  who picked us up.
 
 .row-fluid
   .span4
-    %h2 Why?
     %p
       <span class="dropcap">H</span>itchhiking is an awesome way of traveling!
       <br/>
@@ -33,16 +36,13 @@
       A picture that is untouched of it's bad reputation which is
       spread by public media or movies. A picture which tries to paint the world
       a more hitchhiker friendly place.
-  -#%p
-    -#The information that is entered by hitchhikers,
-    -#generates statistical data like the average waiting time, the
-    -#longest/shortest ride of a user, the total number of kilometers hitchhiked
-    -#by a user in for example Mexico, etc...
 
-%h2 Friends
+%hr/
+
+%h3 Friends:
 .row-fluid
-  .span4
-    %h3 Tramprennen
+  .span6
+    %h4 Tramprennen
     = link_to(image_tag('tramprennen_logo.png'), "http://www.vivaconagua.org/")
     %p
       Since 2006 a growing group of hitchhikers are racing around Europe
@@ -56,16 +56,16 @@
     %p
       Visit <a href='http://tramprennen.org/'>Trampprenenn.org</a> to find out about the
       latest project where <b>you</b> could become part of as well.
-  .span4
-    %h3 Hitchwiki
+  .span6
+    %h4 Hitchwiki
     %p
       Just like Wikipedia, Hitchwiki is a wiki but for hitchhiking.
       Hitchhikers from all around the world share tips and information all around hitchhiking.
       It helped many hitchhikers to find a good spot to leave the city and is really useful.
 
-  .span4
-    %h3 Random Roads
-    = link_to(image_tag('Random_Roads.jpg'), "http://randomroads.org/")
+    %hr/
+
+    %h4 Random Roads
     %p
       RandomRoads is a printed magazine, one that travels from one person 
       to another, one that travelers can give to their drivers or other 
