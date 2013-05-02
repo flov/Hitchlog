@@ -1,0 +1,840 @@
+<!-- begin #page - the container for everything but header -->
+<div id="page">
+	<div class="hero-unit">
+		<div class="container">
+			<h2>Hero Unit</h2>
+		</div>
+		<!--close container--> 
+	</div>
+	<!--close hero-unit-->
+	<div class="container clearfix" id="main-content"> 
+		<!--begin main content-->
+		
+		<div class="row-fluid">
+			<div class="span6">
+				<h4>Progress Bar</h4>
+				<div class="progress progress-info animated progress-striped active">
+					<div class="bar" data-percentage="75"></div>
+				</div>
+				<!--/progress bar-->
+				<div class="progress progress-success progress-striped">
+					<div class="bar" data-percentage="55"></div>
+				</div>
+				<!--/progress bar-->
+				<div class="progress progress-warning progress-striped">
+					<div class="bar" data-percentage="40"></div>
+				</div>
+				<!--/progress bar-->
+				<div class="progress progress-danger progress-striped">
+					<div class="bar" data-percentage="15"></div>
+				</div>
+				<!--/progress bar-->
+				
+				<hr>
+				<h4>File Upload Prettified</h4>
+				<!-- The fileinput-button span is used to style the file input field as button --> 
+				<span class="btn btn-primary btn-large fileinput-button"> <span><i class="icon-plus icon-white"></i> Select Image...</span>
+				<input type="file" name="files[]">
+				</span> <br class="clear">
+				<br/>
+				<!-- The fileinput-button span is used to style the file input field as button --> 
+				<span class="btn btn-warning fileinput-button"> <span><i class="icon-plus icon-white"></i> Select Image...</span>
+				<input type="file" name="files[]">
+				</span> <br/>
+				<hr>
+				<h4>Buttons</h4>
+				<p>
+					<button class="btn btn-large btn-info" type="button">Info</button>
+					<button class="btn btn-large btn-success" type="button">Success</button>
+				</p>
+				<p>
+					<button class="btn btn-large btn-inverse" type="button">Inverse</button>
+					<button class="btn btn-large btn-warning" type="button">Warning Color</button>
+				</p>
+				<p>
+					<button class="btn btn-danger" type="button">Danger</button>
+					<button class="btn" type="button">Default</button>
+				</p>
+				<p>
+					<button class="btn btn-small btn-warning" type="button">Small button</button>
+					<button class="btn btn-small" type="button">Small button</button>
+				</p>
+				<p>
+					<button class="btn btn-mini btn-primary" type="button">Mini button</button>
+					<button class="btn btn-mini" type="button">Mini button</button>
+				</p>
+				<hr>
+				<h4>Labels</h4>
+				<span class="label">Default</span> <span class="label label-success">Success</span> <span class="label label-warning">Warning</span> <span class="label label-important">Important</span> <span class="label label-info">Info</span> <span class="label label-inverse">Inverse</span>
+				<hr>
+				<h4>Badges</h4>
+				<span class="badge">1</span> <span class="badge badge-success">2</span> <span class="badge badge-warning">4</span> <span class="badge badge-important">6</span> <span class="badge badge-info">8</span> <span class="badge badge-inverse">10</span>
+				<hr>
+				<h4>Breadcrumb</h4>
+				<ul class="breadcrumb">
+					<li><a href="#">Home</a> <span class="divider">/</span></li>
+					<li><a href="#">Library</a> <span class="divider">/</span></li>
+					<li class="active">Data</li>
+				</ul>
+			</div>
+			<!--close span6-->
+			
+			<div class="span6">
+				<h4>Button Group</h4>
+				<div class="btn-group">
+					<button class="btn">1</button>
+					<button class="btn">2</button>
+					<button class="btn">3</button>
+				</div>
+				<!--close btn-group-->
+				
+				<div class="btn-group" data-toggle="buttons-checkbox">
+					<button type="button" class="btn btn-primary">Left</button>
+					<button type="button" class="btn btn-warning">Middle</button>
+					<button type="button" class="btn btn-important">Right</button>
+				</div>
+				<hr>
+				<h4>Pagination</h4>
+				<div class="pagination">
+					<ul>
+						<li><a href="#">Prev</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">Next</a></li>
+					</ul>
+				</div>
+				<!--close pagination-->
+				<hr>
+				<h4>Pager</h4>
+				<ul class="pager">
+					<li><a href="#">&larr; Previous</a></li>
+					<li><a href="#">Next &rarr;</a></li>
+				</ul>
+				<hr>
+				<h4>Form inline</h4>
+				<form class="form-inline">
+					<input type="text" class="input-small" placeholder="Email">
+					<input type="password" class="input-small" placeholder="Password">
+					<label class="checkbox">
+						<input type="checkbox">
+						Remember me </label>
+					<button type="submit" class="btn">Sign in</button>
+				</form>
+				<hr>
+				<h4>Checkbox inline</h4>
+				<label class="checkbox inline">
+					<input type="checkbox" id="inlineCheckbox1" value="option1">
+					1 </label>
+				<label class="checkbox inline">
+					<input type="checkbox" id="inlineCheckbox2" value="option2">
+					2 </label>
+				<label class="checkbox inline">
+					<input type="checkbox" id="inlineCheckbox3" value="option3">
+					3 </label>
+				<hr>
+				<h4>Radio Button inline</h4>
+				<label class="radio inline">
+					<input type="radio" id="one" name="item" value="1" />
+					First Choice </label>
+				<label class="radio inline">
+					<input type="radio" id="two" name="item" value="2" />
+					Second Choice</label>
+				<label class="radio inline">
+					<input type="radio" id="three" name="item" value="3" />
+					Third Choice</label>
+				<hr>
+				<h4>Alerts</h4>
+				<div class="alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					Just some information to share. </div>
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Error!</strong> This is a fatal error. </div>
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Success!</strong> You have successfully done it. </div>
+				<div class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Info!</strong> Watch this, but you may forget. </div>
+			</div>
+			<!--close span6--> 
+			
+		</div>
+		<!--close row-fluid --> 
+		
+		<!--courtesy of http://bootswatch.com/ --> 
+		<!-- Navbar removed container div wrapper inside these items-->
+		<h2>More Styles (some repeats)</h2>
+		<div class="row-fluid">
+			<h3>Stacked Tabs</h3>
+			<div class="tab-pane" id="tabs-stacked">
+				<div class="tabbable">
+					<ul class="nav nav-tabs nav-stacked span4">
+						<li class="active"><a href="#tabs3-pane1" data-toggle="tab">Tab 1</a></li>
+						<li><a href="#tabs3-pane2" data-toggle="tab">Tab 2</a></li>
+						<li><a href="#tabs3-pane3" data-toggle="tab">Tab 3</a></li>
+						<li><a href="#tabs3-pane4" data-toggle="tab">Tab 4</a></li>
+					</ul>
+					<div class="tab-content span8">
+						<div id="tabs3-pane1" class="tab-pane active">
+							<h4>Pane 1 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs3-pane2" class="tab-pane">
+							<h4>Pane 2 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs3-pane3" class="tab-pane">
+							<h4>Pane 3 Content</h4>
+							<p>Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+						</div>
+						<div id="tabs3-pane4" class="tab-pane">
+							<h4>Pane 4 Content</h4>
+							<p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti.</p>
+						</div>
+					</div>
+					<!-- /.tab-content --> 
+				</div>
+				<!-- /.tabbable --> 
+			</div>
+			<!-- /.tab-pane -->
+			
+			<hr/>
+			<h3>Pills</h3>
+			<div class="tab-pane" id="pills-basic">
+				<div class="tabbable">
+					<ul class="nav nav-pills">
+						<li class="active"><a href="#tabs4-pane1" data-toggle="tab">Tab 1</a></li>
+						<li><a href="#tabs4-pane2" data-toggle="tab">Tab 2</a></li>
+						<li><a href="#tabs4-pane3" data-toggle="tab">Tab 3</a></li>
+						<li><a href="#tabs4-pane4" data-toggle="tab">Tab 4</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="tabs4-pane1" class="tab-pane active">
+							<h4>Pane 1 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs4-pane2" class="tab-pane">
+							<h4>Pane 2 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs4-pane3" class="tab-pane">
+							<h4>Pane 3 Content</h4>
+							<p>Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+						</div>
+						<div id="tabs4-pane4" class="tab-pane">
+							<h4>Pane 4 Content</h4>
+							<p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti.</p>
+						</div>
+					</div>
+					<!-- /.tab-content --> 
+				</div>
+				<!-- /.tabbable --> 
+			</div>
+			<!-- /.tab-pane -->
+			
+			<hr/>
+			<div class="tab-pane" id="pills-stacked">
+				<h3>Stacked Pills</h3>
+				<div class="tabbable">
+					<ul class="nav nav-pills nav-stacked span2">
+						<li class="active"><a href="#tabs5-pane1" data-toggle="tab">Tab 1</a></li>
+						<li><a href="#tabs5-pane2" data-toggle="tab">Tab 2</a></li>
+						<li><a href="#tabs5-pane3" data-toggle="tab">Tab 3</a></li>
+						<li><a href="#tabs5-pane4" data-toggle="tab">Tab 4</a></li>
+					</ul>
+					<div class="tab-content span5">
+						<div id="tabs5-pane1" class="tab-pane active">
+							<h4>Pane 1 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs5-pane2" class="tab-pane">
+							<h4>Pane 2 Content</h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus gravida egestas.</p>
+						</div>
+						<div id="tabs5-pane3" class="tab-pane">
+							<h4>Pane 3 Content</h4>
+							<p>Ut porta rhoncus ligula, sed fringilla felis feugiat eget. In non purus quis elit iaculis tincidunt. Donec at ultrices est.</p>
+						</div>
+						<div id="tabs5-pane4" class="tab-pane">
+							<h4>Pane 4 Content</h4>
+							<p>Donec semper vestibulum dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus hendrerit. Suspendisse et arcu felis, ac gravida turpis. Suspendisse potenti.</p>
+						</div>
+					</div>
+					<!-- /.tab-content --> 
+				</div>
+				<!-- /.tabbable --> 
+			</div>
+			<!-- /.tab-pane --> 
+			
+		</div>
+		<!-- /.row-fluid -->
+		
+		<hr/>
+		<h2>Nav Bars</h2>
+		<div class="navbar">
+			<div class="navbar-inner"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Project name</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-search pull-left" action="">
+						<input type="text" class="search-query span2" placeholder="Search">
+					</form>
+					<ul class="nav pull-right">
+						<li><a href="#">Link</a></li>
+						<li class="divider-vertical"></li>
+						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.nav-collapse --> 
+			</div>
+			<!-- /navbar-inner --> 
+		</div>
+		<!-- /navbar -->
+		
+		<div class="navbar navbar-inverse">
+			<div class="navbar-inner"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Project name</a>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-search pull-left" action="">
+						<input type="text" class="search-query span2" placeholder="Search">
+					</form>
+					<ul class="nav pull-right">
+						<li><a href="#">Link</a></li>
+						<li class="divider-vertical"></li>
+						<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- /.nav-collapse --> 
+			</div>
+			<!-- /navbar-inner --> 
+		</div>
+		<!-- /navbar -->
+		
+		<hr/>
+		
+		<!-- Buttons
+================================================== -->
+		<h2>Buttons</h2>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Button</th>
+					<th>Large Button</th>
+					<th>Small Button</th>
+					<th>Disabled Button</th>
+					<th>Button with Icon</th>
+					<th>Split Button</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a class="btn" href="#">Default</a></td>
+					<td><a class="btn btn-large" href="#">Default</a></td>
+					<td><a class="btn btn-small" href="#">Default</a></td>
+					<td><a class="btn disabled" href="#">Default</a></td>
+					<td><a class="btn" href="#"><i class="icon-cog"></i> Default</a></td>
+					<td><div class="btn-group"> <a class="btn" href="#">Default</a> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-primary" href="#">Primary</a></td>
+					<td><a class="btn btn-primary btn-large" href="#">Primary</a></td>
+					<td><a class="btn btn-primary btn-small" href="#">Primary</a></td>
+					<td><a class="btn btn-primary disabled" href="#">Primary</a></td>
+					<td><a class="btn btn-primary" href="#"><i class="icon-shopping-cart icon-white"></i> Primary</a></td>
+					<td><div class="btn-group"> <a class="btn btn-primary" href="#">Primary</a> <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-info" href="#">Info</a></td>
+					<td><a class="btn btn-info btn-large" href="#">Info</a></td>
+					<td><a class="btn btn-info btn-small" href="#">Info</a></td>
+					<td><a class="btn btn-info disabled" href="#">Info</a></td>
+					<td><a class="btn btn-info" href="#"><i class="icon-exclamation-sign icon-white"></i> Info</a></td>
+					<td><div class="btn-group"> <a class="btn btn-info" href="#">Info</a> <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-success" href="#">Success</a></td>
+					<td><a class="btn btn-success btn-large" href="#">Success</a></td>
+					<td><a class="btn btn-success btn-small" href="#">Success</a></td>
+					<td><a class="btn btn-success disabled" href="#">Success</a></td>
+					<td><a class="btn btn-success" href="#"><i class="icon-ok icon-white"></i> Success</a></td>
+					<td><div class="btn-group"> <a class="btn btn-success" href="#">Success</a> <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-warning" href="#">Warning</a></td>
+					<td><a class="btn btn-warning btn-large" href="#">Warning</a></td>
+					<td><a class="btn btn-warning btn-small" href="#">Warning</a></td>
+					<td><a class="btn btn-warning disabled" href="#">Warning</a></td>
+					<td><a class="btn btn-warning" href="#"><i class="icon-warning-sign icon-white"></i> Warning</a></td>
+					<td><div class="btn-group"> <a class="btn btn-warning" href="#">Warning</a> <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-danger" href="#">Danger</a></td>
+					<td><a class="btn btn-danger btn-large" href="#">Danger</a></td>
+					<td><a class="btn btn-danger btn-small" href="#">Danger</a></td>
+					<td><a class="btn btn-danger disabled" href="#">Danger</a></td>
+					<td><a class="btn btn-danger" href="#"><i class="icon-remove icon-white"></i> Danger</a></td>
+					<td><div class="btn-group"> <a class="btn btn-danger" href="#">Danger</a> <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+				<tr>
+					<td><a class="btn btn-inverse" href="#">Inverse</a></td>
+					<td><a class="btn btn-inverse btn-large" href="#">Inverse</a></td>
+					<td><a class="btn btn-inverse btn-small" href="#">Inverse</a></td>
+					<td><a class="btn btn-inverse disabled" href="#">Inverse</a></td>
+					<td><a class="btn btn-inverse" href="#"><i class="icon-random icon-white"></i> Inverse</a></td>
+					<td><div class="btn-group"> <a class="btn btn-inverse" href="#">Inverse</a> <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group --></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- Forms
+================================================== -->
+		<h2>Forms</h2>
+		<div class="row-fluid">
+			<div class="span10 offset1">
+				<form class="form-search">
+					<input type="text" class="input-medium search-query">
+					<button type="submit" class="btn">Search</button>
+				</form>
+				<form class="form-search">
+					<input type="text" class="input-small" placeholder="Email">
+					<input type="password" class="input-small" placeholder="Password">
+					<button type="submit" class="btn">Go</button>
+				</form>
+				<form class="form-horizontal">
+					<fieldset>
+						<legend>Controls Bootstrap supports</legend>
+						<div class="control-group">
+							<label class="control-label" for="input01">Typeahead</label>
+							<div class="controls">
+								<input type="text" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+								<p class="help-block">Example with state names (type in "f" and see what happens)</p>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="input01">Text input</label>
+							<div class="controls">
+								<input type="text" class="input-xlarge" id="input01">
+								<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckbox">Checkbox</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" id="optionsCheckbox" value="option1">
+									Option one is this and that&mdash;be sure to include why it's great </label>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="select01">Select list</label>
+							<div class="controls">
+								<select id="select01">
+									<option>something</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="multiSelect">Multicon-select</label>
+							<div class="controls">
+								<select multiple="multiple" id="multiSelect">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="fileInput">File input</label>
+							<div class="controls">
+								<input class="input-file" id="fileInput" type="file">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="textarea">Textarea</label>
+							<div class="controls">
+								<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="focusedInput">Focused input</label>
+							<div class="controls">
+								<input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused…">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Uneditable input</label>
+							<div class="controls"> <span class="input-xlarge uneditable-input">Some value here</span> </div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="disabledInput">Disabled input</label>
+							<div class="controls">
+								<input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="optionsCheckbox2">Disabled checkbox</label>
+							<div class="controls">
+								<label class="checkbox">
+									<input type="checkbox" id="optionsCheckbox2" value="option1" disabled>
+									This is a disabled checkbox </label>
+							</div>
+						</div>
+						<div class="control-group warning">
+							<label class="control-label" for="inputWarning">Input with warning</label>
+							<div class="controls">
+								<input type="text" id="inputWarning">
+								<span class="help-inline">Something may have gone wrong</span> </div>
+						</div>
+						<div class="control-group error">
+							<label class="control-label" for="inputError">Input with error</label>
+							<div class="controls">
+								<input type="text" id="inputError">
+								<span class="help-inline">Please correct the error</span> </div>
+						</div>
+						<div class="control-group success">
+							<label class="control-label" for="inputSuccess">Input with success</label>
+							<div class="controls">
+								<input type="text" id="inputSuccess">
+								<span class="help-inline">Woohoo!</span> </div>
+						</div>
+						<div class="control-group success">
+							<label class="control-label" for="selectError">Select with success</label>
+							<div class="controls">
+								<select id="selectError">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+								<span class="help-inline">Woohoo!</span> </div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">Save changes</button>
+							<button type="reset" class="btn">Cancel</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		
+		<!-- Tables
+================================================== -->
+		<h2>Tables</h2>
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- Miscellaneous
+================================================== -->
+		<h2>Miscellaneous</h2>
+		<div class="row-fluid">
+			<div class="span4">
+				<h3 id="breadcrumbs">Breadcrumbs</h3>
+				<ul class="breadcrumb">
+					<li class="active">Home</li>
+				</ul>
+				<ul class="breadcrumb">
+					<li><a href="#">Home</a> <span class="divider">/</span></li>
+					<li><a href="#">Library</a> <span class="divider">/</span></li>
+					<li class="active">Data</li>
+				</ul>
+			</div>
+			<div class="span4">
+				<h3 id="pagination">Pagination</h3>
+				<div class="pagination">
+					<ul>
+						<li><a href="#">&larr;</a></li>
+						<li class="active"><a href="#">10</a></li>
+						<li class="disabled"><a href="#">...</a></li>
+						<li><a href="#">20</a></li>
+						<li><a href="#">&rarr;</a></li>
+					</ul>
+				</div>
+				<div class="pagination pagination-centered">
+					<ul>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span4">
+				<h3>Pagers</h3>
+				<ul class="pager">
+					<li><a href="#">Previous</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+				<ul class="pager">
+					<li class="previous disabled"><a href="#">&larr; Older</a></li>
+					<li class="next"><a href="#">Newer &rarr;</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Navs
+  ================================================== -->
+		
+		<div class="row-fluid">
+			<div class="span4">
+				<h3>Tabs</h3>
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#A" data-toggle="tab">Section 1</a></li>
+					<li><a href="#B" data-toggle="tab">Section 2</a></li>
+					<li><a href="#C" data-toggle="tab">Section 3</a></li>
+				</ul>
+				<div class="tabbable">
+					<div class="tab-content">
+						<div class="tab-pane active" id="A">
+							<p>I'm in Section A.</p>
+						</div>
+						<div class="tab-pane" id="B">
+							<p>Howdy, I'm in Section B.</p>
+						</div>
+						<div class="tab-pane" id="C">
+							<p>What up girl, this is Section C.</p>
+						</div>
+					</div>
+				</div>
+				<!-- /tabbable --> 
+				
+			</div>
+			<div class="span4">
+				<h3 id="pills">Pills</h3>
+				<ul class="nav nav-pills">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Profile</a></li>
+					<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+						</ul>
+					</li>
+					<li class="disabled"><a href="#">Disabled link</a></li>
+				</ul>
+			</div>
+			<div class="span4">
+				<h3>Lists</h3>
+				<ul class="nav nav-list">
+					<li class="nav-header">List header</li>
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li><a href="#">Applications</a></li>
+					<li class="nav-header">Another list header</li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Settings</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Labels
+================================================== -->
+		
+		<div class="row-fluid">
+			<div class="span6">
+				<h3>Labels</h3>
+				<span class="label">Default</span> <span class="label label-success">Success</span> <span class="label label-warning">Warning</span> <span class="label label-important">Important</span> <span class="label label-info">Info</span> <span class="label label-inverse">Inverse</span> </div>
+			<div class="span6">
+				<h3>Badges</h3>
+				<span class="badge">Default</span> <span class="badge badge-success">Success</span> <span class="badge badge-warning">Warning</span> <span class="badge badge-important">Important</span> <span class="badge badge-info">Info</span> <span class="badge badge-inverse">Inverse</span> </div>
+		</div>
+		<br />
+		
+		<!-- Progress bars
+================================================== -->
+		
+		<h3>Progress bars</h3>
+		<div class="row-fluid">
+			<div class="span4">
+				<div class="progress">
+					<div class="bar" style="width: 60%;"></div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="progress progress-info progress-striped">
+					<div class="bar" style="width: 20%;"></div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="progress progress-danger progress-striped active">
+					<div class="bar" style="width: 45%"></div>
+				</div>
+			</div>
+		</div>
+		<br />
+		
+		<!-- Alerts & Messages
+================================================== -->
+		
+		<h3>Alerts</h3>
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="alert alert-block"> <a class="close">&times;</a>
+					<h4 class="alert-heading">Alert block</h4>
+					<p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">
+				<div class="alert alert-error"> <a class="close">&times;</a> <strong>Error</strong> Change a few things up and try submitting again. </div>
+			</div>
+			<div class="span4">
+				<div class="alert alert-success"> <a class="close">&times;</a> <strong>Success</strong> You successfully read this important alert message. </div>
+			</div>
+			<div class="span4">
+				<div class="alert alert-info"> <a class="close">&times;</a> <strong>Information</strong> This alert needs your attention, but it's not super important. </div>
+			</div>
+		</div>
+	</div>
+	<!--close .container id="main-content" --> 
+
