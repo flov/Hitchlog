@@ -1,18 +1,18 @@
 /*	No JS styles 
 ========================================================== */
 .no-js li.st-content-wrapper, .no-js .s-accordion li.s-wrap div.s-content{
-	overflow: visible!!important;
-	height:auto!important;
+	overflow: visible !important;
+	height:auto !important;
 }
 .no-js li.st-content-wrapper .st-content, .no-js .s-accordion li.s-wrap div.s-content {
-    display:block!important;
-    clear:both!important;
-	visibility:visible!important;
-	overflow: visible!!important;
+    display:block !important;
+    clear:both !important;
+	visibility:visible !important;
+	overflow: visible !important;
 }
 
-.no-js .sidebar-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
-.no-js .content-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
+.no-js .sidebar-tabs .panels .pane {display:block !important;visibility:visible !important;clear:both !important;}
+.no-js .content-tabs .panels .pane {display:block !important;visibility:visible !important;clear:both !important;}
 
 /*	Slide to Top Accordion for short headers 
 ========================================================== */
@@ -256,18 +256,18 @@ li.st-content-wrapper a.trigger{
  @media print {
  
 li.st-content-wrapper, .s-accordion li.s-wrap div.s-content{
-	overflow: visible!!important;
-	height:auto!important;
+	overflow: visible !important;
+	height:auto !important;
 }
 li.st-content-wrapper .st-content, .s-accordion li.s-wrap div.s-content {
-    display:block!important;
-    clear:both!important;
-	visibility:visible!important;
-	overflow: visible!!important;
+    display:block !important;
+    clear:both !important;
+	visibility:visible !important;
+	overflow: visible !important;
 }
 
-.sidebar-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
-.content-tabs .panels .pane {display:block!important;visibility:visible!important;clear:both!important;}
+.sidebar-tabs .panels .pane {display:block !important;visibility:visible !important;clear:both !important;}
+.content-tabs .panels .pane {display:block !important;visibility:visible !important;clear:both !important;}
 
 
  }/*end print*/
