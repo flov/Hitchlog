@@ -1,10 +1,15 @@
-%h1.text_center
+%h1
   = link_to user, user_path(user)
   = gender_image user.gender
-.text_center
-  = render 'users/profile_image', user: user, type: "large"
 
-.section
+= render 'users/profile_image', user: user, type: "large"
+
+- if user.city.present?
+  = t('.located_in')
+  = flag_with_country_name(user)
+
+
+- unless user.cs_user.blank? and current_user == user
   %ul
     - unless user.cs_user.blank?
       %li
@@ -14,7 +19,8 @@
       %li
         =link_to "#{image_tag('icons/email.png')} #{t('.send_mail')}".html_safe, send_mail_user_path(user)
 
-.section
+
+- if user.trips.any?
   %h3 #{image_tag('icons/chart_pie.png')} #{t('.statistics')}
   %ul
     %li
@@ -23,10 +29,6 @@
       #{country_images_for_user(user)}
     %li
       #{t('.written_stories')}: #{user.stories.size}
-    - if user.city.present?
-      %li
-        = t('.located_in')
-        = flag_with_country_name(user)
 
     %li
       #{t('.uploaded_photos')}: #{user.number_of_photos}
@@ -39,6 +41,6 @@
       %li
         = "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} minutes".html_safe
 
+  = render 'shared/country_chart', user: user, size: 'tiny'
 
-    = render 'shared/country_chart', user: user, size: 'tiny'
 

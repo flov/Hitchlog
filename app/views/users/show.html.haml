@@ -1,7 +1,8 @@
 - title user
 
-#users_show.columns
-  .left_column
+
+.row-fluid.sidebar-right
+  .span9.primary-column
     %h1.text_center
       = user
       - if user == current_user
@@ -28,12 +29,13 @@
 
     = render 'trips_and_rides', user: user
 
-    = will_paginate trips, :class => 'digg_pagination'
-    = render 'trips/search_interface'
-    #trips
-      = render 'trips/list', :trips => user.trips
-    = will_paginate trips, :class => 'digg_pagination'
+    - if trips.any?
+      = will_paginate trips, :class => 'digg_pagination'
+      = render 'trips/search_interface'
+      #trips
+        = render 'trips/list', :trips => user.trips
+      = will_paginate trips, :class => 'digg_pagination'
 
-  .right_column
+  %section.span3.sidebar.secondary-column
     = render 'users/right_column', user: user
 

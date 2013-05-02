@@ -9,9 +9,9 @@
       .nav-collapse.collapse
         %ul.nav
           %li= link_to '<i class="icon-home"></i> Home'.html_safe, root_path
-          %li= link_to t('.about'), about_path
           %li= link_to "<i class='icon-suitcase'></i> #{t('.trips')}".html_safe, trips_path
           %li= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
+          %li= link_to t('.about'), about_path
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
@@ -21,8 +21,8 @@
               - [ :en, :fr, :pt, :de ].each do |locale|
                 %li
                   = link_to url_for(:locale => locale) do
-                    != "<i class='icon-hand-right pull-left'></i>" if I18n.locale == locale
                     = image_tag "flags/png/#{locale}.png"
+                    != "<i class='icon-hand-left'></i>" if I18n.locale == locale
 
         - if user_signed_in?
           .pull-right
@@ -56,3 +56,4 @@
           .pull-right
             = link_to new_user_session_path do
               %i.icon-user
+              login
