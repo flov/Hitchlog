@@ -73,60 +73,69 @@
       to create further bonding between hitchhikers, and to have something 
       we can give away that is representable for our culture.
 
+%hr/
 
-%h2 Contributors
-%p
-  The Hitchlog would not be what it is today without the help of the following people:
-  %br/
-  #{ ben } who is helping out with the french translation.
-  %br/
-  #{ samuel } who is helping out with the portuguese translation.
-%p
-  If you happen to speak a language other than english well and you would like to help translate the Hitchlog,
-  please send #{ florian } a message, he will set you up for the
-  translation. It is pretty easy and whether you believe it or not, it is even fun!
-%p
-  #{florian} is developing and maintaining the site.
+.row-fluid
+  .span6
+    %h2 Contributors
+    %p
+      The Hitchlog would not be what it is today without the help of:
+      %ul
+        %li
+          #{ florian } Vallen who helped to build the site.
+        %li
+          #{ ben } who helped out with the
+          #{ flag('fr') } translation.
+        %li
+          #{ samuel } who helped out with the
+          #{ flag('pt') } translation.
+    %h2
+      %i.icon-flag
+    %p
+      If you happen to speak a language other than english well and you would like to help translate the Hitchlog,
+      please send #{ florian } a message, he will set you up for the
+      translation. It is pretty easy and whether you believe it or not, it is even fun!
+    %p
+      #{florian} is developing and maintaining the site.
+  .span6
 
+    %h2 Contribute
+    = image_tag 'open-source.png'
+    %p
+      The Hitchlog lives off the community and without hitchhikers logging trips
+      this application is worthless. Logging previous hitchhiking trips and
+      telling some stories is already really helpful. You can also spread the
+      word by telling your fellow hitchhiking friends about the site. 
+    %p
+      At the moment #{ florian } is developing and
+      maintaining this application. He is always on the lookout for other
+      developers who would like to get involved. Also he gets very happy if
+      someone shoots him a mail, telling him that he likes the idea of the Hitchlog.
+      %br/
+      The application is completely open-source and available on 
+      <a href='http://github.com/flov/Hitchlog'>Github</a>.
 
-%h2 Contribute
-.float_right
-  =image_tag 'open-source.png'
-%p
-  The Hitchlog lives off the community and without hitchhikers logging trips
-  this application is worthless. Logging previous hitchhiking trips and
-  telling some stories is already really helpful. You can also spread the
-  word by telling your fellow hitchhiking friends about the site. 
-%p
-  At the moment #{ florian } is developing and
-  maintaining this application. He is always on the lookout for other
-  developers who would like to get involved. Also he gets very happy if
-  someone shoots him a mail, telling him that he likes the idea of the Hitchlog.
-  %br/
-  The application is completely open-source and available on 
-  <a href='http://github.com/flov/Hitchlog'>Github</a>.
-
-%h3 How To Contribute
-%p
-  There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>:
-%ul
-  %li
-    If you want to see Hitchlog in your locale language, help to translate the webpage.
-    Please drop a line to `florian@hitchlog.com`
-  %li
-    Help with programming.<br/>
-    The source code is on <a href='http://github.com/flov/Hitchlog'>Github</a>
-    %br/
-    <a href='https://www.pivotaltracker.com/projects/307593'>Pivotal Tracker</a>
-    is used for managing tasks and iterations.<br/>
-    Currently #{florian} is developing and maintaining the hitchlog.
-    If you want to contribute with programming the future, go for it!<br/>
-    Ruby and Ruby on Rails is wicked!<br/>
-    Shoot #{florian} a mail in case you want to help out.
-  %li
-    Give it a shout on twitter, facebook or another social medium.
-  %li
-    Log Hitchhiking Trips
+    %h3 How To Contribute
+    %p
+      There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>:
+    %ul
+      %li
+        If you want to see Hitchlog in your locale language, help to translate the webpage.
+        Please drop a line to `florian@hitchlog.com`
+      %li
+        Help with programming.<br/>
+        The source code is on <a href='http://github.com/flov/Hitchlog'>Github</a>
+        %br/
+        <a href='https://www.pivotaltracker.com/projects/307593'>Pivotal Tracker</a>
+        is used for managing tasks and iterations.<br/>
+        Currently #{florian} is developing and maintaining the hitchlog.
+        If you want to contribute with programming the future, go for it!<br/>
+        Ruby and Ruby on Rails is wicked!<br/>
+        Shoot #{florian} a mail in case you want to help out.
+      %li
+        Give it a shout on twitter, facebook or another social medium.
+      %li
+        Log Hitchhiking Trips
 
 %p
   If you would like to give some feedback, help or if you just want to say
