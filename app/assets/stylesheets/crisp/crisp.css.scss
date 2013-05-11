@@ -1,11 +1,9 @@
 /*@import url('socialicoregular.css'); [>social font<]*/
 /*@import url('hero-equal-thumb-gallery.css'); [> equal height hero columns / thumbnail gallery css <]*/
 /*@import url('tabs-toggle.css'); [>accordion and tabs <]*/
-/*@import url('responsive-tables.css'); [>responsive table <]*/
 /*@import url('portfolio.css'); [>portfolio <]*/
 /*@import url('blog.css'); [>blog <]*/
 /*@import url('gallery-folio-masonry.css'); [>isotope/masonry/grid css <]*/
-@import url('http://fonts.googleapis.com/css?family=Ubuntu|Raleway');/*fonts*/
 
 /*	main container(s)
 ================================================================= */
@@ -352,7 +350,6 @@ strong .tooltip,
 b .tooltip,
 em .tooltip,
 i .tooltip { font-weight: normal;font-style:normal }
-.print { display: none } /*turn off print for desktop*/
 .alert .close { text-decoration: none }
 .clear { clear: both }
 .form-actions {
@@ -389,7 +386,6 @@ ul.breadcrumb { background: transparent }
   margin-bottom: 5px;
 }
 .brand {line-height:1;text-decoration:none;}
-.navbar a, .nav a {text-decoration:none;}
 
 /* misc atmosphere styles
 ================================================== */
@@ -1721,10 +1717,6 @@ label.radio.inline,
 	clear:both;
 	margin:0!important;
 	display:block;
-}
-.btn-group {
-	clear:both;
-	margin:0 0 10px 0;
 }
 #registration-form-extended select, 
 #registration-form select {

@@ -1,18 +1,10 @@
 class User
-  def hitchhiked_kms
-    self.trips.map{|trip| trip.distance}.sum/1000
-  end
-
   def hitchhiked_countries
     self.trips.map{|trip| trip.country_distances.map(&:country)}.flatten.uniq.size
   end
 
   def rides
     self.trips.map{|trip| trip.rides}.flatten
-  end
-
-  def hitchhiked_cars
-    self.rides.size
   end
 
   def average_waiting_time

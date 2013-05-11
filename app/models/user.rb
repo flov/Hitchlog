@@ -100,6 +100,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def hitchhiked_kms
+    self.trips.map{|trip| trip.distance}.sum/1000
+  end
+
+  def no_of_rides
+    self.rides.size
+  end
+  
   private
 
   def update_location_updated_at
