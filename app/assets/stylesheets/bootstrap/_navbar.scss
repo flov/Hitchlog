@@ -94,6 +94,7 @@
 .navbar .btn,
 .navbar .btn-group {
   @include navbarVerticalAlign(30px); // Vertically center in navbar
+  margin-top: 0;
 }
 .navbar .btn-group .btn,
 .navbar .input-prepend .btn,
