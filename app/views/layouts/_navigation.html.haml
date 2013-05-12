@@ -1,17 +1,17 @@
 .navbar.navbar-inverse
   .navbar-inner
     .container
-      = link_to "#{image_tag("hitchlog_icon.png")} Hitchlog".html_safe, '', class: 'brand'
+      = link_to "#{image_tag("hitchlog_icon.png")} Hitchlog".html_safe, root_path, class: 'brand'
       %a{ class: "btn btn-navbar", 'data-toggle'=>"collapse", "data-target" => ".nav-collapse"}
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       .nav-collapse.collapse
         %ul.nav
-          %li= link_to '<i class="icon-home"></i>'.html_safe, root_path
-          %li= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
-          %li= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
-          %li= link_to t('.about'), about_path
+          %li{class: home_active? }= link_to '<i class="icon-home"></i>'.html_safe, root_path
+          %li{class: trips_active? }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
+          %li{class: users_active? }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
+          %li{class: about_active? }= link_to t('.about'), about_path
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
