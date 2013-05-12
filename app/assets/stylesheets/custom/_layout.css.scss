@@ -13,8 +13,18 @@
     @include border-radius(0);
   }
 
-  .pull-right{
-    margin-top: 9px;
+  .pull-right.logged_out {
+    padding: 17px 0;
+  }
+  .pull-right.logged_in{
+    padding: 13px 0;
+    img.profile_pic {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      border: 1px solid #999;
+      @include border-radius(25px);
+    }
   }
 
   .dropdown-menu{

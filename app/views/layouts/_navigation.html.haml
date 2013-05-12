@@ -9,7 +9,7 @@
       .nav-collapse.collapse
         %ul.nav
           %li= link_to '<i class="icon-home"></i>'.html_safe, root_path
-          %li= link_to "<i class='icon-suitcase'></i> #{t('.trips')}".html_safe, trips_path
+          %li= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
           %li= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
           %li= link_to t('.about'), about_path
 
@@ -25,13 +25,16 @@
                     != "<i class='icon-hand-left'></i>" if I18n.locale == locale
 
         - if user_signed_in?
-          .pull-right
+          .pull-right.logged_in
+            - if fb_user = current_user.authentications.where(provider: 'facebook').first
+              = image_tag "https://graph.facebook.com/#{fb_user.uid}/picture?type=small", class: 'profile_pic'
+            - else
+              = gravatar_image_tag current_user.email, gravatar: { :size => 25 }, class: 'profile_pic'
+
             .btn-group
               = link_to user_path(current_user), class: 'btn' do
                 %i.icon-user
                 = t('.your_profile')
-              -#%button.btn
-                -#= render 'users/profile_image', user: current_user, type: 'square'
               %a.btn.dropdown-toggle{'data-toggle' => 'dropdown'}
                 %span.icon-caret-down
               %ul.dropdown-menu
@@ -53,7 +56,7 @@
                     = t('.sign_out')
 
         - else
-          .pull-right
+          .pull-right.logged_out
             = link_to new_user_session_path do
               %i.icon-user
               login
