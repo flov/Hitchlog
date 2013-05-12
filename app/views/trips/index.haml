@@ -1,18 +1,17 @@
 - title "Trips"
 
+.hero-unit
+  %h1 #{t('.latest_hitchhiking_trips')}:
+
 %p
   - if user_signed_in?
     = link_to t(".log_new_trip"), new_trip_path 
   - else
     = render 'shared/sign_in_and_out'
     = t('.to_log_a_new_hitchhiking_trip')
-%h1
-  #{t('.latest_hitchhiking_trips')}:
-
 
 = render 'trips/search_interface', gender: true
-= will_paginate trips, :class => 'digg_pagination'
-#trips
-  = render 'list', trips: trips, by: true
-= will_paginate trips, :class => 'digg_pagination'
+= will_paginate trips, :class => 'flickr_pagination'
+= render 'list', trips: trips, by: true
+= will_paginate trips, :class => 'flickr_pagination'
 
