@@ -1,0 +1,256 @@
+#page
+  .container.visible-phone.hidden-tablet.hidden-desktop
+    %p.right
+      %a.btn.btn-primary{:href => "#secondary-nav"}
+        Page Menu &nbsp;
+        %i.icon-align-justify
+  .hero-unit
+    .container
+      %h2 Responsive Table
+    / close container
+  / close hero-unit
+  #main-content.container.clearfix
+    / begin main content
+    .row-fluid.sidebar-right
+      / begin row-fluid
+      .span9.primary-column
+        / begin primary content
+        %p
+          %strong Add class "responsive" to any CORRECT table mark up!
+          Senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+          %a{:href => "#"} Donec non enim
+          in turpis pulvinar facilisis. Ut felis.
+        %table.responsive
+          %thead
+            %tr
+              %th Mauris
+              %th Tempor
+              %th Praesent lacus nulla
+              %th Quis
+          %tbody
+            %tr
+              %td Mauris
+              %td 23.000
+              %td Suspendisse viverra
+              %td Yes
+            %tr
+              %td Trupis
+              %td 1.000
+              %td Placerat tortor aesent semper
+              %td No
+            %tr
+              %td Sagittis
+              %td 122.000
+              %td Neque vel condimentum
+              %td No
+            %tr
+              %td Libero
+              %td 500
+              %td Hendrerit, lectus elit pretium
+              %td Yes
+            %tr
+              %td Tristique
+              %td 100.000
+              %td Ligula nec consequat
+              %td Yes
+            %tr
+              %td Id Neque
+              %td 600.000
+              %td Etiam sodales orci nec
+              %td No
+        %hr/
+        %h3 January 2012
+        %p This is just an example, it is not set up to handle any content inside the cells (days).
+        %table.responsive.calendar
+          %thead
+            %tr
+              %th Sun
+              %th Mon
+              %th Tue
+              %th Wed
+              %th Thu
+              %th Fri
+              %th Sat
+          %tbody
+            %tr
+              %td
+                %span.date 1
+              %td
+                %span.date 2
+              %td
+                %span.date 3
+              %td
+                %span.date 4
+              %td
+                %span.date 5
+              %td
+                %span.date 6
+              %td
+                %span.date 7
+            %tr
+              %td
+                %span.date 8
+              %td
+                %span.date 9
+              %td
+                %span.date 10
+              %td
+                %span.date 11
+              %td
+                %span.date 12
+              %td
+                %span.date 13
+              %td
+                %span.date 14
+            %tr
+              %td
+                %span.date 15
+              %td
+                %span.date 16
+              %td
+                %span.date 17
+              %td
+                %span.date 18
+              %td
+                %span.date 19
+              %td
+                %span.date 20
+              %td
+                %span.date 21
+            %tr
+              %td
+                %span.date 22
+              %td
+                %span.date 23
+              %td
+                %span.date 24
+              %td
+                %span.date 25
+              %td
+                %span.date 26
+              %td
+                %span.date 27
+              %td
+                %span.date 28
+            %tr
+              %td
+                %span.date 29
+              %td
+                %span.date 30
+              %td
+                %span.date 31
+              %td
+                %span.date &nbsp;
+              %td
+                %span.date &nbsp;
+              %td
+                %span.date &nbsp;
+              %td
+                %span.date &nbsp;
+      / close span9 primary-column
+      %section#secondary-nav.span3.sidebar.secondary-column
+        %aside.widget
+          %h5.short_headline
+            %span Goodies Menu
+          %ul.navigation
+            %li
+              %a{:href => "tall-logo.html"} Tall Logo Header
+            %li
+              %a{:href => "alternative-header.html"} Alternative Header
+            %li
+              %a{:href => "columns.html"} Inner Columns
+            %li
+              %a{:href => "toggles.html"} Toggles
+            %li
+              %a{:href => "tabs.html"} Tabs
+            %li.active
+              %a{:href => "responsive-tables.html"} Responsive Tables
+            %li
+              %a{:href => "figures-images.html"} Figures and Images
+            %li
+              %a{:href => "icons.html"} Icons
+            %li
+              %a{:href => "typography-elements.html"} Typography & Elements
+            %li
+              %a{:href => "hero-equal-height-columns.html"} Hero Equal Height Cols
+            %li
+              %a{:href => "misc-components.html"} Misc Bootstrap Stuff
+            %li
+              %a{:href => "bootstrap-thumbnails.html"} Bootstrap's Thumbnails
+        / close aside widget
+        %aside.widget.clearfix
+          %h5.short_headline
+            %span Sponsors
+          %ul.sponsors
+            %li
+              %a{:href => "#"}
+                %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+            %li
+              %a{:href => "#"}
+                %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+            %li
+              %a{:href => "#"}
+                %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+            %li
+              %a{:href => "#"}
+                %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+        / close aside widget
+        %aside.widget.clearfix
+          %h5.short_headline
+            %span Say Something
+          %p
+            %a{:href => "contact.html"}
+              %img.aligncenter{:alt => "", :src => "../demo/fotogrph-running-water.jpg"}/
+          %p
+            Image by
+            = succeed "." do
+              %a{:href => "http://fotogrph.com/", :target => "blank", :title => "CC BY 3.0 | Fotogrph.com"} Fotogrph
+            Think clicks-and-mortar. But don’t think all three at the same time. It seems unclear, but it’s entirely completely realistic! The infomediaries factor can be summed up in one word: killer. What do we integrate? Anything and everything, regardless of humbleness!
+          %p.right
+            %a.btn.btn-small.btn-very-subtle{:href => "#"} Learn More &rarr;
+        / close aside widget
+        %aside.widget
+          .rotating-testimonials
+            / "rotating-testimonials" is a required class
+            %h5.short_headline
+              %span Testimonials
+            .panels
+              #t1
+                %blockquote
+                  %p One isn’t necessarily born with courage, but one is born with potential. Without courage, we cannot practice any other virtue with consistency. We can’t be kind, true, merciful, generous, or honest.
+                  %footer Maya Angelou
+              / close #t1
+              #t2
+                %blockquote
+                  %p When the highest type of people hear Tao (Truth), they diligently practice it. When the average type of people hear Tao, they half believe in it. When the lowest type of people hear Tao, they laugh at it. If they did not laugh, it would not be Tao.
+                  %footer Lao-Tzu
+              / close #t2
+              #t3
+                %blockquote
+                  %p The human being is part of the whole, called by us the ‘universe’, a part limited in time and space. He experiences himself, his thoughts and feelings, as something separate from the rest — a kind of optical delusion of consciousness. This delusion is a kind of prison for us, restricting us to our personal desires. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty.
+                  %footer Albert Einstein
+              / close #t3
+              #t4
+                %blockquote
+                  %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+                  %footer Ralph Waldo Emerson
+              / close #t4
+            / close panels
+            %ul.tabs
+              %li.tab
+                %a{:href => "#t1"} maya-angelou
+              %li.tab
+                %a{:href => "#t2"} lao-tzu
+              %li.tab
+                %a{:href => "#t3"} albert-einstein
+              %li.tab
+                %a{:href => "#t4"} ralph-waldo-emerson
+          / close rotating-testimonials
+        / close aside .widget
+      / close section sidebar span3
+    / close row-fluid
