@@ -1,17 +1,33 @@
 %h1 #{t('.hitchhikers')}:
 
-= search_form_for @search do |f|
-  = f.label :username_cont, t('.username')
-  = f.text_field :username_cont
-  = f.submit t('.search')
+= will_paginate users, class: 'flickr_pagination'
 
-%p
-  #{t('.sort_by')}:
-  = sort_link @search, :username
-  |
-  = sort_link @search, :gender
-  |
-  = sort_link @search, :last_sign_in_at
-= will_paginate @users, :class => 'digg_pagination'
-= render @users
-= will_paginate @users, :class => 'digg_pagination'
+%table
+  %thead
+    %tr
+      %th= t('.username')
+      %th= t('.logged_trips')
+      %th= t('.hitchhiked_kms')
+      %th= t('.hitchhiked_countries')
+      %th= t('.location')
+      %th= t('.no_of_rides')
+
+  %tbody
+    - users.each do |user|
+      %tr{:id => "user_#{user.id}"}
+        %td
+          = link_to user, user_path(user)
+          = gender_image(user.gender)
+          -#= render 'users/profile_image', user: user, type: 'small'
+        %td
+          = user.trips.size
+        %td
+          %b= number_with_delimiter user.hitchhiked_kms
+        %td
+          = user.hitchhiked_countries
+        %td
+          = flag_with_country_name(user)
+        %td
+          = user.no_of_rides
+
+= will_paginate users, class: 'flickr_pagination'

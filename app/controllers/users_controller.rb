@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   expose(:user)
+  expose(:users) { User.order('current_sign_in_at DESC').paginate(page: params[:page], per_page: 10) }
   expose(:trips) { build_search_trips(user.trips).paginate(page: params[:page]) }
 
   before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
@@ -35,8 +36,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @search = User.search(params[:q])
-    @users = @search.result.order('current_sign_in_at DESC').paginate(:page => params[:page], :per_page => 10)
-  end
 end
