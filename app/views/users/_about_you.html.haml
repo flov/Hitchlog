@@ -1,5 +1,4 @@
-- if !user.about_you.blank?
-  .profile_section
-    %h3 #{t('.about')} #{user}:
-    .about
-      %p= RDiscount.new(h(user.about_you)).to_html.html_safe
+- unless user.about_you.blank?
+  %h3
+    #{t('.about')}:
+  %p= RDiscount.new(h(user.about_you)).to_html.html_safe

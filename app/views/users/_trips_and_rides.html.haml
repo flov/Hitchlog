@@ -1,35 +1,43 @@
-.profile_section.trips_and_rides
-  - if user.trips.any?
-    .float_left.column
-      %h3 #{ t('.trip', count: user.trips.size) }:
-      - unless user.trips.alone.size == 0
-        %p
-          #{user.trips.alone.size}x #{t('.alone')}
-          = link_to hitchhiking_with_image(0), user_path(user.username, hitchhiked_with: 0)
-      - unless user.trips.in_pairs.size == 2
-        %p 
-          #{user.trips.in_pairs.size}x #{t('.with_two')}
-          = link_to hitchhiking_with_image(1), user_path(user.username, hitchhiked_with: 1)
-      - unless user.trips.with_three.size == 3
-        %p 
-          #{user.trips.with_three.size}x #{t('.with_three')}
-          = link_to hitchhiking_with_image(2), user_path(user.username, hitchhiked_with: 2)
-      - unless user.trips.with_four == 0
-        %p
-          #{user.trips.with_four.size}x #{t('.with_four')}
-        = link_to hitchhiking_with_image(3), user_path(user.username, hitchhiked_with: 3)
+- if user.trips.any?
+  %h3.short_headline
+    %span
+      = t('.trips_statistics')
 
-    .float_left.column
-      %h3 #{user.rides.size} #{t('.rides', count: user.rides.size )}:
-      - user.experiences_in_percentage.each do |experience, val|
-        %p.experience{:class => "#{experience}"}
-          #{(val*100).to_i}%
-          = experience_image experience 
+  %p
+    = pluralize user.trips.size, t('general.trip')
+
+  %table.responsive
+    %tbody
+      %tr
+        %td
+          = user.trips.alone.size
+          = link_to hitchhiking_with_image(0), user_path(user.username, hitchhiked_with: 0)
+          = t('.alone')
+        %td
+          = user.trips.in_pairs.size
+          = link_to hitchhiking_with_image(1), user_path(user.username, hitchhiked_with: 1)
+          = t('with_one_other_person')
+        %td
+          = user.trips.with_three.size
+          = link_to hitchhiking_with_image(2), user_path(user.username, hitchhiked_with: 2)
+          = t('with_two_other_people')
+        %td
+          = user.trips.with_four.size
+          = link_to hitchhiking_with_image(3), user_path(user.username, hitchhiked_with: 3)
+          = t('.with_three_other_people')
+
+  %h3
+    #{ pluralize(user.rides.size, t('general.ride')) }:
+  %h4 Experience:
+  %p
+    - user.experiences_in_percentage.each do |experience, val|
+      #{(val*100).to_i}%
+      = experience_image experience
 
   - unless user.genders.empty?
-    .float_left.column
-      %h3 #{t('.gender_of_drivers')}:
+    %h4
+      #{t('.gender_of_drivers')}:
+    %p
       - user.genders_in_percentage.each do |gender, val|
-        %p.gender{:class => "#{gender}"}
-          #{(val*100).to_i}%
-          = gender_people_image gender 
+        #{(val*100).to_i}%
+        = gender_people_image gender 
