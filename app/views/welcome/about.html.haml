@@ -44,8 +44,8 @@
   .span6
     %h3.short_headline
       %span Tramprennen
-    = link_to(image_tag('tramprennen_logo.png'), "http://www.vivaconagua.org/")
     %p
+      = link_to(image_tag('tramprennen_logo.png', class: 'alignleft'), "http://www.vivaconagua.org/")
       Since 2006 a growing group of hitchhikers are racing around Europe
       by hitchhiking. They are organized in teams and within two weeks
       the teams arrive step by step at a final destiniation.
@@ -93,8 +93,6 @@
         %li
           #{ samuel } who helped out with the
           #{ flag('pt') } translation.
-    %h2
-      %i.icon-flag
     %p
       If you happen to speak a language other than english well and you would like to help translate the Hitchlog,
       please send #{ florian } a message, he will set you up for the
@@ -119,27 +117,30 @@
       The application is completely open-source and available on 
       <a href='http://github.com/flov/Hitchlog'>Github</a>.
 
-    %h3 How To Contribute
-    %p
-      There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>:
-    %ul
-      %li
-        If you want to see Hitchlog in your locale language, help to translate the webpage.
-        Please drop a line to `florian@hitchlog.com`
-      %li
-        Help with programming.<br/>
-        The source code is on <a href='http://github.com/flov/Hitchlog'>Github</a>
-        %br/
-        <a href='https://www.pivotaltracker.com/projects/307593'>Pivotal Tracker</a>
-        is used for managing tasks and iterations.<br/>
-        Currently #{florian} is developing and maintaining the hitchlog.
-        If you want to contribute with programming the future, go for it!<br/>
-        Ruby and Ruby on Rails is wicked!<br/>
-        Shoot #{florian} a mail in case you want to help out.
-      %li
-        Give it a shout on twitter, facebook or another social medium.
-      %li
-        Log Hitchhiking Trips
+%hr/
+
+%h3.short_headline
+  %span How To Contribute
+%p
+  There are many ways to contribute to <a href='http://hitchlog.com'>Hitchlog.com</a>:
+%ul
+  %li
+    If you want to see Hitchlog in your locale language, help to translate the webpage.
+    Please drop a line to `florian@hitchlog.com`
+  %li
+    Help with programming.<br/>
+    The source code is on <a href='http://github.com/flov/Hitchlog'>Github</a>
+    %br/
+    <a href='https://www.pivotaltracker.com/projects/307593'>Pivotal Tracker</a>
+    is used for managing tasks and iterations.<br/>
+    Currently #{florian} is developing and maintaining the hitchlog.
+    If you want to contribute with programming the future, go for it!<br/>
+    Ruby and Ruby on Rails is wicked!<br/>
+    Shoot #{florian} a mail in case you want to help out.
+  %li
+    Give it a shout on twitter, facebook or another social medium.
+  %li
+    Log Hitchhiking Trips
 
 %p
   If you would like to give some feedback, help or if you just want to say
