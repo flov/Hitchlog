@@ -214,7 +214,7 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #53a3b7;
+  color: $textColor;
   text-decoration: none;
 }
 a:hover {
@@ -2081,13 +2081,13 @@ input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"
 }
 .btn-primary {
 	color:#fff;
-	background:#53a3b7;
-	border-color:#53a3b7
+	background:$textColor;
+	border-color:$textColor
 }
 .btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
 	color:#fff;
-	background-color:#53a3b7;
-	border-color:#53a3b7
+	background-color:$textColor;
+	border-color:$textColor
 }
 .btn-primary:active,.btn-primary.active {
 	background-color:#039 \9
@@ -2194,7 +2194,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link {
   border-color: transparent;
   cursor: pointer;
-  color: #53a3b7;
+  color: $textColor;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -2471,7 +2471,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:hover {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #53a3b7;
+  background-color: $textColor;
 }
 .nav-list [class^="icon-"],
 .nav-list [class*=" icon-"] {
@@ -2552,7 +2552,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: #ffffff;
-  background-color: #53a3b7;
+  background-color: $textColor;
 }
 .nav-stacked > li {
   float: none;
@@ -2610,8 +2610,8 @@ input[type="submit"].btn.btn-mini {
   border-radius: 6px;
 }
 .nav .dropdown-toggle .caret {
-  border-top-color: #53a3b7;
-  border-bottom-color: #53a3b7;
+  border-top-color: $textColor;
+  border-bottom-color: $textColor;
   margin-top: 6px;
 }
 .nav .dropdown-toggle:hover .caret {
@@ -2816,10 +2816,6 @@ input[type="submit"].btn.btn-mini {
   margin: 0 9px;
   border-left: 1px solid #c7cfd6;
   border-right: 1px solid transparent;
-}
-.navbar .btn,
-.navbar .btn-group {
-  margin-top: 5px;
 }
 .navbar .btn-group .btn,
 .navbar .input-prepend .btn,
@@ -3593,7 +3589,7 @@ input[type="submit"].btn.btn-mini {
   transition: all 0.2s ease-in-out;
 }
 a.thumbnail:hover {
-  border-color: #53a3b7;
+  border-color: $textColor;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
@@ -4285,14 +4281,14 @@ a.thumbnail:hover {
 .dropdown-submenu:hover > a {
   text-decoration: none;
   color: #ffffff;
-  background: #53a3b7;
+  background: $textColor;
 }
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #53a3b7;
+  background-color: $textColor;
 }
 .dropdown-menu .disabled > a,
 .dropdown-menu .disabled > a:hover {
