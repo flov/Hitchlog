@@ -38,7 +38,7 @@ $textColor:             $blue !default;
 
 // Links
 // -------------------------
-$linkColor:             $orange !default;
+$linkColor:             lighten($blue, 20) !default;
 $linkColorHover:        $lightblue !default;
 
 

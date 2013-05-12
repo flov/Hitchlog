@@ -31,15 +31,16 @@
     min-width: 75px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   .dropdown-menu>li>a {
     text-align: left;
   }
 }
 
-
 .container {
-  max-width: 1000px;
-
   .navbar .container {
     width: auto;
   }
@@ -94,3 +95,31 @@ ul {
   margin: 0;
 }
 
+table.trips {
+  td.title{
+    width: 500px;
+  }
+}
+
+.sidebar.secondary-column {
+  aside{
+    display: block;
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+  aside.user_image {
+    text-align: center;
+  }
+}
+
+.edit_user {
+  #user_about_you {
+    width: 500px;
+    height: 100px;
+  }
+}
+
+.users img.profile_pic {
+  width: 25px;
+  height: 25px;
+}
