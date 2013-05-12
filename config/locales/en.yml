@@ -156,6 +156,8 @@ en:
     confirm: "Are you sure?"
     slogan: "A Hitchhiker's Logbook"
     login: Login
+    trip: trip
+    ride: ride
   shared:
     banners_in_corners:
       fork_me_on_github: "Fork Me On Github"
@@ -168,7 +170,7 @@ en:
       last_login_in: "last login in"
   welcome:
     home:
-      share_and_keep_track: "Share your hitchhiking experiences"
+      share_and_keep_track: "Share your hitchhiking experience"
       countries_logged: "Countries logged"
       newest_hh_stories: "Newest Stories"
       newest_hitchhikers: "Newest Hitchhikers"
@@ -244,7 +246,7 @@ en:
           When you send the message, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
-      located_in: "Located in:"
+      located_in: "Location:"
       cars_seen_from_inside: "Cars seen from inside"
       average_drivers_age: "Average driver's age"
       hitchhiked_countries: "Hitchhiked countries"
@@ -257,6 +259,11 @@ en:
       uploaded_photos: "Uploaded photos"
       statistics: Statistics
       send_mail: "Send Mail"
+    trips_and_rides:
+      alone: alone
+      with_one_other_person: with one other person
+      with_two_other_people: with two other people
+      with_three_other_people: with three other people
     show:
       current_location: "Current location:"
       alone: alone
