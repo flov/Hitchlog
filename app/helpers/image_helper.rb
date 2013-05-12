@@ -280,7 +280,7 @@ module ImageHelper
     elsif user.country_code.blank?
       user.city
     else
-      "#{flag(user.country_code)} #{user.city}".html_safe
+      "#{flag(user.country_code)} <a href='http://maps.google.com.au/?q=#{user.location}'>#{user.location}</a>".html_safe
     end
   end
 end
