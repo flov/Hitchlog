@@ -142,15 +142,21 @@ input[type="button"] {
 // Set the backgrounds
 // -------------------------
 .btn-primary {
-  @include buttonBackground($btnPrimaryBackground, $btnPrimaryBackgroundHighlight);
+	color:#fff;
+	background:$textColor;
+	border-color:$textColor;
 }
 // Warning appears are orange
 .btn-warning {
-  @include buttonBackground($btnWarningBackground, $btnWarningBackgroundHighlight);
+  color:#fff;
+  background: $btnWarningBackground;
+	border-color: $btnWarningBackground;
 }
 // Danger and error appear as red
 .btn-danger {
-  @include buttonBackground($btnDangerBackground, $btnDangerBackgroundHighlight);
+	color:#fff;
+  background: $btnDangerBackground;
+  border-color: $btnDangerBackground;
 }
 // Success appears as green
 .btn-success {
@@ -158,7 +164,9 @@ input[type="button"] {
 }
 // Info appears as a neutral blue
 .btn-info {
-  @include buttonBackground($btnInfoBackground, $btnInfoBackgroundHighlight);
+	color:#fff;
+  background: $btnInfoBackground;
+  border-color: $btnInfoBackground;
 }
 // Inverse appears as dark gray
 .btn-inverse {
