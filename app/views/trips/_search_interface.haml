@@ -1,5 +1,5 @@
 - gender ||= false
-= form_tag '', :method => 'get', class: 'search_interface' do
+= form_tag '', :method => 'get', class: 'trips_search' do
   = t('.sort_by')
   - if gender
     = select_tag "gender", options_for_gender.html_safe, :prompt => t('.select_gender')

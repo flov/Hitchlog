@@ -123,3 +123,13 @@ table.trips {
   width: 25px;
   height: 25px;
 }
+
+
+.trips_search {
+  label{
+    display: inline-block;
+  }
+  select {
+    width: 150px;
+  }
+}
