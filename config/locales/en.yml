@@ -345,11 +345,11 @@ en:
       to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
       choose_a_country: "Choose a country"
     search_interface:
-      select_experience: "Select Experience"
-      select_gender: "Select Gender"
-      sort_by: "Sort by:"
+      sort_by: "Search trips with"
+      select_experience: "Experience"
+      select_gender: "Gender"
+      select_country: "Country"
       photo: Photo
-      select_country: "Select Country"
       search: Search
       story: Story
     edit:

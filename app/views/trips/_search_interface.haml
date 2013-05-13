@@ -1,12 +1,15 @@
 - gender ||= false
-= form_tag '', :method => 'get', class: 'trips_search' do
-  = t('.sort_by')
-  - if gender
-    = select_tag "gender", options_for_gender.html_safe, :prompt => t('.select_gender')
-  = select_tag "experience", options_for_experiences.html_safe, :prompt => t('.select_experience')
-  = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
-  = check_box_tag 'photos', nil, params[:photos]
-  %label{:for => 'photos'}= t('.photo')
-  = check_box_tag 'stories', nil, params[:stories]
-  %label{:for => 'stories'}= t('.story')
-  = submit_tag t('.search')
+.text-center
+  = form_tag '', :method => 'get', class: 'trips_search' do
+    = t('.sort_by')
+    = check_box_tag 'photos', nil, params[:photos]
+    %label{:for => 'photos'}= t('.photo')
+    = check_box_tag 'stories', nil, params[:stories]
+    %label{:for => 'stories'}= t('.story')
+    - if gender
+      = select_tag "gender", options_for_gender.html_safe, :prompt => t('.select_gender')
+    = select_tag "experience", options_for_experiences.html_safe, :prompt => t('.select_experience')
+    = select_tag "country", options_for_countries.html_safe, :prompt => t('.select_country')
+    %br/
+    = submit_tag t('.search'), class: 'btn btn-primary'
+    -#<button type="submit" class="btn">Search</button>

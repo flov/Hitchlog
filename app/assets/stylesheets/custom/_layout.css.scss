@@ -125,7 +125,9 @@ table.trips {
 }
 
 
-.trips_search {
+form.trips_search {
+  margin: 0;
+  line-height: 40px;
   label{
     display: inline-block;
   }
