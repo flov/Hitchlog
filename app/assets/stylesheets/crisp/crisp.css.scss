@@ -35,7 +35,7 @@ html {
 /*	Text Color
 ========================================================== */
 body, html { color: $mainColor }
-a { color: lighten($mainColor, 20); text-decoration: underline }
+a { color: $linkColor }
 h1, h2, h3, h4, h5, h6, .slide-to-top .trigger { color: $headingsColor }
 h1 a, h2 a, h3 a, h5 a, h4 a { color: inherit }
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, .slide-to-top .trigger:hover { color: lighten($headingsColor, 10) }
