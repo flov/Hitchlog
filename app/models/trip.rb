@@ -7,10 +7,11 @@ class Trip < ActiveRecord::Base
 
   validates :from,       presence: true
   validates :to,         presence: true
-  validates :arrival,    presence: true
   validates :departure,  presence: true
+  validates :arrival,    presence: true, after_departure: true
   validates :user_id,    presence: true
   validates :hitchhikes, presence: true, :if => :new_record
+  validates :travelling_with, presence: true
 
   validates :distance,   numericality: true
 

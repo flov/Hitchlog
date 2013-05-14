@@ -6,8 +6,22 @@ describe Trip do
   it { should have_many(:rides) }
   it { should have_many(:comments) }
   it { should belong_to(:user) }
-  it { should validate_presence_of(:departure) }
-  it { should validate_presence_of(:arrival) }
+
+  describe "#valid?" do
+    it { should validate_presence_of(:from) }
+    it { should validate_presence_of(:to) }
+    it { should validate_presence_of(:departure) }
+    it { should validate_presence_of(:arrival) }
+    it { should validate_presence_of(:travelling_with) }
+
+    describe '#arrival' do
+      it "cannot be before departure" do
+        trip.departure = 1.day.ago
+        trip.arrival =   2.days.ago
+        trip.should have(1).error_on :arrival
+      end
+    end
+  end
 
   describe "factories" do
     it "should generate a valid trip" do
