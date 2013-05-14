@@ -283,5 +283,21 @@ module ImageHelper
       "#{flag(user.country_code)} <a href='http://maps.google.com.au/?q=#{user.location}'>#{user.location}</a>".html_safe
     end
   end
-end
 
+  def country_image(country, country_distance=nil)
+    case country
+      when "The Netherlands" then country = "Netherlands"
+      when "Macedonia (FYROM)" then country = "Macedonia"
+      when "Kingdom of Sweden" then country = "Sweden"
+      # Add more exceptions...
+    end
+
+    unless I18nData.country_code(country).nil?
+      if country_distance == nil
+        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", class: 'tip', title: "#{country}"
+      else
+        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", class: 'tip', title: "#{country} #{distance( country_distance )}"
+      end
+    end
+  end
+end
