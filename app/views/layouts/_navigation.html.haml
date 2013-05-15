@@ -26,10 +26,7 @@
 
         - if user_signed_in?
           .pull-right.logged_in
-            - if fb_user = current_user.authentications.where(provider: 'facebook').first
-              = image_tag "https://graph.facebook.com/#{fb_user.uid}/picture?type=small", class: 'profile_pic'
-            - else
-              = gravatar_image_tag current_user.email, gravatar: { :size => 25 }, class: 'profile_pic'
+            = render 'users/profile_image', user: current_user
 
             .btn-group
               = link_to user_path(current_user), class: 'btn' do
