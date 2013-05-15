@@ -77,6 +77,7 @@ table tbody td {
 	vertical-align: top;
 }
 
+.no-wrap              { white-space: nowrap; }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
@@ -91,6 +92,8 @@ table tbody td {
 	
 	div.table-wrapper div.scrollable table { margin-left: 35%; }
 	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+
+  table .no-wrap              { white-space: normal; }
 	
 	table.responsive td, table.responsive th { position: relative; overflow: hidden; }
 	table.responsive th:last-child, table.responsive td:last-child, table.responsive td:last-child, table.responsive.pinned td { display: none; }

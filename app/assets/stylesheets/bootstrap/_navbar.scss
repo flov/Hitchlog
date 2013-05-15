@@ -156,7 +156,6 @@
 
 .navbar-static-top {
   position: static;
-  margin-bottom: 0; // remove 18px margin for default navbar
   .navbar-inner {
     @include border-radius(0);
    }

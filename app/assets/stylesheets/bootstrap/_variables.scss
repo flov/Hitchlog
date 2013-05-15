@@ -23,18 +23,17 @@ $blue:                  #576674 !default;
 $lightblue:             #53a3b7 !default;
 $blueDark:              #0064cd !default;
 $green:                 #46a546 !default;
+$lightgreen:            lighten($green, 20) !default;
 $red:                   #9d261d !default;
 $yellow:                #ffc40d !default;
 $orange:                #f89406 !default;
 $pink:                  #c3325f !default;
 $purple:                #7a43b6 !default;
 
-
 // Scaffolding
 // -------------------------
 $bodyBackground:        $white !default;
 $textColor:             $blue !default;
-
 
 // Links
 // -------------------------
