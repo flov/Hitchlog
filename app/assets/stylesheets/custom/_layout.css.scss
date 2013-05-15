@@ -134,3 +134,18 @@ form.trips_search {
   }
 }
 
+.extremely.positive {
+  color: $green;
+}
+.positive {
+  color: $lightgreen;
+}
+.neutral {
+  color: $orange;
+}
+.negative {
+  color: $red;
+}
+.extremely.negative {
+  color: $red;
+}
