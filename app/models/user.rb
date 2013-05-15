@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
 
   def experiences_in_percentage
     hash = {}
-    self.experiences.uniq.each do |experience|
+    self.sort_experiences.each do |experience|
       hash[experience] = ( self.experiences.select{|exp| exp == experience}.size.to_f / self.experiences.size ).round(2)
     end
     hash
@@ -107,7 +107,18 @@ class User < ActiveRecord::Base
   def no_of_rides
     self.rides.size
   end
-  
+
+  def sort_experiences
+    new_array = []
+    experiences = self.experiences.uniq
+    new_array << 'extremely positive' if experiences.include? 'extremely positive'
+    new_array << 'positive' if experiences.include? 'positive'
+    new_array << 'neutral' if experiences.include? 'neutral'
+    new_array << 'negative' if experiences.include? 'negative'
+    new_array << 'extremely negative' if experiences.include? 'extremely negative'
+    new_array
+  end
+
   private
 
   def update_location_updated_at
