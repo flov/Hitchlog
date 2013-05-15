@@ -1,21 +1,21 @@
 - by ||= false
 
-%table.trips
+%table.trips.responsive
   %thead
     %tr
       %th Trips
       - if by
         %th= t('.by')
-      %th
-      %th= t('.countries')
-      %th= t('.rides')
       %th= t('activerecord.attributes.trip.distance')
+      %th
+        %i.icon-star-empty
+      %th= t('.rides')
       %th= t('.date')
 
   %tbody
     - trips.each do |trip|
       %tr{:id => "trip_#{trip.id}"}
-        %td.title.neutralize_fonts
+        %td
           = link_to trip.to_s.html_safe, trip
           = link_to t('.edit'), edit_trip_path(trip) if trip.user == current_user
           - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
@@ -26,17 +26,17 @@
             .story{:class => ((rides_with_story.size - 1) == i) ? "last" : ''}
               = truncated_markdown(ride.story)
         - if by
-          %td.hitchhiked_by= user_with_gender(trip.user)
-        %td.icons
+          %td.no-wrap= user_with_gender(trip.user)
+        %td.no-wrap= distance( trip.distance )
+        %td.no-wrap
           = images_for_trip(trip)
-        %td.countries
           = country_images_for_trip(trip)
-        %td.rides
+        %td.no-wrap
           = trip.rides.size
           = link_to experience_image((trip.overall_experience)), trip_path(trip)
-        %td.distance= distance( trip.distance )
         - unless trip.departure.nil?
-          - if trip.departure > 1.month.ago
-            %td.started_at= t('general.time_ago', :time => time_ago_in_words(trip.departure))
-          - else
-            %td.started_at= "#{trip.departure.strftime("%d %B %Y")}"
+          %td.no-wrap
+            - if trip.departure > 12.month.ago
+              = t('general.time_ago', :time => time_ago_in_words(trip.departure))
+            - else
+              = trip.departure.strftime("%d %B %Y")

@@ -53,6 +53,7 @@ a.text-success:focus { color: darken($successText, 10%); }
 .text-right          { text-align: right; }
 .text-center         { text-align: center; }
 
+.no-wrap              { white-space: nowrap; }
 
 // Headings
 // -------------------------

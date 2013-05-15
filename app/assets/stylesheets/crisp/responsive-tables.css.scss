@@ -92,8 +92,8 @@ table tbody td {
 	div.table-wrapper div.scrollable table { margin-left: 35%; }
 	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
 	
-	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
-	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	table.responsive td, table.responsive th { position: relative; overflow: hidden; }
+	table.responsive th:last-child, table.responsive td:last-child, table.responsive td:last-child, table.responsive.pinned td { display: none; }
 	
 }
 
