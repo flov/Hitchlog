@@ -95,12 +95,6 @@ ul {
   margin: 0;
 }
 
-table.trips {
-  td.title{
-    width: 500px;
-  }
-}
-
 .sidebar.secondary-column {
   aside{
     display: block;
@@ -109,6 +103,10 @@ table.trips {
   }
   aside.user_image {
     text-align: center;
+  }
+
+  img.profile_pic {
+    @include border-radius(999px);
   }
 }
 
@@ -135,3 +133,4 @@ form.trips_search {
     width: 150px;
   }
 }
+

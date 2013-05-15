@@ -10,7 +10,6 @@
         - if user == current_user
           (#{link_to t('.edit'), edit_user_path(user)})
 
-    = country_images_for_user(user)
 
     - if current_user == user
       - if user.trips.empty?
@@ -22,6 +21,9 @@
       %p
         = t('.current_location')
         = flag_with_country_name(user)
+    - if user.trips.any?
+      %p
+        = country_images_for_user(user)
 
     = render 'about_you', user: user
 
@@ -47,7 +49,6 @@
 
     - if user.city.present?
       %aside.location
-        = t('users.right_column.located_in')
         = flag_with_country_name(user)
 
     - unless user.cs_user.blank? and current_user == user
