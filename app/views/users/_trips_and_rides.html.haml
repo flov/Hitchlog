@@ -22,7 +22,7 @@
       %h4= pluralize(user.rides.size, t('general.ride'))
       %p
         - user.experiences_in_percentage.each do |experience, val|
-          %span{:class => "#{experience}"}
+          %span{class: "#{experience}"}
             #{(val*100).to_i}%
             = experience_image( experience )
       %p

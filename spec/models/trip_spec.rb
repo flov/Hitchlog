@@ -14,6 +14,13 @@ describe Trip do
     it { should validate_presence_of(:arrival) }
     it { should validate_presence_of(:travelling_with) }
 
+    describe '#hitchhikes' do
+      it { should validate_numericality_of(:hitchhikes) }
+      it 'should not be 0' do
+        Trip.new(hitchhikes: 0).should have(1).error_on :hitchhikes
+      end
+    end
+
     describe '#arrival' do
       it "cannot be before departure" do
         trip.departure = 1.day.ago

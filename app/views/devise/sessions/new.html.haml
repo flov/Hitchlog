@@ -34,7 +34,7 @@
     .float-left
       %ul
         %li
-          = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook')), '/auth/facebook'
+          = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 100%;'), '/auth/facebook'
 
       %p
         = link_to new_user_registration_path do

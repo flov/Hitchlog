@@ -22,7 +22,7 @@ class OmniauthController < ApplicationController
     end
 
     if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
+      flash[:success] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       sign_in_and_redirect @user, :event => :authentication
     else
       redirect_to new_user_registration_url
@@ -32,7 +32,7 @@ class OmniauthController < ApplicationController
   def destroy
     @authentication = current_user.authentications.find(params[:id])
     @authentication.destroy
-    flash[:notice] = "Successfully destroyed authentication."
+    flash[:success] = "Successfully destroyed authentication."
     redirect_to authentications_url
   end
 

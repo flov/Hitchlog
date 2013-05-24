@@ -44,7 +44,7 @@ class RidesController < ApplicationController
   def destroy
     if ride.trip.user == current_user
       ride.destroy
-      flash[:notice] = "Successfully destroyed ride."
+      flash[:success] = "Successfully destroyed ride."
     else
       flash[:alert] = "You are not allowed to do that!"
     end

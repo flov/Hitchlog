@@ -21,7 +21,7 @@ class TripsController < ApplicationController
     if comment.save
       # TODO move this to a notification service
       notify_trip_owner_and_comment_authors(comment)
-      flash[:notice] = I18n.t('flash.trips.create_comment.comment_saved')
+      flash[:success] = I18n.t('flash.trips.create_comment.comment_saved')
     else
       flash[:alert] = t('flash.trips.create_comment.alert')
     end

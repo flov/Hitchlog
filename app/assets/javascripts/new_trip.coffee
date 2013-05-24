@@ -1,43 +1,152 @@
-$(document).ready ->
-  init_map()
-  $("#trip_from").observe_field 0.3, ->
-    if this.value.length > 1
-      get_location $("#trip_from").val(), $("#suggest_from"), "from"
+window.from = ''
+window.to = ''
 
-  $("#trip_to").observe_field 0.3, ->
-    if this.value.length > 1
-      get_location $("#trip_to").val(), $("#suggest_to"), "to"
+get_inputs_for = (direction) ->
+  if place.address_components.length > 0
+    for x in [0..place.address_components.length-1]
+      type = place.address_components[x].types[0]
+      value = place.address_components[x].long_name
+      switch type
+        when 'locality'
+          $("input#trip_#{direction}_city").val value
+        when 'country'
+          $("input#trip_#{direction}_country").val value
+          $("input#trip_#{direction}_country_code").val place.address_components[x].short_name
+        when 'postal_code'
+          $("input#trip_#{direction}_postal_code").val value
 
-  $("#trip_to").change ->
-    if this.value.length > 1
-      set_new_route()
-      $("#km_display").show()
+autocomplete_for = (direction, map) ->
+  input = $("input#trip_#{direction}")[0]
 
-  # Suggestions currently disabled:
-  $('#suggest_from a').live 'click', ->
-    $("#trip_from").val($(this).html())
-    return false
+  autocompleteOptions = { types: ['geocode'] }
+  autocomplete = new google.maps.places.Autocomplete(input, autocompleteOptions)
+  autocomplete.bindTo('bounds', map)
 
-  $('#suggest_to a').live 'click', ->
-    $("#trip_to").val($(this).html())
-    return false
+  infowindow = new google.maps.InfoWindow()
 
-  $("input#trip_departure").datetimepicker(
-    maxDate: new Date()
-    dateFormat: 'dd/mm/yy'
-    changeYear: true
-    changeMonth: true
-    # numberOfMonths: 3
-    defaultDate: "-1w"
-    onSelect: (selectedDate, inst) ->
-      date = $.datepicker.parseDate( inst.settings.dateFormat, selectedDate, inst.settings )
-      trip_arrival.datepicker( "option", "minDate", date )
-      trip_arrival.datepicker( "option", "defaultDate", date )
+  marker = new google.maps.Marker({ map: map })
+
+  google.maps.event.addListener(autocomplete, 'place_changed', ->
+    window.place = autocomplete.getPlace()
+    if (!place.geometry)
+      # Inform the user that the place was not found and return.
+      alert 'place could not be found'
+      return
+
+    # If the place has a geometry, then present it on a map.
+    if (place.geometry.viewport)
+      map.fitBounds(place.geometry.viewport)
+    else
+      map.setCenter(place.geometry.location)
+      map.setZoom(17)  # Why 17? Because it looks good.
+
+    location = place.geometry.location
+
+    $("input#trip_#{direction}_lat").val location.lat()
+    $("input#trip_#{direction}_lng").val location.lng()
+    $("input#trip_#{direction}_formatted_address").val place.formatted_address
+
+    get_inputs_for( direction )
   )
 
-  trip_arrival = $("input#trip_arrival").datetimepicker(
-    maxDate: new Date()
-    dateFormat: 'dd/mm/yy'
-    changeYear: true
-    changeMonth: true
+get_from_coordinates = ->
+  if !isNaN($("#trip_from_lat").val())
+    from_lat = $("#trip_from_lat").val()
+    from_lng = $("#trip_from_lng").val()
+    return new google.maps.LatLng(from_lat, from_lng)
+
+get_to_coordinates = ->
+  if !isNaN($("#trip_to_lat").val())
+    to_lat = $("#trip_to_lat").val()
+    to_lng = $("#trip_to_lng").val()
+    return new google.maps.LatLng(to_lat, to_lng)
+
+route = (from, to) ->
+  request =
+    origin: from
+    destination: to
+    waypoints: []
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+
+  window.directionsService.route(request, (response, status) ->
+    if (status == google.maps.DirectionsStatus.OK)
+      window.directionsDisplay.setDirections(response);
   )
+
+$ ->
+  if google?
+    window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
+    window.directionsService = new google.maps.DirectionsService();
+
+    mapOptions = {
+      center: new google.maps.LatLng(52.5234051, 13.411399899999992),
+      zoom: 1,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    map = new google.maps.Map($('#map-canvas')[0], mapOptions)
+    directionsDisplay.setMap(map);
+
+    #
+    # When changing Route by dragging, construct new directions hash
+    # with waypoints and store it in trip:
+    #
+    google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
+      if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
+        # Route with waypoints
+        $("#trip_route").val directions_hash(directionsDisplay)
+        $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
+        # Google Maps duration
+        $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
+        # Display Distance
+        $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
+        $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
+
+    autocomplete_for( 'from', map )
+    autocomplete_for( 'to', map )
+
+    $("#trip_from_lat").observe_field 1, ->
+      window.from = get_from_coordinates()
+      if window.from && window.to
+        route(window.from, window.to)
+
+    $("#trip_to_lat").observe_field 1, ->
+      window.to = get_to_coordinates()
+      if window.from && window.to
+        route(window.from, window.to)
+
+
+directions_hash = (directionsDisplay) ->
+  # A sample DirectionsRequest is shown below:
+  #
+  # {
+  #  origin: "Chicago, IL",
+  #  destination: "Los Angeles, CA",
+  #  waypoints: [
+  #    {
+  #      location:"Joplin, MO",
+  #      stopover:false
+  #    },{
+  #      location:"Oklahoma City, OK",
+  #      stopover:true
+  #    }],
+  #  provideRouteAlternatives: false,
+  #  travelMode: TravelMode.DRIVING,
+  #  unitSystem: UnitSystem.IMPERIAL
+  # }
+  waypoints = []
+  leg = directionsDisplay.directions.routes[0].legs[0]
+  directions =
+    origin:                   new google.maps.LatLng(leg.start_location.lat(), leg.start_location.lng())
+    destination:              new google.maps.LatLng(leg.end_location.lat(), leg.end_location.lng())
+    travelMode:               google.maps.DirectionsTravelMode.DRIVING
+    provideRouteAlternatives: false
+
+  for waypoint, i in leg.via_waypoints
+    waypoints[i] =
+      location: new google.maps.LatLng(waypoint.lat(), waypoint.lng())
+      stopover: false
+
+  directions.waypoints = waypoints
+  JSON.stringify(directions)
+

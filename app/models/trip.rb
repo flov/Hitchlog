@@ -10,7 +10,8 @@ class Trip < ActiveRecord::Base
   validates :departure,  presence: true
   validates :arrival,    presence: true, after_departure: true
   validates :user_id,    presence: true
-  validates :hitchhikes, presence: true, :if => :new_record
+  validates :hitchhikes, presence: true, if: :new_record
+  validates :hitchhikes, numericality:  true, cannot_be_zero: true
   validates :travelling_with, presence: true
 
   validates :distance,   numericality: true
@@ -40,6 +41,7 @@ class Trip < ActiveRecord::Base
                   :from_postal_code,
                   :from_street,
                   :from_street_no,
+                  :from_country_code,
                   :to_lat,
                   :to_lng,
                   :to_formatted_address,
@@ -47,7 +49,8 @@ class Trip < ActiveRecord::Base
                   :to_country,
                   :to_postal_code,
                   :to_street,
-                  :to_street_no
+                  :to_street_no,
+                  :to_country_code
 
   after_create :get_country_distance
 

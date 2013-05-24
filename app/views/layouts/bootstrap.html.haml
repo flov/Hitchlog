@@ -10,6 +10,8 @@
     = render 'layouts/navigation'
 
     .container#main-content
+      = render 'layouts/flash_messages'
+
       = yield
 
   %footer#footer
@@ -17,6 +19,11 @@
       .row-fluid
         %h1 Hitchlog
 
-  = javascript_include_tag 'bootstrap'
-  = yield(:javascript_at_bottom)
+  - if Rails.env == 'dev'
+    = javascript_include_tag 'bootstrap', debug: true
+  - else
+    = javascript_include_tag 'bootstrap'
+    = render 'shared/google_stats'
 
+
+  = yield(:javascript_at_bottom)

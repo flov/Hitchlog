@@ -8,6 +8,7 @@
 //= require twitter/bootstrap/dropdown
 //= require twitter/bootstrap/tab
 //= require twitter/bootstrap/alert
+//= require vendor/jquery.observe_field.js
 //
 
 

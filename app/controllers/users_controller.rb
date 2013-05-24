@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = I18n.t('flash.users.update.notice')
+      flash[:success] = I18n.t('flash.users.update.notice')
       redirect_to user_path(@user)
     else
       flash[:alert] = I18n.t('flash.users.update.error')
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def mail_sent
     mailer = UserMailer.mail_to_user(current_user, user, params[:message_body])
     if mailer.deliver
-      flash[:notice] = I18n.t('flash.users.mail_sent.notice', user: user)
+      flash[:success] = I18n.t('flash.users.mail_sent.notice', user: user)
     end
     redirect_to user_path(user)
   end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user == current_user
       @user.destroy
-      flash[:notice] = t('flash.users.destroy.success')
+      flash[:success] = t('flash.users.destroy.success')
       redirect_to root_path
     else
       flash[:alert] = t('flash.users.destroy.not_allowed')
