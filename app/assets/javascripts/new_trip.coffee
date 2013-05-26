@@ -74,6 +74,17 @@ route = (from, to) ->
   )
 
 $ ->
+  $("#modal-btn").click ->
+    $("#from").html $("#trip_from_formatted_address").val()
+    $("#to").html $('#trip_to_formatted_address').val()
+    $("#distance").html $('#trip_distance_display').html()
+    $("#no_of_rides").html $('#trip_hitchhikes').val()
+    $("#departure").html $('#trip_departure').val()
+    $("#arrival").html $('#trip_arrival').val()
+    $("#traveling_with").html(
+      $("#trip_travelling_with option[value='" + ($('#trip_travelling_with').val()) + "']").text();
+    )
+
   if google?
     window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
     window.directionsService = new google.maps.DirectionsService();
