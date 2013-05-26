@@ -19,6 +19,11 @@ describe Trip do
       it 'should not be 0' do
         Trip.new(hitchhikes: 0).should have(1).error_on :hitchhikes
       end
+      it 'creates 1 ride on trip if hitchhikes equals 1' do
+        trip = FactoryGirl.build(:trip, hitchhikes: 1)
+        trip.save
+        trip.rides.size.should == 1
+      end
     end
 
     describe '#arrival' do
