@@ -11,7 +11,7 @@
       #suggest_from
       = f.input :to
       #suggest_to
-      = f.input :hitchhikes, required: true, collection: 1..50 if trip.new_record?
+      = f.input :hitchhikes, required: true, collection: 1..50, default: 1 if trip.new_record?
       = f.input :departure, as: :string, class: 'date_pick'
       -#= f.input :start_time, :minute_step => 15, :class => "span2"
 
@@ -20,7 +20,8 @@
                                                [t('helper.trip.with_1'),1],
                                                [t('helper.trip.with_2'),2],
                                                [t('helper.trip.with_3'),3],
-                                               [t('helper.trip.with_4'),4]]
+                                               [t('helper.trip.with_4'),4]],
+                                    default: [t('helper.trip.alone'), 0]
 
 
       = f.hidden_field :route
