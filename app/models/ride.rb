@@ -8,8 +8,6 @@ class Ride < ActiveRecord::Base
   has_one :person, :dependent => :destroy
   accepts_nested_attributes_for :person, :allow_destroy => true
 
-  validates_associated :trip
-
   scope :not_empty, where("duration IS NOT NULL OR photo_file_name IS NOT NULL OR waiting_time IS NOT NULL")
   scope :with_photo, where("photo_file_name IS NOT NULL")
   scope :with_story, where("story <> ''")
