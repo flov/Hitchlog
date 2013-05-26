@@ -390,7 +390,7 @@ en:
     show_ride:
       ride: Ride
     new:
-      new_trip: New Trip
+      new_trip: Log New Hitchhiking Trip
       log_your_trip_please: "Log your hitchhiking trip"
       new_trip_description: |
           A trip is a hitchhiking trip from <b>one city to another city</b> which is
