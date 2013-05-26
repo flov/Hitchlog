@@ -306,7 +306,7 @@ GEM
       multi_json (>= 1.0.2)
     uuid (2.3.6)
       macaddr (~> 1.0)
-    vcr (2.3.0)
+    vcr (2.5.0)
     warden (1.0.5)
       rack (>= 1.0)
     web_translate_it (2.0.4)
