@@ -140,12 +140,12 @@ When /^I click on the next button$/ do
 end
 
 When /^I fill in the new trip form$/ do
-  VCR.use_cassette 'berlin_geocoder' do
+  VCR.use_cassette 'berlin' do
     fill_in('trip_from', with: 'Berlin', exact: true)
     page.find(".pac-container .pac-item:first").click
   end
 
-  VCR.use_cassette 'hamburg_geocode' do
+  VCR.use_cassette 'hamburg' do
     fill_in('To', with: 'Reeperbahn, Hamburg', exact: true)
     page.find('.pac-container .pac-item', text: 'Hamburg, Germany').click
   end

@@ -33,7 +33,7 @@ Given /^I am logged in as "([^"]*)"$/ do |username|
   visit new_user_session_path
   fill_in "Username", with: @user.username
   fill_in "Password", with: 'password'
-  click_button "Sign in"
+  click_button "Hitch me up"
 end
 
 Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
@@ -43,7 +43,7 @@ Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
   visit new_user_session_path
   fill_in "Username", with: user.username
   fill_in "Password", with: 'password'
-  click_button "Sign in"
+  click_button "Hitch me up"
 end
 
 Given /^I logged a trip$/ do
