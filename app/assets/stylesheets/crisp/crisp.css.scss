@@ -262,12 +262,13 @@ img.alignnone { display: block;margin-bottom:3%; }
 
 /*	figures/figcaption
 ================================================== */
-figure img {
-	margin: 0;
-	display:inline;
-}
 figure {
 	margin: 0 0 4% 0;
+  img {
+    margin: 0;
+    display:inline;
+    width: 100%;
+  }
 }
 figcaption {
 	text-align: left; 

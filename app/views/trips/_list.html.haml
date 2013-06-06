@@ -7,9 +7,8 @@
       - if by
         %th= t('.by')
       %th= t('activerecord.attributes.trip.distance')
-      %th
+      %th.trip-properties
         %i.icon-star-empty
-      %th= t('.rides')
       %th= t('.date')
 
   %tbody
@@ -29,10 +28,14 @@
           %td.no-wrap= user_with_gender(trip.user)
         %td.no-wrap= distance( trip.distance )
         %td
+          %span.no-wrap.tip{title: pluralize(trip.comments.size, t('general.comment'))}
+            = trip.comments.size
+            %i.icon-comments-alt
+          %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
+            = trip.rides.size
+            %i.icon-road
           = images_for_trip(trip)
           = country_images_for_trip(trip)
-        %td.no-wrap
-          = trip.rides.size
           = link_to experience_image((trip.overall_experience)), trip_path(trip)
         - unless trip.departure.nil?
           %td.no-wrap

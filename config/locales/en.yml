@@ -133,6 +133,12 @@ en:
       english: English
       german: German
   general:
+    comment: comment
+    minutes: minutes
+    story: story
+    hitchhiked_kms: hitchhiked kms
+    photo: photo
+    comment: comment
     current_location: "Current location:"
     sign_in_with_facebook: "Login with Facebook"
     sign_up_with_facebook: "Sign up with Facebook"
@@ -247,14 +253,15 @@ en:
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
       located_in: "Location:"
-      cars_seen_from_inside: "Cars seen from inside"
       average_drivers_age: "Average driver's age"
-      hitchhiked_countries: "Hitchhiked countries"
       hitchhiked_kms: "Hitchhiked kms"
       average_waiting_time: "Average waiting time"
       kms_hitchhiked: "Hitchhiked kms"
-      waiting_time_per_ride: "Avg. waiting time"
       written_stories: "Written stories"
+    profile_picture_section:
+      waiting_time_per_ride: "Avg. waiting time"
+      cars_seen_from_inside: "Cars seen from inside"
+      hitchhiked_countries: "Hitchhiked countries"
       cs_user: "CS User"
       uploaded_photos: "Uploaded photos"
       statistics: Statistics
@@ -380,10 +387,9 @@ en:
       ride: Ride
       gmaps_duration: "Gmaps Duration"
       time_ago: "%{time} ago"
-    add_comment:
+      message: "Message:"
       register: register
       log_in: "Log in"
-      add_comment: "Add Comment"
       to_comment: "to comment on this trip"
     form:
       step1_2: Continue

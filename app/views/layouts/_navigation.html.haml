@@ -15,7 +15,7 @@
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
-              = t('.navigation.language')
+              = t('.language')
               %b.caret
             %ul.dropdown-menu
               - [ :en, :fr, :pt, :de ].each do |locale|
@@ -26,7 +26,8 @@
 
         - if user_signed_in?
           .pull-right.logged_in
-            = render 'users/profile_image', user: current_user
+            = link_to user_path(current_user) do
+              = render 'users/profile_image', user: current_user
 
             .btn-group
               = link_to user_path(current_user), class: 'btn' do

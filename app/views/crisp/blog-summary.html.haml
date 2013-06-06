@@ -1,0 +1,361 @@
+.container.visible-phone.hidden-tablet.hidden-desktop
+  %p.right
+    %a.btn.btn-primary{:href => "#secondary-nav"}
+      Blog Menu &nbsp;
+      %i.icon-align-justify
+.hero-unit
+  .container
+    %h2 Blog
+  / close container
+/ close hero-unit
+#main-content.container.clearfix
+  / begin main content
+  .row-fluid.sidebar-right
+    / begin row-fluid
+    .span9.blog-summary.primary-column
+      / begin entry-post 1
+      %article.entry-post
+        %header.entry-header
+          %h3.entry-title
+            %a{:href => "blog-single.html"} We frequently maximize turn-key infrastructures
+          .byline
+            %i.icon-pencil
+            Christina Arasmo &nbsp;&nbsp;
+            %i.icon-time
+            %abbr.published{:title => "Monday, December 27, 2012,  8:21 PM"} December 27, 2012
+            \&nbsp;&nbsp;
+            %a{:href => "#view-comments"}
+              %i.icon-comments-alt
+              6 comments
+          .entry-meta
+            %i.icon-folder-open
+            = succeed "," do
+              %a{:href => "#"} Design
+            %a{:href => "#"} Typography
+            \&nbsp;&nbsp;
+            %a{:href => "blog-single.html"}
+              %i.icon-link
+              Permalink
+        / end entry-header
+        / begin loop of entry-posts for summary page
+        .entry-content
+          %figure
+            %a.hover{:href => "blog-single.html"}
+              %img{:alt => "", :src => "/4830134044.jpg"}/
+              %span.plus
+            %figcaption
+              This is a figcaption. Image credit:
+              %a{:href => "http://www.flickr.com/photos/fontfont/4830134044/"} CC BY 2.0 FontFont
+          %p Crisp is the industry leader of frictionless e-services. Is it more important for something to be cutting-edge or to be customer-defined? Quick: do you have a reconfigurable strategy for coping with new versioning metrics? We usually optimize transparent, affiliate-based, 24/7/365 60/24/7/365 structuring...
+          %p.more.right
+            %a.btn.btn-primary{:href => "blog-single.html"} Read More &rarr;
+        / close entry-content
+        %footer.entry-footer
+          %span.blog.date
+            %span.month Dec
+            %span.day 27
+            %span.year 2012
+          / close date
+        / end entry-footer
+      / end entry-post 1
+      / begin entry-post 2
+      %article.entry-post
+        %header.entry-header
+          %h3.entry-title
+            %a{:href => "blog-single.html"} Responsively Crispy
+          .byline
+            %i.icon-pencil
+            Christina Arasmo &nbsp;&nbsp;
+            %i.icon-time
+            %abbr.published{:title => "Monday, September 12, 2012,  8:21 PM"} September 12, 2012
+            \&nbsp;&nbsp;
+            %a{:href => "#view-comments"}
+              %i.icon-comments-alt
+              6 comments
+          .entry-meta
+            %i.icon-folder-open
+            = succeed "," do
+              %a{:href => "#"} Design
+            %a{:href => "#"} Typography
+            \&nbsp;&nbsp;
+            %a{:href => "blog-single.html"}
+              %i.icon-link
+              Permalink
+        / end entry-header
+        / begin loop of entry-posts for summary page
+        .entry-content
+          %figure
+            %a.hover{:href => "blog-single.html"}
+              %img{:alt => "", :src => "/responsive-showcase.png"}/
+              %span.plus
+          %p Have you ever needed to productize your cross-platform feature set? Right now? Imagine a combination of CSS and Unix. Have you ever needed to productize your cross-platform feature set? Right now? Imagine a combination of CSS and Unix...
+          %p.more.right
+            %a.btn.btn-primary{:href => "blog-single.html"} Read More &rarr;
+        / close entry-content
+        %footer.entry-footer
+          %span.blog.date
+            %span.month Sep
+            %span.day 12
+            %span.year 2012
+          / close date
+        / end entry-footer
+      / end entry-post 2
+      / begin entry-post 3
+      %article.entry-post
+        %header.entry-header
+          %h3.entry-title
+            %a{:href => "blog-single.html"} Rock Out
+          .byline
+            %i.icon-pencil
+            Christina Arasmo &nbsp;&nbsp;
+            %i.icon-time
+            %abbr.published{:title => "Monday, October 15, 2012,  8:21 PM"} October 15, 2012
+            \&nbsp;&nbsp;
+            %a{:href => "#view-comments"}
+              %i.icon-comments-alt
+              6 comments
+          .entry-meta
+            %i.icon-folder-open
+            %a{:href => "#"} Motion
+            \&nbsp;&nbsp;
+            %a{:href => "blog-single.html"}
+              %i.icon-link
+              Permalink
+        / end entry-header
+        / begin loop of entry-posts for summary page
+        .entry-content
+          .video-wrapper
+            %iframe{:height => "400", :src => "http://www.youtube.com/embed/zIeWZjmeGxg", :width => "600"}
+          %p Think clicks-and-mortar. But don’t think all three at the same time. It seems unclear, but it’s entirely completely realistic! The infomediaries factor can be summed up in one word: killer. What do we integrate? Anything and everything...
+          %p.more.right
+            %a.btn.btn-primary{:href => "blog-single.html"} Read More &rarr;
+        / close entry-content
+        %footer.entry-footer
+          %span.blog.date
+            %span.month Oct
+            %span.day 15
+            %span.year 2012
+          / close date
+        / end entry-footer
+      / end entry-post 3
+      / end loop of entry-posts for summary page
+      .pagination.pagination-right.no-margin.pagination-mini
+        %ul
+          %li
+            %a{:href => "#"} 1
+          %li
+            %a{:href => "#"} 2
+          %li.active
+            %span 3
+          %li
+            %a{:href => "#"} 4
+          %li
+            %a{:href => "#"} Next
+    / close .span9 . primary-column .blog-summary
+    %section#secondary-nav.span3.sidebar.secondary-column
+      %aside.widget.clearfix
+        %h5.short_headline
+          %span Blog Categories
+        %ul.navigation
+          %li
+            %a{:href => "#"} Design
+          %li
+            %a{:href => "#"} CSS3
+          %li
+            %a{:href => "#"} Typography
+          %li
+            %a{:href => "#"} Food
+          %li
+            %a{:href => "#"} Thinking
+          %li
+            %a{:href => "#"} Silly
+      %aside.widget
+        %h5.short_headline
+          %span Search
+        %form.searchform{:method => "get"}
+          %input.span12{:onblur => "this.value='type and hit enter'", :onfocus => "this.value=''", :type => "search", :value => "type and hit enter"}/
+      %aside.widget
+        %h5.short_headline
+          %span Blog
+        .sidebar-tabs
+          %ul.tabs
+            %li.tab
+              %a{:href => "#tab-latest"} Latest
+            %li.tab
+              %a{:href => "#tab-popular"} Popular
+            %li.tab
+              %a{:href => "#tab-tags"} Tags
+          .panels
+            #tab-latest
+              %ul.blogposts.clearfix
+                / required class
+                %li
+                  %span.date
+                    %span.month Jan
+                    %span.day 13
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} We frequently maximize turn-key infrastructures
+                  %a{:href => "blog-single.html"}
+                  %p Your budget for unleashing should be at least twice...
+                %li
+                  %span.date
+                    %span.month Nov
+                    %span.day 28
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Split of a Second
+                  %a{:href => "blog-single.html"}
+                  %p Wingsuit World Champion Espen Fadnes and...
+                %li
+                  %span.date
+                    %span.month Sep
+                    %span.day 18
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Latte Art
+                  %a{:href => "blog-single.html"}
+                  %p
+                    Creating art with latte coffee.
+                    Lorem ipsum dolor sit amet...
+                %li
+                  %span.date
+                    %span.month Mar
+                    %span.day 3
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Lorem ipsum dolor sit amet
+                  %a{:href => "blog-single.html"}
+                  %p senectus et netus et malesuada fames ac turpis egestas...
+            / close #tab-latest
+            #tab-popular
+              / begin tab-popular
+              %ul.blogposts.clearfix
+                / required class
+                %li
+                  %span.date
+                    %span.month Jan
+                    %span.day 13
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} We frequently maximize turn-key infrastructures
+                  %a{:href => "blog-single.html"}
+                  %p Your budget for unleashing should be at least twice...
+                %li
+                  %span.date
+                    %span.month Nov
+                    %span.day 28
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Split of a Second
+                  %a{:href => "blog-single.html"}
+                  %p Wingsuit World Champion Espen Fadnes and...
+                %li
+                  %span.date
+                    %span.month Sep
+                    %span.day 18
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Latte Art
+                  %a{:href => "blog-single.html"}
+                  %p
+                    Creating art with latte coffee.
+                    Lorem ipsum dolor sit amet...
+                %li
+                  %span.date
+                    %span.month Mar
+                    %span.day 3
+                    %span.year 2012
+                  %h3
+                    %a{:href => "blog-single.html"} Lorem ipsum dolor sit amet
+                  %a{:href => "blog-single.html"}
+                  %p senectus et netus et malesuada fames ac turpis egestas...
+            / close #tab-popular
+            #tab-tags.tag-wrapper
+              %a.tag{:href => "#"} business
+              %a.tag{:href => "#"} fun
+              %a.tag{:href => "#"} food
+              %a.tag{:href => "#"} design
+              %a.tag{:href => "#"} old
+              %a.tag{:href => "#"} recent
+              %a.tag{:href => "#"} junk
+              %a.tag{:href => "#"} important
+              %a.tag{:href => "#"} fonts
+              %a.tag{:href => "#"} css3
+              %a.tag{:href => "#"} php
+              %a.tag{:href => "#"} seamless
+              %a.tag{:href => "#"} complicated
+            / close #tab-tags .tag-wrapper
+          / close .panels (all of them)
+        / close .sidebar-tabs
+      / close .widget containing blog tabs
+      %aside.widget.clearfix
+        %h5.short_headline
+          %span Sponsors
+        %ul.sponsors
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/125banner-fpo.png"}/
+      / close aside widget
+      %aside.widget.clearfix
+        %h5.short_headline
+          %span Say Something
+        %p
+          %a{:href => "contact.html"}
+            %img.aligncenter{:alt => "", :src => "/fotogrph-running-water.jpg"}/
+        %p
+          Image by
+          = succeed "." do
+            %a{:href => "http://fotogrph.com/", :target => "blank", :title => "CC BY 3.0 | Fotogrph.com"} Fotogrph
+          Think clicks-and-mortar. But don’t think all three at the same time. It seems unclear, but it’s entirely completely realistic! The infomediaries factor can be summed up in one word: killer. What do we integrate? Anything and everything, regardless of humbleness!
+        %p.right
+          %a.btn.btn-small.btn-very-subtle{:href => "#"} Learn More &rarr;
+      %aside.widget
+        .rotating-testimonials
+          / "rotating-testimonials" is a required class
+          %h5.short_headline
+            %span Testimonials
+          .panels
+            #t1
+              %blockquote
+                %p One isn’t necessarily born with courage, but one is born with potential. Without courage, we cannot practice any other virtue with consistency. We can’t be kind, true, merciful, generous, or honest.
+                %footer Maya Angelou
+            / close #t1
+            #t2
+              %blockquote
+                %p When the highest type of people hear Tao (Truth), they diligently practice it. When the average type of people hear Tao, they half believe in it. When the lowest type of people hear Tao, they laugh at it. If they did not laugh, it would not be Tao.
+                %footer Lao-Tzu
+            / close #t2
+            #t3
+              %blockquote
+                %p The human being is part of the whole, called by us the ‘universe’, a part limited in time and space. He experiences himself, his thoughts and feelings, as something separate from the rest — a kind of optical delusion of consciousness. This delusion is a kind of prison for us, restricting us to our personal desires. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty.
+                %footer Albert Einstein
+            / close #t3
+            #t4
+              %blockquote
+                %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+                %footer Ralph Waldo Emerson
+            / close #t4
+          / close panels
+          %ul.tabs
+            %li.tab
+              %a{:href => "#t1"} maya-angelou
+            %li.tab
+              %a{:href => "#t2"} lao-tzu
+            %li.tab
+              %a{:href => "#t3"} albert-einstein
+            %li.tab
+              %a{:href => "#t4"} ralph-waldo-emerson
+        / close rotating-testimonials
+    / close section sidebar span3
+  / close row-fluid
+/ close .container id="main-content"

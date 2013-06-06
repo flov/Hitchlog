@@ -1,0 +1,58 @@
+%aside
+  %h5.short_headline
+    %span
+      = gender_image user.gender
+      = link_to user, user_path(user)
+
+  = render 'users/profile_image', user: user, type: "normal"
+
+%aside
+  - if user.city.present?
+    = flag_with_country_name(user)
+
+    - unless user.cs_user.blank? and current_user == user
+      %ul
+        - unless user.cs_user.blank?
+          %li
+            = image_tag 'cs.ico'
+            #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
+        - unless current_user == user
+          %li
+            = link_to send_mail_user_path(user) do
+              %i.icon-envelope
+              = t('.send_mail')
+
+  - if user.trips.any?
+    %ul
+      %li
+        #{t('.hitchhiked_countries')}: 
+        %br/
+        #{country_images_for_user(user)}
+      %li
+        %span.tip{title: pluralize(user.stories.size, t('general.story'))}
+          #{user.stories.size}
+          %i.icon-book
+        &nbsp;&nbsp;
+        %span.tip{title: pluralize(user.number_of_photos, t('general.photo'))}
+          = user.number_of_photos
+          %i.icon-picture
+        &nbsp;&nbsp;
+        %span.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
+          #{number_with_delimiter(user.hitchhiked_kms, :delimiter => ".")}
+          %i.icon-dashboard
+        &nbsp;&nbsp;
+        %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
+          = user.rides.size
+          %i.icon-road
+        &nbsp;&nbsp;
+      - if user.average_waiting_time
+        %span.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
+          = "#{user.average_waiting_time} min"
+          %i.icon-time
+        &nbsp;&nbsp;
+      %span.tip{title: pluralize(user.comments.size, t('general.comment'))}
+        = user.comments.size
+        %i.icon-comment-alt
+            
+
+    = render 'shared/country_chart', user: user, size: 'tiny'

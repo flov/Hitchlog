@@ -15,7 +15,7 @@
 
 
 // Tooltip Settings:
-$("img.tip").tooltip()
+$(".tip").tooltip()
 // Dropdown Settings:
 $('.dropdown-toggle').dropdown()
 // Alert init

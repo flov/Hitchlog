@@ -10,12 +10,10 @@
         - trip.rides.with_photo.each do |ride|
           = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:large)
 
-.columns.trips_edit
-  .left_column
+.row-fluid.sidebar-right
+  .span9.primary-column
     = render 'trips/trip', trip: trip
-
-  .right_column.text_left
-    = form_for trip, :remote => true, :html => {:id => 'trip_form'} do |f|
+    = simple_form_for trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
       = f.hidden_field :distance
       = f.hidden_field :gmaps_duration
@@ -25,6 +23,7 @@
       = f.hidden_field :from_formatted_address
       = f.hidden_field :to_formatted_address
       .hidden= submit_tag
+
       #trip_info
         %h2
           #{t('.edit_title')}
@@ -40,8 +39,10 @@
               #{t('activerecord.attributes.trip.arrival')}:
               = trip.departure_text
 
+  %section.span3.sidebar.secondary-column#secondary-nav
     #accordion
       = render trip.rides
+
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'edit_trip'
