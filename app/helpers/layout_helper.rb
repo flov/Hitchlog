@@ -10,7 +10,7 @@ module LayoutHelper
   
   def meta_keywords(keywords = nil)
     if keywords.nil?
-      "<meta name='keywords' content='hitchhiking,logs,hitchhiker,free travel,autostop,trampen' /> ".html_safe
+      "<meta name='keywords' content='hitchhiking,hitchhiker,blog,free travel,autostop,trampen' /> ".html_safe
     else
       "<meta name='keywords' content='#{keywords}' /> ".html_safe
     end
