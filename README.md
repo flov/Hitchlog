@@ -15,22 +15,7 @@ picture about what Hitchhiking is actually like.
 Contribution
 ------------
 
-- Pick up a task in [Pivotaltracker](https://www.pivotaltracker.com/projects/307593)
-- Push to a feature-branch
-- Create a Pull-Request via Github
-
-Set Up
-------
-
-    bundle install
-    cp config/database.yml.example config/databse.yml
-    rake db:migrate
-    rails s
-
-Environment
------------
-
-Staying on top of edge technology
-Testing via rspec and cucumber, the usual stuff.
-
-
+Any contribution is highly appreciated!
+[Flov](https://github.com/flov/Hitchlog/tree/crisp) can't do all the
+work at the moment because most of the time he is traveling and he
+doesn't have too much time to sit in front of a screen ;)
