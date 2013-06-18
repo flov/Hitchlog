@@ -8,10 +8,15 @@
         = link_to t('general.edit'), edit_trip_path(trip), class: 'btn btn-info btn-large'
     .byline
       %i.icon-pencil
-      = trip.user
+      = link_to_user(trip.user)
       &nbsp;&nbsp;
-      %i.icon-time
-      %abbr.published= trip.departure.strftime("%B %d, %Y")
+      %span.tip{title: t('.trip_duration', time: distance_of_time_in_words(trip.duration))}
+        %i.icon-time
+        = distance_of_time_in_words(trip.departure, trip.arrival)
+      &nbsp;&nbsp;
+      %span.tip{title: t('.google_maps_duration')} 
+        %b G 
+        = distance_of_time_in_words_to_now(Time.now + Trip.first.gmaps_duration)
       \&nbsp;&nbsp;
       %a.scrollto{:href => "#view-comments"}
         %i.icon-comments-alt
