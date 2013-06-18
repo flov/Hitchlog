@@ -44,7 +44,6 @@
         %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
           = user.rides.size
           %i.icon-road
-        &nbsp;&nbsp;
       - if user.average_waiting_time
         %span.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
@@ -55,4 +54,4 @@
         %i.icon-comment-alt
             
 
-    = render 'shared/country_chart', user: user, size: 'tiny'
+    -#= render 'shared/country_chart', user: user, size: 'tiny'

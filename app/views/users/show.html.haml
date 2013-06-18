@@ -25,11 +25,12 @@
       %p
         = country_images_for_user(user)
 
+    = render 'trips_and_rides', user: user
+
     = render 'about_you', user: user
 
     = render 'future_trips', future_trips: user.future_trips
 
-    = render 'trips_and_rides', user: user
 
     - if trips.any?
       = will_paginate trips, :class => 'flickr_pagination'
