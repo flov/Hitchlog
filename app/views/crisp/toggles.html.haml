@@ -1,0 +1,289 @@
+.container.visible-phone.hidden-tablet.hidden-desktop
+  %p.right
+    %a.btn.btn-primary{:href => "#secondary-nav"}
+      Page Menu &nbsp;
+      %i.icon-align-justify
+.hero-unit
+  .container
+    %h2 Toggles
+  / close container
+/ close hero-unit
+#main-content.container.clearfix
+  / begin main content
+  .row-fluid.sidebar-left
+    / begin row-fluid
+    / ******add class "sidebar-left" to the row-fluid class ***
+    .span9.primary-column
+      %h2 Short Headlines, Slide To Top Accordion
+      %p This slide to top accordion is for short headers, due to the fact that it has a fixed height header, which is necessary for it to work correctly. If you have a long page of just accordion items, and they happen to be short headers, then this is much better than the average accordion. If, however, you have a page of toggle items with long titles, you'd want to use something else.
+      .slide-to-top.first-pane-open.fancy
+        %ul.accordion-st-wrapper
+          %li.st-content-wrapper
+            %a.trigger{:href => "#"}
+              Stuff
+              %i.icon-chevron-up
+            .st-content
+              %h3 Eodem modo typi qui nunc nobis videntur parum clari
+              %p
+                %img.alignleft{:alt => "", :src => "../demo/fresh-work/fw-457px-Maler_der_Grabkammer_des_Minnacht_001.png"}>/
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              %p Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+            / close .st-content 1
+          / close st-content-wrapper 1
+          %li.st-content-wrapper
+            %a.trigger{:href => "#"}
+              More Information
+              %i.icon-chevron-up
+            .st-content
+              %h3 Headline
+              %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+              %ol
+                %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                %li Aliquam tincidunt mauris eu risus.
+                %li Vestibulum auctor dapibus neque.
+            / close .st-content 2
+          / close st-content-wrapper 2
+          %li.st-content-wrapper
+            %a.trigger{:href => "#"}
+              Course of Action
+              %i.icon-chevron-up
+            .st-content
+              %h3 Headline
+              %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+              %ol
+                %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                %li Aliquam tincidunt mauris eu risus.
+                %li Vestibulum auctor dapibus neque.
+            / close .st-content 3
+          / close st-content-wrapper 3
+          %li.st-content-wrapper
+            %a.trigger{:href => "#"}
+              Whatever
+              %i.icon-chevron-up
+            .st-content
+              %h3 Headline
+              %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+              %ol
+                %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                %li Aliquam tincidunt mauris eu risus.
+                %li Vestibulum auctor dapibus neque.
+            / close .st-content 4
+          / close st-content-wrapper 4
+        / close ul for slide-to-top slideaccordion
+      / close .slide-to-top
+      %h2
+        Simple Accordion Toggle
+      %p
+        This simple accordion, based on
+        = succeed "," do
+          %a{:href => "http://css-tricks.com/snippets/jquery/simple-jquery-accordion/"} this CSS Tricks version
+        but with active classes and some other things added, can be used for a variety of applications, such as FAQs. It is not limited to short titles for the trigger.
+      %ul.s-accordion.fancy
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Quisque sit amet est et sapien ullamcorper pharetra
+              %i.icon-chevron-up
+          .s-content
+            %p
+              %strong Pellentesque habitant morbi tristique
+              senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+              %em Aenean ultricies mi vitae est.
+              Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+              = succeed "," do
+                %code commodo vitae
+              ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+              %a{:href => "#"} Donec non enim
+              in turpis pulvinar facilisis. Ut felis.
+            %h2 Header Level 2
+            %ol
+              %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+              %li Aliquam tincidunt mauris eu risus.
+            %blockquote
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+            %h3 Header Level 3
+            %ul
+              %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+              %li Aliquam tincidunt mauris eu risus.
+          / close s-content
+        / close s-wrap
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Mauris placerat eleifend leo
+              %i.icon-chevron-up
+          .s-content
+            / this is an unordered list inside the content
+            %ul
+              %li Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
+              %li Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+              %li Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.
+              %li Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.
+          / close s-content
+        / close s-wrap
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Pellentesque aliquet nibh nec urna
+              %i.icon-chevron-up
+          .s-content
+            %p Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+          / close s-content
+        / close s-wrap
+      / close s-accordion
+      %h2
+        FAQ Example
+      %p This is the same accordion as above but with different icons and with the class "faq and fancy" added on to the main ul.
+      %ul.s-accordion.faq.fancy
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Quisque sit amet est et sapien ullamcorper pharetra?
+              %i.icon-plus-sign
+          .s-content
+            %p
+              %strong Answer:
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+          / close s-content
+        / close s-wrap
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Mauris placerat eleifend leo?
+              %i.icon-plus-sign
+          .s-content
+            %p
+              %strong Answer:
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+          / close s-content
+        / close s-wrap
+        %li.s-wrap
+          %h4.trigger
+            %a{:href => "#"}
+              Pellentesque aliquet nibh nec urna?
+              %i.icon-plus-sign
+          .s-content
+            %p
+              %strong Answer:
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+          / close s-content
+        / close s-wrap
+      / close s-accordion.faq
+    / close span9 primary-column
+    %section#secondary-nav.span3.sidebar.secondary-column
+      %aside.widget
+        %h5.short_headline
+          %span Goodies Menu
+        %ul.navigation
+          %li
+            %a{:href => "tall-logo.html"} Tall Logo Header
+          %li
+            %a{:href => "alternative-header.html"} Alternative Header
+          %li
+            %a{:href => "columns.html"} Inner Columns
+          %li.active
+            %a{:href => "toggles.html"} Toggles
+          %li
+            %a{:href => "tabs.html"} Tabs
+          %li
+            %a{:href => "responsive-tables.html"} Responsive Tables
+          %li
+            %a{:href => "figures-images.html"} Figures and Images
+          %li
+            %a{:href => "icons.html"} Icons
+          %li
+            %a{:href => "typography-elements.html"} Typography & Elements
+          %li
+            %a{:href => "hero-equal-height-columns.html"} Hero Equal Height Cols
+          %li
+            %a{:href => "misc-components.html"} Misc Bootstrap Stuff
+          %li
+            %a{:href => "bootstrap-thumbnails.html"} Bootstrap's Thumbnails
+      / close aside widget
+      %aside.widget.clearfix
+        %h5.short_headline
+          %span Sponsors
+        %ul.sponsors
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "../demo/125banner-fpo.png"}/
+      / close aside widget
+      %aside.widget.clearfix
+        %h5.short_headline
+          %span Say Something
+        %p
+          %a{:href => "contact.html"}
+            %img.aligncenter{:alt => "", :src => "../demo/fotogrph-running-water.jpg"}/
+        %p
+          Image by
+          = succeed "." do
+            %a{:href => "http://fotogrph.com/", :target => "blank", :title => "CC BY 3.0 | Fotogrph.com"} Fotogrph
+          Think clicks-and-mortar. But don’t think all three at the same time. It seems unclear, but it’s entirely completely realistic! The infomediaries factor can be summed up in one word: killer. What do we integrate? Anything and everything, regardless of humbleness!
+        %p.right
+          %a.btn.btn-small.btn-very-subtle{:href => "#"} Learn More &rarr;
+      / close aside widget
+      %aside.widget
+        .rotating-testimonials
+          / "rotating-testimonials" is a required class
+          %h5.short_headline
+            %span Testimonials
+          .panels
+            #t1
+              %blockquote
+                %p One isn’t necessarily born with courage, but one is born with potential. Without courage, we cannot practice any other virtue with consistency. We can’t be kind, true, merciful, generous, or honest.
+                %footer Maya Angelou
+            / close #t1
+            #t2
+              %blockquote
+                %p When the highest type of people hear Tao (Truth), they diligently practice it. When the average type of people hear Tao, they half believe in it. When the lowest type of people hear Tao, they laugh at it. If they did not laugh, it would not be Tao.
+                %footer Lao-Tzu
+            / close #t2
+            #t3
+              %blockquote
+                %p The human being is part of the whole, called by us the ‘universe’, a part limited in time and space. He experiences himself, his thoughts and feelings, as something separate from the rest — a kind of optical delusion of consciousness. This delusion is a kind of prison for us, restricting us to our personal desires. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty.
+                %footer Albert Einstein
+            / close #t3
+            #t4
+              %blockquote
+                %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+                %footer Ralph Waldo Emerson
+            / close #t4
+          / close panels
+          %ul.tabs
+            %li.tab
+              %a{:href => "#t1"} maya-angelou
+            %li.tab
+              %a{:href => "#t2"} lao-tzu
+            %li.tab
+              %a{:href => "#t3"} albert-einstein
+            %li.tab
+              %a{:href => "#t4"} ralph-waldo-emerson
+        / close rotating-testimonials
+      / close aside .widget
+    / close section sidebar span3
+  / close row-fluid
+
+- content_for :javascript_at_bottom do
+  :javascript
+     $('.s-accordion li.s-wrap div.s-content').hide();
+     $('.s-accordion li.s-wrap .trigger a').click(function(){
+        if ($(this).hasClass('active')) {
+             $(this).removeClass('active');
+             $(this).parent().next().slideUp();
+        } else {
+             $('.s-accordion li.s-wrap .trigger a').removeClass('active');
+             $(this).addClass('active');
+             $('.s-accordion li.s-wrap div.s-content').slideUp();
+             $(this).parent().next().slideDown();
+        }
+        return false;
+     });
