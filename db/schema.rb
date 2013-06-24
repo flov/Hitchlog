@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517024119) do
+ActiveRecord::Schema.define(:version => 20130623151814) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(:version => 20130517024119) do
     t.datetime "updated_at"
   end
 
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "races", :force => true do |t|
     t.string   "name"
     t.string   "from_location"
@@ -131,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20130517024119) do
 
   add_index "rides", ["experience"], :name => "index_rides_on_experience"
   add_index "rides", ["gender"], :name => "index_rides_on_gender"
+  add_index "rides", ["number"], :name => "index_rides_on_number"
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
   add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
