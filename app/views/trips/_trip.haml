@@ -1,4 +1,3 @@
-
 %article.entry-post
   %header.entry-header
     %h1
@@ -10,17 +9,21 @@
       %i.icon-pencil
       = link_to_user(trip.user)
       &nbsp;&nbsp;
-      %span.tip{title: t('.trip_duration', time: distance_of_time_in_words(trip.duration))}
+      %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
         %i.icon-time
-        = distance_of_time_in_words(trip.departure, trip.arrival)
+        = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
       &nbsp;&nbsp;
-      %span.tip{title: t('.google_maps_duration')} 
+      %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
         %b G 
-        = distance_of_time_in_words_to_now(Time.now + Trip.first.gmaps_duration)
-      \&nbsp;&nbsp;
-      %a.scrollto{:href => "#view-comments"}
+        = accurate_distance_of_time_in_words(trip.gmaps_duration)
+      &nbsp;&nbsp;
+      %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
         %i.icon-comments-alt
-        = pluralize(trip.comments.size, 'comment')
+        = trip.comments.size
+      &nbsp;&nbsp;
+      %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
+        %i.icon-road
+        = trip.rides.size
 
   .entry-content
     %figure

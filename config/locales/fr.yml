@@ -368,6 +368,9 @@ fr:
       over_x_years:
         one: "plus qu'un an"
         other: "plus que %{count} ans"
+      x_hours:
+        one: 1 heure
+        other: ! '%{count} heures'
   will_paginate:
     previous_label: "&#8592; Précédent"
     next_label: "Suivant &#8594;"

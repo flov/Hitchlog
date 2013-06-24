@@ -393,7 +393,7 @@ en:
       register: register
       log_in: "Log in"
       to_comment: "to comment on this trip"
-      google_maps_duration: "The Google Maps duration for this route"
+      google_maps_duration: "Google Maps duration: %{time}"
     form:
       step1_2: Continue
     show_ride:
@@ -442,6 +442,9 @@ en:
       over_x_years:
         one:   "over 1 year"
         other: "over %{count} years"
+      x_hours:
+        one: 1 hour
+        other: ! '%{count} hours'
 
 
   will_paginate:

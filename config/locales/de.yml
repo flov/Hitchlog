@@ -364,6 +364,9 @@ de:
       x_months: 
         one: "1 Monat"
         other: "%{count} Monate"
+      x_hours:
+        one: 1 Stunde
+        other: ! '%{count} Stunden'
 
 
   will_paginate:
