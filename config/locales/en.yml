@@ -336,8 +336,7 @@ en:
       crop: Crop
     ride:
       delete_image: "Delete Photo"
-      title_required: Title
-      story_required: Story
+      save_ride: Save Ride
   hitchslider:
     user_hitchhiked_text: "%{time} ago %{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
     it_took_text: "It took <b>%{time}</b> to do the trip."
@@ -361,7 +360,8 @@ en:
       search: Search
       story: Story
     edit:
-      edit_title: "Edit Trip"
+      edit_title: "Edit Your Trip"
+      edit_trip: "Edit Trip"
       hitchhiked: Hitchhiked
       from: From
       to: To
@@ -484,8 +484,8 @@ en:
       inactive: 'Your account was not activated yet.'
     sessions:
       remember_me: Remember Me
-      signed_in: 'Welcome Back!'
-      signed_out: 'Good bye.'
+      signed_in: "You're in! Welcome back to the Hitchlog! (jingle melody in your head)"
+      signed_out: "Signed out successfully."
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'

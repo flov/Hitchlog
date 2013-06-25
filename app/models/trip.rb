@@ -84,14 +84,6 @@ class Trip < ActiveRecord::Base
     self.departure.nil? ? nil : self.departure.strftime("%d %B %Y")
   end
 
-  def arrival_text
-    self.departure.nil? ? nil : self.departure.strftime("%d %B %Y %H:%S")
-  end
-
-  def departure_text
-    self.arrival.nil? ? nil : self.arrival.strftime("%d %B %Y %H:%S")
-  end
-
   def duration
     if self.arrival and self.departure
       self.arrival - self.departure

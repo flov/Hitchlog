@@ -38,26 +38,26 @@
 }
 .blog.date .year { font-size: 10px }
 
-.blog-detail .video-wrapper, 
+.trip-detail .video-wrapper, 
 .blog-summary .video-wrapper 
 { margin-bottom: 20px }
 
-.blog-detail header .byline,
-.blog-detail header .entry-meta,
+.trip-detail header .byline,
+.trip-detail header .entry-meta,
 .blog-summary header .byline,
 .blog-summary header .entry-meta {
     font-size: 12px;
     font-size: 1.2rem;
     line-height:2;
 }
-.blog-detail header .byline a,
-.blog-detail header .entry-meta a,
+.trip-detail header .byline a,
+.trip-detail header .entry-meta a,
 .blog-summary header .byline a,
 .blog-summary header .entry-meta a {
 	text-decoration:none
 }
-.blog-detail header .byline { padding-top: 5px }
-.blog-detail .byline abbr { border-bottom: none }
+.trip-detail header .byline { padding-top: 5px }
+.trip-detail .byline abbr { border-bottom: none }
 
 
 /* blog traditional summary
@@ -68,6 +68,7 @@
 .blog-summary .entry-header .entry-title a {
     text-decoration:none;
 }
+
 .span9.blog-summary .entry-content,
 .span9.blog-summary .entry-header {
 	float: right;
@@ -88,44 +89,55 @@
 
 
 
-/* blog detail
+/* trip-detail
 ================================================== */
-.blog-detail { margin-bottom: 20px }
+.trip-detail { margin-bottom: 20px }
 
-.span9.blog-detail .entry-header,
-.span9.blog-detail .entry-content,
-.span9.blog-detail .entry-tags,
-.span9.blog-detail .entry-pagination,
-.span9.blog-detail .entry-related
+.span8.trip-detail .entry-header,
+.span8.trip-detail .entry-content,
+.span8.trip-detail .entry-tags,
+.span8.trip-detail .entry-pagination,
+.span8.trip-detail .entry-related
  {
     float: right;
     width: 87%;
     clear:both;
 }
-.blog-detail .entry-comments {
+
+.span9.trip-detail .entry-header,
+.span9.trip-detail .entry-content,
+.span9.trip-detail .entry-tags,
+.span9.trip-detail .entry-pagination,
+.span9.trip-detail .entry-related
+ {
+    float: right;
+    width: 87%;
+    clear:both;
+}
+.trip-detail .entry-comments {
 	clear:both;
 	float:right;
 	width:81%;
 }
 
 /****** entry footer ******/
-.blog-detail .entry-footer {
+.trip-detail .entry-footer {
     width: 12%;
     display: block;
     margin-right: 2%;
 }
 
-.blog-detail .entry-footer .addthis_toolbox {
+.trip-detail .entry-footer .addthis_toolbox {
     padding-top: 30px;
     margin-left: 25px;
     width: 16px;
 }
-.blog-detail .entry-footer .addthis_toolbox span { margin: 0 auto 10px auto }
-.blog-detail .entry-header .addthis_toolbox { display: none }
+.trip-detail .entry-footer .addthis_toolbox span { margin: 0 auto 10px auto }
+.trip-detail .entry-header .addthis_toolbox { display: none }
 
 
 /****** entry header ******/
-.blog-detail .entry-header {
+.trip-detail .entry-header {
     background: url(../images/hr.png) 0 100% repeat-x;
     position: relative;
 }
@@ -133,8 +145,8 @@
     padding-bottom: 10px;
     position: relative;
 }
-.blog-detail .entry-header h1,
-.blog-detail .entry-header h2 {
+.trip-detail .entry-header h1,
+.trip-detail .entry-header h2 {
     margin-top: 0;
 }
 
@@ -151,7 +163,6 @@
     border-top: 1px dotted #a3b0bb;
 }
 .blog-summary-grid li.quotes .entry-summary { background: #758694 }
-.blog-summary-grid li.quotes .entry-summary * { color: #fff }
 .blog-summary-grid li a.commentlink {
 	font-size: 11px;
 	clear:both;
@@ -160,7 +171,6 @@
 }
 .blog-summary-grid li h4 { clear: both }
 .blog-summary-grid li.quotes .entry-summary blockquote {
-    color: #fff;
     background-image: url(../images/open-quote-white.png);
     font-size: 180%;
 }
@@ -259,7 +269,6 @@
 .comment_form #website { width: 100% }
 .comment_form .error input,
 .comment_form .error textarea {
-    border-color: #fa4700;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -280,7 +289,7 @@
     .span6 .blog.date .day { font-size: 16px }
     .span6 .blog.date .month { font-size: 10px }
     .span6 .blog.date .year { display: none }
-    .span6 .blog-detail .date_share .addthis_toolbox {
+    .span6 .trip-detail .date_share .addthis_toolbox {
         clear: both;
         padding-top: 30px;
         margin-left: 15px;
@@ -301,7 +310,7 @@
     .span9 .blog.date .day { font-size: 16px }
     .span9 .blog.date .month { font-size: 10px }
     .span9 .blog.date .year { display: none }
-    .span9 .blog-detail .date_share .addthis_toolbox {
+    .span9 .trip-detail .date_share .addthis_toolbox {
         clear: both;
         padding-top: 30px;
         margin-left: 15px;
@@ -312,16 +321,16 @@
 
 @media only screen and (max-width:600px) { 
 
-.blog-detail .addthis_toolbox span { margin: 0 auto 10px auto }
-.blog.date, .blog-detail .entry-footer .addthis_toolbox { display: none }
+.trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
+.blog.date, .trip-detail .entry-footer .addthis_toolbox { display: none }
 
 .blog-summary .entry-content, 
 .blog-summary .entry-header,
-.blog-detail .entry-header,
-.blog-detail .entry-content,
-.blog-detail .entry-tags,
-.blog-detail .entry-pagination,
-.blog-detail .entry-related {
+.trip-detail .entry-header,
+.trip-detail .entry-content,
+.trip-detail .entry-tags,
+.trip-detail .entry-pagination,
+.trip-detail .entry-related {
         width: 100%!important;
         float: none!important;
 }
@@ -332,17 +341,17 @@
         float: none;
         margin-bottom: 5px;
 }
-.blog-detail .entry-header .addthis_toolbox {
+.trip-detail .entry-header .addthis_toolbox {
 	display: block!important;
 	padding-top: 10px;
 	height: 16px;
 }
-.blog-detail .entry-header .addthis_toolbox span {
+.trip-detail .entry-header .addthis_toolbox span {
 	float: left;
 	margin-right: 10px;
 	height: 16px;
 }
-.blog-detail {
+.trip-detail {
 	padding-top: 3%;
 	position: relative;
 }
@@ -388,7 +397,7 @@
 {
 
 
-.blog-summary .entry-post, .blog-detail .entry-header {
+.blog-summary .entry-post, .trip-detail .entry-header {
 		background-image:url(../images/retina/hr_@2x.png);
 	    	-moz-background-size:3px 3px; /*w & h of total ORIGINAL 72dpi image*/
              -ie-background-size:3px 3px;

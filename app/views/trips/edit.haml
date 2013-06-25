@@ -1,7 +1,7 @@
 - title t('.edit_title')
 
-.row-fluid.sidebar-right
-  .span9.primary-column
+.row-fluid
+  .span8.primary-column.trip-detail
     = render 'trips/trip', trip: trip
     = simple_form_for trip, :remote => true, :html => {:id => 'trip_form'} do |f|
       = f.hidden_field :route
@@ -14,25 +14,20 @@
       = f.hidden_field :to_formatted_address
       .hidden= submit_tag
 
-      #trip_info
-        %h2
-          #{t('.edit_title')}
-          = link_to delete_trip_image, trip_path(trip), :method => :delete, data: { confirm: t('general.confirm') }
-        -# Crossed countries needs to be repaired
-        %ul
-          - if trip.arrival_text
-            %li
-              #{t('activerecord.attributes.trip.departure')}:
-              = trip.arrival_text
-          - if trip.departure_text
-            %li
-              #{t('activerecord.attributes.trip.arrival')}:
-              = trip.departure_text
+  %section.span4.sidebar.secondary-column#secondary-nav
+    %h4
+      = t('.edit_trip')
+      = link_to trip_path(trip), :method => :delete, data: { confirm: t('general.confirm') }, class: 'btn btn-danger' do
+        = t('general.delete')
+    %p
+      #{t('activerecord.attributes.trip.departure')}:
+      = trip.arrival.strftime("%d %B %Y %H:%S")
+      %br/
+      #{t('activerecord.attributes.trip.arrival')}:
+      = trip.departure.strftime("%d %B %Y %H:%S")
 
-  %section.span3.sidebar.secondary-column#secondary-nav
     #accordion
       = render trip.rides
-
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'edit_trip'
