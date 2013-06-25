@@ -1,15 +1,5 @@
 - title t('.edit_title')
 
-- content_for :topmenu do
-  - if trip.rides.with_photo.empty?
-    #map.map_show{:style=>"width:950px"}
-  - else
-    #map.map_show{:style=>"width:450px"}
-    .nivo-theme-default
-      #slider
-        - trip.rides.with_photo.each do |ride|
-          = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:large)
-
 .row-fluid.sidebar-right
   .span9.primary-column
     = render 'trips/trip', trip: trip
