@@ -34,7 +34,9 @@ gem 'json'
 gem 'jbuilder'
 gem 'routing-filter' # wraps I18n.locale around routing engine
 
-gem 'jquery-rails', '2.1.1'
+gem 'jquery-rails', '3.0.1'
+gem 'jquery-ui-rails'
+
 gem 'thin'
 
 group :production do
