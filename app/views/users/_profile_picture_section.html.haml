@@ -23,27 +23,27 @@
               = t('.send_mail')
 
   - if user.trips.any?
-    %ul
-      %li
-        #{t('.hitchhiked_countries')}: 
-        %br/
-        #{country_images_for_user(user)}
-      %li
-        %span.tip{title: pluralize(user.stories.size, t('general.story'))}
-          #{user.stories.size}
-          %i.icon-book
-        &nbsp;&nbsp;
-        %span.tip{title: pluralize(user.number_of_photos, t('general.photo'))}
-          = user.number_of_photos
-          %i.icon-picture
-        &nbsp;&nbsp;
-        %span.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
-          #{number_with_delimiter(user.hitchhiked_kms, :delimiter => ".")}
-          %i.icon-dashboard
-        &nbsp;&nbsp;
-        %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
-          = user.rides.size
-          %i.icon-road
+    #{t('.hitchhiked_countries')}: 
+    %br/
+    #{country_images_for_user(user)}
+
+    %p
+      %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
+        = user.trips.size
+        %i.icon-road
+      &nbsp;&nbsp;
+      %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
+        = user.rides.size
+        %i.icon-road
+      &nbsp;&nbsp;
+      %span.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
+        #{number_with_delimiter(user.hitchhiked_kms, :delimiter => ".")}
+        %i.icon-dashboard
+      &nbsp;&nbsp;
+      %span.tip{title: pluralize(user.stories.size, t('general.story'))}
+        #{user.stories.size}
+        %i.icon-book
+      %br/
       - if user.average_waiting_time
         %span.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
@@ -52,6 +52,9 @@
       %span.tip{title: pluralize(user.comments.size, t('general.comment'))}
         = user.comments.size
         %i.icon-comment-alt
-            
+        &nbsp;&nbsp;
+      %span.tip{title: pluralize(user.number_of_photos, t('general.photo'))}
+        = user.number_of_photos
+        %i.icon-picture
 
     -#= render 'shared/country_chart', user: user, size: 'tiny'
