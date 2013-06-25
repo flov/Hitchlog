@@ -1,7 +1,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery.ui.accordion
+//= require jquery.ui.tabs
 //
 //= require twitter/bootstrap/tooltip
 //= require twitter/bootstrap/collapse
