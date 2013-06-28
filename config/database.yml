@@ -1,24 +1,15 @@
 development:
-  adapter: sqlite3
-  encoding: utf8
-  pool: 5 
-  timeout: 5000
-  database: db/development.sqlite3
+  adapter: postgresql
+  database: hitchlog_development
+  encoding: UTF8
 
 test: &TEST
-  adapter: sqlite3
-  encoding: utf8
-  pool: 5 
-  timeout: 5000
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: hitchlog_test
+  encoding: UTF8
 
 production:
-  adapter: mysql2
-  database: hitcher_production
-  encoding: utf8
-  username: root
-  password: 
-  host: localhost
+  adapter: postgresql
+  database: hitchlog_production
+  encoding: UTF8
 
-cucumber:
-  <<: *TEST

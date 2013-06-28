@@ -1,30 +1,23 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby '1.9.3'
-
-gem 'rake'
-
 gem 'rails', '3.2.12'
-gem 'mysql2',  '>=0.3'
+gem 'pg'
+gem 'thin'
 
 gem 'decent_exposure'
-
 gem 'devise', '1.4.5'
 gem 'rdiscount' # Markdown
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser
 gem 'crashlog', '~> 1.0.6'
-
 gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.1
-
 gem 'geocoder'
 gem 'paperclip'
 gem 'haml', '~> 3.2.0.rc.4'
-
 gem 'gravatar_image_tag'
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
 gem 'omniauth-facebook'
-
 gem 'i18n_data'
 gem 'choices' # external settings in Rails app
 gem 'friendly_id', '~> 3.2.1'
@@ -38,8 +31,6 @@ gem 'routing-filter' # wraps I18n.locale around routing engine
 
 gem 'jquery-rails', '3.0.1'
 gem 'jquery-ui-rails'
-
-gem 'thin'
 
 group :production do
   gem 'newrelic_rpm'

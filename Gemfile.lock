@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.12)
       actionpack (= 3.2.12)
@@ -186,7 +186,6 @@ GEM
     mime-types (1.21)
     multi_json (1.7.7)
     multipart-post (1.1.5)
-    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -216,6 +215,7 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.14.1)
     pickle (0.4.10)
       cucumber (>= 0.8)
       rake
@@ -365,14 +365,13 @@ DEPENDENCIES
   jquery-ui-rails
   json
   launchy
-  mysql2 (>= 0.3)
   newrelic_rpm
   nokogiri
   omniauth-facebook
   paperclip
+  pg
   pickle
   rails (= 3.2.12)
-  rake
   ransack
   rb-fsevent
   rdiscount
