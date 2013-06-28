@@ -55,40 +55,6 @@
       = f.hidden_field :to_country_code
       = f.hidden_field :to_postal_code
 
-      %a#modal-btn.btn.btn-primary.btn-large{"data-toggle" => "modal", href: "#myModal", role: "button"} Save Trip
-      #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-        .modal-header
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-          %h3#myModalLabel Is this correct?
-        .modal-body
-          %table.responsive
-            %tbody
-              %tr
-                %td From:
-                %td#from 
-              %tr
-                %td To:
-                %td#to 
-              %tr
-                %td Distance:
-                %td#distance
-              %tr
-                %td No of rides::
-                %td#no_of_rides
-              %tr
-                %td Arrival
-                %td#departure
-              %tr
-                %td Departure
-                %td#arrival
-              %tr
-                %td Traveling with:
-                %td#traveling_with
-
-        .modal-footer
-          %button.btn.btn-primary{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-          = f.button :submit, class: 'btn btn-primary'
-
     .span6
       #map-canvas.map
 
