@@ -23,7 +23,7 @@
     = javascript_include_tag 'bootstrap', debug: true
   - else
     = javascript_include_tag 'bootstrap'
-    = render 'shared/google_stats'
+    = render 'shared/google_stats' if Rails.env == 'production'
 
 
   = yield(:javascript_at_bottom)
