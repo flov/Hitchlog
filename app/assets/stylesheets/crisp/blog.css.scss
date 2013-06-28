@@ -117,7 +117,7 @@
 .trip-detail .entry-comments {
 	clear:both;
 	float:right;
-	width:81%;
+	width:87%;
 }
 
 /****** entry footer ******/
@@ -181,57 +181,47 @@
 /* Entry Comments
 ================================================== */
 .entry-comments {
-    background: url(../images/5p.png);
-    padding: 2% 3%;
-}
-.entry-comments h3 a { text-decoration: none }
-.entry-comments ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.entry-comments li {
-    padding: 10px 0 10px 0;
-    margin: 0 0 10px 0;
-    background: url(../images/hr.png) 0 100% repeat-x;
-}
-.entry-comments ul ul {
-    list-style: none;
-    margin: 0 0 0 5%;
-    padding: 0;
-}
-.entry-comments footer img {
-    float: left;
-    width: 50px;
-    height: 50px;
-}
-.entry-comments footer .comment-meta {
-    float: left;
-    margin-left: 10px;
-    font-size: 11px;
-    font-size: 1.1rem;
-    line-height: 1.4;
-}
-.entry-comments footer .comment-meta a {
-    text-decoration: none;
-    border-bottom: 1px dotted #777;
-}
-.entry-comments footer .comment-author { display: block }
-.entry-comments footer .comment-author cite {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    font-size: 1.6rem;
-}
-.entry-comments footer .comment-author cite a {
-    text-decoration: none;
-    border: none;
-}
-.entry-comments .text {
-    clear: both;
-    padding-top: 10px;
-    font-size: 12px;
-    font-size: 1.2rem;
+  h3 a { text-decoration: none }
+  ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+  }
+  footer {
+    img {
+      float: left;
+      width: 50px;
+      height: 50px;
+    }
+    .comment-meta {
+      float: left;
+      margin-left: 10px;
+      font-size: 11px;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      a {
+          text-decoration: none;
+          border-bottom: 1px dotted #777;
+      }
+    }
+    .comment-author { display: block }
+    .comment-author cite {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        font-size: 1.6rem;
+    }
+    .comment-author cite a {
+        text-decoration: none;
+        border: none;
+    }
+  }
+  .text {
+      clear: both;
+      padding-top: 10px;
+      font-size: 12px;
+      font-size: 1.2rem;
+  }
 }
 
 /* Commment Form

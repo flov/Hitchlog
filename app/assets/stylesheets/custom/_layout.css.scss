@@ -60,6 +60,11 @@
   }
 }
 
+textarea.comment_body{
+  margin-bottom: 5px;
+  width: 360px;
+  height: 50px;
+}
 input#trip_departure,
 input#trip_arrival {
   width: 180px;

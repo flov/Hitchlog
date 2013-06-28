@@ -11,8 +11,10 @@
       &nbsp;&nbsp;
       %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
         %i.icon-time
+        = trip.departure.strftime("%B %d, %Y")
+        = '-'
         = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
-      &nbsp;&nbsp;
+        &nbsp;&nbsp;
       %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
         %b G 
         = accurate_distance_of_time_in_words(trip.gmaps_duration)
@@ -94,36 +96,19 @@
           = RDiscount.new(comment.body).to_html.html_safe
           #comment-form
 
-          - if user_signed_in?
-            %h3 Leave a Comment
-            = form_tag create_comment_trip_path(trip) do
-              %span.inputwrapper
-                = label_tag :body, t('.message')
-                = text_area_tag :body, '', class: 'comment_body', rows: 5, cols: 30
-              %br/
-              %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
-          - else
-            %p
-              = link_to t('.log_in'), new_user_session_path
-              = t('general.or')
-              = link_to t('.register'), new_user_registration_path
-              = t('.to_comment')
+  - if user_signed_in?
+    %h3 Leave a Comment
+    = form_tag create_comment_trip_path(trip) do
+      %span.inputwrapper
+        = label_tag :body, t('.message')
+        = text_area_tag :body, '', class: 'comment_body', rows: 5, cols: 30
+      %br/
+      %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
+  - else
+    %p
+      = link_to t('.log_in'), new_user_session_path
+      = t('general.or')
+      = link_to t('.register'), new_user_registration_path
+      = t('.to_comment')
 
-  #comment-form
-    - if user_signed_in?
-      %h3 Leave a Comment
-      = form_tag create_comment_trip_path(trip) do
-        %span.inputwrapper
-          %label{:for => "body"} Message:
-          = text_area_tag :body, '', id: 'message', cols: 50, rows: 5
-        %br/
-        = submit_tag t('.add_comment'), class: 'btn btn-primary'
-    - else
-      %p
-        = link_to t('.log_in'), new_user_session_path
-        = t('general.or')
-        = link_to t('.register'), new_user_registration_path
-        = t('.to_comment')
-    
-  / End Comment Form
 
