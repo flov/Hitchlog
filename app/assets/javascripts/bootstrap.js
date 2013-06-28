@@ -11,6 +11,7 @@
 //= require twitter/bootstrap/alert
 //= require twitter/bootstrap/modal
 //
+//= require vendor/bootstrap-datetimepicker.js
 //= require vendor/jquery.observe_field.js
 //
 

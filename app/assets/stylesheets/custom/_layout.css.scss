@@ -60,6 +60,10 @@
   }
 }
 
+input#trip_departure,
+input#trip_arrival {
+  width: 180px;
+}
 
 .field_with_errors {
   .control-label, .help-block, .help-inline {

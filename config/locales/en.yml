@@ -144,7 +144,6 @@ en:
     sign_in_with_facebook: "Login with Facebook"
     sign_up_with_facebook: "Sign up with Facebook"
     located_in: "Located in: %{location}"
-    cannot_be_in_past: "can't be in past"
     edit: Edit
     save: Save
     delete: Delete
@@ -472,6 +471,11 @@ en:
       not_found: "not found"
       already_confirmed: "was already confirmed"
       not_locked: "was not locked"
+
+  validators:
+    arrival_after_departure: The departure cannot be before the arrival
+    cannot_be_in_past: "can't be in past"
+    cannot_be_0: 'cannot be 0'
 
   devise:
     failure:

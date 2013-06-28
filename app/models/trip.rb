@@ -81,7 +81,7 @@ class Trip < ActiveRecord::Base
   end
 
   def to_date
-    self.departure.nil? ? nil : self.departure.strftime("%d %B %Y")
+    departure.strftime("%d %B %Y")
   end
 
   def duration

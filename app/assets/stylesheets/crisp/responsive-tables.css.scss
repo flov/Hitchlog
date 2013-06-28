@@ -1,79 +1,58 @@
-
-/*quick and dirty calendar just for demo css */
-.calendar td  {     
-    font-size: medium;
-    padding: 0.25em 0.25em;   
-    width: 14%; 
-    height: 80px;
-    text-align: left;
-    vertical-align: top;
-    }
-.calendar .date  {     
-    padding: 0.25em 0.25em;   
-    text-align: left;
-    vertical-align: top;
-    font-size:140%;
-    }
-
-/* Responsive Tables */
-
-/* http://www.zurb.com/playground/responsive-tables */
-
-table {
+table.responsive {
 	border-spacing: 0px;
 	border:1px solid #ddd;
 	border-collapse: colapse;
 	width:100%;
 	margin-bottom:3%;
 }
-table tr:last-child td {
+table.responsive tr:last-child td {
 }
-table td:last-child {
+table.responsive td:last-child {
 }
-table tbody tr td {
+table.responsive tbody tr td {
 	background-color: #fff;
 }
-table td {
+table.responsive td {
 	border-bottom:1px solid #ddd;
 	border-right:1px solid #ddd;
 	vertical-align: top;
 	padding:5px;
 }
-table tr th:last-child {
+table.responsive tr th:last-child {
 	border-right:none;
 }
-table caption {
+table.responsive caption {
 	font-weight: bold;
 	padding-bottom: 1%;
 }
-table thead th, table thead td {
+table.responsive thead th, table thead td {
 	vertical-align: middle;
 	padding:5px;
 }
 
-table tbody tr td {
+table.responsive tbody tr td {
 	background: transparent;
 }
 
-table tbody tr:nth-child(even) td {
+table.responsive tbody tr:nth-child(even) td {
   background: image-url("5p.png");
 }
 
-html.ie7 table {
+html.ie7 table.responsive {
 	border-collapse: collapse;
 }
 
-html.ie7 table td {
+html.ie7 table.responsive td {
 	border: 1px solid #477a0f;
 }
 
-table thead tr th,table tfoot tr th {
+table.responsive thead tr th,table tfoot tr th {
 	background-color: #a3b0bb;
 	font-weight: bold;
 	color:#fff;
 }
 
-table tbody td {
+table.responsive tbody td {
 	vertical-align: top;
 }
 

@@ -12,10 +12,21 @@
       = f.input :to
       #suggest_to
       = f.input :hitchhikes, required: true, collection: 1..50, default: 1 if trip.new_record?
-      = f.input :departure, as: :string, class: 'date_pick'
-      -#= f.input :start_time, :minute_step => 15, :class => "span2"
 
-      = f.input :arrival, as: :string, class: 'date_pick'
+      = f.input :departure, as: :string,
+                            wrapper_html: {id: 'datetimepicker_departure'},
+                            wrapper: :append  do
+        = f.input_field :departure, as: :string, "data-format" => "dd/MM/yyyy hh:mm"
+        %span.add-on
+          %i.icon-calendar
+
+      = f.input :arrival, as: :string,
+                          wrapper_html: {id: 'datetimepicker_arrival'},
+                          wrapper: :append  do
+        = f.input_field :arrival, as: :string, "data-format" => "dd/MM/yyyy hh:mm"
+        %span.add-on
+          %i.icon-calendar
+
       = f.input :travelling_with, collection: [[t('helper.trip.alone'), 0],
                                                [t('helper.trip.with_1'),1],
                                                [t('helper.trip.with_2'),2],

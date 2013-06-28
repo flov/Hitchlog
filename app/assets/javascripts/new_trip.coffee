@@ -1,3 +1,19 @@
+$ ->
+  window.departure = $('#datetimepicker_departure').datetimepicker({
+    pickSeconds: false
+  }).on('changeDate', (ev) ->
+    arrival_date = new Date(ev.date)
+    arrival_date.setHours(arrival_date.getHours() + 4)
+    arrival.datetimepicker('setValue', arrival_date)
+  )
+
+  window.arrival = $('#datetimepicker_arrival').datetimepicker({
+    pickSeconds: false
+  })
+
+
+
+
 window.from = ''
 window.to = ''
 
