@@ -1,39 +1,144 @@
+
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
-    <title>Hitchlog - 404</title>
+    <title>Hitchlog - About</title>
+    <meta name='keywords' content='hitchhiking,hitchhiker,blog,free travel,autostop,trampen' />
+    <meta name='description' content='A website for logging rides and hitchhiking stories.
+    It generates statistics about hitchhiking in certain countries and
+    gives an overview of the experiences as a hitchhiker.
+    '/>
+    <meta content="authenticity_token" name="csrf-param" />
+    <meta content="oKH5VWjA1/lk3OY1YegCh++/krAvPf2vPZhdBD8za2U=" name="csrf-token" />
     <link href="/assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-      body { background-color: #FFD5B0; }
-      h1 { text-align: center; font-family: Verdana !important; }
-    </style>
+    
   </head>
-  <body id='welcome_home'>
-    <div id='wrap'>
-      <div id='header'>
+  <body>
+    <div class='navbar navbar-inverse navbar-static-top'>
+      <div class='navbar-inner'>
         <div class='container'>
-          <div class='logo'><a href="/"><img alt="Hitchlog logo" src="/assets/hitchlogo.png" /></a></div>
-        </div>
-      </div>
-      <div id='second-header'>
-        <div class='container'>
-
-            <br/>
-            <h1>404</h1>
-            <h1>This Site just got a ride, you gotta be faster then that!</h1>
-            <br/>
-
-        </div>
-      </div>
-      <div id='third-header'>
-      </div>
-      <div id='content'>
-        <div class='container'>
+          <a href="/en" class="brand"><img alt="Hitchlog_icon" src="/assets/hitchlog_icon.png" /> Hitchlog</a>
+          <a class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse'>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </a>
+          <div class='nav-collapse collapse'>
+            <ul class='nav'>
+              <li><a href="/en"><i class="icon-home"></i></a></li>
+              <li><a href="/en/trips"><i class='icon-road'></i> Trips</a></li>
+              <li><a href="/en/hitchhikers"><i class='icon-group'></i> Hitchhikers</a></li>
+              <li class='active'><a href="/en/about">About</a></li>
+              <li class='dropdown'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                  Language
+                  <b class='caret'></b>
+                </a>
+                <ul class='dropdown-menu'>
+                  <li>
+                    <a href="/en/about"><img alt="En" src="/assets/flags/png/en.png" />
+                    <i class='icon-hand-left'></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/fr/about"><img alt="Fr" src="/assets/flags/png/fr.png" />
+                    
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/pt/about"><img alt="Pt" src="/assets/flags/png/pt.png" />
+                    
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/de/about"><img alt="De" src="/assets/flags/png/de.png" />
+                    
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div class='pull-right logged_in'>
+              <a href="/en/hitchhikers/flov"><img alt="Gravatar" class="profile_pic" src="http://gravatar.com/avatar/fc3f0df9e00b703c751702207763f2a8?default=identicon" />
+              </a>
+              <div class='btn-group'>
+                <a href="/en/hitchhikers/flov" class="btn"><i class='icon-user'></i>
+                Your Profile
+                </a>
+                <a class='btn dropdown-toggle' data-toggle='dropdown'>
+                  <span class='icon-caret-down'></span>
+                </a>
+                <ul class='dropdown-menu'>
+                  <li>
+                    <a href="/en/hitchhikers/flov/edit"><i class='icon-pencil'></i>
+                    Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/trips/new"><i class='icon-book'></i>
+                    Log New Trip
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/future_trips"><i class='icon-eye-open'></i>
+                    Hitchhiking Buddies
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/hitchhikers/sign_out"><i class='icon-ban-circle'></i>
+                    Sign Out
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div id='footer'>
-      &copy; 2011 Hitchlog - <a href="http://hitchlog.com/about">About</a>
+    <div class='container' id='main-content'>
+
+      <div class="hero-unit" style='margin-top: 30px;'>
+        <div class="container">
+          <h1>Drats, it’s a 404 error</h1>
+        </div>
+      </div>
+
+      <div class="container clearfix" id="main-content" >
+        <p class="statement">
+          <i class="icon-wrench"></i>
+          No biggie. Chillax. The page you are looking for is not here. Either we moved our site around, or this page never existed in the first place. Please check your url and try again or search our site with the <i class="icon-search"></i> search button above. How about visiting our <a href="sitemap.html">site map?</a></p>
+        <div class="row-fluid">
+          <div class="span6 offset3"> </div>
+        </div>
+      </div>
+
     </div>
   </body>
+  <footer id='footer'>
+    <div class='container'>
+      <div class='row-fluid'>
+        <h1>Hitchlog</h1>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.core.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.widget.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.accordion.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.ui.tabs.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/tooltip.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/collapse.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/dropdown.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/tab.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/alert.js?body=1" type="text/javascript"></script>
+  <script src="/assets/twitter/bootstrap/modal.js?body=1" type="text/javascript"></script>
+  <script src="/assets/vendor/bootstrap-datetimepicker.js?body=1" type="text/javascript"></script>
+  <script src="/assets/vendor/jquery.observe_field.js?body=1" type="text/javascript"></script>
+  <script src="/assets/application.js?body=1" type="text/javascript"></script>
+  
+  
 </html>
+
+
