@@ -1,4 +1,7 @@
 $ ->
+  #
+  # Datetimepicker:
+  #
   window.departure = $('#datetimepicker_departure').datetimepicker({
     pickSeconds: false
   }).on('changeDate', (ev) ->
@@ -10,14 +13,56 @@ $ ->
   window.arrival = $('#datetimepicker_arrival').datetimepicker({
     pickSeconds: false
   })
+  # Datetimepicker end
+
+
+  if google?
+    window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
+    window.directionsService = new google.maps.DirectionsService();
+
+    mapOptions = {
+      center: new google.maps.LatLng(52.5234051, 13.411399899999992),
+      zoom: 1,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    map = new google.maps.Map($('#map-canvas')[0], mapOptions)
+    directionsDisplay.setMap(map);
+
+    #
+    # When changing Route by dragging, construct new directions hash
+    # with waypoints and store it in trip:
+    #
+    google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
+      if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
+        # Route with waypoints
+        $("#trip_route").val directions_hash(directionsDisplay)
+        $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
+        # Google Maps duration
+        $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
+        # Display Distance
+        $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
+        $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
+
+    autocomplete_for( 'from', map )
+    autocomplete_for( 'to', map )
+
+    $("#trip_from_lat").observe_field 1, ->
+      window.from = get_from_coordinates()
+      if window.from && window.to
+        route(window.from, window.to)
+
+    $("#trip_to_lat").observe_field 1, ->
+      window.to = get_to_coordinates()
+      if window.from && window.to
+        route(window.from, window.to)
 
 
 
+from = ''
+to = ''
 
-window.from = ''
-window.to = ''
-
-get_inputs_for = (direction) ->
+set_inputs_for = (direction) ->
   if place.address_components.length > 0
     for x in [0..place.address_components.length-1]
       type = place.address_components[x].types[0]
@@ -62,7 +107,7 @@ autocomplete_for = (direction, map) ->
     $("input#trip_#{direction}_lng").val location.lng()
     $("input#trip_#{direction}_formatted_address").val place.formatted_address
 
-    get_inputs_for( direction )
+    set_inputs_for( direction )
   )
 
 get_from_coordinates = ->
@@ -89,78 +134,10 @@ route = (from, to) ->
       window.directionsDisplay.setDirections(response);
   )
 
-$ ->
-  $("#modal-btn").click ->
-    $("#from").html $("#trip_from_formatted_address").val()
-    $("#to").html $('#trip_to_formatted_address').val()
-    $("#distance").html $('#trip_distance_display').html()
-    $("#no_of_rides").html $('#trip_hitchhikes').val()
-    $("#departure").html $('#trip_departure').val()
-    $("#arrival").html $('#trip_arrival').val()
-    $("#traveling_with").html(
-      $("#trip_travelling_with option[value='" + ($('#trip_travelling_with').val()) + "']").text();
-    )
 
-  if google?
-    window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
-    window.directionsService = new google.maps.DirectionsService();
-
-    mapOptions = {
-      center: new google.maps.LatLng(52.5234051, 13.411399899999992),
-      zoom: 1,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-
-    map = new google.maps.Map($('#map-canvas')[0], mapOptions)
-    directionsDisplay.setMap(map);
-
-    #
-    # When changing Route by dragging, construct new directions hash
-    # with waypoints and store it in trip:
-    #
-    google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
-      if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
-        # Route with waypoints
-        $("#trip_route").val directions_hash(directionsDisplay)
-        $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
-        # Google Maps duration
-        $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
-        # Display Distance
-        $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
-        $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
-
-    autocomplete_for( 'from', map )
-    autocomplete_for( 'to', map )
-
-    $("#trip_from_lat").observe_field 1, ->
-      window.from = get_from_coordinates()
-      if window.from && window.to
-        route(window.from, window.to)
-
-    $("#trip_to_lat").observe_field 1, ->
-      window.to = get_to_coordinates()
-      if window.from && window.to
-        route(window.from, window.to)
 
 
 directions_hash = (directionsDisplay) ->
-  # A sample DirectionsRequest is shown below:
-  #
-  # {
-  #  origin: "Chicago, IL",
-  #  destination: "Los Angeles, CA",
-  #  waypoints: [
-  #    {
-  #      location:"Joplin, MO",
-  #      stopover:false
-  #    },{
-  #      location:"Oklahoma City, OK",
-  #      stopover:true
-  #    }],
-  #  provideRouteAlternatives: false,
-  #  travelMode: TravelMode.DRIVING,
-  #  unitSystem: UnitSystem.IMPERIAL
-  # }
   waypoints = []
   leg = directionsDisplay.directions.routes[0].legs[0]
   directions =
