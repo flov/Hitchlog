@@ -29,8 +29,6 @@ gem 'json'
 gem 'jbuilder'
 gem 'routing-filter' # wraps I18n.locale around routing engine
 
-gem 'jquery-rails', '3.0.1'
-gem 'jquery-ui-rails'
 
 group :production do
   gem 'newrelic_rpm'
@@ -39,6 +37,8 @@ end
 # Gems only used for assets and not required by default
 # in production environments by default.
 group :assets do
+  gem 'jquery-rails', '3.0.1'
+  gem 'jquery-ui-rails'
   gem 'sass-rails', '~> 3.2'
   gem 'compass-rails'
   gem 'coffee-rails'
