@@ -21,10 +21,10 @@
         = t('general.delete')
     %p
       #{t('activerecord.attributes.trip.departure')}:
-      = trip.arrival.strftime("%d %B %Y %H:%S")
+      = trip.departure.strftime("%d %B %Y %H:%S")
       %br/
       #{t('activerecord.attributes.trip.arrival')}:
-      = trip.departure.strftime("%d %B %Y %H:%S")
+      = trip.arrival.strftime("%d %B %Y %H:%S")
 
     #accordion
       = render trip.rides

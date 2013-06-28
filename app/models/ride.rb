@@ -18,7 +18,7 @@ class Ride < ActiveRecord::Base
   accepts_nested_attributes_for :person, :allow_destroy => true
 
   scope :with_photo, where("photo_file_name IS NOT NULL")
-  scope :with_story, where("story <> ''")
+  scope :with_story, where("title IS NOT NULL")
 
   has_attached_file :photo,
                     :styles => { :cropped => "500x250#", :large => "800x400>", :thumb  => "80x80>" },

@@ -392,6 +392,7 @@ en:
       register: register
       log_in: "Log in"
       to_comment: "to comment on this trip"
+      add_comment: Add Comment
       google_maps_duration: "Google Maps duration: %{time}"
     form:
       step1_2: Continue
@@ -497,7 +498,7 @@ en:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
-      signed_up: 'Welcome aboard!'
+      signed_up: 'Welcome To The Hitchlog! Now go ahead and log your first trip'
       new:
         use_the_normal_form: Use the normal Form
         create_a_hitchlog_account: Create Your Hitchlog Account

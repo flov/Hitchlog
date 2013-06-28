@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     user_path(current_user.to_s.downcase)
   end
 
+  def after_sign_up_path_for(resource)
+    user_path(resource)
+  end
+
   def build_search_trips(trips)
     unless params[:country].blank?
       trips = trips.includes(:country_distances).where(country_distances: {country: params[:country]})

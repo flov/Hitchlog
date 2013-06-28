@@ -74,11 +74,9 @@
                              gmaps_difference: gmaps_difference(trip)).html_safe
 
 
-
 %section#view-comments.entry-comments.clearfix
   %h3
     = pluralize(trip.comments.size, t('general.comment'))
-    %a.scrollto{:href => "#comment-form"} | Make a comment
   %ul
     - trip.comments.each do |comment|
       %li
@@ -110,4 +108,22 @@
               = t('general.or')
               = link_to t('.register'), new_user_registration_path
               = t('.to_comment')
+
+  #comment-form
+    - if user_signed_in?
+      %h3 Leave a Comment
+      = form_tag create_comment_trip_path(trip) do
+        %span.inputwrapper
+          %label{:for => "body"} Message:
+          = text_area_tag :body, '', id: 'message', cols: 50, rows: 5
+        %br/
+        = submit_tag t('.add_comment'), class: 'btn btn-primary'
+    - else
+      %p
+        = link_to t('.log_in'), new_user_session_path
+        = t('general.or')
+        = link_to t('.register'), new_user_registration_path
+        = t('.to_comment')
+    
+  / End Comment Form
 

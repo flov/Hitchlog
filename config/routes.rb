@@ -44,5 +44,5 @@ Hitchlog::Application.routes.draw do
   # making static crisp html templates available to see if they are displayed correctly
   match 'crisp/:action', controller: :crisp if Rails.env == 'development'
 
-  root :to => "welcome#bootstrap"
+  root to: "welcome#home"
 end
