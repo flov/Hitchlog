@@ -283,7 +283,7 @@ GEM
       rubyzip
       websocket (~> 1.0.4)
     shoulda-matchers (1.0.0)
-    simple_form (2.0.2)
+    simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     sprockets (2.2.2)
