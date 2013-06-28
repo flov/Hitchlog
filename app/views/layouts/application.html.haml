@@ -1,46 +1,31 @@
 !!!
-%html
+%html{:lang => "en"}
   %head
     %title= content_for?(:title) ? "Hitchlog - #{yield(:title)}".html_safe : "Hitchlog"
     = meta_keywords
     = meta_description
     = csrf_meta_tag 
     = stylesheet_link_tag 'application'
-    - unless Rails.env = 'development'
-      %link{href:'http://fonts.googleapis.com/css?family=Architects+Daughter|Imprima',rel:'stylesheet',type:'text/css'}
-
     = yield(:head)
 
-  %body{:id => "#{controller.controller_name}_#{controller.action_name}"}
-    <div id="fb-root"></div>
-    = render 'shared/facebook_sdk'
-    -#= render 'shared/banners_in_corners'
+  %body
+    = render 'layouts/navigation'
 
-    #wrap
-      #header
-        .container
-          .logo=link_to image_tag("hitchlog_logo.png", width: 195, height: 30, alt: 'Hitchlog logo'), root_path
-          = render 'layouts/navigation'
+    .container#main-content
+      = render 'layouts/flash_messages'
 
-      #second-header
-        .container
-          = yield(:layout_header)
+      = yield
 
-      #third-header
-        .container
-          = yield(:topmenu)
+  %footer#footer
+    .container
+      .row-fluid
+        %h1 Hitchlog
 
-      #content
-        .container
-          - flash.each do |name, msg|
-            = content_tag :div, msg, id: "flash_#{name}"
-          = yield
+  - if Rails.env == 'dev'
+    = javascript_include_tag 'bootstrap', debug: true
+  - else
+    = javascript_include_tag 'bootstrap'
+    = render 'shared/google_stats' if Rails.env == 'production'
 
-    %footer
-      &copy; 2011 Hitchlog - #{link_to 'About', 'http://hitchlog.com/about'}
-
-  = javascript_include_tag 'application'
-  = render 'shared/google_stats'
 
   = yield(:javascript_at_bottom)
-
