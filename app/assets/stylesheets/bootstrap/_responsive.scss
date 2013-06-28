@@ -19,30 +19,27 @@
 // -------------------------
 // Required since we compile the responsive stuff separately
 
-@import "twitter/bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-@import "twitter/bootstrap/mixins";
-
 
 // RESPONSIVE CLASSES
 // ------------------
 
-@import "twitter/bootstrap/responsive-utilities";
+@import "bootstrap/responsive-utilities";
 
 
 // MEDIA QUERIES
 // ------------------
 
 // Large desktops
-@import "twitter/bootstrap/responsive-1200px-min";
+@import "bootstrap/responsive-1200px-min";
 
 // Tablets to regular desktops
-@import "twitter/bootstrap/responsive-768px-979px";
+@import "bootstrap/responsive-768px-979px";
 
 // Phones to portrait tablets and narrow desktops
-@import "twitter/bootstrap/responsive-767px-max";
+@import "bootstrap/responsive-767px-max";
 
 // RESPONSIVE NAVBAR
 // ------------------
 
 // From 979px and below, show a button to toggle navbar contents
-@import "twitter/bootstrap/responsive-navbar";
+@import "bootstrap/responsive-navbar";
