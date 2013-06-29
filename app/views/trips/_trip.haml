@@ -19,6 +19,10 @@
         %b G 
         = accurate_distance_of_time_in_words(trip.gmaps_duration)
       &nbsp;&nbsp;
+      %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+        = trip.rides.with_photo.size
+        %i.icon-picture
+      &nbsp;&nbsp;
       %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
         %i.icon-comments-alt
         = trip.comments.size

@@ -17,7 +17,8 @@ class RidesController < ApplicationController
   end
 
   def delete_photo
-    if ride.remove_photo!
+    ride.remove_photo!
+    if ride.save!
       redirect_to edit_trip_path(ride.trip)
     else
       flash[:alert] = 'Could not delete photo'
