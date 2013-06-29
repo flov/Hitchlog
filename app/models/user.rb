@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
                   :country,
                   :country_code
 
-  concerned_with :user_settings
-
   has_friendly_id :username
 
   # chart_image method
@@ -119,6 +117,36 @@ class User < ActiveRecord::Base
     new_array
   end
 
+  def hitchhiked_countries
+    self.trips.map{|trip| trip.country_distances.map(&:country)}.flatten.uniq.size
+  end
+
+  def rides
+    self.trips.map{|trip| trip.rides}.flatten
+  end
+
+  def average_waiting_time
+    waiting_time = self.trips.map{|trip| trip.rides.map{|hh| hh.waiting_time}}.flatten.compact
+    if waiting_time.size == 0
+      nil
+    else
+      waiting_time.sum / waiting_time.size
+    end
+  end
+
+  def average_drivers_age
+    avg_drivers_age_array = self.rides.collect{|h| h.person.age if h.person}.compact
+    avg_drivers_age_array.sum / avg_drivers_age_array.size unless avg_drivers_age_array.size == 0    
+  end
+
+  def stories
+    rides.collect{|h| h.story}.compact.delete_if{|x| x == ''}
+  end
+
+  def number_of_photos
+    rides.collect(&:photo_url).compact.size
+  end
+  
   private
 
   def update_location_updated_at
