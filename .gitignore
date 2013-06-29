@@ -24,9 +24,5 @@ zeus.json
 config/initializers/a_s3_config.rb
 
 # These images belong to the crisp template (see /app/views/crisp/*)
-public/125banner-fpo.png
-public/4830134044.jpg
-public/fotogrph-running-water.jpg
-public/kathy.jpg
-public/responsive-showcase.png
-
+public/images/
+public/uploads/
