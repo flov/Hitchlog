@@ -13,6 +13,7 @@
 //
 //= require vendor/bootstrap-datetimepicker.js
 //= require vendor/jquery.observe_field.js
+//= require vendor/jquery.nivo.slider.pack.js
 //
 
 

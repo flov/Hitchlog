@@ -33,7 +33,10 @@
             %i.icon-comments-alt
           %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
             = trip.rides.size
-            %i.icon-road
+            %i.icon-thumbs-up
+          %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+            = trip.rides.with_photo.size
+            %i.icon-picture
           = images_for_trip(trip)
           = country_images_for_trip(trip)
           = link_to experience_image((trip.overall_experience)), trip_path(trip)

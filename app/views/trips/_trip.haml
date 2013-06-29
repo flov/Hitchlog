@@ -28,13 +28,7 @@
         = trip.rides.size
 
   .entry-content
-    %figure
-      - if trip.rides.with_photo.any?
-        - trip.rides.with_photo.each do |ride|
-          = image_tag(ride.photo.url, title: "#{ride.photo_caption}")
-          - if ride.photo_caption
-            %figcaption
-              = ride.photo_caption
+    = render 'image_slider', trip: trip
 
     - trip.rides.select {|ride| not ride.story.blank?}.each do |ride|
       %h3

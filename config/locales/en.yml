@@ -133,6 +133,7 @@ en:
       english: English
       german: German
   general:
+    photo: photo
     google_maps_duration: Google Maps Duration
     comment: comment
     minutes: minutes
