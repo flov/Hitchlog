@@ -1,12 +1,18 @@
 # encoding: utf-8
 
 class PhotoUploader < CarrierWave::Uploader::Base
-  #include CarrierWave::RMagick
+  include CarrierWave::RMagick
 
-  if Rails.env == 'test' || Rails.env == 'cucumber'
-    storage :file
-  else
+  if Rails.env == 'production'
     storage :fog
+  else
+    storage :file
+  end
+
+  process :resize_to_fit => [800, 800]
+
+  version :thumb do
+    process :resize_to_limit => [80, 80]
   end
 
   def store_dir

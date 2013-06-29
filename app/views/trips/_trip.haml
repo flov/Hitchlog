@@ -31,8 +31,7 @@
     %figure
       - if trip.rides.with_photo.any?
         - trip.rides.with_photo.each do |ride|
-          = link_to image_tag(ride.photo.url(:cropped), :title => "#{ride.photo_caption}"), ride.photo.url(:large)
-
+          = image_tag(ride.photo.url, title: "#{ride.photo_caption}")
           - if ride.photo_caption
             %figcaption
               = ride.photo_caption

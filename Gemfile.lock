@@ -32,7 +32,6 @@ GEM
     arel (3.0.2)
     babosa (0.3.6)
     bcrypt-ruby (3.0.1)
-    blankslate (2.1.2.4)
     bootstrap-sass-rails (2.3.1.1)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
@@ -60,7 +59,6 @@ GEM
     choices (0.2.4)
       hashie (>= 0.4.0)
     chunky_png (1.2.5)
-    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -176,9 +174,6 @@ GEM
     i18n (0.6.4)
     i18n_data (0.2.8)
       activesupport
-    jbuilder (0.4.0)
-      activesupport (>= 3.0.0)
-      blankslate (>= 2.1.2.4)
     journey (1.0.4)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
@@ -225,11 +220,6 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.6)
-    paperclip (2.5.2)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
-      cocaine (>= 0.0.2)
-      mime-types
     pg (0.14.1)
     pickle (0.4.10)
       cucumber (>= 0.8)
@@ -271,6 +261,7 @@ GEM
     rdiscount (1.6.8)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     routing-filter (0.3.1)
       actionpack
     rspec (2.10.0)
@@ -378,7 +369,6 @@ DEPENDENCIES
   haml (~> 3.2.0.rc.4)
   hirb
   i18n_data
-  jbuilder
   jquery-rails (= 3.0.1)
   jquery-ui-rails
   json
@@ -386,13 +376,13 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   omniauth-facebook
-  paperclip
   pg
   pickle
   rails (= 3.2.12)
   ransack
   rb-fsevent
   rdiscount
+  rmagick
   routing-filter
   rspec-rails
   sass-rails (~> 3.2)

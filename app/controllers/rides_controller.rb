@@ -17,7 +17,7 @@ class RidesController < ApplicationController
   end
 
   def delete_photo
-    if ride.delete_photo!
+    if ride.remove_photo!
       redirect_to edit_trip_path(ride.trip)
     else
       flash[:alert] = 'Could not delete photo'
@@ -25,16 +25,10 @@ class RidesController < ApplicationController
     end
   end
 
-  def show
-    @ride = Ride.find(params[:id])
-  end
-
   def update
     if ride.update_attributes(params[:ride])
-      if params[:ride][:photo].blank?
+      if params[:ride]
         redirect_to edit_trip_path(ride.trip)
-      else
-        render action: "crop"
       end
     else
       redirect_to edit_trip_path(ride.trip)
@@ -49,33 +43,5 @@ class RidesController < ApplicationController
       flash[:alert] = "You are not allowed to do that!"
     end
     redirect_to edit_trip_path(ride.trip)
-  end
-
-  def next
-    @ride = Ride.where('photo_file_name is not null')
-                .where("id > #{params[:id].to_i}")
-                .order(:id).first
-
-    if @ride.nil?
-      @ride = Ride.where('photo_file_name is not null').order(:id).first
-    end
-
-    respond_to do |format|
-      format.json { render "rides/show", formats: [:json]}
-    end
-  end
-
-  def prev
-    @ride = Ride.where('photo_file_name is not null')
-                .where("id < #{params[:id].to_i}")
-                .order(:id).last
-
-    if @ride.nil?
-      @ride = Ride.where('photo_file_name is not null').order(:id).last
-    end
-
-    respond_to do |format|
-      format.json { render "rides/show", formats: [:json] }
-    end
   end
 end

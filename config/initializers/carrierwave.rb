@@ -1,7 +1,7 @@
 CarrierWave.configure do |config|
     # In Heroku, follow http://devcenter.heroku.com/articles/config-vars
     #
-    # $ heroku config:add S3_KEY=your_s3_access_key S3_SECRET=your_s3_secret S3_REGION=eu-west-1 S3_ASSET_URL=http://assets.example.com/ S3_BUCKET_NAME=s3_bucket/folder
+    # $ heroku config:add S3_KEY=your_s3_access_key S3_SECRET=your_s3_secret S3_REGION=eu-west-1 S3_ENDPOINT=https://s3-eu-west-1.amazonaws.com S3_BUCKET_NAME=hitchlog.heroku.com
   config.fog_credentials = {
     :provider              => 'AWS',
     :aws_access_key_id     => ENV['S3_KEY'],
