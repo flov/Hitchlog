@@ -21,6 +21,7 @@ TODO
 /tmp
 a.log
 zeus.json
+config/initializers/a_s3_config.rb
 
 # These images belong to the crisp template (see /app/views/crisp/*)
 public/125banner-fpo.png
