@@ -81,13 +81,6 @@
     width: 83%;
 }
 
-.blog-summary .entry-post {
-    background: url(../images/hr.png) 0 100% repeat-x;
-    padding-bottom:10px;
-    margin-bottom:3%;
-}
-
-
 
 /* trip-detail
 ================================================== */
@@ -137,10 +130,6 @@
 
 
 /****** entry header ******/
-.trip-detail .entry-header {
-    background: url(../images/hr.png) 0 100% repeat-x;
-    position: relative;
-}
 .blog-summary .entry-header {
     padding-bottom: 10px;
     position: relative;
@@ -311,91 +300,64 @@
 
 @media only screen and (max-width:600px) { 
 
-.trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
-.blog.date, .trip-detail .entry-footer .addthis_toolbox { display: none }
+  .trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
+  .blog.date, .trip-detail .entry-footer .addthis_toolbox { display: none }
 
-.blog-summary .entry-content, 
-.blog-summary .entry-header,
-.trip-detail .entry-header,
-.trip-detail .entry-content,
-.trip-detail .entry-tags,
-.trip-detail .entry-pagination,
-.trip-detail .entry-related {
-        width: 100%!important;
-        float: none!important;
+  .blog-summary .entry-content, 
+  .blog-summary .entry-header,
+  .trip-detail .entry-header,
+  .trip-detail .entry-content,
+  .trip-detail .entry-tags,
+  .trip-detail .entry-pagination,
+  .trip-detail .entry-related {
+          width: 100%!important;
+          float: none!important;
+  }
+
+  .entry-comments {width:94%!important;float:none;}
+
+  .entry-comments footer img {
+          float: none;
+          margin-bottom: 5px;
+  }
+  .trip-detail .entry-header .addthis_toolbox {
+    display: block!important;
+    padding-top: 10px;
+    height: 16px;
+  }
+  .trip-detail .entry-header .addthis_toolbox span {
+    float: left;
+    margin-right: 10px;
+    height: 16px;
+  }
+  .trip-detail {
+    padding-top: 3%;
+    position: relative;
+  }
+  #comment-form {
+    margin: 3% 0 0 0;
+    padding-right: 3%;
+    width:94%;
+  }
+  .comment_form .btn,
+  .comment_form input[type="submit"],
+  .comment_form  input[type="button"] {
+    clear: both;
+    margin-top: 10px;
+  }
+  .comment_form span.name { width: 90% }
+  .comment_form span.email {
+    float: none;
+    width: 100%;
+  }
+  .comment_form #name { width: 100% }
+  .comment_form #email,
+  .comment_form textarea,
+  .comment_form #website { width: 90% }
+  .entry-comments footer .comment-meta {
+    float: none;
+    margin-left: 0;
+  }
 }
 
-.entry-comments {width:94%!important;float:none;}
-
-.entry-comments footer img {
-        float: none;
-        margin-bottom: 5px;
-}
-.trip-detail .entry-header .addthis_toolbox {
-	display: block!important;
-	padding-top: 10px;
-	height: 16px;
-}
-.trip-detail .entry-header .addthis_toolbox span {
-	float: left;
-	margin-right: 10px;
-	height: 16px;
-}
-.trip-detail {
-	padding-top: 3%;
-	position: relative;
-}
-#comment-form {
-	margin: 3% 0 0 0;
-	padding-right: 3%;
-	width:94%;
-}
-.comment_form .btn,
-.comment_form input[type="submit"],
-.comment_form  input[type="button"] {
-	clear: both;
-	margin-top: 10px;
-}
-.comment_form span.name { width: 90% }
-.comment_form span.email {
-	float: none;
-	width: 100%;
-}
-.comment_form #name { width: 100% }
-.comment_form #email,
-.comment_form textarea,
-.comment_form #website { width: 90% }
-.entry-comments footer .comment-meta {
-	float: none;
-	margin-left: 0;
-}
-
-} /*end*/
-
-
-/* ================================================== 
-	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
-================================================== */
-
-/*	change the webkit number to 1 to test on webkit to make sure 
-	the sizes and the images show up correctly then switch back before launch */
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
- 	only screen and (-o-min-device-pixel-ratio: 3/2),
- 	only screen and (min--moz-device-pixel-ratio: 2),
-	only screen and (min-device-pixel-ratio: 2) 
-{
-
-
-.blog-summary .entry-post, .trip-detail .entry-header {
-		background-image:url(../images/retina/hr_@2x.png);
-	    	-moz-background-size:3px 3px; /*w & h of total ORIGINAL 72dpi image*/
-             -ie-background-size:3px 3px;
-              -o-background-size:3px 3px;
-       	 -webkit-background-size:3px 3px;
-                 background-size:3px 3px;
-}
-
-
-}/* end desktop and main retina swapping */
 

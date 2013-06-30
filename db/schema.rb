@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628134903) do
+ActiveRecord::Schema.define(:version => 20130630034847) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -102,17 +102,6 @@ ActiveRecord::Schema.define(:version => 20130628134903) do
     t.datetime "updated_at",             :null => false
   end
 
-  create_table "rails_admin_histories", :force => true do |t|
-    t.string   "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rides", :force => true do |t|
     t.string   "title"
     t.string   "mission"
@@ -193,9 +182,9 @@ ActiveRecord::Schema.define(:version => 20130628134903) do
   add_index "trips", ["travelling_with"], :name => "index_trips_on_travelling_with"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
+    t.string   "email",                                                  :null => false
+    t.string   "encrypted_password",   :limit => 128,                    :null => false
+    t.string   "password_salt",                                          :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
