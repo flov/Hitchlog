@@ -14,8 +14,8 @@
     text-align: center;
     display: block;
     background: #d8dfe5;
-    width: 70px;
-    height: 57px;
+    width: 65px;
+    height: 52px;
     -webkit-border-radius: 60px;
     border-radius: 60px;
     line-height: 1;
@@ -28,6 +28,7 @@
     font-size: 25px;
     font-weight: bold;
     letter-spacing: -1px;
+    margin-top: 4px;
 }
 .blog.date .month {
     font-size: 11px;
@@ -60,57 +61,64 @@
 .trip-detail .byline abbr { border-bottom: none }
 
 
-/* blog traditional summary
-================================================== */
-.blog-summary .entry-header .entry-title {
-    margin-top: 0;
-}
-.blog-summary .entry-header .entry-title a {
-    text-decoration:none;
-}
-
-.span9.blog-summary .entry-content,
-.span9.blog-summary .entry-header {
-	float: right;
-    width: 85%;
-}
-
-.span6.blog-summary .entry-content,
-.span6.blog-summary .entry-header {
-	float: right;
-    width: 83%;
-}
-
-
 /* trip-detail
 ================================================== */
-.trip-detail { margin-bottom: 20px }
+.trip-detail {
+  hr {
+    margin: 20px 0;
+  }
+  .entry-content {
+    width: 100%;
+    clear: both;
+  }
+  margin-bottom: 20px
+}
 
-.span8.trip-detail .entry-header,
-.span8.trip-detail .entry-content,
-.span8.trip-detail .entry-tags,
-.span8.trip-detail .entry-pagination,
-.span8.trip-detail .entry-related
- {
+.span8.trip-detail {
+  .entry-content {
+    article {
+      width: 87%;
+      float: right;
+    }
+    footer {
+      width: 12%;
+      display: block;
+      margin-right: 2%;
+    }
+  }
+
+  .entry-header,
+  .entry-tags,
+  .entry-comments,
+  .entry-pagination,
+  .entry-related {
     float: right;
     width: 87%;
     clear:both;
+  }
 }
 
-.span9.trip-detail .entry-header,
-.span9.trip-detail .entry-content,
-.span9.trip-detail .entry-tags,
-.span9.trip-detail .entry-pagination,
-.span9.trip-detail .entry-related
- {
+.span9.trip-detail {
+  .entry-content{
+    article {
+      width: 89%;
+      float: right;
+    }
+    footer {
+      width: 12%;
+      display: block;
+      margin-right: 2%;
+    }
+  }
+  .entry-header,
+  .entry-tags,
+  .entry-pagination,
+  .entry-comments,
+  .entry-related {
     float: right;
-    width: 87%;
+    width: 89%;
     clear:both;
-}
-.trip-detail .entry-comments {
-	clear:both;
-	float:right;
-	width:87%;
+  }
 }
 
 /****** entry footer ******/
@@ -130,13 +138,16 @@
 
 
 /****** entry header ******/
+.trip-detail .entry-header {
+  position: relative;
+}
 .blog-summary .entry-header {
-    padding-bottom: 10px;
-    position: relative;
+  padding-bottom: 10px;
+  position: relative;
 }
 .trip-detail .entry-header h1,
 .trip-detail .entry-header h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 /* blog summary grid/filtered masonry
@@ -300,64 +311,95 @@
 
 @media only screen and (max-width:600px) { 
 
-  .trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
-  .blog.date, .trip-detail .entry-footer .addthis_toolbox { display: none }
+.trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
+.blog.date, .trip-detail .entry-footer .addthis_toolbox { display: none }
 
-  .blog-summary .entry-content, 
-  .blog-summary .entry-header,
-  .trip-detail .entry-header,
-  .trip-detail .entry-content,
-  .trip-detail .entry-tags,
-  .trip-detail .entry-pagination,
-  .trip-detail .entry-related {
-          width: 100%!important;
-          float: none!important;
-  }
-
-  .entry-comments {width:94%!important;float:none;}
-
-  .entry-comments footer img {
-          float: none;
-          margin-bottom: 5px;
-  }
-  .trip-detail .entry-header .addthis_toolbox {
-    display: block!important;
-    padding-top: 10px;
-    height: 16px;
-  }
-  .trip-detail .entry-header .addthis_toolbox span {
-    float: left;
-    margin-right: 10px;
-    height: 16px;
-  }
-  .trip-detail {
-    padding-top: 3%;
-    position: relative;
-  }
-  #comment-form {
-    margin: 3% 0 0 0;
-    padding-right: 3%;
-    width:94%;
-  }
-  .comment_form .btn,
-  .comment_form input[type="submit"],
-  .comment_form  input[type="button"] {
-    clear: both;
-    margin-top: 10px;
-  }
-  .comment_form span.name { width: 90% }
-  .comment_form span.email {
-    float: none;
-    width: 100%;
-  }
-  .comment_form #name { width: 100% }
-  .comment_form #email,
-  .comment_form textarea,
-  .comment_form #website { width: 90% }
-  .entry-comments footer .comment-meta {
-    float: none;
-    margin-left: 0;
+.trip-detail {
+  .entry-header,
+  .entry-content,
+  .entry-tags,
+  .entry-pagination,
+  .entry-related {
+    article {
+      width: 100%!important;
+      float: none!important;
+    }
+    width: 100%!important;
+    float: none!important;
   }
 }
 
+.entry-comments {width:94%!important;float:none;}
+
+.entry-comments footer img {
+        float: none;
+        margin-bottom: 5px;
+}
+.trip-detail .entry-header .addthis_toolbox {
+	display: block!important;
+	padding-top: 10px;
+	height: 16px;
+}
+.trip-detail .entry-header .addthis_toolbox span {
+	float: left;
+	margin-right: 10px;
+	height: 16px;
+}
+.trip-detail {
+	padding-top: 3%;
+	position: relative;
+}
+#comment-form {
+	margin: 3% 0 0 0;
+	padding-right: 3%;
+	width:94%;
+}
+.comment_form .btn,
+.comment_form input[type="submit"],
+.comment_form  input[type="button"] {
+	clear: both;
+	margin-top: 10px;
+}
+.comment_form span.name { width: 90% }
+.comment_form span.email {
+	float: none;
+	width: 100%;
+}
+.comment_form #name { width: 100% }
+.comment_form #email,
+.comment_form textarea,
+.comment_form #website { width: 90% }
+.entry-comments footer .comment-meta {
+	float: none;
+	margin-left: 0;
+}
+
+} /*end*/
+
+
+/* ================================================== 
+	MAIN RETINA BACKGROUND IMAGE REPLACEMENT & RETINA INFORMATION
+================================================== */
+
+/*	change the webkit number to 1 to test on webkit to make sure 
+	the sizes and the images show up correctly then switch back before launch */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+ 	only screen and (-o-min-device-pixel-ratio: 3/2),
+ 	only screen and (min--moz-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) 
+{
+
+
+.blog-summary .entry-post, .trip-detail .entry-header {
+		background-image:url(../images/retina/hr_@2x.png);
+	    	-moz-background-size:3px 3px; /*w & h of total ORIGINAL 72dpi image*/
+             -ie-background-size:3px 3px;
+              -o-background-size:3px 3px;
+       	 -webkit-background-size:3px 3px;
+                 background-size:3px 3px;
+}
+
+
+}/* end desktop and main retina swapping */
 

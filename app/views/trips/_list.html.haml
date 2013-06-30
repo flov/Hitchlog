@@ -28,15 +28,17 @@
           %td.no-wrap= user_with_gender(trip.user)
         %td.no-wrap= distance( trip.distance )
         %td
-          %span.no-wrap.tip{title: pluralize(trip.comments.size, t('general.comment'))}
-            = trip.comments.size
-            %i.icon-comments-alt
+          - if trip.comments.size > 0
+            %span.no-wrap.tip{title: pluralize(trip.comments.size, t('general.comment'))}
+              = trip.comments.size
+              %i.icon-comments-alt
           %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
             = trip.rides.size
             %i.icon-thumbs-up
-          %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
-            = trip.rides.with_photo.size
-            %i.icon-picture
+          - if trip.rides.with_photo.size > 0
+            %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+              = trip.rides.with_photo.size
+              %i.icon-picture
           = images_for_trip(trip)
           = country_images_for_trip(trip)
           = link_to experience_image((trip.overall_experience)), trip_path(trip)

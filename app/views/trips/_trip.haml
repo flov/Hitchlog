@@ -19,10 +19,11 @@
         %b G 
         = accurate_distance_of_time_in_words(trip.gmaps_duration)
       &nbsp;&nbsp;
-      %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
-        = trip.rides.with_photo.size
-        %i.icon-picture
-      &nbsp;&nbsp;
+      - unless trip.rides.with_photo.empty?
+        %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+          = trip.rides.with_photo.size
+          %i.icon-picture
+        &nbsp;&nbsp;
       %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
         %i.icon-comments-alt
         = trip.comments.size
@@ -31,32 +32,29 @@
         %i.icon-thumbs-up
         = trip.rides.size
 
-  .entry-content
-    = render 'image_slider', trip: trip
+  
+  = render 'image_slider', trip: trip
 
-    - trip.rides.select {|ride| not ride.story.blank?}.each do |ride|
-      %h3
-        = ride.title if ride.title
-        %span.subtitle
-          (#{t('.ride')} #{ride.number})
+  - trip.rides.with_story.each do |ride|
+    .entry-content
+      %article
+        %h3
+          = ride.title
           = experience_image(ride.experience)
           = gender_people_image(ride.gender)
           = waiting_time_image(human_minutes(ride.waiting_time))
           = driving_time_image(human_hours(ride.duration))
 
-      - if !ride.story.blank?
-        = ride.markdown_story
+        - if !ride.story.blank?
+          = ride.markdown_story
 
-      %hr/
+        %hr/
 
-  / end entry-content
-  %footer.entry-footer
-    %span.blog.date
-      %span.month= trip.departure.strftime("%b")
-      %span.day= trip.departure.strftime("%d")
-      %span.year= trip.departure.strftime("%Y")
-
-
+      %footer.entry-footer
+        %span.blog.date
+          %span.day= ride.number.ordinalize
+          %span.month= t('general.ride')
+        
 - if false
   = t('hitchslider.user_hitchhiked_text', user: trip.user.to_s,
                                           time: (trip.departure ? time_ago_in_words(trip.departure) : nil),
@@ -87,7 +85,11 @@
             %span.comment-author.vcard
               %cite
                 = link_to comment.user, user_path(comment.user)
-            %time.published= trip.departure.strftime("%B %d, %Y")
+            %time.published
+              - if comment.created_at > 20.days.ago
+                = t('general.time_ago', time: time_ago_in_words(comment.created_at))
+              - else
+                = comment.created_at.strftime("%B %d, %Y %H:%M")
 
         .text
           = RDiscount.new(comment.body).to_html.html_safe
