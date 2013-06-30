@@ -176,6 +176,11 @@ class Trip < ActiveRecord::Base
   end
 
   def total_waiting_time
-    rides.waiting_time.sum
+    waiting_times = rides.collect(&:waiting_time).compact
+    if waiting_times.any?
+      waiting_times.sum
+    else
+      nil
+    end
   end
 end

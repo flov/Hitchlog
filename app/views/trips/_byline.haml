@@ -7,7 +7,7 @@
     = trip.departure.strftime("%B %d, %Y")
     = '-'
     = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
-    &nbsp;&nbsp;
+  &nbsp;&nbsp;
   %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
     %b G 
     = accurate_distance_of_time_in_words(trip.gmaps_duration)
@@ -28,3 +28,10 @@
   %span.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
     #{number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")}
     %i.icon-dashboard
+  - if trip.total_waiting_time
+    &nbsp;&nbsp;
+    %span.tip{title: t('general.total_waiting_time', time: trip.total_waiting_time)}
+      %i.icon-time
+      = trip.total_waiting_time
+      min
+    
