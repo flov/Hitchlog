@@ -5,110 +5,15 @@
       = trip.to_s
       - if trip.user == current_user && controller.action_name != 'edit'
         = link_to t('general.edit'), edit_trip_path(trip), class: 'btn btn-info btn-large'
-    .byline
-      %i.icon-pencil
-      = link_to_user(trip.user)
-      &nbsp;&nbsp;
-      %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
-        %i.icon-time
-        = trip.departure.strftime("%B %d, %Y")
-        = '-'
-        = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
-        &nbsp;&nbsp;
-      %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
-        %b G 
-        = accurate_distance_of_time_in_words(trip.gmaps_duration)
-      &nbsp;&nbsp;
-      - unless trip.rides.with_photo.empty?
-        %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
-          = trip.rides.with_photo.size
-          %i.icon-picture
-        &nbsp;&nbsp;
-      %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
-        %i.icon-comments-alt
-        = trip.comments.size
-      &nbsp;&nbsp;
-      %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
-        %i.icon-thumbs-up
-        = trip.rides.size
 
-  = render 'image_slider', trip: trip
+    = render 'byline', trip: trip
 
-  #map
-
-  - trip.rides.with_story.each do |ride|
-    .entry-content
-      %article
-        %h3
-          = ride.title
-          = experience_image(ride.experience)
-          = gender_people_image(ride.gender)
-          = waiting_time_image(human_minutes(ride.waiting_time))
-          = driving_time_image(human_hours(ride.duration))
-
-        - if !ride.story.blank?
-          = ride.markdown_story
-
-        %hr/
-
-      %footer.entry-footer
-        %span.blog.date
-          %span.day= ride.number.ordinalize
-          %span.month= t('general.ride')
-        
-- if false
-  = t('hitchslider.user_hitchhiked_text', user: trip.user.to_s,
-                                          time: (trip.departure ? time_ago_in_words(trip.departure) : nil),
-                                          distance: distance(trip.distance),
-                                          from: trip.from,
-                                          to: trip.to,
-                                          rides_size: trip.rides.size).html_safe
-  %br/
-  - if trip.duration && trip.duration != 0
-    = t('hitchslider.it_took_text', time: human_seconds(trip.duration)).html_safe
-  - if trip.gmaps_duration && trip.gmaps_duration != 0
-    = t('hitchslider.google_maps_text', gmaps_duration: human_seconds(trip.gmaps_duration),
-                             user: trip.user.to_s,
-                             gmaps_difference: gmaps_difference(trip)).html_safe
+    #map
 
 
-%section#view-comments.entry-comments.clearfix
-  %h3
-    = pluralize(trip.comments.size, t('general.comment'))
-  %ul
-    - trip.comments.each do |comment|
-      %li
-        %footer.comment-meta.comment-picture
-          = link_to user_path(comment.user) do
-            = render 'users/profile_image', user: comment.user, type: 'square'
+  = render 'stories', trip: trip
 
-          .comment-meta
-            %span.comment-author.vcard
-              %cite
-                = link_to comment.user, user_path(comment.user)
-            %time.published
-              - if comment.created_at > 20.days.ago
-                = t('general.time_ago', time: time_ago_in_words(comment.created_at))
-              - else
-                = comment.created_at.strftime("%B %d, %Y %H:%M")
+  .entry-related
+    = render 'image_slider', trip: trip
 
-        .text
-          = RDiscount.new(comment.body).to_html.html_safe
-          #comment-form
-
-  - if user_signed_in?
-    %h3 Leave a Comment
-    = form_tag create_comment_trip_path(trip) do
-      %span.inputwrapper
-        = label_tag :body, t('.message')
-        = text_area_tag :body, '', class: 'comment_body', rows: 5, cols: 30
-      %br/
-      %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
-  - else
-    %p
-      = link_to t('.log_in'), new_user_session_path
-      = t('general.or')
-      = link_to t('.register'), new_user_registration_path
-      = t('.to_comment')
-
-
+= render 'comments', trip: trip

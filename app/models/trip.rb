@@ -10,8 +10,8 @@ class Trip < ActiveRecord::Base
   validates :departure,  presence: true
   validates :arrival,    presence: true, after_departure: true
   validates :user_id,    presence: true
-  validates :hitchhikes, presence: true, if: :new_record
-  validates :hitchhikes, numericality:  true, cannot_be_zero: true
+  validates :hitchhikes, numericality:  true, presence: true, if: :new_record
+  validates :hitchhikes, cannot_be_zero: true
   validates :travelling_with, presence: true
 
   validates :distance,   numericality: true
@@ -135,7 +135,7 @@ class Trip < ActiveRecord::Base
   end
 
   def new_record
-    new_record?
+    self.new_record?
   end
 
   def duration_difference
@@ -169,5 +169,13 @@ class Trip < ActiveRecord::Base
     elsif experiences.include? 'positive'
       'positive'
     end
+  end
+
+  def hitchhiked_kms
+    distance / 1000
+  end
+
+  def total_waiting_time
+    rides.waiting_time.sum
   end
 end

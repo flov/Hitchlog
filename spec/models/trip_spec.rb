@@ -125,6 +125,14 @@ describe Trip do
     it { trip.departure_text.should == "07 November 2009 20:00" }
   end
 
+  describe "#total_waiting_time" do
+    it 'returns the total accumulated waiting_time' do
+      trip.rides << FactoryGirl.create(:ride, waiting_time: 5)
+      trip.rides << FactoryGirl.create(:ride, waiting_time: 6)
+      trip.total_waiting_time.should == 11
+    end
+  end
+
   describe "#experience" do
     context "has only positive experiences" do
       it "returns a positive experience" do

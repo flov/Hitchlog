@@ -1,0 +1,39 @@
+%section#view-comments.entry-comments.clearfix
+  %h3
+    = pluralize(trip.comments.size, t('general.comment'))
+  %ul
+    - trip.comments.each do |comment|
+      %li
+        %footer.comment-meta.comment-picture
+          = link_to user_path(comment.user) do
+            = render 'users/profile_image', user: comment.user, type: 'square'
+
+          .comment-meta
+            %span.comment-author.vcard
+              %cite
+                = link_to comment.user, user_path(comment.user)
+            %time.published
+              - if comment.created_at > 20.days.ago
+                = t('general.time_ago', time: time_ago_in_words(comment.created_at))
+              - else
+                = comment.created_at.strftime("%B %d, %Y %H:%M")
+
+        .text
+          = RDiscount.new(comment.body).to_html.html_safe
+          #comment-form
+
+  - if user_signed_in?
+    %h3 Leave a Comment
+    = form_tag create_comment_trip_path(trip) do
+      %span.inputwrapper
+        = label_tag :body, t('.message')
+        = text_area_tag :body, '', class: 'comment_body', rows: 5, cols: 30
+      %br/
+      %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
+  - else
+    %p
+      = link_to t('.log_in'), new_user_session_path
+      = t('general.or')
+      = link_to t('.register'), new_user_registration_path
+      = t('.to_comment')
+

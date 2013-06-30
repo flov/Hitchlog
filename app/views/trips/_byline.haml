@@ -1,0 +1,30 @@
+.byline
+  %i.icon-pencil
+  = link_to_user(trip.user)
+  &nbsp;&nbsp;
+  %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
+    %i.icon-time
+    = trip.departure.strftime("%B %d, %Y")
+    = '-'
+    = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
+    &nbsp;&nbsp;
+  %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
+    %b G 
+    = accurate_distance_of_time_in_words(trip.gmaps_duration)
+  &nbsp;&nbsp;
+  - unless trip.rides.with_photo.empty?
+    %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+      = trip.rides.with_photo.size
+      %i.icon-picture
+    &nbsp;&nbsp;
+  %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
+    %i.icon-comments-alt
+    = trip.comments.size
+  &nbsp;&nbsp;
+  %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
+    %i.icon-thumbs-up
+    = trip.rides.size
+  &nbsp;&nbsp;
+  %span.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
+    #{number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")}
+    %i.icon-dashboard

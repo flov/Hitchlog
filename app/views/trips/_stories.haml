@@ -1,0 +1,19 @@
+- trip.rides.with_story.each do |ride|
+  .entry-content
+    %article
+      %h3
+        = ride.title
+        = experience_image(ride.experience)
+        = gender_people_image(ride.gender)
+        = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+        = driving_time_image(human_hours(ride.duration)) if ride.duration
+
+      - if !ride.story.blank?
+        = ride.markdown_story
+
+      %hr/
+
+    %footer.entry-footer
+      %span.blog.date
+        %span.day= ride.number.ordinalize
+        %span.month= t('general.ride')

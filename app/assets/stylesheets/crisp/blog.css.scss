@@ -44,17 +44,13 @@
 { margin-bottom: 20px }
 
 .trip-detail header .byline,
-.trip-detail header .entry-meta,
-.blog-summary header .byline,
-.blog-summary header .entry-meta {
+.trip-detail header .entry-meta{
     font-size: 12px;
     font-size: 1.2rem;
     line-height:2;
 }
 .trip-detail header .byline a,
-.trip-detail header .entry-meta a,
-.blog-summary header .byline a,
-.blog-summary header .entry-meta a {
+.trip-detail header .entry-meta a{
 	text-decoration:none
 }
 .trip-detail header .byline { padding-top: 5px }
