@@ -32,8 +32,9 @@
         %i.icon-thumbs-up
         = trip.rides.size
 
-  
   = render 'image_slider', trip: trip
+
+  #map
 
   - trip.rides.with_story.each do |ride|
     .entry-content

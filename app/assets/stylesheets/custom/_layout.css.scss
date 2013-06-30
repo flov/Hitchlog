@@ -168,3 +168,9 @@ form.trips_search {
   @include border-radius(30px); // make rounded corners match the pills
 }
 
+#map {
+  width: 89%;
+  height: 200px;
+  float: right;
+  margin-bottom: 13px;
+}

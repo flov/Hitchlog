@@ -15,7 +15,8 @@
 //= require vendor/jquery.observe_field.js
 //= require vendor/jquery.nivo.slider.pack.js
 //
-
+//= require map
+//
 
 // Tooltip Settings:
 $(".tip").tooltip()
