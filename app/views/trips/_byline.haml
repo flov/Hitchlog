@@ -4,9 +4,9 @@
   &nbsp;&nbsp;
   %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
     %i.icon-time
-    = trip.departure.strftime("%B %d, %Y")
-    = '-'
-    = accurate_distance_of_time_in_words(trip.arrival - trip.departure)
+    = succeed(',') do
+      = trip.departure.strftime("%B %d, %Y")
+    = t('general.took_time', time: accurate_distance_of_time_in_words(trip.arrival - trip.departure))
   &nbsp;&nbsp;
   %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
     %b G 

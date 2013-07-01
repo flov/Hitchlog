@@ -1,6 +1,21 @@
 - title t('.edit_title')
 
-.row-fluid
+.row-fluid.reverse-order
+  .span4
+    %h4
+      = t('.edit_trip')
+      = link_to trip_path(trip), :method => :delete, data: { confirm: t('general.confirm') }, class: 'btn btn-danger' do
+        = t('general.delete')
+    %p
+      #{t('activerecord.attributes.trip.departure')}:
+      = trip.departure.strftime("%B %d, %Y %H:%M")
+      %br/
+      #{t('activerecord.attributes.trip.arrival')}:
+      = trip.arrival.strftime("%B %d, %Y %H:%M")
+
+    #accordion
+      = render trip.rides
+
   .span8.primary-column.trip-detail
     = render 'trips/trip', trip: trip
     = simple_form_for trip, :remote => true, :html => {:id => 'trip_form'} do |f|
@@ -14,20 +29,7 @@
       = f.hidden_field :to_formatted_address
       .hidden= submit_tag
 
-  %section.span4.sidebar.secondary-column#secondary-nav
-    %h4
-      = t('.edit_trip')
-      = link_to trip_path(trip), :method => :delete, data: { confirm: t('general.confirm') }, class: 'btn btn-danger' do
-        = t('general.delete')
-    %p
-      #{t('activerecord.attributes.trip.departure')}:
-      = trip.departure.strftime("%d %B %Y %H:%S")
-      %br/
-      #{t('activerecord.attributes.trip.arrival')}:
-      = trip.arrival.strftime("%d %B %Y %H:%S")
 
-    #accordion
-      = render trip.rides
 
 - content_for :javascript_at_bottom do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
