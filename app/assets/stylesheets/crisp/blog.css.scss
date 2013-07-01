@@ -306,7 +306,6 @@
 
 
 @media only screen and (max-width:600px) { 
-
   .trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
   .trip-detail .entry-footer .addthis_toolbox { display: none }
 
@@ -316,6 +315,9 @@
     .entry-tags,
     .entry-pagination,
     .entry-related {
+      footer {
+        display: none;
+      }
       article {
         width: 100%!important;
         float: none!important;
@@ -363,5 +365,5 @@
   textara#comment_body {
     width: 340px;
   }
-} /*end*/
+} 
 
