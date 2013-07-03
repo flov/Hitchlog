@@ -69,17 +69,21 @@ textarea.comment_body{
 .time.add-on {
   @include border-radius(0 4px 4px 0);
 }
-input#trip_departure,
-input#trip_arrival {
-  width: 84px;
-  @include border-radius(0);
-}
-input#trip_departure_time,
-input#trip_arrival_time {
-  border-left: 0;
-  border-right: 0;
-  width: 54px;
-  @include border-radius(0);
+
+
+form#new_trip {
+  input#trip_departure,
+  input#trip_arrival {
+    width: 84px;
+    @include border-radius(0);
+  }
+  input#trip_departure_time,
+  input#trip_arrival_time {
+    border-left: 0;
+    border-right: 0;
+    width: 54px;
+    @include border-radius(0);
+  }
 }
 
 
@@ -186,4 +190,19 @@ form.trips_search {
   height: 200px;
   float: right;
   margin-bottom: 13px;
+}
+
+@media only screen and (max-width:600px) { 
+  input {
+    width: 96% !important
+  }
+  input#trip_arrival, input#trip_departure {
+    width: 20% !important
+  }
+  input#trip_arrival_time, input#trip_departure_time {
+    width: 11% !important
+  }
+  input[type="submit"] {
+    margin-bottom: 10px;
+  }
 }
