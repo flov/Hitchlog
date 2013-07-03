@@ -7,25 +7,27 @@
 
   .row-fluid
     .span6
-      = f.input :from, hint: 'choose the location from the dropdown'
+      = f.input :from, hint: 'choose a location from the dropdown menu'
       #suggest_from
       = f.input :to
       #suggest_to
       = f.input :hitchhikes, required: true, collection: 1..50, default: 1 if trip.new_record?
 
-      = f.input :departure, as: :string,
-                            wrapper_html: {id: 'datetimepicker_departure'},
-                            wrapper: :append  do
-        = f.input_field :departure, as: :string, "data-format" => "dd/MM/yyyy hh:mm"
-        %span.add-on
+      = f.input :departure, wrapper: :prepend  do
+        %span.add-on.calendar
           %i.icon-calendar
+        = f.input_field :departure, as: :string, default: "hellohello!"
+        = f.input_field :departure_time, as: :string
+        %span.add-on.time
+          %i.icon-time
 
-      = f.input :arrival, as: :string,
-                          wrapper_html: {id: 'datetimepicker_arrival'},
-                          wrapper: :append  do
-        = f.input_field :arrival, as: :string, "data-format" => "dd/MM/yyyy hh:mm"
-        %span.add-on
+      = f.input :arrival, wrapper: :prepend  do
+        %span.add-on.calendar
           %i.icon-calendar
+        = f.input_field :arrival, as: :string, default: Time.now.strftime("%d %B, %Y")
+        = f.input_field :arrival_time, as: :string
+        %span.add-on.time
+          %i.icon-time
 
       = f.input :travelling_with, collection: [[t('helper.trip.alone'), 0],
                                                [t('helper.trip.with_1'),1],
@@ -36,8 +38,8 @@
 
 
       = f.hidden_field :route
-      = f.hidden_field :distance
-      = f.hidden_field :gmaps_duration
+      = hidden_field_tag 'trip[distance]', 0
+      = hidden_field_tag 'trip[gmaps_duration]', 0
 
       = f.hidden_field :from_lat
       = f.hidden_field :from_lng

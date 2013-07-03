@@ -1,20 +1,37 @@
 $ ->
   #
-  # Datetimepicker:
+  # Datepicker:
   #
-  window.departure = $('#datetimepicker_departure').datetimepicker({
-    pickSeconds: false
-  }).on('changeDate', (ev) ->
-    arrival_date = new Date(ev.date)
-    arrival_date.setHours(arrival_date.getHours() + 4)
-    arrival.datetimepicker('setValue', arrival_date)
-  )
+  
+  #$input.pickadate(methodName, argument1, argument2, ...)
+  #$input.pickadate(objectName)
 
-  window.arrival = $('#datetimepicker_arrival').datetimepicker({
-    pickSeconds: false
+  
+  
+  arrival_input = $('#trip_arrival').pickadate({
+    formatSubmit: 'dd/mm/yyyy'
+    selectYears: 20
+    selectMonths: true
+    max: true
+    on_start: ->
+      this.set('select', new Date())
   })
-  # Datetimepicker end
+  $arrival_picker = arrival_input.pickadate('picker')
 
+  departure_input = $('#trip_departure').pickadate({
+    formatSubmit: 'dd/mm/yyyy'
+    selectYears: 20
+    selectMonths: true
+    max: true
+    onStart: ->
+      this.set('select', new Date())
+    onSet: (event) ->
+      $arrival_picker.set('select', event.select)
+  })
+  $departure_picker = departure_input.pickadate('picker')
+
+  $('#trip_departure_time').pickatime()
+  $('#trip_arrival_time').pickatime()
 
   if google?
     window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });

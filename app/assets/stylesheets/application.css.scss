@@ -61,8 +61,11 @@
 @import 'crisp/responsive-tables';
 
 @import 'vendors/jquery-ui-1.8.14.custom';
-@import 'vendors/bootstrap-datepicker';
 @import 'vendors/nivo-slider';
+
+@import 'pickadate/default';
+@import 'pickadate/default.date';
+@import 'pickadate/default.time';
 
 @import url('http://fonts.googleapis.com/css?family=Ubuntu|Raleway');
 

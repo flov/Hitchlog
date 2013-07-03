@@ -65,10 +65,23 @@ textarea.comment_body{
   width: 360px;
   height: 50px;
 }
+
+.time.add-on {
+  @include border-radius(0 4px 4px 0);
+}
 input#trip_departure,
 input#trip_arrival {
-  width: 180px;
+  width: 84px;
+  @include border-radius(0);
 }
+input#trip_departure_time,
+input#trip_arrival_time {
+  border-left: 0;
+  border-right: 0;
+  width: 54px;
+  @include border-radius(0);
+}
+
 
 .field_with_errors {
   .control-label, .help-block, .help-inline {

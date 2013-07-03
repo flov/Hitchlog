@@ -15,6 +15,10 @@
 //= require vendor/jquery.observe_field.js
 //= require vendor/jquery.nivo.slider.pack.js
 //
+//= require vendor/picker
+//= require vendor/picker.date
+//= require vendor/picker.time
+//
 //= require map
 //
 

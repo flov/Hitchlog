@@ -5,7 +5,7 @@
     %title= content_for?(:title) ? "Hitchlog - #{yield(:title)}".html_safe : "Hitchlog"
     = meta_keywords
     = meta_description
-    %meta{content: "width=device-width; initial-scale=1.0;", name: "viewport"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     = csrf_meta_tag 
     = stylesheet_link_tag 'application'
     = yield(:head)

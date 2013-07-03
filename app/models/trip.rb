@@ -22,13 +22,17 @@ class Trip < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
 
-  attr_accessor   :hitchhikes, :start_time, :end_time
+  attr_accessor   :hitchhikes,
+                  :departure_time,
+                  :arrival_time
 
   attr_accessible :from,
                   :to,
                   :hitchhikes,
                   :departure,
+                  :departure_time,
                   :arrival,
+                  :arrival_time,
                   :travelling_with,
                   :route,
                   :distance,
