@@ -477,7 +477,7 @@ en:
       not_locked: "was not locked"
 
   validators:
-    arrival_after_departure: The departure cannot be before the arrival
+    arrival_after_departure: cannot be before the departure
     cannot_be_in_past: "can't be in past"
     cannot_be_0: 'cannot be 0'
 

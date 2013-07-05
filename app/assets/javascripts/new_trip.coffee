@@ -2,36 +2,37 @@ $ ->
   #
   # Datepicker:
   #
-  
-  #$input.pickadate(methodName, argument1, argument2, ...)
-  #$input.pickadate(objectName)
-
-  
-  
   arrival_input = $('#trip_arrival').pickadate({
-    formatSubmit: 'dd/mm/yyyy'
     selectYears: 20
     selectMonths: true
     max: true
     on_start: ->
-      this.set('select', new Date())
+      date = new Date()
+      date.setDate(date.getDate() - 1)
+      this.set('select', date)
   })
-  $arrival_picker = arrival_input.pickadate('picker')
+  window.$arrival_picker = arrival_input.pickadate('picker')
 
   departure_input = $('#trip_departure').pickadate({
-    formatSubmit: 'dd/mm/yyyy'
-    selectYears: 20
-    selectMonths: true
     max: true
     onStart: ->
       this.set('select', new Date())
     onSet: (event) ->
+      $arrival_picker.set('min', new Date(event.select))
       $arrival_picker.set('select', event.select)
   })
   $departure_picker = departure_input.pickadate('picker')
 
-  $('#trip_departure_time').pickatime()
-  $('#trip_arrival_time').pickatime()
+  $('#trip_departure_time').pickatime({
+    interval: 15
+    onStart: ->
+      this.set('select', [10,0])
+  })
+  $('#trip_arrival_time').pickatime({
+    interval: 15
+    onStart: ->
+      this.set('select', [18,0])
+  })
 
   if google?
     window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
@@ -74,8 +75,6 @@ $ ->
       if window.from && window.to
         route(window.from, window.to)
 
-
-
 from = ''
 to = ''
 
@@ -108,15 +107,17 @@ autocomplete_for = (direction, map) ->
     window.place = autocomplete.getPlace()
     if (!place.geometry)
       # Inform the user that the place was not found and return.
-      alert 'place could not be found'
+      $(".trip_#{direction} .controls").append('<span class="help-inline">Could not find location, please try again</span>')
+      $(".trip_#{direction}").addClass('error')
       return
 
     # If the place has a geometry, then present it on a map.
-    if (place.geometry.viewport)
-      map.fitBounds(place.geometry.viewport)
-    else
-      map.setCenter(place.geometry.location)
-      map.setZoom(17)  # Why 17? Because it looks good.
+    unless direction == 'to'
+      if (place.geometry.viewport)
+        map.fitBounds(place.geometry.viewport)
+      else
+        map.setCenter(place.geometry.location)
+        map.setZoom(17)  # Why 17? Because it looks good.
 
     location = place.geometry.location
 
@@ -150,9 +151,6 @@ route = (from, to) ->
     if (status == google.maps.DirectionsStatus.OK)
       window.directionsDisplay.setDirections(response);
   )
-
-
-
 
 directions_hash = (directionsDisplay) ->
   waypoints = []

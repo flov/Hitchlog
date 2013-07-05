@@ -187,4 +187,18 @@ class Trip < ActiveRecord::Base
       nil
     end
   end
+
+  def departure_time=(time)
+    time = Time.parse time
+    if self.departure
+      self[:departure] = DateTime.new(departure.year, departure.month, departure.day, time.hour, time.min, time.sec)
+    end
+  end
+
+  def arrival_time=(time)
+    time = Time.parse time
+    if self.arrival
+      self[:arrival] = DateTime.new(arrival.year, arrival.month, arrival.day, time.hour, time.min, time.sec)
+    end
+  end
 end

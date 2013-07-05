@@ -17,6 +17,7 @@ FactoryGirl.define do
     username              { |u| u.email.split("@").first }
     password              "password"
     password_confirmation "password"
+    password_salt         "salt"
     cs_user               Faker::Name.first_name
     last_sign_in_at       Time.zone.now
     lat                   0.0

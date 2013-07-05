@@ -25,13 +25,23 @@ describe Trip do
         trip.rides.size.should == 1
       end
     end
+  end
 
-    describe '#arrival' do
-      it "cannot be before departure" do
-        trip.departure = 1.day.ago
-        trip.arrival =   2.days.ago
-        trip.should have(1).error_on :arrival
-      end
+  describe '#departure and #arrival' do
+    it 'should save departure_date and departure_time to departure' do
+      trip = FactoryGirl.build(:trip,
+                               departure: '5 July, 2013',
+                               departure_time: '08:00 AM')
+
+      trip.departure.strftime("%d/%m/%Y %H:%M").should == "05/07/2013 08:00"
+    end
+
+    it 'should save arrival_date and arrival_time to arrival' do
+      trip = FactoryGirl.build(:trip,
+                               arrival: '5 July, 2013',
+                               arrival_time: '08:00 AM')
+
+      trip.arrival.strftime("%d/%m/%Y %H:%M").should == "05/07/2013 08:00"
     end
   end
 
@@ -114,15 +124,6 @@ describe Trip do
         trip.hitchability.should == nil
       end
     end
-  end
-
-  describe "#arrival_text departure_text" do
-    before do
-      trip.departure = '07/11/2009 10:00'
-      trip.arrival   = '07/11/2009 20:00'
-    end
-    it { trip.arrival_text.should == "07 November 2009 10:00" }
-    it { trip.departure_text.should == "07 November 2009 20:00" }
   end
 
   describe "#total_waiting_time" do
