@@ -1,12 +1,8 @@
 module ApplicationHelper
-  def google_maps_js
-    "<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3.7&key=#{Rails.configuration.google_maps_key}&sensor=false'></script>".html_safe
-  end
-
   def uservoice_feedback
     render :partial => 'shared/uservoice_feedback'
   end
-  
+
   def seconds_to_hours(seconds)
     secounds/60/60
   end

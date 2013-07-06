@@ -25,7 +25,6 @@ gem 'ransack' # replacement for meta_search which isn't compatible with rails 3.
 gem 'geocoder'
 gem 'haml', '~> 3.2.0.rc.4'
 gem 'omniauth-facebook'
-gem 'choices' # external settings in Rails app
 gem 'friendly_id', '~> 3.2.1'
 gem 'simple_form'
 gem 'compass'

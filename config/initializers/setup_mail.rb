@@ -1,10 +1,10 @@
 ActionMailer::Base.smtp_settings = {
-  :address              => Rails.configuration.smtp_settings[:address],
-  :port                 => Rails.configuration.smtp_settings[:port],
-  :domain               => Rails.configuration.smtp_settings[:domain],
-  :user_name            => Rails.configuration.smtp_settings[:user_name],
-  :password             => Rails.configuration.smtp_settings[:password],
-  :authentication       => Rails.configuration.smtp_settings[:authentication],
+  :address              => ENV['SMTP_DOMAIN'],
+  :port                 => ENV['SMTP_ADDRESS'],
+  :domain               => ENV['SMTP_DOMAIN'],
+  :user_name            => ENV['SMTP_USER'],
+  :password             => ENV['SMTP_PASS'],
+  :authentication       => 'plain',
   :enable_starttls_auto => true
 }
 

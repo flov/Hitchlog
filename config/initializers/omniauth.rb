@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, Hitchlog::Application.config.facebook_id,
-                      Hitchlog::Application.config.facebook_secret,
+  provider :facebook, ENV["FACEBOOK_ID"],
+                      ENV["FACEBOOK_SECREt"],
                       scope: 'email'
 
   OmniAuth.config.add_mock(:facebook, {
