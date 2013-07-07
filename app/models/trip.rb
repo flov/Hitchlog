@@ -18,9 +18,6 @@ class Trip < ActiveRecord::Base
 
   validates :distance,   numericality: true
 
-  concerned_with :googlemaps,
-                 :countries
-
   cattr_reader :per_page
   @@per_page = 20
 
