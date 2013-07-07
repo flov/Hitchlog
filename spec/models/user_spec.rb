@@ -13,15 +13,29 @@ describe User do
   end
 
   describe 'valid?' do
-    describe 'validates usernae' do
-      it 'allows all those letters: /A-Za-z\d_-/' do
-        user.username = 'Abc1239_-'
+    describe '#username' do
+      it 'allows all these letters: /A-Za-z\d_-/' do
+        user.username = 'Abc1239_.'
         user.should be_valid
       end
 
-      it 'does not allow other letters:' do
-        user.username = '#$%?'
-        user.should_not be_valid
+      it 'converts `.` into `_` for facebook usernames' do
+        user.username = 'user.name'
+        user.save
+        user.username.should == 'user_name'
+      end
+
+      it 'downcases the user after validation' do
+        user.username = 'AlbertHoffmann'
+        user.save
+        user.username.should == 'alberthoffmann'
+      end
+
+      it 'does not allow these letters:' do
+        '#$%? '.each_char do |letter|
+          user.username = "username#{letter}"
+          user.should_not be_valid
+        end
       end
     end
   end

@@ -64,7 +64,8 @@ end
 
 Given /^a trip with a story$/ do
   @trip_with_story = FactoryGirl.build(:trip, hitchhikes: 0)
-  @trip_with_story.rides << FactoryGirl.create(:ride, story: Faker::Lorem::paragraph(sentence_count = 10))
+  @trip_with_story.rides << FactoryGirl.create(:ride,
+                                               story: Faker::Lorem::paragraph(sentence_count = 10))
   @trip_with_story.save!
 end
 

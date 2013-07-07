@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true,
                        uniqueness: true,
-                       format: {with: /^[\.A-Za-z\d_-]+$/}
+                       format: {with: /^[A-Za-z\d_-]+$/}
 
   before_validation :sanitize_username
   before_validation :update_location_updated_at, if: 'location_changed?'
@@ -146,7 +146,7 @@ class User < ActiveRecord::Base
   def number_of_photos
     rides.collect(&:photo_url).compact.size
   end
-  
+
   private
 
   def update_location_updated_at
@@ -154,6 +154,7 @@ class User < ActiveRecord::Base
   end
 
   def sanitize_username
-    self.username.downcase
+    self.username = self.username.gsub('.', '_') if self.username.include? '.'
+    self.username = self.username.downcase
   end
 end

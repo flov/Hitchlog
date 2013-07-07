@@ -4,7 +4,7 @@ Feature: Future Trips
   I want to be able to view, add, edit and delete a future trip
 
   Background:
-    Given I am logged in as "Flov" from "Cairns"
+    Given I am logged in as "flov" from "Cairns"
 
   @javascript @geocode_1 @geocode_2 @geocode_3 @geocode_4 @wip
   Scenario: New future trip WITH a nearby hitchhiker
@@ -40,6 +40,7 @@ Feature: Future Trips
   Scenario: View a future trip in someone elses profile and send him a message
     Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I go to the profile page of Malte
+    And show me the page
     Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I follow the send a message link besides the future trip
     And I fill in the message form

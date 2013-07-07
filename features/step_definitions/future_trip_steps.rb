@@ -72,6 +72,6 @@ Then /^I should see the future trip of "([^"]*)" from "([^"]*)" to "([^"]*)"$/ d
 end
 
 Given /^"([^"]*)" logged a future trip from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |username, from, to, departure|
-  user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
+  user = User.find_by_username(username.downcase) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
   user.future_trips.create(from: from, to: to, departure: departure)
 end

@@ -13,7 +13,6 @@ class Trip < ActiveRecord::Base
   validates :arrival,    presence: true, after_departure: true
   validates :user_id,    presence: true
   validates :hitchhikes, numericality:  true, presence: true, if: :new_record
-  validates :hitchhikes, cannot_be_zero: true
   validates :travelling_with, presence: true
 
   validates :distance,   numericality: true

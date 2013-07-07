@@ -25,7 +25,7 @@ Given /^I am logged in$/ do
   visit new_user_session_path
   fill_in "Username", with: @user.username
   fill_in "Password", with: 'password'
-  click_button "Hitch me up"
+  click_button "Hitch in"
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |username|
@@ -33,17 +33,20 @@ Given /^I am logged in as "([^"]*)"$/ do |username|
   visit new_user_session_path
   fill_in "Username", with: @user.username
   fill_in "Password", with: 'password'
-  click_button "Hitch me up"
+  click_button "Hitch in"
 end
 
 Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
-  user = FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
-  user.update_column :city, city
+  user = FactoryGirl.build(:user, email: "#{username}@hitchlog.com", username: username, city: city)
+  Rails.logger.info "HEY!"
+  Rails.logger.info user.valid?
+  Rails.logger.info user.errors.messages
+  user.save!
 
   visit new_user_session_path
-  fill_in "Username", with: user.username
+  fill_in "Username", with: username
   fill_in "Password", with: 'password'
-  click_button "Hitch me up"
+  click_button "Hitch in"
 end
 
 Given /^I logged a trip$/ do
