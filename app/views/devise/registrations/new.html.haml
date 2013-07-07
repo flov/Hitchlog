@@ -19,7 +19,7 @@
         = f.input :password_confirmation, placeholder: 'Password confirmation'
         = f.input :gender, collection: [t('activerecord.models.male'), t('activerecord.models.female')], include_blank: false
 
-        = f.button :submit, 'Sign Up'
+        = f.button :submit, t('.sign_up'), class: 'btn btn-large btn-primary'
 
       <b>Help:</b>
       If you lost your password, you can

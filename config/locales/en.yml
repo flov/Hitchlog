@@ -385,18 +385,17 @@ en:
     comments:
       there_are_no_comments: "There are no comments for this trip"
       user_wrote: "%{time} ago %{user} wrote:"
+      log_in_or_register_to_comment: Log in or register to comment on this trip
+    byline:
+      trip_duration: "Trip duration: %{time}"
+      google_maps_duration: "Google Maps duration: %{time}"
     trip:
       edit_trip: "(Edit Trip)"
       ride: Ride
-      trip_duration: "Trip duration: %{time}"
-      gmaps_duration: "Gmaps Duration"
       time_ago: "%{time} ago"
       message: "Message:"
-      register: register
-      log_in: "Log in"
       to_comment: "to comment on this trip"
       add_comment: Add Comment
-      google_maps_duration: "Google Maps duration: %{time}"
     form:
       step1_2: Continue
     show_ride:

@@ -10,17 +10,12 @@
   - if user.city.present?
     = flag_with_country_name(user)
 
-    - unless user.cs_user.blank? and current_user == user
-      %ul
-        - unless user.cs_user.blank?
-          %li
-            = image_tag 'cs.ico'
-            #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
-        - unless current_user == user
-          %li
-            = link_to send_mail_user_path(user) do
-              %i.icon-envelope
-              = t('.send_mail')
+  %p
+    = image_tag 'cs.ico'
+    #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
+    %br/
+    %i.icon-envelope
+    = link_to t('.send_mail'), send_mail_user_path(user)
 
   - if user.trips.any?
     #{t('.hitchhiked_countries')}: 

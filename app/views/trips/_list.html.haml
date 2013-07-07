@@ -16,7 +16,7 @@
       %tr{:id => "trip_#{trip.id}"}
         %td
           = link_to trip.to_s.html_safe, trip
-          = link_to t('.edit'), edit_trip_path(trip) if trip.user == current_user
+          = link_to t('general.edit'), edit_trip_path(trip) if trip.user == current_user
           - rides_with_story = trip.rides.select {|ride| !ride.story.blank? }
           - rides_with_story.each_with_index do |ride, i|
             - unless ride.title.blank?

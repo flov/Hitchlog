@@ -32,8 +32,6 @@
       %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
   - else
     %p
-      = link_to t('.log_in'), new_user_session_path
-      = t('general.or')
-      = link_to t('.register'), new_user_registration_path
-      = t('.to_comment')
+      = link_to new_user_session_path do
+        = t('.log_in_or_register_to_comment')
 
