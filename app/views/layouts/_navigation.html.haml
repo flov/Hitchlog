@@ -8,15 +8,16 @@
         %span.icon-bar
       .nav-collapse.collapse
         %ul.nav
-          %li{class: home_active? }= link_to '<i class="icon-home"></i>'.html_safe, root_path
-          %li{class: trips_active? }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
-          %li{class: users_active? }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
-          %li{class: about_active? }= link_to t('.about'), about_path
+          %li{class: trips_active }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
+          %li{class: users_active }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
+          - if user_signed_in?
+            %li{class: new_trip_active }= link_to "<i class='icon-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
+          - else
+            %li{class: about_active }= link_to t('.about'), about_path
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
-              = t('.language')
-              %b.caret
+              = image_tag "flags/png/#{I18n.locale}.png"
             %ul.dropdown-menu
               - [ :en, :fr, :pt, :de ].each do |locale|
                 %li
@@ -25,7 +26,7 @@
                     != "<i class='icon-hand-left'></i>" if I18n.locale == locale
 
         - if user_signed_in?
-          .pull-right.logged_in
+          .pull-right.your_profile_bar
             = link_to user_path(current_user) do
               = render 'users/profile_image', user: current_user
 

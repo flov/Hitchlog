@@ -3,6 +3,9 @@
     %span
       = link_to user, user_path(user)
       = gender_image user.gender
+    - if user == current_user
+      = link_to t('.edit'), edit_user_path(user), class: 'btn btn-info'
+
 
   = render 'users/profile_image', user: user, type: "normal"
 

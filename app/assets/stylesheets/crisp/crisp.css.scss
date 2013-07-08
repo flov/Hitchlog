@@ -575,8 +575,8 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 /* used on the home page to put the .well before the testimonials &
   on the contact page to put the form before the address on desktop */
   
-.row-fluid.reverse-order .span4, .row-fluid.reverse-order .span5 {float:right;} 
-.row-fluid.reverse-order .span8, .row-fluid.reverse-order .span7 {margin-left:0;}
+.row-fluid.reverse-order .span4, .row-fluid.reverse-order .span3, .row-fluid.reverse-order .span5 {float:right;} 
+.row-fluid.reverse-order .span9, .row-fluid.reverse-order .span8, .row-fluid.reverse-order .span7 {margin-left:0;}
 
 /****** widget base ******/
 .widget {
@@ -1445,10 +1445,12 @@ hr {
 }
 /* used on the home page to put the .well before the testimonials &
   on the contact page to put the form before the address on desktop */
+.row-fluid.reverse-order .span3,
 .row-fluid.reverse-order .span4,
 .row-fluid.reverse-order .span5 {
     float: none
 }
+.row-fluid.reverse-order .span9,
 .row-fluid.reverse-order .span8,
 .row-fluid.reverse-order .span7 {
     margin-left: 0

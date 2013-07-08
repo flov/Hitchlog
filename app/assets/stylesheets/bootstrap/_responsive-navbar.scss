@@ -45,47 +45,48 @@
   // Nav collapse clears brand
   .nav-collapse {
     clear: both;
-  }
-  // Block-level the nav
-  .nav-collapse .nav {
-    float: none;
-    margin: 0 0 ($baseLineHeight / 2);
-  }
-  .nav-collapse .nav > li {
-    float: none;
-  }
-  .nav-collapse .nav > li > a {
-    margin-bottom: 2px;
-  }
-  .nav-collapse .nav > .divider-vertical {
-    display: none;
-  }
-  .nav-collapse .nav .nav-header {
-    color: $navbarText;
-    text-shadow: none;
-  }
-  // Nav and dropdown links in navbar
-  .nav-collapse .nav > li > a,
-  .nav-collapse .dropdown-menu a {
-    padding: 9px 15px;
-    font-weight: bold;
-    color: $navbarLinkColor;
-    @include border-radius(3px);
-  }
-  // Buttons
-  .nav-collapse .btn {
-    padding: 4px 10px 4px;
-    font-weight: normal;
-    @include border-radius($baseBorderRadius);
-  }
-  .nav-collapse .dropdown-menu li + li a {
-    margin-bottom: 2px;
-  }
-  .nav-collapse .nav > li > a:hover,
-  .nav-collapse .nav > li > a:focus,
-  .nav-collapse .dropdown-menu a:hover,
-  .nav-collapse .dropdown-menu a:focus {
-    background-color: $navbarBackground;
+
+    // Block-level the nav
+    .nav {
+      float: left;
+      margin: 0 0 ($baseLineHeight / 2);
+    }
+    .nav > li {
+      float: none;
+    }
+    .nav > li > a {
+      margin-bottom: 2px;
+    }
+    .nav > .divider-vertical {
+      display: none;
+    }
+    .nav .nav-header {
+      color: $navbarText;
+      text-shadow: none;
+    }
+    // Nav and dropdown links in navbar
+    .nav > li > a,
+    .dropdown-menu a {
+      padding: 9px 15px;
+      font-weight: bold;
+      color: $navbarLinkColor;
+      @include border-radius(3px);
+    }
+    // Buttons
+    .btn {
+      padding: 4px 10px 4px;
+      font-weight: normal;
+      @include border-radius($baseBorderRadius);
+    }
+    .dropdown-menu li + li a {
+      margin-bottom: 2px;
+    }
+    .nav > li > a:hover,
+    .nav > li > a:focus,
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+      background-color: $navbarBackground;
+    }
   }
   .navbar-inverse .nav-collapse .nav > li > a,
   .navbar-inverse .nav-collapse .dropdown-menu a {

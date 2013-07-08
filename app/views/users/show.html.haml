@@ -2,7 +2,9 @@
 
 -#= render 'alternative'
 
-.row-fluid.sidebar-right
+.row-fluid.sidebar-right.reverse-order
+  %section.span3.sidebar.secondary-column#secondary-nav
+    = render 'users/profile_picture_section', user: user
   .span9.primary-column
     %h3.short_headline
       %span
@@ -38,4 +40,3 @@
         = render 'trips/list', :trips => user.trips
       = will_paginate trips, :class => 'flickr_pagination'
 
-  = render 'right_column', user: user
