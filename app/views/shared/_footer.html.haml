@@ -1,0 +1,30 @@
+%footer#footer
+  .container
+    .row-fluid
+      .span12
+        %h1 Hitchlog
+    .row-fluid
+      .span4
+        %section
+          %h4= t('.follow_the_hitchlog')
+          %ul.social
+            %li
+              %a.icon-facebook.tip{title: "The Hitchlog on Facebook", href: 'https://www.facebook.com/pages/Hitchlog/106464962761282'}
+            %li
+              %a.icon-twitter.tip{title: "The Hitchlog on Twitter", href: "https://twitter.com/hitchlog"}
+
+
+  %section.footerCredits
+    .container
+      %ul.clearfix
+        %li © 2013 Hitchlog
+        %li
+          %a{:href => "blog.hitchlog.com"} Blog
+
+      -#.span6
+        -#%section
+          -#%h4 Newest Hitchhikers
+          -#%ul.footerPosts
+            -#%li
+              -#%a{:href => "blog-single.html"} We will amplify our power to benchmark
+              -#%span.meta December 10, 2012

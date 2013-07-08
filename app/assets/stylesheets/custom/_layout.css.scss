@@ -191,6 +191,25 @@ form.trips_search {
   margin-bottom: 13px;
 }
 
+footer#footer{
+  h1 {
+    color: #d8dfe5;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  margin-top: 20px;
+  .social {
+    a {
+      font-size: 43px;
+      width: 34px;
+      height: 34px;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 @media only screen and (max-width:600px) { 
   #new_trip {
     input {

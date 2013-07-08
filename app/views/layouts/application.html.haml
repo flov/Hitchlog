@@ -18,10 +18,7 @@
 
       = yield
 
-  %footer#footer
-    .container
-      .row-fluid
-        %h1 Hitchlog
+  = render 'shared/footer'
 
   = javascript_include_tag 'application'
   = render 'shared/google_stats' if Rails.env == 'production'
