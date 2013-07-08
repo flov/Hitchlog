@@ -1,6 +1,8 @@
 When /^I enter a new location "([^"]*)"$/ do |location|
-  fill_in "Location", with: location
-  find(".ui-autocomplete .ui-corner-all").click
+  VCR.use_cassette 'edit_location' do
+    fill_in('Location', with: 'Berlin', exact: true)
+    page.find(".pac-container .pac-item:first").click
+  end
 end
 
 Then /^"([^"]*)" should have "([^"]*)" as city$/ do |username, city|
@@ -9,8 +11,8 @@ end
 
 Then /^"([^"]*)" should have the lat and lng from Melbourne$/ do |username|
   user = User.find_by_username(username)
-  user.lat.should == -37.8141
-  user.lng.should == 144.963
+  user.lat.should == -37.8142155
+  user.lng.should == 144.9632307
 end
 
 Then /^on the profile page of "([^"]*)" I should see that he is currently in "([^"]*)"$/ do |username, location|
