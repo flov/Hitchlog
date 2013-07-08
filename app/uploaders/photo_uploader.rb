@@ -26,4 +26,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
+
+   def filename
+     "hitchhike_from_#{model.trip.from}_to_#{model.trip.to}" if original_filename
+   end
 end
