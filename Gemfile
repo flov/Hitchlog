@@ -16,7 +16,7 @@ group :assets do
 end
 
 gem 'decent_exposure'
-gem 'devise', '1.4.5'
+gem 'devise', '1.5.3'
 gem 'rdiscount' # Markdown
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri' # xml parser

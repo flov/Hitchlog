@@ -40,7 +40,6 @@ Feature: Future Trips
   Scenario: View a future trip in someone elses profile and send him a message
     Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I go to the profile page of Malte
-    And show me the page
     Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
     When I follow the send a message link besides the future trip
     And I fill in the message form

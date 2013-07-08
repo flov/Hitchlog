@@ -11,9 +11,10 @@
     = flag_with_country_name(user)
 
   %p
-    = image_tag 'cs.ico'
-    #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
-    %br/
+    - if user.cs_user
+      = image_tag 'cs.ico'
+      #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
+      %br/
     %i.icon-envelope
     = link_to t('.send_mail'), send_mail_user_path(user)
 
