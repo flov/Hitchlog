@@ -55,7 +55,9 @@
                     = t('.sign_out')
 
         - else
-          .pull-right.logged_out
-            = link_to new_user_session_path do
-              %i.icon-user
-              login
+          .pull-right
+            %ul.nav
+              %li
+                = link_to new_user_session_path do
+                  %i.icon-user
+                  login
