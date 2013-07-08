@@ -143,9 +143,7 @@ When /^I fill in the new trip form$/ do
     page.find('.pac-container .pac-item', text: 'Hamburg, Germany').click
   end
 
-  fill_in('Departure', with: '07/12/2011 10:00')
-  fill_in('Arrival', with: '07/12/2011 20:00')
-  select('4', from: 'Number of rides')
+  select('1', from: 'Number of rides')
   select('alone', from: 'Traveling with')
 end
 
@@ -155,11 +153,11 @@ Then /^the from and to location should be geocoded$/ do
   find('#trip_from_city', visible: false).value.should == 'Berlin'
   find('#trip_from_country', visible: false).value.should == 'Germany'
   find('#trip_from_country_code', visible: false).value.should == 'DE'
-  find('#trip_to_lat', visible: false).value.to_i.should == 53
-  find('#trip_to_lng', visible: false).value.to_i.should == 9
+  find('#trip_from_lat', visible: false).value.to_i.should == 52
+  find('#trip_from_lng', visible: false).value.to_i.should == 13
 
   # to geocoding:
-  find('#trip_to_formatted_address', visible: false).value.should == 'Reeperbahn, 20359 Hamburg, Germany'
+  find('#trip_to_formatted_address', visible: false).value.should == 'Reeperbahn, Hamburg, Germany'
   find('#trip_to_city', visible: false).value.should == 'Hamburg'
   find('#trip_to_country', visible: false).value.should == 'Germany'
   find('#trip_to_country_code', visible: false).value.should == 'DE'
@@ -167,19 +165,14 @@ Then /^the from and to location should be geocoded$/ do
   find('#trip_to_lng', visible: false).value.to_i.should == 9
 end
 
-
-Then /^it should calculate the distance$/ do
-  find('#trip_distance_display').should have_content('291 km')
-  find('#trip_distance').value.to_i.should == 290749
-end
-
 Then /^it should route from origin to destination$/ do
   find('#trip_distance_display').should have_content('291 km')
+  find('#trip_distance').value.to_i.should == 290718
 end
 
 Then /^I should see the details of the trip again$/ do
   find('#from').should have_content('Berlin, Germany')
-  find('#to').should have_content('Reeperbahn, 20359 Hamburg, Germany')
+  find('#to').should have_content('Reeperbahn, Hamburg, Germany')
   find('#distance').should have_content('291 km')
   find('#no_of_rides').should have_content('4')
   find('#departure').should have_content('07/12/2011 10:00')

@@ -37,21 +37,21 @@
       = hidden_field_tag 'trip[distance]', 0
       = hidden_field_tag 'trip[gmaps_duration]', 0
 
-      = f.hidden_field :from_lat
-      = f.hidden_field :from_lng
-      = f.hidden_field :from_formatted_address
-      = f.hidden_field :from_city
-      = f.hidden_field :from_country
-      = f.hidden_field :from_country_code
-      = f.hidden_field :from_postal_code
+      = f.input :from_lat, as: :hidden
+      = f.input :from_lng, as: :hidden
+      = f.input :from_formatted_address, as: :hidden
+      = f.input :from_city, as: :hidden
+      = f.input :from_country, as: :hidden
+      = f.input :from_country_code, as: :hidden
+      = f.input :from_postal_code, as: :hidden
 
-      = f.hidden_field :to_lat
-      = f.hidden_field :to_lng
-      = f.hidden_field :to_formatted_address
-      = f.hidden_field :to_city
-      = f.hidden_field :to_country
-      = f.hidden_field :to_country_code
-      = f.hidden_field :to_postal_code
+      = f.input :to_lat, as: :hidden
+      = f.input :to_lng, as: :hidden
+      = f.input :to_formatted_address, as: :hidden
+      = f.input :to_city, as: :hidden
+      = f.input :to_country, as: :hidden
+      = f.input :to_country_code, as: :hidden
+      = f.input :to_postal_code, as: :hidden
 
       = f.button :submit, class: 'btn btn-primary btn-large'
 
