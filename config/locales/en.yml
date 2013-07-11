@@ -60,6 +60,7 @@ en:
         success: 'Good Bye! Your account has been deleted!'
         not_allowed: 'You are not allowed to do that!'
   helper:
+    gender_hitchhiker: "%{gender} hitchhiker"
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
     overall_extremely_positive_experience: "Overall experience: extremely positive"
@@ -177,6 +178,8 @@ en:
     nearby_hitchhikers:
       nearby_hitchhikers: "Nearby hitchhikers"
       last_login_in: "last login in"
+    footer:
+      follow_the_hitchlog: Follow us
   welcome:
     home:
       share_and_keep_track: "Share your hitchhiking experience"
