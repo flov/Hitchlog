@@ -105,15 +105,17 @@ module TripsHelper
 
   def distance_of_time_helper
     "
-       <span class='tip', title='#{t('general.trip_duration')}'>\
-         <i class='icon-time'></i> <span id='distance_of_time'>8h</span>\
-       </span>\
-       <span class='tip', title='#{t('general.google_maps_duration')}'>\
-         <b>G</b> <span id='google_maps_duration'>0h</span>\
-       </span>\
-       <span class='tip', title='#{t('general.hitchhiked_kms')}'>\
-         <i class='icon-dashboard'></i> <span id='trip_distance_display'>0 kms</span>\
-       </span>\
+     <span class='tip', title='#{t('general.trip_duration')}'>\
+       <i class='icon-time'></i> <span id='distance_of_time'>8h</span>\
+     </span>\
+     &nbsp; &nbsp;
+     <span class='tip', title='#{t('general.google_maps_duration')}'>\
+       <b>G</b> <span id='google_maps_duration'>0h</span>\
+     </span>\
+     &nbsp; &nbsp;
+     <span class='tip', title='#{t('general.hitchhiked_kms')}'>\
+       <i class='icon-dashboard'></i> <span id='trip_distance_display'>0 kms</span>\
+     </span>\
     ".html_safe
   end
 
