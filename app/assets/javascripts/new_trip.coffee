@@ -49,7 +49,6 @@ $ ->
       updateDistanceOfTime()
   })
 
-
   if google?
     window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
     window.directionsService = new google.maps.DirectionsService();
@@ -73,7 +72,8 @@ $ ->
         $("#trip_route").val directions_hash(directionsDisplay)
         $("#trip_distance").val directionsDisplay.directions.routes[0].legs[0].distance.value
         # Google Maps duration
-        $("#trip_gmaps_duration").val directionsDisplay.directions.routes[0].legs[0].duration.value
+        $("#google_maps_duration").html google_timeago(directionsDisplay.directions.routes[0].legs[0].duration.value)
+        $("#google_maps_duration").animate({opacity: 0.25}, 500, -> $("#google_maps_duration").animate({opacity:1}))
         # Display Distance
         $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
         $("#trip_distance_display").html directionsDisplay.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")

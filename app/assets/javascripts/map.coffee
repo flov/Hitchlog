@@ -42,8 +42,6 @@ window.init_map = (rendererOptions = { draggable: true }) ->
     #
     google.maps.event.addListener directionsDisplay, 'directions_changed', () ->
       if directionsDisplay.directions.status == google.maps.DirectionsStatus.OK
-        window.log = directionsDisplay.directions
-
         # Route with waypoints
         $("#trip_route").val directions_hash(directionsDisplay)
         # Distance:

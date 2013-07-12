@@ -21,6 +21,7 @@
 //
 //= require map
 //= require timeago
+//= require google_timeago
 //
 
 // Tooltip Settings:
