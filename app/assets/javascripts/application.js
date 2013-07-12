@@ -20,6 +20,7 @@
 //= require vendor/picker.time
 //
 //= require map
+//= require timeago
 //
 
 // Tooltip Settings:
@@ -28,4 +29,3 @@ $(".tip").tooltip()
 $('.dropdown-toggle').dropdown()
 // Alert init
 $(".alert").alert()
-

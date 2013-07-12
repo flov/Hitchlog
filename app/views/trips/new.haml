@@ -4,7 +4,6 @@
 
   %legend
     = t('.log_your_trip_please')
-    %i#trip_distance_display
 
   .row-fluid
     .span6
@@ -13,24 +12,26 @@
 
       = f.input :hitchhikes, required: true, collection: 1..50, default: 1 if trip.new_record?
 
-      = f.input :departure, wrapper: :prepend  do
-        %span.add-on.calendar
-          %i.icon-calendar
-        = f.input_field :departure, as: :string
-        = f.input_field :departure_time, as: :string
-
-      = f.input :arrival, wrapper: :prepend  do
-        %span.add-on.calendar
-          %i.icon-calendar
-        = f.input_field :arrival, as: :string
-        = f.input_field :arrival_time, as: :string
-
       = f.input :travelling_with, collection: [[t('helper.trip.alone'), 0],
                                                [t('helper.trip.with_1'),1],
                                                [t('helper.trip.with_2'),2],
                                                [t('helper.trip.with_3'),3],
                                                [t('helper.trip.with_4'),4]],
                                     default: [t('helper.trip.alone'), 0]
+
+      = f.input :departure, wrapper: :prepend  do
+        %span.add-on.calendar
+          %i.icon-calendar
+        = f.input_field :departure, as: :string
+        = f.input_field :departure_time, as: :string
+
+      = f.input :arrival,
+                hint: distance_of_time_helper,
+                wrapper: :prepend  do
+        %span.add-on.calendar
+          %i.icon-calendar
+        = f.input_field :arrival, as: :string
+        = f.input_field :arrival_time, as: :string
 
 
       = f.hidden_field :route

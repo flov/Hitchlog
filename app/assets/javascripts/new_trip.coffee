@@ -3,17 +3,23 @@ $ ->
   # Datepicker:
   #
   arrival_input = $('#trip_arrival').pickadate({
-    selectYears: 20
-    selectMonths: true
+    clear: ''
+    today: ''
     max: true
-    on_start: ->
+    onStart: ->
       date = new Date()
-      date.setDate(date.getDate() - 1)
+      date.setDate(date.getDate() - 5)
       this.set('select', date)
+    onSet: ->
+      updateDistanceOfTime()
   })
   window.$arrival_picker = arrival_input.pickadate('picker')
 
   departure_input = $('#trip_departure').pickadate({
+    selectYears: 70
+    selectMonths: true
+    clear: ''
+    today: ''
     max: true
     onStart: ->
       this.set('select', new Date())
@@ -22,17 +28,27 @@ $ ->
       $arrival_picker.set('select', event.select)
   })
   $departure_picker = departure_input.pickadate('picker')
-
-  $('#trip_departure_time').pickatime({
-    interval: 15
-    onStart: ->
-      this.set('select', [10,0])
-  })
   $('#trip_arrival_time').pickatime({
+    clear: ''
+    today: ''
+    format: 'HH:i'
     interval: 15
     onStart: ->
       this.set('select', [18,0])
+    onSet: (event) ->
+      updateDistanceOfTime()
   })
+
+  $('#trip_departure_time').pickatime({
+    clear: ''
+    format: 'HH:i'
+    interval: 15
+    onStart: ->
+      this.set('select', [10,0])
+    onSet: (event) ->
+      updateDistanceOfTime()
+  })
+
 
   if google?
     window.directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
@@ -169,3 +185,9 @@ directions_hash = (directionsDisplay) ->
   directions.waypoints = waypoints
   JSON.stringify(directions)
 
+updateDistanceOfTime = ->
+  if $("trip_arrival").val() != '' and $('trip_arrival_time').val() != '' and $('#trip_departure').val() != '' and $('#trip_departure_time').val() != ''
+    start = new Date($("#trip_departure").val() + ' ' + $("#trip_departure_time").val())
+    end = new Date($("#trip_arrival").val() + ' ' + $("#trip_arrival_time").val())
+    $("#distance_of_time").html timeago(start, end)
+    $("#distance_of_time").html timeago(start, end)

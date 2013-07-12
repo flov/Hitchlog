@@ -93,10 +93,6 @@ module TripsHelper
     RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
 
-  def hitchability(trip)
-    "<span class='tooltip' alt='#{t('helper.hitchability')}: #{trip.hitchability}x'>#{trip.hitchability}x</span>".html_safe if trip.hitchability
-  end
-
   def gmaps_difference(trip)
     if trip.gmaps_difference
       if trip.gmaps_difference > 0
@@ -105,5 +101,22 @@ module TripsHelper
         t('helper.time_faster', :time => human_seconds(trip.gmaps_difference * (-1))).html_safe
       end
     end
+  end
+
+  def distance_of_time_helper
+    "<span class='tip', title='#{t('general.trip_duration')}'> \
+       <i class='icon-time'></i> <span id='distance_of_time'>8h</span>\
+     </span>\
+    ".html_safe
+  end
+
+  def icon_helper_for_new_trip
+     "<span class='tip', title='#{t('general.google_maps_duration')}'>\
+       <b>G</b> <span id='google_maps_duration'>0h</span>\
+     </span>\
+     <span class='tip', title='#{t('general.hitchhiked_kms')}'>\
+       <i class='icon-dashboard'></i> <span id='trip_distance_display'>0 kms</span>\
+     </span>\
+     ".html_safe
   end
 end
