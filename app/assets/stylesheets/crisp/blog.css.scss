@@ -325,6 +325,9 @@
       width: 100%!important;
       float: none!important;
     }
+    .entry-content footer {
+      display: none;
+    }
   }
 
   .entry-comments {width:100%!important;}
