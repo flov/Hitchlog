@@ -58,12 +58,14 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-bundler'
   gem 'guard-livereload'
+  gem 'guard-jasmine'
 end
 
 group :test, :development do
   gem 'vcr'
-  gem 'rspec-rails'
   gem 'launchy'
+  gem 'rspec-rails'
+  gem 'jasmine-rails'
 end
 
 group :test do

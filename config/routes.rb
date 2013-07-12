@@ -45,4 +45,6 @@ Hitchlog::Application.routes.draw do
   match 'crisp/:action', controller: :crisp if Rails.env == 'development'
 
   root to: "welcome#home"
+
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 end
