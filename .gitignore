@@ -19,6 +19,7 @@ config/hitchlog.local.yml
 .DS_Store
 TODO
 /tmp
+/spec/tmp
 a.log
 zeus.json
 config/initializers/a_env_vars_config.rb
