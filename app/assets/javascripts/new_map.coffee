@@ -1,0 +1,118 @@
+class window.Map
+  constructor: ->
+    mapOptions = {
+      center: new google.maps.LatLng(52.5234051, 13.411399899999992),
+      zoom: 1,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    @directions_display = new google.maps.DirectionsRenderer({draggable: true})
+    @directions_service = new google.maps.DirectionsService()
+    @map = new google.maps.Map($('#map')[0], mapOptions)
+    @directions_display.setMap(@map)
+
+    #
+    # When changing Route by dragging, construct new directions hash
+    # with waypoints and store it in trip:
+    #
+    google.maps.event.addListener @directions_display, 'directions_changed', () =>
+      if @directions_display.directions.status == google.maps.DirectionsStatus.OK
+        # update route and distance inputs
+        this.set_routing_inputs()
+
+    this.autocomplete('from')
+    this.autocomplete('to')
+
+
+  autocomplete: (direction) ->
+    input = $("input#trip_#{direction}")[0]
+
+    autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
+    autocomplete.bindTo('bounds', @map)
+
+    google.maps.event.addListener(autocomplete, 'place_changed', =>
+      place = autocomplete.getPlace()
+
+      if (!place.geometry)
+        # Inform the user that the place was not found and return.
+        $(".trip_#{direction} .controls").append('<span class="help-inline">Could not find location, please try again</span>')
+        $(".trip_#{direction}").addClass('error')
+        return
+
+      else
+        # set input values
+        #
+        if place.address_components.length > 0
+          for x in [0..place.address_components.length-1]
+            type = place.address_components[x].types[0]
+            value = place.address_components[x].long_name
+            switch type
+              when 'locality'
+                $("input#trip_#{direction}_city").val value
+              when 'country'
+                $("input#trip_#{direction}_country").val value
+                $("input#trip_#{direction}_country_code").val place.address_components[x].short_name
+              when 'postal_code'
+                $("input#trip_#{direction}_postal_code").val value
+
+        $("input#trip_#{direction}_lat").val place.geometry.location.lat()
+        $("input#trip_#{direction}_lng").val place.geometry.location.lng()
+        $("input#trip_#{direction}_formatted_address").val place.formatted_address
+
+        this.set_routing_inputs()
+
+        if direction == 'from'
+          @from = place.geometry.location
+        else if direction == 'to'
+          @to   = place.geometry.location
+
+        if @from and @to
+          # show route if from and to are defined
+          this.route(@from, @to)
+        else
+          # show destination on map
+          @map.setCenter(place.geometry.location)
+          @map.setZoom(9)
+    )
+
+  route: (from, to) ->
+    request =
+      origin: from
+      destination: to
+      waypoints: []
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+
+    @directions_service.route(request, (response, status) =>
+      if (status == google.maps.DirectionsStatus.OK)
+        @directions_display.setDirections(response);
+    )
+
+  build_directions_hash: =>
+    waypoints = []
+    leg = @directions_display.directions.routes[0].legs[0]
+    directions =
+      origin:                   new google.maps.LatLng(leg.start_location.lat(), leg.start_location.lng())
+      destination:              new google.maps.LatLng(leg.end_location.lat(), leg.end_location.lng())
+      travelMode:               google.maps.DirectionsTravelMode.DRIVING
+      provideRouteAlternatives: false
+
+    for waypoint, i in leg.via_waypoints
+      waypoints[i] =
+        location: new google.maps.LatLng(waypoint.lat(), waypoint.lng())
+        stopover: false
+
+    directions.waypoints = waypoints
+    JSON.stringify(directions)
+
+  set_routing_inputs: ->
+    if @directions_display.directions
+      $("#trip_route").val @build_directions_hash
+      $("#trip_distance").val @directions_display.directions.routes[0].legs[0].distance.value
+
+      # Display Distance and Google Maps duration
+      $("#google_maps_duration").html google_timeago(@directions_display.directions.routes[0].legs[0].duration.value)
+      $("#google_maps_duration").animate({opacity: 0.25}, 500, -> $("#google_maps_duration").animate({opacity:1}))
+      $("#trip_gmaps_duration").val @directions_display.directions.routes[0].legs[0].duration.value
+
+      $("#trip_distance_display").html @directions_display.directions.routes[0].legs[0].distance.text if $("#trip_distance_display")
+      $("#trip_distance_display").animate({opacity: 0.25}, 500, -> $("#trip_distance_display").animate({opacity:1}))
+

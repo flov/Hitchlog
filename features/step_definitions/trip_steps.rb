@@ -163,11 +163,14 @@ Then /^the from and to location should be geocoded$/ do
   find('#trip_to_country_code', visible: false).value.should == 'DE'
   find('#trip_to_lat', visible: false).value.to_i.should == 53
   find('#trip_to_lng', visible: false).value.to_i.should == 9
+
+  find('#trip_distance', visible: false).value.to_i.should_not == 0
+  find('#trip_gmaps_duration', visible: false).value.to_i.should_not == 0
 end
 
 Then /^it should route from origin to destination$/ do
   find('#trip_distance_display').should have_content('291 km')
-  find('#trip_distance').value.to_i.should == 290718
+  find('#trip_distance').value.to_i.should be_within(500).of(290718)
 end
 
 Then /^I should see the details of the trip again$/ do
