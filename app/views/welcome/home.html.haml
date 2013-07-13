@@ -5,13 +5,13 @@
     Hitchlog
   %p.lead= t('welcome.home.share_and_keep_track')
   - unless user_signed_in?
-    = link_to t('general.sign_in_with_facebook'), '/auth/facebook', class: 'btn btn-large btn-success'
+    = link_to t('general.sign_in_with_facebook'), '/auth/facebook', class: 'btn btn-large btn-success facebook-signin'
 
-%hr/
 
 .row-fluid
-  = render 'newest_stories'
-
-  = render 'newest_trips'
-
-  = render 'newest_hitchhikers'
+  .span4
+    = render 'newest_stories'
+  .span4
+    = render 'newest_trips'
+  .span4
+    = render 'newest_hitchhikers'

@@ -1,12 +1,11 @@
-.span4
-  %h4= t('welcome.home.newest_hitchhikers')
-  %ul
-    - User.paginate(per_page: 8, page: 1).each do |hitchhiker|
-      %li
-        %p
-          = link_to "#{hitchhiker.username} (#{hitchhiker.trips.size})", user_path(hitchhiker)
-          = gender_hitchhiker_image(hitchhiker.gender)
-          %br/
-          joined #{time_ago_in_words( hitchhiker.created_at )} ago
+%h4= t('welcome.home.newest_hitchhikers')
+%ul
+  - User.paginate(per_page: 8, page: 1).each do |hitchhiker|
+    %li
+      %p
+        = link_to "#{hitchhiker.username} (#{hitchhiker.trips.size})", user_path(hitchhiker)
+        = gender_hitchhiker_image(hitchhiker.gender)
+        %br/
+        joined #{time_ago_in_words( hitchhiker.created_at )} ago
 
-    %strong=link_to t('welcome.home.more_hitchhikers'), users_path 
+  %strong=link_to t('welcome.home.more_hitchhikers'), users_path 

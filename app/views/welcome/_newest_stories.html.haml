@@ -1,17 +1,16 @@
-.span4
-  %h4= t('welcome.home.newest_hh_stories')
-  %ul
-    - Ride.with_story.order('id DESC').paginate(per_page: 3, page: 1).each do |ride|
-      %li
-        = link_to trip_path(ride.trip) do
-          = ride.trip
-          = images_for_ride(ride)
-        = t('welcome.home.hitchhiked_by_user',
-          user: link_to_user(ride.trip.user),
-          time: time_ago_in_words(ride.trip.departure)).html_safe
-        = gender_hitchhiker_image(ride.trip.user.gender)
-        %br/
-        %b= truncate(ride.title, length: 50)
-        = truncated_markdown(ride.story)
+%h4= t('welcome.home.newest_hh_stories')
+%ul
+  - Ride.with_story.order('id DESC').paginate(per_page: 3, page: 1).each do |ride|
+    %li
+      = link_to trip_path(ride.trip) do
+        = ride.trip
+        = images_for_ride(ride)
+      = t('welcome.home.hitchhiked_by_user',
+        user: link_to_user(ride.trip.user),
+        time: time_ago_in_words(ride.trip.departure)).html_safe
+      = gender_hitchhiker_image(ride.trip.user.gender)
+      %br/
+      %b= truncate(ride.title, length: 50)
+      = truncated_markdown(ride.story)
 
-  %strong=link_to t('welcome.home.more_stories'), "/trips?stories=1"
+%strong=link_to t('welcome.home.more_stories'), "/trips?stories=1"
