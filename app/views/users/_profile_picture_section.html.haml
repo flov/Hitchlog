@@ -36,7 +36,7 @@
         %i.icon-thumbs-up
       &nbsp;&nbsp;
       %span.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
-        #{number_with_delimiter(user.hitchhiked_kms, :delimiter => ".")}
+        #{number_with_delimiter(user.hitchhiked_kms, delimiter: ",")}
         %i.icon-dashboard
       &nbsp;&nbsp;
       %span.tip{title: pluralize(user.stories.size, t('general.story'))}
