@@ -51,5 +51,14 @@ Hitchlog::Application.configure do
   # config.assets.manifest = YOUR_PATH
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-   config.assets.precompile += %w( *.js )
+  config.assets.precompile += %w( *.js )
+
+	config.action_mailer.smtp_settings = {
+	  :address =>   ENV['SMTP_DOMAIN'],
+	  :port =>      ENV['SMTP_PORT'],
+	  :user_name => ENV['SMTP_USER'],
+	  :password =>  ENV['SMTP_PASS'],
+    :domain   =>  ENV['SMTP_DOMAIN'],
+	  :authentication => :plain
+	}
 end
