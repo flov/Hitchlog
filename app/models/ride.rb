@@ -21,6 +21,8 @@ class Ride < ActiveRecord::Base
   scope :with_photo, where("photo IS NOT NULL")
   scope :with_story, where("title <> ''")
 
+  default_scope order('id ASC')
+
   mount_uploader :photo, PhotoUploader
 
   def to_s
