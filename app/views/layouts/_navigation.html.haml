@@ -12,8 +12,7 @@
           %li{class: users_active }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
           - if user_signed_in?
             %li{class: new_trip_active }= link_to "<i class='icon-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
-          - else
-            %li{class: about_active }= link_to t('.about'), about_path
+          %li{class: about_active }= link_to t('.about'), about_path
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
