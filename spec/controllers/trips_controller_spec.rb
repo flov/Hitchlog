@@ -90,8 +90,8 @@ describe TripsController do
           action
         end
 
-        it 'sets the notice flash' do
-          flash[:notice].should_not be_empty
+        it 'sets the success flash' do
+          flash[:success].should_not be_empty
         end
 
         it 'redirects to trip_path' do

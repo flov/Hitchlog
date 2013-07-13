@@ -103,7 +103,7 @@ describe FutureTripsController do
     it "notes the change" do
       action
 
-      flash[:notice].should == 'Your future trip from Melbourne to Sydnery has been deleted'
+      flash[:success].should == 'Your future trip from Melbourne to Sydnery has been deleted'
     end
   end
 end

@@ -28,9 +28,9 @@ describe UsersController do
     it_blocks_unauthenticated_access
 
     before do
-      sign_in :user, current_user
-      User.stub(:find).and_return(mail_to_user)
+      User.stub(:find).and_return mail_to_user
       user_mailer.stub(:deliver){ true }
+      sign_in :user, current_user
     end
 
     it 'sends out mail' do
@@ -54,9 +54,13 @@ describe UsersController do
   describe '#show' do
     let(:action) { get :show, id: 'flov' }
     let(:user) { double('user') }
+    let(:trip) { double('trip') }
 
     describe 'user exists' do
-      before { User.stub(:find).and_return user }
+      before do
+        User.stub(:find).and_return user
+        user.stub_chain(:trips, :paginate).and_return [trip]
+      end
 
       it 'renders show view' do
         action
