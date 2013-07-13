@@ -35,6 +35,7 @@ gem 'rmagick'
 
 gem 'escape_utils' # annoying UTF-8 warning with ruby 1.9.2
 gem 'i18n_data'
+gem 'i18n-tasks'
 gem 'gravatar_image_tag'
 
 gem 'json'
