@@ -86,10 +86,10 @@ module ImageHelper
 
   def all_country_images
     array = []
-    CountryDistance.all.map(&:country).uniq.each do |country|
-      unless country == 'unknown' or country == ''
-        array << link_to(country_image(country), "trips/?country=#{country}")
-      end
+    countries = CountryDistance.pluck(:country).uniq
+    countries -= ['unknown', 'The Netherlands', 'Kingdom of Sweden', '']
+    countries.each do |country|
+      array << link_to(country_image(country), "trips/?country=#{country}")
     end
     array.join(' ').html_safe
   end

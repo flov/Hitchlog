@@ -134,6 +134,7 @@ en:
       english: English
       german: German
   general:
+    sign_up: Sign Up
     hitchhiked_kms: Hitchhiked kms
     trip_duration: Trip duration
     took_time: "took %{time}"
@@ -184,6 +185,8 @@ en:
       follow_the_hitchlog: Follow us
   welcome:
     home:
+      explore_hh_xp: Explore hitchhiking experiences in over 50 countries
+      or_sign_in_with: or sign in with
       share_and_keep_track: "Share your hitchhiking experience"
       countries_logged: "Countries logged"
       newest_hh_stories: "Newest Stories"

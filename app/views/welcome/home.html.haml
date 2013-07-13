@@ -3,10 +3,21 @@
 .jumbotron
   %h1#headline
     Hitchlog
-  %p.lead= t('welcome.home.share_and_keep_track')
-  - unless user_signed_in?
-    = link_to t('general.sign_in_with_facebook'), '/auth/facebook', class: 'btn btn-large btn-success facebook-signin'
 
+  %p.lead= t('welcome.home.share_and_keep_track')
+
+  .row-fluid.explore_countries
+    .span3
+    .span6
+      = succeed ':' do
+        = t('.explore_hh_xp')
+      %p= all_country_images
+    .span3
+  - unless user_signed_in?
+    %p.sign_up
+      = link_to t('general.sign_up'), new_user_registration_path, class: 'btn btn-primary', style: 'margin-right: 10px;'
+      = t('.or_sign_in_with')
+      = link_to image_tag('omniauthbuttons/png/facebook_32.png'), '/auth/facebook', alt: 'Sign in with fb', style: 'margin-left: 10px;'
 
 .row-fluid
   .span4
