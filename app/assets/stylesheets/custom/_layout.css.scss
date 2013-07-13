@@ -183,9 +183,12 @@ form.trips_search {
 
 #map {
   width: 100%;
-  height: 200px;
   float: right;
   margin-bottom: 13px;
+}
+
+#map.trip_show {
+  height: 200px;
 }
 
 footer#footer{
