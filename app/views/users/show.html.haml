@@ -33,10 +33,10 @@
     = render 'future_trips', future_trips: user.future_trips
 
 
-    - if trips.any?
-      = will_paginate trips, :class => 'flickr_pagination'
+    - if @trips.any?
+      = will_paginate @trips, class: 'flickr_pagination'
       -#= render 'trips/search_interface'
       #trips
-        = render 'trips/list', :trips => user.trips
-      = will_paginate trips, :class => 'flickr_pagination'
+        = render 'trips/list', trips: user.trips.paginate(page: params[:page], per_page: 5)
+      = will_paginate @trips, class: 'flickr_pagination'
 
