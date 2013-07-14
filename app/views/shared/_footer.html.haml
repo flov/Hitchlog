@@ -4,7 +4,7 @@
       .span12
         %h1 Hitchlog
     .row-fluid
-      .span4
+      .span3
         %section
           %h4= t('.follow_the_hitchlog')
           %ul.social
@@ -12,7 +12,8 @@
               %a.icon-facebook.tip{title: "The Hitchlog on Facebook", href: 'https://www.facebook.com/pages/Hitchlog/106464962761282'}
             %li
               %a.icon-twitter.tip{title: "The Hitchlog on Twitter", href: "https://twitter.com/hitchlog"}
-
+      .span9
+        .fb-like{"data-colorscheme" => "dark", "data-font" => "arial", "data-href" => "https://www.facebook.com/pages/Hitchlog/106464962761282", "data-send" => "false", "data-show-faces" => "true", "data-width" => "450"}
 
   %section.footerCredits
     .container
@@ -21,10 +22,3 @@
         %li
           %a{:href => "blog.hitchlog.com"} Blog
 
-      -#.span6
-        -#%section
-          -#%h4 Newest Hitchhikers
-          -#%ul.footerPosts
-            -#%li
-              -#%a{:href => "blog-single.html"} We will amplify our power to benchmark
-              -#%span.meta December 10, 2012

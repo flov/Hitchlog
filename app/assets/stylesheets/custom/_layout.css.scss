@@ -43,8 +43,9 @@
   }
 }
 
+
 .explore_countries, .sign_up{
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .jumbotron{
   text-align: center;
@@ -232,6 +233,11 @@ footer#footer{
     }
     input[type="submit"] {
       margin-bottom: 10px;
+    }
+  }
+  .explore_countries{
+    .span3{
+      display: none;
     }
   }
 }

@@ -9,8 +9,6 @@
     %h3.short_headline
       %span
         = user
-        - if user == current_user
-          = link_to t('.edit'), edit_user_path(user), class: 'btn btn-info'
 
 
     - if current_user == user
