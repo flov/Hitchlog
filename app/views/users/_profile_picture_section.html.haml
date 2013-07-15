@@ -3,8 +3,6 @@
     %span
       = link_to user, user_path(user)
       = gender_image user.gender
-    - if user == current_user
-      = link_to t('.edit'), edit_user_path(user), class: 'btn btn-info'
 
 
   = render 'users/profile_image', user: user, type: "normal"
@@ -18,8 +16,13 @@
       = image_tag 'cs.ico'
       #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
       %br/
-    %i.icon-envelope
-    = link_to t('.send_mail'), send_mail_user_path(user)
+    - if user != current_user
+      %i.icon-envelope
+      = link_to t('.send_mail'), send_mail_user_path(user)
+      %br/
+    %span.tip{title: t('general.member_since', time: user.created_at.strftime("%B %d, %Y"))}
+      %i.icon-user
+      = user.created_at.strftime("%B %d, %Y")
 
   - if user.trips.any?
     #{t('.hitchhiked_countries')}: 
