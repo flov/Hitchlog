@@ -14,7 +14,7 @@
       = trip.arrival.strftime("%B %d, %Y %H:%M")
 
     #accordion
-      = render trip.rides
+      = render trip.rides.oldest_first
 
   .span8.primary-column.trip-detail
     = render 'trips/trip', trip: trip

@@ -19,9 +19,10 @@ class Ride < ActiveRecord::Base
   accepts_nested_attributes_for :person, :allow_destroy => true
 
   scope :with_photo, where("photo IS NOT NULL")
-  scope :with_story, where("title <> ''")
+  scope :with_story, where("story <> ''")
 
-  default_scope order('id ASC')
+  scope :latest_first, order('id DESC')
+  scope :oldest_first, order('id ASC')
 
   mount_uploader :photo, PhotoUploader
 
