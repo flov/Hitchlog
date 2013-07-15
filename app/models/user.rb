@@ -47,7 +47,9 @@ class User < ActiveRecord::Base
       obj.country_code = geo.country_code
     end
   end
-  after_create :geocode, :reverse_geocode, if: lambda{ |obj| obj.current_sign_in_ip_changed? }
+
+  before_create :geocode, if: :current_sign_in_ip_changed?
+  before_create :reverse_geocode, if: :current_sign_in_ip_changed?
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
