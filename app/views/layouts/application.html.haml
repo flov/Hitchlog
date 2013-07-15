@@ -12,14 +12,17 @@
 
   %body
     = render 'shared/fb_sdk'
-    = render 'layouts/navigation'
 
-    .container#main-content
-      = render 'layouts/flash_messages'
+    .wrapper
+      = render 'layouts/navigation'
 
-      = yield
+      .container#main-content
+        = render 'layouts/flash_messages'
 
-  = render 'shared/footer'
+        = yield
+      .push
+    = render 'shared/footer'
+
 
   = javascript_include_tag 'application'
   = render 'shared/google_stats' if Rails.env == 'production'
