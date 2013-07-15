@@ -28,8 +28,10 @@ module Hitchlog
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
-    # Action Mailer:
-    config.action_mailer.default_url_options = { host: ENV['host']}
+    config.after_initialize do
+      # Action Mailer:
+      config.action_mailer.default_url_options = { host: ENV['HOST'] }
+    end
 
     config.generators do |g|
       g.fixture_replacement :factory_girl
