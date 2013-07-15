@@ -8,10 +8,6 @@ describe User do
   it { should have_many(:authentications) }
   it { should have_many(:future_trips) }
 
-  before do
-    user.trips << FactoryGirl.build(:trip)
-  end
-
   describe 'valid?' do
     describe '#username' do
       it 'allows all these letters: /A-Za-z\d_-/' do
@@ -64,6 +60,7 @@ describe User do
   describe "#experiences_in_percentage" do
     context "unequal number of experiences" do
       before do
+        user.trips << FactoryGirl.build(:trip)
         user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
         user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'extremely positive')
         user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'neutral')
@@ -90,6 +87,7 @@ describe User do
 
     context "only positive experiences" do
       it do
+        user.trips << FactoryGirl.build(:trip)
         user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
         user.experiences_in_percentage.should == {'positive' => 1.0}
       end
@@ -97,6 +95,7 @@ describe User do
   end
 
   describe "gender" do 
+    before { user.trips << FactoryGirl.build(:trip) }
     it "should display percentage of genders of people who picked you up" do
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'female')
@@ -112,6 +111,7 @@ describe User do
   end
 
   describe "hitchhiked kms" do
+    before { user.trips << FactoryGirl.build(:trip) }
     it "should return total amount of kms hitchhiked" do
       user.trips.first.distance = 100_000
       user.hitchhiked_kms.should == 100
@@ -119,6 +119,7 @@ describe User do
   end
 
   describe "hitchhiked countries" do
+    before { user.trips << FactoryGirl.build(:trip) }
     it "should return number of countries hitchhiked" do
       user.trips.first.from = "Berlin"
       user.trips.first.to   = "Amsterdam"
@@ -131,15 +132,15 @@ describe User do
 
   describe "geocode" do
     before do
-      VCR.use_cassette('brooklyn_ip_address') do
+      VCR.use_cassette('brooklyn') do
         user.current_sign_in_ip = "24.193.83.1"
         user.save!
       end
     end
 
     it "should geocode lat and lng from ip" do
-      user.lat.should == 40.728
-      user.lng.should == -73.9453
+      user.lat.should == 40.6617
+      user.lng.should == -73.9855
     end
 
     it "should geocode address" do
