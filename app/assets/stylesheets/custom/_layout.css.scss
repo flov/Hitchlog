@@ -219,37 +219,38 @@ footer#footer{
   }
 }
 
-html, body {
-    height: 100%;
-}
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -235px;
-}
-.push {
-    height: 235px;
+.smaller {
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height:2;
+  margin-bottom: 0;
 }
 
-footer#footer {
-  clear: both;
-  border-top: 3px solid #6d767e;
-  padding-top: 10px;
-  color: #666;
-  background: #222;
-  padding: 17px 0 18px 0;
-  border-top: 1px solid #000;
+.home_sidebar {
+  background-color: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 10px;
   h4 {
-    margin-bottom: 10px;
-    padding: 0 0 5px 0;
-    border-bottom: 1px solid #6d767e;
+    padding-top: 0;
   }
-  a {
-    color: #9bd9e9;
-    text-decoration: none;
+  .short_headline{
+    padding-top: 5px;
   }
 }
+
+.news {
+  ul{
+    li{
+      ul{
+        li {
+          list-style: circle;
+          margin: 5px 20px;
+        }
+      }
+    }
+  }
+}
+
 
 @media only screen and (max-width:600px) { 
   .jumbotron h1{

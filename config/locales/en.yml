@@ -135,6 +135,7 @@ en:
       german: German
   general:
     member_since: "Member since %{time}"
+    news: News
     sign_up: Sign Up
     hitchhiked_kms: Hitchhiked kms
     trip_duration: Trip duration
