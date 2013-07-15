@@ -227,15 +227,11 @@ en:
   future_trips:
     new:
       new_future_trip: Where Would You Like To Hitchhike To?
-      tell_others_about_your_plans: |
-          Tell the other hitchhikers on the Hitchlog where you would like to
-          hitchhike to so that you can find a new hitchhiking buddy.
     edit:
       edit_future_trip: Edit your future trip
     index:
       tell_others_about_your_plans: Tell others about your hitchhiking plans.
-      currently_no_future_trips: Currently there are no planned hitchhiking trips.
-      hitchhikers_searching_for_travel_buddies: Hitchhikers searching for travel partner
+      looking_for_a_hitchhiking_buddy: Looking for a hitchhiking buddy
       title: Find a Hitchhiking partner
       be_the_first: Be the first to log a future trip.
     future_trips:

@@ -1,10 +1,20 @@
 - title t('.title')
 
-%h1= t('.hitchhikers_searching_for_travel_buddies')
-%p= link_to t('.tell_others_about_your_plans'), new_future_trip_path
+%h3.short_headline
+  %span
+    = succeed '?' do
+      = t('.looking_for_a_hitchhiking_buddy')
 
-- if future_trips.any?
-  = render 'future_trips', future_trips: future_trips
-- else future_trips.any?
-  %h3= t('.currently_no_future_trips')
-  %p= link_to t('.be_the_first'), new_future_trip_path
+.row-fluid
+  .span6
+    %p
+      Your thumb is itching but you don't know who to start your next
+      hitchhiking adventure with?
+      %br/
+      = link_to 'Post it on the board', new_future_trip_path
+      and find your next hitchhiking buddy
+
+    - if future_trips.any?
+      %h3.short_headline
+        %span= t('.hitchhikers_searching_for_buddies')
+      = render 'future_trips', future_trips: future_trips

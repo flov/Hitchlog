@@ -28,12 +28,20 @@
 
     = render 'about_you', user: user
 
-    = render 'future_trips', future_trips: user.future_trips
-
+    - if user.future_trips.any?
+      %h4.short_headline
+        %span
+          #{user} is searching for a hitchhiking buddy for
+          #{pluralize(user.future_trips.size, 'upcoming trip')}:
+      = render 'future_trips/future_trips', future_trips: user.future_trips
 
     - if @trips.any?
       = will_paginate @trips, class: 'flickr_pagination'
       -#= render 'trips/search_interface'
+
+      %h4.short_headline
+        %span
+          Hitchhiked Trips:
       #trips
         = render 'trips/list', trips: user.trips.paginate(page: params[:page], per_page: 5)
       = will_paginate @trips, class: 'flickr_pagination'
