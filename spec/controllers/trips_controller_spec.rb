@@ -28,7 +28,13 @@ describe TripsController do
   end
 
   describe '#show' do
-    let(:trip) { double('trip', user: double('user')) }
+    let(:trip) { double('trip') }
+    
+    it 'redirects if trip wasn not found' do
+      get :show, id: 'doesnt exist!'
+
+      response.should redirect_to(root_path)
+    end
 
     it 'renders show view' do
       Trip.stub(:find){ trip }
