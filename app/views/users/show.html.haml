@@ -41,7 +41,7 @@
 
       %h4.short_headline
         %span
-          Hitchhiked Trips:
+          Hitchhiked Trips
       #trips
         = render 'trips/list', trips: user.trips.paginate(page: params[:page], per_page: 5)
       = will_paginate @trips, class: 'flickr_pagination'
