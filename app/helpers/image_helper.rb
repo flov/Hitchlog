@@ -267,7 +267,7 @@ module ImageHelper
   end
 
   def flag(country_code)
-    unless country_code.nil?
+    unless country_code.blank?
       image_tag "flags/png/#{country_code.downcase}.png",
         class: 'tip',
         title: "#{I18nData.countries["#{country_code}"]}"
