@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-  expose( :trip )  { trip_in_context }
+  expose!( :trip ) { trip_in_context }
   expose( :trips ) { trips_in_context }
 
   before_filter :authenticate_user!, except: [:index, :show]
@@ -82,6 +82,8 @@ class TripsController < ApplicationController
     else
       Trip.new(params[:trip])
     end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, flash: { error: t('general.record_not_found')}
   end
 
   def trips_in_context
