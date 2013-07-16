@@ -134,6 +134,7 @@ en:
       english: English
       german: German
   general:
+    record_not_found: Record not found
     member_since: "Member since %{time}"
     news: News
     sign_up: Sign Up
