@@ -55,12 +55,12 @@ Hitchlog::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'hitchlog.com' }
   config.action_mailer.delivery_method = :smtp
-	config.action_mailer.smtp_settings = {
-	  :address =>   ENV['SMTP_DOMAIN'],
-	  :port =>      ENV['SMTP_PORT'],
-	  :user_name => ENV['SMTP_USER'],
-	  :password =>  ENV['SMTP_PASS'],
-    :domain   =>  ENV['SMTP_DOMAIN'],
-	  :authentication => :plain
-	}
+  config.action_mailer.smtp_settings = {
+    :address  => ENV['SMTP_DOMAIN'],
+    :port => ENV['SMTP_PORT'],
+    :user_name => ENV['SMTP_USER'],
+    :password => ENV['SMTP_PASS'],
+    :authentication  => :plain,
+    :enable_starttls_auto => true
+  }
 end
