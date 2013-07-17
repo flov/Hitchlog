@@ -133,7 +133,7 @@ en:
       english: English
       german: German
   general:
-    record_not_found: Record not found
+    record_not_found: The record was not found
     member_since: "Member since %{time}"
     news: News
     sign_up: Sign Up

@@ -3,11 +3,13 @@ require 'spec_helper'
 describe UsersController do
   describe "#send_mail" do
     let(:action) { get :send_mail, :id => 1 }
+    before { User.stub(:find).and_return(double('user')) }
 
     it_blocks_unauthenticated_access
 
     it "renders get_mail template" do
       sign_in :user, double('user')
+
       response.should render_template(action: 'get_mail')
     end
   end
@@ -56,28 +58,32 @@ describe UsersController do
     let(:user) { double('user') }
     let(:trip) { double('trip') }
 
-    describe 'user exists' do
+    context 'user cant be found' do
       before do
-        User.stub(:find).and_return user
-        user.stub_chain(:trips, :paginate).and_return [trip]
+        get :show, id: 'does not exist'
       end
 
-      it 'renders show view' do
-        action
-
-        response.should render_template :show
+      it 'redirects if user cannot be found' do
+        response.should redirect_to(root_path)
       end
+
+      it 'sets the error flash' do
+        flash[:error].should == 'The record was not found'
+      end
+    end
+
+
+    it 'renders show view' do
+      User.stub(:find).and_return user
+      user.stub_chain(:trips, :paginate).and_return [trip]
+
+      action
+
+      response.should render_template :show
     end
   end
 
   describe "#destroy" do
-    context "if not logged in" do
-      it "redirects to log in page" do
-        delete :destroy, id: 1
-        response.should redirect_to(user_session_path)
-      end
-    end
-
     context "if logged in" do
       let(:current_user) { double('user') }
       let(:another_user) { double('another_user', to_param: 'another_user') }
@@ -99,6 +105,16 @@ describe UsersController do
         it "should redirect to the profile path" do
           response.should redirect_to(user_path(current_user))
         end
+      end
+    end
+
+    context "if not logged in" do
+      it "redirects to log in page" do
+        User.stub(:find).and_return(double('user'))
+
+        delete :destroy, id: 1
+
+        response.should redirect_to(user_session_path)
       end
     end
   end

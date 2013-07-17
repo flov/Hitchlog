@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-  expose(:user) { User.find(params[:id]) }
+  expose!(:user) { user_in_context }
   expose(:users) { User.order('current_sign_in_at DESC').paginate(page: params[:page], per_page: 20) }
 
   before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def show
     @trips = user.trips.paginate(page: params[:page], per_page: 5)  
+
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, flash: { error: t('general.record_not_found')}
   end
 
   def update
@@ -39,4 +42,15 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
+  def user_in_context
+    if params[:id]
+      User.find(params[:id])
+    else
+      User.new(params[:user])
+    end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, flash: { error: t('general.record_not_found')}
+  end
 end
