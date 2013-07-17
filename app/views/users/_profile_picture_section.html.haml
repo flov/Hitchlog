@@ -12,7 +12,7 @@
     = flag_with_country_name(user)
 
   %p
-    - if user.cs_user
+    - unless user.cs_user.blank?
       = image_tag 'cs.ico'
       #{t('.cs_user')}: #{link_to(user.cs_user.capitalize, "http://couchsurfing.com/people/#{user.cs_user}")}
       %br/
