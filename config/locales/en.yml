@@ -33,9 +33,8 @@ en:
         about_you: "About you"
   meta:
     description: |
-        A website for logging rides and hitchhiking stories.
-        It generates statistics about hitchhiking in certain countries and
-        gives an overview of the experiences as a hitchhiker.
+        Share your hitchhiking experience with the world.
+        Read stories of other hitchhikers and find other hitchhikers to travel with.
   mailer:
     future_trips:
       nearby_hitchhikers:
