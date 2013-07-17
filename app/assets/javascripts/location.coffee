@@ -1,34 +1,35 @@
-window.Location = {
-  autocomplete_attribute: (attribute) ->
-    if $("input##{attribute}").length and google?
-      geocoder = new google.maps.Geocoder()
-      $("input##{attribute}").autocomplete
-        minLength: 1
-        source: (request, response) ->
-          address = request.term
+class window.Location
+  constructor: (input_id) ->
+    input = $("input##{input_id}")[0]
 
-          geocoder.geocode {
-              'address': address
-            }, (results, status) ->
-              response $.map results, (item) ->
-                label:  item.formatted_address,
-                value: item.formatted_address,
-                latitude: item.geometry.location.lat(),
-                longitude: item.geometry.location.lng()
+    autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
 
-        select: (event, ui) ->
-          latlng = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
-          $("##{attribute}_lat").val(ui.item.latitude)
-          $("##{attribute}_lng").val(ui.item.longitude)
-          geocoder.geocode {
-              'latLng': latlng
-            }, (results, status) ->
-              for result in results
-                if (result.types.some (word) -> ~"country".indexOf word)
-                  $("##{attribute}_country").val( result.address_components[0].long_name )
-                  $("##{attribute}_country_code").val(result.address_components[0].short_name)
-                if (result.types.some (word) -> ~"locality".indexOf word)
-                  $("##{attribute}_city").val( result.address_components[0].long_name )
+    google.maps.event.addListener(autocomplete, 'place_changed', =>
+      place = autocomplete.getPlace()
 
-          true
-}
+      if (!place.geometry)
+        # Inform the user that the place was not found and return.
+        $("#{ input_id } .controls").append('<span class="help-inline">Could not find location, please try again</span>')
+        $(".#{input_id}").addClass('error')
+        return
+
+      else
+        # set input values
+        #
+        if place.address_components.length > 0
+          for x in [0..place.address_components.length-1]
+            type = place.address_components[x].types[0]
+            value = place.address_components[x].long_name
+            switch type
+              when 'locality'
+                $("input##{input_id}_city").val value
+              when 'country'
+                $("input##{input_id}_country").val value
+                $("input##{input_id}_country_code").val place.address_components[x].short_name
+              when 'postal_code'
+                $("input##{input_id}_postal_code").val value
+
+        $("input##{input_id}_lat").val place.geometry.location.lat()
+        $("input##{input_id}_lng").val place.geometry.location.lng()
+        $("input##{input_id}_formatted_address").val place.formatted_address
+    )

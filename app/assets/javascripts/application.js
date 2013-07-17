@@ -20,6 +20,7 @@
 //= require vendor/picker.time
 //
 //= require map
+//= require location
 //= require timeago
 //= require google_timeago
 //

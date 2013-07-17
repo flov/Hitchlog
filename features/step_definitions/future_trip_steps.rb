@@ -1,14 +1,17 @@
 When /^I fill in the future trip form with from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |from, to, departure|
   date = Date.parse departure
 
-  fill_in "To",   with: to
-  find(".ui-autocomplete .ui-corner-all").click
-  fill_in "From", with: from
-  find(".ui-autocomplete .ui-corner-all").click
+  fill_in('future_trip_from', with: from, exact: true)
+  page.find(".pac-container .pac-item:first").click
+
+  fill_in('To', with: to, exact: true)
+  page.find('.pac-container:last .pac-item:first').click
+
   select(date.day,   from: 'future_trip_departure_3i')
   select(date.strftime("%B"), from: 'future_trip_departure_2i')
   select(date.year,  from: 'future_trip_departure_1i')
-  fill_in "Description", with: "Example Description"
+
+  fill_in "future_trip_description", with: "Example Description"
 end
 
 Then /^I should(\ not)? see the future trip from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |negative, from, to, departure|
@@ -55,16 +58,6 @@ Then /^the future trip from Barcelona to Madrid should be geocoded$/ do
   future_trip.to_country_code.should == "ES"
 end
 
-Then /^the future trip from Barcelona to Madrid should be geocoded$/ do
-  future_trip = FutureTrip.last
-  future_trip.from_city.should == "Barcelona"
-  future_trip.to_city.should   == "Paris"
-  future_trip.from_country.should == "Spain"
-  future_trip.to_country.should == "France"
-  future_trip.from_country_code.should == "ES"
-  future_trip.to_country_code.should == "FR"
-end
-
 Then /^I should see the future trip of "([^"]*)" from "([^"]*)" to "([^"]*)"$/ do |user, from, to|
   page.should have_content(user)
   page.should have_content(from)
@@ -75,3 +68,9 @@ Given /^"([^"]*)" logged a future trip from "([^"]*)" to "([^"]*)" at the "([^"]
   user = User.find_by_username(username.downcase) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username)
   user.future_trips.create(from: from, to: to, departure: departure)
 end
+
+When /^I follow the steps to create a new future trip$/ do
+  visit future_trips_path
+  click_link('Post it on the board')
+end
+

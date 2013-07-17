@@ -226,6 +226,8 @@ en:
           been logged by hitchhikers in the Hitchlog.
       login_with_facebook: "Login with Facebook"
   future_trips:
+    form:
+      description_label: "What should we know about this trip?"
     new:
       new_future_trip: Where Would You Like To Hitchhike To?
     edit:

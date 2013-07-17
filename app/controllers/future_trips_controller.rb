@@ -1,7 +1,7 @@
 class FutureTripsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
-  expose(:future_trips) { FutureTrip.all}
+  expose(:future_trips) { FutureTrip.scoped }
   expose(:future_trip)
 
   def create

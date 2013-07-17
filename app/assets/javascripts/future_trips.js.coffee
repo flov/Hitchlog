@@ -1,2 +1,2 @@
-Location.autocomplete_attribute("future_trip_from")
-Location.autocomplete_attribute("future_trip_to")
+new Location("future_trip_from")
+new Location("future_trip_to")

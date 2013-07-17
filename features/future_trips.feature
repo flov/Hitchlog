@@ -6,7 +6,40 @@ Feature: Future Trips
   Background:
     Given I am logged in as "flov" from "Cairns"
 
-  @javascript @geocode_1 @geocode_2 @geocode_3 @geocode_4 @wip
+  Scenario: View a future trip in someone elses profile and send him a message
+    Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I go to the profile page of Malte
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I follow the send a message link besides the future trip
+    And I fill in the message form
+    And I submit the form
+    Then I should see "Mail has been sent to Malte"
+
+  Scenario: Delete a future trip
+    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    When I go to the profile page of Flov
+    And I click on delete future trip
+    Then I should see "Your future trip from Barcelona to Madrid has been deleted"
+
+  Scenario: View Future Trips
+    Given "Malte" logged a future trip from "Cairns" to "Byron Bay" at the "21. December 2015"
+     When I go to the future trips page
+     Then I should see the future trip of "Malte" from "Cairns" to "Byron Bay"
+
+  Scenario: Do not show past future trips
+    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"
+    When I go to the profile page of Flov
+    Then I should not see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"
+
+  @new_future_trip @javascript
+  Scenario: New future trip
+    When I follow the steps to create a new future trip
+    And I fill in the future trip form with from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    And I submit the form
+    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
+    And the future trip from Barcelona to Madrid should be geocoded
+
+  @javascript @wip
   Scenario: New future trip WITH a nearby hitchhiker
     Given a hitchhiker called "Malte" from "Cairns"
     When I go to the new future trip page
@@ -36,28 +69,3 @@ Feature: Future Trips
     And I submit the form
     Then I should see the future trip from "Barcelona" to "Paris" at the "20 Feb 2014"
     And the future trip from Barcelona to Paris should be geocoded
-
-  Scenario: View a future trip in someone elses profile and send him a message
-    Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    When I go to the profile page of Malte
-    Then I should see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    When I follow the send a message link besides the future trip
-    And I fill in the message form
-    And I submit the form
-    Then I should see "Mail has been sent to Malte"
-
-  Scenario: Delete a future trip
-    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2014"
-    When I go to the profile page of Flov
-    And I click on delete future trip
-    Then I should see "Your future trip from Barcelona to Madrid has been deleted"
-
-  Scenario: View Future Trips
-    Given "Malte" logged a future trip from "Cairns" to "Byron Bay" at the "21. December 2015"
-     When I go to the future trips page
-     Then I should see the future trip of "Malte" from "Cairns" to "Byron Bay"
-
-  Scenario: Do not show past future trips
-    Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"
-    When I go to the profile page of Flov
-    Then I should not see the future trip from "Barcelona" to "Madrid" at the "25 Jan 2010"
