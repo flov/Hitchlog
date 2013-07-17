@@ -210,7 +210,7 @@ class Trip < ActiveRecord::Base
 
   def get_country_distance
     countries = Gmaps.countries(from, to)
-    if %w(ZERO_RESULTS OFFLINE OVER_QUERY_LIMIT REQUEST_DENIED INVALID_REQUEST).include? countries
+    if %w(ZERO_RESULTS OFFLINE NOT_FOUND OVER_QUERY_LIMIT REQUEST_DENIED INVALID_REQUEST).include? countries
       [['Unknown', 10000]]
     else
       countries.each do |country_distance|
