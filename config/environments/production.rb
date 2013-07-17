@@ -57,7 +57,8 @@ Hitchlog::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.after_initialize do
     ActionMailer::Base.smtp_settings = {
-      :address  => ENV['SMTP_DOMAIN'],
+      :address => ENV['SMTP_ADDRESS'],
+      :domain => ENV['SMTP_DOMAIN'],
       :port => ENV['SMTP_PORT'],
       :user_name => ENV['SMTP_USER'],
       :password => ENV['SMTP_PASS'],
