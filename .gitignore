@@ -23,6 +23,7 @@ TODO
 a.log
 zeus.json
 config/initializers/a_env_vars_config.rb
+.env
 
 # These images belong to the crisp template (see /app/views/crisp/*)
 public/images/
