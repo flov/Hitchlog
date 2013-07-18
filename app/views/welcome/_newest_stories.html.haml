@@ -3,11 +3,13 @@
     %i.icon-book
     = t('welcome.home.newest_hh_stories')
 %ul
-  - Ride.with_story.latest_first.paginate(per_page: 3, page: 1).each do |ride|
+  - Ride.with_story.latest_first.paginate(per_page: 4, page: 1).each do |ride|
     %li
       = link_to trip_path(ride.trip) do
         = ride.trip
-        = images_for_ride(ride)
+        -#= country_images_for_trip(ride.trip)
+        = experience_image(ride.experience)
+
       = t('welcome.home.hitchhiked_by_user',
         user: link_to_user(ride.trip.user),
         time: time_ago_in_words(ride.trip.departure)).html_safe
