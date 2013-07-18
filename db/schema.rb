@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715072202) do
+ActiveRecord::Schema.define(:version => 20130718150040) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(:version => 20130715072202) do
 
   create_table "rides", :force => true do |t|
     t.string   "title"
-    t.string   "mission"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
