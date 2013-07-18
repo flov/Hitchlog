@@ -2,10 +2,6 @@ require 'factory_girl'
 require 'faker'
 
 FactoryGirl.define do
-  sequence :email do |n|
-    "testuser#{n}@example.com"
-  end
-
   factory :comment do
     body "Great Example Comment"
     association :user
@@ -13,7 +9,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email                 { generate(:email) }
+    email                 { Faker::Internet.email }
     username              { |u| u.email.split("@").first }
     password              "password"
     password_confirmation "password"

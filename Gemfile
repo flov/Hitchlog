@@ -82,4 +82,7 @@ group :test do
   gem 'faker'
   gem 'email_spec'
   gem 'rb-fsevent'
+
+  gem 'ruby-prof'
+  gem 'test-unit'
 end
