@@ -133,6 +133,7 @@ en:
       english: English
       german: German
   general:
+    events: events
     record_not_found: The record was not found
     member_since: "Member since %{time}"
     news: News
@@ -283,6 +284,7 @@ en:
       with_two_other_people: with two other people
       with_three_other_people: with three other people
     show:
+      upcoming_trip: upcoming trip
       current_location: "Current location:"
       alone: alone
       gender_of_drivers: "Gender of passengers"

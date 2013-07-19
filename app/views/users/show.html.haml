@@ -31,8 +31,7 @@
     - if user.future_trips.any?
       %h4.short_headline
         %span
-          #{user} is searching for a hitchhiking buddy for
-          #{pluralize(user.future_trips.size, 'upcoming trip')}:
+          #{pluralize(user.future_trips.size, t('.upcoming_trip'))}:
       = render 'future_trips/future_trips', future_trips: user.future_trips
 
     - if @trips.any?
