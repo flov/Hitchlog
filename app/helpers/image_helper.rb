@@ -79,7 +79,7 @@ module ImageHelper
   def country_images_for_trip(trip)
     array = []
     trip.country_distances.each do |country_distance|
-      array << flag_with_country_name(country_distance.country, country_distance.distance)
+      array << country_image(country_distance.country, country_distance.distance)
     end
     array.join(' ').html_safe
   end
