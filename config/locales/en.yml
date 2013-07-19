@@ -88,8 +88,8 @@ en:
     female: female
     male_hitchhiker: "Male Hitchhiker"
     female_hitchhiker: "Female Hitchhiker"
-    male_people: "male passenger(s)"
-    female_people: "female passenger(s)"
+    male_people: "male passenger"
+    female_people: "female passenger"
     mixed_people: "female and male passengers"
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "trip duration %{duration}"
