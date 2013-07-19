@@ -16,10 +16,12 @@ FactoryGirl.define do
     password_salt         "salt"
     cs_user               Faker::Name.first_name
     last_sign_in_at       Time.zone.now
-    lat                   0.0
-    lng                   0.0
+    lat                   -37.8141
+    lng                   144.963
     gender                'male'
     location              'Melbourne, Australia'
+    country               'Australia'
+    country_code          'AU'
   end
 
   factory :munich_user, :parent => :user do
