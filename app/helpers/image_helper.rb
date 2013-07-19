@@ -87,7 +87,7 @@ module ImageHelper
   def all_country_images
     array = []
     countries = CountryDistance.pluck(:country).uniq
-    countries -= ['unknown', 'The Netherlands', 'Kingdom of Sweden', '']
+    countries -= ['unknown', '']
     countries.each do |country|
       array << link_to(country_image(country), "trips/?country=#{country}")
     end
@@ -270,7 +270,7 @@ module ImageHelper
     unless country_code.blank?
       image_tag "flags/png/#{country_code.downcase}.png",
         class: 'tip',
-        title: "#{I18nData.countries["#{country_code}"]}"
+        title: Countries[country_code]
     end
   end
 
@@ -285,19 +285,14 @@ module ImageHelper
   end
 
   def country_image(country, country_distance=nil)
-    case country
-      when "The Netherlands" then country = "Netherlands"
-      when "Macedonia (FYROM)" then country = "Macedonia"
-      when "Kingdom of Sweden" then country = "Sweden"
-      # Add more exceptions...
-    end
-
-    unless I18nData.country_code(country).nil?
-      if country_distance == nil
-        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", class: 'tip', title: "#{country}"
+    unless Countries[country].nil?
+      if country_distance
+        title = "#{country} #{distance( country_distance )}"
       else
-        image_tag "flags/png/#{I18nData.country_code(country).downcase}.png", class: 'tip', title: "#{country} #{distance( country_distance )}"
+        title = country
       end
+
+      image_tag "flags/png/#{Countries[country].downcase}.png", class: 'tip', title: title
     end
   end
 end
