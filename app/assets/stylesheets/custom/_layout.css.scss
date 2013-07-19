@@ -251,6 +251,13 @@ footer#footer{
   }
 }
 
+.blue {
+  color: #7596C4;
+}
+.pink {
+  color: darken(pink, 10)
+}
+
 
 @media only screen and (max-width:600px) { 
   .jumbotron h1{

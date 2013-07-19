@@ -90,7 +90,7 @@ en:
     female_hitchhiker: "Female Hitchhiker"
     male_people: "male passenger(s)"
     female_people: "female passenger(s)"
-    mixed_people: "Mixed gender passenger(s)"
+    mixed_people: "female and male passengers"
     gmaps_duration: "Google Maps Duration %{duration}"
     trip_duration: "trip duration %{duration}"
     add_information: "Add inforation to ride"
