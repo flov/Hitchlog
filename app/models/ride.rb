@@ -1,6 +1,5 @@
 class Ride < ActiveRecord::Base  
   attr_accessible :title,
-                  :mission,
                   :story,
                   :waiting_time,
                   :date,
