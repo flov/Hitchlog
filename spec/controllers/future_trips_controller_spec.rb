@@ -16,7 +16,7 @@ describe FutureTripsController do
   describe "#create" do
     let(:action) { post :create, future_trip: { "from" => "foo" } }
     let(:current_user) { double('user', to_param: 'flov', id: 1) }
-    let(:future_trip) { double('future_trip') }
+    let(:future_trip) { double('future_trip', 'attributes=' => '') }
 
     it_blocks_unauthenticated_access
 
@@ -46,19 +46,18 @@ describe FutureTripsController do
 
   describe "#update" do
     let(:future_trip) { double('future_trip', id: 1) }
-    let(:action) { put :update, id: future_trip.id, future_trip: { "from" => "foo" } }
+    let(:action) { put :update, id: 1, future_trip: { "from" => "foo" } }
     let(:current_user) { double('user', to_param: 'flov') }
 
     it_blocks_unauthenticated_access
 
     before :each do
       sign_in :user, current_user
-      FutureTrip.stub find: future_trip
+      FutureTrip.stub(:find).and_return future_trip
     end
 
     it 'updates a future trip and redirects to the profile page' do
-      future_trip.stub(update_attributes: true)
-      future_trip.should_receive(:attributes=).with("from" => "foo").and_return(true)
+      future_trip.should_receive(:update_attributes).and_return(true)
 
       action
 
@@ -66,7 +65,7 @@ describe FutureTripsController do
     end
 
     it 'renders edit if there is invalid data' do
-      future_trip.stub update_attributes: false
+      future_trip.should_receive(:update_attributes).and_return(false)
       future_trip.stub 'attributes=' => false
 
       action
