@@ -29,7 +29,7 @@ describe TripsController do
 
   describe '#show' do
     let(:trip) { double('trip') }
-    
+
     it 'redirects if trip wasn not found' do
       get :show, id: 'doesnt exist!'
 
@@ -67,51 +67,6 @@ describe TripsController do
       action
 
       response.should render_template(:edit)
-    end
-  end
-
-  describe '#create_comment' do
-    let(:action) { post :create_comment, body: "New Comment", id: 1 }
-
-    it_blocks_unauthenticated_access
-
-    context 'user is logged in' do
-      let(:trip)    { double('trip') }
-      let(:user)    { double('user') }
-      let(:comment) { double('comment', id: 1, trip: trip, user: user, :trip_id= => nil, :user_id= => nil) }
-
-      before do
-        sign_in :user, double('user', id: 2)
-
-        Comment.stub(:new).and_return(comment)
-        comment.should_receive(:trip_id=).with( '1' )
-        comment.should_receive(:user_id=).with( 2 )
-      end
-
-      context 'comment saves succesfully' do
-        before do
-          comment.stub(:save).and_return(true)
-          controller.stub(:notify_trip_owner_and_comment_authors)
-
-          action
-        end
-
-        it 'sets the success flash' do
-          flash[:success].should_not be_empty
-        end
-
-        it 'redirects to trip_path' do
-          response.should redirect_to(trip_path(comment.trip))
-        end
-      end
-
-      it 'sets the alert flash when the comment fails to save' do
-        comment.stub(:save).and_return(false)
-
-        action
-
-        flash[:alert].should eq("Comment failed to save!")
-      end
     end
   end
 
