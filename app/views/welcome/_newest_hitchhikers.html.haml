@@ -6,9 +6,9 @@
   %ul
     - User.paginate(per_page: 8, page: 1).each do |user|
       %li
-        %p
-          = link_to "#{user} (#{user.trips.size})", user_path(user)
-          = hitchhiker_gender(user.gender)
-          = flag(user.country_code) if user.country_code
+        = link_to user_path(user) do
+          #{user} (#{user.trips.size})
+        = hitchhiker_gender(user.gender)
+        = flag(user.country_code) if user.country_code
 
     %strong=link_to t('welcome.home.more_hitchhikers'), users_path 
