@@ -1,7 +1,9 @@
 language: ruby
+
 rvm:
   - 2.0.0
   - 1.9.3
+
 services: postgresql
 
 before_install:
@@ -21,3 +23,6 @@ deploy:
   provider: heroku
   api_key:
     secure: FFualFIJXLj4TukM6ytjtVpXaao1YYLP4R+LUQBFKiLmyueluXE971xeMt1on1E5fLDF+JNxiZN/umukeIxXcPlVqMB5R50A3AaSvhniJ9YMoW11/qosTOAsDeWNz5tEptlH+ztvTHKm4vToitWn2vqRcYu+ZNuEt+wG3XM4cRY=
+  run: "rake db:migrate"
+  rvm: 1.9.3
+
