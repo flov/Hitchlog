@@ -1,6 +1,6 @@
 When /^I enter a new location "([^"]*)"$/ do |location|
   VCR.use_cassette 'edit_location' do
-    fill_in('Location', with: 'Berlin', exact: true)
+    fill_in('Location', with: location, exact: true)
     page.find(".pac-container .pac-item:first").click
   end
 end

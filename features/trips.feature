@@ -3,7 +3,7 @@ Feature: User manages trips
   As a user
   I want to add/edit and view my own trips
 
-  @javascript
+  @javascript @trips
   Scenario: Log new trip
     Given I am logged in
     And I go to the new trip page

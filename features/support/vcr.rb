@@ -5,9 +5,6 @@ VCR.configure do |c|
 end
 
 VCR.cucumber_tags do |t|
-  t.tags  '@google_maps',
-          '@geocode_1',
-          '@geocode_2',
-          '@geocode_3',
-          '@geocode_4'
+  t.tags  '@hitchhikers',
+          '@trips'
 end

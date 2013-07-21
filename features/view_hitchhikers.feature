@@ -1,4 +1,5 @@
 Feature: Display all Hitchhikers
+  @hitchhikers
   Scenario: two hitchhikers in database
     Given 2 hitchhikers
     When I go to the hitchhikers page

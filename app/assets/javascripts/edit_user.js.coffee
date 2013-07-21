@@ -36,7 +36,7 @@ google.maps.event.addListener(autocomplete, 'place_changed', ->
         $('.user_location .controls .help-block').html('')
         $(".user_location .controls").append(
           "<span class='help-block'>
-             <img class='tip' src='/assets/flags/png/#{country_code}.png' title='#{country}' data-original-title='#{country}'>
+             <div class='flags-#{country_code} tip' title='#{country}'></div>
              #{city}
            </span>"
         )

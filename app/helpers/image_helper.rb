@@ -261,12 +261,10 @@ module ImageHelper
     end
   end
 
-  def flag(country_code)
-    unless country_code.blank?
-      image_tag "flags/png/#{country_code.downcase}.png",
-        class: 'tip',
-        title: Countries[country_code]
-    end
+  def flag(country_code, title = nil)
+    return if country_code.blank?
+    title = Countries[country_code] if title.nil?
+    "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
   end
 
   def flag_with_country_name(user)
@@ -290,14 +288,12 @@ module ImageHelper
   def country(country, country_distance=nil)
     country_code = Countries[country]
 
-    return if country_code.nil?
-
     if country_distance
       title = "#{country} #{distance( country_distance )}"
     else
       title = country
     end
 
-    "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
+    flag(country_code, title)
   end
 end

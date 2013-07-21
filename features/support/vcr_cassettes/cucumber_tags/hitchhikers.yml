@@ -1,0 +1,451 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://freegeoip.net/json/195.71.11.67
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.1.19
+      date:
+      - Sun, 21 Jul 2013 14:03:28 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '181'
+      connection:
+      - close
+      access-control-allow-origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"ip":"195.71.11.67","country_code":"DE","country_name":"Germany","region_code":"","region_name":"","city":"","zipcode":"","latitude":51,"longitude":9,"metro_code":"","areacode":""}'
+    http_version: '1.1'
+  recorded_at: Sun, 21 Jul 2013 14:03:28 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=51.0%2C9.0&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sun, 21 Jul 2013 14:03:30 GMT
+      expires:
+      - Mon, 22 Jul 2013 14:03:30 GMT
+      cache-control:
+      - public, max-age=86400
+      access-control-allow-origin:
+      - ! '*'
+      server:
+      - mafe
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "{\n   \"results\" : [\n      {\n         \"address_components\" :
+        [\n            {\n               \"long_name\" : \"K110\",\n               \"short_name\"
+        : \"K110\",\n               \"types\" : [ \"route\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Haina\",\n               \"short_name\" :
+        \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"35285\",\n               \"short_name\" : \"35285\",\n               \"types\"
+        : [ \"postal_code\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"K110, 35285 Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 50.99638740,\n
+        \                 \"lng\" : 8.99161670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.99536350,\n                  \"lng\" :
+        8.99051910\n               }\n            },\n            \"location\" : {\n
+        \              \"lat\" : 50.99587730,\n               \"lng\" : 8.99107220\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 50.99722443029150,\n
+        \                 \"lng\" : 8.992416880291502\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.99452646970850,\n                  \"lng\"
+        : 8.989718919708498\n               }\n            }\n         },\n         \"types\"
+        : [ \"route\" ]\n      },\n      {\n         \"address_components\" : [\n
+        \           {\n               \"long_name\" : \"Haina\",\n               \"short_name\"
+        : \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n
+        \           },\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\" :
+        {\n               \"northeast\" : {\n                  \"lat\" : 51.08515910,\n
+        \                 \"lng\" : 9.097027299999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98967580000001,\n                  \"lng\"
+        : 8.86857360\n               }\n            },\n            \"location\" :
+        {\n               \"lat\" : 51.0289890,\n               \"lng\" : 8.9732480\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.08515910,\n
+        \                 \"lng\" : 9.097027299999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98967580000001,\n                  \"lng\"
+        : 8.86857360\n               }\n            }\n         },\n         \"types\"
+        : [ \"locality\", \"political\" ]\n      },\n      {\n         \"address_components\"
+        : [\n            {\n               \"long_name\" : \"35114\",\n               \"short_name\"
+        : \"35114\",\n               \"types\" : [ \"postal_code\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Haina\",\n               \"short_name\"
+        : \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n
+        \           },\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"35114 Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.0850940,\n
+        \                 \"lng\" : 9.097067899999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98946710,\n                  \"lng\" :
+        8.86912890\n               }\n            },\n            \"location\" : {\n
+        \              \"lat\" : 51.033970,\n               \"lng\" : 8.97302760\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.0850940,\n
+        \                 \"lng\" : 9.097067899999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98946710,\n                  \"lng\" :
+        8.86912890\n               }\n            }\n         },\n         \"types\"
+        : [ \"postal_code\" ]\n      },\n      {\n         \"address_components\"
+        : [\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Germany\",\n
+        \              \"short_name\" : \"DE\",\n               \"types\" : [ \"country\",
+        \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Waldeck-Frankenberg, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.51893279999999,\n
+        \                 \"lng\" : 9.2218670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.93549780,\n                  \"lng\" :
+        8.473281099999999\n               }\n            },\n            \"location\"
+        : {\n               \"lat\" : 51.22208570,\n               \"lng\" : 8.854924199999999\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.51893279999999,\n
+        \                 \"lng\" : 9.2218670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.93549780,\n                  \"lng\" :
+        8.473281099999999\n               }\n            }\n         },\n         \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n      },\n      {\n
+        \        \"address_components\" : [\n            {\n               \"long_name\"
+        : \"Kassel\",\n               \"short_name\" : \"KS\",\n               \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Hesse\",\n               \"short_name\" :
+        \"HE\",\n               \"types\" : [ \"administrative_area_level_1\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Germany\",\n
+        \              \"short_name\" : \"DE\",\n               \"types\" : [ \"country\",
+        \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Kassel, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.65750350,\n
+        \                 \"lng\" : 10.23632070\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.35613840,\n                  \"lng\" :
+        8.473281099999999\n               }\n            },\n            \"location\"
+        : {\n               \"lat\" : 51.12559310,\n               \"lng\" : 9.541541199999999\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.65750350,\n
+        \                 \"lng\" : 10.23632070\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.35613840,\n                  \"lng\" :
+        8.473281099999999\n               }\n            }\n         },\n         \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n      },\n      {\n
+        \        \"address_components\" : [\n            {\n               \"long_name\"
+        : \"Hesse\",\n               \"short_name\" : \"HE\",\n               \"types\"
+        : [ \"administrative_area_level_1\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Germany\",\n               \"short_name\"
+        : \"DE\",\n               \"types\" : [ \"country\", \"political\" ]\n            }\n
+        \        ],\n         \"formatted_address\" : \"Hesse, Germany\",\n         \"geometry\"
+        : {\n            \"bounds\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 51.65750620,\n                  \"lng\" : 10.23632070\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 49.39526110,\n
+        \                 \"lng\" : 7.77246750\n               }\n            },\n
+        \           \"location\" : {\n               \"lat\" : 50.65205150,\n               \"lng\"
+        : 9.162437599999999\n            },\n            \"location_type\" : \"APPROXIMATE\",\n
+        \           \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 51.65750620,\n                  \"lng\" : 10.23632070\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 49.39526110,\n
+        \                 \"lng\" : 7.77246750\n               }\n            }\n
+        \        },\n         \"types\" : [ \"administrative_area_level_1\", \"political\"
+        ]\n      },\n      {\n         \"address_components\" : [\n            {\n
+        \              \"long_name\" : \"Germany\",\n               \"short_name\"
+        : \"DE\",\n               \"types\" : [ \"country\", \"political\" ]\n            }\n
+        \        ],\n         \"formatted_address\" : \"Germany\",\n         \"geometry\"
+        : {\n            \"bounds\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 55.0583470,\n                  \"lng\" : 15.04189620\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 47.27011150,\n
+        \                 \"lng\" : 5.86634250\n               }\n            },\n
+        \           \"location\" : {\n               \"lat\" : 51.1656910,\n               \"lng\"
+        : 10.4515260\n            },\n            \"location_type\" : \"APPROXIMATE\",\n
+        \           \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 55.0583470,\n                  \"lng\" : 15.04189620\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 47.27011150,\n
+        \                 \"lng\" : 5.86634250\n               }\n            }\n
+        \        },\n         \"types\" : [ \"country\", \"political\" ]\n      }\n
+        \  ],\n   \"status\" : \"OK\"\n}\n"
+    http_version: '1.1'
+  recorded_at: Sun, 21 Jul 2013 14:03:30 GMT
+- request:
+    method: get
+    uri: http://freegeoip.net/json/195.71.11.67
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/1.1.19
+      date:
+      - Sun, 21 Jul 2013 14:03:31 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '181'
+      connection:
+      - close
+      access-control-allow-origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"ip":"195.71.11.67","country_code":"DE","country_name":"Germany","region_code":"","region_name":"","city":"","zipcode":"","latitude":51,"longitude":9,"metro_code":"","areacode":""}'
+    http_version: '1.1'
+  recorded_at: Sun, 21 Jul 2013 14:03:32 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=51.0%2C9.0&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept-encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sun, 21 Jul 2013 14:03:32 GMT
+      expires:
+      - Mon, 22 Jul 2013 14:03:32 GMT
+      cache-control:
+      - public, max-age=86400
+      access-control-allow-origin:
+      - ! '*'
+      server:
+      - mafe
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! "{\n   \"results\" : [\n      {\n         \"address_components\" :
+        [\n            {\n               \"long_name\" : \"K110\",\n               \"short_name\"
+        : \"K110\",\n               \"types\" : [ \"route\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Haina\",\n               \"short_name\" :
+        \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"35285\",\n               \"short_name\" : \"35285\",\n               \"types\"
+        : [ \"postal_code\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"K110, 35285 Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 50.99638740,\n
+        \                 \"lng\" : 8.99161670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.99536350,\n                  \"lng\" :
+        8.99051910\n               }\n            },\n            \"location\" : {\n
+        \              \"lat\" : 50.99587730,\n               \"lng\" : 8.99107220\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 50.99722443029150,\n
+        \                 \"lng\" : 8.992416880291502\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.99452646970850,\n                  \"lng\"
+        : 8.989718919708498\n               }\n            }\n         },\n         \"types\"
+        : [ \"route\" ]\n      },\n      {\n         \"address_components\" : [\n
+        \           {\n               \"long_name\" : \"Haina\",\n               \"short_name\"
+        : \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n
+        \           },\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\" :
+        {\n               \"northeast\" : {\n                  \"lat\" : 51.08515910,\n
+        \                 \"lng\" : 9.097027299999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98967580000001,\n                  \"lng\"
+        : 8.86857360\n               }\n            },\n            \"location\" :
+        {\n               \"lat\" : 51.0289890,\n               \"lng\" : 8.9732480\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.08515910,\n
+        \                 \"lng\" : 9.097027299999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98967580000001,\n                  \"lng\"
+        : 8.86857360\n               }\n            }\n         },\n         \"types\"
+        : [ \"locality\", \"political\" ]\n      },\n      {\n         \"address_components\"
+        : [\n            {\n               \"long_name\" : \"35114\",\n               \"short_name\"
+        : \"35114\",\n               \"types\" : [ \"postal_code\" ]\n            },\n
+        \           {\n               \"long_name\" : \"Haina\",\n               \"short_name\"
+        : \"Haina\",\n               \"types\" : [ \"locality\", \"political\" ]\n
+        \           },\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Hesse\",\n
+        \              \"short_name\" : \"HE\",\n               \"types\" : [ \"administrative_area_level_1\",
+        \"political\" ]\n            },\n            {\n               \"long_name\"
+        : \"Germany\",\n               \"short_name\" : \"DE\",\n               \"types\"
+        : [ \"country\", \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"35114 Haina, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.0850940,\n
+        \                 \"lng\" : 9.097067899999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98946710,\n                  \"lng\" :
+        8.86912890\n               }\n            },\n            \"location\" : {\n
+        \              \"lat\" : 51.033970,\n               \"lng\" : 8.97302760\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.0850940,\n
+        \                 \"lng\" : 9.097067899999999\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.98946710,\n                  \"lng\" :
+        8.86912890\n               }\n            }\n         },\n         \"types\"
+        : [ \"postal_code\" ]\n      },\n      {\n         \"address_components\"
+        : [\n            {\n               \"long_name\" : \"Waldeck-Frankenberg\",\n
+        \              \"short_name\" : \"Waldeck-Frankenberg\",\n               \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Kassel\",\n               \"short_name\"
+        : \"KS\",\n               \"types\" : [ \"administrative_area_level_2\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Germany\",\n
+        \              \"short_name\" : \"DE\",\n               \"types\" : [ \"country\",
+        \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Waldeck-Frankenberg, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.51893279999999,\n
+        \                 \"lng\" : 9.2218670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.93549780,\n                  \"lng\" :
+        8.473281099999999\n               }\n            },\n            \"location\"
+        : {\n               \"lat\" : 51.22208570,\n               \"lng\" : 8.854924199999999\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.51893279999999,\n
+        \                 \"lng\" : 9.2218670\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.93549780,\n                  \"lng\" :
+        8.473281099999999\n               }\n            }\n         },\n         \"types\"
+        : [ \"administrative_area_level_3\", \"political\" ]\n      },\n      {\n
+        \        \"address_components\" : [\n            {\n               \"long_name\"
+        : \"Kassel\",\n               \"short_name\" : \"KS\",\n               \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Hesse\",\n               \"short_name\" :
+        \"HE\",\n               \"types\" : [ \"administrative_area_level_1\", \"political\"
+        ]\n            },\n            {\n               \"long_name\" : \"Germany\",\n
+        \              \"short_name\" : \"DE\",\n               \"types\" : [ \"country\",
+        \"political\" ]\n            }\n         ],\n         \"formatted_address\"
+        : \"Kassel, Germany\",\n         \"geometry\" : {\n            \"bounds\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.65750350,\n
+        \                 \"lng\" : 10.23632070\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.35613840,\n                  \"lng\" :
+        8.473281099999999\n               }\n            },\n            \"location\"
+        : {\n               \"lat\" : 51.12559310,\n               \"lng\" : 9.541541199999999\n
+        \           },\n            \"location_type\" : \"APPROXIMATE\",\n            \"viewport\"
+        : {\n               \"northeast\" : {\n                  \"lat\" : 51.65750350,\n
+        \                 \"lng\" : 10.23632070\n               },\n               \"southwest\"
+        : {\n                  \"lat\" : 50.35613840,\n                  \"lng\" :
+        8.473281099999999\n               }\n            }\n         },\n         \"types\"
+        : [ \"administrative_area_level_2\", \"political\" ]\n      },\n      {\n
+        \        \"address_components\" : [\n            {\n               \"long_name\"
+        : \"Hesse\",\n               \"short_name\" : \"HE\",\n               \"types\"
+        : [ \"administrative_area_level_1\", \"political\" ]\n            },\n            {\n
+        \              \"long_name\" : \"Germany\",\n               \"short_name\"
+        : \"DE\",\n               \"types\" : [ \"country\", \"political\" ]\n            }\n
+        \        ],\n         \"formatted_address\" : \"Hesse, Germany\",\n         \"geometry\"
+        : {\n            \"bounds\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 51.65750620,\n                  \"lng\" : 10.23632070\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 49.39526110,\n
+        \                 \"lng\" : 7.77246750\n               }\n            },\n
+        \           \"location\" : {\n               \"lat\" : 50.65205150,\n               \"lng\"
+        : 9.162437599999999\n            },\n            \"location_type\" : \"APPROXIMATE\",\n
+        \           \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 51.65750620,\n                  \"lng\" : 10.23632070\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 49.39526110,\n
+        \                 \"lng\" : 7.77246750\n               }\n            }\n
+        \        },\n         \"types\" : [ \"administrative_area_level_1\", \"political\"
+        ]\n      },\n      {\n         \"address_components\" : [\n            {\n
+        \              \"long_name\" : \"Germany\",\n               \"short_name\"
+        : \"DE\",\n               \"types\" : [ \"country\", \"political\" ]\n            }\n
+        \        ],\n         \"formatted_address\" : \"Germany\",\n         \"geometry\"
+        : {\n            \"bounds\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 55.0583470,\n                  \"lng\" : 15.04189620\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 47.27011150,\n
+        \                 \"lng\" : 5.86634250\n               }\n            },\n
+        \           \"location\" : {\n               \"lat\" : 51.1656910,\n               \"lng\"
+        : 10.4515260\n            },\n            \"location_type\" : \"APPROXIMATE\",\n
+        \           \"viewport\" : {\n               \"northeast\" : {\n                  \"lat\"
+        : 55.0583470,\n                  \"lng\" : 15.04189620\n               },\n
+        \              \"southwest\" : {\n                  \"lat\" : 47.27011150,\n
+        \                 \"lng\" : 5.86634250\n               }\n            }\n
+        \        },\n         \"types\" : [ \"country\", \"political\" ]\n      }\n
+        \  ],\n   \"status\" : \"OK\"\n}\n"
+    http_version: '1.1'
+  recorded_at: Sun, 21 Jul 2013 14:03:32 GMT
+recorded_with: VCR 2.5.0
