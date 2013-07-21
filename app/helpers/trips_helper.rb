@@ -63,7 +63,7 @@ module TripsHelper
   end
 
   def options_for_gender
-    "<option>#{t('general.male_hitchhiker')}</option><option>#{t('general.female_hitchhiker')}</option>"
+    "<option>#{t('helper.male_hitchhiker')}</option><option>#{t('helper.female_hitchhiker')}</option>"
   end
 
   def experiences

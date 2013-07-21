@@ -77,5 +77,4 @@ group :test do
   gem 'rb-fsevent'
 
   gem 'ruby-prof'
-  gem 'test-unit'
 end
