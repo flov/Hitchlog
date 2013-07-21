@@ -21,9 +21,6 @@ class User < ActiveRecord::Base
 
   has_friendly_id :username
 
-  # chart_image method
-  include Chart
-
   default_scope order("id DESC")
 
   has_many :rides, through: :trips
@@ -48,8 +45,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  before_create :geocode, if: :current_sign_in_ip_changed?
-  before_create :reverse_geocode, if: :current_sign_in_ip_changed?
+  before_create :geocode, :reverse_geocode
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
