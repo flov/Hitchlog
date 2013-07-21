@@ -2,3 +2,18 @@ language: ruby
 rvm:
   - 2.0.0
   - 1.9.3
+services: postgresql
+
+before_script:
+  - psql -c 'create database hitchlog_test;' -U postgres
+
+script:
+  - bundle exec rake db:setup RAILS_ENV=test
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rspec spec/
+  - bundle exec cucumber features/
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: FFualFIJXLj4TukM6ytjtVpXaao1YYLP4R+LUQBFKiLmyueluXE971xeMt1on1E5fLDF+JNxiZN/umukeIxXcPlVqMB5R50A3AaSvhniJ9YMoW11/qosTOAsDeWNz5tEptlH+ztvTHKm4vToitWn2vqRcYu+ZNuEt+wG3XM4cRY=
