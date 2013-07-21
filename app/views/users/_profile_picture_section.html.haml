@@ -2,8 +2,7 @@
   %h5.short_headline
     %span
       = link_to user, user_path(user)
-      = gender_image user.gender
-
+      = hitchhiker_gender user.gender
 
   = render 'users/profile_image', user: user, type: "normal"
 

@@ -16,7 +16,7 @@
       = t('welcome.home.hitchhiked_by_user',
         user: link_to_user(ride.trip.user),
         time: time_ago_in_words(ride.trip.departure)).html_safe
-      = gender_hitchhiker_image(ride.trip.user.gender)
+      = hitchhiker_gender(ride.trip.user.gender)
       %br/
       %b= truncate(ride.title, length: 50)
       = truncated_markdown(ride.story)

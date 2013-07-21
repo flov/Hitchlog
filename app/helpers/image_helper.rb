@@ -4,7 +4,7 @@ module ImageHelper
       hitchhiking_with_image(ride.trip.travelling_with),
       country_images_for_trip(ride.trip),
       experience_image(ride.experience),
-      gender_people_image(ride.gender),
+      passenger_gender(ride.gender),
       waiting_time_image(human_minutes(ride.waiting_time)),
       driving_time_image(human_hours(ride.duration)),
       ride_has_story_image(ride)
@@ -70,7 +70,7 @@ module ImageHelper
     end
 
     hash.each do |country, distance|
-      array << country_image(country, distance)
+      array << country(country, distance)
     end
 
     array.join(' ').html_safe
@@ -79,7 +79,7 @@ module ImageHelper
   def country_images_for_trip(trip)
     array = []
     trip.country_distances.each do |country_distance|
-      array << country_image(country_distance.country, country_distance.distance)
+      array << country(country_distance.country, country_distance.distance)
     end
     array.join(' ').html_safe
   end
@@ -89,7 +89,7 @@ module ImageHelper
     country_distances = CountryDistance.pluck(:country).uniq
     country_distances -= ['unknown', '']
     country_distances.each do |country|
-      array << link_to(country_image(country), "trips/?country=#{country}")
+      array << link_to(country(country), "trips/?country=#{country}")
     end
     array.join(' ').html_safe
   end
@@ -118,23 +118,15 @@ module ImageHelper
     image_tag("icons/add.png", :class => 'tip', :title => t('helper.add_information_to_hitchhike'))
   end
 
-  def male(title)
+  def male(title = '')
     "<i class='icon-male blue tip' title='#{title}'></i>".html_safe
   end
 
-  def female(title)
+  def female(title = '')
     "<i class='icon-female pink tip' title='#{title}'></i>".html_safe
   end
 
-  def gender_image(gender)
-    if gender == 'male'
-      male(t('helper.male_people'))
-    elsif gender == 'female'
-      female(t('helper.female_people'))
-    end
-  end
-
-  def gender_hitchhiker_image(gender)
+  def hitchhiker_gender(gender)
     if gender == 'male'
       male(t('helper.male_hitchhiker'))
     elsif gender == 'female'
@@ -142,16 +134,16 @@ module ImageHelper
     end
   end
 
-  def gender_people_image(gender)
+  def passenger_gender(gender)
     if gender == 'male'
       male(t('helper.male_people'))
     elsif gender == 'female'
       female(t('helper.male_people'))
     elsif gender == 'mixed'
-      "<span class='tip' titile='#{t('helper.mixed_people')}'>" +
-        "<i class='icon-female'></i>" +
-        "<i class='icon-male'></i>" +
-      "</span>".html_safe
+      "<span class='tip' title='#{t('helper.mixed_people')}'>
+        #{male}
+        #{female}
+      </span>".html_safe
     end
   end
 
@@ -290,20 +282,22 @@ module ImageHelper
   def flag_with_country_name_for_trip(trip)
     array = []
     trip.countries_with_distance.each do |hash|
-      array << country_image(hash[:country], hash[:distance]).html_safe
+      array << country(hash[:country], hash[:distance]).html_safe
     end
     array.join(' ').html_safe
   end
 
-  def country_image(country, country_distance=nil)
-    unless Countries[country].nil?
-      if country_distance
-        title = "#{country} #{distance( country_distance )}"
-      else
-        title = country
-      end
+  def country(country, country_distance=nil)
+    country_code = Countries[country]
 
-      image_tag "flags/png/#{Countries[country].downcase}.png", class: 'tip', title: title
+    return if country_code.nil?
+
+    if country_distance
+      title = "#{country} #{distance( country_distance )}"
+    else
+      title = country
     end
+
+    "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
   end
 end

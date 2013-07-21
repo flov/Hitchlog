@@ -56,6 +56,12 @@
 
 @import "font-awesome";
 
+$flags-sprite-dimensions: true;
+@import "flags/*.png";
+@include all-flags-sprites;
+.flags-sprite {
+  display: inline-block;
+}
 
 @import 'crisp/crisp';
 @import 'crisp/blog';

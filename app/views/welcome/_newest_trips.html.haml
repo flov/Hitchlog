@@ -13,6 +13,6 @@
         = t('welcome.home.hitchhiked_by_user',
           user: link_to(h(trip.user), user_path(trip.user)),
           time: time_ago_in_words(trip.departure)).html_safe
-        = gender_hitchhiker_image(trip.user.gender)
+        = hitchhiker_gender(trip.user.gender)
 
 %strong=link_to t('welcome.home.more_trips'), trips_path

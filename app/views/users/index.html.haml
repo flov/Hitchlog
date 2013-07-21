@@ -18,8 +18,7 @@
         %td
           = render 'users/profile_image', type: 'square', user: user
           = link_to user, user_path(user)
-          = gender_image(user.gender)
-          -#= render 'users/profile_image', user: user, type: 'small'
+          = hitchhiker_gender(user.gender)
         %td
           = user.trips.size
         %td

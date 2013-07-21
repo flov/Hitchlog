@@ -8,7 +8,7 @@
       %li
         %p
           = link_to "#{user} (#{user.trips.size})", user_path(user)
-          = gender_hitchhiker_image(user.gender)
+          = hitchhiker_gender(user.gender)
           = flag(user.country_code) if user.country_code
 
     %strong=link_to t('welcome.home.more_hitchhikers'), users_path 

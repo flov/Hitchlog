@@ -16,12 +16,12 @@
 
           %li.dropdown
             %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
-              = image_tag "flags/png/#{I18n.locale}.png"
+              != "<div class='flags-#{I18n.locale}'></div>"
             %ul.dropdown-menu
-              - [ :en, :fr, :pt, :de ].each do |locale|
+              - I18n.available_locales.each do |locale|
                 %li
-                  = link_to url_for(:locale => locale) do
-                    = image_tag "flags/png/#{locale}.png"
+                  = link_to url_for(locale: locale) do
+                    != "<div class='flags-#{locale}'></div>"
                     != "<i class='icon-hand-left'></i>" if I18n.locale == locale
 
         - if user_signed_in?
