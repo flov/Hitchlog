@@ -8,7 +8,7 @@
     %li
       %p
         = link_to trip, trip_path(trip)
-        = images_for_trip(trip)
+        = icons_for_trip(trip)
         %br/
         = t('welcome.home.hitchhiked_by_user',
           user: link_to(h(trip.user), user_path(trip.user)),

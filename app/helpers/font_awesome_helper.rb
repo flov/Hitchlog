@@ -1,0 +1,145 @@
+module FontAwesomeHelper
+  def male(title = '')
+    "<i class='icon-male blue tip' title='#{title}'></i>".html_safe
+  end
+
+  def female(title = '')
+    "<i class='icon-female pink tip' title='#{title}'></i>".html_safe
+  end
+
+  def hitchhiker_gender(gender)
+    if gender == 'male'
+      male(t('helper.male_hitchhiker'))
+    elsif gender == 'female'
+      female(t('helper.female_hitchhiker'))
+    end
+  end
+
+  def passenger_gender(gender)
+    if gender == 'male'
+      male(t('helper.male_people'))
+    elsif gender == 'female'
+      female(t('helper.male_people'))
+    elsif gender == 'mixed'
+      "<span class='tip' title='#{t('helper.mixed_people')}'>
+        #{male}
+        #{female}
+      </span>".html_safe
+    end
+  end
+
+  def country(country, country_distance=nil)
+    country_code = Countries[country]
+
+    if country_distance
+      title = "#{country} #{distance( country_distance )}"
+    else
+      title = country
+    end
+
+    flag(country_code, title)
+  end
+
+  def country_images_for_user(user)
+    array = []; hash = {}
+    user.trips.map{|x| x.country_distances}.flatten.each do |cd|
+      if hash[cd.country]
+        hash[cd.country] += cd.distance
+      else
+        hash[cd.country] =  cd.distance
+      end
+    end
+
+    hash.each do |country, distance|
+      array << country(country, distance)
+    end
+
+    array.join(' ').html_safe
+  end
+
+  def countries_for_trip(trip)
+    array = []
+    trip.country_distances.each do |country_distance|
+      array << country(country_distance.country, country_distance.distance)
+    end
+    array.join(' ').html_safe
+  end
+
+  def all_country_images
+    array = []
+    country_distances = CountryDistance.pluck(:country).uniq
+    country_distances -= ['unknown', '']
+    country_distances.each do |country|
+      array << link_to(country(country), "trips/?country=#{country}")
+    end
+    array.join(' ').html_safe
+  end
+
+  def flag(country_code, title = nil)
+    return if country_code.blank?
+    title = Countries[country_code] if title.nil?
+    "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
+  end
+
+  def flag_with_country_name(user)
+    return user.location if user.country_code.blank? and user.city.blank?
+    return user.vity     if user.country_code.blank?
+    "#{flag(user.country_code)} <a href='http://maps.google.com.au/?q=#{user.country}+#{user.city}'>#{user.country}, #{user.city}</a>".html_safe
+  end
+
+  def flag_with_country_name_for_trip(trip)
+    array = []
+    trip.countries_with_distance.each do |hash|
+      array << country(hash[:country], hash[:distance]).html_safe
+    end
+    array.join(' ').html_safe
+  end
+
+  def waiting_time(time=nil)
+    if time.nil?
+      "<i class='icon-time'></i>".html_safe
+    else
+      "<i class='icon-time tip' title='#{t('helper.waiting_time', time: time)}'></i>".html_safe
+    end
+  end
+
+  def experience(exp)
+    if exp == 'positive'
+      "<i class='icon-smile tip' title='#{t('helper.positive_experience')}'></i>".html_safe
+    elsif exp == 'extremely positive'
+      "<span class='tip' title='#{t('helper.extremely_positive_experience')}'>
+        <i class='icon-smile'></i>
+        <i class='icon-smile'></i>
+      </span>".html_safe
+    elsif exp == 'neutral'
+      "<i class='icon-meh tip' title='#{t('helper.neutral_experience')}'></i>".html_safe
+    elsif exp == 'negative'
+      "<i class='icon-frown tip' title='#{t('helper.negative_experience')}'></i>".html_safe
+    elsif exp == 'extremely negative'
+      "<span class='tip' title='#{t('helper.extremely_negative_experience')}'>
+        <i class='icon-frown'></i>
+        <i class='icon-frown'></i>
+      </span>".html_safe
+    end
+  end
+
+  def driving_time(time)
+    "<i class='icon-road tip' title='#{t('helper.driving_time', time: time)}'></i>".html_safe if time
+  end
+
+  def photo
+    "<i class='icon-road tip' title='#{t('helper.photo')}'></i>".html_safe
+  end
+
+  def icons_for_trip(trip)
+    images = [
+      hitchhiking_with_image(trip.travelling_with) 
+    ]
+    trip.rides.each do |ride|
+      images << waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
+      images << driving_time(human_hours(ride.duration)) if ride.duration
+      images << photo if ride.photo_file_name
+    end
+    images.join(' ').html_safe
+  end
+end

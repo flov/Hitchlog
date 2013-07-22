@@ -1,53 +1,47 @@
 %p Ride #{ride.number}
 .accordion_content
   = form_for ride, :html => {:multipart => true} do |f|
-    = experience_image(ride.experience)
-    = f.label("experience")
-    = f.select("experience", [I18n.t('general.extremely_positive'), I18n.t('general.positive'), I18n.t('general.neutral'), I18n.t('general.negative'), I18n.t('general.extremely_negative')])
-    .tabs
-      %ul
-        %li
-          %a.last{:href => "#add_story_tab_#{ride.number}"}= add_story_image
-        %li
-          %a{:href => "#person_info_tab_#{ride.number}"}
-            = about_person_image
-            = waiting_time_image
-        %li
-          %a{:href => "#picture_tab_#{ride.number}"}= photo_image_button
+    .section
+      = experience(ride.experience)
+      = f.label("experience")
+      = f.select("experience", [I18n.t('general.extremely_positive'), I18n.t('general.positive'), I18n.t('general.neutral'), I18n.t('general.negative'), I18n.t('general.extremely_negative')])
+      %br/
+      = f.label :title
+      %br/
+      = f.text_field :title, placeholder: t('general.story_title')
+      %br/
+      = f.label :story
+      %br/
+      = f.text_area :story, :rows => 4, placeholder: t('general.story').capitalize
+    .section
+      - unless ride.photo.url.nil?
+        = image_tag(ride.photo.thumb.url)
+        = link_to t('general.delete'), delete_photo_ride_path(ride), method: :delete, confirm: t('general.confirm'), class: 'btn btn-danger'
+        %br/
+      = f.label :photo
+      %i.icon-picture
+      %br/
+      = f.file_field :photo
+      = f.hidden_field :photo_cache
+      %br/
+      = f.label :photo_caption
+      %br/
+      = f.text_field :photo_caption, placeholder: t('general.photo_caption')
+    .section.waiting_time
+      = f.label :waiting_time
+      %i.icon-time
+      %br/
+      = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
 
-      .tab_content{:id => "add_story_tab_#{ride.number}"}
-        = f.label :title
-        %br/
-        = f.text_field :title
-        %br/
-        = f.label :story
-        %br/
-        = f.text_area :story, :rows => 4
-      .tab_content{:id => "picture_tab_#{ride.number}"}
-        - unless ride.photo.url.nil?
-          = image_tag(ride.photo.thumb.url)
-          = link_to t('general.delete'), delete_photo_ride_path(ride), method: :delete, confirm: t('general.confirm'), class: 'btn btn-danger'
-          %br/
-        = f.label :photo_caption
-        %br/
-        = f.text_field :photo_caption
-        %br/
-        = f.label :photo
-        %br/
-        = f.file_field :photo
-        = f.hidden_field :photo_cache
-        
-        %br/
-      .tab_content{:id => "person_info_tab_#{ride.number}"}
-        = f.label :gender
-        %br/
-        = f.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
-        %br/
-        = f.label :duration
-        %br/
-        = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
-        %br/
-        = f.label :waiting_time
-        %br/
-        = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
-    = submit_tag t(".save_ride"), class: 'btn btn-primary'
+      %br/
+      = f.label :duration
+      %i.icon-road
+      %br/
+      = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
+      
+      %br/
+      = f.label :gender
+      = passenger_gender(ride.gender)
+      %br/
+      = f.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
+      = submit_tag t(".save_ride"), class: 'btn btn-primary'

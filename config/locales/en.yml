@@ -133,6 +133,8 @@ en:
       english: English
       german: German
   general:
+    story_title: Story title
+    photo_caption: Photo caption
     events: events
     record_not_found: The record was not found
     member_since: "Member since %{time}"

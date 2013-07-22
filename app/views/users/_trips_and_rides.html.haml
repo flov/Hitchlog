@@ -24,7 +24,7 @@
         - user.experiences_in_percentage.each do |experience, val|
           %span{class: "#{experience}"}
             #{(val*100).to_i}%
-            = experience_image( experience )
+            = experience( experience )
       %p
         - user.genders_in_percentage.each do |gender, val|
           #{(val*100).to_i}%

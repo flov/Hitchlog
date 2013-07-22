@@ -1,7 +1,7 @@
 %article.entry-post
   %header.entry-header
     %h1
-      = country_images_for_trip(trip)
+      = countries_for_trip(trip)
       = trip.to_s
       - if trip.user == current_user && controller.action_name != 'edit'
         = link_to t('general.edit'), edit_trip_path(trip), class: 'btn btn-info btn-large'

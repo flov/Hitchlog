@@ -3,9 +3,9 @@
     %article
       %h3
         = ride.title
-        = experience_image(ride.experience)
+        = experience(ride.experience)
         = passenger_gender(ride.gender)
-        = waiting_time_image(human_minutes(ride.waiting_time)) if ride.waiting_time
+        = waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
         = driving_time_image(human_hours(ride.duration)) if ride.duration
 
       - if !ride.story.blank?

@@ -1,9 +1,0 @@
-%table
-  %tr
-    %th= t('.ride')
-    %th
-  %tr{ :id => "ride_#{ride.number}" }
-    %td
-      #{ride.number}/#{ride.trip.rides.size}
-    %td
-      = images_for_ride(ride)

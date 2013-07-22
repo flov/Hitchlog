@@ -18,6 +18,8 @@
 
   .span8.primary-column.trip-detail
     = render 'trips/trip', trip: trip
+
+    - # when the routes of the trip change by dragging the map, this form is fired
     = simple_form_for trip, remote: true, html: {id: 'trip_form'} do |f|
       = f.hidden_field :route
       = f.hidden_field :distance

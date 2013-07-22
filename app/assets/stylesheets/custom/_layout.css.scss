@@ -77,6 +77,21 @@ textarea.comment_body, textarea#message_body{
 }
 
 
+.ui-accordion {
+  textarea, input {
+    font-size: 13px;
+    width: 96%;
+  }
+  .section {
+    padding: 10px;
+    border-bottom: 1px dashed #212121;
+  }
+  .waiting_time {
+    border-bottom: 0 !important;
+  }
+}
+
+
 form#new_trip {
   input#trip_departure,
   input#trip_arrival{
@@ -253,6 +268,12 @@ footer#footer{
   margin: 5px 0;
 }
 
+.icon-meh {
+  color: gray;
+}
+.icon-frown {
+  color: #da4f49;
+}
 
 @media only screen and (max-width:600px) { 
   .jumbotron h1{
