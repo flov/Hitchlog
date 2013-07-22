@@ -303,7 +303,7 @@ en:
       trip:
         one: "1 Trip"
         other: "%{count} Trips"
-      title: User
+      title: "%{user}'s Profile"
       ride:
         one: "#{count} Rides"
       experiences: experiences
