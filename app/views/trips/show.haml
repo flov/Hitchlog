@@ -9,7 +9,7 @@
     = render 'trips/trip', trip: trip
 
   %section.span3.sidebar.secondary-column#secondary-nav
-    = render 'users/profile_picture_section', user: trip.user
+    = render 'users/profile', user: trip.user
 
 -content_for :javascript_at_bottom do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  
