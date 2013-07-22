@@ -21,8 +21,6 @@
       %p
         = t('.current_location')
         = flag_with_country_name(user)
-    - if user.trips.any?
-      %p= country_images_for_user(user)
 
     = render 'trips_and_rides', user: user
 
