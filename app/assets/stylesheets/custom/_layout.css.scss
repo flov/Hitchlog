@@ -238,17 +238,9 @@ footer#footer{
   }
 }
 
-.news {
-  ul{
-    li{
-      ul{
-        li {
-          list-style: circle;
-          margin: 5px 20px;
-        }
-      }
-    }
-  }
+.news ul li ul li {
+  list-style: circle;
+  margin: 5px 20px;
 }
 
 .blue {
@@ -256,6 +248,9 @@ footer#footer{
 }
 .pink {
   color: darken(pink, 10)
+}
+.new_hitchhikers ul li{
+  margin: 5px 0;
 }
 
 

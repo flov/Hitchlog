@@ -185,6 +185,8 @@ en:
       nearby_hitchhikers: "Nearby hitchhikers"
       last_login_in: "last login in"
     footer:
+      follow_on_facebook: Follow The Hitchlog On Facebook
+      follow_on_twitter: Follow The Hitchlog On Twitter
       follow_the_hitchlog: Follow us
   welcome:
     home:
