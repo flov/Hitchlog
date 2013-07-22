@@ -16,8 +16,8 @@ before_script:
 script:
   - bundle exec rake db:setup RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rspec spec/
-  - bundle exec cucumber features/
+  - bundle exec rspec spec --format progress
+  - bundle exec cucumber features --format progress
 
 deploy:
   provider: heroku
