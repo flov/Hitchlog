@@ -1,7 +1,6 @@
 language: ruby
 
 rvm:
-  - 2.0.0
   - 1.9.3
 
 services: postgresql
@@ -12,17 +11,12 @@ before_install:
 
 before_script:
   - psql -c 'create database hitchlog_test;' -U postgres
+  - bundle exec rake db:schema:load RAILS_ENV=test
+  - bundle exec rake db:migrate RAILS_ENV=test
 
 script:
-  - bundle exec rake db:setup RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
   - bundle exec rspec spec --format progress
   - bundle exec cucumber features --format progress
-
-after_script:
-  # if we do not unset this before we terminate the travis teardown will
-  # mark the entire job as failed
-  - set +e
 
 deploy:
   provider: heroku
