@@ -19,7 +19,7 @@ Hitchlog::Application.configure do
   config.assets.digest = true
   config.assets.precompile += %w( *.js )
 
-  config.action_mailer.default_url_options = { :host => 'hitchlog.com' }
+  config.action_mailer.default_url_options = { host: 'staging.hitchlog.com' }
   config.action_mailer.delivery_method = :smtp
 
   config.after_initialize do
