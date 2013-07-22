@@ -19,6 +19,11 @@ script:
   - bundle exec rspec spec --format progress
   - bundle exec cucumber features --format progress
 
+after_script:
+  # if we do not unset this before we terminate the travis teardown will
+  # mark the entire job as failed
+  - set +e
+
 deploy:
   provider: heroku
   api_key:
