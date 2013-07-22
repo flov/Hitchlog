@@ -20,6 +20,10 @@ script:
 
 deploy:
   provider: heroku
+  strategy: git
+  branch:
+    - develop
+    - master
   app:
     master: hitchlog
     develop: hitchlog-staging
