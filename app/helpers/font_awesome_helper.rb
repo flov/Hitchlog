@@ -83,7 +83,7 @@ module FontAwesomeHelper
 
   def flag_with_country_name(user)
     return user.location if user.country_code.blank? and user.city.blank?
-    return user.vity     if user.country_code.blank?
+    return user.city     if user.country_code.blank?
     "#{flag(user.country_code)} <a href='http://maps.google.com.au/?q=#{user.country}+#{user.city}'>#{user.country}, #{user.city}</a>".html_safe
   end
 
@@ -107,7 +107,7 @@ module FontAwesomeHelper
     if exp == 'positive'
       "<i class='icon-smile tip' title='#{t('helper.positive_experience')}'></i>".html_safe
     elsif exp == 'extremely positive'
-      "<span class='tip' title='#{t('helper.extremely_positive_experience')}'>
+      "<span class='tip very-positive' title='#{t('helper.extremely_positive_experience')}'>
         <i class='icon-smile'></i>
         <i class='icon-smile'></i>
       </span>".html_safe

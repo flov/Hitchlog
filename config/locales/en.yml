@@ -274,7 +274,7 @@ en:
       average_waiting_time: "Average waiting time"
       kms_hitchhiked: "Hitchhiked kms"
       written_stories: "Written stories"
-    profile_picture_section:
+    profile:
       waiting_time_per_ride: "Avg. waiting time"
       cars_seen_from_inside: "Cars seen from inside"
       hitchhiked_countries: "Hitchhiked countries"
