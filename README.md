@@ -1,8 +1,11 @@
 Hitchlog
 --------
 
+[![Build Status](https://travis-ci.org/flov/Hitchlog.png?branch=master)](https://travis-ci.org/flov/Hitchlog)
+
 Hitchhiking enables you to meet heaps of different
 people, to have an eventful journey, to learn about your fellow human beings by
+
 direct interaction and many more things. On top of it it's free and
 heaps of fun (**yay**)
 
