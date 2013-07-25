@@ -194,41 +194,15 @@ en:
     home:
       explore_hh_xp: Explore hitchhiking experiences in over 50 countries
       or_sign_in_with: or sign in with
-      share_and_keep_track: "Share your hitchhiking experience"
-      countries_logged: "Countries logged"
+      share_your_hh_xp: "Share your hitchhiking experience"
       newest_hh_stories: "New hitchhiking Stories"
       newest_hitchhikers: "New Hitchhikers"
-      logged: "logged %{trips_size} Trips"
-      sign_up: "Sign Up"
-      sign_in: "Sign In"
       newest_hitchhiking_trips: "New Hitchhiking Trips"
-      find_hitchlog_on: "Find Hitchlog On"
+      logged: "logged %{trips_size} Trips"
       more_trips: "See More Trips"
       more_stories: "Read More Stories"
       hitchhiked_by_user: "hitchhiked %{time} ago by %{user}"
-      by: by
       more_hitchhikers: "Get To Know More Hitchhikers"
-      text1: |
-          The Hitchlog helps hitchhiker to log their hitchhiking experience and gives
-          an authentic view on hitchhiking untouched of it's bad reputation that is
-          spread by public media/movies and tries to make the world a more
-          hitchhiker friendly place.
-
-          <a href='/trips/new'>Log your hitchhiking experiences</a>
-          and the Hitchlog paints a picture about what hitchhiking is actually
-          like.
-      text2: |
-          Your data will create your own personal hitchhiking profile. Giving you
-          information about: <br/>
-          Your hitchhiked kms, your positive/negative experiences, your average waiting times,
-          your longest/fastest ride, the countries where you hitchhiked, and more. <br />
-          If you have ever hitchhiked, you are welcome to
-          <a href="/trips/new">share your experience with us</a>.
-          With the information that you enter here you will be part of the project.
-      text3: |
-          The piechart below consists of the hitchhiked countries that have
-          been logged by hitchhikers in the Hitchlog.
-      login_with_facebook: "Login with Facebook"
   future_trips:
     form:
       description_label: "What should we know about this trip?"
