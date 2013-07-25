@@ -42,7 +42,7 @@ module FontAwesomeHelper
 
   def country_images_for_user(user)
     array = []; hash = {}
-    user.trips.map{|x| x.country_distances}.flatten.each do |cd|
+    user.trips.map(&:country_distances).flatten.each do |cd|
       if hash[cd.country]
         hash[cd.country] += cd.distance
       else

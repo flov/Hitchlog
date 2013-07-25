@@ -24,9 +24,10 @@
       = user.created_at.strftime("%B %d, %Y")
 
   - if user.trips.any?
-    #{t('.hitchhiked_countries')}: 
+    = succeed ':' do
+      = t('.hitchhiked_countries')
     %br/
-    #{country_images_for_user(user)}
+    = country_images_for_user(user)
 
     %p
       %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
