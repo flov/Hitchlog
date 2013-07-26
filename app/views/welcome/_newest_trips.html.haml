@@ -14,5 +14,6 @@
           user: link_to(h(trip.user), user_path(trip.user)),
           time: time_ago_in_words(trip.departure)).html_safe
         = hitchhiker_gender(trip.user.gender)
+        = experience(trip.overall_experience)
 
 %strong=link_to t('welcome.home.more_trips'), trips_path
