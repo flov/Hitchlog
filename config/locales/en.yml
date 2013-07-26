@@ -1,8 +1,4 @@
 en:
-  meta:
-    description: |
-        Share your hitchhiking experience with the world.
-        Read stories of other hitchhikers and find other hitchhikers to travel with.
   mailer:
     future_trips:
       nearby_hitchhikers:
@@ -144,6 +140,8 @@ en:
       follow_the_hitchlog: Follow us
   welcome:
     home:
+      meta_description: |
+          Ever wondered what hitchhiking is really like? Explore the experience of hitchhiking of over 200 hitchhikers in over 50 countries.
       explore_hh_xp: Explore hitchhiking experiences in over 50 countries
       or_sign_in_with: or sign in with
       share_your_hh_xp: "Share your hitchhiking experience"
