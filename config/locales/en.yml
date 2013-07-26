@@ -140,8 +140,10 @@ en:
       follow_the_hitchlog: Follow us
   welcome:
     home:
-      meta_description: |
-          Ever wondered what hitchhiking is really like? Explore the experience of hitchhiking of over 200 hitchhikers in over 50 countries.
+      meta_description: >
+          Ever wondered what hitchhiking is really like?
+          Explore the experience of hitchhiking of over 200
+          hitchhikers in over 50 countries.
       explore_hh_xp: Explore hitchhiking experiences in over 50 countries
       or_sign_in_with: or sign in with
       share_your_hh_xp: "Share your hitchhiking experience"
@@ -165,7 +167,7 @@ en:
       title: Hitchhiking Buddies
       looking_for_a_hitchhiking_buddy: Looking for a hitchhiking buddy
       be_the_first: Be the first to log a future trip.
-      your_thumb_is_itching: |
+      your_thumb_is_itching: >
           Your thumb is itching but you don't know who to start your next
           hitchhiking adventure with?
       post_it_on_the_board: Post it on the board
@@ -188,7 +190,7 @@ en:
       title: "Send a message to %{user}"
       send_mail: "Send Mail"
       send_a_mail_to: "Send Message to %{user}"
-      mail_text: |
+      mail_text: >
           When you send the message, %{username} will receive a mail with your email address
           in the from field.<br/>This way %{username} will be able to answer you directly by mail.
     right_column:
@@ -236,11 +238,11 @@ en:
       loaction_placeholder: Type in address
       edit_profile: "Edit Profile"
       your_avatar: "Your Avatar"
-      your_avatar_is_from_facebook: |
+      your_avatar_is_from_facebook: >
           You authenticated with facebook and your profile
           image is your facebook profile image
       when_changing: 'When changing, click on the dropdown field'
-      hitchlog_supports_gravatar_and_facebook_image: |
+      hitchlog_supports_gravatar_and_facebook_image: >
           If you authenticate with Facebook, Hitchlog
           will take your Facebook profile image, otherwise
           it will use <a href='http://gravatar.com'>Gravatar</a>.<br/>
