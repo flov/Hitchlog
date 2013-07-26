@@ -1,0 +1,43 @@
+- title (t('.edit_profile'))
+
+%h1
+  = t('.edit_profile')
+  = link_to user_path(current_user), method: :delete, data: { confirm: t('general.confirm') } do
+    %button.btn.btn-danger= t('general.delete')
+
+.row-fluid
+  .span6
+    = simple_form_for current_user do |f|
+      = f.input :username
+
+      - if current_user.location
+        = f.input :location, hint: flag_with_country_name(current_user)
+      - else
+        = f.input :location, hint: t('.when_changing')
+      = f.input :lat, as: :hidden
+      = f.input :lng, as: :hidden
+      = f.input :city, as: :hidden
+      = f.input :country, as: :hidden
+      = f.input :country_code, as: :hidden
+      = f.input :about_you, as: :text
+      = f.input :gender, collection: [t('general.male'), t('general.female')]
+      = f.input :cs_user
+
+      = f.submit class: 'btn btn-primary'
+
+  .span6
+    = t('.your_avatar')
+    %br/
+    = render 'users/profile_image', user: current_user
+    %br/
+    - if current_user.facebook_user?
+      = t('.your_avatar_is_from_facebook')
+    - else
+      = t('.hitchlog_supports_gravatar_and_facebook_image').html_safe
+      %br/
+      .text_center= facebook_login
+
+
+- content_for :javascript_at_bottom do
+  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false", type: "text/javascript"}
+  = javascript_include_tag 'edit_user'

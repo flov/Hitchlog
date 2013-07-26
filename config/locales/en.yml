@@ -160,13 +160,19 @@ en:
       description_label: "What should we know about this trip?"
     new:
       new_future_trip: Where Would You Like To Hitchhike To?
+      tell_others_about_your_plans: Tell others about your hitchhiking plans.
     edit:
       edit_future_trip: Edit your future trip
     index:
-      tell_others_about_your_plans: Tell others about your hitchhiking plans.
+      title: Hitchhiking Buddies
       looking_for_a_hitchhiking_buddy: Looking for a hitchhiking buddy
-      title: Find a Hitchhiking partner
       be_the_first: Be the first to log a future trip.
+      your_thumb_is_itching: |
+          Your thumb is itching but you don't know who to start your next
+          hitchhiking adventure with?
+      post_it_on_the_board: Post it on the board
+      and_find_hh_buddy: and find your next hitchhiking buddy
+
     future_trips:
       future_trip: Future Trip
       departure: Departure
@@ -179,11 +185,6 @@ en:
   users:
     future_trips:
       send_a_message: send message
-      your_thumb_is_itching: |
-          Your thumb is itching but you don't know who to start your next
-          hitchhiking adventure with?
-      post_it_on_the_board: Post it on the board
-      and_find_hh_buddy: and find your next hitchhiking buddy
     send_mail:
       message_placeholder: Message
       title: "Send a message to %{user}"
@@ -356,4 +357,34 @@ en:
     arrival_after_departure: cannot be before the departure
     cannot_be_in_past: "can't be in past"
     cannot_be_0: 'cannot be 0'
+
+  activerecord:
+    attributes:
+      comment:
+        body: Comment
+      trip:
+        from: From
+        to: To
+        hitchhikes: "Number of rides"
+        departure: Departure
+        arrival: Arrival
+        duration: Duration
+        travelling_with: "Traveling with"
+        distance: Distance
+        gmaps_duration: "Gmap duration"
+      ride:
+        experience: Experience
+        duration: "Driving time (in hours)"
+        waiting_time: "Waiting time (in minutes)"
+        photo: Photo
+        gender: "Gender of passenger(s)"
+      user:
+        cs_user: "CS user"
+        username: Username
+        email: Email
+        password: Password
+        password_confirmation: "Password confirmation"
+        gender: Gender
+        about_you: "About you"
+
 
