@@ -17,7 +17,7 @@
         = f.input :email, placeholder: 'user@domain.com'
         = f.input :password, placeholder: 'Password'
         = f.input :password_confirmation, placeholder: 'Password confirmation'
-        = f.input :gender, collection: [t('activerecord.models.male'), t('activerecord.models.female')], include_blank: false
+        = f.input :gender, collection: [t('general.male'), t('general.female')], include_blank: false
 
         = f.button :submit, t('.sign_up'), class: 'btn btn-large btn-primary'
 

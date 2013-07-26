@@ -103,23 +103,39 @@ module FontAwesomeHelper
     end
   end
 
+  def very_positive(title = t('helper.extremely_positive_experience'))
+    "<span class='tip very-positive' title='#{title}'>
+      <i class='icon-smile'></i>
+      <i class='icon-smile'></i>
+    </span>".html_safe
+  end
+  def positive(title = t('helper.positive_experience'))
+    "<i class='icon-smile tip' title='#{title}'></i>".html_safe
+  end
+  def neutral(title = t('helper.neutral_experience'))
+    "<i class='icon-meh tip' title='#{title}'></i>".html_safe
+  end
+  def negative(title = t('helper.positive_experience'))
+    "<i class='icon-frown tip' title='#{title}'></i>".html_safe
+  end
+  def very_negative(title = t('helper.extremely_negative_experience'))
+    "<span class='tip' title='#{title}'>
+      <i class='icon-frown'></i>
+      <i class='icon-frown'></i>
+    </span>".html_safe
+  end
+
   def experience(exp)
     if exp == 'positive'
-      "<i class='icon-smile tip' title='#{t('helper.positive_experience')}'></i>".html_safe
+      positive
     elsif exp == 'extremely positive'
-      "<span class='tip very-positive' title='#{t('helper.extremely_positive_experience')}'>
-        <i class='icon-smile'></i>
-        <i class='icon-smile'></i>
-      </span>".html_safe
+      very_positive
     elsif exp == 'neutral'
-      "<i class='icon-meh tip' title='#{t('helper.neutral_experience')}'></i>".html_safe
+      neutral
     elsif exp == 'negative'
-      "<i class='icon-frown tip' title='#{t('helper.negative_experience')}'></i>".html_safe
+      negative
     elsif exp == 'extremely negative'
-      "<span class='tip' title='#{t('helper.extremely_negative_experience')}'>
-        <i class='icon-frown'></i>
-        <i class='icon-frown'></i>
-      </span>".html_safe
+      very_negative
     end
   end
 

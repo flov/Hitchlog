@@ -8,11 +8,10 @@
 .row-fluid
   .span6
     %p
-      Your thumb is itching but you don't know who to start your next
-      hitchhiking adventure with?
+      = t('.your_thumb_is_itching')
       %br/
-      = link_to 'Post it on the board', new_future_trip_path
-      and find your next hitchhiking buddy
+      = link_to t('.post_it_on_the_board'), new_future_trip_path
+      = t('.and_find_hh_buddy')
 
     - if future_trips.any?
       %h3.short_headline

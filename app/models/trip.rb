@@ -159,7 +159,7 @@ class Trip < ActiveRecord::Base
   end
 
   def overall_experience
-    experiences = self.rides.map{|ride| ride.experience}
+    experiences = self.rides.map(&:experience)
     if experiences.include? 'extremely negative'
       'extremely negative'
     elsif experiences.include? 'extremely positive'

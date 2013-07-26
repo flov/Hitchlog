@@ -1,36 +1,4 @@
 en:
-  activerecord:
-    models:
-      male: male
-      female: female
-      user: User
-    attributes:
-      comment:
-        body: Comment
-      trip:
-        from: From
-        to: To
-        hitchhikes: "Number of rides"
-        departure: Departure
-        arrival: Arrival
-        duration: Duration
-        travelling_with: "Traveling with"
-        distance: Distance
-        gmaps_duration: "Gmap duration"
-      ride:
-        experience: Experience
-        duration: "Driving time (in hours)"
-        waiting_time: "Waiting time (in minutes)"
-        photo: Photo
-        gender: "Gender of passenger(s)"
-      user:
-        cs_user: "CS user"
-        username: Username
-        email: Email
-        password: Password
-        password_confirmation: "Password confirmation"
-        gender: Gender
-        about_you: "About you"
   meta:
     description: |
         Share your hitchhiking experience with the world.
@@ -51,39 +19,26 @@ en:
       update:
         error: "Could not edit profile own"
         notice: "Successfully edited profile"
-      send_mail:
-        error: "You cannot send a mail to yourself"
       mail_sent:
         notice: "Mail has been sent to %{user}"
       destroy:
         success: 'Good Bye! Your account has been deleted!'
         not_allowed: 'You are not allowed to do that!'
   helper:
-    gender_hitchhiker: "%{gender} hitchhiker"
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
-    overall_extremely_positive_experience: "Overall experience: extremely positive"
-    overall_positive_experience: "Overall experience: positive"
-    overall_neutral_experience: "Overall experience: neutral"
-    overall_negative_experience: "Overall experience: negative"
-    overall_extremely_negative_experience: "Overall experience: extremely negative"
-    extremely_positive_experience: "extremely positive experience"
+    extremely_positive_experience: "very positive experience"
     positive_experience: "positive experience"
     neutral_experience: "neutral experience"
     negative_experience: "negative experience"
-    extremely_negative_experience: "extremely negative experience"
+    extremely_negative_experience: "very negative experience"
     no_results_for_this_route: "no results for this route"
     unknown_distance: "unknown distance"
     about_person_image: "About the passengers"
     photo: Photo
-    rides:
-      one: "%{count} Ride"
-      other: "%{count} Rides"
-    photo_missing: "Missing Photo, Upload Photo"
     story: Story
     ride_has_story: "Ride has Story"
     add_story_image: "Story to this ride"
-    story_missing: "Missing Story, write a story about the ride"
     male: male
     female: female
     male_hitchhiker: "Male Hitchhiker"
@@ -102,10 +57,7 @@ en:
     three_people_hitchhike: "Hitchhiked in threesome"
     more_than_three_people_hitchhike: "Hitchhiked in foursome"
     driving_time: "%{time} driving time"
-    driving_time_missing: "Driving time is missing"
     waiting_time: "%{time} waiting time"
-    waiting_time_without_time: "waiting time"
-    waiting_time_missing: "Waiting time is missing"
     faster_than_gmaps: "faster than Google Maps"
     hitchability: "Hitchability (Gmaps Duration / Trip Duration)"
     slower_than_gmaps: "slower than Google Maps"
@@ -224,15 +176,14 @@ en:
       send_a_message: send message
   facebook:
     login_with_facebook: "Login with Facebook"
-  back: Back
-  edit: Edit
   users:
-    about_you:
-      about: About
     future_trips:
-      future_trips: Planned Future Trips
-      user_wants_to_hitchhike_from_a_to_b: "%{user} wants to hitchhike from %{from} to %{to} at the %{departure}"
       send_a_message: send message
+      your_thumb_is_itching: |
+          Your thumb is itching but you don't know who to start your next
+          hitchhiking adventure with?
+      post_it_on_the_board: Post it on the board
+      and_find_hh_buddy: and find your next hitchhiking buddy
     send_mail:
       message_placeholder: Message
       title: "Send a message to %{user}"
@@ -327,14 +278,6 @@ en:
     ride:
       delete_image: "Delete Photo"
       save_ride: Save Ride
-  hitchslider:
-    user_hitchhiked_text: "%{time} ago %{user} hitchhiked <b><span id='trip_distance_display'>%{distance}</span></b> from <b>%{from}</b> to <b>%{to}</b> with %{rides_size} rides."
-    it_took_text: "It took <b>%{time}</b> to do the trip."
-    google_maps_text: "Google maps says it takes <b>%{gmaps_duration}</b> for this route, so %{user} was <b>%{gmaps_difference}</b>."
-    time_ago: "%{time} ago"
-    caption: "Title:"
-    comments: "Comments:"
-    user_wrote: "%{user} wrote:"
   trips:
     index:
       latest_hitchhiking_trips: "Hitchhiking trips"
@@ -391,122 +334,26 @@ en:
     new:
       new_trip: Log New Hitchhiking Trip
       log_your_trip_please: "Log your hitchhiking trip"
-      new_trip_description: |
-          A trip is a hitchhiking trip from <b>one city to another city</b> which is
-          most of the time just one day.  For longer trips you can continue a trip
-          later. That way you will be able to see the waypoints on the map.
 
 
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
-    time_ago: "%{time_ago_in_words} ago"
     distance_in_words:
-      half_a_minute: "half a minute"
-      less_than_x_seconds:
-        one:   "now"
-        other: "now"
-      x_seconds:
-        one:   "now"
-        other: "now"
-      less_than_x_minutes:
-        one:   "now"
-        other: "less than %{count} minutes"
       x_minutes:
         one:   "1 minute"
         other: "%{count} minutes"
-      about_x_hours:
-        one:   "about 1 hour"
-        other: "about %{count} hours"
       x_days:
         one:   "1 day"
         other: "%{count} days"
-      about_x_months:
-        one:   "about 1 month"
-        other: "about %{count} months"
       x_months:
         one:   "1 month"
         other: "%{count} months"
-      about_x_years:
-        one:   "about 1 year"
-        other: "about %{count} years"
-      over_x_years:
-        one:   "over 1 year"
-        other: "over %{count} years"
       x_hours:
         one: 1 hour
         other: ! '%{count} hours'
-
-
-  will_paginate:
-    previous_label: "&#8592; Previous"
-    next_label: "Next &#8594;"
-    page_gap: "&hellip;"
-
-    page_entries_info:
-      single_page:
-        zero:  "No %{model} found"
-        one:   "Displaying 1 %{model}"
-        other: "Displaying all %{count} %{model}"
-      single_page_html:
-        zero:  "No %{model} found"
-        one:   "Displaying <b>1</b> %{model}"
-        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
-
-      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
-      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
-
-
-
-  errors:
-    messages:
-      not_found: "not found"
-      already_confirmed: "was already confirmed"
-      not_locked: "was not locked"
 
   validators:
     arrival_after_departure: cannot be before the departure
     cannot_be_in_past: "can't be in past"
     cannot_be_0: 'cannot be 0'
-
-  devise:
-    failure:
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid username or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
-    sessions:
-      remember_me: Remember Me
-      signed_in: "You're in! Welcome back to the Hitchlog! (jingle melody in your head)"
-      signed_out: "Signed out successfully."
-    passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
-    confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
-    registrations:
-      signed_up: 'Welcome To The Hitchlog! Now go ahead and log your first trip'
-      new:
-        use_the_normal_form: Use the normal Form
-        create_a_hitchlog_account: Create Your Hitchlog Account
-        sign_up: 'Sign up'
-      updated: 'You updated your account successfully.'
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
-    sessions:
-      new:
-        sign_in: 'Sign in'
-        login_using_normal_font: Login in using the normal form
-    unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account was successfully unlocked. You are now signed in.'
-    mailer:
-      confirmation_instructions:
-        subject: 'Confirmation instructions'
-      reset_password_instructions:
-        subject: 'Reset password instructions'
-      unlock_instructions:
-        subject: 'Unlock Instructions'
 
