@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:alert] = I18n.t('flash.users.update.error')
-      render :action => 'edit'
+      render action: 'edit'
     end
   end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def user_in_context
     if params[:id]
-      User.find(params[:id])
+      User.includes(trips: [:country_distances]).find(params[:id])
     else
       User.new(params[:user])
     end
