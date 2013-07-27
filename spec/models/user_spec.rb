@@ -184,9 +184,7 @@ describe User do
     end
 
     it 'should return the json for a google chart DataTable' do
-      user.to_geomap.should == [['Country', 'Kilometers'],
-                                ['Germany', 2],
-                                ['Australia', 5]]
+      user.to_geomap.should == {'DE' => 2, 'AU' => 5}
     end
   end
 end
