@@ -6,21 +6,33 @@
   %h1#headline
     Hitchlog
 
-  %p.lead= t('.share_your_hh_xp')
+.row-fluid.text-center.centered-row
+  .span3
+  .span6
+    %p.big
+      != t('.intro_message')
+      %br/
+      = link_to t('.share_your_hh_xp'), new_trip_path
 
-  .row-fluid.explore_countries
-    .span3
-    .span6
-      = succeed ':' do
-        = t('.explore_hh_xp')
-      %p= all_country_images
+    - unless user_signed_in?
+      %p.sign_up
+        = link_to t('general.sign_up'), new_user_registration_path, class: 'btn btn-primary', style: 'margin-right: 10px;'
+        = t('.or_sign_in_with')
+        = link_to image_tag('omniauthbuttons/png/facebook_32.png'), '/auth/facebook', alt: 'Sign in with fb', style: 'margin-left: 10px;'
+      
+  .span3
 
-      - unless user_signed_in?
-        %p.sign_up
-          = link_to t('general.sign_up'), new_user_registration_path, class: 'btn btn-primary', style: 'margin-right: 10px;'
-          = t('.or_sign_in_with')
-          = link_to image_tag('omniauthbuttons/png/facebook_32.png'), '/auth/facebook', alt: 'Sign in with fb', style: 'margin-left: 10px;'
-    .span3
+.row-fluid.explore_countries.centered-row.text-center
+  .span3
+  .span6
+    = succeed ':' do
+      = t('.explore_hh_xp')
+    %p= all_country_images
+
+  .span3
+
+%hr/
+
 .row-fluid
   .span4
     = render 'newest_stories'

@@ -140,6 +140,16 @@ en:
       follow_the_hitchlog: Follow us
   welcome:
     home:
+      intro_message: >
+          The Hitchlog gives a real
+          <i class='icon-picture'></i>
+          on hitchhiking.
+          <br/>
+          Let us paint this image with
+          <i class='icon-heart-empty'></i>
+          and let us give back to the
+          <i class='icon-group'></i>
+          who picked us up on our way.
       meta_description: >
           Ever wondered what hitchhiking is really like?
           Explore the experience of hitchhiking of over 200

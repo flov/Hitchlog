@@ -45,13 +45,13 @@
 
 
 .explore_countries, .sign_up{
-  margin: 20px 0;
+  margin: 20px 0 5px;
 }
 .jumbotron{
   text-align: center;
 
   .lead{
-    margin-bottom: 30px;
+    margin-bottom: 9px;
     font-size: 24px;
     line-height: 1.25;
   }
@@ -294,7 +294,7 @@ footer#footer{
       margin-bottom: 10px;
     }
   }
-  .explore_countries{
+  .centered-row{
     .span3{
       display: none;
     }
