@@ -22,7 +22,6 @@ deploy:
   provider: heroku
   strategy: git
   branch:
-    - geomap
     - develop
     - master
   app:
