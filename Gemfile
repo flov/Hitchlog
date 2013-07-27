@@ -34,6 +34,7 @@ gem 'gravatar_image_tag'
 gem 'json'
 gem 'routing-filter'
 gem "font-awesome-rails"
+gem 'jbuilder'
 
 group :production do
   gem 'newrelic_rpm'

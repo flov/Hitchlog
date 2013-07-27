@@ -24,6 +24,8 @@
 
     = render 'trips_and_rides', user: user
 
+    = render 'geomap', user: user
+
     = render 'about_you', user: user
 
     - if user.future_trips.any?

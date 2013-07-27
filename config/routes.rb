@@ -13,6 +13,7 @@ Hitchlog::Application.routes.draw do
 
   resources :users, :path => 'hitchhikers' do
     member do
+      get :geomap
       get :send_mail
       post :mail_sent
     end

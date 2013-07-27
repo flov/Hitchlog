@@ -42,11 +42,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def geomap
+  end
+
   private
 
   def user_in_context
     if params[:id]
-      User.includes(trips: [:country_distances]).find(params[:id])
+      User.find(params[:id])
     else
       User.new(params[:user])
     end

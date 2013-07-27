@@ -175,4 +175,18 @@ describe User do
       user.formatted_address.should == 'Unknown'
     end
   end
+
+  describe '#to_geomap' do
+    before do
+      user.trips << FactoryGirl.build(:trip)
+      2.times { user.trips.first.country_distances.build(country: 'Germany', distance: 1000) }
+      1.times { user.trips.first.country_distances.build(country: 'Australia', distance: 5000) }
+    end
+
+    it 'should return the json for a google chart DataTable' do
+      user.to_geomap.should == [['Country', 'Kilometers'],
+                                ['Germany', 2000],
+                                ['Australia', 5000]]
+    end
+  end
 end

@@ -39,6 +39,11 @@ FactoryGirl.define do
     origin       'USA'
   end
 
+  factory :country_distance do
+    distance 600000
+    country  "Germany"
+  end
+
   factory :trip do
     from 'Tehran'
     to 'Shiraz'

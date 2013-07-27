@@ -22,11 +22,13 @@ deploy:
   provider: heroku
   strategy: git
   branch:
+    - geomap
     - develop
     - master
   app:
     master: hitchlog
     develop: hitchlog-staging
+    geomap: hitchlog-staging
   api_key:
     secure: FFualFIJXLj4TukM6ytjtVpXaao1YYLP4R+LUQBFKiLmyueluXE971xeMt1on1E5fLDF+JNxiZN/umukeIxXcPlVqMB5R50A3AaSvhniJ9YMoW11/qosTOAsDeWNz5tEptlH+ztvTHKm4vToitWn2vqRcYu+ZNuEt+wG3XM4cRY=
   run: "rake db:migrate"

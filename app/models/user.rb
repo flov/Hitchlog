@@ -1,9 +1,7 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email,
                   :password,
                   :password_confirmation,
@@ -116,6 +114,18 @@ class User < ActiveRecord::Base
 
   def hitchhiked_countries
     self.trips.map{|trip| trip.country_distances.map(&:country)}.flatten.uniq.size
+  end
+
+  def to_geomap
+    hash = {'Country' => ['Kilometers']}
+    self.trips.flat_map(&:country_distances).each do |cd|
+      if hash[cd.country]
+        hash[cd.country][0] += cd.distance
+      else
+        hash[cd.country] = [cd.distance]
+      end
+    end
+    hash.to_a.map(&:flatten)
   end
 
   def rides

@@ -1,0 +1,28 @@
+- if user.trips.any?
+  #chart_div
+
+  - content_for :javascript_at_bottom do
+    %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
+    -#= javascript_include_tag 'geomap'
+    :javascript
+      google.load('visualization', '1', {'packages': ['geochart']});
+      google.setOnLoadCallback(drawMap);
+
+      function drawMap() {
+        var jsonData = [['Countries', 'No Of Trips']];
+        
+        $.ajax({
+          url:"/hitchhikers/#{user.username}/geomap.json",
+          dataType:"json",
+          async: true,
+          success: function(data) { 
+
+            // Create our data table out of JSON data loaded from server.
+            var geodata = new google.visualization.arrayToDataTable(data);
+
+            // Instantiate and draw our chart, passing in some options.
+            var map = new google.visualization.GeoChart($("#chart_div")[0]);
+            map.draw(geodata, null);
+          }
+        })
+      }
