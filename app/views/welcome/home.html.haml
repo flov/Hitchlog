@@ -10,8 +10,9 @@
   .span3
   .span6
     %p.big
-      != t('.intro_message')
-      %br/
+      - unless user_signed_in?
+        != t('.intro_message')
+        %br/
       = link_to t('.share_your_hh_xp'), new_trip_path
 
     - unless user_signed_in?
