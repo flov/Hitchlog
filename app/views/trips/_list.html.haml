@@ -40,8 +40,6 @@
               = trip.rides.with_photo.size
               %i.icon-picture
           = icons_for_trip(trip)
-          = countries_for_trip(trip)
-          = link_to experience((trip.overall_experience)), trip_path(trip)
         - unless trip.departure.nil?
           %td.no-wrap
             - if trip.departure > 12.month.ago
