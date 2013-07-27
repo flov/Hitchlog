@@ -10,7 +10,7 @@
 
       function drawMap() {
         var jsonData = [['Countries', 'No Of Trips']];
-        
+
         $.ajax({
           url:"/hitchhikers/#{user.username}/geomap.json",
           dataType:"json",
@@ -19,6 +19,9 @@
 
             // Create our data table out of JSON data loaded from server.
             var geodata = new google.visualization.arrayToDataTable(data);
+
+            var formatter = new google.visualization.NumberFormat( {pattern:'#,### kms'});
+            formatter.format(geodata, 1); // Apply formatter to second column
 
             // Instantiate and draw our chart, passing in some options.
             var map = new google.visualization.GeoChart($("#chart_div")[0]);

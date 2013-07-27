@@ -120,9 +120,9 @@ class User < ActiveRecord::Base
     hash = {'Country' => ['Kilometers']}
     self.trips.flat_map(&:country_distances).each do |cd|
       if hash[cd.country]
-        hash[cd.country][0] += cd.distance
+        hash[cd.country] += cd.distance_in_kms
       else
-        hash[cd.country] = [cd.distance]
+        hash[cd.country] = cd.distance_in_kms
       end
     end
     hash.to_a.map(&:flatten)
