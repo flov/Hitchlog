@@ -1,36 +1,29 @@
-- content_for :head do
+- content_for :javascript_at_bottom do
   %script{:src => "https://www.google.com/jsapi", :type => "text/javascript"}
+  -#= javascript_include_tag 'geomap'
   :javascript
     google.load('visualization', '1', {'packages': ['geomap']});
-    google.setOnLoadCallback(drawVisualization);
+    google.setOnLoadCallback(drawMap);
 
+    function drawMap() {
+      var jsonData = [['Countries', 'No Of Trips']];
+      $.ajax({
+        url:'/hitchhikers/flov/geomap.json',
+        dataType:"json",
+        async: true,
+        success: function(data) { 
+          $.each(data, function(key, val) {
+            jsonData.push(val);
+          });
+          // Create our data table out of JSON data loaded from server.
+          var data = new google.visualization.arrayToDataTable(jsonData);
 
-    function drawVisualization() {
-      var data = google.visualization.arrayToDataTable([
-        ['Country', 'No of Trips'],
-        ['Australia', 7],
-        ['Hungary', 3],
-        ['Croatia', 1],
-        ['Iran', 5],
-        ['Nepal', 1],
-        ['Turkey', 5],
-        ['India', 4],
-        ['Bulgaria', 3],
-        ['Germany', 18],
-        ['Switzerland', 3],
-        ['Serbia', 2],
-        ['Slovakia', 2],
-        ['Czech Republic', 3],
-        ['Spain', 5],
-        ['France', 6],
-        ['Luxembourg', 1],
-        ['Belgium', 4],
-        ['The Netherlands', 2],
-        ['United Kingdom', 4]
-      ]);
+          // Instantiate and draw our chart, passing in some options.
+          var map = new google.visualization.GeoMap(document.getElementById('chart_div'));
+          map.draw(data, null);
+        }
+      })
 
-      var geomap = new google.visualization.GeoMap( document.getElementById('chart_div'));
-      geomap.draw(data, null);
     }
 
 
