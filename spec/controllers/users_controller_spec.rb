@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UsersController do
   describe "#send_mail" do
     let(:action) { get :send_mail, :id => 1 }
-    before { User.stub(:find).and_return(double('user')) }
+    before { User.stub_chain(:includes, :find).and_return(double('user')) }
 
     it_blocks_unauthenticated_access
 
@@ -30,7 +30,7 @@ describe UsersController do
     it_blocks_unauthenticated_access
 
     before do
-      User.stub(:find).and_return mail_to_user
+      User.stub_chain(:includes, :find).and_return mail_to_user
       user_mailer.stub(:deliver){ true }
       sign_in :user, current_user
     end
@@ -74,7 +74,7 @@ describe UsersController do
 
 
     it 'renders show view' do
-      User.stub(:find).and_return user
+      User.stub_chain(:includes, :find).and_return user
       user.stub_chain(:trips, :paginate).and_return [trip]
 
       action
@@ -95,6 +95,7 @@ describe UsersController do
       context "signed in user tries to destroy another user" do
         before do
           User.stub(:find).and_return(another_user)
+          User.stub_chain(:includes, :find).and_return(current_user)
           delete :destroy, id: another_user.to_param
         end
 
@@ -110,7 +111,7 @@ describe UsersController do
 
     context "if not logged in" do
       it "redirects to log in page" do
-        User.stub(:find).and_return(double('user'))
+        User.stub_chain(:includes, :find).and_return(double('user'))
 
         delete :destroy, id: 1
 

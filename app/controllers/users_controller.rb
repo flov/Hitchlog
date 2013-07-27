@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   def user_in_context
     if params[:id]
-      User.find(params[:id])
+      User.includes(trips: [:country_distances]).find(params[:id])
     else
       User.new(params[:user])
     end
