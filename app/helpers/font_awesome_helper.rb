@@ -76,7 +76,7 @@ module FontAwesomeHelper
   end
 
   def flag(country_code, title = nil)
-    country_code = Countries[country_code] if country_code.length != 2
+    country_code = Countries[country_code] if country_code and country_code.length != 2
     return if country_code.blank?
     title = Countries[country_code] if title.nil?
     "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
