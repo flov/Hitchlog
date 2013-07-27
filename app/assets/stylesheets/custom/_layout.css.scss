@@ -253,9 +253,14 @@ footer#footer{
   }
 }
 
-.news ul li ul li {
-  list-style: circle;
-  margin: 5px 20px;
+.news {
+  hr {
+    margin: 10px 0;
+  }
+  ul li ul li {
+    list-style: circle;
+    margin: 5px 20px;
+  }
 }
 
 .blue {
