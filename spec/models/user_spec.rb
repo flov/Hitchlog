@@ -178,13 +178,19 @@ describe User do
 
   describe '#to_geomap' do
     before do
-      user.trips << FactoryGirl.build(:trip)
+      user.trips << FactoryGirl.build(:trip, from_city: 'Berlin')
+      user.trips << FactoryGirl.build(:trip, from_city: 'Madrid')
       2.times { user.trips.first.country_distances.build(country: 'Germany', distance: 1000) }
-      1.times { user.trips.first.country_distances.build(country: 'Australia', distance: 5000) }
+      1.times { user.trips.last.country_distances.build(country: 'Spain', distance: 1000) }
     end
 
     it 'should return the json for a google chart DataTable' do
-      user.to_geomap.should == {'DE' => 2, 'AU' => 5}
+      user.to_geomap.should == {
+        "distances" => {
+          "DE" => 2, "ES" => 1
+        },
+        "trip_count" => { "DE" => 2, "ES" => 1 }
+      }
     end
   end
 end

@@ -1,11 +1,9 @@
 $ ->
-
   $.ajax({
     url:"/hitchhikers/#{username}/geomap.json"
     dataType:"json"
     async: true
     success: (data) ->
-
       console.log( data )
       $('#world-map').vectorMap({
         map: 'world_mill_en'
@@ -24,16 +22,20 @@ $ ->
 
         series:
           regions: [{
-            values: data,
+            values: data.distances,
+            attribute: 'fill',
             scale: ['#C8EEFF', '#0071A4'],
             normalizeFunction: 'polynomial'
           }]
 
         onRegionLabelShow: (event, label, code) ->
-          if data[code] != undefined
-            label.html("#{label.html()} - #{data[code]} kms")
+          if data.distances[code] != undefined
+            label.html(
+              "<b>#{label.html()}</b><br/>
+               <b>Hitchhiked kms: </b>#{data.distances[code]}<br/>
+               <b>Number of Trips: </b>#{data.trip_count[code]}"
+            )
       })
 
   })
-
 

@@ -117,12 +117,14 @@ class User < ActiveRecord::Base
   end
 
   def to_geomap
-    hash = {}
+    hash = {"distances"=>{},"trip_count"=>{}}
     self.trips.flat_map(&:country_distances).each do |cd|
-      if hash[Countries[cd.country]]
-        hash[Countries[cd.country]] += cd.distance_in_kms
+      if hash["distances"][Countries[cd.country]]
+        hash["distances"][Countries[cd.country]] += cd.distance_in_kms
+        hash["trip_count"][Countries[cd.country]] += 1
       else
-        hash[Countries[cd.country]] = cd.distance_in_kms
+        hash["distances"][Countries[cd.country]] = cd.distance_in_kms
+        hash["trip_count"][Countries[cd.country]] = 1
       end
     end
     hash

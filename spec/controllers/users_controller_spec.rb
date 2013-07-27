@@ -119,4 +119,12 @@ describe UsersController do
       end
     end
   end
+
+  describe '#geomap' do
+    it 'responds with json' do
+      get :geomap, format: :json
+
+      response.header['Content-Type'].should include 'application/json'
+    end
+  end
 end
