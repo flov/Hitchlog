@@ -77,6 +77,7 @@ module FontAwesomeHelper
 
   def flag(country_code, title = nil)
     return if country_code.blank?
+    country_code = Countries[country_code] if country_code.length != 2
     title = Countries[country_code] if title.nil?
     "<div class='flags-#{country_code.downcase} tip' title='#{title}'></div>".html_safe
   end
@@ -148,14 +149,18 @@ module FontAwesomeHelper
   end
 
   def icons_for_trip(trip)
-    images = [
-      hitchhiking_with_image(trip.travelling_with) 
-    ]
-    trip.rides.each do |ride|
-      images << waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
-      images << driving_time(human_hours(ride.duration)) if ride.duration
-      images << photo if ride.photo_file_name
+    icons = [ ]
+    icons << experience(trip.overall_experience)
+    trip.country_distances.map(&:country).each do |country|
+      icons << flag(country)
     end
-    images.join(' ').html_safe
+    icons << hitchhiking_with_image(trip.travelling_with)
+    trip.rides.each do |ride|
+      icons << waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
+      icons << driving_time(human_hours(ride.duration)) if ride.duration
+      icons << photo if ride.photo_file_name
+    end
+
+    icons.join(' ').html_safe
   end
 end
