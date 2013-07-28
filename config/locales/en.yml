@@ -97,7 +97,7 @@ en:
     hitchhiked_kms: Hitchhiked kms
     trip_duration: Trip duration
     took_time: "took %{time}"
-    total_waiting_time: "total waiting time: %{time} min"
+    total_waiting_time: "total waiting time: %{time}"
     photo: photo
     google_maps_duration: Google Maps Duration
     comment: comment
