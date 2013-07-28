@@ -179,8 +179,8 @@ module FontAwesomeHelper
       icons << flag(country)
     end
     icons << hitchhiking_with_image(trip.travelling_with)
-    icons << waiting_time(accurate_distance_of_time_in_words( trip.total_waiting_time.minutes )) if trip.total_waiting_time
-    icons << driving_time(accurate_distance_of_time_in_words( trip.total_driving_time.hours )) if trip.total_driving_time
+    icons << waiting_time( trip.total_waiting_time ) if trip.total_waiting_time
+    icons << driving_time( trip.total_driving_time ) if trip.total_driving_time
 
     icons.join(' ').html_safe
   end

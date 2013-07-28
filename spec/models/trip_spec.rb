@@ -127,7 +127,7 @@ describe Trip do
     it 'returns the total accumulated waiting_time' do
       trip.rides << FactoryGirl.build(:ride, waiting_time: 5)
       trip.rides << FactoryGirl.build(:ride, waiting_time: 6)
-      trip.total_waiting_time.should == 11
+      trip.total_waiting_time.should == '11 minutes'
     end
 
     it 'returns nil if no waiting time has been logged' do

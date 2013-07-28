@@ -20,4 +20,6 @@ module AccurateDistanceOfTimeInWordsHelper
 
     array.to_sentence
   end
+
+  alias_method :accurate_time, :accurate_distance_of_time_in_words
 end

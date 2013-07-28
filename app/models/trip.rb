@@ -1,5 +1,6 @@
 class Trip < ActiveRecord::Base
   include Gmaps
+  include AccurateDistanceOfTimeInWordsHelper
 
   has_many :rides, dependent: :destroy
   has_many :country_distances, dependent: :destroy
@@ -180,7 +181,7 @@ class Trip < ActiveRecord::Base
   def total_waiting_time
     waiting_times = self.rides.map(&:waiting_time).compact
     if waiting_times.any?
-      waiting_times.sum
+      accurate_distance_of_time_in_words(waiting_times.sum.minutes)
     else
       nil
     end
@@ -189,7 +190,7 @@ class Trip < ActiveRecord::Base
   def total_driving_time
     driving_times = self.rides.map(&:duration).compact
     if driving_times.any?
-      driving_times.sum
+      accurate_distance_of_time_in_words(driving_times.sum.hours)
     else
       nil
     end
