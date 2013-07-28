@@ -9,14 +9,18 @@ class PhotoUploader < CarrierWave::Uploader::Base
     storage :file
   end
 
-  process :resize_to_fit => [800, 800]
+  process resize_to_fit: [800, 800]
+
+  version :small do
+    process resize_to_fit: [200, 400]
+  end
 
   version :thumb do
-    process :resize_to_limit => [80, 80]
+    process resize_to_limit: [80, 80]
   end
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 
   def cache_dir
@@ -28,6 +32,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
    def filename
-     "hitchhike_from_#{model.trip.from}_to_#{model.trip.to}" if original_filename
+     "hitchhiking-from-#{model.trip.from.parameterize}-to-#{model.trip.to.parameterize}#{File.extname(super)}" if original_filename
    end
 end

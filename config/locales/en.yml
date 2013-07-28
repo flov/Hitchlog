@@ -4,9 +4,15 @@ en:
       nearby_hitchhikers:
         subject: "[Hitchlog] %{user} is looking for a hitchhiking buddy from %{from_city} to %{to_city}"
   flash:
+    error: "something went wrong :("
     future_trips:
       destroy:
         success: "Your future trip from %{from} to %{to} has been deleted"
+    rides:
+      update:
+        success: 'Ride updated! See the result below.'
+      delete_photo:
+        success: "Your photo is no more!"
     trips:
       create_comment:
         alert: "Comment failed to save!"

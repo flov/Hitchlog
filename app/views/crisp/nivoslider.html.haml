@@ -1,14 +1,1 @@
-- trip = Trip.first
-
-.slider-wrapper.theme-default
-  #slider.nivoSlider
-    - trip.rides.with_photo.each do |ride|
-      = image_tag(ride.photo.url, title: "#{ride.photo_caption}", 'data-thumb'=>ride.photo.url)
-
-- content_for :javascript_at_bottom do
-  :javascript
-    $(document).ready(function() {
-      $('#slider').nivoSlider();
-    })
-    
-
+= render 'trips/image_slider', trip: Trip.find(997)

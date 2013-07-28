@@ -291,8 +291,11 @@ footer#footer{
 
 .ride_detail {
   h3 { margin-top: 0; }
-  .date.month{
-    text-transform: lowercase;
+  article {
+    img {
+      margin-bottom: 20px;
+      @include border-radius(10px);
+    }
   }
 }
 
@@ -304,6 +307,9 @@ footer#footer{
     .day{
       margin-top: -3px;
       font-size: 17px;
+    }
+    .month{
+      text-transform: lowercase;
     }
   }
   .jumbotron h1{

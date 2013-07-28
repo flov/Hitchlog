@@ -102,9 +102,10 @@
       float: right;
     }
     footer {
-      width: 12%;
+      width: 9%;
       display: block;
       margin-right: 2%;
+      float: left;
     }
   }
   .entry-header,
@@ -120,9 +121,10 @@
 
 /****** entry footer ******/
 .trip-detail .entry-footer {
-    width: 12%;
+    width: 9%;
     display: block;
     margin-right: 2%;
+    float: left;
 }
 
 .trip-detail .entry-footer .addthis_toolbox {

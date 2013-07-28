@@ -20,19 +20,14 @@ Hitchlog::Application.routes.draw do
   end
 
   resources :trips do
-    resources :rides, :except => [:index]
+    resources :rides, only: [:create, :update, :destroy]
     member do
       post :create_comment
     end
   end
 
-  resources :rides, :except => [:index] do
-    collection do
-      get    :random
-    end
+  resources :rides, only: [:create, :update, :destroy] do
     member do
-      get    :next
-      get    :prev
       delete :delete_photo
     end
   end

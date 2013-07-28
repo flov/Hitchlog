@@ -17,7 +17,7 @@ class Ride < ActiveRecord::Base
 
   accepts_nested_attributes_for :person, :allow_destroy => true
 
-  scope :with_photo, where("photo IS NOT NULL")
+  scope :with_photo, select{|r| r.photo.present?}
   scope :with_story, where("story <> ''")
 
   scope :latest_first, order('id DESC')
