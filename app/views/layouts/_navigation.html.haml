@@ -8,8 +8,8 @@
         %span.icon-bar
       .nav-collapse.collapse
         %ul.nav
-          %li{class: trips_active }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
           %li{class: users_active }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
+          %li{class: trips_active }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
           - if user_signed_in?
             %li{class: new_trip_active }= link_to "<i class='icon-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
           %li{class: about_active }= link_to t('.about'), about_path

@@ -289,7 +289,23 @@ footer#footer{
   color: #da4f49;
 }
 
+.ride_detail {
+  h3 { margin-top: 0; }
+  .date.month{
+    text-transform: lowercase;
+  }
+}
+
+
 @media only screen and (max-width:600px) { 
+  .ride_detail .date{
+    width: 43px;
+    height: 30px;
+    .day{
+      margin-top: -3px;
+      font-size: 17px;
+    }
+  }
   .jumbotron h1{
     font-size: 62px;
   }

@@ -1,5 +1,10 @@
 - trip.rides.with_story.oldest_first.each do |ride|
-  .entry-content
+  .entry-content.ride_detail
+    %footer.entry-footer
+      %span.blog.date
+        %span.day= ride.number.ordinalize
+        %span.month= t('general.ride')
+
     %article
       %h3
         = ride.title
@@ -8,12 +13,6 @@
         = waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
         = driving_time(human_hours(ride.duration)) if ride.duration
 
-      - if !ride.story.blank?
-        = ride.markdown_story
+      = ride.markdown_story if ride.story.present?
 
-      %hr/
-
-    %footer.entry-footer
-      %span.blog.date
-        %span.day= ride.number.ordinalize
-        %span.month= t('general.ride')
+    %hr/
