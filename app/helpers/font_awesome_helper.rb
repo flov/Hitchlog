@@ -145,12 +145,36 @@ module FontAwesomeHelper
   end
 
   def photo
-    "<i class='icon-road tip' title='#{t('helper.photo')}'></i>".html_safe
+    "<i class='icon-picture tip' title='#{t('helper.photo')}'></i>".html_safe
+  end
+
+  def number_of_rides(size)
+    "<span class='tip' title='#{pluralize(size, t('general.ride'))}'>
+      #{size}
+      <i class='icon-thumbs-up tip'></i>
+    </span>".html_safe
+  end
+
+  def number_of_comments(size)
+    "<span class='tip' title='#{pluralize(size, t('general.comment'))}'>
+      #{size}
+      <i class='icon-comment tip'></i>
+    </span>".html_safe
+  end
+
+  def number_of_photos(size)
+    "<span class='tip' title='#{pluralize(size, t('general.photo'))}'>
+      #{size}
+      <i class='icon-picture tip'></i>
+    </span>".html_safe
   end
 
   def icons_for_trip(trip)
     icons = [ ]
     icons << experience(trip.overall_experience)
+    icons << number_of_rides(trip.rides.size)
+    icons << number_of_comments(trip.comments.size) if trip.comments.size > 0
+    icons << number_of_photos(trip.rides.with_photo.size) if trip.rides.with_photo.size > 0
     trip.country_distances.map(&:country).each do |country|
       icons << flag(country)
     end
@@ -158,7 +182,6 @@ module FontAwesomeHelper
     trip.rides.each do |ride|
       icons << waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
       icons << driving_time(human_hours(ride.duration)) if ride.duration
-      icons << photo if ride.photo_file_name
     end
 
     icons.join(' ').html_safe
