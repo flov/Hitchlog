@@ -78,7 +78,8 @@ class TripsController < ApplicationController
 
   def trip_in_context
     if params[:id]
-      Trip.find(params[:id])
+      Trip.includes(:rides, :country_distances, user: [trips: [:rides, :country_distances]])
+          .find(params[:id])
     else
       Trip.new(params[:trip])
     end
