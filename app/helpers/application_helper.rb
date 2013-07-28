@@ -1,16 +1,4 @@
 module ApplicationHelper
-  def uservoice_feedback
-    render :partial => 'shared/uservoice_feedback'
-  end
-
-  def seconds_to_hours(seconds)
-    secounds/60/60
-  end
-
-  def human_minutes(minutes)
-    "#{minutes} minutes"
-  end
-
   def driving_time_difference(hours)
     if hours < 0
       t('helper.faster_than_gmaps')
@@ -45,16 +33,4 @@ module ApplicationHelper
   def human_seconds(seconds)
     "#{human_hours(seconds.to_f/60/60)}"
   end
-
-  def number_to_ordinal(num)
-    num = num.to_i
-    if (10...20)===num
-      "#{num}th"
-    else
-      g = %w{ th st nd rd th th th th th th }
-      a = num.to_s
-      c=a[-1..-1].to_i
-      a + g[c]
-    end
-  end  
 end

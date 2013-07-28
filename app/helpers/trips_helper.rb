@@ -68,16 +68,6 @@ module TripsHelper
     RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
 
-  def gmaps_difference(trip)
-    if trip.gmaps_difference
-      if trip.gmaps_difference > 0
-        t('helper.time_slower', :time => human_seconds(trip.gmaps_difference)).html_safe
-      else
-        t('helper.time_faster', :time => human_seconds(trip.gmaps_difference * (-1))).html_safe
-      end
-    end
-  end
-
   def distance_of_time_helper
     "
      <span class='tip', title='#{t('general.trip_duration')}'>\

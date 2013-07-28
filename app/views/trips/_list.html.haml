@@ -17,7 +17,7 @@
         %td
           = link_to trip.to_s.html_safe, trip
           = link_to t('general.edit'), edit_trip_path(trip) if trip.user == current_user
-          - trip.rides.with_story.each_with_index do |ride, i|
+          - trip.rides.with_story.each do |ride|
             - if ride.title.present?
               %p
                 %b= ride.title
@@ -25,7 +25,9 @@
         - if by
           %td.no-wrap= user_with_gender(trip.user)
         %td.no-wrap= distance( trip.distance )
+
         %td= icons_for_trip(trip)
+
         %td.no-wrap
           - if trip.departure > 12.month.ago
             = t('general.time_ago', time: time_ago_in_words(trip.departure))

@@ -10,7 +10,7 @@
         = ride.title
         = experience(ride.experience)
         = passenger_gender(ride.gender)
-        = waiting_time(human_minutes(ride.waiting_time)) if ride.waiting_time
+        = waiting_time("#{minutes} min") if ride.waiting_time
         = driving_time(human_hours(ride.duration)) if ride.duration
 
       = photo_for_ride(ride) if ride.photo.url.present?
