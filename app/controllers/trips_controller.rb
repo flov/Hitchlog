@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   expose( :trips ) { trips_in_context }
 
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :authenticate_trip_owner, only: [:edit, :update]
+  before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy]
   after_filter  :increment_visits, only: [:show]
 
   def create

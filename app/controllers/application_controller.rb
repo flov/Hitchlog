@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
       trips = trips.includes(:rides).where("rides.story IS NOT NULL AND rides.story != ''")
     end
     if params[:photos]
-      trips = trips.includes(:rides).where("rides.photo_file_name IS NOT NULL")
+      trips = trips.includes(:rides).where("rides.photo != ''")
     end
     trips
   end
