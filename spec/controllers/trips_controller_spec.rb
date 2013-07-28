@@ -28,18 +28,34 @@ describe TripsController do
   end
 
   describe '#show' do
-    let(:trip) { double('trip') }
+    let(:trip) { double('trip', visits: 0) }
 
-    it 'redirects if trip wasn not found' do
-      get :show, id: 'doesnt exist!'
+    context "trip wasn't found" do
+      it 'redirects if trip wasn not found' do
+        get :show, id: 'doesnt exist!'
 
-      response.should redirect_to(root_path)
+        response.should redirect_to(root_path)
+      end
     end
 
-    it 'renders show view' do
-      Trip.stub(:find){ trip }
-      get :show, id: 1
-      response.should render_template('show')
+    context "Trip found" do
+      before do
+        trip.stub :update_column
+        Trip.stub_chain(:includes, :find){ trip }
+
+      end
+
+      it 'renders show view' do
+        get :show, id: 1
+
+        response.should render_template('show')
+      end
+
+      it 'increments visits count' do
+        trip.should_receive( :update_column ).with( :visits, 1 )
+
+        get :show, id: 1
+      end
     end
   end
 
@@ -56,7 +72,7 @@ describe TripsController do
     let(:action) { get :edit, id: 1 }
 
     before do
-      Trip.stub(:find){ trip }
+      Trip.stub_chain(:includes, :find){ trip }
     end
 
     it_blocks_unauthenticated_access
