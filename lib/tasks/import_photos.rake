@@ -1,5 +1,5 @@
 desc 'Import Photos'
-task :import_photos do
+task import_photos: :environment do
   puts 'importing photos...'
   [
     "09082011327.jpg",
