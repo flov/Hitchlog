@@ -6,9 +6,6 @@ task :import_photos do
     "DSC04632.JPG",
     "IMG_1484.JPG",
     "IMG_1881.JPG",
-    "IMG_3977.JPG",
-    "IMG_3978.JPG",
-    "IMG_3981.JPG",
     "IMG_5733.JPG",
     "IMG_5737.JPG"
   ].each do |photo_file_name|
