@@ -116,7 +116,7 @@ module FontAwesomeHelper
   def neutral(title = t('helper.neutral_experience'))
     "<i class='icon-meh tip' title='#{title}'></i>".html_safe
   end
-  def negative(title = t('helper.positive_experience'))
+  def negative(title = t('helper.negative_experience'))
     "<i class='icon-frown tip' title='#{title}'></i>".html_safe
   end
   def very_negative(title = t('helper.extremely_negative_experience'))

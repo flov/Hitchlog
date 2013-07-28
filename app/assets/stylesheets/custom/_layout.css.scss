@@ -182,18 +182,23 @@ form.trips_search {
 
 .extremely.positive {
   color: $green;
+  i{ color: $green; }
 }
 .positive {
   color: $lightgreen;
+  i { color: $lightgreen; }
 }
 .neutral {
   color: $orange;
+  i { color: $orange; }
 }
 .negative {
   color: $red;
+  i { color: $red; }
 }
 .extremely.negative {
   color: $red;
+  i { color: $red; }
 }
 
 .map {
