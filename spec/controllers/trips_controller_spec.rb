@@ -50,12 +50,6 @@ describe TripsController do
 
         response.should render_template('show')
       end
-
-      it 'increments visits count' do
-        trip.should_receive( :update_column ).with( :visits, 1 )
-
-        get :show, id: 1
-      end
     end
   end
 

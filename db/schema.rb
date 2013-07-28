@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728012314) do
+ActiveRecord::Schema.define(:version => 20130728113631) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -174,7 +174,6 @@ ActiveRecord::Schema.define(:version => 20130728012314) do
     t.integer  "gmaps_duration"
     t.string   "from_country_code"
     t.string   "to_country_code"
-    t.integer  "visits",                 :default => 0
   end
 
   add_index "trips", ["from_country"], :name => "index_trips_on_from_country"

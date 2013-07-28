@@ -4,7 +4,6 @@ class TripsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy]
-  after_filter  :increment_visits, only: [:show]
 
   def create
     trip.user = current_user
@@ -54,10 +53,6 @@ class TripsController < ApplicationController
   end
 
   private
-
-  def increment_visits
-    trip.update_column :visits, trip.visits + 1
-  end
 
   def authenticate_trip_owner
     if trip.user != current_user
