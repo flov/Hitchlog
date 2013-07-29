@@ -87,6 +87,10 @@ class Trip < ActiveRecord::Base
     departure.strftime("%d %B %Y")
   end
 
+  def tags
+    self.rides.flat_map(&:tag_list)
+  end
+
   def duration
     if self.arrival and self.departure
       self.arrival - self.departure

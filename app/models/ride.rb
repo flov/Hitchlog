@@ -9,7 +9,8 @@ class Ride < ActiveRecord::Base
                   :gender,
                   :photo,
                   :photo_cache,
-                  :photo_caption
+                  :photo_caption,
+                  :tag_list
 
   belongs_to :user
   belongs_to :trip
@@ -24,6 +25,8 @@ class Ride < ActiveRecord::Base
   scope :oldest_first, order('id ASC')
 
   mount_uploader :photo, PhotoUploader
+
+  acts_as_taggable_on :tags
 
   def to_s
     self.trip

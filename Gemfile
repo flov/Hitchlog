@@ -15,6 +15,7 @@ group :assets do
   gem 'bootstrap-sass-rails'
 end
 
+gem 'acts-as-taggable-on'
 gem 'decent_exposure'
 gem 'devise', '1.5.3'
 gem 'rdiscount'

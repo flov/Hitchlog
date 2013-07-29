@@ -186,3 +186,7 @@ When /^I confirm that the data is correct$/ do
   click_button("Create Trip")
 end
 
+Given /^"([^"]*)" logged a trip$/ do |username|
+  user = User.find_by_username username
+  FactoryGirl.create :trip, user_id: user.id
+end
