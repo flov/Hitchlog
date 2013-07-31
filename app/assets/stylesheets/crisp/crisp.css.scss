@@ -649,22 +649,6 @@ input[type="text"], input[type="password"], input[type="search"], input[type="em
 
 .lt-ie8 .sidebar-right .span9, .lt-ie8 .contemp-three-cols .span6 {margin-left:0!important;}
 
-/* tags */
-.sidebar-tabs .tag-wrapper a, .entry-tags a  {
-	-webkit-border-radius: 2px;
-	-moz-border-radius:2px;
-	border-radius: 2px;
-	float:left;
-	display:block;
-	text-decoration:none;
-	background:#d8dfe5;
-	padding:0 8px;
-	margin:0 3px 3px 0;
-	color:#758694;
-	font-size:85%
-}
-.sidebar-tabs .tag-wrapper a:hover, .entry-tags a:hover  {background:#53a3b7;color:#fff;}
-
 /****** sidebar and blog related posts navigation (in related posts area) ******/
 ul.navigation {
     margin-left:0;

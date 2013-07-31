@@ -180,6 +180,20 @@ form.trips_search {
   }
 }
 
+a.tag  {
+  @include border-radius(2px);
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration:none;
+  background: #d8dfe5;
+  padding:0 8px;
+  margin:0 3px 3px 0;
+  color: #758694;
+  font-size: 85%
+}
+a.tag:hover{ background: $mainColor; color:#fff; }
+
+
 .extremely.positive {
   color: $green;
   i{ color: $green; }

@@ -25,6 +25,7 @@ Hitchlog::Application.routes.draw do
       post :create_comment
     end
   end
+  get 'trips/tags/:tag', to: 'trips#index', as: 'tag'
 
   resources :rides, only: [:create, :update, :destroy] do
     member do
@@ -35,7 +36,7 @@ Hitchlog::Application.routes.draw do
   match 'hitchhikers' => 'users#index'
   match 'home' => 'welcome#home'
   match 'about' => 'welcome#about'
-  match 'bootstrap' => 'welcome#bootstrap'
+
 
   # making static crisp html templates available to see if they are displayed correctly
   match 'crisp/:action', controller: :crisp if Rails.env == 'development'

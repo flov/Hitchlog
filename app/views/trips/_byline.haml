@@ -25,14 +25,13 @@
       = trip.total_waiting_time
 
 .entry-meta
-  - unless trip.tags.empty?
+  - unless trip.tag_list.empty?
     %i.icon-tags
-      = trip.tags.map(&:capitalize).join(', ')
+    = tags(trip.tag_list)
     &nbsp;&nbsp;
 
   %i.icon-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
     = accurate_time(trip.arrival - trip.departure)
-
   &nbsp;&nbsp;
 
   %span.tip{title: t('.google_maps_duration', time: accurate_time( trip.gmaps_duration))} 

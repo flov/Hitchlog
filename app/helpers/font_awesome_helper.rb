@@ -104,6 +104,10 @@ module FontAwesomeHelper
     end
   end
 
+  def tags(tag_list)
+    tag_list.map{|tag| link_to h(tag), tag_path(tag), class: 'tag'}.join(' ').html_safe
+  end
+
   def very_positive(title = t('helper.extremely_positive_experience'))
     "<span class='tip very-positive' title='#{title}'>
       <i class='icon-smile'></i>
