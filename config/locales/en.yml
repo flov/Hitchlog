@@ -29,11 +29,11 @@ en:
   helper:
     time_faster: "%{time} faster"
     time_slower: "%{time} slower"
-    extremely_positive_experience: "very positive experience"
-    positive_experience: "positive experience"
+    extremely_positive_experience: "very good experience"
+    positive_experience: "good experience"
     neutral_experience: "neutral experience"
-    negative_experience: "negative experience"
-    extremely_negative_experience: "very negative experience"
+    negative_experience: "bad experience"
+    extremely_negative_experience: "very bad experience"
     no_results_for_this_route: "no results for this route"
     unknown_distance: "unknown distance"
     about_person_image: "About the passengers"
@@ -302,6 +302,7 @@ en:
       log_new_trip: "Log New Trip"
       to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
       choose_a_country: "Choose a country"
+      title: Hitchhinking Trips
     search_interface:
       sort_by: "Search trips with"
       select_experience: "Experience"
