@@ -87,6 +87,10 @@ class Trip < ActiveRecord::Base
     departure.strftime("%d %B %Y")
   end
 
+  def tag_list
+    self.rides.flat_map(&:tag_list)
+  end
+
   def duration
     if self.arrival and self.departure
       self.arrival - self.departure
@@ -212,10 +216,6 @@ class Trip < ActiveRecord::Base
 
   def countries
     self.country_distances.map(&:country)
-  end
-
-  def countries_with_distance
-    self.country_distances.map{|t| {:country => t.country, :distance => t.distance} }
   end
 
   def get_country_distance

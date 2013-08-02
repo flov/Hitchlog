@@ -180,6 +180,20 @@ form.trips_search {
   }
 }
 
+a.tag  {
+  @include border-radius(2px);
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration:none;
+  background: #d8dfe5;
+  padding:0 8px;
+  margin:0 3px 3px 0;
+  color: #758694;
+  font-size: 85%
+}
+a.tag:hover{ background: $mainColor; color:#fff; }
+
+
 .extremely.positive {
   color: $green;
   i{ color: $green; }
@@ -199,6 +213,16 @@ form.trips_search {
 .extremely.negative {
   color: $red;
   i { color: $red; }
+}
+
+.tag_cloud {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  .css1 { font-size: 10px; }
+  .css2 { font-size: 14px; }
+  .css3 { font-size: 18px; }
+  .css4 { font-size: 22px; }
 }
 
 .map {
@@ -242,7 +266,6 @@ footer#footer{
 .smaller {
   font-size: 12px;
   font-size: 1.2rem;
-  line-height:2;
   margin-bottom: 0;
 }
 
@@ -261,6 +284,15 @@ footer#footer{
 .new_hitchhiking_trips{
   li {
     margin-bottom: 20px
+  }
+}
+
+.user_show{
+  .statistics{
+    ul li {
+      display: inline;
+      margin-right: 15px;
+    }
   }
 }
 

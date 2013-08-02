@@ -1,32 +1,26 @@
 - title t('.title', user: user.to_s)
 
+-# reverse-order for responsive layout in mobile browsers
 .row-fluid.sidebar-right.reverse-order
   %section.span3.sidebar.secondary-column#secondary-nav
     = render 'users/profile', user: user
-  .span9.primary-column
+
+  .span9.primary-column.user_show
     %h3.short_headline
       %span
         = user
         - if user == current_user
           = link_to t('.edit'), edit_user_path(user), class: 'btn btn-info'
 
-
     - if current_user == user
       - if user.trips.empty?
         %p= link_to t('.log_your_first_trip'), new_trip_path
-      - else
-        %p= link_to t('.log_new_trip'), new_trip_path
-
-    - if user.location.present?
-      %p
-        = t('.current_location')
-        = flag_with_country_name(user)
 
     = render 'trips_and_rides', user: user
 
-    = render 'about_you', user: user
+    = render 'tag_cloud'
 
-    = render 'geomap', user: user
+    = render 'about_you', user: user
 
     - if user.future_trips.any?
       %h4.short_headline
@@ -34,14 +28,9 @@
           #{pluralize(user.future_trips.size, t('.upcoming_trip'))}:
       = render 'future_trips/future_trips', future_trips: user.future_trips
 
-    - if @trips.any?
-      = will_paginate @trips, class: 'flickr_pagination'
-      -#= render 'trips/search_interface'
-
-      %h4.short_headline
-        %span
-          Hitchhiked Trips
+    - if trips.any?
+      = will_paginate trips, class: 'flickr_pagination'
       #trips
-        = render 'trips/list', trips: user.trips.paginate(page: params[:page], per_page: 5)
-      = will_paginate @trips, class: 'flickr_pagination'
+        = render 'trips/list', trips: trips
+      = will_paginate trips, class: 'flickr_pagination'
 

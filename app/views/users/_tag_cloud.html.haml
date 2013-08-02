@@ -1,0 +1,4 @@
+.tag_cloud
+  - tag_cloud(Ride.joins(:trip).where(trips:{user_id: user.id}).tag_counts.order(:id),
+                               ['css1', 'css2', 'css3', 'css4']) do |tag, css_class|
+    = link_to tag.name, tag_path(tag.name), class: css_class

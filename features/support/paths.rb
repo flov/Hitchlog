@@ -26,6 +26,8 @@ module NavigationHelpers
       "/en/trips/#{Trip.last.to_param}/edit"
     when /^the future trips page$/
       future_trips_path
+    when /^the tag page of (.*)$/
+      "/en/trips/tags/#{$1.downcase}"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

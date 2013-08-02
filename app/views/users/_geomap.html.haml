@@ -1,5 +1,5 @@
 - if user.trips.any?
-  #world-map{:style => "width: 100%; height: 400px;"}
+  %section#world-map{:style => "width: 100%; height: 200px;"}
 
   - content_for :javascript_at_bottom do
     = javascript_include_tag 'jquery-mousewheel'

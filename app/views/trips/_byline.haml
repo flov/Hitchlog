@@ -2,34 +2,39 @@
   %i.icon-pencil
   = link_to_user(trip.user)
   &nbsp;&nbsp;
-  %span.tip{title: t('.trip_duration', time: accurate_distance_of_time_in_words(trip.duration))}
-    %i.icon-time
-    = succeed(',') do
-      = trip.departure.strftime("%B %d, %Y")
-    = t('general.took_time', time: accurate_distance_of_time_in_words(trip.arrival - trip.departure)) unless trip.arrival.nil? or trip.departure.nil?
-  &nbsp;&nbsp;
-  %span.tip{title: t('.google_maps_duration', time: accurate_distance_of_time_in_words( trip.gmaps_duration))} 
-    %b G 
-    = accurate_distance_of_time_in_words(trip.gmaps_duration)
+  %i.icon-time
+    = trip.departure.strftime("%B %d, %Y")
   &nbsp;&nbsp;
   - unless trip.rides.with_photo.empty?
     %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
       = trip.rides.with_photo.size
       %i.icon-picture
     &nbsp;&nbsp;
-  %a.scrollto.tip{href: "#view-comments", title: pluralize(trip.comments.size, t('general.comment'))}
-    %i.icon-comments-alt
-    = trip.comments.size
-  &nbsp;&nbsp;
   %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
     %i.icon-thumbs-up
     = trip.rides.size
   &nbsp;&nbsp;
   %span.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
-    #{number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")}
+    = number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")
+    kms
     %i.icon-dashboard
-  - if trip.total_waiting_time
+
+.entry-meta
+  - unless trip.tag_list.empty?
+    %i.icon-tags
+    = tags(trip.tag_list)
     &nbsp;&nbsp;
+
+  %i.icon-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
+    = accurate_time(trip.arrival - trip.departure)
+  &nbsp;&nbsp;
+
+  - if trip.total_waiting_time
     %span.tip{title: t('general.total_waiting_time', time: trip.total_waiting_time)}
       %i.icon-time
       = trip.total_waiting_time
+    &nbsp;&nbsp;
+
+  %span.tip{title: t('.google_maps_duration', time: accurate_time( trip.gmaps_duration))} 
+    %b G 
+    = accurate_time(trip.gmaps_duration)

@@ -26,7 +26,9 @@
           %td.no-wrap= user_with_gender(trip.user)
         %td.no-wrap= distance( trip.distance )
 
-        %td= icons_for_trip(trip)
+        %td
+          = icons_for_trip(trip)
+          = tags(trip.tag_list)
 
         %td.no-wrap
           - if trip.departure > 12.month.ago
