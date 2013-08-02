@@ -4,10 +4,13 @@
     = t("welcome.home.newest_hitchhiking_trips")
 
 %ul.new_hitchhiking_trips
-  - Trip.includes(:country_distances, :rides).paginate(per_page: 7, page: 1).each do |trip|
+  - Trip.joins(:country_distances, :rides).paginate(per_page: 7, page: 1).each do |trip|
     %li
       = link_to trip, trip_path(trip)
-      = icons_for_trip(trip)
+      = countries_for_trip(trip)
+      = number_of_rides(trip.rides.size)
+      = number_of_comments(trip.comments.size) if trip.comments.size > 0
+      = number_of_photos(trip.rides.with_photo.size) if trip.rides.with_photo.size > 0
       %br/
       = t('welcome.home.hitchhiked_by_user',
         user: link_to(h(trip.user), user_path(trip.user)),
