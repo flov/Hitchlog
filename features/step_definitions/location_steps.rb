@@ -18,5 +18,5 @@ end
 Then /^on the profile page of "([^"]*)" I should see that he is currently in "([^"]*)"$/ do |username, location|
   user = User.find_by_username(username)
   visit(user_path(user))
-  page.should have_content( "Current location: #{location}" )
+  page.should have_content( location )
 end
