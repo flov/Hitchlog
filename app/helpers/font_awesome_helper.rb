@@ -88,14 +88,6 @@ module FontAwesomeHelper
     "#{flag(user.country_code)} <a href='http://maps.google.com.au/?q=#{user.country}+#{user.city}'>#{user.country}, #{user.city}</a>".html_safe
   end
 
-  def flag_with_country_name_for_trip(trip)
-    array = []
-    trip.countries_with_distance.each do |hash|
-      array << country(hash[:country], hash[:distance]).html_safe
-    end
-    array.join(' ').html_safe
-  end
-
   def waiting_time(time=nil)
     if time.nil?
       "<i class='icon-time'></i>".html_safe

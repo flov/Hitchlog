@@ -215,6 +215,16 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   i { color: $red; }
 }
 
+.tag_cloud {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  .css1 { font-size: 10px; }
+  .css2 { font-size: 14px; }
+  .css3 { font-size: 18px; }
+  .css4 { font-size: 22px; }
+}
+
 .map {
   width: 100%;
   height: 300px;
@@ -256,7 +266,6 @@ footer#footer{
 .smaller {
   font-size: 12px;
   font-size: 1.2rem;
-  line-height:2;
   margin-bottom: 0;
 }
 
@@ -275,6 +284,15 @@ footer#footer{
 .new_hitchhiking_trips{
   li {
     margin-bottom: 20px
+  }
+}
+
+.user_show{
+  .statistics{
+    ul li {
+      display: inline;
+      margin-right: 15px;
+    }
   }
 }
 

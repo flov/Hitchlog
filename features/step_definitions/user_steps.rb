@@ -74,10 +74,7 @@ When /^I change my location to "([^"]*)"$/ do |current_location|
   fill_in "Your current location", with: current_location
 end
 
-Then /^the current location of "([^"]*)" should be "([^"]*)"$/ do |username, arg2|
-  pending # express the regexp above with the code you wish you had
-end
-
 When /^I visit the profile page of "([^"]*)"$/ do |username|
   visit user_path(username)
 end
+

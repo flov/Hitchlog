@@ -6,9 +6,6 @@
       = f.label("experience")
       = f.select("experience", [I18n.t('general.extremely_positive'), I18n.t('general.positive'), I18n.t('general.neutral'), I18n.t('general.negative'), I18n.t('general.extremely_negative')])
       %br/
-      = f.label :tag_list, 'Tag this ride (seperated by comma)'
-      = f.text_field :tag_list
-      %br/
       = f.label :title
       %br/
       = f.text_field :title, placeholder: t('general.story_title')
@@ -16,6 +13,9 @@
       = f.label :story
       %br/
       = f.text_area :story, :rows => 4, placeholder: t('general.story').capitalize
+      %br/
+      = f.label :tag_list, t('.tag_it')
+      = f.text_field :tag_list
     .section
       - unless ride.photo.url.nil?
         = image_tag(ride.photo.thumb.url)

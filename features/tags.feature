@@ -20,15 +20,20 @@ Feature: Tags
     And I should see the trip with the "dangerous" tag
     And I should not see the trip with the "boring" tag
 
-
   @wip
   Scenario: User tags ride for stories which have not been tagged yet
     Given I am logged in as "flo"
-     And "flo" logged a trip
-     And "flo" wrote a story without tagging the trip
+     And "flo" logged a trip with a story but without tag
     When I go to the profile page of flo
     Then I should see "Missing tags for 1 story"
-     And I should see a short overview of the trip without tag
+     And I should see a short overview of the trip with a story but without tag
     When I fill in the tags for the ride
      And I submit the form
     Then I should not see "Missing tags for 1 story"
+
+  Scenario: Show tag cloud for tags
+    Given a hitchhiker called "flo"
+     And "flo" logged 2 trips with a tagged ride "dangerous"
+     And "flo" logged 1 trip with a tagged ride "adventurous"
+    When I go to the profile page of flo
+    Then I should see a tag cloud with "adventurous" and "dangerous"

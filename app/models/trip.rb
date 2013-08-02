@@ -218,10 +218,6 @@ class Trip < ActiveRecord::Base
     self.country_distances.map(&:country)
   end
 
-  def countries_with_distance
-    self.country_distances.map{|t| {:country => t.country, :distance => t.distance} }
-  end
-
   def get_country_distance
     countries = Gmaps.countries(from, to)
     if %w(ZERO_RESULTS OFFLINE NOT_FOUND OVER_QUERY_LIMIT REQUEST_DENIED INVALID_REQUEST).include? countries

@@ -160,7 +160,7 @@ en:
           Ever wondered what hitchhiking is really like?
           Explore the experience of hitchhiking of over 200
           hitchhikers in over 50 countries.
-      explore_hh_xp: Explore hitchhiking experiences in over 50 countries
+      explore_hh_xp: Explore hitchhiking experiences in over 50 countries by clicking on one of the flags
       or_sign_in_with: or sign in with
       share_your_hh_xp: "Share your hitchhiking experience"
       newest_hh_stories: "New hitchhiking Stories"
@@ -225,6 +225,13 @@ en:
       statistics: Statistics
       send_mail: "Send Mail"
     trips_and_rides:
+      stats_in_words_1: >
+          %{user} did <b>%{trips} Hitchhiking Trips</b>
+          and saw <b>%{rides} cars from inside</b>,
+      stats_in_words_2: >
+          drove <b>%{kms} kms</b>
+      stats_in_words_3: >
+          and had an <b>average waiting time of %{waiting_time} min</b>
       alone: alone
       with_one_other_person: with one other person
       with_two_other_people: with two other people
@@ -295,6 +302,7 @@ en:
     ride:
       delete_image: "Delete Photo"
       save_ride: Save Ride
+      tag_it: 'Tag it (seperated by comma)'
   trips:
     index:
       meta_descritpion: 'Explore the hitchhiking experience of other hitchhikers'
@@ -312,7 +320,7 @@ en:
       search: Search
       story: Story
     edit:
-      edit_title: "Edit Your Trip"
+      edit_title: "Edit Your Hitchhiking Trip"
       edit_trip: "Edit Trip"
       hitchhiked: Hitchhiked
       from: From

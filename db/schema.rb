@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729021002) do
+ActiveRecord::Schema.define(:version => 20130801170622) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(:version => 20130729021002) do
     t.string   "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.text     "story"
     t.integer  "waiting_time"
     t.datetime "date"
@@ -130,7 +129,6 @@ ActiveRecord::Schema.define(:version => 20130729021002) do
   add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
   add_index "rides", ["title"], :name => "index_rides_on_title"
   add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
-  add_index "rides", ["user_id"], :name => "index_rides_on_user_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
