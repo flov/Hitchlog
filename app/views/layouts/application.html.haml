@@ -23,6 +23,9 @@
 
 
   = javascript_include_tag 'application'
-  = render 'shared/google_stats' if Rails.env == 'production'
+  - if Rails.env == 'production'
+    = render 'shared/google_stats'
+    = render 'shared/uservoice'
+
 
   = yield(:javascript_at_bottom)
