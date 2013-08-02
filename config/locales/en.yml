@@ -302,7 +302,7 @@ en:
     ride:
       delete_image: "Delete Photo"
       save_ride: Save Ride
-      tag_it: 'Tag it (seperated by comma)'
+      tag_it: 'Tag your ride (seperated by comma)'
   trips:
     index:
       meta_descritpion: 'Explore the hitchhiking experience of other hitchhikers'
