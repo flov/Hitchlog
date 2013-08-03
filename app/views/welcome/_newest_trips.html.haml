@@ -4,7 +4,7 @@
     = t("welcome.home.newest_hitchhiking_trips")
 
 %ul.new_hitchhiking_trips
-  - Trip.joins(:country_distances, :rides).paginate(per_page: 7, page: 1).each do |trip|
+  - Trip.includes(:country_distances, :rides).paginate(per_page: 7, page: 1).each do |trip|
     %li
       = link_to trip, trip_path(trip)
       = countries_for_trip(trip)
