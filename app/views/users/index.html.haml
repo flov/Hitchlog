@@ -7,10 +7,10 @@
     %tr
       %th= t('.username')
       %th= t('.logged_trips')
-      %th= t('.hitchhiked_kms')
-      %th= t('.hitchhiked_countries')
-      %th= t('.location')
+      %th= t('general.hitchhiked_kms')
+      %th= t('general.hitchhiked_countries')
       %th= t('.no_of_rides')
+      %th= t('.location')
 
   %tbody
     - users.each do |user|
@@ -26,8 +26,8 @@
         %td
           = user.hitchhiked_countries
         %td
-          = flag_with_country_name(user)
-        %td
           = user.no_of_rides
+        %td
+          = flag_with_country_name(user)
 
 = will_paginate users, class: 'flickr_pagination'
