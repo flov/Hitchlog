@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def trips_in_context
-    user.trips.paginate(page: params[:page], per_page: 5)  
+    user.trips.paginate(page: params[:page], per_page: 10)  
 
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path, flash: { error: t('general.record_not_found')}

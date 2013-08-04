@@ -219,6 +219,9 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   width: 300px;
   text-align: center;
   margin: 0 auto;
+  a {
+    margin-right: 10px;
+  }
   .css1 { font-size: 10px; }
   .css2 { font-size: 14px; }
   .css3 { font-size: 18px; }

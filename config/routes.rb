@@ -13,6 +13,7 @@ Hitchlog::Application.routes.draw do
 
   resources :users, :path => 'hitchhikers' do
     member do
+      get :trips
       get :geomap
       get :send_mail
       post :mail_sent
@@ -33,7 +34,6 @@ Hitchlog::Application.routes.draw do
     end
   end
 
-  match 'hitchhikers' => 'users#index'
   match 'home' => 'welcome#home'
   match 'about' => 'welcome#about'
 
