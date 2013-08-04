@@ -24,6 +24,8 @@ module NavigationHelpers
       "/en/hitchhikers/#{$1.downcase}/edit"
     when /^the edit trip page$/
       "/en/trips/#{Trip.last.to_param}/edit"
+    when /^the edit page of that trip$/
+      "/en/trips/#{Trip.last.to_param}/edit"
     when /^the future trips page$/
       future_trips_path
     when /^the tag page of (.*)$/

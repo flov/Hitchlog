@@ -3,7 +3,7 @@ class TripsController < ApplicationController
   expose( :trips ) { trips_in_context }
 
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy]
+  before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy, :add_ride]
 
   def create
     trip.user = current_user
@@ -28,14 +28,6 @@ class TripsController < ApplicationController
     redirect_to trip_path(comment.trip)
   end
 
-  def edit
-    trip.rides.each do |ride|
-      if ride.person.nil?
-        ride.build_person
-      end
-    end
-  end
-
   def update
     if trip.update_attributes(params[:trip])
       respond_to do |wants|
@@ -50,6 +42,12 @@ class TripsController < ApplicationController
   def destroy
     trip.destroy
     redirect_to trips_url
+  end
+
+  def add_ride
+    tripp = Trip.find(params[:id])
+    tripp.add_ride
+    redirect_to edit_trip_path(tripp.to_param)
   end
 
   private
@@ -78,8 +76,7 @@ class TripsController < ApplicationController
 
   def trip_in_context
     if params[:id]
-      Trip.includes(:rides, :country_distances, user: [trips: [:rides, :country_distances]])
-          .find(params[:id])
+      Trip.includes(:rides, :country_distances, user: [trips: [:rides, :country_distances]]).find(params[:id])
     else
       Trip.new(params[:trip])
     end

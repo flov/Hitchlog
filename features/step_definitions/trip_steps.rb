@@ -186,7 +186,12 @@ When /^I confirm that the data is correct$/ do
   click_button("Create Trip")
 end
 
-Given /^"([^"]*)" logged a trip$/ do |username|
+Given /^"([^"]*)" logged a trip with (\d+) ride$/ do |username, number_of_rides|
   user = User.find_by_username username
-  FactoryGirl.create :trip, user_id: user.id
+  FactoryGirl.create :trip, user_id: user.id, hitchhikes: number_of_rides
 end
+
+Then /^I should be able to edit (\d+) ride$/ do |number|
+  page.all(".accordion_content").count.should eql(number.to_i)
+end
+

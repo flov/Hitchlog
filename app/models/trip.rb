@@ -99,6 +99,11 @@ class Trip < ActiveRecord::Base
     end
   end
 
+  def add_ride
+    self.rides.build(number: self.rides.size + 1)
+    self.save
+  end
+
   def kmh
     kilometers = self.distance.to_f / 1000
     hour       = self.duration / 60 / 60
@@ -154,12 +159,14 @@ class Trip < ActiveRecord::Base
   end
 
   def sanitize_address(direction)
-    if !self.send("#{direction}_city").blank?
-      address = self.send("#{direction}_city")
-    elsif !self.send("#{direction}_formatted_address").blank?
-      address = self.send("#{direction}_formatted_address")
+    if self.send("#{direction}_city").present?
+      self.send("#{direction}_city")
+    elsif self.send("#{direction}_formatted_address").present?
+      self.send("#{direction}_formatted_address")
+    elsif self.send(direction).nil?
+      ''
     else
-      address = self.send(direction)
+      self.send(direction)
     end
   end
 
@@ -270,5 +277,4 @@ class Trip < ActiveRecord::Base
     get_formatted_addresses
     save!
   end
-  
 end

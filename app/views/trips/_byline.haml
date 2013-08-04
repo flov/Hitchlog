@@ -20,11 +20,6 @@
     %i.icon-dashboard
 
 .entry-meta
-  - unless trip.tag_list.empty?
-    %i.icon-tags
-    = tags(trip.tag_list)
-    &nbsp;&nbsp;
-
   %i.icon-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
     = accurate_time(trip.arrival - trip.departure)
   &nbsp;&nbsp;
@@ -38,3 +33,10 @@
   %span.tip{title: t('.google_maps_duration', time: accurate_time( trip.gmaps_duration))} 
     %b G 
     = accurate_time(trip.gmaps_duration)
+
+.entry-meta
+  - if trip.tag_list.any?
+    %i.icon-tags
+    = tags(trip.tag_list)
+    &nbsp;&nbsp;
+

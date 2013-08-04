@@ -13,6 +13,8 @@ en:
         success: 'Ride updated! See the result below.'
       delete_photo:
         success: "Your photo is no more!"
+      add_ride:
+        success: "Added ride"
     trips:
       create_comment:
         alert: "Comment failed to save!"
@@ -87,6 +89,7 @@ en:
       english: English
       german: German
   general:
+    not_allowed: 'You are not allowed to do that!'
     hitchhiked_countries: Hitchhiked countries
     story_title: Story title
     photo_caption: Photo caption

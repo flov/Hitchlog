@@ -24,6 +24,7 @@ Hitchlog::Application.routes.draw do
     resources :rides, only: [:create, :update, :destroy]
     member do
       post :create_comment
+      post :add_ride
     end
   end
   get 'trips/tags/:tag', to: 'trips#index', as: 'tag'

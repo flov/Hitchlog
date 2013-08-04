@@ -13,6 +13,10 @@
       #{t('activerecord.attributes.trip.arrival')}:
       = trip.arrival.strftime("%B %d, %Y %H:%M")
 
+    = link_to add_ride_trip_path(trip), method: :post do
+      %i.icon-plus-sign
+      Add Ride
+
     #accordion
       = render trip.rides.oldest_first
 
@@ -30,8 +34,6 @@
       = f.hidden_field :from_formatted_address
       = f.hidden_field :to_formatted_address
       .hidden= submit_tag
-
-
 
 - content_for :javascript_at_bottom do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=false", :type => "text/javascript"}  

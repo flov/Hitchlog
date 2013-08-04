@@ -49,6 +49,10 @@ Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
   click_button "Hitch in"
 end
 
+Given /^"([^"]*)" logged a trip$/ do
+  @user.trips << FactoryGirl(:trip)
+end
+
 Given /^I logged a trip$/ do
   @user.trips << FactoryGirl(:trip)
 end

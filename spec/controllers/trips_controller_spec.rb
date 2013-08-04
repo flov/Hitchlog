@@ -133,4 +133,18 @@ describe TripsController do
       end
     end
   end
+
+  describe '#add_ride' do
+    let(:current_user) { double(:user) }
+    let(:trip) { double( 'trip', id: 1, add_ride: true, user: current_user, to_param: '1' ) }
+    let(:action) { post :add_ride, id: 1 }
+
+    context 'logged in but not owner of ride' do
+      it 'blocks access' do
+        sign_in :user, double(:different_user)
+        action
+        response.should redirect_to(root_path)
+      end
+    end
+  end
 end

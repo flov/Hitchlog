@@ -161,4 +161,13 @@ describe Trip do
       end
     end
   end
+
+  describe 'add_ride' do
+    it 'adds a ride to the trip' do
+      trip.save
+      trip.rides.size.should == 1
+      trip.add_ride
+      trip.rides.size.should == 2
+    end
+  end
 end

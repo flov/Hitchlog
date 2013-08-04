@@ -39,7 +39,7 @@ class RidesController < ApplicationController
 
   def user_owns_ride
     if ride.trip.user != current_user
-      flash[:alert] = "You are not allowed to do that!"
+      flash[:alert] = t('general.not_allowed')
       redirect_to root_path
       return
     end
