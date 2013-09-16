@@ -9,6 +9,7 @@ Feature: Tags
     When I go to the edit trip page
     And I type in "adventurous" as a tag
     And I press "Save Ride"
+    And show me the page
     Then I should see "adventurous" as a tag on the trip
 
   Scenario: User clicks on tag in a trip

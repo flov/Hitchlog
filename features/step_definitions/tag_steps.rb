@@ -3,7 +3,7 @@ When /^I type in "([^"]*)" as a tag$/ do |tag|
 end
 
 Then /^I should see "([^"]*)" as a tag on the trip$/ do |tag|
-  within ".entry-meta" do
+  within ".entry-meta a" do
     page.should have_content(tag)
   end
 end

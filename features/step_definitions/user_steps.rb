@@ -29,9 +29,9 @@ Given /^I am logged in$/ do
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |username|
-  @user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
+  user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
   visit new_user_session_path
-  fill_in "Username", with: @user.username
+  fill_in "Username", with: user.username
   fill_in "Password", with: 'password'
   click_button "Hitch in"
 end
@@ -47,10 +47,6 @@ Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
   fill_in "Username", with: username
   fill_in "Password", with: 'password'
   click_button "Hitch in"
-end
-
-Given /^"([^"]*)" logged a trip$/ do
-  @user.trips << FactoryGirl(:trip)
 end
 
 Given /^I logged a trip$/ do
@@ -80,5 +76,10 @@ end
 
 When /^I visit the profile page of "([^"]*)"$/ do |username|
   visit user_path(username)
+end
+
+Given /^"([^"]*)" logged a trip$/ do |username|
+  user = User.find_by_username username
+  FactoryGirl.create(:trip, user_id: user.id)
 end
 
