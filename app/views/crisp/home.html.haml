@@ -1,0 +1,163 @@
+/ begin #page - the container for everything but header
+#page
+  .hero-unit.center.no-border.no-padding-bottom
+    .container
+      / note the home class on the h1 tag
+      %h1 Seven sliders, three headers, clean and crisp, responsive, fluid html5 theme
+    / close container
+  / close hero-unit
+  / begin slider
+  .lemmon-wrap.clearfix
+    #lemmon-slider.lemmon-slider
+      %ul
+        %li
+          %a{href: "portfolio-single.html"}
+            / link to article/post/portfolio entry for the entire image
+            %img{alt: "", src: "../demo/lemmon-slider/Byzantinischer_Mosaizist_um_1122_001.png"}/
+          / end image link
+          .summary
+            / begin summary
+            %a{href: "portfolio-single.html"}
+              / begin link to article post or portfolio entry for the caption
+              %h3 Byzantinischer Mosaizist
+              %p Categories
+            / end link to article post or portfolio entry for the caption
+          / end summary
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Edouard_Manet_010.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Manet
+              %p Categories
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Maler_der_Grabkammer_der_Nefertari_001.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Nefertari
+              %p Categories
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Mona_Lisa_by_Leonardo_da_Vinci_042.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Mona Lisa
+              %p Art
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Sandro_Botticelli_046.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Amplify
+              %p Photography
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Sandro_Botticelli_077.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Botticelli
+              %p Photography
+        %li
+          %a{href: "portfolio-single.html"}
+            %img{alt: "", src: "../demo/lemmon-slider/Vincent_Willem_van_Gogh_101.png"}/
+          .summary
+            %a{href: "portfolio-single.html"}
+              %h3 Vincent
+              %p Categories
+    .controls
+      %a.prev-page{href: "#"} Prev Page
+      %a.next-page{href: "#"} Next Page
+    / / .controls
+  / / end slider
+  / notice how sliders are outside the this main content div
+  #main-content.container.clearfix
+    .row-fluid.reverse-order
+      /
+        "reverse-order" is a new class to display the content reverse of the html,
+        this done so smaller devices will NOT see the less important information first
+      .span4
+        .well
+          %h2 The Time Is Nigh
+          %h3 Make Your Move
+          %p
+            %img.alignleft{alt: "Velazquez", src: "../demo/80x80-Diego_Velazquez_028.png"}/
+            Public domain image. Makes you want to click something, right? Whatever course you decide upon, there is always someone to tell you that you are wrong. But you won't be wrong in this case.
+          %p.right
+            %a.btn-primary.btn{href: "#"}
+              Go for it  
+              %i.icon-circle-arrow-right.icon-white
+        / close .well
+      / close span4
+      .rotating-testimonials.span8
+        / "rotating-testimonials" is a required class
+        %h3.short_headline
+          %span The Word on the Street
+        .panels
+          #t1
+            %blockquote
+              %p One isn’t necessarily born with courage, but one is born with potential. Without courage, we cannot practice any other virtue with consistency. We can’t be kind, true, merciful, generous, or honest.
+              %footer Maya Angelou
+          / close #t1
+          #t2
+            %blockquote
+              %p When the highest type of people hear Tao (Truth), they diligently practice it. When the average type of people hear Tao, they half believe in it. When the lowest type of people hear Tao, they laugh at it. If they did not laugh, it would not be Tao.
+              %footer Lao-Tzu
+          / close #t2
+          #t3
+            %blockquote
+              %p The human being is part of the whole, called by us the ‘universe’, a part limited in time and space. He experiences himself, his thoughts and feelings, as something separate from the rest — a kind of optical delusion of consciousness. This delusion is a kind of prison for us, restricting us to our personal desires. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty.
+              %footer Albert Einstein
+          / close #t3
+          #t4
+            %blockquote
+              %p Whatever course you decide upon, there is always someone to tell you that you are wrong. There are always difficulties arising which tempt you to believe that your critics are right. To map out a course of action and follow it to an end requires courage.
+              %footer Ralph Waldo Emerson
+          / close #t4
+        / close panels
+        %ul.tabs
+          %li.tab
+            %a{href: "#t1"} maya-angelou
+          %li.tab
+            %a{href: "#t2"} lao-tzu
+          %li.tab
+            %a{href: "#t3"} albert-einstein
+          %li.tab
+            %a{href: "#t4"} ralph-waldo-emerson
+        %p.right
+          %a.btn.btn-small.btn-very-subtle{href: "testimonials.html"} All Testimonials
+      / end rotating-testimonials span8
+    / end row-fluid
+    %h3.short_headline
+      %span Profound Headline
+    %p Crisp has revolutionized the conceptualization of structuring. We will actualize the standard industry commonly-used jargon-based term "24/7". What does the term "integrated" really mean? Without reporting, you will lack eyeballs. We will amplify our power to benchmark without decreasing our capacity to mesh. We will reinvent the buzzword "frictionless".
+    / begin equalHeights columns 3
+    .row-fluid.equalHero.equalHeights
+      .span4
+        %a{href: "about.html"}
+          %img.aligncenter{alt: "", src: "../demo/fc-Sandro_Botticelli_077.png"}/
+        %h3
+          %a{href: "about.html"} Crisp is the industry leader of real world iteration.
+        %p Public domain images. We will increase our aptitude to evolve without decrementing our capacity to leverage. It may seem marvelous, but it's true!
+        %p.right
+          %a.btn.btn-primary{href: "about.html"} Details →
+      / close .span4
+      .span4
+        %a{href: "about.html"}
+          %img.aligncenter{alt: "", src: "../demo/fc-Sandro_Botticelli_046.png"}/
+        %h3
+          %a{href: "about.html"} It is better to maximize virally than to exploit holistically.
+        %p If all of this seems stunning to you, that's because it is! The capability to strategize extensibly leads to the aptitude to upgrade compellingly.
+        %p.right
+          %a.btn.btn-primary{href: "about.html"} Details →
+      / close .span4
+      .span4
+        %a{href: "about.html"}
+          %img.aligncenter{alt: "", src: "../demo/fc-Sandro_Botticelli_058.png"}/
+        %h3
+          %a{href: "about.html"} What do we incubate? Anything and everything, regardless of anonymity!
+        %p A company that can implement correctly will (eventually) be able to architect correctly. If you generate intuitively, you may have to synergize robustly.
+        %p.right
+          %a.btn.btn-primary{href: "about.html"} Details →
+      / close .span4
+    / close #equalHeights .featured 3 columns
