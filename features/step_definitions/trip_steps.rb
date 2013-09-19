@@ -135,12 +135,12 @@ end
 When /^I fill in the new trip form$/ do
   VCR.use_cassette 'berlin' do
     fill_in('trip_from', with: 'Berlin', exact: true)
-    page.find(".pac-container .pac-item:first").click
+    page.find(".pac-container .pac-item-refresh:first").click
   end
 
   VCR.use_cassette 'hamburg' do
     fill_in('To', with: 'Reeperbahn, Hamburg', exact: true)
-    page.find('.pac-container .pac-item', text: 'Hamburg, Germany').click
+    page.find('.pac-container:last .pac-item-refresh:first', text: 'Hamburg, Germany').click
   end
 
   select('1', from: 'Number of rides')
