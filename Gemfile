@@ -49,7 +49,6 @@ group :development do
   gem 'capistrano'
   gem 'growl'
   gem 'guard'
-  gem 'guard-zeus'
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'guard-bundler'
