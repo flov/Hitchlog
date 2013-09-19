@@ -1,48 +1,17 @@
 - if user.trips.any?
-  .row-fluid.statistics
-    .span6
+  .row-fluid
+    .span12
       %h5
         != t('.stats_in_words_1', user: h(user),
                                   trips: user.trips.size,
                                   rides: user.rides.size)
         != t('.stats_in_words_2', kms: number_with_delimiter(user.hitchhiked_kms))
         != t('.stats_in_words_3', waiting_time: user.average_waiting_time ) if user.average_waiting_time
-
-
-      %ul
-        - if user.trips.alone.size > 0
-          %li
-            = user.trips.alone.size
-            x
-            = hitchhiking_with_image(0)
-        - if user.trips.in_pairs.size > 0
-          %li
-            = user.trips.in_pairs.size
-            x
-            = hitchhiking_with_image(1)
-        - if user.trips.with_three.size > 0
-          %li
-            = user.trips.with_three.size
-            x
-            = hitchhiking_with_image(2)
-        - if user.trips.with_four.size > 0
-          %li
-            = user.trips.with_four.size
-            x
-            = hitchhiking_with_image(3)
-
-      %ul
-        - user.genders_in_percentage.each do |gender, val|
-          %li
-            #{(val*100).to_i}%
-            = passenger_gender gender
-
-      %ul
-        - user.experiences_in_percentage.each do |experience, val|
-          %li
-            %span{class: "#{experience}"}
-              #{(val*100).to_i}%
-              = experience( experience )
-
-    .span6
+  .row-fluid
+    .span12
       = render 'geomap', user: user
+  .row-fluid
+    .span6
+      = render 'users/traveling_with_chart', user: user
+    .span6
+      = render 'users/experiences_chart', user: user

@@ -1,0 +1,8 @@
+- user = User.find 'fortvonhier'
+
+.row-fluid
+  .span6
+    = render 'users/traveling_with_chart', user: user
+  .span6
+    = render 'users/experiences_chart', user: user
+

@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def experiences
-    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.experience }
+    self.trips.map(&:rides).flatten.map(&:experience)
   end
 
   def experiences_in_percentage
@@ -69,8 +69,28 @@ class User < ActiveRecord::Base
     hash
   end
 
+  def very_positive_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'extremely positive'}).size
+  end
+
+  def positive_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'positive'}).size
+  end
+
+  def neutral_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'neutral'}).size
+  end
+
+  def negative_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'negative'}).size
+  end
+
+  def very_negative_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'very negative'}).size
+  end
+
   def genders
-    self.trips.map{|trip| trip.rides}.flatten.map{|ride| ride.gender }.select{|gender| !gender.blank?}
+    self.trips.map(&:rides).flatten.map(&:gender).reject(&:blank?)
   end
 
   def genders_in_percentage
