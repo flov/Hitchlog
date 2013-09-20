@@ -26,7 +26,9 @@
   - if user.trips.any?
     = succeed ':' do
       = t('.hitchhiked_countries')
+
     %br/
+
     = country_images_for_user(user)
 
     %p
@@ -46,6 +48,7 @@
         #{user.stories.size}
         %i.icon-book
       %br/
+
       - if user.average_waiting_time
         %span.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
@@ -59,4 +62,6 @@
         = user.number_of_photos
         %i.icon-picture
 
-    -#= render 'shared/country_chart', user: user, size: 'tiny'
+%aside
+  = render 'tag_cloud'
+

@@ -1,3 +1,7 @@
+%h5.short_headline
+  %span
+    Tag Cloud For Trips
+
 .tag_cloud
   - tag_cloud(Ride.joins(:trip).where(trips:{user_id: user.id}).tag_counts.order(:id),
                                ['css1', 'css2', 'css3', 'css4']) do |tag, css_class|
