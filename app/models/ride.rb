@@ -1,4 +1,10 @@
 class Ride < ActiveRecord::Base  
+  EXPERIENCES = ['extremely positive',
+                 'positive',
+                 'neutral',
+                 'negative',
+                 'extremely negative']
+
   attr_accessible :title,
                   :story,
                   :waiting_time,
@@ -27,6 +33,10 @@ class Ride < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
 
   acts_as_taggable_on :tags
+
+  def self.experiences
+    EXPERIENCES
+  end
 
   def to_s
     self.trip

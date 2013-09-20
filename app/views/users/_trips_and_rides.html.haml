@@ -1,17 +1,39 @@
 - if user.trips.any?
-  .row-fluid
-    .span12
-      %h5
-        != t('.stats_in_words_1', user: h(user),
-                                  trips: user.trips.size,
-                                  rides: user.rides.size)
-        != t('.stats_in_words_2', kms: number_with_delimiter(user.hitchhiked_kms))
-        != t('.stats_in_words_3', waiting_time: user.average_waiting_time ) if user.average_waiting_time
-  .row-fluid
-    .span12
-      = render 'geomap', user: user
+  .statistic-showoff
+    %ul
+      %li.tip{title: pluralize(user.trips.size, t('general.trip'))}
+        = user.trips.size
+        %i.icon-road
+      %li.tip{title: pluralize(user.rides.size, t('general.ride'))}
+        = user.rides.size
+        %i.icon-thumbs-up
+      %li.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
+        #{number_with_delimiter(user.hitchhiked_kms, delimiter: ",")}kms
+        %i.icon-dashboard
+      - if user.average_waiting_time
+        %li.tip{title: "#{t('users.profile.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
+          = "#{user.average_waiting_time} min"
+          %i.icon-time
+
+  = render 'geomap', user: user
   .row-fluid
     .span6
       = render 'users/traveling_with_chart', user: user
     .span6
-      = render 'users/experiences_chart', user: user
+      %h3
+        %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
+          = user.rides.size
+          %i.icon-thumbs-up
+
+      %ul
+        %li{class: "very positive"}
+          = "#{user.very_positive_experiences} very positive experiences" unless user.very_positive_experiences == 0
+        %li{class: "positive"}
+          = "#{user.positive_experiences} positive experiences" unless user.positive_experiences == 0
+        %li{class: "neutral"}
+          = "#{user.neutral_experiences} neutral experiences" unless user.neutral_experiences == 0
+        %li{class: "negative"}
+          = "#{user.negative_experiences} negative experiences" unless user.negative_experiences == 0
+        %li{class: "very negative"}
+          = "#{user.very_negative_experiences} very negative experiences" unless user.very_negative_experiences == 0
+

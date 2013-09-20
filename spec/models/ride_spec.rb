@@ -6,6 +6,17 @@ describe Ride do
 
   let(:ride) { FactoryGirl.build :ride }
 
+  describe 'valid?' do
+    it 'validates experience' do
+      Ride.experiences.each do |experience|
+        ride.experience = experience
+        ride.should be_valid
+      end
+      ride.experience = 'not an experience'
+      ride.should_not be_valid
+    end
+  end
+
   describe "#caption_or_title" do
     it "returns caption_or_title or caption" do
       ride.title = 'example title'

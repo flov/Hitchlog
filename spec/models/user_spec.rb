@@ -57,43 +57,6 @@ describe User do
     end
   end
 
-  describe "#experiences_in_percentage" do
-    context "unequal number of experiences" do
-      before do
-        user.trips << FactoryGirl.build(:trip)
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'extremely positive')
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'neutral')
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'negative')
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'extremely negative')
-      end
-      it "returns an array of experiences" do
-        user.experiences_in_percentage.should == {
-          'extremely positive' => 0.2,
-          'positive' => 0.2,
-          'neutral' => 0.2,
-          'negative' => 0.2,
-          'extremely negative' => 0.2}
-      end
-
-      it 'returns the most positive first' do
-        user.sort_experiences.should == ['extremely positive',
-                                    'positive',
-                                    'neutral',
-                                    'negative',
-                                    'extremely negative']
-      end
-    end
-
-    context "only positive experiences" do
-      it do
-        user.trips << FactoryGirl.build(:trip)
-        user.trips[0].rides << FactoryGirl.build(:ride, :experience => 'positive')
-        user.experiences_in_percentage.should == {'positive' => 1.0}
-      end
-    end
-  end
-
   describe "gender" do 
     before { user.trips << FactoryGirl.build(:trip) }
     it "should display percentage of genders of people who picked you up" do

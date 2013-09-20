@@ -194,7 +194,7 @@ a.tag  {
 a.tag:hover{ background: $mainColor; color:#fff; }
 
 
-.extremely.positive {
+.very.positive {
   color: $green;
   i{ color: $green; }
 }
@@ -210,7 +210,7 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   color: $red;
   i { color: $red; }
 }
-.extremely.negative {
+.very.negative {
   color: $red;
   i { color: $red; }
 }
@@ -336,6 +336,18 @@ footer#footer{
   }
 }
 
+.statistic-showoff {
+  font-size: 20px;
+  text-align: center;
+
+  ul {
+    li {
+      display:inline;
+      margin-right: 20px;
+    }
+    margin-bottom: 20px;
+  }
+}
 
 @media only screen and (max-width:600px) { 
   .ride_detail .date{
