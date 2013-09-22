@@ -74,10 +74,10 @@ describe User do
   end
 
   describe "hitchhiked kms" do
-    before { user.trips << FactoryGirl.build(:trip) }
     it "should return total amount of kms hitchhiked" do
-      user.trips.first.distance = 100_000
-      user.hitchhiked_kms.should == 100
+      user.trips << FactoryGirl.build(:trip, distance: 1000)
+      user.save
+      User.first.hitchhiked_kms.should == 1
     end
   end
 
