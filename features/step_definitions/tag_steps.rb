@@ -14,7 +14,9 @@ Given /^a trip with a tagged ride "([^"]*)"$/ do |tag|
 end
 
 When /^I click on the "([^"]*)" tag$/ do |tag|
-  click_link tag
+  within '.tags' do
+    click_link tag
+  end
 end
 
 Then /^I should(\ not)? see the trip with the "([^"]*)" tag$/ do |negative, tag|
