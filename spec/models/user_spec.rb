@@ -156,4 +156,19 @@ describe User do
       }
     end
   end
+
+  describe "#vehicles" do
+    before do
+      user.trips << FactoryGirl.build(:trip)
+      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
+      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
+      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'truck')
+
+      user.trips
+    end
+
+    it 'returns the vehicles that the user has hitchhiked with' do
+      user.vehicles.should == {'car' => 2, 'truck' => 1}
+    end
+  end
 end

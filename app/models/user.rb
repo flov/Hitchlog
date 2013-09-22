@@ -151,6 +151,18 @@ class User < ActiveRecord::Base
     rides.collect(&:photo_url).compact.size
   end
 
+  def vehicles
+    hash = {}
+    rides.collect(&:vehicle).compact.each do |vehicle|
+      if hash[vehicle]
+        hash[vehicle] += 1
+      else
+        hash[vehicle] = 1
+      end
+    end
+    hash
+  end
+
   private
 
   def update_location_updated_at

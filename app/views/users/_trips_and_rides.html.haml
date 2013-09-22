@@ -29,7 +29,7 @@
         = number_with_delimiter(user.hitchhiked_kms)
         kms
         %br/
-        Average distance of trip:
+        Average distance of hitchhiked trip:
         = (user.trips.average(:distance) / 1000).to_i
         kms
 
@@ -55,3 +55,10 @@
         = user.average_waiting_time
         min
 
+      - if user.vehicles.any?
+        %h4 Type of rides:
+        %ul
+          - user.vehicles.each do |vehicle, number|
+            %li
+              = pluralize(number, t('general.ride'))
+              with a #{vehicle}
