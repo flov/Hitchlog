@@ -1,19 +1,32 @@
 %h1 #{t('.hitchhikers')}:
 
-= will_paginate users, class: 'flickr_pagination'
+= search_form_for @search do |f|
+  %h4 Search by:
+  %table
+    %tr
+      %td= f.label :location_cont, "Location"
+      %td= f.label :username_cont, "Username"
+    %tr
+      %td= f.text_field :location_cont, placeholder: "(e.g. Germany or Berlin)"
+      %td= f.text_field :username_cont
+
+  = f.submit "Search", class: 'btn btn-primary user-search'
+
+= will_paginate @users, class: 'flickr_pagination'
 
 %table.users.responsive
   %thead
     %tr
-      %th= t('.username')
+      %th= sort_link @search, :username, t('.username')
       %th= t('.logged_trips')
       %th= t('general.hitchhiked_kms')
-      %th= t('general.hitchhiked_countries')
-      %th= t('.no_of_rides')
-      %th= t('.location')
+      %th
+        %i.icon-star
+      %th= sort_link @search, :country, t('.location')
+      %th= t('.member_since')
 
   %tbody
-    - users.each do |user|
+    - @users.each do |user|
       %tr{:id => "user_#{user.id}"}
         %td
           = render 'users/profile_image', type: 'square', user: user
@@ -22,12 +35,20 @@
         %td
           = user.trips.size
         %td
-          %b= number_with_delimiter user.hitchhiked_kms
+          %b
+            = number_with_delimiter user.trips.sum(:distance) / 1000
+            kms
         %td
-          = user.hitchhiked_countries
-        %td
-          = user.no_of_rides
+          %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
+            %i.icon-road
+            = user.trips.size
+          &nbsp;&nbsp;
+          %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
+            %i.icon-thumbs-up
+            = user.rides.size
         %td
           = flag_with_country_name(user)
+        %td
+          = user.created_at.strftime("%d %b %Y")
 
-= will_paginate users, class: 'flickr_pagination'
+= will_paginate @users, class: 'flickr_pagination'

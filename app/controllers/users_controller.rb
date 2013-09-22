@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   expose!(:user) { user_in_context }
-  expose(:users) { User.order('current_sign_in_at DESC').paginate(page: params[:page], per_page: 20) }
   expose(:trips) { trips_in_context }
 
   before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
+
+  def index
+    @search = User.search(params[:q])
+    @users = @search.result.paginate(page: params[:page], per_page: 20)
+  end
 
   def show
   end

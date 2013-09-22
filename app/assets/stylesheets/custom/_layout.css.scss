@@ -230,6 +230,8 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   height: 300px;
 }
 
+.user-search { margin-top: 10px; }
+
 .comment-picture img.profile_pic {
   @include border-radius(30px); // make rounded corners match the pills
 }

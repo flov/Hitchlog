@@ -269,6 +269,7 @@ en:
           If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a>
           or authenticate your account with facebook.
     index:
+      member_since: Member since
       hitchhikers: Hitchhikers
       title: Users
       username: Username
