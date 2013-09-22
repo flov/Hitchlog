@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
 
   def very_negative_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'very negative'}).size
+    self.trips.joins(:rides).where( rides: {experience: 'extremely negative'}).size
   end
 
   def genders
