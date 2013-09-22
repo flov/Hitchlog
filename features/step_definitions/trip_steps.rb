@@ -195,3 +195,8 @@ Then /^I should be able to edit (\d+) ride$/ do |number|
   page.all(".accordion_content").count.should eql(number.to_i)
 end
 
+Given /^I should be able to choose a vehicle with (".+")/ do |options|
+  options.scan(/"([^"]+?)"/).flatten.each do |option|
+    select(option, from:  'ride_vehicle')
+  end
+end

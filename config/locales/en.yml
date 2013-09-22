@@ -89,6 +89,7 @@ en:
       english: English
       german: German
   general:
+    got_a_ride_with: "Got a ride with a %{vehicle}"
     not_allowed: 'You are not allowed to do that!'
     hitchhiked_countries: Hitchhiked countries
     story_title: Story title

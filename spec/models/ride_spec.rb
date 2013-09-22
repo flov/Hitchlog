@@ -7,8 +7,8 @@ describe Ride do
   let(:ride) { FactoryGirl.build :ride }
 
   describe 'valid?' do
-    xit 'validates experience' do
-      Ride.experiences.each do |experience|
+    it 'validates experience' do
+      ['extremely positive', 'positive', 'neutral', 'negative', 'extremely negative'].each do |experience|
         ride.experience = experience
         ride.should be_valid
       end

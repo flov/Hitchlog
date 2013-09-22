@@ -14,11 +14,12 @@ Feature: User manages trips
     Then I should be on the edit trip page
 
 
-  Scenario: Add rides to a trip
+  Scenario: Manage rides
     Given I am logged in as "flo"
     And "flo" logged a trip with 1 ride
     When I go to the edit page of that trip
-    Then I should be able to edit 1 ride
+    Then I should be able to choose a vehicle with "car", "truck", "motorcycle", "ship" and "plane"
+    And I should be able to edit 1 ride
     When I click on "Add Ride"
     Then I should be able to edit 2 ride
 

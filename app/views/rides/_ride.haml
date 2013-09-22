@@ -1,6 +1,6 @@
 %p Ride #{ride.number}
 .accordion_content
-  = form_for ride, :html => {:multipart => true} do |f|
+  = form_for ride, html:  {multipart:  true} do |f|
     .section
       = experience(ride.experience)
       = f.label("experience")
@@ -12,7 +12,7 @@
       %br/
       = f.label :story
       %br/
-      = f.text_area :story, :rows => 4, placeholder: t('general.story').capitalize
+      = f.text_area :story, rows:  4, placeholder: t('general.story').capitalize
       %br/
       = f.label :tag_list, t('.tag_it')
       = f.text_field :tag_list
@@ -31,20 +31,26 @@
       %br/
       = f.text_field :photo_caption, placeholder: t('general.photo_caption')
     .section.waiting_time
+      = f.label :vehicle
+      %br/
+      = f.select("vehicle", Ride::VEHICLES, {include_blank:  true})
+
+      %br/
+
       = f.label :waiting_time
       %i.icon-time
       %br/
-      = f.text_field :waiting_time, :placeholder => t('activerecord.attributes.ride.waiting_time')
+      = f.text_field :waiting_time, placeholder: t('activerecord.attributes.ride.waiting_time')
 
       %br/
       = f.label :duration
       %i.icon-road
       %br/
-      = f.text_field :duration, :placeholder => t('activerecord.attributes.ride.duration')
-      
+      = f.text_field :duration, placeholder: t('activerecord.attributes.ride.duration')
+
       %br/
       = f.label :gender
       = passenger_gender(ride.gender)
       %br/
-      = f.select("gender", [I18n.t('general.male'), I18n.t('general.female'), I18n.t('general.mixed')], {:include_blank => true})
+      = f.select("gender", ['male', 'female', 'mixed'], {include_blank:  true})
       = submit_tag t(".save_ride"), class: 'btn btn-primary'

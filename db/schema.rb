@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922083619) do
+ActiveRecord::Schema.define(:version => 20130922091639) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130922083619) do
     t.string   "photo_caption"
     t.string   "photo"
     t.string   "mission"
+    t.string   "vehicle"
   end
 
   add_index "rides", ["experience"], :name => "index_rides_on_experience"

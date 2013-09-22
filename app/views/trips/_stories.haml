@@ -14,6 +14,9 @@
         = passenger_gender(ride.gender)
         = waiting_time(accurate_time(ride.waiting_time.minutes)) if ride.waiting_time
         = driving_time(human_hours(ride.duration)) if ride.duration
+        - if ride.vehicle
+          %span.tip{title: t('general.got_a_ride_with', vehicle: ride.vehicle)}
+            = ride.vehicle
 
       = photo_for_ride(ride) if ride.photo.url.present?
       = ride.markdown_story  if ride.story.present?

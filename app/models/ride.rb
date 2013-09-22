@@ -5,6 +5,8 @@ class Ride < ActiveRecord::Base
                  'negative',
                  'extremely negative']
 
+  VEHICLES =    ['car', 'truck', 'motorcycle', 'ship', 'plane', 'boat']
+
   attr_accessible :title,
                   :story,
                   :waiting_time,
@@ -16,7 +18,10 @@ class Ride < ActiveRecord::Base
                   :photo,
                   :photo_cache,
                   :photo_caption,
-                  :tag_list
+                  :tag_list,
+                  :vehicle
+
+  validates_inclusion_of :experience, in: EXPERIENCES
 
   belongs_to :user
   belongs_to :trip
@@ -33,10 +38,6 @@ class Ride < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
 
   acts_as_taggable_on :tags
-
-  def self.experiences
-    EXPERIENCES
-  end
 
   def to_s
     self.trip
