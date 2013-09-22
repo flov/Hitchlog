@@ -5,7 +5,7 @@ class Ride < ActiveRecord::Base
                  'negative',
                  'extremely negative']
 
-  VEHICLES =    ['car', 'truck', 'motorcycle', 'plane', 'boat']
+  VEHICLES =    ['car', 'bus', 'truck', 'motorcycle', 'plane', 'boat']
 
   attr_accessible :title,
                   :story,
