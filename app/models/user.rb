@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
 
   has_friendly_id :username
 
-  default_scope order("id DESC")
-
   has_many :rides, through: :trips
   has_many :trips, dependent: :destroy
   has_many :authentications, dependent: :destroy
