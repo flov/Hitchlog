@@ -257,4 +257,9 @@ class Trip < ActiveRecord::Base
     self.from_formatted_address = Gmaps.formatted_address(from)
     self.to_formatted_address = Gmaps.formatted_address(to)
   end
+
+  def average_speed
+    return 0 if duration == 0
+    "#{((distance/1000) / (duration/60/60)).round } kmh"
+  end
 end

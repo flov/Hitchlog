@@ -163,12 +163,22 @@ describe User do
       user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
       user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
       user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'truck')
-
-      user.trips
     end
 
     it 'returns the vehicles that the user has hitchhiked with' do
       user.vehicles.should == {'car' => 2, 'truck' => 1}
+    end
+  end
+
+  describe '#average speed' do
+    it 'returns the overall average speed while hitchhiking' do
+      user.trips << FactoryGirl.build(:trip, distance: 10000, departure: 5.hours.ago, arrival: 4.hours.ago)
+      user.trips << FactoryGirl.build(:trip, distance: 6000, departure: 5.hours.ago, arrival: 4.hours.ago)
+
+      user.trips.first.average_speed.should == '10 kmh'
+      user.trips.last.average_speed.should  == '6 kmh'
+
+      user.average_speed.should == '8 kmh'
     end
   end
 end

@@ -10,6 +10,10 @@
       %li.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
         #{number_with_delimiter(user.hitchhiked_kms, delimiter: ",")}kms
         %i.icon-dashboard
+      %li.tip{title: t('general.overall_average_speed', speed: user.average_speed )}
+        = user.average_speed
+        %i.icon-dashboard
+
       - if user.average_waiting_time
         %li.tip{title: "#{t('users.profile.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"

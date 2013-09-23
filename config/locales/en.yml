@@ -99,6 +99,8 @@ en:
     member_since: "Member since %{time}"
     news: News
     sign_up: Sign Up
+    average_speed: "Average speed: %{speed}"
+    overall_average_speed: "Average speed of all hitchhiked trips: %{speed}"
     trip_duration: Trip duration
     took_time: "took %{time}"
     total_waiting_time: "total waiting time: %{time}"

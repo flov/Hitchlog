@@ -170,4 +170,12 @@ describe Trip do
       trip.rides.size.should == 2
     end
   end
+
+  describe '#average_speed' do
+    it 'returns the average speed' do
+      trip.distance = 5000 # meters
+      trip.stub(duration: 1.hour.to_i)
+      trip.average_speed.should == '5 kmh'
+    end
+  end
 end

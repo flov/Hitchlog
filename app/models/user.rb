@@ -163,6 +163,11 @@ class User < ActiveRecord::Base
     hash
   end
 
+  def average_speed
+    avg_speed_of_trips = self.trips.collect(&:average_speed).map(&:to_i)
+    "#{avg_speed_of_trips.sum / avg_speed_of_trips.size} kmh"
+  end
+
   private
 
   def update_location_updated_at
