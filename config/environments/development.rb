@@ -1,3 +1,6 @@
+# set local environmets
+require "#{Rails.root}/.env" if File.exists?("#{Rails.root}/.env")
+
 Hitchlog::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
