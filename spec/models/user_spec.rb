@@ -178,7 +178,7 @@ describe User do
       user.trips.first.average_speed.should == '10 kmh'
       user.trips.last.average_speed.should  == '6 kmh'
 
-      user.average_speed.should == 8
+      user.average_speed.should == '8 kmh'
     end
   end
 end
