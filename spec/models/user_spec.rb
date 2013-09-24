@@ -170,7 +170,7 @@ describe User do
     end
   end
 
-  describe '#average speed' do
+  describe '#average_speed' do
     it 'returns the overall average speed while hitchhiking' do
       user.trips << FactoryGirl.build(:trip, distance: 10000, departure: 5.hours.ago, arrival: 4.hours.ago)
       user.trips << FactoryGirl.build(:trip, distance: 6000, departure: 5.hours.ago, arrival: 4.hours.ago)

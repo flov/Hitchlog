@@ -175,6 +175,20 @@ class User < ActiveRecord::Base
     ((Date.today - date_of_birth) / 365).to_i if date_of_birth
   end
 
+  def age_of_trips
+    if date_of_birth
+      hash = {}
+      self.trips.map(&:age).each do |age|
+        if hash[age]
+          hash[age] += 1
+        else
+          hash[age] = 1
+        end
+      end
+      hash
+    end
+  end
+
   private
 
   def update_location_updated_at
