@@ -262,4 +262,8 @@ class Trip < ActiveRecord::Base
     return 0 if duration == 0
     "#{((distance/1000) / (duration/60/60)).round } kmh"
   end
+
+  def age
+    ((departure.to_date - user.date_of_birth ) / 356).to_i if self.user.date_of_birth
+  end
 end

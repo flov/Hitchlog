@@ -171,6 +171,10 @@ class User < ActiveRecord::Base
     "#{avg_speed_of_trips.sum / avg_speed_of_trips.size} kmh"
   end
 
+  def age
+    ((Date.today - date_of_birth) / 365).to_i if date_of_birth
+  end
+
   private
 
   def update_location_updated_at

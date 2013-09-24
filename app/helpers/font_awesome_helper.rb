@@ -102,7 +102,7 @@ module FontAwesomeHelper
 
   def very_positive(title = t('helper.extremely_positive_experience'))
     "<span class='tip very-positive' title='#{title}'>
-      <i class='icon-smile'></i>
+      <i class='icon-heart'></i>
       <i class='icon-smile'></i>
     </span>".html_safe
   end
@@ -117,7 +117,7 @@ module FontAwesomeHelper
   end
   def very_negative(title = t('helper.extremely_negative_experience'))
     "<span class='tip' title='#{title}'>
-      <i class='icon-frown'></i>
+      <i class='icon-bolt'></i>
       <i class='icon-frown'></i>
     </span>".html_safe
   end

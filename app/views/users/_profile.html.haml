@@ -24,13 +24,13 @@
       %br/
     - if user.languages
       %span.tip{title: t('general.languages')}
-        %i.icon-flag
+        %i.icon-flag-alt
         = user.languages
       %br/
 
     - if user.origin
       %span.tip{title: t('general.country_of_origin')}
-        %i.icon-flag
+        Hometown:
         = user.origin
 
   - if user.trips.any?

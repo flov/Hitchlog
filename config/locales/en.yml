@@ -89,6 +89,8 @@ en:
       english: English
       german: German
   general:
+    by: by
+    years: years
     country_of_origin: Hometown
     languages: Languages
     got_a_ride_with: "Got a ride with a %{vehicle}"

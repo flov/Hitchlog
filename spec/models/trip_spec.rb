@@ -171,6 +171,14 @@ describe Trip do
     end
   end
 
+  describe '#age' do
+    it 'displays the age of the hitchhiker at the time the trip was done' do
+      trip.user.date_of_birth = 30.years.ago.to_date
+      trip.departure = 5.years.ago.to_datetime
+      trip.age.should == 25
+    end
+  end
+
   describe '#average_speed' do
     it 'returns the average speed' do
       trip.distance = 5000 # meters

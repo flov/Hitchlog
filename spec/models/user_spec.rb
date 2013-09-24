@@ -181,4 +181,11 @@ describe User do
       user.average_speed.should == '8 kmh'
     end
   end
+
+  describe '#age' do
+    it 'returns the users age' do
+      user.date_of_birth = 19.years.ago.to_date
+      user.age.should == 19
+    end
+  end
 end

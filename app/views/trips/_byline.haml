@@ -2,29 +2,30 @@
   %ul.inline-list
     %li
       %i.icon-pencil
+      = trip.departure.strftime("%B %d, %Y")
+      = t('general.by')
       = link_to_user(trip.user)
-    %li
-      %i.icon-time
-        = trip.departure.strftime("%B %d, %Y")
     - unless trip.rides.with_photo.empty?
-      %li
-        %span.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
-          = trip.rides.with_photo.size
-          %i.icon-picture
-    %li
-      %span.no-wrap.tip{title: pluralize(trip.rides.size, t('general.ride'))}
-        %i.icon-thumbs-up
-        = trip.rides.size
-    %li
-      %span.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
-        = number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")
-        kms
-        %i.icon-dashboard
+      %li.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
+        = trip.rides.with_photo.size
+        %i.icon-picture
+    - if trip.user.date_of_birth
+      %li.tip{title: "#{trip.user} was #{trip.age} years old when he did this trip"}
+        %i.icon-user
+        = trip.age
+        = t('general.years')
 
-    %li
-      %span.tip{title: t('general.average_speed', speed: trip.average_speed )}
-        = trip.average_speed
-        %i.icon-dashboard
+    %li.tip{title: pluralize(trip.rides.size, t('general.ride'))}
+      %i.icon-thumbs-up
+      = trip.rides.size
+    %li.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
+      = number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")
+      kms
+      %i.icon-dashboard
+
+    %li.tip{title: t('general.average_speed', speed: trip.average_speed )}
+      = trip.average_speed
+      %i.icon-dashboard
 
 .entry-meta
   %i.icon-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
