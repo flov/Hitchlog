@@ -7,8 +7,12 @@ Then /^I should be on (.+)$/ do |page_name|
   current_path.should == path_to(page_name)
 end
 
-Then /^I should see "([^"]*)"$/ do |text|
-  page.should have_content(text)
+Then /^I should(\ not)? see "([^"]*)"$/ do |negative, text|
+  if negative
+    page.should_not have_content(text)
+  else
+    page.should have_content(text)
+  end
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|

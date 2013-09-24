@@ -12,7 +12,7 @@ Given /^a hitchhiker called "([^"]*)" from "([^"]*)"$/ do |username, city|
 end
 
 Given /^a hitchhiker from "([^"]*)"$/ do |city|
-  FactoryGirl.create :user, city: city
+  FactoryGirl.create :user, city: city, location: city
 end
 
 Given /^his CS user is "([^"]*)"$/ do |cs_username|
