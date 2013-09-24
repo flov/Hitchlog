@@ -20,8 +20,12 @@
       = f.input :country, as: :hidden
       = f.input :country_code, as: :hidden
       = f.input :about_you, as: :text
+      = f.input :date_of_birth, as: :date, start_year: Date.today.year - 10,
+                                end_year: Date.today.year - 90, order: [:day, :month, :year], required: true
       = f.input :gender, collection: [t('general.male'), t('general.female')]
       = f.input :cs_user
+      = f.input :origin
+      = f.input :languages
 
       = f.submit class: 'btn btn-primary'
 

@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
                   :city,
                   :location,
                   :country,
-                  :country_code
+                  :country_code,
+                  :origin,
+                  :languages,
+                  :date_of_birth
 
   has_friendly_id :username
 

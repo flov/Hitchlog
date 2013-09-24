@@ -7,9 +7,8 @@
   = render 'users/profile_image', user: user, type: "normal"
 
 %aside
-  - if user.city.present?
+  - if user.location.present?
     = flag_with_country_name(user)
-
   %p
     - unless user.cs_user.blank?
       = image_tag 'cs.ico'
@@ -22,6 +21,17 @@
     %span.tip{title: t('general.member_since', time: user.created_at.strftime("%B %d, %Y"))}
       %i.icon-user
       = user.created_at.strftime("%B %d, %Y")
+      %br/
+    - if user.languages
+      %span.tip{title: t('general.languages')}
+        %i.icon-flag
+        = user.languages
+      %br/
+
+    - if user.origin
+      %span.tip{title: t('general.country_of_origin')}
+        %i.icon-flag
+        = user.origin
 
   - if user.trips.any?
     = succeed ':' do

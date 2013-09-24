@@ -89,6 +89,8 @@ en:
       english: English
       german: German
   general:
+    country_of_origin: Hometown
+    languages: Languages
     got_a_ride_with: "Got a ride with a %{vehicle}"
     not_allowed: 'You are not allowed to do that!'
     hitchhiked_countries: Hitchhiked countries
@@ -416,5 +418,6 @@ en:
         password_confirmation: "Password confirmation"
         gender: Gender
         about_you: "About you"
+        origin: Hometown
 
 

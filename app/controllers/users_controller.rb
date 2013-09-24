@@ -9,9 +9,6 @@ class UsersController < ApplicationController
     @users = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
-  def show
-  end
-
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
