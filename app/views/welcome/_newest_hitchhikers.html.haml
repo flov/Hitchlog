@@ -4,7 +4,7 @@
       %i.icon-user
       = t('welcome.home.newest_hitchhikers')
   %ul
-    - User.paginate(per_page: 8, page: 1).each do |user|
+    - User.scoped.order('id DESC').paginate(per_page: 8, page: 1).each do |user|
       %li
         = link_to user_path(user) do
           #{user} (#{user.trips.size})
