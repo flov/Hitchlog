@@ -30,7 +30,7 @@ class OmniauthController < ApplicationController
     end
 
     if @user.persisted?
-      flash[:success] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
+      flash[:success] = I18n.t('devise.sessions.signed_in')
       sign_in_and_redirect @user, :event => :authentication
     else
       redirect_to new_user_registration_url
