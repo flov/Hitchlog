@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def index
-    @search = User.search(params[:q])
+    @search = User.scoped.order("id desc").search(params[:q])
     @users = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
