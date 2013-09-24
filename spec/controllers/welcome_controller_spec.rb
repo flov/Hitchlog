@@ -8,4 +8,12 @@ describe WelcomeController do
       response.should render_template(:home)
     end
   end
+
+  describe '#about' do
+    it 'renders about template' do
+      get :about
+
+      response.should render_template(:about)
+    end
+  end
 end
