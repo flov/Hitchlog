@@ -1,4 +1,4 @@
-%h1 #{t('.hitchhikers')}:
+%h1 #{pluralize(@users.count, t('.hitchhiker'))}:
 
 = search_form_for @search do |f|
   %h4 Search by:

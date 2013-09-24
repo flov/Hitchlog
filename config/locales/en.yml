@@ -275,7 +275,7 @@ en:
           or authenticate your account with facebook.
     index:
       member_since: Member since
-      hitchhikers: Hitchhikers
+      hitchhiker: Hitchhiker
       title: Users
       username: Username
       last_sign_in: "Last login"
