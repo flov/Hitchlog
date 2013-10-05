@@ -194,6 +194,8 @@ describe User do
       user.save!
       FactoryGirl.create(:trip, departure: 2.years.ago, user_id: user.id,
                                 arrival:   2.years.ago + 3.hours)
+      FactoryGirl.create(:trip, departure: 1.years.ago, user_id: user.id,
+                                arrival:   1.years.ago + 3.hours)
       FactoryGirl.create(:trip, departure: 3.years.ago,
                                 arrival: 3.years.ago + 3.hours,
                                 user_id: user.id)
@@ -202,7 +204,7 @@ describe User do
     end
 
     it 'returns the number of trips sorted by age' do
-      user.age_of_trips.should == [[20, 1],[21, 1]]
+      user.age_of_trips.should == [[20, 1],[21, 1],[22,1]]
     end
   end
 end
