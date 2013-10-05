@@ -188,7 +188,7 @@ class User < ActiveRecord::Base
       end
     end
 
-    hash.to_a
+    hash.to_a.sort
   end
 
   private

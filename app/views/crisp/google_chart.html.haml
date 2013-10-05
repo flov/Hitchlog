@@ -1,4 +1,4 @@
-- user = User.find 'fortvonhier'
+- user = User.find 'flov'
 
 .row-fluid
   .span6
@@ -13,18 +13,10 @@
     google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart);
     function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Age', 'Hitchhiked Trips'],
-        ['22',  8],
-        ['23',  1],
-        ['24',  9],
-        ['25',  23],
-        ['26',  9],
-        ['27',  10]
-      ]);
+      var data = google.visualization.arrayToDataTable( #{user.age_of_trips.to_json} );
 
       var options = {
-        title: 'Hitchhiked Trips in Ages'
+        title: "hitchhiked trips sorted by age"
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
