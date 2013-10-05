@@ -50,11 +50,6 @@
         %li{class: "very negative"}
           = "#{user.very_negative_experiences} very negative experiences" unless user.very_negative_experiences == 0
 
-      %p
-        Average waiting time per ride:
-        = user.average_waiting_time
-        min
-
       - if user.vehicles.any?
         %h4 Type of rides:
         %ul
