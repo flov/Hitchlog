@@ -22,15 +22,16 @@
       %i.icon-user
       = user.created_at.strftime("%B %d, %Y")
       %br/
-    - if user.languages
+    - if user.languages.present?
       %span.tip{title: t('general.languages')}
         %i.icon-flag-alt
         = user.languages
       %br/
 
-    - if user.origin
+    - if user.origin.present?
       %span.tip{title: t('general.country_of_origin')}
-        Hometown:
+        = succeed ':' do
+          = t('general.hometown')
         = user.origin
 
   - if user.trips.any?
