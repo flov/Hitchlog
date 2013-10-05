@@ -176,17 +176,19 @@ class User < ActiveRecord::Base
   end
 
   def age_of_trips
-    if date_of_birth
-      hash = {}
-      self.trips.map(&:age).each do |age|
-        if hash[age]
-          hash[age] += 1
-        else
-          hash[age] = 1
-        end
+    return unless date_of_birth
+
+    hash = {}
+
+    self.trips.map(&:age).each do |age|
+      if hash[age]
+        hash[age] += 1
+      else
+        hash[age] = 1
       end
-      hash
     end
+
+    hash.to_a
   end
 
   private
