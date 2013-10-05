@@ -6,3 +6,27 @@
   .span6
     = render 'users/experiences_chart', user: user
 
+#chart_div
+
+- content_for :javascript_at_bottom do
+  :javascript
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Age', 'Hitchhiked Trips'],
+        ['22',  8],
+        ['23',  1],
+        ['24',  9],
+        ['25',  23],
+        ['26',  9],
+        ['27',  10]
+      ]);
+
+      var options = {
+        title: 'Hitchhiked Trips in Ages'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
