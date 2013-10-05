@@ -129,7 +129,7 @@ class User < ActiveRecord::Base
   end
 
   def rides
-    self.trips.map{|trip| trip.rides}.flatten
+    self.trips.map(&:rides).flatten
   end
 
   def average_waiting_time
@@ -156,7 +156,7 @@ class User < ActiveRecord::Base
 
   def vehicles
     hash = {}
-    rides.collect(&:vehicle).compact.each do |vehicle|
+    rides.collect(&:vehicle).compact.reject(&:empty?).each do |vehicle|
       if hash[vehicle]
         hash[vehicle] += 1
       else
