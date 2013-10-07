@@ -17,6 +17,7 @@
           %i.icon-time
 
   = render 'geomap', user: user
+
   .row-fluid
     .span6
       = render 'users/traveling_with_chart', user: user
@@ -58,3 +59,7 @@
             %li
               = pluralize(number, t('general.ride'))
               with a #{vehicle}
+
+  .row-fluid
+    .span12
+      = render 'users/trips_by_age_chart', user: user

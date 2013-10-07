@@ -1,0 +1,18 @@
+#chart_div
+- content_for :javascript_at_bottom do
+  :javascript
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var age_of_trips = #{ user.age_of_trips.to_json }
+      age_of_trips.unshift( ['Age', 'Hitchhiked Trips'] )
+
+      var data = google.visualization.arrayToDataTable( age_of_trips );
+
+      var options = {
+        title: "hitchhiked trips sorted by age"
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }

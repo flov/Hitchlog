@@ -1,4 +1,4 @@
-- user = User.find 'flov'
+- user = User.find 'platschi'
 
 .row-fluid
   .span6
@@ -6,19 +6,6 @@
   .span6
     = render 'users/experiences_chart', user: user
 
-#chart_div
-
-- content_for :javascript_at_bottom do
-  :javascript
-    google.load("visualization", "1", {packages:["corechart"]});
-    google.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable( #{user.age_of_trips.to_json} );
-
-      var options = {
-        title: "hitchhiked trips sorted by age"
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    }
+.row-fluid
+  .span12
+    = render 'users/trips_by_age_chart', user: user
