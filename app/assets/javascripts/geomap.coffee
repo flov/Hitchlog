@@ -4,7 +4,6 @@ $ ->
     dataType:"json"
     async: true
     success: (data) ->
-      console.log( data )
       $('#world-map').vectorMap({
         map: 'world_mill_en'
         backgroundColor: '#FFFFFF'
