@@ -24,6 +24,7 @@
                                 end_year: Date.today.year - 90, order: [:day, :month, :year], required: true
       = f.input :gender, collection: [t('general.male'), t('general.female')]
       = f.input :cs_user
+      = f.input :be_welcome_user
       = f.input :origin
       = f.input :languages
 

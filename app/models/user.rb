@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                   :username,
                   :about_you,
                   :cs_user,
+                  :be_welcome_user,
                   :gender,
                   :lat,
                   :lng,
