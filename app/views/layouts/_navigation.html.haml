@@ -14,16 +14,6 @@
             %li{class: new_trip_active }= link_to "<i class='icon-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
           %li{class: about_active }= link_to t('.about'), about_path
 
-          %li.dropdown
-            %a.dropdown-toggle{href: "#", "data-toggle"=>"dropdown"}
-              != "<div class='flags-#{I18n.locale}'></div>"
-            %ul.dropdown-menu
-              - I18n.available_locales.each do |locale|
-                %li
-                  = link_to url_for(locale: locale) do
-                    != "<div class='flags-#{locale}'></div>"
-                    != "<i class='icon-hand-left'></i>" if I18n.locale == locale
-
         - if user_signed_in?
           .pull-right.your_profile_bar
             = link_to user_path(current_user) do
