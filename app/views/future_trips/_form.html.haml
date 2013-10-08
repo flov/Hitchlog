@@ -1,4 +1,5 @@
-= simple_form_for future_trip do |f|
+= simple_form_for future_trip, html: {class: 'form-horizontal'} do |f|
+
   = f.input :from
   = f.input :from_lat, as: :hidden
   = f.input :from_lng, as: :hidden
@@ -17,8 +18,4 @@
                         order: [:day, :month, :year]
   = f.input :description, as: :text, input_html: { rows: 5 }, label: t('.description_label')
 
-  = f.submit
-
-- content_for :javascript_at_bottom do
-  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false", :type => "text/javascript"}
-  = javascript_include_tag 'future_trips'
+  = f.submit class: 'btn btn-primary'

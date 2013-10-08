@@ -1,2 +1,3 @@
-new Location("future_trip_from")
-new Location("future_trip_to")
+$ ->
+  window.map = new Map("future_trip")
+

@@ -1,3 +1,12 @@
-%h1= t('.new_future_trip')
-%p= t('.tell_others_about_your_plans')
-= render 'form', future_trip: future_trip
+%legend
+  = t('future_trips.new.tell_others_about_your_plans')
+.row-fluid
+  .span6
+    = render 'form', future_trip: future_trip
+  .span6
+    #map.map
+
+- content_for :javascript_at_bottom do
+  %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAoRZxn3x2YppDC6ZpnUjE8v9RKBRa1oWA&sensor=false&libraries=places"}
+  = javascript_include_tag 'new_map'
+  = javascript_include_tag 'future_trips'

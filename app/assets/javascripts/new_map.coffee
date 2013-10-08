@@ -1,5 +1,5 @@
 class window.Map
-  constructor: ->
+  constructor: (@type) ->
     mapOptions = {
       center: new google.maps.LatLng(52.5234051, 13.411399899999992),
       zoom: 1,
@@ -19,12 +19,12 @@ class window.Map
         # update route and distance inputs
         this.set_routing_inputs()
 
-    this.autocomplete('from')
-    this.autocomplete('to')
+    this.autocomplete("#{@type}_from")
+    this.autocomplete("#{@type}_to")
 
 
-  autocomplete: (direction) ->
-    input = $("input#trip_#{direction}")[0]
+  autocomplete: (input_id) ->
+    input = $("input##{input_id}")[0]
 
     autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
     autocomplete.bindTo('bounds', @map)
@@ -34,8 +34,8 @@ class window.Map
 
       if (!place.geometry)
         # Inform the user that the place was not found and return.
-        $(".trip_#{direction} .controls").append('<span class="help-inline">Could not find location, please try again</span>')
-        $(".trip_#{direction}").addClass('error')
+        $(".#{input_id} .controls").append('<span class="help-inline">Could not find location, please try again</span>')
+        $(".#{input_id}").addClass('error')
         return
 
       else
@@ -47,22 +47,22 @@ class window.Map
             value = place.address_components[x].long_name
             switch type
               when 'locality'
-                $("input#trip_#{direction}_city").val value
+                $("input##{input_id}_city").val value
               when 'country'
-                $("input#trip_#{direction}_country").val value
-                $("input#trip_#{direction}_country_code").val place.address_components[x].short_name
+                $("input##{input_id}_country").val value
+                $("input##{input_id}_country_code").val place.address_components[x].short_name
               when 'postal_code'
-                $("input#trip_#{direction}_postal_code").val value
+                $("input##{input_id}_postal_code").val value
 
-        $("input#trip_#{direction}_lat").val place.geometry.location.lat()
-        $("input#trip_#{direction}_lng").val place.geometry.location.lng()
-        $("input#trip_#{direction}_formatted_address").val place.formatted_address
+        $("input##{input_id}_lat").val place.geometry.location.lat()
+        $("input##{input_id}_lng").val place.geometry.location.lng()
+        $("input##{input_id}_formatted_address").val place.formatted_address
 
         this.set_routing_inputs()
 
-        if direction == 'from'
+        if input_id.indexOf('from') > 0
           @from = place.geometry.location
-        else if direction == 'to'
+        else if input_id.indexOf('to') > 0
           @to   = place.geometry.location
 
         if @from and @to

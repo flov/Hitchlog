@@ -184,7 +184,7 @@ en:
       more_hitchhikers: "Get To Know More Hitchhikers"
   future_trips:
     form:
-      description_label: "What should we know about this trip?"
+      description_label: "Message"
     new:
       new_future_trip: Where Would You Like To Hitchhike To?
       tell_others_about_your_plans: Tell others about your hitchhiking plans.
