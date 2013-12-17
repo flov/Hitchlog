@@ -2,10 +2,10 @@ When /^I fill in the future trip form with from "([^"]*)" to "([^"]*)" at the "(
   date = Date.parse departure
 
   fill_in('future_trip_from', with: from, exact: true)
-  page.find(".pac-container .pac-item-refresh:first").click
+  page.find(".pac-container .pac-item:first").click
 
   fill_in('To', with: to, exact: true)
-  page.find('.pac-container:last .pac-item-refresh:first').click
+  page.find('.pac-container:last .pac-item:first').click
 
   select(date.day,   from: 'future_trip_departure_3i')
   select(date.strftime("%B"), from: 'future_trip_departure_2i')
