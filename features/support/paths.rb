@@ -10,6 +10,8 @@ module NavigationHelpers
 
     when /^the homepage$/
       '/'
+    when /^the forgot password page/
+      new_user_password_path
     when /^the login page/
       '/en/hitchhikers/login'
     when /^the signup page/

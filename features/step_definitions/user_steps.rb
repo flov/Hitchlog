@@ -3,7 +3,7 @@ Given /^a hitchhiker$/ do
 end
 
 Given /^a hitchhiker called "([^"]*)"$/ do |username|
-  @user = FactoryGirl.create :user, username: username.downcase
+  @user = FactoryGirl.create :user, username: username.downcase, email: "#{username}@test.com"
 end
 
 Given /^a hitchhiker called "([^"]*)" from "([^"]*)"$/ do |username, city|

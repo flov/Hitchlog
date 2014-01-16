@@ -29,7 +29,7 @@
           = f.submit "Hitch in", class: 'btn btn-danger'
 
       %footer.clearfix
-        %a.forgotpw{:href => "#"} Forgot Password?
+        .forgotpw= link_to "Forgot Password?", new_user_password_path
 
     .float-left
       %ul
