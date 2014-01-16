@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 gem 'pg'
 gem 'unicorn'
 
@@ -32,7 +32,6 @@ gem 'carrierwave'
 gem 'fog'
 gem 'rmagick'
 gem 'gravatar_image_tag'
-gem 'json'
 gem 'routing-filter'
 gem "font-awesome-rails"
 gem 'jbuilder'
