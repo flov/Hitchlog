@@ -9,17 +9,15 @@ Feature: Tags
     When I go to the edit trip page
     And I type in "adventurous" as a tag
     And I press "Save Ride"
-    And show me the page
     Then I should see "adventurous" as a tag on the trip
 
   Scenario: User clicks on tag in a trip
     Given a trip with a tagged ride "dangerous"
     And a trip with a tagged ride "boring"
     When I go to the page of this trip
-    And I click on the "dangerous" tag
-    Then I should be on the tag page of dangerous
-    And I should see the trip with the "dangerous" tag
-    And I should not see the trip with the "boring" tag
+    And I click on the "boring" tag
+    Then I should see the trip with the "boring" tag
+    And I should not see the trip with the "dangerous" tag
 
   @wip
   Scenario: User tags ride for stories which have not been tagged yet

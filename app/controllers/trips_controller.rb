@@ -5,6 +5,11 @@ class TripsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy, :add_ride]
 
+  def index
+    @search = Trip.scoped.order("id desc").search(params[:q])
+    @trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
+  end
+
   def create
     trip.user = current_user
     if trip.save

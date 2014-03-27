@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   expose!(:user) { user_in_context }
-  expose(:trips) { trips_in_context }
 
   before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def index
     @search = User.scoped.order("id desc").search(params[:q])
     @users = @search.result.paginate(page: params[:page], per_page: 20)
+  end
+
+  def show
+    @search = user.trips.scoped.order("id desc").search(params[:q])
+    @trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
   def update
@@ -40,9 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def geomap
-  end
-
   private
 
   def user_in_context
@@ -51,13 +52,6 @@ class UsersController < ApplicationController
     else
       User.new(params[:user])
     end
-    rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, flash: { error: t('general.record_not_found')}
-  end
-
-  def trips_in_context
-    user.trips.paginate(page: params[:page], per_page: 10)  
-
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path, flash: { error: t('general.record_not_found')}
   end

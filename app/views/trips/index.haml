@@ -1,10 +1,11 @@
 - title t('.title')
-- meta_description(t('.meta_description'))
+- meta_description(t('trips.index.meta_description'))
 
 %h1 #{t('.latest_hitchhiking_trips')}:
 
-= render 'trips/search_interface', gender: true
-= will_paginate trips, :class => 'flickr_pagination'
-= render 'list', trips: trips, by: true
-= will_paginate trips, :class => 'flickr_pagination'
+= render 'search_interface', search: @search
+
+= will_paginate @trips, class:  'flickr_pagination'
+= render 'list', trips: @trips, by: true
+= will_paginate @trips, class:  'flickr_pagination'
 

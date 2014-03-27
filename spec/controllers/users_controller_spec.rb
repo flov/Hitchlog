@@ -55,8 +55,9 @@ describe UsersController do
 
   describe '#show' do
     let(:action) { get :show, id: 'flov' }
-    let(:user) { double('user') }
-    let(:trip) { double('trip') }
+    let(:user)   { double('user') }
+    let(:trip)   { double('trip') }
+    let(:search)  { double('meta_where') }
 
     context 'user cant be found' do
       before do
@@ -75,7 +76,8 @@ describe UsersController do
 
     it 'renders show view' do
       User.stub_chain(:includes, :find).and_return user
-      user.stub_chain(:trips, :paginate).and_return [trip]
+      user.stub_chain(:trips, :scoped, :order, :search).and_return( search )
+      search.stub_chain(:result, :paginate).and_return(trip)
 
       action
 

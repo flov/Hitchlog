@@ -5,7 +5,7 @@ Feature: Show all trips
     When I go to the trips page
     Then I should see a German trip
     And I should see an English trip
-    When I search for German trips
+    When I search for "Germany" trips
     Then I should see a German trip
     And I should not see an English trip
 

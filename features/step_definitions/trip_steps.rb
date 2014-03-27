@@ -45,23 +45,6 @@ Given /^an English trip exists$/ do
   @english_trip.save!
 end
 
-When /^I search for German trips$/ do
-  select  "Germany", :from => "country"
-  click_button "Search"
-end
-
-Then /^I should see a German trip$/ do
-  page.should have_content @german_trip.from
-end
-
-Then /^I should see an English trip$/ do
-  page.should have_content @english_trip.from
-end
-
-Then /^I should not see an English trip$/ do
-  page.should_not have_content @english_trip.from
-end
-
 Given /^a trip with a story$/ do
   @trip_with_story = FactoryGirl.build(:trip, hitchhikes: 0)
   @trip_with_story.rides << FactoryGirl.create(:ride,
@@ -80,12 +63,6 @@ end
 Then /^I should see a trip without a story$/ do
   page.should have_content @trip_without_story.from
 end
-
-When /^I search for trips with stories$/ do
-  check "Story"
-  click_button "Search"
-end
-
 Then /^I should see trips with stories$/ do
   page.find("#trip_#{@trip_with_story.id}").should have_content("#{@trip_with_story.rides.first.story[0..150]}")
 end

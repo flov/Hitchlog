@@ -26,9 +26,16 @@
           #{pluralize(user.future_trips.size, t('.upcoming_trip'))}:
       = render 'future_trips/future_trips', future_trips: user.future_trips
 
-    - if trips.any?
-      = will_paginate trips, class: 'flickr_pagination'
+
+
+    - if user.trips.any?
+      = render 'trips/search_interface', search: @search
+
+    - if @trips.any?
+      = will_paginate @trips, class: 'flickr_pagination'
       #trips
-        = render 'trips/list', trips: trips
-      = will_paginate trips, class: 'flickr_pagination'
+        = render 'trips/list', trips: @trips
+      = will_paginate @trips, class: 'flickr_pagination'
+    - else
+      %h2.text-center No Trips Found
 
