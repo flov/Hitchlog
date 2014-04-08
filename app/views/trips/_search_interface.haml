@@ -10,5 +10,7 @@
     = f.label :rides_title_or_rides_story_present, t('general.story')
     &nbsp;
     = f.select :rides_experience_eq, options_for_experiences.html_safe, prompt: t('general.experience')
+    &nbsp;
+    = f.select :country_distances_country_eq, options_for_countries.html_safe, prompt: t('general.country')
     %br/
     = submit_tag t('general.search'), class: 'btn btn-primary'

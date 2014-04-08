@@ -363,6 +363,12 @@ ul.inline-list {
   }
 }
 
+table.trips th {
+  a {
+    text-decoration: underline;
+    color: white;
+  }
+}
 
 @media only screen and (max-width:600px) { 
   .ride_detail .date{
@@ -397,3 +403,4 @@ ul.inline-list {
     }
   }
 }
+

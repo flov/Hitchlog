@@ -71,29 +71,6 @@ Then /^I should not see trips without stories$/ do
   lambda { page.find("#trip_#{@trip_without_story.id}") }.should raise_error(Capybara::ElementNotFound)
 end
 
-Given /^each one of these 6 trips have a different experience$/ do
-  experiences = ['extremely positive', 'positive', 'neutral', 'negative', 'extremely negative']
-  trips = Trip.all
-  6.times do |i|
-    ride = trips[i].rides.first
-    ride.experience = experiences[i]
-    ride.save!
-  end
-end
-
-When /^I search for trips with an "([^"]*)" experience$/ do |experience|
-  select experience, :from => "experience"
-  click_button "Search"
-end
-
-Then /^I should see a trip with an? "([^"]*)" experience$/ do |experience|
-  page.should have_content("#{experience}.png")
-end
-
-Then /^I should not see a trip with an? "([^"]*)" experience$/ do |experience|
-  page.should_not have_content("#{experience}.png")
-end
-
 Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
   trip = FactoryGirl.create(:trip, from: from, to: to)
   ride = trip.rides.first
