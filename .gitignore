@@ -1,3 +1,4 @@
+latest.dump
 .bundle
 db/*.sqlite3
 config/s3.yml
