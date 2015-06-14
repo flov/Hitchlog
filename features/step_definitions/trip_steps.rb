@@ -123,7 +123,7 @@ Then /^the from and to location should be geocoded$/ do
 end
 
 Then /^it should route from origin to destination$/ do
-  find('#trip_distance_display').should have_content('289 km')
+  find('#trip_distance_display').should have_content('288 km')
   find('#trip_distance').value.to_i.should be_within(500).of(288844)
 end
 
