@@ -10,7 +10,7 @@ end
 
 Given /^a trip with a tagged ride "([^"]*)"$/ do |tag|
   trip = FactoryGirl.create(:trip)
-  ride = FactoryGirl.create(:ride, trip_id: trip.id, tag_list: tag)
+  FactoryGirl.create(:ride, trip_id: trip.id, tag_list: tag)
 end
 
 When /^I click on the "([^"]*)" tag$/ do |tag|

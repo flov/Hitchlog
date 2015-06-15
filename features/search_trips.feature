@@ -5,7 +5,7 @@ Feature: Show all trips
     When I go to the trips page
     Then I should see a German trip
     And I should see an English trip
-    When I search for German trips
+    When I search for "Germany" trips
     Then I should see a German trip
     And I should not see an English trip
 
@@ -19,11 +19,9 @@ Feature: Show all trips
     Then I should see trips with stories
     And I should not see trips without stories
 
-  @wip
   Scenario: sort trips by experience
-    Given 6 trips exist
-    And each one of these 6 trips have a different experience
+    Given 6 trips exist with a different experience respectively
     When I go to the trips page
-    And I search for trips with an "positive" experience
+    And I search for trips with a "positive" experience
     Then I should see a trip with an "postive" experience
     And I should not see a trip with a "negative" experience

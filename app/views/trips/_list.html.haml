@@ -1,18 +1,19 @@
 - by ||= false
 
+
 %table.trips.responsive
   %thead
     %tr
       %th Trips
       - if by
         %th= t('.by')
-      %th= t('activerecord.attributes.trip.distance')
+      %th= sort_link @search, :distance, t('activerecord.attributes.trip.distance')
       %th.trip-properties
         %i.icon-star-empty
-      %th= t('.date')
+      %th= sort_link @search, :arrival, "Hitchhiked Date"
 
   %tbody
-    - trips.each do |trip|
+    - @trips.each do |trip|
       %tr{id: "trip_#{trip.id}"}
         %td
           = link_to trip.to_s.html_safe, trip

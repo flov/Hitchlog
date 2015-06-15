@@ -13,7 +13,7 @@
   = f.input :to_country_code, as: :hidden
   = f.input :to_city, as: :hidden
   = f.input :departure, as: :date,
-                        start_year: Date.today.year + 2,
+                        start_year: Date.today.year + 8,
                         end_year: Date.today.year,
                         order: [:day, :month, :year]
   = f.input :description, as: :text, input_html: { rows: 5 }, label: t('.description_label')

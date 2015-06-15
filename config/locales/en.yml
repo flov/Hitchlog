@@ -72,6 +72,64 @@ en:
       with_3: "3 people"
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
+  trips:
+    index:
+      title: Hitchhinking Trips
+      meta_description: 'Hallo?'
+      meta_desc: Explore the hitchhiking experience of other hitchhikers
+      latest_hitchhiking_trips: "Hitchhiking trips"
+      log_new_trip: "Log New Trip"
+      to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
+      choose_a_country: "Choose a country"
+      sort_by: "Search trips with"
+      select_gender: "Gender"
+      select_country: "Country"
+      photo: Photo
+      story: Story
+    search_interface:
+      search_by_country_or_city: Search trips by country or city
+    edit:
+      edit_title: "Edit Your Hitchhiking Trip"
+      edit_trip: "Edit Trip"
+      hitchhiked: Hitchhiked
+      from: From
+      to: To
+      add_story: "Add/Edit Story"
+      hitchability_factor: "Hitchability factor:"
+      it_took_you_longer: "It took you %{hours} longer than a direct ride."
+      you_were_faster: "You were %{hours} faster than a direct ride."
+    list:
+      no_trips_logged: "No Trips Logged"
+      read_on: "(read on in Trip)"
+      countries: Countries
+      rides: Rides
+      by: By
+      date: "Hitchhiked Date"
+      icons: Icons
+      start: "%{time} ago"
+    show:
+      title: "Hitchhiking from %{from_city} to %{to_city}"
+    comments:
+      there_are_no_comments: "There are no comments for this trip"
+      user_wrote: "%{time} ago %{user} wrote:"
+      log_in_or_register_to_comment: Log in or register to comment on this trip
+    byline:
+      trip_duration: "Trip duration: %{time}"
+      google_maps_duration: "Google Maps duration: %{time}"
+    trip:
+      edit_trip: "(Edit Trip)"
+      ride: Ride
+      time_ago: "%{time} ago"
+      message: "Message:"
+      to_comment: "to comment on this trip"
+      add_comment: Add Comment
+    form:
+      step1_2: Continue
+    show_ride:
+      ride: Ride
+    new:
+      new_trip: Log New Hitchhiking Trip
+      log_your_trip_please: "Log your hitchhiking trip"
   layouts:
     navigation:
       people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
@@ -89,8 +147,11 @@ en:
       english: English
       german: German
   general:
+    experience: experience
+    search: search
     by: by
     years: years
+    country: country
     country_of_origin: Hometown
     hometown: Hometown
     languages: Languages
@@ -225,6 +286,7 @@ en:
       cars_seen_from_inside: "Cars seen from inside"
       hitchhiked_countries: "Hitchhiked countries"
       cs_user: "CS User"
+      be_welcome_user: "BeWelcome User"
       uploaded_photos: "Uploaded photos"
       statistics: Statistics
       send_mail: "Send Mail"
@@ -279,7 +341,7 @@ en:
     index:
       member_since: Member since
       hitchhiker: Hitchhiker
-      title: Users
+      title: Hitchhikers
       username: Username
       last_sign_in: "Last login"
       search: Search
@@ -312,64 +374,6 @@ en:
       delete_image: "Delete Photo"
       save_ride: Save Ride
       tag_it: 'Tag your ride (seperated by comma)'
-  trips:
-    index:
-      meta_descritpion: 'Explore the hitchhiking experience of other hitchhikers'
-      latest_hitchhiking_trips: "Hitchhiking trips"
-      log_new_trip: "Log New Trip"
-      to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."
-      choose_a_country: "Choose a country"
-      title: Hitchhinking Trips
-    search_interface:
-      sort_by: "Search trips with"
-      select_experience: "Experience"
-      select_gender: "Gender"
-      select_country: "Country"
-      photo: Photo
-      search: Search
-      story: Story
-    edit:
-      edit_title: "Edit Your Hitchhiking Trip"
-      edit_trip: "Edit Trip"
-      hitchhiked: Hitchhiked
-      from: From
-      to: To
-      add_story: "Add/Edit Story"
-      hitchability_factor: "Hitchability factor:"
-      it_took_you_longer: "It took you %{hours} longer than a direct ride."
-      you_were_faster: "You were %{hours} faster than a direct ride."
-    list:
-      no_trips_logged: "No Trips Logged"
-      read_on: "(read on in Trip)"
-      countries: Countries
-      rides: Rides
-      by: By
-      date: "Hitchhiked Date"
-      icons: Icons
-      start: "%{time} ago"
-    show:
-      title: "Hitchhiking from %{from_city} to %{to_city}"
-    comments:
-      there_are_no_comments: "There are no comments for this trip"
-      user_wrote: "%{time} ago %{user} wrote:"
-      log_in_or_register_to_comment: Log in or register to comment on this trip
-    byline:
-      trip_duration: "Trip duration: %{time}"
-      google_maps_duration: "Google Maps duration: %{time}"
-    trip:
-      edit_trip: "(Edit Trip)"
-      ride: Ride
-      time_ago: "%{time} ago"
-      message: "Message:"
-      to_comment: "to comment on this trip"
-      add_comment: Add Comment
-    form:
-      step1_2: Continue
-    show_ride:
-      ride: Ride
-    new:
-      new_trip: Log New Hitchhiking Trip
-      log_your_trip_please: "Log your hitchhiking trip"
 
 
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()

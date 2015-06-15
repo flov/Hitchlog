@@ -1,4 +1,5 @@
 Afghanistan: AF
+Aland Islands: AX
 Albania: AL
 Algeria: DZ
 American Samoa: AS
@@ -95,12 +96,14 @@ Guyana: GY
 Haiti: HT
 Heard Island and McDonald Islands: HM
 Holy See (Vatican City State): VA
+Vatican City: VA
 Honduras: HN
 Hong Kong: HK
 Hungary: HU
 Iceland: IS
 India: IN
 Indonesia: ID
+Republic of Indonesia: ID
 Iran: IR
 Iraq: IQ
 Ireland: IE
@@ -119,6 +122,7 @@ Korea, Republic of: KR
 Kuwait: KW
 Kyrgyzstan: KG
 Lao Peoples Democratic Republics Democratic Republic: LA
+Laos: LA
 Latvia: LV
 Lebanon: LB
 Lesotho: LS
@@ -242,6 +246,7 @@ Uzbekistan: UZ
 Vanuatu: VU
 Venezuela: VE
 Viet Nam: VN
+Vietnam: VN
 Virgin Islands, British: VG
 Virgin Islands, U.S.: VI
 Wallis and Futuna: WF
@@ -251,6 +256,7 @@ Zambia: ZM
 Zimbabwe: ZW
 
 AF: Afghanistan
+AX: Aland Islands
 AL: Albania
 DZ: Algeria
 AS: American Samoa
@@ -347,6 +353,7 @@ GY: Guyana
 HT: Haiti
 HM: Heard Island and McDonald Islands
 VA: Holy See (Vatican City State)
+VA: Vatican City
 HN: Honduras
 HK: Hong Kong
 HU: Hungary
@@ -371,6 +378,7 @@ KR: Republic of Korea
 KW: Kuwait
 KG: Kyrgyzstan
 LA: Lao Peoples Democratic Republics Democratic Republic
+LA: Laos
 LV: Latvia
 LB: Lebanon
 LS: Lesotho
@@ -493,6 +501,7 @@ UZ: Uzbekistan
 VU: Vanuatu
 VE: Venezuela
 VN: Viet Nam
+VN: Vietnam
 VG: Virgin Islands, British
 VI: Virgin Islands, U.S.
 WF: Wallis and Futuna

@@ -2,5 +2,5 @@
   %section.about
     %h3.short_headline
       %span
-        #{t('.about')}:
+        #{t('users.show.about')}:
     %p= RDiscount.new(h(user.about_you)).to_html.html_safe

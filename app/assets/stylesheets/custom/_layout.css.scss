@@ -230,7 +230,12 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   height: 300px;
 }
 
-.user-search { margin-top: 10px; }
+.trip_search {
+  label {
+    display: inline;
+  }
+  margin-top: 10px; 
+}
 
 .comment-picture img.profile_pic {
   @include border-radius(30px); // make rounded corners match the pills
@@ -358,6 +363,12 @@ ul.inline-list {
   }
 }
 
+table.trips th {
+  a {
+    text-decoration: underline;
+    color: white;
+  }
+}
 
 @media only screen and (max-width:600px) { 
   .ride_detail .date{
@@ -392,3 +403,4 @@ ul.inline-list {
     }
   }
 }
+

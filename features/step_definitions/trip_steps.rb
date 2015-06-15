@@ -45,23 +45,6 @@ Given /^an English trip exists$/ do
   @english_trip.save!
 end
 
-When /^I search for German trips$/ do
-  select  "Germany", :from => "country"
-  click_button "Search"
-end
-
-Then /^I should see a German trip$/ do
-  page.should have_content @german_trip.from
-end
-
-Then /^I should see an English trip$/ do
-  page.should have_content @english_trip.from
-end
-
-Then /^I should not see an English trip$/ do
-  page.should_not have_content @english_trip.from
-end
-
 Given /^a trip with a story$/ do
   @trip_with_story = FactoryGirl.build(:trip, hitchhikes: 0)
   @trip_with_story.rides << FactoryGirl.create(:ride,
@@ -80,41 +63,12 @@ end
 Then /^I should see a trip without a story$/ do
   page.should have_content @trip_without_story.from
 end
-
-When /^I search for trips with stories$/ do
-  check "Story"
-  click_button "Search"
-end
-
 Then /^I should see trips with stories$/ do
   page.find("#trip_#{@trip_with_story.id}").should have_content("#{@trip_with_story.rides.first.story[0..150]}")
 end
 
 Then /^I should not see trips without stories$/ do
   lambda { page.find("#trip_#{@trip_without_story.id}") }.should raise_error(Capybara::ElementNotFound)
-end
-
-Given /^each one of these 6 trips have a different experience$/ do
-  experiences = ['extremely positive', 'positive', 'neutral', 'negative', 'extremely negative']
-  trips = Trip.all
-  6.times do |i|
-    ride = trips[i].rides.first
-    ride.experience = experiences[i]
-    ride.save!
-  end
-end
-
-When /^I search for trips with an "([^"]*)" experience$/ do |experience|
-  select experience, :from => "experience"
-  click_button "Search"
-end
-
-Then /^I should see a trip with an? "([^"]*)" experience$/ do |experience|
-  page.should have_content("#{experience}.png")
-end
-
-Then /^I should not see a trip with an? "([^"]*)" experience$/ do |experience|
-  page.should_not have_content("#{experience}.png")
 end
 
 Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
@@ -169,7 +123,7 @@ Then /^the from and to location should be geocoded$/ do
 end
 
 Then /^it should route from origin to destination$/ do
-  find('#trip_distance_display').should have_content('289 km')
+  find('#trip_distance_display').should have_content('288 km')
   find('#trip_distance').value.to_i.should be_within(500).of(288844)
 end
 
