@@ -11,7 +11,7 @@
       = f.input :username
 
       - if current_user.location
-        = f.input :location, hint: flag_with_country_name(current_user)
+        = f.input :location
       - else
         = f.input :location, hint: t('.when_changing')
       = f.input :lat, as: :hidden

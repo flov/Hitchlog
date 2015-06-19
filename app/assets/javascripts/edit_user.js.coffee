@@ -1,12 +1,16 @@
 autocomplete_options = { types: ['geocode'] }
 autocomplete = new google.maps.places.Autocomplete($("#user_location")[0], autocomplete_options)
 
+$(".user_location .controls").append('<span class="help-inline"></span>')
+
 google.maps.event.addListener(autocomplete, 'place_changed', ->
   place = autocomplete.getPlace()
 
+
   if (!place.geometry)
     # Inform the user that the place was not found and return.
-    $(".user_location .controls").append('<span class="help-inline">Could not find location, please try again</span>')
+    $(".user_location .controls span.help-inline").append(
+      'Could not find location, please try again')
     $(".user_location").addClass('error')
     return
 
@@ -15,8 +19,6 @@ google.maps.event.addListener(autocomplete, 'place_changed', ->
     $("input#user_lng").val place.geometry.location.lng()
 
     if place.address_components.length > 0
-      $(".user_location").addClass('success')
-
       for x in [0..place.address_components.length-1]
         type = place.address_components[x].types[0]
         value = place.address_components[x].long_name
@@ -33,8 +35,8 @@ google.maps.event.addListener(autocomplete, 'place_changed', ->
       if country_code and country and city
         # display country and city:
         # remove old if it exists
-        $('.user_location .controls .help-block').html('')
-        $(".user_location .controls").append(
+        $('.user_location .help-inline').html('')
+        $(".user_location .help-inline").append(
           "<span class='help-block'>
              <div class='flags-#{country_code} tip' title='#{country}'></div>
              #{city}
