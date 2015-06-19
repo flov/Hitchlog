@@ -132,12 +132,12 @@ en:
       log_your_trip_please: "Log your hitchhiking trip"
   layouts:
     navigation:
-      people_searching_for_travel_partner: "Hitchhikers searching for hitchhiking buddies"
-      find_other_hitchhikers: "Connect with hitchhikers"
-      find_hitchhiking_buddy: "Hitchhiking Buddies"
-      log_new_trip: "Log new trip"
-      edit_profile: "Edit"
-      your_profile: "Your Profile"
+      people_searching_for_travel_partner: Hitchhikers searching for hitchhiking buddies
+      find_other_hitchhikers: Connect with hitchhikers
+      find_hitchhiking_buddy: Hitchhiking Buddies
+      log_new_trip: Log new trip
+      settings: Settings
+      your_profile: Your Profile
       sign_out: Sign Out
       about: About
       blog: Blog
@@ -218,20 +218,12 @@ en:
       follow_the_hitchlog: Follow The Hitchlog
   welcome:
     home:
-      intro_message: >
-          The Hitchlog gives a real
-          <i class='icon-picture'></i>
-          on hitchhiking.
-          <br/>
-          Let us paint this image with
-          <i class='icon-heart-empty'></i>
-          and let us give back to the
-          <i class='icon-group'></i>
-          who picked us up on our way.
+      hitchhiking_buddies:
+        Hitchhiking Buddies
       meta_description: >
           Ever wondered what hitchhiking is really like?
-          Explore the experience of hitchhiking of over 200
-          hitchhikers in over 50 countries.
+          Explore the hitchhiking experiences of
+          real people in over 80 countries.
       explore_hh_xp: Explore hitchhiking experiences in over 50 countries by clicking on one of the flags
       or_sign_in_with: or sign in with
       share_your_hh_xp: "Share your hitchhiking experience"
