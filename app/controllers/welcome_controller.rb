@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-  include Chart
   expose(:future_trips) { future_trips_in_context }
 
   private
