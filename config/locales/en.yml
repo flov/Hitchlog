@@ -217,17 +217,27 @@ en:
       follow_on_twitter: Follow The Hitchlog On Twitter
       follow_the_hitchlog: Follow The Hitchlog
   welcome:
+    hitchhiking_buddies:
+      find_hitchhiking_buddies:
+        Find a hitchhiking buddy
+      contact:
+        Contact
+      more_hitchhiking_buddies:
+        More hitchhiking buddies
+      list_your_own_hitchhiking_adventure:
+        Add your own upcoming trip
     home:
       hitchhiking_buddies:
         Hitchhiking Buddies
       meta_description: >
           Ever wondered what hitchhiking is really like?
           Explore the hitchhiking experiences of
-          real people in over 80 countries.
-      explore_hh_xp: Explore hitchhiking experiences in over 50 countries by clicking on one of the flags
+          real people in over 80
+          countries.
+      explore_hh_xp: Explore hitchhiking experiences in over 80 countries
       or_sign_in_with: or sign in with
       share_your_hh_xp: "Share your hitchhiking experience"
-      newest_hh_stories: "New hitchhiking Stories"
+      newest_hh_stories: "Newest hitchhiking Stories"
       newest_hitchhikers: "New Hitchhikers"
       newest_hitchhiking_trips: "New Hitchhiking Trips"
       logged: "logged %{trips_size} Trips"
@@ -254,7 +264,6 @@ en:
       and_find_hh_buddy: and find your next hitchhiking buddy
 
     future_trips:
-      future_trip: Future Trip
       departure: Departure
       by: By
       country: Country
@@ -296,7 +305,7 @@ en:
       with_two_other_people: with two other people
       with_three_other_people: with three other people
     show:
-      upcoming_trip: upcoming trip
+      upcoming_trip: Hitchhiking buddy wanted
       current_location: "Current location:"
       alone: alone
       gender_of_drivers: "Gender of passengers"
@@ -383,7 +392,6 @@ en:
       x_hours:
         one: 1 hour
         other: ! '%{count} hours'
-
   validators:
     arrival_after_departure: cannot be before the departure
     cannot_be_in_past: "can't be in past"

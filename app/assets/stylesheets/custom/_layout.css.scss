@@ -1,3 +1,9 @@
+img.profile_pic {
+  margin-right: 10px;
+  border: 1px solid #999;
+  @include border-radius(25px);
+}
+
 .navbar {
   .brand {
     img {
@@ -18,9 +24,6 @@
     img.profile_pic {
       width: 25px;
       height: 25px;
-      margin-right: 10px;
-      border: 1px solid #999;
-      @include border-radius(25px);
     }
   }
 
@@ -367,6 +370,35 @@ table.trips th {
   a {
     text-decoration: underline;
     color: white;
+  }
+}
+
+.bullet::before {
+  content: '\2022';
+  color: #c2c9d4;
+  margin-left: 4px;
+  margin-right: 7px;
+  font-size: 12px;
+  position: relative;
+}
+
+.future_trips {
+  .description {
+    padding-top: 5px;
+  }
+  .profile_pic {
+    width: 25px;
+    height: 25px;
+  }
+  border: 1px solid #f2f2f2;
+  .top {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 10px 10px 6px;
+  }
+  .bottom {
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 10px;
   }
 }
 

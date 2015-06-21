@@ -1,0 +1,35 @@
+%p.short_headline
+  %span 
+    %i.icon-road
+    = t('.find_hitchhiking_buddies')
+
+.future_trips
+  - future_trips.each do |future_trip|
+    .top
+      = render 'users/profile_image', user: future_trip.user
+      = hitchhiker_gender(future_trip.user.gender)
+      = link_to future_trip.user, user_path(future_trip.user)
+      %time.bullet= t('general.time_ago', time: time_ago_in_words(future_trip.created_at))
+      %span.bullet
+        = link_to send_mail_user_path(future_trip.user) do
+          = "<i class='icon-plus-sign green'></i>".html_safe
+          = t('.contact')
+
+    .bottom
+      Departure:
+      %b= future_trip.departure.strftime("%d %B %Y")
+      %br/
+      From:
+      %b= future_trip.formatted_from
+      To:
+      %b= future_trip.formatted_to
+
+      - unless future_trip.description.blank?
+        %br/
+        = RDiscount.new(truncate(future_trip.description, :length => 400)).to_html.html_safe
+
+%p
+  = link_to t('.more_hitchhiking_buddies'), future_trips_path
+  - if user_signed_in?
+    %br/
+    = link_to t('.list_your_own_hitchhiking_adventure'), new_future_trip_path

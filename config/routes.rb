@@ -9,7 +9,7 @@ Hitchlog::Application.routes.draw do
 
   # omniauth:
 
-  resources :future_trips, except: [:show]
+  resources :future_trips, path: 'hitchhiking_buddies', except: [:show]
 
   resources :users, :path => 'hitchhikers' do
     member do

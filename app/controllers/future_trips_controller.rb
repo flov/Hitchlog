@@ -1,7 +1,7 @@
 class FutureTripsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
-  expose(:future_trips) { FutureTrip.scoped }
+  expose(:future_trips) { FutureTrip.scoped.order(:departure).paginate(page: params[:page], per_page: 10) }
   expose(:future_trip)  { future_trip_in_context }
 
   def create

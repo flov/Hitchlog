@@ -17,23 +17,19 @@
         = link_to t('general.sign_up'), new_user_registration_path, class: 'btn btn-primary', style: 'margin-right: 10px;'
         = t('.or_sign_in_with')
         = link_to image_tag('omniauthbuttons/png/facebook_32.png'), '/auth/facebook', alt: 'Sign in with fb', style: 'margin-left: 10px;'
-  .span3
 
-.row-fluid.explore_countries.centered-row.text-center
-  .span3
-  .span6
     = succeed ':' do
       = t('.explore_hh_xp')
     %p= all_country_images
 
-  .span3
-
 %hr/
 
 .row-fluid
-  .span4
+  .span6
     = render 'newest_stories'
-  .span4
+    %hr/
     = render 'newest_trips'
-  .span4
+  .span6
+    = render 'hitchhiking_buddies'
+    %hr/
     = render 'newest_hitchhikers'

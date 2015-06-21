@@ -22,11 +22,8 @@
 
     - if user.future_trips.any?
       %h4.short_headline
-        %span
-          #{pluralize(user.future_trips.size, t('.upcoming_trip'))}:
-      = render 'future_trips/future_trips', future_trips: user.future_trips
-
-
+        %span= "#{ t('.upcoming_trip') }:"
+      = render 'future_trips/future_trips', future_trips: user.future_trips.paginate(page: params[:hitchhiking_buddy_page])
 
     - if user.trips.any?
       = render 'trips/search_interface', search: @search
