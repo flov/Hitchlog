@@ -262,6 +262,7 @@ class Trip < ActiveRecord::Base
   end
 
   def age
-    ((departure.to_date - user.date_of_birth) / 356).to_i if self.user.date_of_birth
+    age = (departure.to_date - user.date_of_birth) / 365
+    age.to_i if self.user.date_of_birth
   end
 end

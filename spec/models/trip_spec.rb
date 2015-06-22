@@ -173,9 +173,9 @@ describe Trip do
 
   describe '#age' do
     it 'displays the age of the hitchhiker at the time the trip was done' do
-      trip.user.date_of_birth = 30.years.ago.to_date
-      trip.departure = 5.years.ago.to_datetime
-      trip.age.should == 25
+      trip.user.date_of_birth = 20.year.ago.to_date
+      trip.departure = ( 1.year.ago - 200.days ).to_datetime
+      trip.age.should == 18
     end
   end
 
