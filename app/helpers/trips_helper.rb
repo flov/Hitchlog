@@ -83,7 +83,4 @@ module TripsHelper
      </span>\
     ".html_safe
   end
-
-  def icon_helper_for_new_trip
-  end
 end
