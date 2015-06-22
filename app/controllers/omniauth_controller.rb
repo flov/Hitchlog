@@ -22,8 +22,9 @@ class OmniauthController < ApplicationController
       @user = User.new(email: data['email'],
                        gender: data['gender'],
                        password: Devise.friendly_token[0,20],
-                       date_of_birth: Date.strptime(data['birthday'], '%m/%d/%Y'),
                        username: facebook_username(data)) 
+
+      @user.date_of_birth = Date.strptime(data['birthday'], '%m/%d/%Y') unless date['birthday'].nil?
       @user.authentications.build(provider: access_token['provider'],
                                   uid: access_token['uid'])
       @user.save!
