@@ -114,6 +114,7 @@ en:
       user_wrote: "%{time} ago %{user} wrote:"
       log_in_or_register_to_comment: Log in or register to comment on this trip
     byline:
+      trip_age: "%{user} was %{age} years old when he did this trip"
       trip_duration: "Trip duration: %{time}"
       google_maps_duration: "Google Maps duration: %{time}"
     trip:

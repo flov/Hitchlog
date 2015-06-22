@@ -10,7 +10,7 @@
         = trip.rides.with_photo.size
         %i.icon-picture
     - if trip.user.date_of_birth
-      %li.tip{title: "#{trip.user} was #{trip.age} years old when he did this trip"}
+      %li.tip{title: t('.trip_age', age: trip.age, user: trip.user)}
         %i.icon-user
         = trip.age
         = t('general.years')
