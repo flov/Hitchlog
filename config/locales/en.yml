@@ -148,6 +148,7 @@ en:
       english: English
       german: German
   general:
+    user_age: "%{age} years old"
     experience: experience
     search: search
     by: by

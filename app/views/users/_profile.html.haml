@@ -2,6 +2,8 @@
   %h5.short_headline
     %span
       = link_to user, user_path(user)
+      %i.tip{title: t('general.user_age', age: user.age)}
+        = "(#{user.age}) "
       = hitchhiker_gender user.gender
 
   = render 'users/profile_image', user: user, type: "normal"
