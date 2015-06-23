@@ -135,10 +135,10 @@ class Trip < ActiveRecord::Base
   end
 
   def from_city_sanitized
-    if !self.from_city.blank? 
+    if !self.from_city.blank?
       self.from_city
     elsif !self.from_country.blank?
-      self.from_country 
+      self.from_country
     else
       self.from
     end
@@ -262,6 +262,6 @@ class Trip < ActiveRecord::Base
   end
 
   def age
-    ((departure.to_date - user.date_of_birth) / 356).to_i if self.user.date_of_birth
+    ((departure.to_date - user.date_of_birth) / 365).to_i if self.user.date_of_birth
   end
 end
