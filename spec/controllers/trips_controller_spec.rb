@@ -20,6 +20,16 @@ describe TripsController do
     end
   end
 
+  describe '#create_comment' do
+    let(:comment) { double('comment') }
+
+    it 'blocks unauthenticated access' do
+      post :create_comment
+
+      response.should redirect_to(new_user_session_path)
+    end
+  end
+
   describe '#index' do
     it 'renders the index view' do
       get :index

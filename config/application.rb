@@ -19,7 +19,7 @@ module Hitchlog
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.initialize_on_precompile = false
 
-
+    config.active_record.whitelist_attributes = false
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
 

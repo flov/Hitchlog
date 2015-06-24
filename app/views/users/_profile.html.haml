@@ -3,7 +3,8 @@
     %span
       = link_to user, user_path(user)
       %i.tip{title: t('general.user_age', age: user.age)}
-        = "(#{user.age}) "
+        = "(#{user.age})"
+      &nbsp;
       = hitchhiker_gender user.gender
 
   = render 'users/profile_image', user: user, type: "normal"

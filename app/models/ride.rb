@@ -7,20 +7,6 @@ class Ride < ActiveRecord::Base
 
   VEHICLES =    ['car', 'bus', 'truck', 'motorcycle', 'plane', 'boat']
 
-  attr_accessible :title,
-                  :story,
-                  :waiting_time,
-                  :date,
-                  :duration,
-                  :number,
-                  :experience,
-                  :gender,
-                  :photo,
-                  :photo_cache,
-                  :photo_caption,
-                  :tag_list,
-                  :vehicle
-
   validates_inclusion_of :experience, in: EXPERIENCES
 
   belongs_to :user

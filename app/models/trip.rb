@@ -25,36 +25,6 @@ class Trip < ActiveRecord::Base
                   :departure_time,
                   :arrival_time
 
-  attr_accessible :from,
-                  :to,
-                  :hitchhikes,
-                  :departure,
-                  :departure_time,
-                  :arrival,
-                  :arrival_time,
-                  :travelling_with,
-                  :route,
-                  :distance,
-                  :gmaps_duration,
-                  :from_lat,
-                  :from_lng,
-                  :from_formatted_address,
-                  :from_city,
-                  :from_country,
-                  :from_postal_code,
-                  :from_street,
-                  :from_street_no,
-                  :from_country_code,
-                  :to_lat,
-                  :to_lng,
-                  :to_formatted_address,
-                  :to_city,
-                  :to_country,
-                  :to_postal_code,
-                  :to_street,
-                  :to_street_no,
-                  :to_country_code
-
   after_create :get_country_distance
 
   scope :alone,      where(travelling_with: 0)

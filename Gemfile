@@ -15,12 +15,14 @@ group :assets do
   gem 'bootstrap-sass-rails'
 end
 
-gem 'acts-as-taggable-on'
+gem "strong_parameters"
+
+gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'decent_exposure'
-gem 'devise', '1.5.3'
+gem 'devise', '~> 3.0.0'
 gem 'rdiscount'
 gem 'will_paginate', '~> 3.0.pre2'
-gem 'nokogiri'
+gem 'nokogiri', '1.6.6.2'
 gem 'ransack'
 gem 'geocoder'
 gem 'haml', '~> 3.2.0.rc.4'

@@ -14,7 +14,7 @@ class FutureTripsController < ApplicationController
   end
 
   def update
-    if future_trip.update_attributes params[:future_trip]
+    if future_trip.update_attributes(future_trip_params)
       redirect_to user_path(current_user)
     else
       render action: :edit
@@ -29,11 +29,34 @@ class FutureTripsController < ApplicationController
 
   private
 
+  def future_trip_params
+    params.require("future_trip").permit(
+      :from,
+      :from_lat,
+      :from_lng,
+      :from_city,
+      :from_country,
+      :from_country_code,
+      :departure,
+      :to,
+      :to_lat,
+      :to_lng,
+      :to_city,
+      :to_country,
+      :to_country_code,
+      :description
+    )
+  end
+
   def future_trip_in_context
     if params[:id]
       FutureTrip.find(params[:id])
     else
-      FutureTrip.new(params[:future_trip])
+      if params['future_trip']
+        FutureTrip.new(future_trip_params)
+      else
+        FutureTrip.new
+      end
     end
   end
 end

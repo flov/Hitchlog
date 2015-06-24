@@ -54,7 +54,7 @@ Given /^I logged a trip$/ do
 end
 
 When /^I sign up as "([^"]*)"$/ do |username|
-  fill_in "Username", with: username
+  fill_in "user_username", with: username
   fill_in "Email", with: "#{username}@hitchlog.com"
   fill_in "user_password", with: 'password'
   fill_in "Password confirmation", with: 'password'

@@ -50,9 +50,9 @@ class TripsController < ApplicationController
   end
 
   def add_ride
-    tripp = Trip.find(params[:id])
-    tripp.add_ride
-    redirect_to edit_trip_path(tripp.to_param)
+    trip = Trip.find(params[:id])
+    trip.add_ride
+    redirect_to edit_trip_path(trip.to_param)
   end
 
   private
@@ -83,10 +83,44 @@ class TripsController < ApplicationController
     if params[:id]
       Trip.includes(:rides, :country_distances, user: [trips: [:rides, :country_distances]]).find(params[:id])
     else
-      Trip.new(params[:trip])
+      Trip.new(trip_params)
     end
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path, flash: { error: t('general.record_not_found')}
+  end
+
+  def trip_params
+    if params[:trip]
+      params.require(:trip).permit(
+        :from,
+        :to,
+        :hitchhikes,
+        :departure,
+        :departure_time,
+        :arrival,
+        :arrival_time,
+        :travelling_with,
+        :route,
+        :distance,
+        :gmaps_duration,
+        :from_lat,
+        :from_lng,
+        :from_formatted_address,
+        :from_city,
+        :from_country,
+        :from_postal_code,
+        :from_street,
+        :from_street_no,
+        :from_country_code,
+        :to_lat,
+        :to_lng,
+        :to_formatted_address,
+        :to_city,
+        :to_country,
+        :to_postal_code,
+        :to_street, :to_street_no, :to_country_code
+      )
+    end
   end
 
   def trips_in_context

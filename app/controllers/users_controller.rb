@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       flash[:success] = I18n.t('flash.users.update.notice')
       redirect_to user_path(@user)
     else
@@ -45,6 +45,29 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require("user").permit(
+      :email,
+      :password,
+      :password_confirmation,
+      :remember_me,
+      :username,
+      :about_you,
+      :cs_user,
+      :be_welcome_user,
+      :gender,
+      :lat,
+      :lng,
+      :city,
+      :location,
+      :country,
+      :country_code,
+      :origin,
+      :languages,
+      :date_of_birth
+    )
+  end
 
   def user_in_context
     if params[:id]

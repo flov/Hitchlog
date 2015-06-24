@@ -23,13 +23,13 @@
           #comment-form
 
   - if user_signed_in?
-    %h3 Leave a Comment
+    %h3= t('.leave_comment')
     = form_tag create_comment_trip_path(trip) do
       %span.inputwrapper
-        = label_tag :body, t('.message')
+        = label_tag :body, t('general.message')
         = text_area_tag :body, '', class: 'comment_body', rows: 5, cols: 30
       %br/
-      %input.btn.btn-primary{:name => "submit", :type => "submit", :value => "Add Comment"}/
+      %input.btn.btn-primary{:name => "submit", :type => "submit", value: t('.add_comment')}/
   - else
     %p
       = link_to new_user_session_path do

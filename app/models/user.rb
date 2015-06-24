@@ -2,25 +2,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email,
-                  :password,
-                  :password_confirmation,
-                  :remember_me,
-                  :username,
-                  :about_you,
-                  :cs_user,
-                  :be_welcome_user,
-                  :gender,
-                  :lat,
-                  :lng,
-                  :city,
-                  :location,
-                  :country,
-                  :country_code,
-                  :origin,
-                  :languages,
-                  :date_of_birth
-
   has_friendly_id :username
 
   has_many :rides, through: :trips

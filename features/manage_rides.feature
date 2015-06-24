@@ -9,6 +9,8 @@ Feature: Manage rides
     When I click on "Add Ride"
     Then I should be able to edit 2 ride
 
-  Scenario: manage vehicle
-    Then I should be able to choose a vehicle with "car", "truck", "motorcycle" and "plane"
+  Scenario: Manage ride
+    When I fill in the ride form
+    And I submit the ride form
+    Then I should see the ride information
 

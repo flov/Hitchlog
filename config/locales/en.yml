@@ -13,6 +13,7 @@ en:
         success: 'Ride updated! See the result below.'
       delete_photo:
         success: "Your photo is no more!"
+        error: Could not delete photo
       add_ride:
         success: "Added ride"
     trips:
@@ -110,6 +111,8 @@ en:
     show:
       title: "Hitchhiking from %{from_city} to %{to_city}"
     comments:
+      leave_comment: Leave a Comment
+      add_comment: Add comment
       there_are_no_comments: "There are no comments for this trip"
       user_wrote: "%{time} ago %{user} wrote:"
       log_in_or_register_to_comment: Log in or register to comment on this trip
@@ -148,6 +151,8 @@ en:
       english: English
       german: German
   general:
+    forgot_your_password: "Forgot your password?"
+    message: Message
     user_age: "%{age} years old"
     experience: experience
     search: search

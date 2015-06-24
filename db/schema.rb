@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007132226) do
+ActiveRecord::Schema.define(:version => 20150624223305) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -198,13 +198,13 @@ ActiveRecord::Schema.define(:version => 20131007132226) do
   add_index "trips", ["travelling_with"], :name => "index_trips_on_travelling_with"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                                  :null => false
-    t.string   "encrypted_password",   :limit => 128,                    :null => false
+    t.string   "email",                                                    :null => false
+    t.string   "encrypted_password",     :limit => 128,                    :null => false
     t.string   "password_salt"
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20131007132226) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.boolean  "admin",                               :default => false
+    t.boolean  "admin",                                 :default => false
     t.string   "gender"
     t.float    "lat"
     t.float    "lng"
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(:version => 20131007132226) do
     t.string   "languages"
     t.string   "origin"
     t.string   "be_welcome_user"
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "users", ["country"], :name => "index_users_on_country"

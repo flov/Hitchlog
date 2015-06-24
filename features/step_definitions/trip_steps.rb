@@ -149,8 +149,26 @@ Then /^I should be able to edit (\d+) ride$/ do |number|
   page.all(".accordion_content").count.should eql(number.to_i)
 end
 
-Given /^I should be able to choose a vehicle with (".+")/ do |options|
-  options.scan(/"([^"]+?)"/).flatten.each do |option|
-    select(option, from:  'ride_vehicle')
-  end
+When /^I fill in the ride form$/ do
+  fill_in('ride_title', with: 'Example Title')
+  fill_in('ride_story', with: 'Example Story')
+  fill_in('ride_tag_list', with: 'Example Tag, Example Tag 2')
+  select('car', from: 'ride_vehicle')
+  fill_in('ride_waiting_time', with: '20')
+  fill_in('ride_duration', with: '4')
+  select('male', from: 'ride_gender')
+end
+
+When /^I submit the ride form$/ do
+  find('#accordion input[type="submit"]').click
+end
+
+Then /^I should see the ride information$/ do
+  page.should have_content('Example Title')
+  page.should have_content('Example Story')
+  page.should have_content('Example Tag')
+  page.should have_content('Example Tag 2')
+  page.should have_content('car')
+  page.should have_content('20 minutes')
+  page.find('.story_icons').should have_css('i.icon-male')
 end

@@ -9,7 +9,7 @@ Feature: Comments
     When I go to the page of this trip
     Then I should see "Leave a Comment"
     When I fill in a comment with "Wow!"
-    And I press "Add Comment"
+    And I press "Add comment"
     Then I should see Wow! in the comments dialog
 
   Scenario: Unknown user tries to comment
