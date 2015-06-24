@@ -3,9 +3,9 @@ Hitchlog::Application.routes.draw do
 
   filter :locale
 
-  match 'auth/:provider/callback', to: 'omniauth#create'
-  match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'auth/:provider/callback', to: 'omniauth#create', via: :post
+  match 'auth/failure', to: redirect('/'), via: :get
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: :get
 
   # omniauth:
 
@@ -35,12 +35,12 @@ Hitchlog::Application.routes.draw do
     end
   end
 
-  match 'home' => 'welcome#home'
-  match 'about' => 'welcome#about'
+  match 'home' => 'welcome#home', via: :get
+  match 'about' => 'welcome#about', via: :get
 
 
   # making static crisp html templates available to see if they are displayed correctly
-  match 'crisp/:action', controller: :crisp if Rails.env == 'development'
+  match 'crisp/:action', controller: :crisp, via: :get if Rails.env == 'development'
 
   root to: "welcome#home"
 
