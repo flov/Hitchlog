@@ -18,7 +18,7 @@ end
 gem "strong_parameters"
 
 gem 'acts-as-taggable-on', '~> 2.4.1'
-gem 'decent_exposure'
+gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 3.0.0'
 gem 'rdiscount'
 gem 'will_paginate', '~> 3.0.pre2'

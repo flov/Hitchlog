@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :user_owns_ride
 
-  expose( :ride )
+  expose( :ride ) { Ride.find(params["id"]) }
 
   def create
     ride.trip = Trip.find(params[:trip_id])
@@ -39,7 +39,7 @@ class RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(
+    params.require("ride").permit(
       :experience,
       :title,
       :story,
