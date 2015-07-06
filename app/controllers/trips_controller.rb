@@ -34,7 +34,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    if trip.update_attributes(params[:trip])
+    if trip.update_attributes(trip_params)
       respond_to do |wants|
         wants.html { redirect_to edit_trip_path(trip) }
         wants.js
