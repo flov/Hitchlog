@@ -21,16 +21,16 @@
       #{t('.be_welcome_user')}: #{link_to(user.be_welcome_user.capitalize, "http://www.bewelcome.org/members/#{user.be_welcome_user}")}
       %br/
     - if user != current_user
-      %i.icon-envelope
+      %i.fa.fa-envelope
       = link_to t('.send_mail'), send_mail_user_path(user)
       %br/
     %span.tip{title: t('general.member_since', time: user.created_at.strftime("%B %d, %Y"))}
-      %i.icon-user
+      %i.fa.fa-user
       = user.created_at.strftime("%B %d, %Y")
       %br/
     - if user.languages.present?
       %span.tip{title: t('general.languages')}
-        %i.icon-flag-alt
+        %i.fa.fa-flag
         = user.languages
       %br/
 
@@ -52,35 +52,35 @@
       %li
         %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
           = user.trips.size
-          %i.icon-road
+          %i.fa.fa-road
       %li
         %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
           = user.rides.size
-          %i.icon-thumbs-up
+          %i.fa.fa-thumbs-up
       %li
         %span.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
           #{number_with_delimiter(user.hitchhiked_kms, delimiter: ",")}
-          %i.icon-dashboard
+          %i.fa.fa-dashboard
       %li
         %span.tip{title: pluralize(user.stories.size, t('general.story'))}
           #{user.stories.size}
-          %i.icon-book
+          %i.fa.fa-book
 
     %ul.inline-list
       %li.tip{title: pluralize(user.comments.size, t('general.comment'))}
         = user.comments.size
-        %i.icon-comment-alt
+        %i.fa.fa-comment-o
       - if user.average_waiting_time
         %li.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
-          %i.icon-time
+          %i.fa.fa-time
       - if user.number_of_photos != 0
         %li.tip{title: pluralize(user.number_of_photos, t('general.photo'))}
           = user.number_of_photos
-          %i.icon-picture
+          %i.fa.fa-picture
       %li.tip{title: t('general.overall_average_speed', speed: user.average_speed )}
         = user.average_speed
-        %i.icon-dashboard
+        %i.fa.fa-dashboard
 
 %aside
   = render 'users/tag_cloud', user: user

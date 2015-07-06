@@ -1,10 +1,10 @@
 module FontAwesomeHelper
   def male(title = '')
-    "<i class='icon-male blue tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-male blue tip' title='#{title}'></i>".html_safe
   end
 
   def female(title = '')
-    "<i class='icon-female pink tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-female pink tip' title='#{title}'></i>".html_safe
   end
 
   def hitchhiker_gender(gender)
@@ -70,7 +70,7 @@ module FontAwesomeHelper
     country_distances = CountryDistance.pluck(:country).uniq
     country_distances -= ['unknown', '']
     country_distances.each do |country|
-      array << link_to(country(country), "trips/?country=#{country}")
+      array << link_to(country(country), "trips/?q%5Bcountry_distances_country_eq%5D=#{country}")
     end
     array.join(' ').html_safe
   end
@@ -90,9 +90,9 @@ module FontAwesomeHelper
 
   def waiting_time(time=nil)
     if time.nil?
-      "<i class='icon-time'></i>".html_safe
+      "<i class='fa fa-time'></i>".html_safe
     else
-      "<i class='icon-time tip' title='#{t('helper.waiting_time', time: time)}'></i>".html_safe
+      "<i class='fa fa-time tip' title='#{t('helper.waiting_time', time: time)}'></i>".html_safe
     end
   end
 
@@ -102,23 +102,21 @@ module FontAwesomeHelper
 
   def very_positive(title = t('helper.extremely_positive_experience'))
     "<span class='tip very-positive' title='#{title}'>
-      <i class='icon-heart'></i>
-      <i class='icon-smile'></i>
+      <i class='fa fa-heart'></i>
     </span>".html_safe
   end
   def positive(title = t('helper.positive_experience'))
-    "<i class='icon-smile tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-smile tip' title='#{title}'></i>".html_safe
   end
   def neutral(title = t('helper.neutral_experience'))
-    "<i class='icon-meh tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-meh tip' title='#{title}'></i>".html_safe
   end
   def negative(title = t('helper.negative_experience'))
-    "<i class='icon-frown tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-frown tip' title='#{title}'></i>".html_safe
   end
   def very_negative(title = t('helper.extremely_negative_experience'))
     "<span class='tip' title='#{title}'>
-      <i class='icon-bolt'></i>
-      <i class='icon-frown'></i>
+      <i class='fa fa-bolt'></i>
     </span>".html_safe
   end
 
@@ -137,31 +135,31 @@ module FontAwesomeHelper
   end
 
   def driving_time(time)
-    "<i class='icon-road tip' title='#{t('helper.driving_time', time: time)}'></i>".html_safe if time
+    "<i class='fa fa-road tip' title='#{t('helper.driving_time', time: time)}'></i>".html_safe if time
   end
 
   def photo
-    "<i class='icon-picture tip' title='#{t('helper.photo')}'></i>".html_safe
+    "<i class='fa fa-picture tip' title='#{t('helper.photo')}'></i>".html_safe
   end
 
   def number_of_rides(size)
     "<span class='tip' title='#{pluralize(size, t('general.ride'))}'>
       #{size}
-      <i class='icon-thumbs-up tip'></i>
+      <i class='fa fa-thumbs-up tip'></i>
     </span>".html_safe
   end
 
   def number_of_comments(size)
     "<span class='tip' title='#{pluralize(size, t('general.comment'))}'>
       #{size}
-      <i class='icon-comment tip'></i>
+      <i class='fa fa-comment tip'></i>
     </span>".html_safe
   end
 
   def number_of_photos(size)
     "<span class='tip' title='#{pluralize(size, t('general.photo'))}'>
       #{size}
-      <i class='icon-picture tip'></i>
+      <i class='fa fa-picture tip'></i>
     </span>".html_safe
   end
 

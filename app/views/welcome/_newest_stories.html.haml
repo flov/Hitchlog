@@ -1,6 +1,6 @@
 %p.short_headline
   %span 
-    %i.icon-book
+    %i.fa.fa-book
     = t('welcome.home.newest_hh_stories')
 %ul
   - Ride.with_story.latest_first.paginate(per_page: 4, page: 1).each do |ride|

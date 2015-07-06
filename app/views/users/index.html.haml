@@ -23,7 +23,7 @@
       %th= t('.logged_trips')
       %th= t('general.hitchhiked_kms')
       %th
-        %i.icon-star
+        %i.fa.fa-star
       %th= sort_link @search, :country, t('.location')
       %th= t('.member_since')
 
@@ -42,11 +42,11 @@
             kms
         %td
           %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
-            %i.icon-road
+            %i.fa.fa-road
             = user.trips.size
           &nbsp;&nbsp;
           %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
-            %i.icon-thumbs-up
+            %i.fa.fa-thumbs-up
             = user.rides.size
         %td
           = flag_with_country_name(user)

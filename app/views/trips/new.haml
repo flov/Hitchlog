@@ -21,7 +21,7 @@
 
       = f.input :departure, wrapper: :prepend  do
         %span.add-on.calendar
-          %i.icon-calendar
+          %i.fa.fa-calendar
         = f.input_field :departure, as: :string
         = f.input_field :departure_time, as: :string
 
@@ -29,7 +29,7 @@
                 hint: distance_of_time_helper,
                 wrapper: :prepend  do
         %span.add-on.calendar
-          %i.icon-calendar
+          %i.fa.fa-calendar
         = f.input_field :arrival, as: :string
         = f.input_field :arrival_time, as: :string
 

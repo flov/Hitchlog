@@ -1,7 +1,7 @@
 .home_sidebar.new_hitchhikers
   %p.short_headline
     %span 
-      %i.icon-user
+      %i.fa.fa-user
       = t('welcome.home.newest_hitchhikers')
   %ul
     - User.scoped.order('id DESC').paginate(per_page: 8, page: 1).each do |user|

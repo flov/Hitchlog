@@ -212,7 +212,7 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
-    font-awesome-rails (3.2.1.2)
+    font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     friendly_id (3.2.1.1)
@@ -283,7 +283,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.2)
-    multi_json (1.11.1)
+    multi_json (1.11.2)
     multipart-post (1.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -444,7 +444,7 @@ DEPENDENCIES
   faker
   fakeweb
   fog
-  font-awesome-rails
+  font-awesome-rails (~> 4.3.0)
   friendly_id (~> 3.2.1)
   geocoder
   gravatar_image_tag

@@ -22,7 +22,7 @@
         = link_to t('general.delete'), delete_photo_ride_path(ride), method: :delete, confirm: t('general.confirm'), class: 'btn btn-danger'
         %br/
       = f.label :photo
-      %i.icon-picture
+      %i.fa.fa-picture
       %br/
       = f.file_field :photo
       = f.hidden_field :photo_cache
@@ -38,13 +38,13 @@
       %br/
 
       = f.label :waiting_time
-      %i.icon-time
+      %i.fa.fa-time
       %br/
       = f.text_field :waiting_time, placeholder: t('activerecord.attributes.ride.waiting_time')
 
       %br/
       = f.label :duration
-      %i.icon-road
+      %i.fa.fa-road
       %br/
       = f.text_field :duration, placeholder: t('activerecord.attributes.ride.duration')
 

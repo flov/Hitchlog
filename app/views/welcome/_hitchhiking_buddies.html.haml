@@ -1,6 +1,6 @@
 %p.short_headline
   %span 
-    %i.icon-road
+    %i.fa.fa-road
     = t('.find_hitchhiking_buddies')
 
 .future_trips
@@ -12,7 +12,7 @@
       %time.bullet= t('general.time_ago', time: time_ago_in_words(future_trip.created_at))
       %span.bullet
         = link_to send_mail_user_path(future_trip.user) do
-          = "<i class='icon-plus-sign green'></i>".html_safe
+          = "<i class='fa fa-plus-sign green'></i>".html_safe
           = t('.contact')
 
     .bottom

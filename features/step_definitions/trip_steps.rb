@@ -170,5 +170,5 @@ Then /^I should see the ride information$/ do
   page.should have_content('Example Tag 2')
   page.should have_content('car')
   page.should have_content('20 minutes')
-  page.find('.story_icons').should have_css('i.icon-male')
+  page.find('.story_icons').should have_css('i.fa fa-male')
 end

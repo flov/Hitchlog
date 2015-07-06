@@ -3,15 +3,13 @@
     .container
       = link_to "#{image_tag("hitchlog_icon.png")} Hitchlog".html_safe, root_path, class: 'brand'
       %a{ class: "btn btn-navbar", 'data-toggle'=>"collapse", "data-target" => ".nav-collapse"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+        %span.fa.fa-bars
       .nav-collapse.collapse
         %ul.nav
-          %li{class: users_active }= link_to "<i class='icon-group'></i> #{t('.hitchhikers')}".html_safe, users_path
-          %li{class: trips_active }= link_to "<i class='icon-road'></i> #{t('.trips')}".html_safe, trips_path
+          %li{class: users_active }= link_to "<i class='fa fa-group'></i> #{t('.hitchhikers')}".html_safe, users_path
+          %li{class: trips_active }= link_to "<i class='fa fa-road'></i> #{t('.trips')}".html_safe, trips_path
           - if user_signed_in?
-            %li{class: new_trip_active }= link_to "<i class='icon-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
+            %li{class: new_trip_active }= link_to "<i class='fa fa-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path
           %li{class: about_active }= link_to t('.about'), about_path
 
         - if user_signed_in?
@@ -21,26 +19,25 @@
 
             .btn-group
               = link_to user_path(current_user), class: 'btn' do
-                %i.icon-user
-                = t('.your_profile')
+                = fa_icon 'user', text: t('.your_profile')
               %a.btn.dropdown-toggle{'data-toggle' => 'dropdown'}
-                %span.icon-caret-down
+                %span.fa.fa-caret-down
               %ul.dropdown-menu
                 %li
                   = link_to edit_user_path(current_user) do
-                    %i.icon-cog
+                    %i.fa.fa-cog
                     = t('.settings')
                 %li
                   = link_to new_trip_path do
-                    %i.icon-book
+                    %i.fa.fa-book
                     = t('.log_new_trip')
                 %li
                   = link_to future_trips_path do
-                    %i.icon-eye-open
+                    %i.fa.fa-users
                     = t('.find_hitchhiking_buddy')
                 %li
                   = link_to destroy_user_session_path do
-                    %i.icon-signout
+                    %i.fa.fa-sign-out
                     = t('.sign_out')
 
         - else
@@ -48,5 +45,5 @@
             %ul.nav
               %li
                 = link_to new_user_session_path do
-                  %i.icon-user
+                  %i.fa.fa-user
                   login

@@ -3,18 +3,18 @@
     %ul
       %li.tip{title: pluralize(user.trips.size, t('general.trip'))}
         = user.trips.size
-        %i.icon-road
+        %i.fa.fa-road
       %li.tip{title: pluralize(user.rides.size, t('general.ride'))}
         = user.rides.size
-        %i.icon-thumbs-up
+        %i.fa.fa-thumbs-up
       %li.tip{title: "#{number_with_delimiter(user.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
         #{number_with_delimiter(user.hitchhiked_kms, delimiter: ",")} kms
-        %i.icon-dashboard
+        %i.fa.fa-dashboard
 
       - if user.average_waiting_time
         %li.tip{title: "#{t('users.profile.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
-          %i.icon-time
+          %i.fa.fa-time
 
   = render 'geomap', user: user
 
@@ -25,7 +25,7 @@
       %h3
         %span.tip{title: pluralize(user.trips.size, t('general.trip'))}
           = user.trips.size
-          %i.icon-road
+          %i.fa.fa-road
       %p
         Total distance:
         = number_with_delimiter(user.hitchhiked_kms)
@@ -38,7 +38,7 @@
       %h3
         %span.tip{title: pluralize(user.rides.size, t('general.ride'))}
           = user.rides.size
-          %i.icon-thumbs-up
+          %i.fa.fa-thumbs-up
 
       %ul
         %li{class: "very positive"}

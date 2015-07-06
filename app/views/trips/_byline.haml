@@ -1,40 +1,40 @@
 .byline
   %ul.inline-list
     %li
-      %i.icon-pencil
+      %i.fa.fa-pencil
       = trip.departure.strftime("%B %d, %Y")
       = t('general.by')
       = link_to_user(trip.user)
     - unless trip.rides.with_photo.empty?
       %li.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
         = trip.rides.with_photo.size
-        %i.icon-picture
+        %i.fa.fa-picture
     - if trip.user.date_of_birth
       %li.tip{title: t('.trip_age', age: trip.age, user: trip.user)}
-        %i.icon-user
+        %i.fa.fa-user
         = trip.age
         = t('general.years')
 
     %li.tip{title: pluralize(trip.rides.size, t('general.ride'))}
-      %i.icon-thumbs-up
+      %i.fa.fa-thumbs-up
       = trip.rides.size
     %li.tip{title: "#{number_with_delimiter(trip.hitchhiked_kms)} #{t('general.hitchhiked_kms')}"}
       = number_with_delimiter(trip.hitchhiked_kms, :delimiter => ".")
       kms
-      %i.icon-dashboard
+      %i.fa.fa-dashboard
 
     %li.tip{title: t('general.average_speed', speed: trip.average_speed )}
       = trip.average_speed
-      %i.icon-dashboard
+      %i.fa.fa-dashboard
 
 .entry-meta
-  %i.icon-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
+  %i.fa.fa-long-arrow-right.tip{title: t('.trip_duration', time: accurate_time(trip.duration))}
     = accurate_time(trip.arrival - trip.departure)
   &nbsp;&nbsp;
 
   - if trip.total_waiting_time
     %span.tip{title: t('general.total_waiting_time', time: trip.total_waiting_time)}
-      %i.icon-time
+      %i.fa.fa-time
       = trip.total_waiting_time
     &nbsp;&nbsp;
 
@@ -44,7 +44,7 @@
 
 .entry-meta.tags
   - if trip.tag_list.any?
-    %i.icon-tags
+    %i.fa.fa-tags
     = tags(trip.tag_list)
     &nbsp;&nbsp;
 
