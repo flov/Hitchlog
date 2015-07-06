@@ -20,7 +20,7 @@ class TripsController < ApplicationController
   end
 
   def create_comment
-    comment = Comment.new(body: params[:body])
+    comment = Comment.new(comment_params)
     comment.trip_id = params[:id]
     comment.user_id = current_user.id
     if comment.save
@@ -121,6 +121,10 @@ class TripsController < ApplicationController
         :to_street, :to_street_no, :to_country_code
       )
     end
+  end
+
+  def comment_params
+    params.permit(:body)
   end
 
   def trips_in_context

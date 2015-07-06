@@ -4,8 +4,6 @@ class Comment < ActiveRecord::Base
 
   validates :body, presence: true
 
-  attr_accessible :body
-
   def to_s
     self.body
   end
