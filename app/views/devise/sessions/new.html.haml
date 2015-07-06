@@ -3,7 +3,7 @@
 .login-box.clearfix
   %header
     %h2.short_headline
-      %span Login to your account...
+      %span= t('.login_to_your_account')
 
   .login-wrapper.clearfix
     .float-right
@@ -23,13 +23,13 @@
 
         = f.label :remember_me, class: 'checkbox inline' do
           = f.check_box :remember_me
-          Remember Me
+          = t('devise.sessions.remember_me')
 
         .submit
-          = f.submit "Hitch in", class: 'btn btn-danger'
+          = f.submit t('.hitch_in'), class: 'btn btn-danger'
 
       %footer.clearfix
-        .forgotpw= link_to "Forgot Password?", new_user_password_path
+        .forgotpw= link_to t('.forgot_password'), new_user_password_path
 
     .float-left
       %ul
@@ -37,7 +37,6 @@
           = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 100%;'), '/auth/facebook'
 
       %p
-        = link_to new_user_registration_path do
-          Not on Hitchlog yet? Register here
+        = link_to t('.not_on_hitchlog'), new_user_registration_path
 
 
