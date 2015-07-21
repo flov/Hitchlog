@@ -83,3 +83,11 @@ Given /^"([^"]*)" logged a trip$/ do |username|
   FactoryGirl.create(:trip, user_id: user.id)
 end
 
+When /^I click on the sign out link$/ do
+  click_link "Sign Out"
+end
+
+Then /^I should be signed off$/ do
+  page.should_not have_content("Your Profile")
+end
+

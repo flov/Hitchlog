@@ -36,7 +36,7 @@
                     %i.fa.fa-users
                     = t('.find_hitchhiking_buddy')
                 %li
-                  = link_to destroy_user_session_path do
+                  = link_to destroy_user_session_path, method: :delete do
                     %i.fa.fa-sign-out
                     = t('.sign_out')
 
