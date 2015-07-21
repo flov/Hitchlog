@@ -20,7 +20,7 @@ gem "strong_parameters"
 
 gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'decent_exposure', '~> 2.3.2'
-gem 'devise', '~> 3.1.0'
+gem 'devise', '~> 3.2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'rdiscount'
