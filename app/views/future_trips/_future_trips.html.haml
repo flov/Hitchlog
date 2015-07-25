@@ -21,7 +21,7 @@
             = link_to t('general.delete'), future_trip_path(future_trip), method: :delete, data: {confirm: t('general.confirm')}
 
           - unless future_trip.description.blank?
-            %p= RDiscount.new( future_trip.description )
+            %p= future_trip.description
 
         - unless controller.controller_name == 'users' and controller.action_name == 'show'
           %td.by= user_with_gender(future_trip.user)
