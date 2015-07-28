@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true,
                        uniqueness: true,
-                       format: {with: /^[A-Za-z\d_-]+$/}
+                       format: {with: /\A[a-zA-Z0-9]+\z/}
 
   before_validation :sanitize_username
   before_validation :update_location_updated_at, if: 'location_changed?'

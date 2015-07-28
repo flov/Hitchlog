@@ -28,7 +28,7 @@ describe User do
       end
 
       it 'does not allow these letters:' do
-        '#$%? '.each_char do |letter|
+        '#$%?'.each_char do |letter|
           user.username = "username#{letter}"
           user.should_not be_valid
         end
