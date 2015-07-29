@@ -41,6 +41,7 @@ gem 'jbuilder'
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'bugsnag'
 end
 
 group :development do

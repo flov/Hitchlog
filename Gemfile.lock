@@ -38,6 +38,8 @@ GEM
     bootstrap-sass-rails (2.3.1.1)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
+    bugsnag (2.8.10)
+      json (~> 1.7, >= 1.7.7)
     builder (3.0.4)
     capistrano (2.9.0)
       highline
@@ -428,6 +430,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 2.4.1)
   bootstrap-sass-rails
+  bugsnag
   capistrano
   capistrano-ext
   capybara
