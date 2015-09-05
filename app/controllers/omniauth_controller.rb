@@ -22,7 +22,7 @@ class OmniauthController < ApplicationController
       @user = User.new(email: data['email'],
                        gender: data['gender'],
                        password: Devise.friendly_token[0,20],
-                       username: facebook_username(data)) 
+                       username: data['first_name']) 
 
       @user.date_of_birth = Date.strptime(data['birthday'], '%m/%d/%Y') unless date['birthday'].nil?
       @user.authentications.build(provider: access_token['provider'],
@@ -44,18 +44,4 @@ class OmniauthController < ApplicationController
     flash[:success] = "Successfully removed authentication."
     redirect_to authentications_url
   end
-
-  private
-
-
-  def facebook_username(hash)
-    # A user does not need to have a nickname configured:
-    # username: profile.php?id=100002244415511
-    if hash['username'].include? '?'
-      hash['first_name']
-    else
-      hash['username'].gsub('.', '_')
-    end
-  end
 end
-
