@@ -21,9 +21,9 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  @user = User.find_by_email('florian@hitchlog.com') || FactoryGirl.create(:user, email: "florian@hitchlog.com") unless @user
+  user = FactoryGirl.create(:user)
   visit new_user_session_path
-  fill_in "Username", with: @user.username
+  fill_in "Username", with: user.username
   fill_in "Password", with: 'password'
   click_button "Hitch in"
 end
@@ -38,9 +38,6 @@ end
 
 Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
   user = FactoryGirl.build(:user, email: "#{username}@hitchlog.com", username: username, city: city)
-  Rails.logger.info "HEY!"
-  Rails.logger.info user.valid?
-  Rails.logger.info user.errors.messages
   user.save!
 
   visit new_user_session_path

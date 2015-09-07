@@ -13,25 +13,25 @@ module NavigationHelpers
     when /^the forgot password page/
       new_user_password_path
     when /^the login page/
-      '/en/hitchhikers/login'
+      '/hitchhikers/login'
     when /^the signup page/
-      '/en/hitchhikers/sign_up'
+      '/hitchhikers/sign_up'
     when /^the profile page of (.*)$/
       user_path($1.downcase)
     when /^the hitchhikers page$/
-      '/en/hitchhikers'
+      '/hitchhikers'
     when /^the page of this trip$/
       trip_path(Trip.last)
     when /^the edit profile page of (.*)$/
-      "/en/hitchhikers/#{$1.downcase}/edit"
+      "/hitchhikers/#{$1.downcase}/edit"
     when /^the edit trip page$/
-      "/en/trips/#{Trip.last.to_param}/edit"
+      "/trips/#{Trip.last.to_param}/edit"
     when /^the edit page of that trip$/
-      "/en/trips/#{Trip.last.to_param}/edit"
+      "/trips/#{Trip.last.to_param}/edit"
     when /^the future trips page$/
       future_trips_path
     when /^the tag page of (.*)$/
-      "/en/trips/tags/#{$1.downcase}"
+      "/trips/tags/#{$1.downcase}"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

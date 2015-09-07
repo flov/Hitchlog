@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook]
 
   has_friendly_id :username
 
@@ -27,6 +28,21 @@ class User < ActiveRecord::Base
   end
 
   before_create :geocode, :reverse_geocode
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email            = auth.info.email
+      user.username         = self.choose_username(auth.info.first_name.downcase)
+      user.oauth_token      = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.provider         = auth.provider
+      user.uid              = auth.uid
+      user.name             = auth.info.name
+      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
+      user.password         = Devise.friendly_token[0,20]
+    end
+  end
+
 
   def facebook_user?
     self.authentications.where(provider: 'facebook').any?
@@ -171,6 +187,15 @@ class User < ActiveRecord::Base
     end
 
     hash.to_a.sort
+  end
+
+  def self.choose_username(username)
+    i = 1
+    while User.exists?(username: username)
+      username = "#{username.split(/\d/).first}#{i}"
+      i += 1
+    end
+    username
   end
 
   private

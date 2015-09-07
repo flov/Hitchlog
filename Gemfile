@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '3.2.14'
+gem 'rails', '~> 3.2'
 gem 'pg'
 gem 'unicorn'
 
@@ -21,8 +21,8 @@ gem "strong_parameters"
 gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 3.2.0'
-gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth', "~> 1.1.4"
+gem 'omniauth-facebook', '1.4.1'
 gem 'rdiscount'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri', '1.6.6.2'
