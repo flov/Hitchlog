@@ -16,7 +16,8 @@
       %p.sign_up
         = link_to t('general.sign_up'), new_user_registration_path, class: 'btn btn-primary', style: 'margin-right: 10px;'
         = t('.or_sign_in_with')
-        = link_to image_tag('omniauthbuttons/png/facebook_32.png'), user_omniauth_authorize_path(:facebook), alt: 'Sign in with fb', style: 'margin-left: 10px;'
+        %span#facebook_login
+          = link_to image_tag('omniauthbuttons/png/facebook_32.png'), user_omniauth_authorize_path(:facebook), alt: 'Sign in with fb', style: 'margin-left: 10px;'
 
     = succeed ':' do
       = t('.explore_hh_xp')

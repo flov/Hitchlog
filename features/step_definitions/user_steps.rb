@@ -88,3 +88,11 @@ Then /^I should be signed off$/ do
   page.should_not have_content("Your Profile")
 end
 
+When(/^I login with facebook$/) do
+  find('#facebook_login a').click
+end
+
+Then(/^I should be registered with facebook$/) do
+  expect(User.where(uid: 10206267250652792)).not_to be_empty
+end
+

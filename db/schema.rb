@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150624223305) do
+ActiveRecord::Schema.define(:version => 20150907201439) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -228,6 +228,11 @@ ActiveRecord::Schema.define(:version => 20150624223305) do
     t.string   "origin"
     t.string   "be_welcome_user"
     t.datetime "reset_password_sent_at"
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "oauth_token"
+    t.time     "oauth_expires_at"
+    t.string   "name"
   end
 
   add_index "users", ["country"], :name => "index_users_on_country"

@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
 
   def facebook_user?
-    self.authentications.where(provider: 'facebook').any?
+    self.provider == 'facebook'
   end
 
   def to_s

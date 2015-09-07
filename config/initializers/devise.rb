@@ -20,5 +20,5 @@ Devise.setup do |config|
 
   config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'],
     strategy_class: OmniAuth::Strategies::Facebook,
-    scope: 'email,user_birthday'
+    scope: 'email,user_birthday,read_custom_friendlists'
 end

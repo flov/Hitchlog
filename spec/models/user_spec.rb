@@ -5,7 +5,6 @@ describe User do
 
   it { should have_many(:trips) }
   it { should have_many(:comments) }
-  it { should have_many(:authentications) }
   it { should have_many(:future_trips) }
 
   describe 'valid?' do
@@ -42,18 +41,6 @@ describe User do
       location_updated_at = user.location_updated_at
       user.save!
       user.location_updated_at.should == location_updated_at
-    end
-
-  end
-
-  describe "#facebook_user" do
-    it 'should test if the user has authenticated via facebook' do
-      user.authentications = []
-      user.facebook_user?.should be_false
-
-      user.authentications.build(provider: 'facebook', uid: 1011496368)
-      user.save!
-      user.facebook_user?.should be_true
     end
   end
 
@@ -205,6 +192,16 @@ describe User do
 
     it 'returns the number of trips sorted by age' do
       user.age_of_trips.should == [[20, 1],[21, 1],[22,1]]
+    end
+  end
+
+  describe '#choose_username' do
+    it 'should choose a different username if it already exists' do
+      User.choose_username('flov').should == 'flov'
+      FactoryGirl.create(:user, username: 'flov')
+      User.choose_username('flov').should == 'flov1'
+      FactoryGirl.create(:user, username: 'flov1')
+      User.choose_username('flov').should == 'flov2'
     end
   end
 end

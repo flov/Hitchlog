@@ -1,6 +1,6 @@
 - type ||= "normal"
 
-- if fb_user = user.authentications.where(provider: 'facebook').first
+- if user.facebook_user?
   = link_to user_path(user) do
     = image_tag "https://graph.facebook.com/#{fb_user.uid}/picture?type=#{type}", class: 'profile_pic'
 - else

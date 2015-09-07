@@ -41,4 +41,39 @@ Hitchlog::Application.configure do
   config.static_cache_control = "public, max-age=3600"
 
   config.assets.allow_debugging = true
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:facebook, {
+    :provider => 'facebook',
+    :uid => '10206267250652792',
+    :info => {
+      :email => "florian.vallen@gmail.com",
+      :first_name => "Florian",
+      :image => "http://graph.facebook.com/10206267250652792/picture",
+      :last_name => "Vallen",
+      :name => "Florian Vallen",
+      :urls => { :Facebook => "https://www.facebook.com/app_scoped_user_id/10206267250652792/" },
+    },
+    :credentials => {
+      :token => 'ABCDEF',
+      :expires_at => 1446642385,
+      :expires => true
+    },
+    :extra => {
+      :raw_info => {
+        :birthday => "08/16/1986",
+        :email => "florian.vallen@gmail.com",
+        :first_name => "Florian",
+        :gender => "male",
+        :id => "10206267250652792",
+        :last_name => "Vallen",
+        :link => "https://www.facebook.com/app_scoped_user_id/10206267250652792/",
+        :locale => "en_US",
+        :name => "Florian Vallen",
+        :timezone => 2,
+        :updated_time => "2015-07-19T11:39:24+0000",
+        :verified => true
+      }
+    }
+  })
 end
