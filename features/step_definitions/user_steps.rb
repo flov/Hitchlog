@@ -96,3 +96,7 @@ Then(/^I should be registered with facebook$/) do
   expect(User.where(uid: 10206267250652792)).not_to be_empty
 end
 
+Given /^a user with email same as his facebook account$/ do
+  FactoryGirl.create(:user, email: 'florian@hitchlog.com')
+end
+

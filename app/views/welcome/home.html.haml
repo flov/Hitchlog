@@ -13,7 +13,7 @@
       = link_to t('.share_your_hh_xp'), new_trip_path
 
     - unless user_signed_in?
-      %p.sign_up
+      %p.sign_up#facebook_login
         = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 300px;'), user_omniauth_authorize_path(:facebook)
       %p
         or

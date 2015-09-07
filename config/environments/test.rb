@@ -47,7 +47,7 @@ Hitchlog::Application.configure do
     :provider => 'facebook',
     :uid => '10206267250652792',
     :info => {
-      :email => "florian.vallen@gmail.com",
+      :email => "florian@hitchlog.com",
       :first_name => "Florian",
       :image => "http://graph.facebook.com/10206267250652792/picture",
       :last_name => "Vallen",
