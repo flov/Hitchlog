@@ -17,13 +17,24 @@ class Ride < ActiveRecord::Base
 
   scope :with_photo, select{|r| r.photo.present?}
   scope :with_story, where("story <> ''")
-
   scope :latest_first, order('id DESC')
   scope :oldest_first, order('id ASC')
+
+  scope :very_good_experiences, where(experience: "extremely positive")
+  scope :good_experiences,      where(experience: "positive")
+  scope :neutral_experiences,   where(experience: "neutral")
+  scope :bad_experiences,       where(experience: "negative")
+  scope :very_bad_experiences,  where(experience: "extremely negative")
 
   mount_uploader :photo, PhotoUploader
 
   acts_as_taggable_on :tags
+
+  %w(very_good good neutral bad very_bad).each do |name|
+    define_singleton_method "#{name}_experiences_ratio" do
+      (( self.send("#{name}_experiences").count.to_f / self.count ) * 100 ).round(2)
+    end
+  end
 
   def to_s
     self.trip

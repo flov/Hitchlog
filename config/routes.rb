@@ -11,6 +11,8 @@ Hitchlog::Application.routes.draw do
 
   resources :future_trips, path: 'hitchhiking_buddies', except: [:show]
 
+  resources :statistics, only: [:index]
+
   resources :users, :path => 'hitchhikers' do
     member do
       get :trips

@@ -73,11 +73,14 @@ en:
       with_3: "3 people"
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
+  statistics:
+    index:
+      title: Hitchhiking Statistics
+      meta_description: Global statistics of hitchhiking
   trips:
     index:
       title: Hitchhinking Trips
-      meta_description: 'Hallo?'
-      meta_desc: Explore the hitchhiking experience of other hitchhikers
+      meta_description: Explore the hitchhiking experience of other hitchhikers
       latest_hitchhiking_trips: "Hitchhiking trips"
       log_new_trip: "Log New Trip"
       to_log_a_new_hitchhiking_trip: "to log a new hitchhiking trip."

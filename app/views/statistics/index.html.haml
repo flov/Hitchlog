@@ -1,0 +1,30 @@
+- title t('.title')
+- meta_description(t('.meta_description'))
+
+%h1 Statistics
+%ul
+  %li
+    = User.count
+    hitchhikers
+  %li
+    = Trip.count
+    Trips
+  %li
+    = Ride.count
+    Rides
+    %br/
+    = Ride.very_good_experiences.count
+    very good experiences: #{Ride.very_good_experiences_ratio}%
+    %br/
+    = Ride.good_experiences.count
+    good experiences: #{Ride.good_experiences_ratio}%
+    %br/
+    = Ride.neutral_experiences.count
+    neutral experiences: #{Ride.neutral_experiences_ratio}%
+    %br/
+    = Ride.bad_experiences.count
+    bad experiences: #{Ride.bad_experiences_ratio}%
+    %br/
+    = Ride.very_bad_experiences.count
+    very bad experiences: #{Ride.very_bad_experiences_ratio}%
+
