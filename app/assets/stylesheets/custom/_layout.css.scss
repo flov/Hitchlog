@@ -197,11 +197,11 @@ a.tag  {
 a.tag:hover{ background: $mainColor; color:#fff; }
 
 
-.very.positive {
+.very.good {
   color: $green;
   i{ color: $green; }
 }
-.positive {
+.good {
   color: $lightgreen;
   i { color: $lightgreen; }
 }
@@ -209,11 +209,11 @@ a.tag:hover{ background: $mainColor; color:#fff; }
   color: $orange;
   i { color: $orange; }
 }
-.negative {
+.bad {
   color: $red;
   i { color: $red; }
 }
-.very.negative {
+.very.bad {
   color: $red;
   i { color: $red; }
 }
@@ -328,9 +328,6 @@ footer#footer{
 
 .icon-meh {
   color: gray;
-}
-.very-positive {
-  color: black;
 }
 .icon-frown {
   color: #da4f49;

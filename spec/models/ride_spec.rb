@@ -8,7 +8,7 @@ describe Ride do
 
   describe 'valid?' do
     it 'validates experience' do
-      ['extremely positive', 'positive', 'neutral', 'negative', 'extremely negative'].each do |experience|
+      ['very good', 'good', 'neutral', 'bad', 'very bad'].each do |experience|
         ride.experience = experience
         ride.should be_valid
       end

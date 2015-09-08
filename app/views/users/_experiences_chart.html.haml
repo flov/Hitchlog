@@ -5,8 +5,8 @@
     function drawExperiences() {
       var wrapper = new google.visualization.ChartWrapper({
         chartType: 'ColumnChart',
-        dataTable: [['', 'Very positive', 'Positive', 'Neutral', 'Negative', 'Very Negative'],
-                    ['', #{user.very_positive_experiences}, #{user.positive_experiences}, #{user.neutral_experiences}, #{user.negative_experiences}, #{user.very_negative_experiences}]],
+        dataTable: [['', 'Very Good', 'Good', 'Neutral', 'Bad', 'Very Bad'],
+                    ['', #{user.very_good_experiences}, #{user.good_experiences}, #{user.neutral_experiences}, #{user.bad_experiences}, #{user.very_bad_experiences}]],
         options: {'title': 'Experiences'},
         containerId: 'experiences_chart'
       });
@@ -14,9 +14,10 @@
     }
 
 
-        ['Very positive',    #{user.very_positive_experiences}],
-        ['Neutral',          #{user.neutral_experiences}],
-        ['Negative',         #{user.negative_experiences}],
-        ['Very negative',    #{user.very_negative_experiences}]
+        ['Very good',   #{user.very_good_experiences}],
+        ['Neutral',     #{user.neutral_experiences}],
+        ['bad',         #{user.bad_experiences}],
+        ['Very bad',    #{user.very_bad_experiences}]
 
 #experiences_chart
+

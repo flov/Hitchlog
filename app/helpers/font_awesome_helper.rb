@@ -100,37 +100,37 @@ module FontAwesomeHelper
     tag_list.map{|tag| link_to h(tag), trips_path("q[rides_tags_name_eq]" => tag), class: 'tag'}.join(' ').html_safe
   end
 
-  def very_positive(title = t('helper.extremely_positive_experience'))
-    "<span class='tip very-positive' title='#{title}'>
+  def very_good(title = t('helper.very_good_experience'))
+    "<span class='tip very-good' title='#{title}'>
       <i class='fa fa-heart'></i>
     </span>".html_safe
   end
-  def positive(title = t('helper.positive_experience'))
+  def good(title = t('helper.good_experience'))
     "<i class='fa fa-smile tip' title='#{title}'></i>".html_safe
   end
   def neutral(title = t('helper.neutral_experience'))
     "<i class='fa fa-meh tip' title='#{title}'></i>".html_safe
   end
-  def negative(title = t('helper.negative_experience'))
+  def bad(title = t('helper.bad_experience'))
     "<i class='fa fa-frown tip' title='#{title}'></i>".html_safe
   end
-  def very_negative(title = t('helper.extremely_negative_experience'))
+  def very_bad(title = t('helper.very_bad_experience'))
     "<span class='tip' title='#{title}'>
       <i class='fa fa-bolt'></i>
     </span>".html_safe
   end
 
   def experience(exp)
-    if exp == 'positive'
-      positive
-    elsif exp == 'extremely positive'
-      very_positive
+    if exp == 'good'
+      good
+    elsif exp == 'very good'
+      very_good
     elsif exp == 'neutral'
       neutral
-    elsif exp == 'negative'
-      negative
-    elsif exp == 'extremely negative'
-      very_negative
+    elsif exp == 'bad'
+      bad
+    elsif exp == 'very bad'
+      very_bad
     end
   end
 
@@ -139,7 +139,7 @@ module FontAwesomeHelper
   end
 
   def photo
-    "<i class='fa fa-picture tip' title='#{t('helper.photo')}'></i>".html_safe
+    "<i class='fa fa-picture-o tip' title='#{t('helper.photo')}'></i>".html_safe
   end
 
   def number_of_rides(size)
@@ -159,7 +159,7 @@ module FontAwesomeHelper
   def number_of_photos(size)
     "<span class='tip' title='#{pluralize(size, t('general.photo'))}'>
       #{size}
-      <i class='fa fa-picture tip'></i>
+      <i class='fa fa-picture-o tip'></i>
     </span>".html_safe
   end
 

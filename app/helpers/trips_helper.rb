@@ -43,11 +43,11 @@ module TripsHelper
 
   def experiences
     [
-      t('general.extremely_positive'),
-      t('general.positive'),
+      t('general.very_good'),
+      t('general.good'),
       t('general.neutral'),
-      t('general.negative'),
-      t('general.extremely_negative')
+      t('general.bad'),
+      t('general.very_bad')
     ]
   end
 

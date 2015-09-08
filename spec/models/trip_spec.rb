@@ -137,27 +137,27 @@ describe Trip do
   end
 
   describe "#experience" do
-    context "has only positive experiences" do
-      it "returns a positive experience" do
-        trip.rides << FactoryGirl.create(:ride, :experience => 'positive')
-        trip.overall_experience.should == 'positive'
+    context "has only good experiences" do
+      it "returns a good experience" do
+        trip.rides << FactoryGirl.create(:ride, :experience => 'good')
+        trip.overall_experience.should == 'good'
       end
     end
 
     context "has a neutral experience" do
       it "returns a neutral experience" do
-        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'positive' )
+        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'good' )
         trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'neutral' )
         trip.overall_experience.should == 'neutral'
       end
     end
 
-    context "has a negative experience" do
-      it "returns a negative experience" do
-        trip.rides << FactoryGirl.build(:ride, :experience => 'positive')
+    context "has a bad experience" do
+      it "returns a bad experience" do
+        trip.rides << FactoryGirl.build(:ride, :experience => 'good')
         trip.rides << FactoryGirl.build(:ride, :experience => 'neutral')
-        trip.rides << FactoryGirl.build(:ride, :experience => 'negative')
-        trip.overall_experience.should == 'negative'
+        trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
+        trip.overall_experience.should == 'bad'
       end
     end
   end

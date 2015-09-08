@@ -69,24 +69,24 @@ class User < ActiveRecord::Base
     username
   end
 
-  def very_positive_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'extremely positive'}).size
+  def very_good_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'very good'}).size
   end
 
-  def positive_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'positive'}).size
+  def good_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'good'}).size
   end
 
   def neutral_experiences
     self.trips.joins(:rides).where( rides: {experience: 'neutral'}).size
   end
 
-  def negative_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'negative'}).size
+  def bad_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'bad'}).size
   end
 
-  def very_negative_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'extremely negative'}).size
+  def very_bad_experiences
+    self.trips.joins(:rides).where( rides: {experience: 'very bad'}).size
   end
 
   def genders

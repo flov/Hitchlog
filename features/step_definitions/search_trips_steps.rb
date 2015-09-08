@@ -35,7 +35,7 @@ When /^I search for trips with an? "([^"]*)" experience$/ do |experience|
 end
 
 Then /^I should see a trip with an? "([^"]*)" experience$/ do |experience|
-  page.should have_css('table.trips span.very-positive')
+  page.should have_css('table.trips span.very-good')
 end
 
 Then /^I should not see a trip with an? "([^"]*)" experience$/ do |experience|

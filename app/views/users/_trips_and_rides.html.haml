@@ -41,16 +41,16 @@
           %i.fa.fa-thumbs-up
 
       %ul
-        %li{class: "very positive"}
-          = "#{user.very_positive_experiences} very positive experiences" unless user.very_positive_experiences == 0
-        %li{class: "positive"}
-          = "#{user.positive_experiences} positive experiences" unless user.positive_experiences == 0
+        %li{class: "very good"}
+          = "#{user.very_good_experiences} very good experiences" unless user.very_good_experiences == 0
+        %li{class: "good"}
+          = "#{user.good_experiences} good experiences" unless user.good_experiences == 0
         %li{class: "neutral"}
           = "#{user.neutral_experiences} neutral experiences" unless user.neutral_experiences == 0
-        %li{class: "negative"}
-          = "#{user.negative_experiences} negative experiences" unless user.negative_experiences == 0
-        %li{class: "very negative"}
-          = "#{user.very_negative_experiences} very negative experiences" unless user.very_negative_experiences == 0
+        %li{class: "bad"}
+          = "#{user.bad_experiences} bad experiences" unless user.bad_experiences == 0
+        %li{class: "very bad"}
+          = "#{user.very_bad_experiences} very bad experiences" unless user.very_bad_experiences == 0
 
       - if user.vehicles.any?
         %h4 Type of rides:

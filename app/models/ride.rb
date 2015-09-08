@@ -1,9 +1,9 @@
 class Ride < ActiveRecord::Base  
-  EXPERIENCES = ['extremely positive',
-                 'positive',
+  EXPERIENCES = ['very good',
+                 'good',
                  'neutral',
-                 'negative',
-                 'extremely negative']
+                 'bad',
+                 'very bad']
 
   VEHICLES =    ['car', 'bus', 'truck', 'motorcycle', 'plane', 'boat']
 
@@ -20,19 +20,19 @@ class Ride < ActiveRecord::Base
   scope :latest_first, order('id DESC')
   scope :oldest_first, order('id ASC')
 
-  scope :very_good_experiences, where(experience: "extremely positive")
-  scope :good_experiences,      where(experience: "positive")
+  scope :very_good_experiences, where(experience: "very good")
+  scope :good_experiences,      where(experience: "good")
   scope :neutral_experiences,   where(experience: "neutral")
-  scope :bad_experiences,       where(experience: "negative")
-  scope :very_bad_experiences,  where(experience: "extremely negative")
+  scope :bad_experiences,       where(experience: "bad")
+  scope :very_bad_experiences,  where(experience: "very bad")
 
   mount_uploader :photo, PhotoUploader
 
   acts_as_taggable_on :tags
 
-  %w(very_good good neutral bad very_bad).each do |name|
-    define_singleton_method "#{name}_experiences_ratio" do
-      (( self.send("#{name}_experiences").count.to_f / self.count ) * 100 ).round(2)
+  Ride::EXPERIENCES.each do |exp|
+    define_singleton_method "#{exp.parameterize("_")}_experiences_ratio" do
+      (( self.send("#{exp.parameterize("_")}_experiences").count.to_f / self.count ) * 100 ).round(2)
     end
   end
 
