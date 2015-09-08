@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
       user.provider         = auth.provider
       user.uid              = auth.uid
       user.name             = auth.info.name
-      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y')
+      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
       user.password         = Devise.friendly_token[0,20]
     end
   end
