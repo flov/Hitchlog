@@ -41,9 +41,11 @@ class User < ActiveRecord::Base
       return user
     end
 
+    username = choose_username(auth.info.first_name.downcase)
+
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email            = auth.info.email
-      user.username         = self.choose_username(auth.info.first_name.downcase)
+      user.username         = username
       user.oauth_token      = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.provider         = auth.provider
@@ -203,7 +205,9 @@ class User < ActiveRecord::Base
   def self.choose_username(username)
     i = 1
     while User.exists?(username: username)
-      username = "#{username.split(/\d/).first}#{i}"
+      logger.info "!!!!!!!"
+      logger.info username
+      username = "#{username.split(/\d/)[0]}#{i}"
       i += 1
     end
     username
