@@ -205,8 +205,6 @@ class User < ActiveRecord::Base
   def self.choose_username(username)
     i = 1
     while User.exists?(username: username)
-      logger.info "!!!!!!!"
-      logger.info username
       username = "#{username.split(/\d/)[0]}#{i}"
       i += 1
     end
