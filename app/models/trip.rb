@@ -235,4 +235,18 @@ class Trip < ActiveRecord::Base
     age = (departure.to_date - user.date_of_birth) / 365
     age.to_i if self.user.date_of_birth
   end
+
+  def self.kms_by_month(start)
+    q = Trip.where(created_at: start.beginning_of_month..Time.now)
+    q = q.select("date_trunc('month', created_at) as ordered_date, sum(distance) as total_distance")
+    q = q.group("ordered_date").order('ordered_date')
+    q.map(&:attributes).group_by { |hash| hash["ordered_date"].to_date }
+  end
+
+  def self.trips_by_month(start)
+    q = Trip.select("date_trunc('month', created_at) as ordered_date, count(*) as trips_count")
+    q = q.where(created_at: start.beginning_of_month..Time.now)
+    q = q.group('ordered_date').order('ordered_date')
+    q.map(&:attributes).group_by { |hash| hash["ordered_date"].to_date }
+  end
 end

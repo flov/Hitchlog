@@ -18,6 +18,9 @@
 //= require vendor/picker.date
 //= require vendor/picker.time
 //
+//= require vendor/raphael-min
+//= require vendor/morris.min
+//
 //= require map
 //= require location
 //= require timeago

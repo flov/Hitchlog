@@ -2,6 +2,25 @@
 - meta_description(t('.meta_description'))
 
 %h1 Statistics
+
+%h2 Logged Trips per month
+= content_tag(:div, '', id: 'hitchhiked_kms_per_month',
+  data: {trips: trips_data(1.year.ago)})
+
+%h2 Company while hitchhiking
+= content_tag(:div, '', id: 'company_while_hitchhiking_donut',
+  data: {hitchhikers_by_gender: hitchhikers_by_gender})
+
+%h2 Gender
+= content_tag(:div, '', id: 'gender_donut',
+  data: {hitchhikers_by_gender: hitchhikers_by_gender})
+
+%h2 Experiences (without the good experiences)
+= content_tag(:div, '', id: 'experiences_donut',
+  data: {experiences: experiences_data })
+
+#graph
+
 %ul
   %li
     = User.count
@@ -9,9 +28,15 @@
   %li
     = Trip.count
     Trips
+    = "~>"
+    = (Trip.count.to_f / User.count).round(1)
+    Trips per User
   %li
     = Ride.count
     Rides
+    = "~>"
+    = (Ride.count.to_f / Trip.count).round(1)
+    Rides per Trip
     %br/
     = Ride.very_good_experiences.count
     very good experiences: #{Ride.very_good_experiences_ratio}%
@@ -28,3 +53,5 @@
     = Ride.very_bad_experiences.count
     very bad experiences: #{Ride.very_bad_experiences_ratio}%
 
+- content_for :javascript_at_bottom do
+  = javascript_include_tag 'statistics'

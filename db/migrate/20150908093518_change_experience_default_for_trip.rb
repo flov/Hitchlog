@@ -1,5 +1,6 @@
 class ChangeExperienceDefaultForTrip < ActiveRecord::Migration
   def up
+    print "Changing `experience` labels for #{Ride.count}, this might take a while"
     Ride.find_each do |ride|
       case ride.experience
       when 'extremely positive'
