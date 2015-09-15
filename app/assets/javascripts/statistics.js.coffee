@@ -39,3 +39,20 @@ jQuery ->
   ).on('click', (i, row) ->
     window.location.href = "http://#{window.location.hostname}/trips?q%5Brides_experience_eq%5D=#{row.label}"
   )
+
+  new Morris.Bar(
+    element: 'top_10_hitchhikers',
+    data: $('#top_10_hitchhikers').data('hitchhikers'),
+    xkey: 'username',
+    ykeys: ['total_distance'],
+    labels: ['Hitchhiked kms']
+    barColors: (row, series, type) ->
+      if (row.label.slice(-1) == 'm')
+        return '#0B62A4'
+      else
+        return '#FF8DA1'
+  ).on('click', (i, row) ->
+    username = row.username.toLowerCase().substring(0, row.username.length - 2)
+    window.location.href = "http://#{window.location.hostname}/hitchhikers/#{username}"
+  )
+

@@ -25,26 +25,15 @@
 .row-fluid
   .span12
     %h3.short_headline
+      %span Top 10 hitchhikers
+    = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
+.row-fluid
+  .span12
+    %h3.short_headline
       %span Logged Trips per month
-    = content_tag(:div, '', id: 'hitchhiked_kms_per_month', class: 'piechart',
-      data: {trips: trips_data(1.year.ago)})
 
-%ul
-  %li
-    = User.count
-    hitchhikers
-  %li
-    = Trip.count
-    Trips
-    = "~>"
-    = (Trip.count.to_f / User.count).round(1)
-    Trips per User
-  %li
-    = Ride.count
-    Rides
-    = "~>"
-    = (Ride.count.to_f / Trip.count).round(1)
-    Rides per Trip
+    = content_tag(:div, '', id: 'hitchhiked_kms_per_month',
+      data: {trips: trips_data(1.year.ago)})
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'statistics'

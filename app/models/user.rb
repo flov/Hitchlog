@@ -211,6 +211,14 @@ class User < ActiveRecord::Base
     username
   end
 
+  def self.top_10_hitchhikers
+    q = User.joins(:trips)
+    q = q.select("username, sum(trips.distance) as total_distance")
+    q = q.group('username')
+    q.map{|user| {username: user.username, total_distance: user.total_distance.to_i / 1000}}.
+      sort_by{|a| a[:total_distance]}[-11..-1]
+  end
+
   def self.sign_ups_by_month(start)
     q = User.select("date_trunc('month', created_at) as ordered_date, count(*) as users_count")
     q = q.where(created_at: start.beginning_of_month..Time.now)

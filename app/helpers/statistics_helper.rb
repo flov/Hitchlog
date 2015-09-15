@@ -49,4 +49,13 @@ module StatisticsHelper
       }
     end
   end
+
+  def top_10_hitchhikers
+    User.top_10_hitchhikers.map do |user|
+      {
+        username: "#{user[:username].capitalize} #{User.find_by_username(user[:username]).gender[0]}",
+        total_distance: user[:total_distance]
+      }
+    end
+  end
 end

@@ -33,7 +33,7 @@ class RidesController < ApplicationController
   def destroy
     ride.destroy
     flash[:success] = "This ride is no more. HAHAHAHAAAAA *Evil laughter*"
-    redirect_to edit_trip_path(ride.trip)
+    redirect_to user_path(current_user)
   end
 
   private
