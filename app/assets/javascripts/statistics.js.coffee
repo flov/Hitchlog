@@ -1,20 +1,4 @@
 jQuery ->
-  monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"]
-
-  new Morris.Line(
-    element: 'hitchhiked_kms_per_month'
-    data: $('#hitchhiked_kms_per_month').data('trips')
-    xkey: 'created_at'
-    ykeys: ['trips_count', 'sign_ups_count']
-    labels: ['Number of Trips', 'Sign Ups']
-    xLabels: 'month'
-    xLabelFormat: (x) ->
-      return monthNames[new Date(x).getMonth()]
-    dateFormat: (x) ->
-      return "#{monthNames[new Date(x).getMonth()]} #{new Date(x).getFullYear()}"
-  )
-
   new Morris.Donut(
     element: 'company_donut',
     data: $("#company_donut").data('company-for-trips')
@@ -56,3 +40,9 @@ jQuery ->
     window.location.href = "http://#{window.location.hostname}/hitchhikers/#{username}"
   )
 
+  new Morris.Donut(
+    element: 'waiting_time_donut',
+    data: $("#waiting_time_donut").data('waiting-time')
+    formatter: (y, data) ->
+      return "#{y}%"
+  )

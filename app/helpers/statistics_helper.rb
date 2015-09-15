@@ -58,4 +58,21 @@ module StatisticsHelper
       }
     end
   end
+
+  def waiting_time_data
+    interval = 10
+    array = (10..60).step(interval).map do |waiting_time|
+      {
+        label: "#{waiting_time - (interval-1)}-#{waiting_time} min",
+        value: Ride.ratio_for_waiting_time_between(waiting_time - (interval-1), waiting_time)
+      }
+    end
+    interval = 60
+    array + (120..240).step(interval).map do |waiting_time|
+      {
+        label: "#{waiting_time - (interval-1)}-#{waiting_time} min",
+        value: Ride.ratio_for_waiting_time_between(waiting_time - (interval-1), waiting_time)
+      }
+    end
+  end
 end

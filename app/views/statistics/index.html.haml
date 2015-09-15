@@ -4,36 +4,34 @@
 %h1 Statistics
 
 .row-fluid
-  .span4
+  .span12
+    %h3.short_headline
+      %span Top 10 hitchhikers
+    = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
+
+.row-fluid
+  .span6
     %h3.short_headline
       %span Company while hitchhiking
     = content_tag(:div, '', id: 'company_donut', class: 'piechart',
       data: {company_for_trips: company_for_trips })
 
-  .span4
+  .span6
     %h3.short_headline
       %span Gender of hitchhikers
     = content_tag(:div, '', id: 'gender_donut', class: 'piechart',
       data: {hitchhikers_by_gender: hitchhikers_by_gender})
 
-  .span4
+.row-fluid
+  .span6
     %h3.short_headline
       %span Experiences
     = content_tag(:div, '', id: 'experiences_donut', class: 'piechart',
       data: {experiences: experiences_data })
-
-.row-fluid
-  .span12
+  .span6
     %h3.short_headline
-      %span Top 10 hitchhikers
-    = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
-.row-fluid
-  .span12
-    %h3.short_headline
-      %span Logged Trips per month
-
-    = content_tag(:div, '', id: 'hitchhiked_kms_per_month',
-      data: {trips: trips_data(1.year.ago)})
+      %span Waiting Time Data
+    = content_tag(:div, '', id: 'waiting_time_donut', data: {waiting_time: waiting_time_data })
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'statistics'

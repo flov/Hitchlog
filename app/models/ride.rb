@@ -62,4 +62,9 @@ class Ride < ActiveRecord::Base
       ''
     end
   end
+
+  def self.ratio_for_waiting_time_between(starts, ends)
+    total_rides = Ride.where("waiting_time != ?", 0).where('waiting_time is not null').count
+    ((where(waiting_time: starts..ends).count.to_f / total_rides) * 100).round
+  end
 end
