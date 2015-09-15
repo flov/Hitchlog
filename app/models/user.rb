@@ -211,6 +211,13 @@ class User < ActiveRecord::Base
     username
   end
 
+  def self.sign_ups_by_month(start)
+    q = User.select("date_trunc('month', created_at) as ordered_date, count(*) as users_count")
+    q = q.where(created_at: start.beginning_of_month..Time.now)
+    q = q.group('ordered_date').order('ordered_date')
+    q.map(&:attributes).group_by { |hash| hash["ordered_date"].to_date }
+  end
+
   private
 
   def update_location_updated_at

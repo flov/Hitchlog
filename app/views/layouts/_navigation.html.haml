@@ -7,7 +7,7 @@
       .nav-collapse.collapse
         %ul.nav
           %li{class: users_active }= link_to "<i class='fa fa-group'></i> #{t('.hitchhikers')}".html_safe, users_path
-          %li{class: users_active }= link_to "<i class='fa fa-globe'></i> #{t('.statistics')}".html_safe, statistics_path
+          %li{class: stats_active }= link_to "<i class='fa fa-pie-chart'></i> #{t('.statistics')}".html_safe, statistics_path
           %li{class: trips_active }= link_to "<i class='fa fa-road'></i> #{t('.trips')}".html_safe, trips_path
           - if user_signed_in?
             %li{class: new_trip_active }= link_to "<i class='fa fa-thumbs-up'></i>#{t('.log_new_trip')}".html_safe, new_trip_path

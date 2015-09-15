@@ -3,23 +3,31 @@
 
 %h1 Statistics
 
-%h2 Logged Trips per month
-= content_tag(:div, '', id: 'hitchhiked_kms_per_month',
-  data: {trips: trips_data(1.year.ago)})
+.row-fluid
+  .span4
+    %h3.short_headline
+      %span Company while hitchhiking
+    = content_tag(:div, '', id: 'company_donut', class: 'piechart',
+      data: {company_for_trips: company_for_trips })
 
-%h2 Company while hitchhiking
-= content_tag(:div, '', id: 'company_while_hitchhiking_donut',
-  data: {hitchhikers_by_gender: hitchhikers_by_gender})
+  .span4
+    %h3.short_headline
+      %span Gender of hitchhikers
+    = content_tag(:div, '', id: 'gender_donut', class: 'piechart',
+      data: {hitchhikers_by_gender: hitchhikers_by_gender})
 
-%h2 Gender
-= content_tag(:div, '', id: 'gender_donut',
-  data: {hitchhikers_by_gender: hitchhikers_by_gender})
+  .span4
+    %h3.short_headline
+      %span Experiences
+    = content_tag(:div, '', id: 'experiences_donut', class: 'piechart',
+      data: {experiences: experiences_data })
 
-%h2 Experiences (without the good experiences)
-= content_tag(:div, '', id: 'experiences_donut',
-  data: {experiences: experiences_data })
-
-#graph
+.row-fluid
+  .span12
+    %h3.short_headline
+      %span Logged Trips per month
+    = content_tag(:div, '', id: 'hitchhiked_kms_per_month', class: 'piechart',
+      data: {trips: trips_data(1.year.ago)})
 
 %ul
   %li
@@ -37,21 +45,6 @@
     = "~>"
     = (Ride.count.to_f / Trip.count).round(1)
     Rides per Trip
-    %br/
-    = Ride.very_good_experiences.count
-    very good experiences: #{Ride.very_good_experiences_ratio}%
-    %br/
-    = Ride.good_experiences.count
-    good experiences: #{Ride.good_experiences_ratio}%
-    %br/
-    = Ride.neutral_experiences.count
-    neutral experiences: #{Ride.neutral_experiences_ratio}%
-    %br/
-    = Ride.bad_experiences.count
-    bad experiences: #{Ride.bad_experiences_ratio}%
-    %br/
-    = Ride.very_bad_experiences.count
-    very bad experiences: #{Ride.very_bad_experiences_ratio}%
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'statistics'

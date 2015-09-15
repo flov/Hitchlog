@@ -61,6 +61,10 @@ en:
     two_people_hitchhike: "Hitchhiked in pairs"
     three_people_hitchhike: "Hitchhiked in threesome"
     more_than_three_people_hitchhike: "Hitchhiked in foursome"
+    travelling_with_0: "Hitchhiked alone"
+    travelling_with_1: "Hitchhiked in pairs"
+    travelling_with_2: "Hitchhiked in threesome"
+    travelling_with_3: "Hitchhiked in foursome"
     driving_time: "%{time} driving time"
     waiting_time: "%{time} waiting time"
     faster_than_gmaps: "faster than Google Maps"
@@ -386,7 +390,11 @@ en:
       delete_image: "Delete Photo"
       save_ride: Save Ride
       tag_it: 'Tag your ride (seperated by comma)'
-
+      please_tag_your_ride: >
+          Please tag your ride if you change the experience, so that
+          it's easy to see why you had a "very bad", or "very good"
+          experience. This will be important for the overall
+          statistics
 
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
