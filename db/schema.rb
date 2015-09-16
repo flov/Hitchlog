@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150908093518) do
+ActiveRecord::Schema.define(:version => 20150916114049) do
 
   create_table "assignments", :force => true do |t|
     t.integer "user_id"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20150908093518) do
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
-    t.string   "experience",         :default => "positive"
+    t.string   "experience",         :default => "good"
     t.string   "gender"
     t.string   "photo_caption"
     t.string   "photo"
