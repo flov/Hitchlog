@@ -30,20 +30,9 @@ class User < ActiveRecord::Base
   before_create :geocode, :reverse_geocode
 
   def self.from_omniauth(auth)
-    if user = find_by_email(auth.info.email)
-      user.update_attributes(
-        oauth_token:      auth.credentials.token,
-        oauth_expires_at: Time.at(auth.credentials.expires_at),
-        provider:         auth.provider,
-        uid:              auth.uid,
-        name:             auth.info.name
-      )
-      return user
-    end
-
     username = choose_username(auth.info.first_name.downcase)
 
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
       user.email            = auth.info.email
       user.username         = username
       user.oauth_token      = auth.credentials.token
