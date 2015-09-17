@@ -45,6 +45,7 @@ group :production do
 end
 
 group :development do
+  gem 'gibbon'
   gem 'i18n-tasks'
   gem 'web_translate_it'
   gem 'hirb'

@@ -222,6 +222,9 @@ GEM
     geocoder (1.1.6)
     gherkin (2.8.0)
       json (>= 1.4.6)
+    gibbon (2.0.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     gravatar_image_tag (1.0.0)
     growl (1.0.3)
     guard (1.0.0)
@@ -450,6 +453,7 @@ DEPENDENCIES
   font-awesome-rails (~> 4.3.0)
   friendly_id (~> 3.2.1)
   geocoder
+  gibbon
   gravatar_image_tag
   growl
   guard
