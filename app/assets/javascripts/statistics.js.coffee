@@ -15,6 +15,11 @@ jQuery ->
   )
 
   new Morris.Donut(
+    element: 'vehicles_donut',
+    data: $("#vehicles_donut").data('vehicles')
+  )
+
+  new Morris.Donut(
     element: 'experiences_donut',
     data: $("#experiences_donut").data('experiences')
     colors: ['#3C8D2F', 'green', '#F5F205', '#AA3C39', '#801916' ]

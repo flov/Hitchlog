@@ -34,6 +34,12 @@ module StatisticsHelper
     end
   end
 
+  def vehicles_data
+    Ride::VEHICLES.map do |vehicle|
+      { label: vehicle, value: Ride.where(vehicle: vehicle).count }
+    end
+  end
+
   def hitchhikers_by_gender
     [
       { label: 'male', value: ((User.where(gender: "male").count.to_f / User.count) * 100).round },

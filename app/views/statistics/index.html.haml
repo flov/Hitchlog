@@ -12,10 +12,8 @@
 .row-fluid
   .span6
     %h3.short_headline
-      %span Company while hitchhiking
-    = content_tag(:div, '', id: 'company_donut', class: 'piechart',
-      data: {company_for_trips: company_for_trips })
-
+      %span Waiting Time
+    = content_tag(:div, '', id: 'waiting_time_donut', data: {waiting_time: waiting_time_data })
   .span6
     %h3.short_headline
       %span Gender of hitchhikers
@@ -23,15 +21,20 @@
       data: {hitchhikers_by_gender: hitchhikers_by_gender})
 
 .row-fluid
-  .span6
+  .span4
     %h3.short_headline
       %span Experiences
     = content_tag(:div, '', id: 'experiences_donut', class: 'piechart',
       data: {experiences: experiences_data })
-  .span6
+  .span4
     %h3.short_headline
-      %span Waiting Time Data
-    = content_tag(:div, '', id: 'waiting_time_donut', data: {waiting_time: waiting_time_data })
+      %span Company while hitchhiking
+    = content_tag(:div, '', id: 'company_donut', class: 'piechart',
+      data: {company_for_trips: company_for_trips })
+  .span4
+    %h3.short_headline
+      %span Vehicles
+    = content_tag(:div, '', id: 'vehicles_donut', data: {vehicles: vehicles_data })
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'statistics'
