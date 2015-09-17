@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
     where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
       user.email            = auth.info.email
+      user.gender           = auth.extra.raw_info.gender
       user.username         = username
       user.oauth_token      = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
