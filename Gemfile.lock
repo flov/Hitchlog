@@ -41,14 +41,6 @@ GEM
     bugsnag (2.8.10)
       json (~> 1.7, >= 1.7.7)
     builder (3.0.4)
-    capistrano (2.9.0)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
     capybara (2.0.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -94,14 +86,10 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.1.3)
-    em-websocket (0.5.0)
-      eventmachine (>= 0.12.9)
-      http_parser.rb (~> 0.5.3)
     email_spec (1.4.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
-    eventmachine (0.12.10)
     excon (0.45.3)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -226,34 +214,11 @@ GEM
       faraday (>= 0.9.1)
       multi_json (>= 1.11.0)
     gravatar_image_tag (1.0.0)
-    growl (1.0.3)
-    guard (1.0.0)
-      ffi (>= 0.5.0)
-      thor (~> 0.14.6)
-    guard-bundler (0.1.3)
-      bundler (>= 1.0.0)
-      guard (>= 0.2.2)
-    guard-cucumber (0.7.5)
-      cucumber (>= 0.10)
-      guard (>= 0.8.3)
-    guard-jasmine (1.2.2)
-      childprocess
-      guard (>= 0.8.3)
-      multi_json
-      thor
-    guard-livereload (0.4.2)
-      em-websocket (>= 0.2.0)
-      guard (>= 0.10.0)
-      multi_json (~> 1.0)
-    guard-rspec (0.6.0)
-      guard (>= 0.10.0)
     haml (3.2.0.rc.4)
       tilt
     hashie (2.1.2)
-    highline (1.6.11)
     hike (1.2.3)
     hirb (0.6.0)
-    http_parser.rb (0.5.3)
     httpauth (0.2.1)
     i18n (0.7.0)
     i18n-tasks (0.0.8)
@@ -291,11 +256,7 @@ GEM
     multipart-post (1.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-sftp (2.0.5)
-      net-ssh (>= 2.0.9)
     net-ssh (2.9.2)
-    net-ssh-gateway (1.1.0)
-      net-ssh (>= 1.99.1)
     newrelic_rpm (3.6.7.152)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -434,8 +395,6 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.4.1)
   bootstrap-sass-rails
   bugsnag
-  capistrano
-  capistrano-ext
   capybara
   carrierwave
   coffee-rails
@@ -455,13 +414,6 @@ DEPENDENCIES
   geocoder
   gibbon
   gravatar_image_tag
-  growl
-  guard
-  guard-bundler
-  guard-cucumber
-  guard-jasmine
-  guard-livereload
-  guard-rspec
   haml (~> 3.2.0.rc.4)
   hirb
   i18n-tasks

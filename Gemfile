@@ -45,19 +45,10 @@ group :production do
 end
 
 group :development do
-  gem 'gibbon'
+  gem 'gibbon' # mailchimp connector
   gem 'i18n-tasks'
   gem 'web_translate_it'
   gem 'hirb'
-  gem 'capistrano-ext'
-  gem 'capistrano'
-  gem 'growl'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-bundler'
-  gem 'guard-livereload'
-  gem 'guard-jasmine'
 end
 
 group :test, :development do
