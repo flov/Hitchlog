@@ -201,6 +201,14 @@ class User < ActiveRecord::Base
     username
   end
 
+  def self.total_trips_by_user
+    select("username, count(*) as total_trips").
+      joins(:trips).
+      group('username').map do |user|
+        { username: user.username, total_trips: user.total_trips.to_i }
+      end.sort_by{|hash| hash[:total_trips] }
+  end
+
   def self.top_10_hitchhikers
     q = User.joins(:trips)
     q = q.select("username, sum(trips.distance) as total_distance")

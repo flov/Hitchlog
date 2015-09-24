@@ -40,6 +40,12 @@ module StatisticsHelper
     end
   end
 
+  def total_trips_by_user
+    User.select("username, count(*) as total_trips").joins(:trips).group('username').map do |user|
+      { username: user.username, total_trips: user.total_trips}
+    end
+  end
+
   def hitchhikers_by_gender
     [
       { label: 'male', value: ((User.where(gender: "male").count.to_f / User.count) * 100).round },
