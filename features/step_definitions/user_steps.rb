@@ -100,3 +100,7 @@ Given /^a user with email same as his facebook account$/ do
   FactoryGirl.create(:user, email: 'florian@hitchlog.com')
 end
 
+Then /^the user should receive the data from facebook$/ do
+  user = User.where(email: 'florian@hitchlog.com').first
+  expect(user.date_of_birth).not_to be_nil
+end

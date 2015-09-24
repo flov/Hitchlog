@@ -3,9 +3,11 @@ Feature: Signs up with facebook
     When I go to the homepage
     And I login with facebook
     Then  I should see "Successfully authenticated from Facebook account"
+    And the user should receive the data from facebook
 
   Scenario: User has already signed up without facebook and signs up with Facebook
     Given a user with email same as his facebook account
     When I go to the homepage
     And I login with facebook
     Then  I should see "Successfully authenticated from Facebook account"
+    And the user should receive the data from facebook

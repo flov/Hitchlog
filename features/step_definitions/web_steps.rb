@@ -9,9 +9,9 @@ end
 
 Then /^I should(\ not)? see "([^"]*)"$/ do |negative, text|
   if negative
-    page.should_not have_content(text)
+    expect(page).to_not have_content(text)
   else
-    page.should have_content(text)
+    expect(page).to have_content(text)
   end
 end
 
