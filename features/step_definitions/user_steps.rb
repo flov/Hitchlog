@@ -21,11 +21,13 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  user = FactoryGirl.create(:user)
-  visit new_user_session_path
-  fill_in "Username", with: user.username
-  fill_in "Password", with: 'password'
-  click_button "Hitch in"
+  VCR.use_cassette "new_user" do
+    user = FactoryGirl.create(:user, username: 'flo')
+    visit new_user_session_path
+    fill_in "Username", with: user.username
+    fill_in "Password", with: 'password'
+    click_button "Hitch in"
+  end
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |username|
@@ -85,7 +87,7 @@ When /^I click on the sign out link$/ do
 end
 
 Then /^I should be signed off$/ do
-  page.should_not have_content("Your Profile")
+  expect(page).to_not have_content("Your Profile")
 end
 
 When(/^I login with facebook$/) do

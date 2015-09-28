@@ -1,25 +1,25 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe FutureTrip do
+RSpec.describe FutureTrip, type: :model do
 
   let(:future_trip) { FactoryGirl.build(:future_trip) }
 
-  it { should belong_to(:user) }
+  it { is_expected.to belong_to(:user) }
 
   describe "#valid?" do
-    it { should validate_presence_of(:from) }
-    it { should validate_presence_of(:to) }
-    it { should validate_presence_of(:departure) }
+    it { is_expected.to validate_presence_of(:from) }
+    it { is_expected.to validate_presence_of(:to) }
+    it { is_expected.to validate_presence_of(:departure) }
 
     describe '#departure' do
       it "cannot be in the past" do
-        future_trip.departure = 1.day.ago
-        future_trip.should have(1).error_on :departure
+        future_trip = FutureTrip.new(departure: 1.day.ago)
+        expect(future_trip).to have(1).error_on(:departure)
       end
 
       it "can be in the future" do
         future_trip.departure = 1.day.from_now
-        future_trip.should have(0).error_on :departure
+        expect(future_trip).to have(0).error_on(:departure)
       end
     end
   end
@@ -29,7 +29,7 @@ describe FutureTrip do
       future_trip.from_city = 'Hamburg'
       future_trip.to_city = 'Duisburg'
 
-      future_trip.to_s.should == 'Hamburg &rarr; Duisburg'
+      expect(future_trip.to_s).to eq('Hamburg &rarr; Duisburg')
     end
   end
 
@@ -37,7 +37,7 @@ describe FutureTrip do
     it 'formats the time' do
       time = 1.day.from_now
       future_trip.departure = time
-      future_trip.formatted_time.should == future_trip.departure.strftime("%d %b %Y")
+      expect(future_trip.formatted_time).to eq(future_trip.departure.strftime("%d %b %Y"))
     end
   end
 
@@ -45,32 +45,32 @@ describe FutureTrip do
     it 'displays city and country if present' do
       future_trip.from_country = 'Spain'
       future_trip.from_city = 'Barcelona'
-      future_trip.formatted_from.should == "Barcelona, Spain"
+      expect(future_trip.formatted_from).to eq("Barcelona, Spain")
     end
 
     it 'displays city if present and country is not' do
       future_trip.from_city = 'Barcelona'
-      future_trip.formatted_from.should == "Barcelona"
+      expect(future_trip.formatted_from).to eq("Barcelona")
     end
 
     it 'displays from if from_city is not present' do
       future_trip.from_city = nil
       future_trip.from_country = nil
       future_trip.from = "Manchester"
-      future_trip.formatted_from.should == "Manchester"
+      expect(future_trip.formatted_from).to eq("Manchester")
     end
   end
 
   describe '#formatted_from' do
     it 'displays city if present' do
       future_trip.to_city = 'Madrid'
-      future_trip.formatted_to.should == "Madrid"
+      expect(future_trip.formatted_to).to eq("Madrid")
     end
 
     it 'displays from if from_city is not present' do
       future_trip.to_city = nil
       future_trip.to = "Madrid"
-      future_trip.formatted_to.should == "Madrid"
+      expect(future_trip.formatted_to).to eq("Madrid")
     end
   end
 end

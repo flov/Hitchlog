@@ -5,18 +5,13 @@ module ControllerHelpers
     end
   end
 
-  def sign_in(scope = double('devise'), object = double('devise'))
-    if scope.nil? || scope.is_a?(RSpec::Mocks::Mock)
-      scope, object = :user, scope
-    end
-
-    if object.nil?
-      request.env['warden'].stub(:authenticate!).
-        and_throw(:warden, {:scope => scope})
-      controller.stub "current_#{scope}" => nil
+  def sign_in(user = double('user'))
+    if user.nil?
+      allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
+      allow(controller).to receive(:current_user).and_return(nil)
     else
-      request.env['warden'].stub :authenticate! => object
-      controller.stub "current_#{scope}" => object
+      allow(request.env['warden']).to receive(:authenticate!).and_return(user)
+      allow(controller).to receive(:current_user).and_return(user)
     end
   end
 
@@ -37,7 +32,7 @@ module ControllerHelpers
 
         action
 
-        response.should redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

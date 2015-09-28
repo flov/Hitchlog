@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe "A more accurate distance_of_time_in_words" do
+RSpec.describe "A more accurate distance_of_time_in_words" do
   include AccurateDistanceOfTimeInWordsHelper
 
   describe "accurate distance of time" do
@@ -11,7 +11,7 @@ describe "A more accurate distance_of_time_in_words" do
       [1.day + 2.hours + 30.minutes, "1 day, 2 hours, and 30 minutes"]
     ].each do |number, result|
       it "#{number} == #{result}" do
-        accurate_distance_of_time_in_words(number).should eql(result)
+        expect(accurate_distance_of_time_in_words(number)).to eql(result)
       end
     end
   end

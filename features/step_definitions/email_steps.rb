@@ -49,7 +49,7 @@ end
 #
 
 Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails?$/ do |address, amount|
-  unread_emails_for(address).size.should == parse_email_count(amount)
+  expect(unread_emails_for(address).size).to eq(parse_email_count(amount))
 end
 
 Then /^(?:I|they|"([^"]*?)") should have (an|no|\d+) emails?$/ do |address, amount|
@@ -206,6 +206,6 @@ Then /^save and open all raw emails$/ do
 end
 
 Then /^a mail should have been delivered to "([^"]*)"$/ do |username|
-  user = User.find username
-  unread_emails_for(user.email).size.should == parse_email_count(1)
+  user = User.find_by_username username
+  expect(unread_emails_for(user.email).size).to eq(parse_email_count(1))
 end

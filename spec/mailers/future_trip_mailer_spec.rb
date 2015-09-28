@@ -1,11 +1,11 @@
-require "spec_helper"
+require "rails_helper"
 
-describe FutureTripMailer do
+RSpec.describe UserMailer do
   describe '#nearby_hitchhikers' do
     it "renders template" do
       @user = FactoryGirl.create :user
       @future_trip = FactoryGirl.create :future_trip
-      lambda { FutureTripMailer.nearby_hitchhikers(@future_trip, @user) }.should_not raise_error
+      expect { FutureTripMailer.nearby_hitchhikers(@future_trip, @user) }.not_to raise_error
     end
   end
 end

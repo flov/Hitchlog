@@ -1,25 +1,25 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Trip do
+RSpec.describe Trip, type: :model do
   let(:trip) { FactoryGirl.build(:trip) }
 
-  it { should have_many(:rides) }
-  it { should have_many(:comments) }
-  it { should belong_to(:user) }
+  it { is_expected.to have_many(:rides) }
+  it { is_expected.to have_many(:comments) }
+  it { is_expected.to belong_to(:user) }
 
   describe "#valid?" do
-    it { should validate_presence_of(:from) }
-    it { should validate_presence_of(:to) }
-    it { should validate_presence_of(:departure) }
-    it { should validate_presence_of(:arrival) }
-    it { should validate_presence_of(:travelling_with) }
+    it { is_expected.to validate_presence_of(:from) }
+    it { is_expected.to validate_presence_of(:to) }
+    it { is_expected.to validate_presence_of(:departure) }
+    it { is_expected.to validate_presence_of(:arrival) }
+    it { is_expected.to validate_presence_of(:travelling_with) }
 
     describe '#hitchhikes' do
-      it { should validate_numericality_of(:hitchhikes) }
+      it { is_expected.to validate_numericality_of(:hitchhikes) }
       it 'creates 1 ride on trip if hitchhikes equals 1' do
         trip = FactoryGirl.build(:trip, hitchhikes: 1)
         trip.save
-        trip.rides.size.should == 1
+        expect(trip.rides.size).to eq(1)
       end
     end
   end
@@ -30,7 +30,7 @@ describe Trip do
                                departure: '5 July, 2013',
                                departure_time: '08:00 AM')
 
-      trip.departure.strftime("%d/%m/%Y %H:%M").should == "05/07/2013 08:00"
+      expect(trip.departure.strftime("%d/%m/%Y %H:%M")).to eq("05/07/2013 08:00")
     end
 
     it 'should save arrival_date and arrival_time to arrival' do
@@ -38,13 +38,13 @@ describe Trip do
                                arrival: '5 July, 2013',
                                arrival_time: '08:00 AM')
 
-      trip.arrival.strftime("%d/%m/%Y %H:%M").should == "05/07/2013 08:00"
+      expect(trip.arrival.strftime("%d/%m/%Y %H:%M")).to eq("05/07/2013 08:00")
     end
   end
 
   describe "factories" do
     it "should generate a valid trip" do
-      trip.should be_valid
+      expect(trip).to be_valid
     end
   end
 
@@ -53,26 +53,26 @@ describe Trip do
       trip.distance   = 50_000 # 50 kms
       trip.departure  = "07/12/2011 10:00"
       trip.arrival    = "07/12/2011 13:00" 
-      trip.kmh.should == 16
+      expect(trip.kmh).to eq(16)
     end
   end
 
   describe "#to_param" do
     context "has attribute from_city and to_city" do
       it "should output correctly" do
-        trip.stub(:id).and_return(123)
+        allow(trip).to receive(:id).and_return(123)
         trip.from_city = 'Cologne'
         trip.to_city = 'Berlin'
-        trip.to_param.should == "#{trip.id}-cologne-to-berlin"
+        expect(trip.to_param).to eq("#{trip.id}-cologne-to-berlin")
       end
     end
 
     context "has attribute from and to, but not from_city and to_city" do
       it "should output correctly" do
-        trip.stub(:id).and_return(123)
+        allow(trip).to receive(:id).and_return(123)
         trip.from = "Berliner Str./B1/B5, Hoppegarten"
         trip.to   = "Warszawa"
-        trip.to_param.should == "#{trip.id}-berliner-str-2fb1-2fb5-2c-hoppegarten-to-warszawa"
+        expect(trip.to_param).to eq("#{trip.id}-berliner-str-2fb1-2fb5-2c-hoppegarten-to-warszawa")
       end
     end
   end
@@ -83,7 +83,7 @@ describe Trip do
         trip.departure = '07/11/2009 10:00'
         trip.arrival   = '07/11/2009 13:00'
         trip.gmaps_duration = 2.hours.to_i
-        trip.gmaps_difference.should == 3600
+        expect(trip.gmaps_difference).to eq(3600)
       end
     end
 
@@ -92,14 +92,14 @@ describe Trip do
         trip.departure = '07/11/2009 10:00'
         trip.arrival   = '07/11/2009 13:00'
         trip.gmaps_duration = 4.hours.to_i
-        trip.gmaps_difference.should == -3600
+        expect(trip.gmaps_difference).to eq(-3600)
       end
     end
   end
 
   describe '#duration' do
     it "should reckon duration with arrival - departure" do
-      trip.duration.should == trip.arrival - trip.departure
+      expect(trip.duration).to eq(trip.arrival - trip.departure)
     end
   end
 
@@ -109,7 +109,7 @@ describe Trip do
         trip.gmaps_duration = 9.hours.to_f
         trip.departure = '07/11/2009 10:00'
         trip.arrival   = '07/11/2009 20:00'
-        trip.hitchability.should == 1.11
+        expect(trip.hitchability).to eq(1.11)
       end
     end
 
@@ -118,7 +118,7 @@ describe Trip do
         trip.gmaps_duration = nil
         trip.departure = '07/11/2009 10:00'
         trip.arrival   = '07/11/2009 20:00'
-        trip.hitchability.should == nil
+        expect(trip.hitchability).to eq(nil)
       end
     end
   end
@@ -127,12 +127,12 @@ describe Trip do
     it 'returns the total accumulated waiting_time' do
       trip.rides << FactoryGirl.build(:ride, waiting_time: 5)
       trip.rides << FactoryGirl.build(:ride, waiting_time: 6)
-      trip.total_waiting_time.should == '11 minutes'
+      expect(trip.total_waiting_time).to eq('11 minutes')
     end
 
     it 'returns nil if no waiting time has been logged' do
       trip.rides << FactoryGirl.build(:ride, waiting_time: nil)
-      trip.total_waiting_time.should == nil
+      expect(trip.total_waiting_time).to eq(nil)
     end
   end
 
@@ -140,7 +140,7 @@ describe Trip do
     context "has only good experiences" do
       it "returns a good experience" do
         trip.rides << FactoryGirl.create(:ride, :experience => 'good')
-        trip.overall_experience.should == 'good'
+        expect(trip.overall_experience).to eq('good')
       end
     end
 
@@ -148,7 +148,7 @@ describe Trip do
       it "returns a neutral experience" do
         trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'good' )
         trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'neutral' )
-        trip.overall_experience.should == 'neutral'
+        expect(trip.overall_experience).to eq('neutral')
       end
     end
 
@@ -157,7 +157,7 @@ describe Trip do
         trip.rides << FactoryGirl.build(:ride, :experience => 'good')
         trip.rides << FactoryGirl.build(:ride, :experience => 'neutral')
         trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
-        trip.overall_experience.should == 'bad'
+        expect(trip.overall_experience).to eq('bad')
       end
     end
   end
@@ -165,9 +165,9 @@ describe Trip do
   describe 'add_ride' do
     it 'adds a ride to the trip' do
       trip.save
-      trip.rides.size.should == 1
+      expect(trip.rides.size).to eq(1)
       trip.add_ride
-      trip.rides.size.should == 2
+      expect(trip.rides.size).to eq(2)
     end
   end
 
@@ -175,15 +175,15 @@ describe Trip do
     it 'displays the age of the hitchhiker at the time the trip was done' do
       trip.user.date_of_birth = 20.year.ago.to_date
       trip.departure = ( 1.year.ago - 200.days ).to_datetime
-      trip.age.should == 18
+      expect(trip.age).to eq(18)
     end
   end
 
   describe '#average_speed' do
     it 'returns the average speed' do
       trip.distance = 5000 # meters
-      trip.stub(duration: 1.hour.to_i)
-      trip.average_speed.should == '5 kmh'
+      allow(trip).to receive_messages(duration: 1.hour.to_i)
+      expect(trip.average_speed).to eq('5 kmh')
     end
   end
 end

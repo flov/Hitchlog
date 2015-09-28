@@ -57,18 +57,18 @@ Given /^a trip without a story$/ do
 end
 
 Then /^I should see a trip with a story$/ do
-  page.should have_content @trip_with_story.from
+  expect(page).to have_content @trip_with_story.from
 end
 
 Then /^I should see a trip without a story$/ do
-  page.should have_content @trip_without_story.from
+  expect(page).to have_content @trip_without_story.from
 end
 Then /^I should see trips with stories$/ do
-  page.find("#trip_#{@trip_with_story.id}").should have_content("#{@trip_with_story.rides.first.story[0..150]}")
+  expect(page.find("#trip_#{@trip_with_story.id}")).to have_content("#{@trip_with_story.rides.first.story[0..150]}")
 end
 
 Then /^I should not see trips without stories$/ do
-  lambda { page.find("#trip_#{@trip_without_story.id}") }.should raise_error(Capybara::ElementNotFound)
+  expect { page.find("#trip_#{@trip_without_story.id}") }.to raise_error(Capybara::ElementNotFound)
 end
 
 Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
@@ -79,7 +79,7 @@ Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
 end
 
 Then /^I should see the trip from "([^"]*)" to "([^"]*)" in the hitchslide$/ do |from, to|
-  page.find("#hitchslide").should have_content("from #{from} to #{to}")
+  expect(page.find("#hitchslide")).to have_content("from #{from} to #{to}")
 end
 
 When /^I click on the next button$/ do
@@ -89,12 +89,12 @@ end
 When /^I fill in the new trip form$/ do
   VCR.use_cassette 'berlin' do
     fill_in('trip_from', with: 'Berlin', exact: true)
-    page.find(".pac-container .pac-item:first").click
+    page.find(:css, ".pac-container .pac-item", match: :first).click
   end
 
   VCR.use_cassette 'hamburg' do
-    fill_in('To', with: 'Hamburg', exact: true)
-    page.find('.pac-container:last .pac-item:first').click
+    fill_in('trip_to', with: 'Hamburg', exact: true)
+    page.find(:css, ".pac-container .pac-item", match: :first).click
   end
 
   select('1', from: 'Number of rides')
@@ -103,36 +103,36 @@ end
 
 Then /^the from and to location should be geocoded$/ do
   # from geocoding:
-  find('#trip_from_formatted_address', visible: false).value.should == 'Berlin, Germany'
-  find('#trip_from_city', visible: false).value.should == 'Berlin'
-  find('#trip_from_country', visible: false).value.should == 'Germany'
-  find('#trip_from_country_code', visible: false).value.should == 'DE'
-  find('#trip_from_lat', visible: false).value.to_i.should == 52
-  find('#trip_from_lng', visible: false).value.to_i.should == 13
+  expect(find('#trip_from_formatted_address', visible: false).value).to eq('Berlin, Germany')
+  expect(find('#trip_from_city', visible: false).value).to eq('Berlin')
+  expect(find('#trip_from_country', visible: false).value).to eq('Germany')
+  expect(find('#trip_from_country_code', visible: false).value).to eq('DE')
+  expect(find('#trip_from_lat', visible: false).value.to_i).to eq(52)
+  expect(find('#trip_from_lng', visible: false).value.to_i).to eq(13)
 
   # to geocoding:
-  find('#trip_to_formatted_address', visible: false).value.should == 'Hamburg, Germany'
-  find('#trip_to_city', visible: false).value.should == 'Hamburg'
-  find('#trip_to_country', visible: false).value.should == 'Germany'
-  find('#trip_to_country_code', visible: false).value.should == 'DE'
-  find('#trip_to_lat', visible: false).value.to_i.should == 53
-  find('#trip_to_lng', visible: false).value.to_i.should == 9
+  expect(find('#trip_to_formatted_address', visible: false).value).to eq('Hamburg, Germany')
+  expect(find('#trip_to_city', visible: false).value).to eq('Hamburg')
+  expect(find('#trip_to_country', visible: false).value).to eq('Germany')
+  expect(find('#trip_to_country_code', visible: false).value).to eq('DE')
+  expect(find('#trip_to_lat', visible: false).value.to_i).to eq(53)
+  expect(find('#trip_to_lng', visible: false).value.to_i).to eq(9)
 
-  find('#trip_distance', visible: false).value.to_i.should_not == 0
-  find('#trip_gmaps_duration', visible: false).value.to_i.should_not == 0
+  expect(find('#trip_distance', visible: false).value.to_i).to_not eq(0)
+  expect(find('#trip_gmaps_duration', visible: false).value.to_i).to_not eq(0)
 end
 
 Then /^it should route from origin to destination$/ do
-  find('#trip_distance').value.to_i.should be_within(1000).of(288232)
+  expect(find('#trip_distance', visible: false).value.to_i).to be_within(1000).of(288232)
 end
 
 Then /^I should see the details of the trip again$/ do
-  find('#from').should have_content('Berlin, Germany')
-  find('#to').should have_content('Reeperbahn, Hamburg, Germany')
-  find('#distance').should have_content('291 km')
-  find('#no_of_rides').should have_content('4')
-  find('#departure').should have_content('07/12/2011 10:00')
-  find('#arrival').should have_content('07/12/2011 20:00')
+  expect(find('#from')).to have_content('Berlin, Germany')
+  expect(find('#to')).to have_content('Reeperbahn, Hamburg, Germany')
+  expect(find('#distance')).to have_content('291 km')
+  expect(find('#no_of_rides')).to have_content('4')
+  expect(find('#departure')).to have_content('07/12/2011 10:00')
+  expect(find('#arrival')).to have_content('07/12/2011 20:00')
 end
 
 When /^I confirm that the data is correct$/ do
@@ -145,7 +145,7 @@ Given /^"([^"]*)" logged a trip with (\d+) ride$/ do |username, number_of_rides|
 end
 
 Then /^I should be able to edit (\d+) ride$/ do |number|
-  page.all(".accordion_content").count.should eql(number.to_i)
+  expect(page.all(".accordion_content").count).to eql(number.to_i)
 end
 
 When /^I fill in the ride form$/ do
@@ -163,11 +163,11 @@ When /^I submit the ride form$/ do
 end
 
 Then /^I should see the ride information$/ do
-  page.should have_content('Example Title')
-  page.should have_content('Example Story')
-  page.should have_content('Example Tag')
-  page.should have_content('Example Tag 2')
-  page.should have_content('car')
-  page.should have_content('20 minutes')
-  page.find('.story_icons').should have_css('i.fa-male')
+  expect(page).to have_content('Example Title')
+  expect(page).to have_content('Example Story')
+  expect(page).to have_content('Example Tag')
+  expect(page).to have_content('Example Tag 2')
+  expect(page).to have_content('car')
+  expect(page).to have_content('20 minutes')
+  expect(page.find('.story_icons')).to have_css('i.fa-male')
 end

@@ -9,7 +9,7 @@
       %th= t('.country')
       %th= t('.departure')
   %tbody
-    - future_trips.paginate(page: params[:page]).each do |future_trip|
+    - future_trips.each do |future_trip|
       %tr{:id => "future_trip_#{future_trip.id}"}
         %td.title.neutralize_fonts
           %b= future_trip.to_s

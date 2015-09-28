@@ -143,6 +143,7 @@ en:
       log_your_trip_please: "Log your hitchhiking trip"
   layouts:
     navigation:
+      statistics: Statistics
       people_searching_for_travel_partner: Hitchhikers searching for hitchhiking buddies
       find_other_hitchhikers: Connect with hitchhikers
       find_hitchhiking_buddy: Hitchhiking Buddies

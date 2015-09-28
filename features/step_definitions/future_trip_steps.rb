@@ -2,10 +2,10 @@ When /^I fill in the future trip form with from "([^"]*)" to "([^"]*)" at the "(
   date = Date.parse departure
 
   fill_in('future_trip_from', with: from, exact: true)
-  page.find(".pac-container .pac-item:first").click
+  page.find(:css, ".pac-container .pac-item", match: :first).click
 
   fill_in('To', with: to, exact: true)
-  page.find('.pac-container:last .pac-item:first').click
+  page.find(:css, ".pac-container .pac-item", match: :first).click
 
   select(date.day,   from: 'future_trip_departure_3i')
   select(date.strftime("%B"), from: 'future_trip_departure_2i')
@@ -16,13 +16,13 @@ end
 
 Then /^I should(\ not)? see the future trip from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |negative, from, to, departure|
   if negative
-    page.should_not have_content(departure)
-    page.should_not have_content(from)
-    page.should_not have_content(to)
+    expect(page).to_not have_content(departure)
+    expect(page).to_not have_content(from)
+    expect(page).to_not have_content(to)
   else
-    page.should have_content(departure)
-    page.should have_content(from)
-    page.should have_content(to)
+    expect(page).to have_content(departure)
+    expect(page).to have_content(from)
+    expect(page).to have_content(to)
   end
 end
 
@@ -50,18 +50,18 @@ end
 
 Then /^the future trip from Barcelona to Madrid should be geocoded$/ do
   future_trip = FutureTrip.last
-  future_trip.from_city.should == "Barcelona"
-  future_trip.to_city.should   == "Madrid"
-  future_trip.from_country.should == "Spain"
-  future_trip.to_country.should == "Spain"
-  future_trip.from_country_code.should == "ES"
-  future_trip.to_country_code.should == "ES"
+  expect(future_trip.from_city).to eq("Barcelona")
+  expect(future_trip.to_city).to eq("Madrid")
+  expect(future_trip.from_country).to eq("Spain")
+  expect(future_trip.to_country).to eq("Spain")
+  expect(future_trip.from_country_code).to eq("ES")
+  expect(future_trip.to_country_code).to eq("ES")
 end
 
 Then /^I should see the future trip of "([^"]*)" from "([^"]*)" to "([^"]*)"$/ do |user, from, to|
-  page.should have_content(user)
-  page.should have_content(from)
-  page.should have_content(to)
+  expect(page).to have_content(user)
+  expect(page).to have_content(from)
+  expect(page).to have_content(to)
 end
 
 Given /^"([^"]*)" logged a future trip from "([^"]*)" to "([^"]*)" at the "([^"]*)"$/ do |username, from, to, departure|

@@ -7,7 +7,8 @@ class FutureTrip < ActiveRecord::Base
   validates :to, presence: true
   validates :departure, presence: true, not_in_past: true
 
-  default_scope where("departure >= ?", Time.now)
+  scope :relevant, -> { where("departure >= ?", Time.now) }
+  scope :earliest_departing, -> { order(:departure) }
 
   def to_s
     "#{formatted_from} &rarr; #{formatted_to}".html_safe

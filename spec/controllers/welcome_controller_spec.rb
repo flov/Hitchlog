@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe WelcomeController do
+RSpec.describe WelcomeController, type: :controller do
   describe '#home' do
     it 'renders home template' do
       get :home
 
-      response.should render_template(:home)
+      expect(response).to render_template(:home)
     end
   end
 
@@ -13,7 +13,7 @@ describe WelcomeController do
     it 'renders about template' do
       get :about
 
-      response.should render_template(:about)
+      expect(response).to render_template(:about)
     end
   end
 end

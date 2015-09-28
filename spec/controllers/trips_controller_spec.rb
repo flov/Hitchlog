@@ -1,22 +1,22 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe TripsController do
+RSpec.describe TripsController, type: :controller do
   describe '#new' do
     let(:trip) { double('trip') }
 
     it 'blocks unauthenticated access' do
       get :new
 
-      response.should redirect_to(new_user_session_path)
+      expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'renders show view' do
       sign_in :user, double(:user)
-      Trip.stub(:new){ trip }
+      allow(Trip).to receive(:new){ trip }
 
       get :new
 
-      response.should render_template(:new)
+      expect(response).to render_template(:new)
     end
   end
 
@@ -26,14 +26,14 @@ describe TripsController do
     it 'blocks unauthenticated access' do
       post :create_comment
 
-      response.should redirect_to(new_user_session_path)
+      expect(response).to redirect_to(new_user_session_path)
     end
   end
 
   describe '#index' do
     it 'renders the index view' do
       get :index
-      response.should render_template(:index)
+      expect(response).to render_template(:index)
     end
   end
 
@@ -44,21 +44,21 @@ describe TripsController do
       it 'redirects if trip wasn not found' do
         get :show, id: 'doesnt exist!'
 
-        response.should redirect_to(root_path)
+        expect(response).to redirect_to(root_path)
       end
     end
 
     context "Trip found" do
       before do
-        trip.stub :update_column
-        Trip.stub_chain(:includes, :find){ trip }
+        allow(trip).to receive :update_column
+        allow(Trip).to receive_message_chain(:includes, :find){ trip }
 
       end
 
       it 'renders show view' do
         get :show, id: 1
 
-        response.should render_template('show')
+        expect(response).to render_template('show')
       end
     end
   end
@@ -66,7 +66,7 @@ describe TripsController do
   describe '#index' do
     it "renders index view" do
       get :index
-      response.should render_template('index')
+      expect(response).to render_template('index')
     end
   end
 
@@ -76,7 +76,7 @@ describe TripsController do
     let(:action) { get :edit, id: 1 }
 
     before do
-      Trip.stub_chain(:includes, :find){ trip }
+      allow(Trip).to receive_message_chain(:includes, :find){ trip }
     end
 
     it_blocks_unauthenticated_access
@@ -86,7 +86,7 @@ describe TripsController do
 
       action
 
-      response.should render_template(:edit)
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -94,7 +94,7 @@ describe TripsController do
     context 'user is not logged in' do
       it "redirects to log in page" do
         post :create
-        response.should redirect_to('/hitchhikers/login')
+        expect(response).to redirect_to('/hitchhikers/login')
       end
     end
 
@@ -104,41 +104,41 @@ describe TripsController do
       before do
         @user = FactoryGirl.create :user
         sign_in :user, double('user')
-        Trip.stub(:new).and_return(trip)
+        allow(Trip).to receive(:new).and_return(trip)
       end
 
       it "creates a new trip" do
-        Trip.should_receive(:new).
+        expect(Trip).to receive(:new).
              with("from" => "Tehran").
              and_return(trip)
         post :create, :trip => { "from" => "Tehran" }
       end
 
       it "saves the trip" do
-        trip.should_receive(:save)
+        expect(trip).to receive(:save)
         post :create
       end
 
       context "when the trip saves successfully" do
         before do
-          trip.stub(:save).and_return(true)
-          trip.stub(:id).and_return('1')
+          allow(trip).to receive(:save).and_return(true)
+          allow(trip).to receive(:id).and_return('1')
         end
 
         it "redirects to the trips index" do
           post :create
-          response.should redirect_to(action: "edit", id: '1')
+          expect(response).to redirect_to(action: "edit", id: '1')
         end
       end
 
       context "when the trip fails to save" do
         before do
-          trip.stub(:save).and_return(false)
+          allow(trip).to receive(:save).and_return(false)
         end
 
         it "renders the edit action" do
           post :create
-          response.should render_template(action: 'edit')
+          expect(response).to render_template(action: 'edit')
         end
       end
     end
@@ -153,7 +153,7 @@ describe TripsController do
       it 'blocks access' do
         sign_in :user, double(:different_user)
         action
-        response.should redirect_to(root_path)
+        expect(response).to redirect_to(root_path)
       end
     end
   end

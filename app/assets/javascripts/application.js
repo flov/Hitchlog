@@ -1,15 +1,11 @@
-//
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.accordion
-//= require jquery.ui.tabs
+//= require turbolinks
 //
-//= require twitter/bootstrap/tooltip
-//= require twitter/bootstrap/collapse
-//= require twitter/bootstrap/dropdown
-//= require twitter/bootstrap/tab
-//= require twitter/bootstrap/alert
-//= require twitter/bootstrap/modal
+//= require jquery-ui/accordion
+//= require jquery-ui/tabs
+//
+//= require twitter/bootstrap
 //
 //= require vendor/bootstrap-datetimepicker.js
 //= require vendor/jquery.observe_field.js

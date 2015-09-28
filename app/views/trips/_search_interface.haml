@@ -1,5 +1,5 @@
 .text-center
-  = search_form_for search, url: '' do |f|
+  = search_form_for q do |f|
     = f.label :from_cont, t('.search_by_country_or_city')
     = f.text_field :from_city_or_to_city_or_country_distances_country_eq, placeholder: "(e.g. Berlin or Germany)", id: "from"
     %br/

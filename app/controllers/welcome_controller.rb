@@ -4,6 +4,6 @@ class WelcomeController < ApplicationController
   private
 
   def future_trips_in_context
-    FutureTrip.scoped.order(:departure).paginate(page: params[:page], per_page: 5)
+    FutureTrip.relevant.order(:departure).paginate(page: params[:page], per_page: 5)
   end
 end

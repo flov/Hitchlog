@@ -3,7 +3,7 @@
 
 %h1 #{t('.latest_hitchhiking_trips')}:
 
-= render 'search_interface', search: @search
+= render 'search_interface', q: @q
 
 = will_paginate @trips, class:  'flickr_pagination'
 = render 'list', trips: @trips, by: true

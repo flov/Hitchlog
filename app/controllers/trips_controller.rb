@@ -2,12 +2,12 @@ class TripsController < ApplicationController
   expose!( :trip ) { trip_in_context }
   expose( :trips ) { trips_in_context }
 
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :authenticate_trip_owner, only: [:edit, :update, :destroy, :add_ride]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_trip_owner, only: [:edit, :update, :destroy, :add_ride]
 
   def index
-    @search = Trip.scoped.order("id desc").search(params[:q])
-    @trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
+    @q = Trip.ransack(params[:q])
+    @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
   def create
@@ -150,6 +150,6 @@ class TripsController < ApplicationController
     if params[:tag]
       trips = Trip.joins(rides: :tags).where(tags: {name: [params[:tag]]})
     end
-    trips = trips.order("trips.id DESC").paginate(:page => params[:page])
+    trips = trips.latest_first.paginate(page: params[:page])
   end
 end

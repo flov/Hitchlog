@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe FutureTripsController do
+RSpec.describe FutureTripsController, type: :controller do
   describe "#new" do
     let(:action) { get :new }
 
@@ -21,26 +21,26 @@ describe FutureTripsController do
     it_blocks_unauthenticated_access
 
     before :each do
-      FutureTrip.stub new: future_trip
+      allow(FutureTrip).to receive_messages new: future_trip
       sign_in :user, current_user
     end
 
     it 'creates a future trip and redirects to the profile page' do
-      future_trip.should_receive(:user_id=).with(current_user.id)
-      future_trip.stub save: true
+      expect(future_trip).to receive(:user_id=).with(current_user.id)
+      allow(future_trip).to receive_messages save: true
 
       action
 
-      response.should redirect_to(user_path('flov'))
+      expect(response).to redirect_to(user_path('flov'))
     end
 
     it 'renders edit if there is invalid data' do
-      future_trip.should_receive(:user_id=).with(current_user.id)
-      future_trip.stub save: false
+      expect(future_trip).to receive(:user_id=).with(current_user.id)
+      allow(future_trip).to receive_messages save: false
 
       action
 
-      response.should render_template(:new)
+      expect(response).to render_template(:new)
     end
   end
 
@@ -53,24 +53,24 @@ describe FutureTripsController do
 
     before :each do
       sign_in :user, current_user
-      FutureTrip.stub(:find).and_return future_trip
+      allow(FutureTrip).to receive(:find).and_return future_trip
     end
 
     it 'updates a future trip and redirects to the profile page' do
-      future_trip.should_receive(:update_attributes).and_return(true)
+      expect(future_trip).to receive(:update_attributes).and_return(true)
 
       action
 
-      response.should redirect_to(user_path('flov'))
+      expect(response).to redirect_to(user_path('flov'))
     end
 
     it 'renders edit if there is invalid data' do
-      future_trip.should_receive(:update_attributes).and_return(false)
-      future_trip.stub 'attributes=' => false
+      expect(future_trip).to receive(:update_attributes).and_return(false)
+      allow(future_trip).to receive_messages 'attributes=' => false
 
       action
 
-      response.should render_template(:edit)
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -84,11 +84,11 @@ describe FutureTripsController do
 
     before :each do
       sign_in :user, current_user
-      FutureTrip.stub find: future_trip
+      allow(FutureTrip).to receive_messages find: future_trip
     end
 
     it 'deletes the future trip' do
-      future_trip.should_receive(:destroy)
+      expect(future_trip).to receive(:destroy)
 
       action
     end
@@ -96,13 +96,13 @@ describe FutureTripsController do
     it "redirects back to the user page" do
       action
 
-      response.should redirect_to(user_path('flov'))
+      expect(response).to redirect_to(user_path('flov'))
     end
 
     it "notes the change" do
       action
 
-      flash[:success].should == 'Your future trip from Melbourne to Sydnery has been deleted'
+      expect(flash[:success]).to eq('Your future trip from Melbourne to Sydnery has been deleted')
     end
   end
 end

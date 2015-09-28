@@ -4,7 +4,7 @@ end
 
 Then /^I should see "([^"]*)" as a tag on the trip$/ do |tag|
   within ".entry-meta a" do
-    page.should have_content(tag)
+    expect(page).to have_content(tag)
   end
 end
 
@@ -21,9 +21,9 @@ end
 
 Then /^I should(\ not)? see the trip with the "([^"]*)" tag$/ do |negative, tag|
   if negative
-    page.should_not have_content(tag)
+    expect(page).to_not have_content(tag)
   else
-    page.should have_content(tag)
+    expect(page).to have_content(tag)
   end
 end
 
@@ -37,7 +37,7 @@ end
 
 Then /^I should see a tag cloud with "([^"]*)" and "([^"]*)"$/ do |tag1, tag2|
   within '.tag_cloud' do
-    page.should have_content(tag2)
-    page.should have_content(tag1)
+    expect(page).to have_content(tag2)
+    expect(page).to have_content(tag1)
   end
 end

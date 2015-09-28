@@ -1,16 +1,16 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UsersController do
+RSpec.describe UsersController, type: :controller do
   describe "#send_mail" do
     let(:action) { get :send_mail, :id => 1 }
-    before { User.stub_chain(:includes, :find).and_return(double('user')) }
+    before { allow(User).to receive_message_chain(:includes, :find).and_return(double('user')) }
 
     it_blocks_unauthenticated_access
 
     it "renders get_mail template" do
       sign_in :user, double('user')
 
-      response.should render_template(action: 'get_mail')
+      expect(response).to render_template(action: 'get_mail')
     end
   end
 
@@ -30,13 +30,13 @@ describe UsersController do
     it_blocks_unauthenticated_access
 
     before do
-      User.stub_chain(:includes, :find).and_return mail_to_user
-      user_mailer.stub(:deliver){ true }
+      allow(User).to receive_message_chain(:includes, :find).and_return mail_to_user
+      allow(user_mailer).to receive(:deliver){ true }
       sign_in :user, current_user
     end
 
     it 'sends out mail' do
-      UserMailer.should_receive(:mail_to_user)
+      expect(UserMailer).to receive(:mail_to_user)
         .with(current_user, mail_to_user, 'text')
         .and_return(user_mailer)
 
@@ -44,12 +44,12 @@ describe UsersController do
     end
 
     it "redirects to the hitchhikers page" do
-      user_mailer.stub(deliver: true)
-      UserMailer.stub(:mail_to_user).and_return(user_mailer)
+      allow(user_mailer).to receive_messages(deliver: true)
+      allow(UserMailer).to receive(:mail_to_user).and_return(user_mailer)
 
       action
 
-      response.should redirect_to(user_path(mail_to_user))
+      expect(response).to redirect_to(user_path(mail_to_user))
     end
   end
 
@@ -65,23 +65,23 @@ describe UsersController do
       end
 
       it 'redirects if user cannot be found' do
-        response.should redirect_to(root_path)
+        expect(response).to redirect_to(root_path)
       end
 
       it 'sets the error flash' do
-        flash[:error].should == 'The record was not found'
+        expect(flash[:error]).to eq('The record was not found')
       end
     end
 
 
     it 'renders show view' do
-      User.stub_chain(:includes, :find).and_return user
-      user.stub_chain(:trips, :scoped, :order, :search).and_return( search )
-      search.stub_chain(:result, :paginate).and_return(trip)
+      allow(User).to receive_message_chain(:includes, :find).and_return user
+      allow(user).to receive_message_chain(:trips, :scoped, :order, :search).and_return( search )
+      allow(search).to receive_message_chain(:result, :paginate).and_return(trip)
 
       action
 
-      response.should render_template :show
+      expect(response).to render_template :show
     end
   end
 
@@ -96,28 +96,28 @@ describe UsersController do
 
       context "signed in user tries to destroy another user" do
         before do
-          User.stub(:find).and_return(another_user)
-          User.stub_chain(:includes, :find).and_return(current_user)
+          allow(User).to receive(:find).and_return(another_user)
+          allow(User).to receive_message_chain(:includes, :find).and_return(current_user)
           delete :destroy, id: another_user.to_param
         end
 
         it "should not delete another user" do
-          flash[:alert].should == 'You are not allowed to do that!'
+          expect(flash[:alert]).to eq('You are not allowed to do that!')
         end
 
         it "should redirect to the profile path" do
-          response.should redirect_to(user_path(current_user))
+          expect(response).to redirect_to(user_path(current_user))
         end
       end
     end
 
     context "if not logged in" do
       it "redirects to log in page" do
-        User.stub_chain(:includes, :find).and_return(double('user'))
+        allow(User).to receive_message_chain(:includes, :find).and_return(double('user'))
 
         delete :destroy, id: 1
 
-        response.should redirect_to(user_session_path)
+        expect(response).to redirect_to(user_session_path)
       end
     end
   end
@@ -126,7 +126,7 @@ describe UsersController do
     it 'responds with json' do
       get :geomap, format: :json
 
-      response.header['Content-Type'].should include 'application/json'
+      expect(response.header['Content-Type']).to include 'application/json'
     end
   end
 end

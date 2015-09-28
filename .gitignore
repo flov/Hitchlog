@@ -4,6 +4,7 @@ db/*.sqlite3
 config/s3.yml
 log/*.log
 tmp/**/*
+bin/**/*
 public/system
 public/assets/
 public/stylesheets/*.css
@@ -21,6 +22,7 @@ config/hitchlog.local.yml
 TODO
 /tmp
 /spec/tmp
+/spec/examples.txt
 a.log
 zeus.json
 config/initializers/a_env_vars_config.rb

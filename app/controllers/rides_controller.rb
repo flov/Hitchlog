@@ -1,6 +1,6 @@
 class RidesController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :user_owns_ride
+  before_action :authenticate_user!
+  before_action :user_owns_ride
 
   expose( :ride ) { Ride.find(params["id"]) }
 

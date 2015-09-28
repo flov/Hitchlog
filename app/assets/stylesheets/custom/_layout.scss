@@ -98,14 +98,13 @@ textarea.comment_body, textarea#message_body{
 form#new_trip {
   input#trip_departure,
   input#trip_arrival{
-    width: 100px;
-    @include border-radius(0);
+    width: 120px;
+    @include border-radius(4px);
   }
   input#trip_departure_time,
   input#trip_arrival_time {
-    border-left: 0;
     width: 66px;
-    @include border-radius(0 4px 4px 0);
+    @include border-radius(4px);
   }
 }
 

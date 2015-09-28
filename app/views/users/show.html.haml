@@ -26,13 +26,10 @@
       = render 'future_trips/future_trips', future_trips: user.future_trips.paginate(page: params[:hitchhiking_buddy_page])
 
     - if user.trips.any?
-      = render 'trips/search_interface', search: @search
-
-    - if @trips.any?
-      = will_paginate @trips, class: 'flickr_pagination'
+      = will_paginate(@trips, class: 'flickr_pagination')
       #trips
         = render 'trips/list', trips: @trips
-      = will_paginate @trips, class: 'flickr_pagination'
+      = will_paginate(@trips, class: 'flickr_pagination')
     - else
       %h2.text-center No Trips Found
 

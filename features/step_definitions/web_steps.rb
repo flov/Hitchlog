@@ -4,7 +4,7 @@ end
 
 Then /^I should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
-  current_path.should == path_to(page_name)
+  expect(current_path).to eq(path_to(page_name))
 end
 
 Then /^I should(\ not)? see "([^"]*)"$/ do |negative, text|

@@ -33,4 +33,13 @@ module ApplicationHelper
   def human_seconds(seconds)
     "#{human_hours(seconds.to_f/60/60)}"
   end
+
+  def gravatar_url(user, opts = {})
+    gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    if opts[:size] == 'square'
+      "http://gravatar.com/avatar/#{gravatar_id}.png?default=identicon&s=25"
+    else
+      "http://gravatar.com/avatar/#{gravatar_id}.png?default=identicon"
+    end
+  end
 end

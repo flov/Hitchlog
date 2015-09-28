@@ -1,13 +1,9 @@
 Hitchlog::Application.routes.draw do
   devise_for :users, path_names: { :sign_in => 'login' }, path: 'hitchhikers', controllers: { :omniauth_callbacks => "omniauth" }
 
-  #filter :locale
-
   match 'auth/:provider/callback', to: 'omniauth#create', via: :post
   match 'auth/failure', to: redirect('/'), via: :get
   match 'signout', to: 'sessions#destroy', as: 'signout', via: :get
-
-  # omniauth:
 
   resources :future_trips, path: 'hitchhiking_buddies', except: [:show]
 
@@ -45,6 +41,4 @@ Hitchlog::Application.routes.draw do
   match 'crisp/:action', controller: :crisp, via: :get if Rails.env == 'development'
 
   root to: "welcome#home"
-
-  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
 end

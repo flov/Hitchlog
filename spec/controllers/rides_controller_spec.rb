@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe RidesController do
+RSpec.describe RidesController, type: :controller do
   describe "#create" do
     let(:action) { post :create }
 

@@ -4,7 +4,4 @@
   = link_to user_path(user) do
     = image_tag "https://graph.facebook.com/#{user.uid}/picture?type=#{type}", class: 'profile_pic'
 - else
-  - if type == 'square'
-    = gravatar_image_tag user.email, gravatar: { :size => 25 }, class: 'profile_pic'
-  - else
-    = gravatar_image_tag user.email, class: 'profile_pic'
+  = image_tag gravatar_url(user, size: type), class: 'profile_pic'

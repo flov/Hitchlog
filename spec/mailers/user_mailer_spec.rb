@@ -1,10 +1,10 @@
-require "spec_helper"
+require "rails_helper"
 
-describe UserMailer do
+RSpec.describe UserMailer do
   describe "#registration_confirmation" do
     it "renders template" do
       @user = FactoryGirl.create :user
-      lambda { UserMailer.registration_confirmation(@user) }.should_not raise_error
+      expect { UserMailer.registration_confirmation(@user) }.not_to raise_error
     end
   end
 
@@ -12,7 +12,7 @@ describe UserMailer do
     it "renders template" do
       @user = FactoryGirl.create(:user)
       @from_user = FactoryGirl.create(:user)
-      lambda { UserMailer.mail_to_user(@from_user, @user, "test message") }.should_not raise_error
+      expect { UserMailer.mail_to_user(@from_user, @user, "test message") }.not_to raise_error
     end
   end
 end

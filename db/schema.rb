@@ -9,16 +9,19 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150916114049) do
+ActiveRecord::Schema.define(version: 20150916114049) do
 
-  create_table "assignments", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "assignments", force: true do |t|
     t.integer "user_id"
     t.integer "race_id"
   end
 
-  create_table "authentications", :force => true do |t|
+  create_table "authentications", force: true do |t|
     t.string   "provider"
     t.string   "uid"
     t.datetime "created_at"
@@ -27,27 +30,27 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.integer  "user_id"
   end
 
-  create_table "comments", :force => true do |t|
+  create_table "comments", force: true do |t|
     t.integer  "trip_id"
     t.integer  "user_id"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "country_distances", :force => true do |t|
+  create_table "country_distances", force: true do |t|
     t.integer "distance"
     t.integer "trip_id"
     t.string  "country"
   end
 
-  create_table "future_trips", :force => true do |t|
+  create_table "future_trips", force: true do |t|
     t.string   "from"
     t.string   "to"
     t.integer  "user_id"
     t.datetime "departure"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.text     "description"
     t.float    "from_lng"
     t.float    "from_lat"
@@ -61,28 +64,28 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.string   "to_country"
   end
 
-  create_table "people", :force => true do |t|
+  create_table "people", force: true do |t|
     t.string  "occupation"
     t.string  "mission"
     t.string  "origin"
     t.integer "ride_id"
   end
 
-  create_table "photos", :force => true do |t|
+  create_table "photos", force: true do |t|
     t.integer  "trip_id"
     t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "races", :force => true do |t|
+  create_table "races", force: true do |t|
     t.string   "name"
     t.string   "from_location"
     t.string   "to_location"
@@ -98,11 +101,11 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.string   "to_postal_code"
     t.string   "from_formatted_address"
     t.string   "to_formatted_address"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "rides", :force => true do |t|
+  create_table "rides", force: true do |t|
     t.string   "title"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
@@ -116,7 +119,7 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.integer  "trip_id"
     t.float    "duration"
     t.integer  "number"
-    t.string   "experience",         :default => "good"
+    t.string   "experience",         default: "good"
     t.string   "gender"
     t.string   "photo_caption"
     t.string   "photo"
@@ -124,43 +127,43 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.string   "vehicle"
   end
 
-  add_index "rides", ["experience"], :name => "index_rides_on_experience"
-  add_index "rides", ["gender"], :name => "index_rides_on_gender"
-  add_index "rides", ["number"], :name => "index_rides_on_number"
-  add_index "rides", ["photo_file_name"], :name => "index_hitchhikes_on_photo_file_name"
-  add_index "rides", ["title"], :name => "index_rides_on_title"
-  add_index "rides", ["trip_id"], :name => "index_rides_on_trip_id"
+  add_index "rides", ["experience"], name: "index_rides_on_experience", using: :btree
+  add_index "rides", ["gender"], name: "index_rides_on_gender", using: :btree
+  add_index "rides", ["number"], name: "index_rides_on_number", using: :btree
+  add_index "rides", ["photo_file_name"], name: "index_hitchhikes_on_photo_file_name", using: :btree
+  add_index "rides", ["title"], name: "index_rides_on_title", using: :btree
+  add_index "rides", ["trip_id"], name: "index_rides_on_trip_id", using: :btree
 
-  create_table "slugs", :force => true do |t|
+  create_table "slugs", force: true do |t|
     t.string   "name"
     t.integer  "sluggable_id"
-    t.integer  "sequence",                     :default => 1, :null => false
-    t.string   "sluggable_type", :limit => 40
+    t.integer  "sequence",                  default: 1, null: false
+    t.string   "sluggable_type", limit: 40
     t.string   "scope"
     t.datetime "created_at"
   end
 
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], name: "index_slugs_on_n_s_s_and_s", unique: true, using: :btree
+  add_index "slugs", ["sluggable_id"], name: "index_slugs_on_sluggable_id", using: :btree
 
-  create_table "taggings", :force => true do |t|
+  create_table "taggings", force: true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
     t.integer  "tagger_id"
     t.string   "tagger_type"
-    t.string   "context",       :limit => 128
+    t.string   "context",       limit: 128
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
-  create_table "tags", :force => true do |t|
+  create_table "tags", force: true do |t|
     t.string "name"
   end
 
-  create_table "trips", :force => true do |t|
+  create_table "trips", force: true do |t|
     t.integer  "distance"
     t.datetime "departure"
     t.string   "from"
@@ -193,18 +196,18 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.string   "to_country_code"
   end
 
-  add_index "trips", ["from_country"], :name => "index_trips_on_from_country"
-  add_index "trips", ["to_country"], :name => "index_trips_on_to_country"
-  add_index "trips", ["travelling_with"], :name => "index_trips_on_travelling_with"
+  add_index "trips", ["from_country"], name: "index_trips_on_from_country", using: :btree
+  add_index "trips", ["to_country"], name: "index_trips_on_to_country", using: :btree
+  add_index "trips", ["travelling_with"], name: "index_trips_on_travelling_with", using: :btree
 
-  create_table "users", :force => true do |t|
-    t.string   "email",                                                    :null => false
-    t.string   "encrypted_password",     :limit => 128,                    :null => false
+  create_table "users", force: true do |t|
+    t.string   "email",                                              null: false
+    t.string   "encrypted_password",     limit: 128,                 null: false
     t.string   "password_salt"
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -212,7 +215,7 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.boolean  "admin",                                 :default => false
+    t.boolean  "admin",                              default: false
     t.string   "gender"
     t.float    "lat"
     t.float    "lng"
@@ -235,10 +238,10 @@ ActiveRecord::Schema.define(:version => 20150916114049) do
     t.string   "name"
   end
 
-  add_index "users", ["country"], :name => "index_users_on_country"
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["location"], :name => "index_users_on_location"
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["username"], :name => "index_users_on_username"
+  add_index "users", ["country"], name: "index_users_on_country", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["location"], name: "index_users_on_location", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end

@@ -3,5 +3,5 @@ When /^I fill in a comment with "([^"]*)"$/ do |comment|
 end
 
 Then /^I should see Wow! in the comments dialog$/ do
-  page.find("#view-comments").should have_content('Wow!')
+  expect(page.find("#view-comments")).to have_content('Wow!')
 end

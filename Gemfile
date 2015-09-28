@@ -1,76 +1,77 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.2'
 
-gem 'rails', '~> 3.2'
-gem 'pg'
-gem 'unicorn'
+gem 'rails', '4.0.13'
+gem 'pg', '0.18.2'
+gem 'unicorn', '4.9.0'
 
-group :assets do
-  gem 'jquery-rails', '3.0.1'
-  gem 'jquery-ui-rails'
-  gem 'sass-rails', '~> 3.2'
-  gem 'compass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'bootstrap-sass-rails'
-end
+gem 'jquery-rails', '3.1.3'
+gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'sass-rails', '~> 5.0.0'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'bootstrap-sass-rails', '2.3.1.1'
+gem 'turbolinks', '2.5.3'
 
-gem "strong_parameters"
-
-gem 'acts-as-taggable-on', '~> 2.4.1'
+gem 'acts-as-taggable-on', '2.4.1'
 gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 3.2.0'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '1.6.0'
-gem 'rdiscount'
+gem 'rdiscount', '1.6.8'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri', '1.6.6.2'
-gem 'ransack'
-gem 'geocoder'
-gem 'haml', '~> 3.2.0.rc.4'
-gem 'friendly_id', '~> 3.2.1'
-gem 'simple_form'
-gem 'carrierwave'
-gem 'fog'
-gem 'rmagick'
-gem 'gravatar_image_tag'
-gem 'routing-filter'
+gem 'ransack', '1.7.0'
+gem 'geocoder', '1.1.6'
+gem 'haml', '4.0.7'
+gem 'simple_form', '3.2.0'
+gem 'carrierwave', '0.8.0'
+gem 'fog', '1.31.0'
+gem 'rmagick', '2.13.2'
 gem "font-awesome-rails", '~> 4.3.0'
-gem 'jbuilder'
+gem 'jbuilder', '1.0.2'
 
 group :production do
-  gem 'newrelic_rpm'
-  gem 'bugsnag'
+  gem 'newrelic_rpm', '~> 3.13.1'
+  gem 'bugsnag', '~> 2.8.12'
 end
 
 group :development do
-  gem 'gibbon' # mailchimp connector
-  gem 'i18n-tasks'
-  gem 'web_translate_it'
+  gem 'gibbon'
+  gem 'i18n-tasks', '~> 0.8.7'
   gem 'hirb'
 end
 
 group :test, :development do
-  gem 'vcr'
-  gem 'launchy'
-  gem 'rspec-rails'
-  gem 'jasmine-rails'
+  gem 'rspec-rails', '~> 3.3.3'
+
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  gem 'spring', '1.3.6'
+  gem 'spring-commands-rspec', '1.0.4'
+  gem 'spring-commands-cucumber'
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
-  gem 'pickle'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'factory_girl_generator'
-  gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'fakeweb'
-  gem 'faker'
-  gem 'email_spec'
-  gem 'rb-fsevent'
-
-  gem 'ruby-prof'
+  gem 'cucumber-rails', '~> 1.4.2', require: false
+  gem 'rspec-collection_matchers', '~> 1.1.2'
+  gem 'vcr', '~> 2.9.3'
+  gem 'webmock', '~> 1.21.0'
+  gem 'launchy', '~> 2.4.3'
+  gem 'jasmine-rails', '~> 0.12.0'
+  gem 'shoulda-matchers', '~> 2.8.0', require: false
+  gem 'pickle', '~> 0.5.1'
+  gem 'database_cleaner', '~> 1.5.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'capybara', '~> 2.5.0'
+  gem 'selenium-webdriver', '~> 2.47.1'
+  gem 'faker', '~> 1.5.0'
+  gem 'email_spec', '~> 1.6.0'
+  gem 'rb-fsevent', '~> 0.9.6'
 end
+
+

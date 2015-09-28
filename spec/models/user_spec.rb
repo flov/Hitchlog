@@ -1,35 +1,35 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe User do
+RSpec.describe User, type: :model do
   let(:user) { FactoryGirl.build(:user) }
 
-  it { should have_many(:trips) }
-  it { should have_many(:comments) }
-  it { should have_many(:future_trips) }
+  it { is_expected.to have_many(:trips) }
+  it { is_expected.to have_many(:comments) }
+  it { is_expected.to have_many(:future_trips) }
 
   describe 'valid?' do
     describe '#username' do
       it 'allows all these letters: /A-Za-z\d_-/' do
         user.username = 'Abc1239_.'
-        user.should be_valid
+        expect(user).to be_valid
       end
 
       it 'converts `.` into `_` for facebook usernames' do
         user.username = 'user.name'
         user.save
-        user.username.should == 'user_name'
+        expect(user.username).to eq('user_name')
       end
 
       it 'downcases the user after validation' do
         user.username = 'AlbertHoffmann'
         user.save
-        user.username.should == 'alberthoffmann'
+        expect(user.username).to eq('alberthoffmann')
       end
 
       it 'does not allow these letters:' do
         '#$%?'.each_char do |letter|
           user.username = "username#{letter}"
-          user.should_not be_valid
+          expect(user).not_to be_valid
         end
       end
     end
@@ -40,7 +40,7 @@ describe User do
       user.save!
       location_updated_at = user.location_updated_at
       user.save!
-      user.location_updated_at.should == location_updated_at
+      expect(user.location_updated_at).to eq(location_updated_at)
     end
   end
 
@@ -50,13 +50,13 @@ describe User do
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'female')
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'mixed')
-      user.genders.should == ['male', 'female', 'mixed']
-      user.genders_in_percentage.should == {'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33}
+      expect(user.genders).to eq(['male', 'female', 'mixed'])
+      expect(user.genders_in_percentage).to eq({'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33})
     end
 
     it "only male driver" do
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
-      user.genders_in_percentage.should == {'male' => 1.0}
+      expect(user.genders_in_percentage).to eq({'male' => 1.0})
     end
   end
 
@@ -64,7 +64,7 @@ describe User do
     xit "should return total amount of kms hitchhiked" do
       user.trips << FactoryGirl.build(:trip, distance: 1000)
       user.save
-      User.first.hitchhiked_kms.should == 1
+      expect(User.first.hitchhiked_kms).to eq(1)
     end
   end
 
@@ -76,7 +76,7 @@ describe User do
       VCR.use_cassette('hitchhiked_countries') do
         user.save!
       end
-      user.hitchhiked_countries.should == 2
+      expect(user.hitchhiked_countries).to eq(2)
     end
   end
 
@@ -89,14 +89,14 @@ describe User do
     end
 
     it "should geocode lat and lng from ip" do
-      user.lat.should == 40.6617
-      user.lng.should == -73.9855
+      expect(user.lat).to eq(40.662)
+      expect(user.lng).to eq(-73.986)
     end
 
     it "should geocode address" do
-      user.country_code.should == "US"
-      user.city.should == "Brooklyn"
-      user.country.should == "United States"
+      expect(user.country_code).to eq("US")
+      expect(user.city).to eq("Brooklyn")
+      expect(user.country).to eq("United States")
     end
   end
 
@@ -104,25 +104,25 @@ describe User do
     it "should display the city name and the country if present" do
       user.city = 'Cairns'
       user.country = 'Australia'
-      user.formatted_address.should == 'Cairns, Australia'
+      expect(user.formatted_address).to eq('Cairns, Australia')
     end
 
     it "should display the country name if present" do
       user.city =    'Cairns'
       user.country = nil
-      user.formatted_address.should == 'Cairns'
+      expect(user.formatted_address).to eq('Cairns')
     end
 
     it "should display the city name if present" do
       user.city = nil
       user.country = 'Australia'
-      user.formatted_address.should == 'Australia'
+      expect(user.formatted_address).to eq('Australia')
     end
 
     it "should display `Unknown` if there is no address" do
       user.city = nil
       user.country = nil
-      user.formatted_address.should == 'Unknown'
+      expect(user.formatted_address).to eq('Unknown')
     end
   end
 
@@ -135,12 +135,12 @@ describe User do
     end
 
     it 'should return the json for a google chart DataTable' do
-      user.to_geomap.should == {
+      expect(user.to_geomap).to eq({
         "distances" => {
           "DE" => 2, "ES" => 1
         },
         "trip_count" => { "DE" => 2, "ES" => 1 }
-      }
+      })
     end
   end
 
@@ -153,7 +153,7 @@ describe User do
     end
 
     it 'returns the vehicles that the user has hitchhiked with' do
-      user.vehicles.should == {'car' => 2, 'truck' => 1}
+      expect(user.vehicles).to eq({'car' => 2, 'truck' => 1})
     end
   end
 
@@ -162,17 +162,17 @@ describe User do
       user.trips << FactoryGirl.build(:trip, distance: 10000, departure: 5.hours.ago, arrival: 4.hours.ago)
       user.trips << FactoryGirl.build(:trip, distance: 6000, departure: 5.hours.ago, arrival: 4.hours.ago)
 
-      user.trips.first.average_speed.should == '10 kmh'
-      user.trips.last.average_speed.should  == '6 kmh'
+      expect(user.trips.first.average_speed).to eq('10 kmh')
+      expect(user.trips.last.average_speed).to  eq('6 kmh')
 
-      user.average_speed.should == '8 kmh'
+      expect(user.average_speed).to eq('8 kmh')
     end
   end
 
   describe '#age' do
     it 'returns the users age' do
       user.date_of_birth = 19.years.ago.to_date
-      user.age.should == 19
+      expect(user.age).to eq(19)
     end
   end
 
@@ -191,17 +191,17 @@ describe User do
     end
 
     it 'returns the number of trips sorted by age' do
-      user.age_of_trips.should == [[20, 1],[21, 1],[22,1]]
+      expect(user.age_of_trips).to eq([[20, 1],[21, 1],[22,1]])
     end
   end
 
   describe '#choose_username' do
     it 'should choose a different username if it already exists' do
-      User.choose_username('flov').should == 'flov'
+      expect(User.choose_username('flov')).to eq('flov')
       FactoryGirl.create(:user, username: 'flov')
-      User.choose_username('flov').should == 'flov1'
+      expect(User.choose_username('flov')).to eq('flov1')
       FactoryGirl.create(:user, username: 'flov1')
-      User.choose_username('flov').should == 'flov2'
+      expect(User.choose_username('flov')).to eq('flov2')
     end
   end
 end

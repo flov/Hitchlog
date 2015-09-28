@@ -30,13 +30,6 @@ FactoryGirl.define do
   factory :ride do
     waiting_time 15
     duration 2
-    association(:person)
-  end
-
-  factory :person do
-    occupation   'Groupie'
-    mission      'Tour around with the Beatles'
-    origin       'USA'
   end
 
   factory :country_distance do

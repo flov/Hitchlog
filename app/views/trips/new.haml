@@ -1,6 +1,6 @@
 - title t('.new_trip')
 
-= simple_form_for(trip, html: {class: 'form-horizontal' }) do |f|
+= simple_form_for(trip) do |f|
 
   %legend
     = t('.log_your_trip_please')
@@ -19,20 +19,24 @@
                                                [t('helper.trip.with_4'),4]],
                                     default: [t('helper.trip.alone'), 0]
 
-      = f.input :departure, wrapper: :prepend  do
+      .form-group.datetime.required.trip_departure
+        %label.datetime.required.control-label{:for => "trip_departure"}
+          %abbr{:title => "required"} *
+          Departure
         %span.add-on.calendar
           %i.fa.fa-calendar
-        = f.input_field :departure, as: :string
-        = f.input_field :departure_time, as: :string
+          = f.input_field :departure, as: :string
+          = f.input_field :departure_time, as: :string
 
-      = f.input :arrival,
-                hint: distance_of_time_helper,
-                wrapper: :prepend  do
+
+      .form-group.datetime.required.trip_arrival
+        %label.datetime.required.control-label{:for => "trip_arrival"}
+          %abbr{:title => "required"} *
+          Arrival
         %span.add-on.calendar
           %i.fa.fa-calendar
-        = f.input_field :arrival, as: :string
-        = f.input_field :arrival_time, as: :string
-
+          = f.input_field :arrival, as: :string, hint: distance_of_time_helper
+          = f.input_field :arrival_time, as: :string
 
       = f.hidden_field :route
       = hidden_field_tag 'trip[distance]', 0

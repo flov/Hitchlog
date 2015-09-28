@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_friendly_id :username
-
   has_many :rides, through: :trips
   has_many :trips, dependent: :destroy
   has_many :authentications, dependent: :destroy
@@ -18,6 +16,8 @@ class User < ActiveRecord::Base
   before_validation :sanitize_username
   before_validation :update_location_updated_at, if: 'location_changed?'
 
+  scope :latest_first, -> { order("id DESC") }
+
   geocoded_by :current_sign_in_ip, latitude: :lat, longitude: :lng
   reverse_geocoded_by :lat, :lng do |obj,results|
     if geo = results.first
@@ -27,12 +27,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  before_create :geocode, :reverse_geocode
-
   def self.from_omniauth(auth)
     username = choose_username(auth.info.first_name.downcase)
 
-    where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
+    user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
+      puts auth.extra.raw_info.birthday
       user.email            = auth.info.email
       user.gender           = auth.extra.raw_info.gender
       user.username         = username
@@ -44,6 +43,16 @@ class User < ActiveRecord::Base
       user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
       user.password         = Devise.friendly_token[0,20]
     end
+    if user.uid.nil? # if already registered but not yet with facebook
+      user.uid              = auth.uid
+      user.name             = auth.info.name
+      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
+      user.oauth_token      = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.provider         = auth.provider
+      user.save
+    end
+    user
   end
 
 

@@ -3,7 +3,7 @@ development:
   database: hitchlog_development
   encoding: UTF8
 
-test: &TEST
+test: &test
   adapter: postgresql
   database: hitchlog_test
   encoding: UTF8
@@ -13,3 +13,6 @@ production:
   database: hitchlog_production
   encoding: UTF8
 
+
+cucumber:
+  <<: *test

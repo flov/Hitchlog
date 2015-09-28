@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
   expose!(:user) { user_in_context }
 
-  before_filter :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
+  before_action :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
 
   def index
-    @search = User.scoped.order("id desc").search(params[:q])
+    @search = User.order("id desc").search(params[:q])
     @users = @search.result.paginate(page: params[:page], per_page: 20)
   end
 
   def show
-    @search = user.trips.scoped.order("id desc").search(params[:q])
-    @trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
+    @trips = user.trips.latest_first.paginate(page: params[:page])
+    #@search = user.trips.scoped.order("id desc").search(params[:q])
+    #@trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
   def update
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by_username(params[:id])
     if @user == current_user
       @user.destroy
       flash[:success] = t('flash.users.destroy.success')
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
 
   def user_in_context
     if params[:id]
-      User.includes(trips: [:rides, :country_distances]).find(params[:id])
+      User.includes(trips: [:rides, :country_distances]).find_by_username(params[:id])
     else
       User.new(params[:user])
     end
