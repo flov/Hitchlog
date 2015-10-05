@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe FutureTripsController, type: :controller do
   describe "#new" do
     let(:action) { get :new }
-
-    it_blocks_unauthenticated_access
   end
 
   describe "#edit" do
@@ -22,7 +20,7 @@ RSpec.describe FutureTripsController, type: :controller do
 
     before :each do
       allow(FutureTrip).to receive_messages new: future_trip
-      sign_in :user, current_user
+      sign_in current_user
     end
 
     it 'creates a future trip and redirects to the profile page' do
@@ -52,7 +50,7 @@ RSpec.describe FutureTripsController, type: :controller do
     it_blocks_unauthenticated_access
 
     before :each do
-      sign_in :user, current_user
+      sign_in current_user
       allow(FutureTrip).to receive(:find).and_return future_trip
     end
 
@@ -83,7 +81,7 @@ RSpec.describe FutureTripsController, type: :controller do
     it_blocks_unauthenticated_access
 
     before :each do
-      sign_in :user, current_user
+      sign_in current_user
       allow(FutureTrip).to receive_messages find: future_trip
     end
 

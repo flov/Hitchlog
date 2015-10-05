@@ -25,6 +25,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def send_mail
+  end
+
   def mail_sent
     mailer = UserMailer.mail_to_user(current_user, user, params[:message_body])
     if mailer.deliver
@@ -34,9 +37,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_username(params[:id])
-    if @user == current_user
-      @user.destroy
+    user = User.find_by_username(params[:id])
+    if user == current_user
+      user.destroy
       flash[:success] = t('flash.users.destroy.success')
       redirect_to root_path
     else

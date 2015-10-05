@@ -2,31 +2,19 @@ require 'rails_helper'
 
 RSpec.describe TripsController, type: :controller do
   describe '#new' do
+    let(:action) { get :new }
+
+    it_blocks_unauthenticated_access
+
     let(:trip) { double('trip') }
 
-    it 'blocks unauthenticated access' do
-      get :new
-
-      expect(response).to redirect_to(new_user_session_path)
-    end
-
     it 'renders show view' do
-      sign_in :user, double(:user)
+      sign_in double(:user)
       allow(Trip).to receive(:new){ trip }
 
-      get :new
+      action
 
       expect(response).to render_template(:new)
-    end
-  end
-
-  describe '#create_comment' do
-    let(:comment) { double('comment') }
-
-    it 'blocks unauthenticated access' do
-      post :create_comment
-
-      expect(response).to redirect_to(new_user_session_path)
     end
   end
 
@@ -82,7 +70,7 @@ RSpec.describe TripsController, type: :controller do
     it_blocks_unauthenticated_access
 
     it 'renders the edit view' do
-      sign_in :user, current_user
+      sign_in current_user
 
       action
 
@@ -91,55 +79,50 @@ RSpec.describe TripsController, type: :controller do
   end
 
   describe 'POST create' do
-    context 'user is not logged in' do
-      it "redirects to log in page" do
+    let(:action) { post :create }
+
+    it_blocks_unauthenticated_access
+
+    let(:current_user) { double('current_user ') }
+    let(:trip) { double('trip', to_s: "1", save: true, 'user=' => '') }
+
+    before do
+      sign_in current_user
+      allow(Trip).to receive(:new).and_return(trip)
+    end
+
+    it "creates a new trip" do
+      expect(Trip).to receive(:new).
+           with("from" => "Tehran").
+           and_return(trip)
+      post :create, :trip => { "from" => "Tehran" }
+    end
+
+    it "saves the trip" do
+      expect(trip).to receive(:save)
+      post :create
+    end
+
+    context "when the trip saves successfully" do
+      before do
+        allow(trip).to receive(:save).and_return(true)
+        allow(trip).to receive(:id).and_return('1')
+      end
+
+      it "redirects to the trips index" do
         post :create
-        expect(response).to redirect_to('/hitchhikers/login')
+        expect(response).to redirect_to(action: "edit", id: '1')
       end
     end
 
-    context 'user is logged in' do
-      let(:trip) { mock_model(Trip).as_null_object }
-
+    context "when the trip fails to save" do
       before do
-        @user = FactoryGirl.create :user
-        sign_in :user, double('user')
-        allow(Trip).to receive(:new).and_return(trip)
+        allow(trip).to receive(:save).and_return(false)
       end
 
-      it "creates a new trip" do
-        expect(Trip).to receive(:new).
-             with("from" => "Tehran").
-             and_return(trip)
-        post :create, :trip => { "from" => "Tehran" }
-      end
-
-      it "saves the trip" do
-        expect(trip).to receive(:save)
+      it "renders the new action" do
         post :create
-      end
-
-      context "when the trip saves successfully" do
-        before do
-          allow(trip).to receive(:save).and_return(true)
-          allow(trip).to receive(:id).and_return('1')
-        end
-
-        it "redirects to the trips index" do
-          post :create
-          expect(response).to redirect_to(action: "edit", id: '1')
-        end
-      end
-
-      context "when the trip fails to save" do
-        before do
-          allow(trip).to receive(:save).and_return(false)
-        end
-
-        it "renders the edit action" do
-          post :create
-          expect(response).to render_template(action: 'edit')
-        end
+        expect(response).to render_template('new')
       end
     end
   end
@@ -151,7 +134,7 @@ RSpec.describe TripsController, type: :controller do
 
     context 'logged in but not owner of ride' do
       it 'blocks access' do
-        sign_in :user, double(:different_user)
+        sign_in double(:different_user)
         action
         expect(response).to redirect_to(root_path)
       end

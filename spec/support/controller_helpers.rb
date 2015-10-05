@@ -22,13 +22,13 @@ module ControllerHelpers
 
         action
 
-        response.should redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
 
     def it_blocks_access_for_different_owner
       it "blocks access for different user than owner" do
-        sign_in :user, double(:user, 'different_user')
+        sign_in :user
 
         action
 
