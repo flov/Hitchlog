@@ -44,7 +44,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "gender" do 
+  describe "gender" do
     before { user.trips << FactoryGirl.build(:trip) }
     it "should display percentage of genders of people who picked you up" do
       user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
@@ -72,33 +72,33 @@ RSpec.describe User, type: :model do
     before { user.trips << FactoryGirl.build(:trip) }
     it "should return number of countries hitchhiked" do
       user.trips.first.from = "Berlin"
-      user.trips.first.to   = "Amsterdam"
-      VCR.use_cassette('hitchhiked_countries') do
+      user.trips.first.to   = "Warsaw"
+      VCR.use_cassette('berlin_to_warsaw') do
         user.save!
       end
       expect(user.hitchhiked_countries).to eq(2)
     end
   end
 
-  describe "geocode" do
-    before do
-      VCR.use_cassette('brooklyn') do
-        user.current_sign_in_ip = "24.193.83.1"
-        user.save!
-      end
-    end
-
-    it "should geocode lat and lng from ip" do
-      expect(user.lat).to eq(40.662)
-      expect(user.lng).to eq(-73.986)
-    end
-
-    it "should geocode address" do
-      expect(user.country_code).to eq("US")
-      expect(user.city).to eq("Brooklyn")
-      expect(user.country).to eq("United States")
-    end
-  end
+  # describe "geocode" do
+  #   before do
+  #     VCR.use_cassette('brooklyn') do
+  #       user.current_sign_in_ip = "24.193.83.1"
+  #       user.save!
+  #     end
+  #   end
+  #
+  #   it "should geocode lat and lng from ip" do
+  #     expect(user.lat).to eq(40.662)
+  #     expect(user.lng).to eq(-73.986)
+  #   end
+  #
+  #   it "should geocode address" do
+  #     expect(user.country_code).to eq("US")
+  #     expect(user.city).to eq("Brooklyn")
+  #     expect(user.country).to eq("United States")
+  #   end
+  # end
 
   describe "#formatted_address" do
     it "should display the city name and the country if present" do
