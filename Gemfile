@@ -35,6 +35,7 @@ gem 'jbuilder', '1.0.2'
 
 group :production do
   gem 'newrelic_rpm', '~> 3.13.1'
+  gem 'rails_12factor'
   gem 'bugsnag', '~> 2.8.12'
 end
 
