@@ -14,6 +14,7 @@ FactoryGirl.define do
     password              "password"
     password_confirmation "password"
     password_salt         "salt"
+    date_of_birth         23.years.ago
     cs_user               Faker::Name.first_name
     last_sign_in_at       Time.zone.now
     current_sign_in_ip    { '195.71.11.67' }
