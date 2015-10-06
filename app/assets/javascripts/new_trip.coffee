@@ -43,7 +43,8 @@ $ ->
       updateDistanceOfTime()
   })
 
-  window.map = new Map('trip')
+  window.initMap = ->
+    new Map('trip')
 
 updateDistanceOfTime = ->
   if $("trip_arrival").val() != '' and $('trip_arrival_time').val() != '' and $('#trip_departure').val() != '' and $('#trip_departure_time').val() != ''

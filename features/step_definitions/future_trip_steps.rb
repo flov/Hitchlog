@@ -4,7 +4,7 @@ When /^I fill in the future trip form with from "([^"]*)" to "([^"]*)" at the "(
   fill_in('future_trip_from', with: from, exact: true)
   page.find(:css, ".pac-container .pac-item", match: :first).click
 
-  fill_in('To', with: to, exact: true)
+  fill_in('future_trip_to', with: to, exact: true)
   page.find(:css, ".pac-container .pac-item", match: :first).click
 
   select(date.day,   from: 'future_trip_departure_3i')
