@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'rails', '4.0.13'
+gem 'rails', '~> 4.1.0'
 gem 'pg', '0.18.2'
 gem 'unicorn', '4.9.0'
 
@@ -43,21 +43,14 @@ group :development do
   gem 'gibbon'
   gem 'i18n-tasks', '~> 0.8.7'
   gem 'hirb'
-end
-
-group :test, :development do
-  gem 'rspec-rails', '~> 3.3.3'
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem 'spring', '1.3.6'
   gem 'spring-commands-rspec', '1.0.4'
   gem 'spring-commands-cucumber'
 end
 
-group :test do
+group :test, :development do
+  gem 'rspec-rails', '~> 3.3.3'
   gem 'cucumber-rails', '~> 1.4.2', require: false
   gem 'rspec-collection_matchers', '~> 1.1.2'
   gem 'vcr', '~> 2.9.3'

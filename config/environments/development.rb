@@ -1,4 +1,3 @@
-# set local environmets
 require "#{Rails.root}/.env.rb" if File.exists?("#{Rails.root}/.env.rb")
 
 Hitchlog::Application.configure do
