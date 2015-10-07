@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.0'
 gem 'pg', '0.18.2'
 gem 'unicorn', '4.9.0'
 
@@ -15,9 +15,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass-rails', '2.3.1.1'
 gem 'turbolinks', '2.5.3'
 
-gem 'acts-as-taggable-on', '2.4.1'
+gem 'acts-as-taggable-on', '3.5.0'
 gem 'decent_exposure', '~> 2.3.2'
-gem 'devise', '~> 3.2.0'
+gem 'devise', '~> 3.5.0'
 gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '1.6.0'
 gem 'rdiscount', '1.6.8'

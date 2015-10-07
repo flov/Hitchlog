@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
     username = choose_username(auth.info.first_name.downcase)
 
     user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
-      puts auth.extra.raw_info.birthday
       user.email            = auth.info.email
       user.gender           = auth.extra.raw_info.gender
       user.username         = username

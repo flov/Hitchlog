@@ -9,9 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @trips = user.trips.latest_first.paginate(page: params[:page])
-    #@search = user.trips.scoped.order("id desc").search(params[:q])
-    #@trips = @search.result(distinct: true).paginate(page: params[:page], per_page: 20)
+    @q = user.trips.latest_first.ransack(params[:q])
+    @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
   def update
@@ -30,7 +29,7 @@ class UsersController < ApplicationController
 
   def mail_sent
     mailer = UserMailer.mail_to_user(current_user, user, params[:message_body])
-    if mailer.deliver
+    if mailer.deliver_now
       flash[:success] = I18n.t('flash.users.mail_sent.notice', user: user)
     end
     redirect_to user_path(user)

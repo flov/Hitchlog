@@ -73,10 +73,10 @@ class TripsController < ApplicationController
                              .map(&:user)
 
     comment_authors.each do |author|
-      CommentMailer.notify_comment_authors(comment, author).deliver
+      CommentMailer.notify_comment_authors(comment, author).deliver_now
     end
 
-    CommentMailer.notify_trip_owner(comment).deliver unless comment.user == comment.trip.user
+    CommentMailer.notify_trip_owner(comment).deliver_now unless comment.user == comment.trip.user
   end
 
   def trip_in_context

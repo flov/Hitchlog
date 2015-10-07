@@ -11,6 +11,8 @@ module Hitchlog
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.initialize_on_precompile = false
 
+    config.active_record.raise_in_transactional_callbacks = true
+
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
 
