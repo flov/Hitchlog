@@ -57,7 +57,7 @@ class Trip < ActiveRecord::Base
   end
 
   def tag_list
-    self.rides.flat_map(&:tag_list)
+    self.rides.flat_map(&:tags)
   end
 
   def duration
