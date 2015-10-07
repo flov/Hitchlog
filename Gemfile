@@ -47,6 +47,7 @@ group :development do
   gem 'spring', '1.3.6'
   gem 'spring-commands-rspec', '1.0.4'
   gem 'spring-commands-cucumber'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test, :development do
