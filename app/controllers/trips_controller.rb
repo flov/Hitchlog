@@ -6,7 +6,7 @@ class TripsController < ApplicationController
   before_action :authenticate_trip_owner, only: [:edit, :update, :destroy, :add_ride]
 
   def index
-    @q = Trip.ransack(params[:q])
+    @q = Trip.latest_first.ransack(params[:q])
     @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
