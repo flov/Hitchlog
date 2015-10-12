@@ -16,10 +16,10 @@
 //= require vendor/raphael-min
 //= require vendor/morris.min
 //
-//= require map
-//= require location
-//= require timeago
-//= require google_timeago
+//= require custom/map
+//= require custom/location
+//= require custom/timeago
+//= require custom/google_timeago
 //
 
 // Tooltip Settings:
