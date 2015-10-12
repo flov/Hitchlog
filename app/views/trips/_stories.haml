@@ -9,7 +9,7 @@
       %h3
         = ride.title
       %p.story_icons
-        = tags(ride.tag_list)
+        = tags(ride.tags)
         = experience(ride.experience)
         = passenger_gender(ride.gender)
         = waiting_time(accurate_time(ride.waiting_time.minutes)) if ride.waiting_time
