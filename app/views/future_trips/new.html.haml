@@ -8,6 +8,6 @@
 
 - content_for :javascript_at_bottom do
   = javascript_include_tag 'vendor/jquery.observe_field'
-  = javascript_include_tag 'new_map'
-  = javascript_include_tag 'future_trips'
+  = javascript_include_tag 'custom/new_map'
+  = javascript_include_tag 'custom/future_trips'
   %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAoRZxn3x2YppDC6ZpnUjE8v9RKBRa1oWA&callback=initMap&libraries=places"}
