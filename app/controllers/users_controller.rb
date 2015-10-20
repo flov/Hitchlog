@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
+  def geomap
+  end
+
   def update
     @user = current_user
     if @user.update_attributes(user_params)

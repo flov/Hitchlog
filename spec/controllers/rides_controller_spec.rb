@@ -1,10 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe RidesController, type: :controller do
-  describe "#create" do
-    let(:action) { post :create, id: '1' }
+  # create
+  # ---------------------------------------------
+  describe "POST create" do
+    let(:action) { post :create }
+    let(:trip) { create(:trip) }
 
     it_blocks_unauthenticated_access
+
+    context "logged in as owner of trip" do
+      it "saves a new ride" do
+        sign_in trip.user
+
+        expect {
+          post :create, {trip_id: trip.id, ride: attributes_for(:ride)}
+        }.to change(Ride, :count).by(1)
+      end
+    end
+
+    context "logged in as other user" do
+      it "redirects" do
+        sign_in double('user')
+
+        post :create, {trip_id: trip.id, ride: attributes_for(:ride)}
+
+        expect(response).to( redirect_to('/') )
+      end
+    end
   end
 
   describe "#delete_photo" do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "#send_mail" do
-    let(:action) { get send_mail_user_path(1) }
+    let(:action) { get(:send_mail, { id: 1 }) }
 
     it_blocks_unauthenticated_access
   end

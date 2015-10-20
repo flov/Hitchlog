@@ -80,11 +80,10 @@ RSpec.describe TripsController, type: :controller do
 
   describe 'POST create' do
     let(:action) { post :create }
-
-    it_blocks_unauthenticated_access
-
     let(:current_user) { double('current_user ') }
     let(:trip) { double('trip', to_s: "1", save: true, 'user=' => '') }
+
+    it_blocks_unauthenticated_access
 
     before do
       sign_in current_user
