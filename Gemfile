@@ -40,6 +40,9 @@ group :production do
 end
 
 group :development do
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
   gem 'gibbon'
   gem 'i18n-tasks', '~> 0.8.7'
   gem 'hirb'
