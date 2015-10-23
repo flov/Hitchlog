@@ -23,8 +23,6 @@
 
   = javascript_include_tag 'application'
 
-  - if Rails.env == 'development'
-    = console
   - if Rails.env == 'production'
     = render 'shared/google_stats'
     = render 'shared/uservoice'
