@@ -1,11 +1,18 @@
 class RidesController < ApplicationController
   before_action :authenticate_user!
-  before_action :user_owns_ride
+  before_action :user_owns_ride, except: [:create]
 
-  expose( :ride ) { Ride.find(params["id"]) }
+  expose( :ride ) { ride_in_context }
 
   def create
     ride.trip = Trip.find(params[:trip_id])
+
+    if ride.trip.user != current_user
+      flash[:alert] = t('general.not_allowed')
+      redirect_to root_path
+      return
+    end
+
     if ride.save
       redirect_to edit_trip_path(ride.trip)
     end
@@ -37,6 +44,14 @@ class RidesController < ApplicationController
   end
 
   private
+
+  def ride_in_context
+    if params['id']
+      Ride.find(params["id"])
+    else
+      Ride.new
+    end
+  end
 
   def ride_params
     params.require("ride").permit(

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "#send_mail" do
-    let(:action) { get :send_mail, id: 1 }
+    let(:action) { get(:send_mail, { id: 1 }) }
 
     it_blocks_unauthenticated_access
   end
@@ -24,7 +24,7 @@ RSpec.describe UsersController, type: :controller do
 
     before do
       allow(User).to receive_message_chain(:includes, :find_by_username).and_return mail_to_user
-      allow(user_mailer).to receive(:deliver){ true }
+      allow(user_mailer).to receive(:deliver_now){ true }
       sign_in current_user
     end
 
@@ -37,7 +37,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "redirects to the hitchhikers page" do
-      allow(user_mailer).to receive_messages(deliver: true)
+      allow(user_mailer).to receive_messages(deliver_now: true)
       allow(UserMailer).to receive(:mail_to_user).and_return(user_mailer)
 
       action

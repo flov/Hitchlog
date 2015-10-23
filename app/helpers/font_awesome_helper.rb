@@ -97,7 +97,7 @@ module FontAwesomeHelper
   end
 
   def tags(tag_list)
-    tag_list.map{|tag| link_to h(tag), trips_path("q[rides_tags_name_eq]" => tag), class: 'tag'}.join(' ').html_safe
+    tag_list.map{|tag| link_to h(tag.name), trips_path("q[rides_tags_name_eq]" => tag.name), class: 'tag'}.join(' ').html_safe
   end
 
   def very_good(title = t('helper.very_good_experience'))

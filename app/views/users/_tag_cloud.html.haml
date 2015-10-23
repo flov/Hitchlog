@@ -1,4 +1,4 @@
-- tags = Ride.joins(:trip).where(trips:{user_id: user.id}).tag_counts.order(:id)
+- tags ||= Ride.joins(:trip).where(trips:{user_id: user.id}).tag_counts.order(:id)
 
 - if tags.any?
   %h5.short_headline
@@ -6,5 +6,4 @@
       Tag Cloud For Trips
 
   .tag_cloud
-    - tag_cloud(tags, ['css1', 'css2', 'css3', 'css4'] ) do |tag, css_class|
-      = link_to tag.name, tag_path(tag.name), class: css_class
+    = tags(tags)

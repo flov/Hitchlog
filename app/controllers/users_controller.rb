@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
+  def geomap
+  end
+
   def update
     @user = current_user
     if @user.update_attributes(user_params)
@@ -74,11 +77,16 @@ class UsersController < ApplicationController
 
   def user_in_context
     if params[:id]
-      User.includes(trips: [:rides, :country_distances]).find_by_username(params[:id])
+      user = User.includes(trips: [:rides, :country_distances]).find_by_username(params[:id])
+      if user.nil?
+        redirect_to root_path, flash: { error: t('general.record_not_found')}
+      else
+        return user
+      end
     else
       User.new(params[:user])
     end
+
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, flash: { error: t('general.record_not_found')}
   end
 end

@@ -1,10 +1,10 @@
 #world-map{:style => "width: 100%; height: 400px;"}
 
 - content_for :javascript_at_bottom do
-  = javascript_include_tag 'jquery-mousewheel'
+  = javascript_include_tag 'custom/jquery-mousewheel'
   = javascript_include_tag 'vendor/jquery-jvectormap-1.2.2.min'
   = javascript_include_tag 'vendor/jquery-jvectormap-world-mill-en'
   :javascript
     var username = "flov"
-  = javascript_include_tag 'geomap'
+  = javascript_include_tag 'custom/geomap'
 
