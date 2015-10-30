@@ -2,6 +2,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'vcr'
 require 'shoulda/matchers'
 
+RoutingFilter.active = false
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.hook_into :webmock
@@ -18,9 +20,7 @@ RSpec.configure do |config|
 
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
-
   config.example_status_persistence_file_path = "spec/examples.txt"
-
   config.disable_monkey_patching!
 
   if config.files_to_run.one?

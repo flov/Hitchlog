@@ -52,6 +52,7 @@ class TripsController < ApplicationController
   def add_ride
     trip = Trip.find(params[:id])
     trip.add_ride
+    flash[:success] = I18n.t('flash.rides.add_ride.success')
     redirect_to edit_trip_path(trip.to_param)
   end
 
