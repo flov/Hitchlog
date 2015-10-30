@@ -1,12 +1,7 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery
-
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
 
   def after_sign_in_path_for(resource)
     user_path(current_user.to_s.downcase)
