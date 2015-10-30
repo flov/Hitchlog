@@ -13,7 +13,7 @@ gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass-rails', '2.3.1.1'
-gem 'turbolinks', '2.5.3'
+gem 'routing-filter'
 
 gem 'acts-as-taggable-on', '3.5.0'
 gem 'decent_exposure', '~> 2.3.2'
