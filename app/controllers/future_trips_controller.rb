@@ -22,7 +22,7 @@ class FutureTripsController < ApplicationController
   end
 
   def destroy
-    flash[:success] = t('flash.future_trips.destroy.success', from: future_trip.from, to: future_trip.to)
+    flash[:success] = t('general.deleted', from: future_trip.from, to: future_trip.to)
     future_trip.destroy
     redirect_to user_path(current_user)
   end
