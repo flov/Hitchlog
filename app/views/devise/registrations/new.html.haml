@@ -1,4 +1,4 @@
-- title t('.sign_up')
+- title t('registrations.new.sign_up')
 
 .register-box.clearfix
   %h2.short_headline
@@ -11,7 +11,7 @@
       %h4= t('general.or')
     .span7
 
-      %h4 Just use the normal form
+      %h4= t('registrations.new.use_the_normal_form')
       = simple_form_for resource do |f|
         = f.input :username
         = f.input :email, placeholder: 'user@domain.com'
@@ -21,9 +21,9 @@
         = f.input :date_of_birth, as: :date, start_year: Date.today.year - 10,
                                   end_year: Date.today.year - 90, order: [:day, :month, :year], required: true
 
-        = f.button :submit, t('.sign_up'), class: 'btn btn-large btn-primary'
+        = f.button :submit, t('registrations.new.sign_up'), class: 'btn btn-large btn-primary'
 
       <b>Help:</b>
       If you lost your password, you can
-      =link_to 'retrieve your password', new_password_path(resource_name)
+      = link_to 'retrieve your password', new_password_path(resource_name)
 

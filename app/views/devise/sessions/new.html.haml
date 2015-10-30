@@ -1,9 +1,9 @@
-- title t('.sign_in')
+- title t('sessions.new.sign_in')
 
 .login-box.clearfix
   %header
     %h2.short_headline
-      %span= t('.login_to_your_account')
+      %span= t('sessions.new.login_to_your_account')
 
   .login-wrapper.clearfix
     .float-right
@@ -26,10 +26,10 @@
           = t('devise.sessions.remember_me')
 
         .submit
-          = f.submit t('.hitch_in'), class: 'btn btn-danger'
+          = f.submit t('sessions.new.hitch_in'), class: 'btn btn-danger'
 
       %footer.clearfix
-        .forgotpw= link_to t('.forgot_password'), new_user_password_path
+        .forgotpw= link_to t('sessions.new.forgot_password'), new_user_password_path
 
     .float-left
       %ul
@@ -37,6 +37,6 @@
           = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 100%;'), user_omniauth_authorize_path(:facebook)
 
       %p
-        = link_to t('.not_on_hitchlog'), new_user_registration_path
+        = link_to t('sessions.new.not_on_hitchlog'), new_user_registration_path
 
 
