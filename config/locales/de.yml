@@ -298,7 +298,7 @@ de:
       location: Lage
       logged_trips: Trips
       member_since: Mitglied seit
-      title: Titel
+      title: Tramper index
       username: Benutzername
     profile:
       be_welcome_user: BeWelcome User
@@ -318,7 +318,7 @@ de:
       about: "Über"
       edit: Bearbeiten
       log_your_first_trip: Log deinen ersten Trip
-      title: Titel
+      title: "%{user}'s Trampprofil"
       upcoming_trip: kommender Trip
   validators:
     arrival_after_departure: kann nicht vor Abfahrt sein
