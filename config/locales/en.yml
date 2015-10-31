@@ -1,14 +1,5 @@
 ---
 en:
-  statistics:
-    index:
-      statistics: Statistics
-      top_10_hitchhikers: Top 10 Hitchhikers
-      waiting_time: Waiting Time
-      gender_of_hitchhikers: Gender of hitchhikers
-      experiences: Experiences
-      company_while_hitchhiking: Company while hitchhiking
-      vehicles: Vehicles
   activerecord:
     attributes:
       comment:
@@ -42,7 +33,7 @@ en:
     distance_in_words:
       about_x_months:
         one: 1 month
-        other: '%{count} months'
+        other: "%{count} months"
       x_days:
         one: 1 day
         other: "%{count} days"
@@ -314,30 +305,28 @@ en:
     cannot_be_in_past: can't be in past
   welcome:
     about:
-      intro: |
-          The Hitchlog gives a real <i class="fa fa-photo"></i> on hitchhiking <br>
-          We try to paint it with <i class="fa fa-heart-o"></i>
-          and to give back to the <i class="fa fa-group"></i> who picked us up.
-
-
       column1: |
-          <span class="dropcap">H</span>itchhiking is quite an interesting
-          way of traveling. <br/> The eventful journey, the encounter with
-          many interesting and generous drivers and the experience of
-          diversity in our society sets it apart from taking a train or
-          driving by bus.<br/> It is more than just a way of getting from A
-          to B.
+        <span class="dropcap">H</span>itchhiking is quite an interesting
+        way of traveling. <br/> The eventful journey, the encounter with
+        many interesting and generous drivers and the experience of
+        diversity in our society sets it apart from taking a train or
+        driving by bus.<br/> It is more than just a way of getting from A
+        to B.
       column2: |
-          The Hitchlog gathers the stories and experience of hundreds of hitchhikers
-          and puts them together with pictures, stories and data about the journey. <br/>
-          It creates statistics for <b>one hitchhiker</b> as in having a profile with
-          all the gathered data, as well as statistics for <b>all hitchhikers</b> as in
-          what is the overall gender of all hitchhikers.
-          This will paint a real, authentic picture about what Hitchhiking
-          is actually like.
+        The Hitchlog gathers the stories and experience of hundreds of hitchhikers
+        and puts them together with pictures, stories and data about the journey. <br/>
+        It creates statistics for <b>one hitchhiker</b> as in having a profile with
+        all the gathered data, as well as statistics for <b>all hitchhikers</b> as in
+        what is the overall gender of all hitchhikers.
+        This will paint a real, authentic picture about what Hitchhiking
+        is actually like.
       column3: |
-          A picture that is untouched of it's reputation spread by public media or movies.
-          A picture which hopefully shows the world what a great way of travelling this is.
+        A picture that is untouched of it's reputation spread by public media or movies.
+        A picture which hopefully shows the world what a great way of travelling this is.
+      intro: |
+        The Hitchlog gives a real <i class="fa fa-photo"></i> on hitchhiking <br>
+        We try to paint it with <i class="fa fa-heart-o"></i>
+        and to give back to the <i class="fa fa-group"></i> who picked us up.
     hitchhiking_buddies:
       contact: Contact
       find_hitchhiking_buddies: Find a hitchhiking buddy

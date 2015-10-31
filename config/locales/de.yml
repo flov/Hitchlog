@@ -1,3 +1,4 @@
+---
 de:
   activerecord:
     attributes:
@@ -20,7 +21,7 @@ de:
         to: Nach
         travelling_with: Gereist mit
       user:
-        about_you: Über Dich
+        about_you: "Über Dich"
         cs_user: CS Benutzer
         email: Email
         gender: Geschlecht
@@ -32,24 +33,24 @@ de:
     distance_in_words:
       about_x_months:
         one: 1 Monat
-        other: '%{count} Monate'
+        other: "%{count} Monate"
       x_days:
         one: 1 Tag
-        other: '%{count} Tage'
+        other: "%{count} Tage"
       x_hours:
         one: 1 Stunde
-        other: '%{count} Stunden'
+        other: "%{count} Stunden"
       x_minutes:
         one: 1 Minute
-        other: '%{count} Minuten'
+        other: "%{count} Minuten"
       x_months:
         one: 1 Monat
-        other: '%{count} Monate'
+        other: "%{count} Monate"
   flash:
     error: etwas schief gelaufen :(
     future_trips:
       destroy:
-        success: 'Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht'
+        success: Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht
     rides:
       add_ride:
         success: Fahrt hinzugefügt
@@ -67,7 +68,7 @@ de:
         not_allowed: Du bist nicht berechtigt, dies zu tun.
         success: Und tschüss! Auf Hitchlog bist Du jetzt nicht mehr!
       mail_sent:
-        notice: 'Mail wurde zu %{user} gesendet'
+        notice: Mail wurde zu %{user} gesendet
       update:
         error: Profil konnte nicht editiert werden
         notice: Profil erfolgreich editiert
@@ -87,7 +88,8 @@ de:
       looking_for_a_hitchhiking_buddy: Suchst Du nach einem Tramppartner
       post_it_on_the_board: Poste das auf dem Hitchlog
       title: Tramppartner
-      your_thumb_is_itching: Dein Daume juckt aber Du weißt noch nicht mit wem du dein nächstes Trampabenteuer beginnen wirst?
+      your_thumb_is_itching: Dein Daume juckt aber Du weißt noch nicht mit wem du
+        dein nächstes Trampabenteuer beginnen wirst?
     new:
       new_future_trip: Wo möchtest du hintrampen?
       tell_others_about_your_plans: Teile anderen deine Trampplänen mit.
@@ -106,18 +108,19 @@ de:
     forgot_your_password: Forgot your password?
     good: gut
     google_maps_duration: Google Maps-Dauer
-    got_a_ride_with: 'Bekam eine Fahrt mit einem %{vehicle}'
+    got_a_ride_with: Bekam eine Fahrt mit einem %{vehicle}
     hitchhiked_kms: Kms getrampt
     hometown: Heimatstadt
     languages: Sprachen
     male: männlich
-    member_since: 'Mitglied seit %{time}'
+    member_since: Mitglied seit %{time}
     message: Nachricht
     minutes: Minuten
     neutral: neutral
     not_allowed: Du bist nicht berechtigt, dies zu tun!
     or: oder
-    overall_average_speed: 'Durchschnittsgeschwindigkeit von allen getrampten Trips: %{speed}'
+    overall_average_speed: 'Durchschnittsgeschwindigkeit von allen getrampten Trips:
+      %{speed}'
     photo: Foto
     photo_caption: Fototitel
     record_not_found: Der Eintrag wurde nicht gefunden
@@ -126,21 +129,21 @@ de:
     search: Suche
     sign_in_with_facebook: Mit Facebook anmelden
     sign_up: Anmelden
-    sign_up_with_facebook: Über Facebook anmelden
+    sign_up_with_facebook: "Über Facebook anmelden"
     slogan: Das Tramper Logbuch
     story: Story
     story_title: Storytitel
-    time_ago: 'vor %{time}'
+    time_ago: vor %{time}
     total_waiting_time: 'totale Wartezeit: %{time} min'
     trip: Trip
     trip_duration: Trip Dauer
-    user_age: '%{age} Jahre alt'
+    user_age: "%{age} Jahre alt"
     very_bad: sehr schlecht
     very_good: sehr gut
     years: Jahre
   helper:
     bad_experience: schlechte Erfahrungen
-    driving_time: '%{time} Fahrtzeit'
+    driving_time: "%{time} Fahrtzeit"
     faster_than_gmaps: schneller als Google Maps
     female_hitchhiker: Weiblicher Tramper
     good_experience: gute Erfahrung
@@ -165,16 +168,16 @@ de:
     unknown_distance: unbekannte Distanz
     very_bad_experience: sehr schlechte Erfahrungen
     very_good_experience: sehr gute Erfahrungen
-    waiting_time: '%{time} Wartezeit'
+    waiting_time: "%{time} Wartezeit"
   hours:
     one: 1 Stunde
-    other: '%{count} Stunden'
+    other: "%{count} Stunden"
   hours_with_minutes:
-    one: '%{count} Stunde %{minutes} Minuten'
-    other: '%{count} Stunden %{minutes} Minuten'
+    one: "%{count} Stunde %{minutes} Minuten"
+    other: "%{count} Stunden %{minutes} Minuten"
   layouts:
     navigation:
-      about: Über Hitchlog
+      about: "Über Hitchlog"
       english: Englisch
       find_hitchhiking_buddy: Tramppartner
       german: Deutsch
@@ -193,8 +196,8 @@ de:
           [Hitchlog] %{user} sucht einen Tramppartner von %{from_city} nach
           %{to_city}
   minutes_without_hours:
-    one: '%{count} Minute'
-    other: '%{count} Minuten'
+    one: "%{count} Minute"
+    other: "%{count} Minuten"
   registrations:
     new:
       create_a_hitchlog_account: Erstelle dein Hitchlog Account
@@ -205,7 +208,8 @@ de:
       crop: abschneiden
       crop_the_photo: Schneide das Foto ab
     ride:
-      please_tag_your_ride: Bitte tagge die Fahrt so dass wir leichter sehen können warum Du eine gute oder schlechte Erfahrung hattest
+      please_tag_your_ride: Bitte tagge die Fahrt so dass wir leichter sehen können
+        warum Du eine gute oder schlechte Erfahrung hattest
       save_ride: Sichere Fahrt
       tag_it: Tag Deine Fahrt (durch Komma getrennt)
   sessions:
@@ -234,12 +238,13 @@ de:
   trips:
     byline:
       google_maps_duration: 'Google Maps Dauer: %{time}'
-      trip_age: '%{user} war %{age} Jahre alt, asl er diesen Trip machte'
+      trip_age: "%{user} war %{age} Jahre alt, asl er diesen Trip machte"
       trip_duration: 'Trip Dauer: %{time}'
     comments:
       add_comment: Kommentar hinzufügen
       leave_comment: Schreibe einen Kommentar
-      log_in_or_register_to_comment: Log dich ein oder melde Dich an um auf diesen Trip zu kommentieren
+      log_in_or_register_to_comment: Log dich ein oder melde Dich an um auf diesen
+        Trip zu kommentieren
     edit:
       edit_title: Trip bearbeiten
       edit_trip: Trip bearbeiten
@@ -252,15 +257,15 @@ de:
     list:
       by: Von
       hitched_date: Getrampt am
-      read_on: (lese mehr in Trips)
+      read_on: "(lese mehr in Trips)"
     new:
       log_your_trip_please: Log deine Tramp Erfahrung :)
       new_trip: Log einen neuen Trip
     search_interface:
-      from_placeholder: (z.B. Berlin oder Deutschland)
+      from_placeholder: "(z.B. Berlin oder Deutschland)"
       search_by_country_or_city: Suche Trips nach Land oder Stadt
     show:
-      title: 'Per Anhalter von %{from_city} zu %{to_city}'
+      title: Per Anhalter von %{from_city} zu %{to_city}
   users:
     edit:
       edit_profile: Profil bearbeiten
@@ -271,7 +276,8 @@ de:
         bei Gravatar.com an.
       when_changing: Wenn du das bearbeitest, click auf das Dropdown Feld
       your_avatar: Dein Avatar
-      your_avatar_is_from_facebook: Du hast Dich mit Facebook angemeldet und somit ist dein Avatar dein Facebook Profilbild
+      your_avatar_is_from_facebook: Du hast Dich mit Facebook angemeldet und somit
+        ist dein Avatar dein Facebook Profilbild
     index:
       hitchhiker: Tramper
       location: Lage
@@ -290,11 +296,11 @@ de:
         Wenn Du diese Nachricht sendest wird %{username} eine Email mit deiner Email addresse empfangen.
         Auf diese Weise wird %{username} Dir antworten können.
       message_placeholder: Nachricht
-      send_a_mail_to: 'Sende Nachricht zu %{user}'
+      send_a_mail_to: Sende Nachricht zu %{user}
       send_mail: Sende Mail
-      title: 'Sende eine Nachricht zu %{user}'
+      title: Sende eine Nachricht zu %{user}
     show:
-      about: Über
+      about: "Über"
       edit: Bearbeiten
       log_your_first_trip: Log deinen ersten Trip
       title: Titel
@@ -305,18 +311,24 @@ de:
     cannot_be_in_past: kann nicht in der Vergangenheit sein
   welcome:
     about:
-      intro: |
-        Das Hitchlog gibt ein echtes <i class="fa fa-photo"></i> des Trampen wieder.<br>
-        Wir malen dieses Bild mit <i class="fa fa-heart-o"></i> und geben an die <i class="fa fa-group"></i> zurück die uns abgeholt haben.
-      column1: '<span class="dropcap">T</span> rampen ist eine durchaus interessante Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es ist mehr als nur ein Weg, um von A nach B zu kommen.'
-      column2: |
-        Das Hitchlog sammelt die Geschichten und Erfahrungen von Hunderten von Trampern und legt sie zusammen mit Bildern, Geschichten und Daten über die Reise.<br/>
-        Es erstellt sowohl Statistiken für den <b>einzlenen Tramper</b> in Form eines eigenen Profils mit den gesammelten Daten, <br/>
-        sowie Statistiken für <b>alle Tramper</b> z. B. in Form von Aussagen über das Geschlecht aller Tramer, etc. 
-        <br/> Dies wird ein echtes, authentisches Bild über das Trampen malen.
+      column1: <span class="dropcap">T</span> rampen ist eine durchaus interessante
+        Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung
+        mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt
+        in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es
+        ist mehr als nur ein Weg, um von A nach B zu kommen.
+      column2: "Das Hitchlog sammelt die Geschichten und Erfahrungen von Hunderten
+        von Trampern und legt sie zusammen mit Bildern, Geschichten und Daten über
+        die Reise.<br/>\nEs erstellt sowohl Statistiken für den <b>einzlenen Tramper</b>
+        in Form eines eigenen Profils mit den gesammelten Daten, <br/>\nsowie Statistiken
+        für <b>alle Tramper</b> z. B. in Form von Aussagen über das Geschlecht aller
+        Tramer, etc. \n<br/> Dies wird ein echtes, authentisches Bild über das Trampen
+        malen.\n"
       column3: |
         Ein Bild, das unberührt ist von dem Ruf der von öffentlichen Medien oder Filme verbreitet wird.
         Ein Bild, welches der Welt zeigt was für eine tolle Art zu reisen das trampen ist.
+      intro: |
+        Das Hitchlog gibt ein echtes <i class="fa fa-photo"></i> des Trampen wieder.<br>
+        Wir malen dieses Bild mit <i class="fa fa-heart-o"></i> und geben an die <i class="fa fa-group"></i> zurück die uns abgeholt haben.
     hitchhiking_buddies:
       contact: Kontakt
       find_hitchhiking_buddies: Finde einen hitchhiking buddy
@@ -324,8 +336,9 @@ de:
       more_hitchhiking_buddies: Weitere hitchhiking Buddies
     home:
       explore_hh_xp: Entdecke Tramperfahrungen in über 80 Ländern
-      hitchhiked_by_user: '%{time} her getrampt von %{user}'
-      meta_description: Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke Tramperfahrungen von Trampern in über 50 Ländern.
+      hitchhiked_by_user: "%{time} her getrampt von %{user}"
+      meta_description: Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke
+        Tramperfahrungen von Trampern in über 50 Ländern.
       more_hitchhikers: Lerne mehr Tramper kennen
       more_stories: Lese mehr Stories
       more_trips: Lese mehr Trips
