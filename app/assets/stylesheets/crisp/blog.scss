@@ -1,13 +1,5 @@
 /* blog general
 ================================================== */
-.entry-post { *zoom: 1}
-.entry-post:before, .entry-post:after 
-{display: table; content: ""; line-height: 0;}
-
-.entry-post:after
-{clear: both}
-
-.entry-meta abbr {border:0px;}
 
 /****** date ******/
 .blog.date {
@@ -177,7 +169,7 @@
 .blog-summary-grid li.quotes h4 { display: none }
 
 
-/* Entry Comments
+/* entry comments
 ================================================== */
 .entry-comments {
   h3 a { text-decoration: none }
@@ -222,154 +214,4 @@
       font-size: 1.2rem;
   }
 }
-
-/* Commment Form
-================================================== */
-#comment-form {
-    margin: 20px 0 0 0;
-    padding-right: 3%;
-}
-#comment-form p {
-    font-size: 12px;
-    font-size: 1.2rem;
-    font-style: oblique;
-}
-.comment_form label {
-    font-size: 12px;
-    font-size: 1.2rem;
-}
-.comment_form .btn,
-.comment_form input[type="submit"],
-.comment_form  input[type="button"] {
-    clear: both;
-    margin-top: 10px;
-}
-.comment_form span.name {
-    float: left;
-    width: 40%;
-}
-.comment_form span.email {
-    float: left;
-    width: 60%;
-}
-.comment_form #name { width: 90% }
-.comment_form #email,
-.comment_form textarea,
-.comment_form #website { width: 100% }
-.comment_form .error input,
-.comment_form .error textarea {
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-/* media queries
-================================================== */
-
-@media only screen and (max-width: 1080px) { 
-    /******  date ******/
-    .span6 .blog.date {
-        width: 50px;
-        height: 35px;
-        padding-top: 15px;
-        -webkit-border-radius: 50px;
-        border-radius: 50px;
-    }
-    .span6 .blog.date .day { font-size: 16px }
-    .span6 .blog.date .month { font-size: 10px }
-    .span6 .blog.date .year { display: none }
-    .span6 .trip-detail .date_share .addthis_toolbox {
-        clear: both;
-        padding-top: 30px;
-        margin-left: 15px;
-        width: 16px;
-    }
-} /*end*/
-
-
-@media only screen and (max-width: 880px) { 
-    /******  date ******/
-    .span9 .blog.date {
-        width: 50px;
-        height: 35px;
-        padding-top: 15px;
-        -webkit-border-radius: 50px;
-        border-radius: 50px;
-    }
-    .span9 .blog.date .day { font-size: 16px }
-    .span9 .blog.date .month { font-size: 10px }
-    .span9 .blog.date .year { display: none }
-    .span9 .trip-detail .date_share .addthis_toolbox {
-        clear: both;
-        padding-top: 30px;
-        margin-left: 15px;
-        width: 16px;
-    }
-} /*end*/
-
-
-@media only screen and (max-width:600px) { 
-  .trip-detail .addthis_toolbox span { margin: 0 auto 10px auto }
-  .trip-detail .entry-footer .addthis_toolbox { display: none }
-
-  .trip-detail {
-    .entry-header,
-    .entry-content,
-    .entry-tags,
-    .entry-pagination,
-    .entry-related {
-      footer {
-        display: none;
-      }
-      article {
-        width: 100%!important;
-        float: none!important;
-      }
-      width: 100%!important;
-      float: none!important;
-    }
-    .entry-content footer {
-      display: none;
-    }
-  }
-
-  .entry-comments {width:100%!important;}
-  .trip-detail .entry-header .addthis_toolbox {
-    display: block!important;
-    padding-top: 10px;
-    height: 16px;
-  }
-  .trip-detail .entry-header .addthis_toolbox span {
-    float: left;
-    margin-right: 10px;
-    height: 16px;
-  }
-  .trip-detail {
-    padding-top: 3%;
-    position: relative;
-  }
-  #comment-form {
-    margin: 3% 0 0 0;
-    padding-right: 3%;
-    width:94%;
-  }
-  .comment_form .btn,
-  .comment_form input[type="submit"],
-  .comment_form  input[type="button"] {
-    clear: both;
-    margin-top: 10px;
-  }
-  .comment_form span.name { width: 90% }
-  .comment_form span.email {
-    float: none;
-    width: 100%;
-  }
-  .comment_form #name { width: 100% }
-  .comment_form #email,
-  .comment_form textarea,
-  .comment_form #website { width: 90% }
-  textara#comment_body {
-    width: 340px;
-  }
-} 
 
