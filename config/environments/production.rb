@@ -12,7 +12,7 @@ Hitchlog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-  config.serve_static_assets = true
+  config.serve_static_files = true
 
   config.assets.compress = true
   config.assets.js_compressor = :uglifier
@@ -22,6 +22,8 @@ Hitchlog::Application.configure do
   config.assets.compile = false
   # Generate digests for assets URLs.
   config.assets.digest = true
+
+  config.secret_key = '26338d643aa9aeb67fb5c859108153e64b460ab1a17df73c9207ceaefcd15eac6ac7069e2b57bc996e875ca810e7b5e6780d45f622cbbb53003cd9fb9f72d823'
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
