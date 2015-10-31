@@ -16,12 +16,12 @@
           = t('.contact')
 
     .bottom
-      Departure:
+      = t('activerecord.attributes.trip.departure')
       %b= future_trip.departure.strftime("%d %B %Y")
       %br/
-      From:
+      = t('activerecord.attributes.trip.from')
       %b= future_trip.formatted_from
-      To:
+      = t('activerecord.attributes.trip.to')
       %b= future_trip.formatted_to
 
       - unless future_trip.description.blank?

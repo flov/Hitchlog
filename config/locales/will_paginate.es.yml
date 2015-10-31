@@ -1,0 +1,16 @@
+es:
+  will_paginate:
+    next_label: 'Siguiente &raquo;'
+    page_entries_info:
+      multi_page: 'Viendo [%{from} - %{to}] de un total de %{count}'
+      multi_page_html: 'Viendo <strong>%{from}-%{to}</strong> de un total de <strong>%{count}</strong>'
+      single_page:
+        one: 'Viendo un %{model}'
+        other: 'Viendo los %{count} %{model}'
+        zero: 'Sin resultados'
+      single_page_html:
+        one: 'Viendo <strong>un</strong> %{model}'
+        other: 'Viendo los <strong>%{count}</strong> %{model}'
+        zero: 'Sin resultados'
+    page_gap: '&hellip;'
+    previous_label: '&laquo; Anterior'
