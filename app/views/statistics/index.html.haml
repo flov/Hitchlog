@@ -1,39 +1,39 @@
 - title t('.title')
 - meta_description(t('.meta_description'))
 
-%h1 Statistics
+%h1= t('.statistics')
 
 .row-fluid
   .span12
     %h3.short_headline
-      %span Top 10 hitchhikers
+      %span=t('top_10_hitchhikers')
     = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
 
 .row-fluid
   .span6
     %h3.short_headline
-      %span Waiting Time
+      %span=t('.waiting_time')
     = content_tag(:div, '', id: 'waiting_time_donut', data: {waiting_time: waiting_time_data })
   .span6
     %h3.short_headline
-      %span Gender of hitchhikers
+      %span= t('.gender_of_hitchhikers')
     = content_tag(:div, '', id: 'gender_donut', class: 'piechart',
       data: {hitchhikers_by_gender: hitchhikers_by_gender})
 
 .row-fluid
   .span4
     %h3.short_headline
-      %span Experiences
+      %span= t('.experiences')
     = content_tag(:div, '', id: 'experiences_donut', class: 'piechart',
       data: {experiences: experiences_data })
   .span4
     %h3.short_headline
-      %span Company while hitchhiking
+      %span=t('.company_while_hitchhiking')
     = content_tag(:div, '', id: 'company_donut', class: 'piechart',
       data: {company_for_trips: company_for_trips })
   .span4
     %h3.short_headline
-      %span Vehicles
+      %span= t('.vehicles')
     = content_tag(:div, '', id: 'vehicles_donut', data: {vehicles: vehicles_data })
 
 - content_for :javascript_at_bottom do
