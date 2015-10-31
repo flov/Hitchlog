@@ -1,5 +1,14 @@
 ---
 en:
+  statistics:
+    index:
+      statistics: Statistics
+      top_10_hitchhikers: Top 10 Hitchhikers
+      waiting_time: Waiting Time
+      gender_of_hitchhikers: Gender of hitchhikers
+      experiences: Experiences
+      company_while_hitchhiking: Company while hitchhiking
+      vehicles: Vehicles
   activerecord:
     attributes:
       comment:
