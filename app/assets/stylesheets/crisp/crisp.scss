@@ -25,12 +25,12 @@
 
 /* body / html font base sizes
 ================================================== */
-html {
-  font-size: 62.5%;
-  margin: 0;
-	padding: 0;
-	-webkit-font-smoothing: antialiased;
-}    
+/*html {*/
+  /*font-size: 62.5%;*/
+  /*margin: 0;*/
+	/*padding: 0;*/
+	/*-webkit-font-smoothing: antialiased;*/
+/*}    */
 
 /*	Text Color
 ========================================================== */
@@ -1291,11 +1291,6 @@ font-size:70%!important;
 ====================================================== */
 
 @media only screen and (min-width: 980px) {
-body {
-	font-size: 14px; 
-	font-size: 1.4rem;/* =15px */
-	line-height:1.65;
-	} 
 
 .hero-unit h1,
 .hero-unit h2 { font-size: 250% }
@@ -1312,11 +1307,6 @@ body {
 ====================================================== */
 
 @media only screen and (min-width: 1100px) {
-body {
-	font-size: 15px; 
-	font-size: 1.5rem;/* =15px */
-	line-height:1.65;
-	} 
 .hero-unit h1,
 .hero-unit h2 { font-size: 280% }
 .widget ul.navigation li {
@@ -1544,12 +1534,6 @@ hr {
 ====================================================== */
 @media only screen and (max-width: 500px) {
 
-body {
-    font-size: 14px;
-    font-size: 1.4rem; /* =14px */
-    line-height: 1.4;
-}
-
 /*** font-sizes max-width 500px***/
 h1 {font-size: 140%}
 h2 {font-size: 130%}
@@ -1625,11 +1609,6 @@ blockquote {
 ====================================================== */
 @media only screen and (max-width: 600px) {
 
-body {
-    font-size: 13px;
-    font-size: 1.3rem; /* =15px */
-    line-height: 1.5;
-}
 /*** twitter footer slider max-width 600px 
 ================================================== */
 .twitter.flexslider ul {
