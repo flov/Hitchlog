@@ -17,8 +17,9 @@ class Ride < ActiveRecord::Base
   belongs_to :user
   belongs_to :trip
 
-  scope :with_photo, -> { select{|r| r.photo.present? } }
+  scope :with_photo, -> { where.not(photo: nil) }
   scope :with_story, -> { where("story <> ''") }
+  scope :with_story_or_photo, -> { where("story <> '' OR photo IS NOT NULL") }
   scope :latest_first, -> { order('id DESC') }
   scope :oldest_first, -> { order('id ASC') }
 
