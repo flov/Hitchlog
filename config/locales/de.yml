@@ -1,4 +1,3 @@
----
 de:
   activerecord:
     attributes:
@@ -252,11 +251,13 @@ de:
       title: Tramp Trips
     list:
       by: Von
+      hitched_date: Getrampt am
       read_on: (lese mehr in Trips)
     new:
       log_your_trip_please: Log deine Tramp Erfahrung :)
       new_trip: Log einen neuen Trip
     search_interface:
+      from_placeholder: (z.B. Berlin oder Deutschland)
       search_by_country_or_city: Suche Trips nach Land oder Stadt
     show:
       title: 'Per Anhalter von %{from_city} zu %{to_city}'
@@ -303,6 +304,19 @@ de:
     cannot_be_0: kann nicht 0 sein
     cannot_be_in_past: kann nicht in der Vergangenheit sein
   welcome:
+    about:
+      intro: |
+        Das Hitchlog gibt ein echtes <i class="fa fa-photo"></i> des Trampen wieder.<br>
+        Wir malen dieses Bild mit <i class="fa fa-heart-o"></i> und geben an die <i class="fa fa-group"></i> zurück die uns abgeholt haben.
+      column1: '<span class="dropcap">T</span> rampen ist eine durchaus interessante Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es ist mehr als nur ein Weg, um von A nach B zu kommen.'
+      column2: |
+        Das Hitchlog sammelt die Geschichten und Erfahrungen von Hunderten von Trampern und legt sie zusammen mit Bildern, Geschichten und Daten über die Reise.<br/>
+        Es erstellt sowohl Statistiken für den <b>einzlenen Tramper</b> in Form eines eigenen Profils mit den gesammelten Daten, <br/>
+        sowie Statistiken für <b>alle Tramper</b> z. B. in Form von Aussagen über das Geschlecht aller Tramer, etc. 
+        <br/> Dies wird ein echtes, authentisches Bild über das Trampen malen.
+      column3: |
+        Ein Bild, das unberührt ist von dem Ruf der von öffentlichen Medien oder Filme verbreitet wird.
+        Ein Bild, welches der Welt zeigt was für eine tolle Art zu reisen das trampen ist.
     hitchhiking_buddies:
       contact: Kontakt
       find_hitchhiking_buddies: Finde einen hitchhiking buddy
