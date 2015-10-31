@@ -232,8 +232,15 @@ en:
       nearby_hitchhikers: Nearby hitchhikers
   statistics:
     index:
+      Vehicles: Vehicles
+      company_while_hitchhiking: Company while hitchhiking
+      experiences: Experiences
+      gender_of_hitchhikers: Gender of hitchhikers
       meta_description: Global statistics of hitchhiking
+      statistics: Statistics
       title: Hitchhiking Statistics
+      top_10_hitchhikers: Top 10 Hitchhikers
+      waiting_time: Waiting Time
   trips:
     byline:
       google_maps_duration: 'Google Maps duration: %{time}'
