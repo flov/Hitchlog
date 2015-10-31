@@ -1,6 +1,7 @@
 - title t('.title')
 
-%h1 #{pluralize(@users.count, t('.hitchhiker'))}:
+%h1
+  #{@users.count} #{t('.hitchhiker')}:
 
 = search_form_for @search do |f|
   %h4= t('.search_by')

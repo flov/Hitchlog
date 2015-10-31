@@ -284,7 +284,7 @@ en:
         You authenticated with facebook and your profile image is your facebook profile image
     index:
       search_by: Search by
-      hitchhiker: Hitchhiker
+      hitchhiker: Hitchhikers
       location: Location
       logged_trips: Logged Trips
       member_since: Member since
