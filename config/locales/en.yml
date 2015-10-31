@@ -157,6 +157,10 @@ en:
     photo: Photo
     slower_than_gmaps: slower than Google Maps
     three_people_hitchhike: Hitchhiked in threesome
+    travelling_with_0: Hitchhiked alone
+    travelling_with_1: Hitchhiked in pairs
+    travelling_with_2: Hitchhiked in threesome
+    travelling_with_3: Hitchhiked in foursome
     trip:
       alone: alone
       with_1: 1 person
@@ -178,11 +182,8 @@ en:
   layouts:
     navigation:
       about: About
-      english: English
       find_hitchhiking_buddy: Hitchhiking Buddies
-      german: German
       hitchhikers: Hitchhikers
-      language: Language
       log_new_trip: Log new trip
       settings: Settings
       sign_out: Sign Out
@@ -203,14 +204,18 @@ en:
       sign_up: Sign up
       use_the_normal_form: Use the normal Form
   rides:
-    crop:
-      crop: Crop
-      crop_the_photo: Crop the photo
     ride:
       please_tag_your_ride: |
         Please tag your ride if you change the experience, so that it's easy to see why you had a "very bad", or "very good" experience. This will be important for the overall statistics
       save_ride: Save Ride
       tag_it: Tag your ride (seperated by comma)
+    vehicles:
+      boat: Boat
+      bus: Bus
+      car: Car
+      motorcycle: Motorcycle
+      plane: Plane
+      truck: Truck
   sessions:
     new:
       forgot_password: Forgot Password?
@@ -221,9 +226,6 @@ en:
       sign_in: Sign in
       signed_in: Signed in successfully.
       signed_out: Signed out successfully.
-  shared:
-    banners_in_corners:
-      fork_me_on_github: Fork Me On Github
     footer:
       follow_on_facebook: Follow The Hitchlog On Facebook
       follow_on_twitter: Follow The Hitchlog On Twitter
@@ -232,7 +234,6 @@ en:
       nearby_hitchhikers: Nearby hitchhikers
   statistics:
     index:
-      Vehicles: Vehicles
       company_while_hitchhiking: Company while hitchhiking
       experiences: Experiences
       gender_of_hitchhikers: Gender of hitchhikers
@@ -240,6 +241,7 @@ en:
       statistics: Statistics
       title: Hitchhiking Statistics
       top_10_hitchhikers: Top 10 Hitchhikers
+      vehicles: Vehicles
       waiting_time: Waiting Time
   trips:
     byline:

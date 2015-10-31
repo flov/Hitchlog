@@ -36,7 +36,7 @@ module StatisticsHelper
 
   def vehicles_data
     Ride::VEHICLES.map do |vehicle|
-      { label: vehicle, value: Ride.where(vehicle: vehicle).count }
+      { label: I18n.t("rides.vehicles.#{vehicle}"), value: Ride.where(vehicle: vehicle).count }
     end
   end
 
@@ -48,15 +48,15 @@ module StatisticsHelper
 
   def hitchhikers_by_gender
     [
-      { label: 'male', value: ((User.where(gender: "male").count.to_f / User.count) * 100).round },
-      { label: 'female', value: ((User.where(gender: "female").count.to_f / User.count) * 100).round }
+      { label: I18n.t('general.male'), value: ((User.where(gender: "male").count.to_f / User.count) * 100).round },
+      { label: I18n.t('general.female'), value: ((User.where(gender: "female").count.to_f / User.count) * 100).round }
     ]
   end
 
   def experiences_data
     ['very good', 'good', 'neutral', 'bad', 'very bad'].map do |exp|
       {
-        label: exp,
+        label: I18n.t("general.#{exp.parameterize('_')}"),
         value: Ride.send("#{exp.parameterize('_')}_experiences_ratio")
       }
     end
