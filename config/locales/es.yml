@@ -1,0 +1,331 @@
+es:
+  activerecord:
+    attributes:
+      comment:
+        body: Comentario
+      ride:
+        duration: Tiempo de conducción (en horas)
+        experience: Experiencia
+        gender: Sexo del pasajero(s)
+        photo: Foto
+        waiting_time: Tiempo (en minutos) de espera
+      trip:
+        arrival: Llegada
+        departure: Salida
+        distance: Distancia
+        duration: Duración
+        from: De
+        gmaps_duration: Duración de GMap
+        hitchhikes: Número de paseos
+        to: Para
+        travelling_with: Viajando con
+      user:
+        about_you: Acerca de usted
+        cs_user: Usuario CS
+        email: Correo electrónico
+        gender: Género
+        origin: Ciudad natal
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
+        username: Nombre de usuario
+  datetime:
+    distance_in_words:
+      about_x_months:
+        one: 1 mes
+        other: '%{count} meses'
+      x_days:
+        one: 1 día
+        other: '%{count} días'
+      x_hours:
+        one: 1 hora
+        other: '%{count} horas'
+      x_minutes:
+        one: 1 minuto
+        other: '%{count} minutos'
+      x_months:
+        one: 1 mes
+        other: '%{count} meses'
+  flash:
+    error: algo salió mal :(
+    future_trips:
+      destroy:
+        success: 'Se ha eliminado su futuro viaje de %{from} a %{to}'
+    rides:
+      add_ride:
+        success: Paseo mayor
+      delete_photo:
+        error: No se puede eliminar foto
+        success: Tu foto no es más!
+      update:
+        success: Paseo actualizado! Ver el resultado a continuación.
+    trips:
+      create_comment:
+        alert: No se pudo guardar el comentario!
+        comment_saved: Comentario guardado, gracias!
+    users:
+      destroy:
+        not_allowed: No se puede hacer eso!
+        success: ¡Adiós! Tu cuenta ha sido borrada!
+      mail_sent:
+        notice: 'Correo ha sido enviado a %{user}'
+      update:
+        error: No puede editar perfil propio
+        notice: Perfil editado con éxito
+  future_trips:
+    edit:
+      edit_future_trip: Editar su futuro viaje
+    form:
+      description_label: Mensaje
+    future_trips:
+      by: Por
+      country: País
+      departure: Salida
+      send_a_message: enviar mensaje
+    index:
+      and_find_hh_buddy: y encontrar a su próximo compañero haciendo autostop
+      hitchhikers_searching_for_buddies: Autostopistas buscando amigos hacer autostop con
+      looking_for_a_hitchhiking_buddy: En busca de un amigo haciendo autostop
+      post_it_on_the_board: Publicar en el tablero
+      title: Amigos haciendo autostop
+      your_thumb_is_itching: ¿El pulgar es picazón pero no sabes que para iniciar su próxima aventura haciendo autostop con?
+    new:
+      new_future_trip: ¿Dónde te gusta hacer autostop a?
+      tell_others_about_your_plans: A otros sobre sus planes haciendo autostop.
+  general:
+    average_speed: 'Velocidad media: %{speed}'
+    bad: mala
+    by: por
+    comment: Comentario
+    confirm: ¿Estás seguro?
+    country: país
+    country_of_origin: Ciudad natal
+    delete: Eliminar
+    edit: Editar
+    experience: experiencia
+    female: mujer
+    forgot_your_password: ¿Olvidó su contraseña?
+    good: buena
+    google_maps_duration: Duración de mapas de Google
+    got_a_ride_with: 'Tiene un paseo con un %{vehicle}'
+    hitchhiked_kms: autostop kms
+    hometown: Ciudad natal
+    languages: Idiomas
+    male: hombre
+    member_since: 'Miembro desde %{time}'
+    message: Mensaje
+    minutes: minutos
+    neutral: neutral
+    not_allowed: No se puede hacer eso!
+    or: o
+    overall_average_speed: 'Promedio de velocidad de todos los viajes de hitchhiked: %{speed}'
+    photo: Foto
+    photo_caption: Pie de foto
+    record_not_found: No se encontró el registro
+    ride: paseo
+    save: Guardar
+    search: búsqueda de
+    sign_in_with_facebook: Iniciar sesión con Facebook
+    sign_up: Únete
+    sign_up_with_facebook: Regístrate con Facebook
+    slogan: Diario de un autostopista
+    story: historia
+    story_title: Título de la historia
+    time_ago: '%{time} hace'
+    total_waiting_time: 'total de tiempo de espera: %{time}'
+    trip: viaje
+    trip_duration: Duración de viaje
+    user_age: '%{age} años'
+    very_bad: muy malo
+    very_good: muy bien
+    years: años
+  helper:
+    bad_experience: mala experiencia
+    driving_time: '%{time} tiempo de conducción'
+    faster_than_gmaps: más rápido que los mapas de Google
+    female_hitchhiker: Autostopista femenino
+    good_experience: buena experiencia
+    male_hitchhiker: Autostopista masculino
+    male_people: pasajero masculino
+    mixed_people: pasajeros femeninos y masculinos
+    more_than_three_people_hitchhike: Autostop en cuarteto
+    neutral_experience: experiencia neutral
+    no_results_for_this_route: no hay resultados para esta ruta
+    one_person_hitchhike: Autostop solamente
+    photo: Foto
+    slower_than_gmaps: más lento que el Google Maps
+    three_people_hitchhike: Autostop en trío
+    travelling_with_0: Autostop solamente
+    travelling_with_1: Autostop en pares
+    travelling_with_2: Autostop en trío
+    travelling_with_3: Autostop en cuarteto
+    trip:
+      alone: solo
+      with_1: 1 persona
+      with_2: 2 personas
+      with_3: 3 personas
+      with_4: 4 personas
+      with_more_than_4: con más de 4 personas
+    two_people_hitchhike: Autostop en pares
+    unknown_distance: distancia desconocida
+    very_bad_experience: muy mala experiencia
+    very_good_experience: muy buena experiencia
+    waiting_time: 'tiempo de espera de %{time}'
+  hours:
+    one: 1 hora
+    other: '%{count} horas'
+  hours_with_minutes:
+    one: '%{count} hora %{minutes} minutos'
+    other: '%{minutes} de %{count} horas'
+  layouts:
+    navigation:
+      about: Acerca de
+      find_hitchhiking_buddy: Amigos haciendo autostop
+      hitchhikers: Autostopistas
+      log_new_trip: Nuevo viaje de registro
+      settings: Configuración
+      sign_out: Cerrar sesión
+      statistics: Estadísticas
+      trips: Viajes
+      your_profile: Tu perfil
+  mailer:
+    future_trips:
+      nearby_hitchhikers:
+        subject: '[Hitchlog] %{user} está en busca de un amigo haciendo autostop desde %{from_city} a %{to_city}'
+  minutes_without_hours:
+    one: '%{count} minutos'
+    other: '%{count} minutos'
+  registrations:
+    new:
+      create_a_hitchlog_account: Crea tu cuenta de Hitchlog
+      sign_up: Únete
+      use_the_normal_form: Utilizar la forma normal
+  rides:
+    ride:
+      please_tag_your_ride: 'Por favor la etiqueta su viaje si usted cambia la experiencia, por lo que es fácil ver por qué usted tuvo una "muy mala" o "muy buena" experiencia.'
+      save_ride: Salvar a paseo
+      tag_it: Su paseo (separados por comas) de la etiqueta
+    vehicles:
+      boat: Barco
+      bus: Autobuses
+      car: Coche
+      motorcycle: Motos
+      plane: Plano
+      truck: Camión
+  sessions:
+    new:
+      forgot_password: ¿Olvidó contraseña?
+      hitch_in: Hitch in
+      login_to_your_account: Entra en tu cuenta...
+      login_using_normal_font: Inicio de sesión en el uso de la forma normal
+      not_on_hitchlog: ¿No en Hitchlog todavía? Regístrese aquí
+      sign_in: Inicia sesión
+      signed_in: Firmado con éxito.
+      signed_out: Firmado con éxito hacia fuera.
+    footer:
+      follow_on_facebook: Siga el Hitchlog en Facebook
+      follow_on_twitter: Siga el Hitchlog en Twitter
+      follow_the_hitchlog: Siga el Hitchlog
+    nearby_hitchhikers:
+      nearby_hitchhikers: Autostopistas cercano
+  statistics:
+    index:
+      company_while_hitchhiking: Compañía mientras autostop
+      experiences: Experiencia
+      gender_of_hitchhikers: Género de autostopistas
+      meta_description: Estadísticas globales de autostop
+      statistics: Estadísticas
+      title: Estadísticas de autostop
+      top_10_hitchhikers: Top 10 autostopistas
+      vehicles: Vehículos
+      waiting_time: Tiempo de espera
+  trips:
+    byline:
+      google_maps_duration: 'Duración de Google Maps: %{time}'
+      trip_age: '%{user} tenía %{age} años cuando hizo este viaje'
+      trip_duration: 'Duración del viaje: %{time}'
+    comments:
+      add_comment: Añadir comentario
+      leave_comment: Deja un comentario
+      log_in_or_register_to_comment: Iniciar sesión o registrarse para dejar comentarios en este viaje
+    edit:
+      edit_title: Editar su viaje haciendo autostop
+      edit_trip: Editar viaje
+    form:
+      step1_2: Continuar
+    index:
+      latest_hitchhiking_trips: Viajes haciendo autostop
+      meta_description: Explorar la experiencia haciendo autostop de otros autoestopistas
+      title: Hitchhinking viajes
+    list:
+      by: Por
+      hitched_date: Fecha de autostop
+      read_on: (leído en viaje)
+    new:
+      log_your_trip_please: Registrar su viaje haciendo autostop
+      new_trip: Registro nuevo viaje haciendo autostop
+    search_interface:
+      from_placeholder: (por ejemplo, Berlín o Alemania)
+      search_by_country_or_city: Viajes de búsqueda por país o ciudad
+    show:
+      title: 'Dedo de %{from_city} a %{to_city}'
+  users:
+    edit:
+      edit_profile: Editar perfil
+      hitchlog_supports_gravatar_and_facebook_image: "Si autentican con Facebook, Hitchlog tomará su imagen de Perfil de Facebook, de lo contrario se utiliza <a href='http://gravatar.com'> Gravatar</a>. <br/> Si quieres subir tu propia imagen, por favor, sube tu propia foto en <a href='http://gravatar.com'> gravatar.com</a> o autenticar su cuenta de facebook."
+      when_changing: Al cambiar, haga clic en el campo de lista desplegable
+      your_avatar: Tu Avatar
+      your_avatar_is_from_facebook: Autenticar con facebook y tu imagen de perfil es tu imagen de Perfil de facebook
+    index:
+      search_by: Búsqueda por
+      hitchhiker: Autostopista
+      location: Ubicación
+      logged_trips: Viajes registrados
+      member_since: Miembro desde el
+      title: Autostopistas
+      username: Nombre de usuario
+    profile:
+      be_welcome_user: BeWelcome usuario
+      cs_user: Usuario CS
+      hitchhiked_countries: Países de autostop
+      send_mail: Envíe un correo
+      waiting_time_per_ride: Tiempo de espera promedio
+    send_mail:
+      mail_text: 'Al enviar el mensaje, %{username} recibirá un mail con tu dirección de correo electrónico en el campo. <br/> %{username} de esta manera podrán contestarte directamente por correo.'
+      message_placeholder: Mensaje
+      send_a_mail_to: 'Enviar mensaje a %{user}'
+      send_mail: Envíe un correo
+      title: 'Enviar un mensaje a %{user}'
+    show:
+      about: Acerca de
+      edit: Editar
+      log_your_first_trip: Registro de su primer viaje
+      title: 'Perfil de %{user}'
+      upcoming_trip: Autostop amigo querido
+  validators:
+    arrival_after_departure: no puede ser antes de la salida
+    cannot_be_0: no puede ser 0
+    cannot_be_in_past: no puede ser pasado en
+  welcome:
+    about:
+      column1: '<span class="dropcap"> H</span> acer autostop es una manera interesante de viajar. <br/> El accidentado viaje, el encuentro con muchos conductores interesantes y generosas y la experiencia de la diversidad en nuestra sociedad lo fija aparte de tomar un tren o por autobús de conducción <br/> Es más que una forma de llegar desde A a B.'
+      column2: 'El Hitchlog recoge las historias y la experiencia de cientos de autostopistas y lo pone junto con imágenes, historias y datos sobre el viaje. <br/> Crea estadísticas para <b>un autoestopista</b> como en tener un perfil con todos los datos obtenidos, así como las estadísticas de <b>los autostopistas</b> como en qué es el género de todos los autostopistas. Esto pintará una verdadera, auténtica imagen sobre qué autostop es realmente como.'
+      column3: Una imagen intacta de su reputación difundida por los medios públicos o películas. Una foto que muestra al mundo lo que una buena manera de viajar esto es.
+      intro: |
+        El Hitchlog da un real <i class="fa fa-photo"></i> en haciendo autopstop.<br>
+        Nos intentar pintarlo con <i class="fa fa-heart-o"></i> y a la <i class="fa fa-group"></i> que nos recogió.
+    hitchhiking_buddies:
+      contact: Contacto
+      find_hitchhiking_buddies: Encontrar a un compañero haciendo autostop
+      list_your_own_hitchhiking_adventure: Añadir su propio próximo viaje
+      more_hitchhiking_buddies: Más compañeros haciendo autostop
+    home:
+      explore_hh_xp: Explorar experiencias haciendo autostop en más de 80 países
+      hitchhiked_by_user: 'autostop %{time} atrás por %{user}'
+      meta_description: ¿Preguntado qué dedo es realmente así? Explorar las experiencias haciendo autostop de gente real en más de 80 países.
+      more_hitchhikers: Para conocer más de autostopistas
+      more_stories: Leer más historias
+      more_trips: Ver más viajes
+      newest_hh_stories: Nuevo historias haciendo autostop
+      newest_hitchhikers: Autostopistas nuevo
+      newest_hitchhiking_trips: Nuevos viajes haciendo autostop
+      share_your_hh_xp: Compartir su experiencia haciendo autostop
