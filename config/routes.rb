@@ -36,9 +36,7 @@ Hitchlog::Application.routes.draw do
   match 'home' => 'welcome#home', via: :get
   match 'about' => 'welcome#about', via: :get
 
-
-  # making static crisp html templates available to see if they are displayed correctly
-  match 'crisp/:action', controller: :crisp, via: :get if Rails.env == 'development'
-
   root to: "welcome#home"
+
+  filter :locale, exclude: %r(^/hitchhikers/auth/)
 end

@@ -21,7 +21,7 @@ de:
         to: Nach
         travelling_with: Gereist mit
       user:
-        about_you: "Über Dich"
+        about_you: Über Dich
         cs_user: CS Benutzer
         email: Email
         gender: Geschlecht
@@ -31,114 +31,34 @@ de:
         username: Nutzername
   datetime:
     distance_in_words:
+      about_x_months:
+        one: 1 Monat
+        other: '%{count} Monate'
       x_days:
         one: 1 Tag
-        other: "%{count} Tage"
+        other: '%{count} Tage'
       x_hours:
         one: 1 Stunde
-        other: "%{count} Stunden"
+        other: '%{count} Stunden'
       x_minutes:
         one: 1 Minute
-        other: "%{count} Minuten"
+        other: '%{count} Minuten'
       x_months:
         one: 1 Monat
-        other: "%{count} Monate"
-  devise:
-    confirmations:
-      confirmed: Your account was successfully confirmed. You are now signed in.
-      send_instructions: You will receive an email with instructions about how to
-        confirm your account in a few minutes.
-      send_paranoid_instructions: If your email address exists in our database, you
-        will receive an email with instructions about how to confirm your account
-        in a few minutes.
-    failure:
-      already_authenticated: You are already signed in.
-      inactive: Your account was not activated yet.
-      invalid: Invalid username or password.
-      invalid_token: Invalid authentication token.
-      locked: Your account is locked.
-      not_found_in_database: Invalid email or password.
-      timeout: Your session expired, please sign in again to continue.
-      unauthenticated: You need to sign in or sign up before continuing.
-      unconfirmed: You have to confirm your account before continuing.
-    mailer:
-      confirmation_instructions:
-        subject: Confirmation instructions
-      reset_password_instructions:
-        subject: Reset password instructions
-      unlock_instructions:
-        subject: Unlock Instructions
-    omniauth:
-      failure: Could not authenticate you from %{kind} because "%{reason}".
-      success: Successfully authenticated from %{kind} account.
-    passwords:
-      no_token: You can't access this page without coming from a password reset email.
-        If you do come from a password reset email, please make sure you used the
-        full URL provided.
-      send_instructions: You will receive an email with instructions about how to
-        reset your password in a few minutes.
-      send_paranoid_instructions: If your email address exists in our database, you
-        will receive a password recovery link at your email address in a few minutes.
-      updated: Your password was changed successfully. You are now signed in.
-      updated_not_active: Your password was changed successfully.
-    registrations:
-      destroyed: Bye! Your account was successfully cancelled. We hope to see you
-        again soon.
-      new:
-        create_a_hitchlog_account: Create Your Hitchlog Account
-        sign_up: Sign up
-        use_the_normal_form: Use the normal Form
-      signed_up: Welcome To The Hitchlog! Now go ahead and log your first trip
-      signed_up_but_inactive: You have signed up successfully. However, we could not
-        sign you in because your account is not yet activated.
-      signed_up_but_locked: You have signed up successfully. However, we could not
-        sign you in because your account is locked.
-      signed_up_but_unconfirmed: A message with a confirmation link has been sent
-        to your email address. Please open the link to activate your account.
-      update_needs_confirmation: You updated your account successfully, but we need
-        to verify your new email address. Please check your email and click on the
-        confirm link to finalize confirming your new email address.
-      updated: You updated your account successfully.
-    sessions:
-      new:
-        forgot_password: Forgot Password?
-        hitch_in: Hitch in
-        login_to_your_account: Login to your account...
-        login_using_normal_font: Login in using the normal form
-        not_on_hitchlog: Not on Hitchlog yet? Register here
-        sign_in: Sign in
-        signed_in: Welcome Back!
-        signed_out: You are signed out
-      remember_me: Remember Me
-      signed_in: Signed in successfully.
-      signed_out: Signed out successfully.
-    unlocks:
-      send_instructions: You will receive an email with instructions about how to
-        unlock your account in a few minutes.
-      send_paranoid_instructions: If your account exists, you will receive an email
-        with instructions about how to unlock it in a few minutes.
-      unlocked: Your account has been unlocked successfully. Please sign in to continue.
-  errors:
-    messages:
-      already_confirmed: was already confirmed, please try signing in
-      confirmation_period_expired: needs to be confirmed within %{period}, please
-        request a new one
-      expired: has expired, please request a new one
-      not_found: not found
-      not_locked: was not locked
-      not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
-        other: "%{count} errors prohibited this %{resource} from being saved:"
-  facebook:
-    login_with_facebook: Mit Facebook anmelden
+        other: '%{count} Monate'
   flash:
-    error: something went wrong
+    error: etwas schief gelaufen :(
+    future_trips:
+      destroy:
+        success: 'Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht'
     rides:
       add_ride:
-        success: Added ride
+        success: Fahrt hinzugefügt
       delete_photo:
-        error: Could not delete photo
-        success: Your photo is no more!
+        error: Foto konnte nicht gelöscht werden
+        success: Dein Foto wurde gelöscht!
+      update:
+        success: Fahrt aktualisiert! Siehe das Ergebnis unten.
     trips:
       create_comment:
         alert: Kommentar konnte nicht gespeichert werden!
@@ -148,7 +68,7 @@ de:
         not_allowed: Du bist nicht berechtigt, dies zu tun.
         success: Und tschüss! Auf Hitchlog bist Du jetzt nicht mehr!
       mail_sent:
-        notice: Mail wurde zu %{user} gesendet
+        notice: 'Mail wurde zu %{user} gesendet'
       update:
         error: Profil konnte nicht editiert werden
         notice: Profil erfolgreich editiert
@@ -161,121 +81,80 @@ de:
       by: Von
       country: Land
       departure: Abfahrt
-      edit: "(bearbeiten)"
-      future_trip: Kommender Trip
       send_a_message: Nachricht senden
     index:
       and_find_hh_buddy: und finde deinen nächsten Tramppartner
-      be_the_first: Sei der Erste der einen kommenden Trip erstellt.
-      hitchhikers_searching_for_buddies: Hitchhikers searching for buddies to hitchhike
-        with
+      hitchhikers_searching_for_buddies: Tramper auf der Suche nach Tramppartnern
       looking_for_a_hitchhiking_buddy: Suchst Du nach einem Tramppartner
       post_it_on_the_board: Poste das auf dem Hitchlog
       title: Tramppartner
-      your_thumb_is_itching: |
-        Dein Daume juckt aber Du weißt noch nicht mit wem du dein nächstes Trampabenteuer beginnen wirst?
+      your_thumb_is_itching: Dein Daume juckt aber Du weißt noch nicht mit wem du dein nächstes Trampabenteuer beginnen wirst?
     new:
       new_future_trip: Wo möchtest du hintrampen?
       tell_others_about_your_plans: Teile anderen deine Trampplänen mit.
   general:
-    average_speed: 'Average speed: %{speed}'
-    bad: bad
-    by: by
+    average_speed: 'Durchschnittsgeschwindigkeit: %{speed}'
+    bad: schlecht
+    by: von
     comment: Kommentar
     confirm: Bist du sicher?
-    country: country
-    country_of_origin: Hometown
+    country: Land
+    country_of_origin: Land
     delete: Löschen
-    deleted: Deleted! That one is no more
     edit: Bearbeiten
-    events: Ereignisse
-    experience: experience
-    extremely_negative: sehr negativ
-    extremely_positive: sehr positiv
+    experience: Erfahrung
     female: weiblich
     forgot_your_password: Forgot your password?
-    good: good
-    google_maps_duration: Google Maps Dauer
-    got_a_ride_with: Got a ride with a %{vehicle}
-    hitchhiked_countries: Hitchhiked countries
-    hitchhiked_kms: getrampte kms
-    hometown: Hometown
-    languages: Languages
-    located_in: 'Momentan in: %{location}'
-    login: Anmelden
+    good: gut
+    google_maps_duration: Google Maps-Dauer
+    got_a_ride_with: 'Bekam eine Fahrt mit einem %{vehicle}'
+    hitchhiked_kms: Kms getrampt
+    hometown: Heimatstadt
+    languages: Sprachen
     male: männlich
-    member_since: Mitglied seit %{time}
-    message: Message
+    member_since: 'Mitglied seit %{time}'
+    message: Nachricht
     minutes: Minuten
-    mixed: gemixt
-    negative: negativ
     neutral: neutral
-    news: News
-    not_allowed: You are not allowed to do that!
+    not_allowed: Du bist nicht berechtigt, dies zu tun!
     or: oder
-    overall_average_speed: 'Average speed of all hitchhiked trips: %{speed}'
+    overall_average_speed: 'Durchschnittsgeschwindigkeit von allen getrampten Trips: %{speed}'
     photo: Foto
     photo_caption: Fototitel
-    positive: positiv
     record_not_found: Der Eintrag wurde nicht gefunden
     ride: Fahrt
     save: Speichern
-    search: search
+    search: Suche
     sign_in_with_facebook: Mit Facebook anmelden
     sign_up: Anmelden
-    sign_up_with_facebook: "Über Facebook anmelden"
+    sign_up_with_facebook: Über Facebook anmelden
     slogan: Das Tramper Logbuch
     story: Story
     story_title: Storytitel
-    supports_markdown: unterstützt Markdown
-    time_ago: vor %{time}
-    took_time: hat %{time} gedauert
+    time_ago: 'vor %{time}'
     total_waiting_time: 'totale Wartezeit: %{time} min'
     trip: Trip
     trip_duration: Trip Dauer
-    user_age: "%{age} years old"
-    very_bad: very bad
-    very_good: very good
-    years: years
+    user_age: '%{age} Jahre alt'
+    very_bad: sehr schlecht
+    very_good: sehr gut
+    years: Jahre
   helper:
-    about_person_image: "Über die Mitfahrer"
-    add_information: Informationen zu Ride hinzufügen
-    add_information_to_hitchhike: Infoormationen zu Ride hinzufügen
-    add_story_image: Story zu dieser Ride
-    bad_experience: bad experience
-    delete_hitchhike: Delete Ride
-    delete_trip: Trip löschen
-    driving_time: "%{time} Fahrtzeit"
-    extremely_negative_experience: sehr negative Erfahrung
-    extremely_positive_experience: sehr positive Erfahrung
+    bad_experience: schlechte Erfahrungen
+    driving_time: '%{time} Fahrtzeit'
     faster_than_gmaps: schneller als Google Maps
-    female: Weiblich
     female_hitchhiker: Weiblicher Tramper
-    female_people: Weibliche Mitfahrer
-    gmaps_duration: 'Google Maps Dauer: %{duration}'
-    good_experience: good experience
-    hitchability: Hitchability (Gmaps Dauer / Trip Dauer)
-    male: Männlich
+    good_experience: gute Erfahrung
     male_hitchhiker: Männlicher Tramper
     male_people: Männliche Mitfahrer
     mixed_people: Gemixtes Geschlecht der Mitfahrer
     more_than_three_people_hitchhike: mehr als 3 Personen Tramp
-    negative_experience: negative Erfahrung
     neutral_experience: neutrale Erfahrung
     no_results_for_this_route: keine Ergebnisse für diese Route
     one_person_hitchhike: 1 Person Tramp
     photo: Foto
-    positive_experience: positive Erfahrung
-    ride_has_story: Ride hat eine Story
     slower_than_gmaps: langsamer als Google Maps
-    story: Story
     three_people_hitchhike: 3 Personen Tramp
-    time_faster: "%{time} schneller"
-    time_slower: "%{time} langsamer"
-    travelling_with_0: Hitchhiked alone
-    travelling_with_1: Hitchhiked in pairs
-    travelling_with_2: Hitchhiked in threesome
-    travelling_with_3: Hitchhiked in foursome
     trip:
       alone: alleine
       with_1: 1 Person
@@ -283,54 +162,63 @@ de:
       with_3: 3 Personen
       with_4: 4 Personen
       with_more_than_4: mehr als 4 Personen
-    trip_duration: 'Trip Dauer: %{duration}'
     two_people_hitchhike: 2 Personen Tramp
     unknown_distance: unbekannte Distanz
-    very_bad_experience: very bad experience
-    very_good_experience: very good experience
-    waiting_time: "%{time} Wartezeit"
+    very_bad_experience: sehr schlechte Erfahrungen
+    very_good_experience: sehr gute Erfahrungen
+    waiting_time: '%{time} Wartezeit'
   hours:
     one: 1 Stunde
-    other: "%{count} Stunden"
+    other: '%{count} Stunden'
   hours_with_minutes:
-    one: "%{count} Stunde %{minutes} Minuten"
-    other: "%{count} Stunden %{minutes} Minuten"
+    one: '%{count} Stunde %{minutes} Minuten'
+    other: '%{count} Stunden %{minutes} Minuten'
   layouts:
     navigation:
-      about: "Über Hitchlog"
-      blog: Blog
-      edit_profile: Bearbeiten
+      about: Über Hitchlog
       english: Englisch
       find_hitchhiking_buddy: Tramppartner
-      find_other_hitchhikers: Lerne andere Tramper kennen
       german: Deutsch
       hitchhikers: Tramper
       language: Sprache
       log_new_trip: Log neuen Trip
-      people_searching_for_travel_partner: Tramper sucht einen Tramppartner
-      settings: Settings
+      settings: Einstellungen
       sign_out: Abmelden
-      statistics: Statistics
+      statistics: Statistiken
       trips: Trips
       your_profile: Dein Profil
   mailer:
     future_trips:
       nearby_hitchhikers:
-        subject: "[Hitchlog] %{user} sucht einen Tramppartner von %{from_city} nach
-          %{to_city}"
+        subject: |
+          [Hitchlog] %{user} sucht einen Tramppartner von %{from_city} nach
+          %{to_city}
   minutes_without_hours:
-    one: "%{count} Minute"
-    other: "%{count} Minuten"
+    one: '%{count} Minute'
+    other: '%{count} Minuten'
+  registrations:
+    new:
+      create_a_hitchlog_account: Erstelle dein Hitchlog Account
+      sign_up: Anmelden
+      use_the_normal_form: Verwende die normale Form
   rides:
     crop:
       crop: abschneiden
       crop_the_photo: Schneide das Foto ab
     ride:
-      delete_image: Foto löschen
-      please_tag_your_ride: |
-        Please tag your ride if you change the experience, so that it's easy to see why you had a "very bad", or "very good" experience. This will be important for the overall statistics
+      please_tag_your_ride: Bitte tagge die Fahrt so dass wir leichter sehen können warum Du eine gute oder schlechte Erfahrung hattest
       save_ride: Sichere Fahrt
-      tag_it: Tag your ride (seperated by comma)
+      tag_it: Tag Deine Fahrt (durch Komma getrennt)
+  sessions:
+    new:
+      forgot_password: Passwort vergessen?
+      hitch_in: Hitch in
+      login_to_your_account: Log Dich ein...
+      login_using_normal_font: Melde Dich mit deiner Email an
+      not_on_hitchlog: Noch nicht auf Hitchlog? Registreier dich hier.
+      sign_in: Anmelden
+      signed_in: Erfolgreich angemeldet.
+      signed_out: Erfolgreich abgemeldet.
   shared:
     banners_in_corners:
       fork_me_on_github: Fork me on Github
@@ -339,12 +227,7 @@ de:
       follow_on_twitter: Folge dem Hitchlog auf Twitter
       follow_the_hitchlog: Folge uns
     nearby_hitchhikers:
-      last_login_in: letzter login in
       nearby_hitchhikers: Tramper in deiner Nähe
-    sign_in_and_out:
-      sign_in: Einloggen
-      sign_out: Ausloggen
-      sign_up: Anmelden
   statistics:
     index:
       meta_description: Global statistics of hitchhiking
@@ -352,72 +235,31 @@ de:
   trips:
     byline:
       google_maps_duration: 'Google Maps Dauer: %{time}'
-      trip_age: "%{user} was %{age} years old when he did this trip"
+      trip_age: '%{user} war %{age} Jahre alt, asl er diesen Trip machte'
       trip_duration: 'Trip Dauer: %{time}'
     comments:
-      add_comment: Add comment
-      leave_comment: Leave a Comment
-      log_in_or_register_to_comment: Log dich ein oder melde Dich an um auf diesen
-        Trip zu kommentieren
-      there_are_no_comments: Es gibt keine Kommentare für diesen Trip
-      user_wrote: 'vor %{time} hat %{user} geschrieben:'
+      add_comment: Kommentar hinzufügen
+      leave_comment: Schreibe einen Kommentar
+      log_in_or_register_to_comment: Log dich ein oder melde Dich an um auf diesen Trip zu kommentieren
     edit:
-      add_story: Story bearbeiten
       edit_title: Trip bearbeiten
       edit_trip: Trip bearbeiten
-      from: Von
-      hitchability_factor: 'Hitchability factor:'
-      hitchhiked: Getrampt
-      it_took_you_longer: Du brauchtest %{hours} länger als eine direkte Verbindung.
-      to: Nach
-      you_were_faster: Du warst %{hours} schneller als eine direkte Verbindung.
     form:
       step1_2: Weiter
     index:
-      choose_a_country: Wähle ein Land
       latest_hitchhiking_trips: Getrampte Trips
-      log_new_trip: Log einen neuen Trip
       meta_description: Durchsuche die Erfahrungen von anderen Trampern
-      meta_descritpion: Meta descritpion
-      photo: Photo
-      select_country: Country
-      select_gender: Gender
-      sort_by: Search trips with
-      story: Story
-      title: Hitchhinking Trips
-      to_log_a_new_hitchhiking_trip: um einen neuen tramp trip zu loggen
+      title: Tramp Trips
     list:
       by: Von
-      countries: Länder
-      date: Getramptes Datum
-      icons: Symbole
-      no_trips_logged: Keine Trips geloggt
-      read_on: "(lese mehr in Trips)"
-      rides: Rides
-      start: vor %{time}
+      read_on: (lese mehr in Trips)
     new:
       log_your_trip_please: Log deine Tramp Erfahrung :)
       new_trip: Log einen neuen Trip
     search_interface:
-      photo: Foto
-      search: Suche
-      search_by_country_or_city: Search trips by country or city
-      select_country: Wähle Land
-      select_experience: Wähle Erfahrung
-      select_gender: Wähle Geschlect
-      sort_by: 'Sortiere nach:'
-      story: Story
+      search_by_country_or_city: Suche Trips nach Land oder Stadt
     show:
-      title: Trampen von %{from_city} nach %{to_city}
-    show_ride:
-      ride: Ride
-    trip:
-      add_comment: Kommentar hinzufügen
-      edit_trip: "(Trip bearbeiten)"
-      message: 'Nachricht:'
-      ride: Ride
-      time_ago: vor %{time}
-      to_comment: um auf diesen Trip zu kommentieren
+      title: 'Per Anhalter von %{from_city} zu %{to_city}'
   users:
     edit:
       edit_profile: Profil bearbeiten
@@ -426,114 +268,54 @@ de:
         Profilbild von Facebook, andernfalls wird es <a href='http://gravatar.com'>Gravatar</a>
         nutzen.<br/>. Falls Du dein eigenes Bild hochladen möchtest, melde dich
         bei Gravatar.com an.
-      loaction_placeholder: Gebe Adresse ein
-      location: Ort
       when_changing: Wenn du das bearbeitest, click auf das Dropdown Feld
       your_avatar: Dein Avatar
-      your_avatar_is_from_facebook: |
-        Du hast Dich mit Facebook angemeldet und somit ist dein Avatar dein Facebook Profilbild
-    future_trips:
-      send_a_message: Nachricht senden
+      your_avatar_is_from_facebook: Du hast Dich mit Facebook angemeldet und somit ist dein Avatar dein Facebook Profilbild
     index:
-      hitchhiker: Hitchhiker
-      hitchhikers: Tramper
-      last_sign_in: letzter Login
-      location: Location
-      logged_trips: Logged Trips
-      member_since: Member since
-      no_of_rides: Number of rides
-      search: Suche
-      sort_by: Sortieren nach
+      hitchhiker: Tramper
+      location: Lage
+      logged_trips: Protokollierte Trips
+      member_since: Mitglied seit
       title: Titel
       username: Benutzername
     profile:
       be_welcome_user: BeWelcome User
-      cars_seen_from_inside: Autos von innen gesehen
       cs_user: CS Benutzer
       hitchhiked_countries: getrampte Länder
-      no_of_rides: No of rides
       send_mail: Sende Mail
-      statistics: Statistik
-      uploaded_photos: hochgeladenen Fotos
       waiting_time_per_ride: durchschnittliche Wartezeit
-    right_column:
-      average_drivers_age: durchschnittliches Fahrer Alter
-      average_waiting_time: durchschnittliche Wartezeit
-      hitchhiked_kms: getrampte kms
-      kms_hitchhiked: getrampte kms
-      located_in: 'Ort:'
-      written_stories: Geschriebene Stories
     send_mail:
       mail_text: |
         Wenn Du diese Nachricht sendest wird %{username} eine Email mit deiner Email addresse empfangen.
         Auf diese Weise wird %{username} Dir antworten können.
       message_placeholder: Nachricht
-      send_a_mail_to: Sende Nachricht zu %{user}
+      send_a_mail_to: 'Sende Nachricht zu %{user}'
       send_mail: Sende Mail
-      title: Sende eine Nachricht zu %{user}
+      title: 'Sende eine Nachricht zu %{user}'
     show:
-      about: "Über"
-      alone: alleine
-      current_location: 'Aktueller Ort:'
-      delete: Löschen
+      about: Über
       edit: Bearbeiten
-      experiences: Erfahrung
-      gender_of_drivers: Geschlecht der Mitfahrer
-      log_new_trip: Log neuen Trip
       log_your_first_trip: Log deinen ersten Trip
-      ride:
-        one: Ride
-        other: Rides
       title: Titel
-      trip:
-        one: Trip
-        other: Trips
       upcoming_trip: kommender Trip
-      with_four: mit drei anderen Personen
-      with_three: mit zwei anderen Personen
-      with_two: mit einer anderen Person
-    trips_and_rides:
-      alone: alleine
-      stats_in_words_1: |
-        %{user} did <b>%{trips} Hitchhiking Trips</b> and saw <b>%{rides} cars from inside</b>,
-      stats_in_words_2: |
-        drove <b>%{kms} kms</b>
-      stats_in_words_3: |
-        and had an <b>average waiting time of %{waiting_time} min</b>
-      with_one_other_person: mit einer anderen Person
-      with_three_other_people: mit drei Personen
-      with_two_other_people: mit zwei Personen
-    user:
-      cars_seen_from_inside_while_hitchhiking: Autos von innen gesehen
-      gender: Geschlecht
-      hitchhiked_countries: getrampte Länder
-      kilometers_hitchhiked: getrampte Kilometer
-      logged_trips: geloggte Trips
-      statistics: Statistik
-      trips: Trips
   validators:
     arrival_after_departure: kann nicht vor Abfahrt sein
     cannot_be_0: kann nicht 0 sein
     cannot_be_in_past: kann nicht in der Vergangenheit sein
   welcome:
     hitchhiking_buddies:
-      contact: Contact
-      find_hitchhiking_buddies: Find a hitchhiking buddy
-      list_your_own_hitchhiking_adventure: Add your own upcoming trip
-      more_hitchhiking_buddies: More hitchhiking buddies
+      contact: Kontakt
+      find_hitchhiking_buddies: Finde einen hitchhiking buddy
+      list_your_own_hitchhiking_adventure: Füge deinen bevorstehenden Trip hinzu
+      more_hitchhiking_buddies: Weitere hitchhiking Buddies
     home:
-      explore_hh_xp: Entdecke Tramperfahrungen in über 50 Ländern
-      hitchhiked_by_user: "%{time} her getrampt von %{user}"
-      hitchhiking_buddies: Hitchhiking Buddies
-      intro_message: Intro message
-      logged: "%{trips_size} Trips geloggt"
-      meta_description: |
-        Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke Tramperfahrungen von Trampern in über 50 Ländern.
+      explore_hh_xp: Entdecke Tramperfahrungen in über 80 Ländern
+      hitchhiked_by_user: '%{time} her getrampt von %{user}'
+      meta_description: Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke Tramperfahrungen von Trampern in über 50 Ländern.
       more_hitchhikers: Lerne mehr Tramper kennen
       more_stories: Lese mehr Stories
       more_trips: Lese mehr Trips
       newest_hh_stories: Neueste Tramp stories
       newest_hitchhikers: Neueste Tramper
       newest_hitchhiking_trips: Neueste Tramp Trips
-      or_sign_in_with: oder melde dich an mit
       share_your_hh_xp: Teile Deine Tramp Erfahrungen
