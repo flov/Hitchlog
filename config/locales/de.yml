@@ -47,7 +47,7 @@ de:
         one: 1 Monat
         other: "%{count} Monate"
   flash:
-    error: etwas schief gelaufen :(
+    error: etwas ist schief gelaufen :(
     future_trips:
       destroy:
         success: Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht
@@ -157,6 +157,10 @@ de:
     photo: Foto
     slower_than_gmaps: langsamer als Google Maps
     three_people_hitchhike: 3 Personen Tramp
+    travelling_with_0: alleine getrampt
+    travelling_with_1: zu zweit getrampt
+    travelling_with_2: zu dritt getrampt
+    travelling_with_3: zu viert getrampt
     trip:
       alone: alleine
       with_1: 1 Person
@@ -204,14 +208,18 @@ de:
       sign_up: Anmelden
       use_the_normal_form: Verwende die normale Form
   rides:
-    crop:
-      crop: abschneiden
-      crop_the_photo: Schneide das Foto ab
     ride:
       please_tag_your_ride: Bitte tagge die Fahrt so dass wir leichter sehen können
         warum Du eine gute oder schlechte Erfahrung hattest
       save_ride: Sichere Fahrt
       tag_it: Tag Deine Fahrt (durch Komma getrennt)
+    vehicles:
+      boat: Boot
+      bus: Bus
+      car: Auto
+      motorcycle: Motorrad
+      plane: Flugzeug
+      truck: LKW
   sessions:
     new:
       forgot_password: Passwort vergessen?
@@ -233,8 +241,15 @@ de:
       nearby_hitchhikers: Tramper in deiner Nähe
   statistics:
     index:
+      company_while_hitchhiking: Gesellschaft beim trampen
+      experiences: Erfahrungen
+      gender_of_hitchhikers: Geschlecht der Tramper
       meta_description: Global statistics of hitchhiking
+      statistics: Statistiken
       title: Hitchhiking Statistics
+      top_10_hitchhikers: Top-10-Tramper
+      vehicles: Fahrzeuge
+      waiting_time: Wartezeit
   trips:
     byline:
       google_maps_duration: 'Google Maps Dauer: %{time}'

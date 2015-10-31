@@ -41,19 +41,11 @@ module TripsHelper
     "<option>#{t('helper.male_hitchhiker')}</option><option>#{t('helper.female_hitchhiker')}</option>"
   end
 
-  def experiences
-    [
-      t('general.very_good'),
-      t('general.good'),
-      t('general.neutral'),
-      t('general.bad'),
-      t('general.very_bad')
-    ]
-  end
-
   def options_for_experiences
     array =[]
-    experiences.each{|experience| array << "<option>#{experience}</option>"}
+    Ride::EXPERIENCES.each do |experience|
+      array << "<option value='#{experience}'>#{t("general.#{experience.parameterize('_')}")}</option>"
+    end
     array.join ''
   end
 
