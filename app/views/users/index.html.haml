@@ -3,16 +3,16 @@
 %h1 #{pluralize(@users.count, t('.hitchhiker'))}:
 
 = search_form_for @search do |f|
-  %h4 Search by:
+  %h4= t('.search_by')
   %table
     %tr
-      %td= f.label :location_cont, "Location"
-      %td= f.label :username_cont, "Username"
+      %td= f.label :location_cont, t('.location')
+      %td= f.label :username_cont, t('.username')
     %tr
-      %td= f.text_field :location_cont, placeholder: "(e.g. Germany or Berlin)"
+      %td= f.text_field :location_cont, placeholder: t('trips.search_interface.from_placeholder')
       %td= f.text_field :username_cont
 
-  = f.submit "Search", class: 'btn btn-primary user-search'
+  = f.submit t('general.search'), class: 'btn btn-primary user-search'
 
 = will_paginate @users, class: 'flickr_pagination'
 

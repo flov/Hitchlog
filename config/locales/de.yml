@@ -109,7 +109,7 @@ de:
     good: gut
     google_maps_duration: Google Maps-Dauer
     got_a_ride_with: Bekam eine Fahrt mit einem %{vehicle}
-    hitchhiked_kms: Kms getrampt
+    hitchhiked_kms: getrampte kms
     hometown: Heimatstadt
     languages: Sprachen
     male: männlich
@@ -296,7 +296,7 @@ de:
     index:
       hitchhiker: Tramper
       location: Lage
-      logged_trips: Protokollierte Trips
+      logged_trips: Trips
       member_since: Mitglied seit
       title: Titel
       username: Benutzername

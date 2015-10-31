@@ -283,6 +283,7 @@ en:
       your_avatar_is_from_facebook: |
         You authenticated with facebook and your profile image is your facebook profile image
     index:
+      search_by: Search by
       hitchhiker: Hitchhiker
       location: Location
       logged_trips: Logged Trips

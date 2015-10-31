@@ -2,8 +2,9 @@
   %h5.short_headline
     %span
       = link_to user, user_path(user)
-      %i.tip{title: t('general.user_age', age: user.age)}
-        = "(#{user.age})"
+      - if user.age
+        %i.tip{title: t('general.user_age', age: user.age)}
+          = "(#{user.age})"
       &nbsp;
       = hitchhiker_gender user.gender
 
