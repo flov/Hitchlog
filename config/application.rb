@@ -17,6 +17,7 @@ module Hitchlog
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.i18n.available_locales = %w(en de es)
+
     config.i18n.default_locale = :en
 
     # Configure the default encoding used in templates for Ruby 1.9.
