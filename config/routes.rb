@@ -33,7 +33,6 @@ Hitchlog::Application.routes.draw do
     end
   end
 
-  match 'home' => 'welcome#home', via: :get
   match 'about' => 'welcome#about', via: :get
 
   root to: "welcome#home"
