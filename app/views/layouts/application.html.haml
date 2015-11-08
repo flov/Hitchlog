@@ -10,6 +10,8 @@
 
   %body
     = render 'shared/fb_sdk'
+    .hidden{style: 'display: hidden'}
+      = I18n.locale
 
     .wrapper
       = render 'layouts/navigation'
