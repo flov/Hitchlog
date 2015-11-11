@@ -18,3 +18,5 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 I18n.backend.reload!
 FactoryGirl.reload
+RoutingFilter.active = false
+
