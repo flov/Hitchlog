@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "#send_mail" do
-    let(:action) { get(:send_mail, { id: 1 }) }
+    let(:action) { get :send_mail, id: 'flov' }
+
+    before do
+      allow(User).to receive_message_chain(:includes, :find_by_username).and_return double('user')
+    end
 
     it_blocks_unauthenticated_access
   end
@@ -116,9 +120,14 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe '#geomap' do
-    it 'responds with json' do
-      get :geomap, id: '1', format: :json
+    let(:user)   { double('user') }
 
+    before do
+      allow(User).to receive_message_chain(:includes, :find_by_username).and_return(double('user'))
+    end
+
+    it 'responds with json' do
+      get :geomap, id: 'flov', format: :json
       expect(response.header['Content-Type']).to include 'application/json'
     end
   end
