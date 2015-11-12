@@ -25,7 +25,7 @@ RSpec.describe RidesController, type: :controller do
 
         post :create, {trip_id: trip.id, ride: attributes_for(:ride)}
 
-        expect(response).to( redirect_to('/') )
+        expect(response).to( redirect_to(root_path) )
       end
     end
   end
