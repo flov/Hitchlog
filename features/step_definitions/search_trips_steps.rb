@@ -1,11 +1,11 @@
 When /^I search for trips with stories$/ do
   check "story"
-  click_button "search"
+  click_button "Search"
 end
 
 When /^I search for "([^"]*)" trips$/ do |search_word|
   fill_in  "from", with: search_word
-  click_button "search"
+  click_button "Search"
 end
 
 Then /^I should see a German trip$/ do
@@ -31,7 +31,7 @@ end
 
 When /^I search for trips with an? "([^"]*)" experience$/ do |experience|
   select experience, :from => "q_rides_experience_eq"
-  click_button "search"
+  click_button "Search"
 end
 
 Then /^I should see a trip with an? "([^"]*)" experience$/ do |experience|
