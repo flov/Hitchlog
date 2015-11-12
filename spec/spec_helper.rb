@@ -2,8 +2,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'vcr'
 require 'shoulda/matchers'
 
-RoutingFilter.active = false
-
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.hook_into :webmock
