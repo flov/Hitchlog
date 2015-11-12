@@ -5,6 +5,6 @@ Feature: Future Trips
 
   Scenario: Show hitchhiking trips on homepage
     Given "Malte" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
-    When I go to the home page
+    When I go to the homepage
     Then I should see that "Malte" is searching for a hitchhiking buddy from "Barcelona" to "Madrid"
 
