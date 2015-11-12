@@ -2,7 +2,9 @@ class WelcomeController < ApplicationController
   expose(:future_trips) { future_trips_in_context }
 
   def home
-    redirect_to '/en' unless params[:locale]
+    if not params[:locale] and not Rails.env == 'test' # I18n filter is disabled for test env
+      redirect_to '/en'
+    end
   end
 
   private
