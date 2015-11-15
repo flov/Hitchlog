@@ -70,6 +70,7 @@ group :test, :development do
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'
+  gem 'fuubar'
 end
 
 
