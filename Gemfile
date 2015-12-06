@@ -61,7 +61,7 @@ group :test, :development do
   gem 'webmock', '~> 1.21.0'
   gem 'launchy', '~> 2.4.3'
   gem 'jasmine-rails', '~> 0.12.0'
-  gem 'shoulda-matchers', '~> 2.8.0', require: false
+  gem 'shoulda-matchers', '3.0.1'
   gem 'pickle', '~> 0.5.1'
   gem 'database_cleaner', '~> 1.5.0'
   gem 'factory_girl_rails', '~> 4.5.0'

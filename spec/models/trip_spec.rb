@@ -15,7 +15,6 @@ RSpec.describe Trip, type: :model do
     it { is_expected.to validate_presence_of(:travelling_with) }
 
     describe '#hitchhikes' do
-      it { is_expected.to validate_numericality_of(:hitchhikes) }
       it 'creates 1 ride on trip if hitchhikes equals 1' do
         trip = FactoryGirl.build(:trip, hitchhikes: 1)
         trip.save
