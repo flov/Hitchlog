@@ -1,6 +1,6 @@
 = will_paginate future_trips, class: 'flickr_pagination'
 
-%table.responsive.future_trips
+%table.responsive
   %thead
     %tr
       %th
@@ -24,7 +24,9 @@
             %p= future_trip.description
 
         - unless controller.controller_name == 'users' and controller.action_name == 'show'
-          %td.by= user_with_gender(future_trip.user)
+          %td.by
+            = render 'users/profile_image', user: future_trip.user
+            = user_with_gender(future_trip.user)
         %td.country= flag(future_trip.from_country_code)
         %td.departure= future_trip.departure.strftime("%d %b %Y")
 
