@@ -1,6 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
 require 'vcr'
-require 'shoulda/matchers'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
