@@ -18,6 +18,7 @@ Feature: Future Trips
   Scenario: Delete a future trip
     Given "Flov" logged a future trip from "Barcelona" to "Madrid" at the "25 Jan 2020"
     When I go to the profile page of Flov
+    And show me the page
     And I click on delete future trip
     Then I should see "Your future trip from Barcelona to Madrid has been deleted"
 
