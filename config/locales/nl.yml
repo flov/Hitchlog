@@ -18,13 +18,13 @@ nl:
         gmaps_duration: "Gmap Tijdsduur"
         hitchhikes: "Aantal Liften"
         to: Naar
-        travelling_with: "Reist met"
+        travelling_with: "Reis je,"
       user:
-        about_you: "Over jou"
+        about_you: "Vertel iets over jezelf"
         cs_user: "CS Profiel"
         email: Email
         gender: Geslacht
-        origin: Geboortestad
+        origin: Geboorteplaats
         password: Paswoord
         password_confirmation: "Paswoord Bevestiging"
         username: Gebruikersnaam
@@ -32,13 +32,13 @@ nl:
     error: "Oeps! Er ging iets Mis :("
     future_trips:
       destroy:
-        success: "Uw toekomstige Trip van %{from} naar %{to} zijn verwijderd"
+        success: "De Trip van %{from} naar %{to} is verwijderd"
     rides:
       add_ride:
         success: "Lift Toevoegen"
       delete_photo:
         error: "Kon de foto niet verwijderen"
-        success: "Uw foto is niet meer!"
+        success: "Deze foto is niet meer!"
       update:
         success: "Lift bijgewerkt! Zie resultaat hieronder."
     trips:
@@ -53,10 +53,10 @@ nl:
         notice: "Email is gestuurd naar %{user}"
       update:
         error: "Kon het profiel niet bijwerken"
-        notice: "Profiel aanpassingen Geslaagd!"
+        notice: "Je Profiel is bewerkt"
   future_trips:
     edit:
-      edit_future_trip: "Pas uw toekomstige reis aan"
+      edit_future_trip: "Pas je Trip aan"
     form:
       description_label: Bericht
     future_trips:
@@ -68,22 +68,22 @@ nl:
       and_find_hh_buddy: "en vind je volgende Lift maatje."
       hitchhikers_searching_for_buddies: "Lifters zoeken maatjes om mee te Liften"
       looking_for_a_hitchhiking_buddy: "Zoekt een Lift maatje"
-      post_it_on_the_board: ~
+      post_it_on_the_board: "Plaats op het Bord"
       title: "Lift maatjes"
-      your_thumb_is_itching: "Uw duim kriebelt, maar u weet niet met wie u een Lift Avontuur wilt aangaan?\n"
+      your_thumb_is_itching: "Je duim kriebelt, maar je weet niet met wie je een Lift Avontuur wilt aangaan?\n"
     new:
       new_future_trip: "Waar wilt u naar toe Liften?"
       tell_others_about_your_plans: "Vertel iedereen over je Lift plannen."
   general:
     average_speed: "Gemiddelde snelheid: %{speed}"
     bad: Slecht
-    by: ~
+    by: door
     comment: Reactie
     confirm: "Weet je dat wel zeker?"
     country: Land
-    country_of_origin: Geboortestad
+    country_of_origin: Geboorteplaats
     delete: Verwijderen
-    edit: Aanpassen
+    edit: Edit
     experience: Ervaring
     female: Vrouw
     forgot_your_password: "Paswoord vergeten?"
@@ -91,16 +91,16 @@ nl:
     google_maps_duration: "Google Maps Tijdsduur"
     got_a_ride_with: "Ik Lifte een %{vehicle}"
     hitchhiked_kms: "Km gelift"
-    hometown: Geboortestad
+    hometown: Geboorteplaats
     languages: Talen
     male: Man
-    member_since: "Lid sinds %{time}"
+    member_since: "Lift mee sinds %{time}"
     message: Bericht
     minutes: Minuten
     neutral: Neutraal
     not_allowed: "U mag dit niet doen!"
     or: of
-    overall_average_speed: "Gemiddelde snelheid van alle gelifte reizen: %{speed}"
+    overall_average_speed: "Gemiddelde snelheid van alle gelifte Trips: %{speed}"
     photo: Foto
     photo_caption: "Foto onderschrift"
     record_not_found: "Dit bestand is niet gevonden"
@@ -115,7 +115,7 @@ nl:
     story_title: "Verhaal titel"
     time_ago: "%{time} geleden"
     total_waiting_time: "Totale wachttijd: %{time}"
-    trip: Reis
+    trip: Trip
     trip_duration: Reisduur
     user_age: "%{age} jaar jong"
     very_bad: "Erg slecht"
@@ -130,17 +130,17 @@ nl:
     male_hitchhiker: "Mannelijke Lifter"
     male_people: "Mannelijke passagier"
     mixed_people: "Vrouwlijke en Mannelijke Passagiers"
-    more_than_three_people_hitchhike: "Gelift in Kwartetje"
+    more_than_three_people_hitchhike: "Gelift in Kwartet"
     neutral_experience: "Neutrale ervaring"
     no_results_for_this_route: "Geen resultaat voor deze route"
     one_person_hitchhike: "Alleen gelift"
     photo: Foto
     slower_than_gmaps: "Langzamer dan Google Maps"
-    three_people_hitchhike: "Gelift in Triotje"
+    three_people_hitchhike: "Gelift in Trio"
     travelling_with_0: "Alleen Gelift"
     travelling_with_1: "Gelift in Duo"
-    travelling_with_2: "Gelift in Triotje"
-    travelling_with_3: "Gelift in Kwartetje"
+    travelling_with_2: "Gelift in Trio"
+    travelling_with_3: "Gelift in Kwartet"
     trip:
       alone: Alleen
       with_1: "1 persoon"
@@ -155,29 +155,29 @@ nl:
     waiting_time: "%{time} Wachttijd"
   layouts:
     navigation:
-      about: Over
+      about: Ongeveer
       find_hitchhiking_buddy: "Lift maatjes"
       hitchhikers: Lifters
-      log_new_trip: "Plaats een nieuwe reis"
+      log_new_trip: "Nieuwe Trip"
       settings: Eigenschappen
-      sign_out: "Log uit"
+      sign_out: Afmelden
       statistics: Statistieken
-      trips: ~
-      your_profile: "Uw Profiel"
+      trips: Trips
+      your_profile: Profiel
   mailer:
     future_trips:
       nearby_hitchhikers:
         subject: "[Hitchlog] %{user} Zoekt naar een Lift maatje van %{from_city} naar %{to_city}"
   registrations:
     new:
-      create_a_hitchlog_account: "Maak uw Hitchlog account"
-      sign_up: ~
-      use_the_normal_form: ~
+      create_a_hitchlog_account: "Maak je eigen Hitchlog account"
+      sign_up: Registreer
+      use_the_normal_form: "Gebruik het normale formulier"
   rides:
     ride:
-      please_tag_your_ride: ~
+      please_tag_your_ride: "Als je de Ervaring verandert, Tag je lift! Zo is het makkelijk te zien waarom je ervaring \"erg goed\" of \"erg slecht\" was. Dit is belangrijk voor de statistieken\n"
       save_ride: "Lift opslaan"
-      tag_it: ~
+      tag_it: "Tag je Lift (gescheiden met comma)"
     vehicles:
       boat: Boot
       bus: Bus
@@ -190,7 +190,7 @@ nl:
       forgot_password: "Paswoord Vergeten?"
       hitch_in: "Lift mee"
       login_to_your_account: "Inloggen Account"
-      login_using_normal_font: ~
+      login_using_normal_font: "Meld je aan met het normale formulier"
       not_on_hitchlog: "Heb je nog geen Hitchlog account? Schrijf je hier in"
       sign_in: Aanmelden
       signed_in: "Aanmelden Gelukt"
@@ -203,7 +203,7 @@ nl:
       nearby_hitchhikers: "Dichtstbijzijnde Lifters"
   statistics:
     index:
-      company_while_hitchhiking: "Samen Gelift"
+      company_while_hitchhiking: "Lift gezelschap"
       experiences: Ervaringen
       gender_of_hitchhikers: "Geslacht van de Lifters"
       meta_description: "Globale Lift Statistieken"
@@ -219,33 +219,33 @@ nl:
       trip_duration: "Rijstijd %{time}"
     comments:
       add_comment: "Reactie toevoegen"
-      leave_comment: "Geef Reactie"
-      log_in_or_register_to_comment: "Log in of Meld je aan om een Reactie te plaatsen"
+      leave_comment: "Zeg iets leuks"
+      log_in_or_register_to_comment: "Log in of registreer om een Reactie te plaatsen"
     edit:
-      edit_title: "Liftreis aanpassen"
-      edit_trip: "Reis aanpassen"
+      edit_title: "Trip bijwerken"
+      edit_trip: "Trip bijwerken"
     form:
       step1_2: Doorgaan
     index:
-      latest_hitchhiking_trips: Liftreis
+      latest_hitchhiking_trips: "Lift Trips"
       meta_description: "Verken de lift ervaringen van andere Lifters"
-      title: ~
+      title: "Lift Trips"
     list:
-      by: ~
+      by: Door
       hitched_date: "Datum gelift"
-      read_on: ~
+      read_on: "(Ik wil meer lezen)"
     new:
       log_your_trip_please: "Archiveer jou Liftreis"
-      new_trip: "Archiveer nieuwe Liftreis"
+      new_trip: "Nieuwe Trip"
     search_interface:
-      from_placeholder: ~
-      search_by_country_or_city: "Zoek reis via Land of Stad"
+      from_placeholder: "(b.v. Berlin of Duitsland)"
+      search_by_country_or_city: "Zoek een trip via Land of Stad"
     show:
       title: "Liften van%{from_city} naar%{to_city}"
   users:
     edit:
-      edit_profile: "Profiel aanpassen"
-      hitchlog_supports_gravatar_and_facebook_image: ~
+      edit_profile: "Profiel bijwerken"
+      hitchlog_supports_gravatar_and_facebook_image: "Als je verbind met Facebook, gebruikt Hitchlog je profiel foto, Zo niet, zal het <a href='http://gravatar.com'>Gravatar</a> gebruiken.<br/> Als je een eigen foto wilt gebruiken, Upload je foto dan naar<a href='http://gravatar.com'>gravatar.com</a> of verbind je account met facebook.\n"
       when_changing: "Veranderen? Klik op de dropdown box"
       your_avatar: "Jou Avatar"
       your_avatar_is_from_facebook: "U bent gekoppelt aan facebook, Uw profiel foto is hetzelfde als die van Facebook\n"
@@ -253,8 +253,8 @@ nl:
       search_by: "Zoek op"
       hitchhiker: Lifters
       location: Locatie
-      logged_trips: ~
-      member_since: "Lid sinds"
+      logged_trips: "Aantal Trips"
+      member_since: "Lift mee sinds"
       title: Lifters
       username: Gebruikersnaam
     profile:
@@ -264,14 +264,14 @@ nl:
       send_mail: "Stuur Email"
       waiting_time_per_ride: "Gemiddelde Wachttijd"
     send_mail:
-      mail_text: "Als je dit verstuurd, ontvangt %{username} een Email met jou Email-address. Zo kan %{username} je direct via Email antwoorden.\n"
+      mail_text: "Als je dit verstuurd, ontvangt %{username} een Email met jou Email-address in het formulier ingevuld.<br/> Zo kan %{username} je direct via Email antwoorden.\n"
       message_placeholder: Bericht
       send_a_mail_to: "Stuur bericht naar %{user}"
       send_mail: "Stuur Email"
       title: "Stuur bericht naar %{user}"
     show:
-      about: Over
-      edit: Aanpassen
+      about: Info
+      edit: Edit
       log_your_first_trip: "Archiveer je eerste Reis"
       title: "%{user}'s Profiel"
       upcoming_trip: "Lift maatje Gezogd"
@@ -281,26 +281,35 @@ nl:
     cannot_be_in_past: "Kan niet in't verleden"
   welcome:
     about:
-      column1: ~
-      column2: ~
-      column3: ~
-      intro: ~
+      column1: "<span class=\"dropcap\">L</span>iften is best een interesante manier van reizen. De leuke avonturen, Ontmoetingen met interesante en erg gulle bestuurders maar ook de ervaring van verscheidenheid in de huidige samenleving. Maakt deze manier van reizen veel levensrijker dan het gebruik van de Bus of Trein.<br/> Het is meer dan een manier om van Punt A naar B te komen.\n"
+      column2: |
+          Hitchlog verzamelt verhalen en ervarinen van honderden lifters
+          Deze verhalen worden samengevat met fotos en specifike data over de reis.<br/>
+          Het zet de Statistieken in een Notendop voor <b>Een Lifter</b> Maar vat ook alle data samen van <b>alle Lifters</b>
+          Zo schetsen we een Realitsich, Autentiek beeld van Liften in deze samenleving, Vandaag de dag.
+      column3: |
+          Een Beeld die nog niet Beinvloed is, door de reputaties van Social media of Films.
+          Een Beeld die zo goed mogelijk laat zien hoe Fantastisch liften wel niet is.
+      intro: |
+          Hitchlog geeft een Realistisch <i class="fa fa-photo"></i> over Liften <br>
+          We proberen het met <i class="fa fa-heart-o"></i> over te brengen
+          Om zo credit te geven aan de <i class="fa fa-group"></i> die ons gezellig hebben meegenomen
     hitchhiking_buddies:
       contact: Contact
       find_hitchhiking_buddies: "Vind een Lift maatje"
-      list_your_own_hitchhiking_adventure: "Voeg uw eigen toekomstige reis toe"
+      list_your_own_hitchhiking_adventure: "Voeg je eigen Trip toe"
       more_hitchhiking_buddies: "Meer Lift maatjes"
     home:
-      explore_hh_xp: "Verken Lift ervaringen in meer dan 80 Landen"
+      explore_hh_xp: "En Verken Lift ervaringen in meer dan 80 Landen"
       hitchhiked_by_user: "%{time} geleden gelift door %{user}"
-      meta_description: "Heeft u zich ooit wel eens afgevraagd, Hoe is dat liften nou eigenlijk? Verken de waargebeurde Lift ervaring verhalen van Lifters in meer dan 80 Landen.\n"
+      meta_description: "Heeft u zich ooit wel eens afgevraagd, Hoe is dat liften nou eigenlijk? Verken de waargebeurde, Lift ervaring verhalen van Lifters in meer dan 80 Landen.\n"
       more_hitchhikers: "Leer meer Lifters kennen"
       more_stories: "Lees meer verhalen"
-      more_trips: "Bekijk meer reizen"
-      newest_hh_stories: "Nieuwste Lift verhalen"
+      more_trips: "Bekijk meer Trips"
+      newest_hh_stories: "Nieuwe Lift verhalen"
       newest_hitchhikers: "Nieuwe Lifters"
-      newest_hitchhiking_trips: ~
-      share_your_hh_xp: "Deel uw Lift ervaringen"
+      newest_hitchhiking_trips: "Nieuwe lift trips"
+      share_your_hh_xp: "Deel je Lift ervaringen"
   datetime:
     distance_in_words:
       about_x_months:
@@ -310,8 +319,8 @@ nl:
         one: "1 Dag"
         other: "%{count} Dagen"
       x_hours:
-        one: "1 Uur"
-        other: "%{count} Uren"
+        one: "1 uur"
+        other: "%{count} uur"
       x_minutes:
         one: "1 Minute"
         other: "%{count} Minuten"
@@ -319,8 +328,8 @@ nl:
         one: "1 Maand"
         other: "%{count} Maanden"
   hours:
-    one: "1 Uur"
-    other: "%{count} Uren"
+    one: "1 uur"
+    other: "%{count} uur"
   hours_with_minutes:
     one: "%{count} uur %{minutes} minuten"
     other: "%{count} uur %{minutes} minuten"
