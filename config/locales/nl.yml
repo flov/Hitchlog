@@ -155,7 +155,7 @@ nl:
     waiting_time: "%{time} Wachttijd"
   layouts:
     navigation:
-      about: Ongeveer
+      about: "Over Hitchlog"
       find_hitchhiking_buddy: "Lift maatjes"
       hitchhikers: Lifters
       log_new_trip: "Nieuwe Trip"
@@ -270,7 +270,7 @@ nl:
       send_mail: "Stuur Email"
       title: "Stuur bericht naar %{user}"
     show:
-      about: Info
+      about: "Over mij"
       edit: Edit
       log_your_first_trip: "Archiveer je eerste Reis"
       title: "%{user}'s Profiel"
