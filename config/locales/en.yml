@@ -1,180 +1,177 @@
----
 en:
   activerecord:
     attributes:
       comment:
         body: Comment
       ride:
-        duration: Driving time (in hours)
+        duration: "Driving time (in hours)"
         experience: Experience
-        gender: Gender of passenger(s)
+        gender: "Gender of passenger(s)"
         photo: Photo
-        waiting_time: Waiting time (in minutes)
+        waiting_time: "Waiting time (in minutes)"
       trip:
         arrival: Arrival
         departure: Departure
         distance: Distance
         duration: Duration
         from: From
-        gmaps_duration: Gmap duration
-        hitchhikes: Number of rides
+        gmaps_duration: "Gmap duration"
+        hitchhikes: "Number of rides"
         to: To
-        travelling_with: Traveling with
+        travelling_with: "Traveling with"
       user:
-        about_you: About you
-        cs_user: CS user
+        about_you: "About you"
+        cs_user: "CS user"
         email: Email
         gender: Gender
         origin: Hometown
         password: Password
-        password_confirmation: Password confirmation
+        password_confirmation: "Password confirmation"
         username: Username
   datetime:
     distance_in_words:
       about_x_months:
-        one: 1 month
+        one: "1 month"
         other: "%{count} months"
       x_days:
-        one: 1 day
+        one: "1 day"
         other: "%{count} days"
       x_hours:
-        one: 1 hour
+        one: "1 hour"
         other: "%{count} hours"
       x_minutes:
-        one: 1 minute
+        one: "1 minute"
         other: "%{count} minutes"
       x_months:
-        one: 1 month
+        one: "1 month"
         other: "%{count} months"
   flash:
-    error: something went wrong :(
+    error: "something went wrong :("
     future_trips:
       destroy:
-        success: Your future trip from %{from} to %{to} has been deleted
+        success: "Your future trip from %{from} to %{to} has been deleted"
     rides:
       add_ride:
-        success: Added ride
+        success: "Added ride"
       delete_photo:
-        error: Could not delete photo
-        success: Your photo is no more!
+        error: "Could not delete photo"
+        success: "Your photo is no more!"
       update:
-        success: Ride updated! See the result below.
+        success: "Ride updated! See the result below."
     trips:
       create_comment:
-        alert: Comment failed to save!
-        comment_saved: Comment saved, thanks!
+        alert: "Comment failed to save!"
+        comment_saved: "Comment saved, thanks!"
     users:
       destroy:
-        not_allowed: You are not allowed to do that!
-        success: Good Bye! Your account has been deleted!
+        not_allowed: "You are not allowed to do that!"
+        success: "Good Bye! Your account has been deleted!"
       mail_sent:
-        notice: Mail has been sent to %{user}
+        notice: "Mail has been sent to %{user}"
       update:
-        error: Could not edit profile own
-        notice: Successfully edited profile
+        error: "Could not edit profile own"
+        notice: "Successfully edited profile"
   future_trips:
     edit:
-      edit_future_trip: Edit your future trip
+      edit_future_trip: "Edit your future trip"
     form:
       description_label: Message
     future_trips:
       by: By
       country: Country
       departure: Departure
-      send_a_message: send message
+      send_a_message: "send message"
     index:
-      and_find_hh_buddy: and find your next hitchhiking buddy
-      hitchhikers_searching_for_buddies: Hitchhikers searching for buddies to hitchhike
-        with
-      looking_for_a_hitchhiking_buddy: Looking for a hitchhiking buddy
-      post_it_on_the_board: Post it on the board
-      title: Hitchhiking Buddies
-      your_thumb_is_itching: |
-        Your thumb is itching but you don't know who to start your next hitchhiking adventure with?
+      and_find_hh_buddy: "and find your next hitchhiking buddy"
+      hitchhikers_searching_for_buddies: "Hitchhikers searching for buddies to hitchhike with"
+      looking_for_a_hitchhiking_buddy: "Looking for a hitchhiking buddy"
+      post_it_on_the_board: "Post it on the board"
+      title: "Hitchhiking Buddies"
+      your_thumb_is_itching: "Your thumb is itching but you don't know who to start your next hitchhiking adventure with?\n"
     new:
-      new_future_trip: Where Would You Like To Hitchhike To?
-      tell_others_about_your_plans: Tell others about your hitchhiking plans.
+      new_future_trip: "Where Would You Like To Hitchhike To?"
+      tell_others_about_your_plans: "Tell others about your hitchhiking plans."
   general:
-    average_speed: 'Average speed: %{speed}'
+    average_speed: "Average speed: %{speed}"
     bad: bad
     by: by
     comment: comment
-    confirm: Are you sure?
+    confirm: "Are you sure?"
     country: country
     country_of_origin: Hometown
     delete: Delete
     edit: Edit
     experience: experience
     female: female
-    forgot_your_password: Forgot your password?
+    forgot_your_password: "Forgot your password?"
     good: good
-    google_maps_duration: Google Maps Duration
-    got_a_ride_with: Got a ride with a %{vehicle}
-    hitchhiked_kms: hitchhiked kms
+    google_maps_duration: "Google Maps Duration"
+    got_a_ride_with: "Got a ride with a %{vehicle}"
+    hitchhiked_kms: "hitchhiked kms"
     hometown: Hometown
     languages: Languages
     male: male
-    member_since: Member since %{time}
+    member_since: "Member since %{time}"
     message: Message
     minutes: minutes
     neutral: neutral
-    not_allowed: You are not allowed to do that!
+    not_allowed: "You are not allowed to do that!"
     or: or
-    overall_average_speed: 'Average speed of all hitchhiked trips: %{speed}'
+    overall_average_speed: "Average speed of all hitchhiked trips: %{speed}"
     photo: photo
-    photo_caption: Photo caption
-    record_not_found: The record was not found
+    photo_caption: "Photo caption"
+    record_not_found: "The record was not found"
     ride: ride
     save: Save
     search: Search
-    sign_in_with_facebook: Login with Facebook
-    sign_up: Sign Up
-    sign_up_with_facebook: Sign up with Facebook
-    slogan: A Hitchhiker's Logbook
+    sign_in_with_facebook: "Login with Facebook"
+    sign_up: "Sign Up"
+    sign_up_with_facebook: "Sign up with Facebook"
+    slogan: "A Hitchhiker's Logbook"
     story: story
-    story_title: Story title
+    story_title: "Story title"
     time_ago: "%{time} ago"
-    total_waiting_time: 'total waiting time: %{time}'
+    total_waiting_time: "total waiting time: %{time}"
     trip: trip
-    trip_duration: Trip duration
+    trip_duration: "Trip duration"
     user_age: "%{age} years old"
-    very_bad: very bad
-    very_good: very good
+    very_bad: "very bad"
+    very_good: "very good"
     years: years
   helper:
-    bad_experience: bad experience
+    bad_experience: "bad experience"
     driving_time: "%{time} driving time"
-    faster_than_gmaps: faster than Google Maps
-    female_hitchhiker: Female Hitchhiker
-    good_experience: good experience
-    male_hitchhiker: Male Hitchhiker
-    male_people: male passenger
-    mixed_people: female and male passengers
-    more_than_three_people_hitchhike: Hitchhiked in foursome
-    neutral_experience: neutral experience
-    no_results_for_this_route: no results for this route
-    one_person_hitchhike: Hitchhiked alone
+    faster_than_gmaps: "faster than Google Maps"
+    female_hitchhiker: "Female Hitchhiker"
+    good_experience: "good experience"
+    male_hitchhiker: "Male Hitchhiker"
+    male_people: "male passenger"
+    mixed_people: "female and male passengers"
+    more_than_three_people_hitchhike: "Hitchhiked in foursome"
+    neutral_experience: "neutral experience"
+    no_results_for_this_route: "no results for this route"
+    one_person_hitchhike: "Hitchhiked alone"
     photo: Photo
-    slower_than_gmaps: slower than Google Maps
-    three_people_hitchhike: Hitchhiked in threesome
-    travelling_with_0: Hitchhiked alone
-    travelling_with_1: Hitchhiked in pairs
-    travelling_with_2: Hitchhiked in threesome
-    travelling_with_3: Hitchhiked in foursome
+    slower_than_gmaps: "slower than Google Maps"
+    three_people_hitchhike: "Hitchhiked in threesome"
+    travelling_with_0: "Hitchhiked alone"
+    travelling_with_1: "Hitchhiked in pairs"
+    travelling_with_2: "Hitchhiked in threesome"
+    travelling_with_3: "Hitchhiked in foursome"
     trip:
       alone: alone
-      with_1: 1 person
-      with_2: 2 people
-      with_3: 3 people
-      with_4: 4 people
-      with_more_than_4: with more than 4 people
-    two_people_hitchhike: Hitchhiked in pairs
-    unknown_distance: unknown distance
-    very_bad_experience: very bad experience
-    very_good_experience: very good experience
+      with_1: "1 person"
+      with_2: "2 people"
+      with_3: "3 people"
+      with_4: "4 people"
+      with_more_than_4: "with more than 4 people"
+    two_people_hitchhike: "Hitchhiked in pairs"
+    unknown_distance: "unknown distance"
+    very_bad_experience: "very bad experience"
+    very_good_experience: "very good experience"
     waiting_time: "%{time} waiting time"
   hours:
-    one: 1 hour
+    one: "1 hour"
     other: "%{count} hours"
   hours_with_minutes:
     one: "%{count} hour %{minutes} minutes"
@@ -182,33 +179,31 @@ en:
   layouts:
     navigation:
       about: About
-      find_hitchhiking_buddy: Hitchhiking Buddies
+      find_hitchhiking_buddy: "Hitchhiking Buddies"
       hitchhikers: Hitchhikers
-      log_new_trip: Log new trip
+      log_new_trip: "Log new trip"
       settings: Settings
-      sign_out: Sign Out
+      sign_out: "Sign Out"
       statistics: Statistics
       trips: Trips
-      your_profile: Your Profile
+      your_profile: "Your Profile"
   mailer:
     future_trips:
       nearby_hitchhikers:
-        subject: "[Hitchlog] %{user} is looking for a hitchhiking buddy from %{from_city}
-          to %{to_city}"
+        subject: "[Hitchlog] %{user} is looking for a hitchhiking buddy from %{from_city} to %{to_city}"
   minutes_without_hours:
     one: "%{count} minute"
     other: "%{count} minutes"
   registrations:
     new:
-      create_a_hitchlog_account: Create Your Hitchlog Account
-      sign_up: Sign up
-      use_the_normal_form: Use the normal Form
+      create_a_hitchlog_account: "Create Your Hitchlog Account"
+      sign_up: "Sign up"
+      use_the_normal_form: "Use the normal Form"
   rides:
     ride:
-      please_tag_your_ride: |
-        Please tag your ride if you change the experience, so that it's easy to see why you had a "very bad", or "very good" experience. This will be important for the overall statistics
-      save_ride: Save Ride
-      tag_it: Tag your ride (seperated by comma)
+      please_tag_your_ride: "Please tag your ride if you change the experience, so that it's easy to see why you had a \"very bad\", or \"very good\" experience. This will be important for the overall statistics\n"
+      save_ride: "Save Ride"
+      tag_it: "Tag your ride (seperated by comma)"
     vehicles:
       boat: Boat
       bus: Bus
@@ -218,139 +213,135 @@ en:
       truck: Truck
   sessions:
     new:
-      forgot_password: Forgot Password?
-      hitch_in: Hitch in
-      login_to_your_account: Login to your account...
-      login_using_normal_font: Login in using the normal form
-      not_on_hitchlog: Not on Hitchlog yet? Register here
-      sign_in: Sign in
-      signed_in: Signed in successfully.
-      signed_out: Signed out successfully.
+      forgot_password: "Forgot Password?"
+      hitch_in: "Hitch in"
+      login_to_your_account: "Login to your account..."
+      login_using_normal_font: "Login in using the normal form"
+      not_on_hitchlog: "Not on Hitchlog yet? Register here"
+      sign_in: "Sign in"
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
     footer:
-      follow_on_facebook: Follow The Hitchlog On Facebook
-      follow_on_twitter: Follow The Hitchlog On Twitter
-      follow_the_hitchlog: Follow The Hitchlog
+      follow_on_facebook: "Follow The Hitchlog On Facebook"
+      follow_on_twitter: "Follow The Hitchlog On Twitter"
+      follow_the_hitchlog: "Follow The Hitchlog"
     nearby_hitchhikers:
-      nearby_hitchhikers: Nearby hitchhikers
+      nearby_hitchhikers: "Nearby hitchhikers"
   statistics:
     index:
-      company_while_hitchhiking: Company while hitchhiking
+      company_while_hitchhiking: "Company while hitchhiking"
       experiences: Experiences
-      gender_of_hitchhikers: Gender of hitchhikers
-      meta_description: Global statistics of hitchhiking
+      gender_of_hitchhikers: "Gender of hitchhikers"
+      meta_description: "Global statistics of hitchhiking"
       statistics: Statistics
-      title: Hitchhiking Statistics
-      top_10_hitchhikers: Top 10 Hitchhikers
+      title: "Hitchhiking Statistics"
+      top_10_hitchhikers: "Top 10 Hitchhikers"
       vehicles: Vehicles
-      waiting_time: Waiting Time
+      waiting_time: "Waiting Time"
   trips:
     byline:
-      google_maps_duration: 'Google Maps duration: %{time}'
+      google_maps_duration: "Google Maps duration: %{time}"
       trip_age: "%{user} was %{age} years old when he did this trip"
-      trip_duration: 'Trip duration: %{time}'
+      trip_duration: "Trip duration: %{time}"
     comments:
-      add_comment: Add comment
-      leave_comment: Leave a Comment
-      log_in_or_register_to_comment: Log in or register to comment on this trip
+      add_comment: "Add comment"
+      leave_comment: "Leave a Comment"
+      log_in_or_register_to_comment: "Log in or register to comment on this trip"
     edit:
-      edit_title: Edit Your Hitchhiking Trip
-      edit_trip: Edit Trip
+      edit_title: "Edit Your Hitchhiking Trip"
+      edit_trip: "Edit Trip"
     form:
       step1_2: Continue
     index:
-      latest_hitchhiking_trips: Hitchhiking trips
-      meta_description: Explore the hitchhiking experience of other hitchhikers
-      title: Hitchhinking Trips
+      latest_hitchhiking_trips: "Hitchhiking trips"
+      meta_description: "Explore the hitchhiking experience of other hitchhikers"
+      title: "Hitchhinking Trips"
     list:
       by: By
-      hitched_date: Hitchhiked Date
+      hitched_date: "Hitchhiked Date"
       read_on: "(read on in Trip)"
     new:
-      log_your_trip_please: Log your hitchhiking trip
-      new_trip: Log New Hitchhiking Trip
+      log_your_trip_please: "Log your hitchhiking trip"
+      new_trip: "Log New Hitchhiking Trip"
     search_interface:
       from_placeholder: "(e.g. Berlin or Germany)"
-      search_by_country_or_city: Search trips by country or city
+      search_by_country_or_city: "Search trips by country or city"
     show:
-      title: Hitchhiking from %{from_city} to %{to_city}
+      title: "Hitchhiking from %{from_city} to %{to_city}"
   users:
     edit:
-      edit_profile: Edit Profile
-      hitchlog_supports_gravatar_and_facebook_image: |
-        If you authenticate with Facebook, Hitchlog will take your Facebook profile image, otherwise it will use <a href='http://gravatar.com'>Gravatar</a>.<br/> If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a> or authenticate your account with facebook.
-      when_changing: When changing, click on the dropdown field
-      your_avatar: Your Avatar
-      your_avatar_is_from_facebook: |
-        You authenticated with facebook and your profile image is your facebook profile image
+      edit_profile: "Edit Profile"
+      hitchlog_supports_gravatar_and_facebook_image: "If you authenticate with Facebook, Hitchlog will take your Facebook profile image, otherwise it will use <a href='http://gravatar.com'>Gravatar</a>.<br/> If you want to upload your own image, please upload your own photo on <a href='http://gravatar.com'>gravatar.com</a> or authenticate your account with facebook.\n"
+      when_changing: "When changing, click on the dropdown field"
+      your_avatar: "Your Avatar"
+      your_avatar_is_from_facebook: "You authenticated with facebook and your profile image is your facebook profile image\n"
     index:
-      search_by: Search by
+      search_by: "Search by"
       hitchhiker: Hitchhikers
       location: Location
-      logged_trips: Logged Trips
-      member_since: Member since
+      logged_trips: "Logged Trips"
+      member_since: "Member since"
       title: Hitchhikers
       username: Username
     profile:
-      be_welcome_user: BeWelcome User
-      cs_user: CS User
-      hitchhiked_countries: Hitchhiked countries
-      send_mail: Send Mail
-      waiting_time_per_ride: Avg. waiting time
+      be_welcome_user: "BeWelcome User"
+      cs_user: "CS User"
+      hitchhiked_countries: "Hitchhiked countries"
+      send_mail: "Send Mail"
+      waiting_time_per_ride: "Avg. waiting time"
     send_mail:
-      mail_text: |
-        When you send the message, %{username} will receive a mail with your email address in the from field.<br/>This way %{username} will be able to answer you directly by mail.
+      mail_text: "When you send the message, %{username} will receive a mail with your email address in the from field.<br/>This way %{username} will be able to answer you directly by mail.\n"
       message_placeholder: Message
-      send_a_mail_to: Send Message to %{user}
-      send_mail: Send Mail
-      title: Send a message to %{user}
+      send_a_mail_to: "Send Message to %{user}"
+      send_mail: "Send Mail"
+      title: "Send a message to %{user}"
     show:
       about: About
       edit: Edit
-      log_your_first_trip: Log your first Trip
+      log_your_first_trip: "Log your first Trip"
       title: "%{user}'s Profile"
-      upcoming_trip: Hitchhiking buddy wanted
+      upcoming_trip: "Hitchhiking buddy wanted"
   validators:
-    arrival_after_departure: cannot be before the departure
-    cannot_be_0: cannot be 0
-    cannot_be_in_past: can't be in past
+    arrival_after_departure: "cannot be before the departure"
+    cannot_be_0: "cannot be 0"
+    cannot_be_in_past: "can't be in past"
   welcome:
     about:
       column1: |
-        <span class="dropcap">H</span>itchhiking is quite an interesting
-        way of traveling. <br/> The eventful journey, the encounter with
-        many interesting and generous drivers and the experience of
-        diversity in our society sets it apart from taking a train or
-        driving by bus.<br/> It is more than just a way of getting from A
-        to B.
+          <span class="dropcap">H</span>itchhiking is quite an interesting
+          way of traveling. <br/> The eventful journey, the encounter with
+          many interesting and generous drivers and the experience of
+          diversity in our society sets it apart from taking a train or
+          driving by bus.<br/> It is more than just a way of getting from A
+          to B.
       column2: |
-        The Hitchlog gathers the stories and experience of hundreds of hitchhikers
-        and puts them together with pictures, stories and data about the journey. <br/>
-        It creates statistics for <b>one hitchhiker</b> as in having a profile with
-        all the gathered data, as well as statistics for <b>all hitchhikers</b> as in
-        what is the overall gender of all hitchhikers.
-        This will paint a real, authentic picture about what Hitchhiking
-        is actually like.
+          The Hitchlog gathers the stories and experience of hundreds of hitchhikers
+          and puts them together with pictures, stories and data about the journey. <br/>
+          It creates statistics for <b>one hitchhiker</b> as in having a profile with
+          all the gathered data, as well as statistics for <b>all hitchhikers</b> as in
+          what is the overall gender of all hitchhikers.
+          This will paint a real, authentic picture about what Hitchhiking
+          is actually like.
       column3: |
-        A picture that is untouched of it's reputation spread by public media or movies.
-        A picture which hopefully shows the world what a great way of travelling this is.
+          A picture that is untouched of it's reputation spread by public media or movies.
+          A picture which hopefully shows the world what a great way of travelling this is.
       intro: |
-        The Hitchlog gives a real <i class="fa fa-photo"></i> on hitchhiking <br>
-        We try to paint it with <i class="fa fa-heart-o"></i>
-        and to give back to the <i class="fa fa-group"></i> who picked us up.
+          The Hitchlog gives a real <i class="fa fa-photo"></i> on hitchhiking <br>
+          We try to paint it with <i class="fa fa-heart-o"></i>
+          and to give back to the <i class="fa fa-group"></i> who picked us up.
     hitchhiking_buddies:
       contact: Contact
-      find_hitchhiking_buddies: Find a hitchhiking buddy
-      list_your_own_hitchhiking_adventure: Add your own upcoming trip
-      more_hitchhiking_buddies: More hitchhiking buddies
+      find_hitchhiking_buddies: "Find a hitchhiking buddy"
+      list_your_own_hitchhiking_adventure: "Add your own upcoming trip"
+      more_hitchhiking_buddies: "More hitchhiking buddies"
     home:
-      explore_hh_xp: Explore hitchhiking experiences in over 80 countries
-      hitchhiked_by_user: hitchhiked %{time} ago by %{user}
-      meta_description: |
-        Ever wondered what hitchhiking is really like? Explore the hitchhiking experiences of real people in over 80 countries.
-      more_hitchhikers: Get To Know More Hitchhikers
-      more_stories: Read More Stories
-      more_trips: See More Trips
-      newest_hh_stories: Newest hitchhiking Stories
-      newest_hitchhikers: New Hitchhikers
-      newest_hitchhiking_trips: New Hitchhiking Trips
-      share_your_hh_xp: Share your hitchhiking experience
+      explore_hh_xp: "Explore hitchhiking experiences in over 80 countries"
+      hitchhiked_by_user: "hitchhiked %{time} ago by %{user}"
+      meta_description: "Ever wondered what hitchhiking is really like? Explore the hitchhiking experiences of real people in over 80 countries.\n"
+      more_hitchhikers: "Get To Know More Hitchhikers"
+      more_stories: "Read More Stories"
+      more_trips: "See More Trips"
+      newest_hh_stories: "Newest hitchhiking Stories"
+      newest_hitchhikers: "New Hitchhikers"
+      newest_hitchhiking_trips: "New Hitchhiking Trips"
+      share_your_hh_xp: "Share your hitchhiking experience"

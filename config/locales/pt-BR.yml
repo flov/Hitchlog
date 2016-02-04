@@ -28,6 +28,23 @@ pt-BR:
         password: Senha
         password_confirmation: "Confirmar senha"
         username: Usuário
+  datetime:
+    distance_in_words:
+      about_x_months:
+        one: "1 mês"
+        other: "%{count} meses"
+      x_days:
+        one: "%{count} dia"
+        other: "%{count} dias"
+      x_hours:
+        one: "1 hora"
+        other: "%{count} horas"
+      x_minutes:
+        one: "%{count} minuto"
+        other: "%{count} minutos"
+      x_months:
+        one: "%{count} mês"
+        other: "%{count} meses"
   flash:
     error: "ops, algo não funcionou corretamente :("
     future_trips:
@@ -90,7 +107,7 @@ pt-BR:
     good: bom
     google_maps_duration: "Duração segundo o Google Maps"
     got_a_ride_with: "Pegou carona com %{vehicle}"
-    hitchhiked_kms: "quilômetros viajados de carona"
+    hitchhiked_kms: "quilômetros caronados"
     hometown: "Cidade natal"
     languages: Idiomas
     male: masculino
@@ -110,7 +127,7 @@ pt-BR:
     sign_in_with_facebook: "Logar com Facebook"
     sign_up: "Criar conta"
     sign_up_with_facebook: "Criar conta com Facebook"
-    slogan: "Um diário de bordo de caroneiros"
+    slogan: "Um diário de bordo de caroneir@s"
     story: história
     story_title: "Título da história"
     time_ago: "%{time} atrás"
@@ -124,7 +141,7 @@ pt-BR:
   helper:
     bad_experience: "experiência ruim"
     driving_time: "%{time} de viagem"
-    faster_than_gmaps: "mais rápido do que o Google Maps calcularia"
+    faster_than_gmaps: "mais rápido que previsto pelo Google Maps"
     female_hitchhiker: Caroneira
     good_experience: "boa experiência"
     male_hitchhiker: Caroneiro
@@ -135,7 +152,7 @@ pt-BR:
     no_results_for_this_route: "nenhum resultado foi encontrado para essa rota"
     one_person_hitchhike: "Caronou sozinh@"
     photo: Foto
-    slower_than_gmaps: "mais lento que do que o Google Maps calcularia"
+    slower_than_gmaps: "mais lento que previsto pelo Google Maps"
     three_people_hitchhike: "Carona em grupo"
     travelling_with_0: "Caronou sozinh@"
     travelling_with_1: "Carona em dupla"
@@ -153,6 +170,12 @@ pt-BR:
     very_bad_experience: "experiência muito ruim"
     very_good_experience: "experiência muito boa"
     waiting_time: "%{time} de espera"
+  hours:
+    one: "%{count} hora"
+    other: "%{count} horas"
+  hours_with_minutes:
+    one: "%{count} hora %{minutes} minutos"
+    other: "%{count} horas %{minutes} minutos"
   layouts:
     navigation:
       about: Sobre
@@ -168,6 +191,9 @@ pt-BR:
     future_trips:
       nearby_hitchhikers:
         subject: "[Hitchlog] %{user} está buscando uma companhia para pedir carona de %{from_city} até %{to_city}"
+  minutes_without_hours:
+    one: "%{count} minuto"
+    other: "%{count} minutos"
   registrations:
     new:
       create_a_hitchlog_account: "Criar sua conta"
@@ -175,7 +201,7 @@ pt-BR:
       use_the_normal_form: "Utilize o formulário normal"
   rides:
     ride:
-      please_tag_your_ride: "Por favor, marque sua carona caso você mude a avaliação da sua experiência, assim você ficará mais claro porque você teve uma experiência boa ou ruim. Essa informação será útil para as estatísticas de experiências dos caroneiros usuários do site.\n"
+      please_tag_your_ride: "Por favor, marque sua carona caso você mude a avaliação da sua experiência, assim você ficará mais claro porque você teve uma experiência boa ou ruim. Essa informação será útil para as estatísticas de experiências d@s caroneir@s usuários do site.\n"
       save_ride: "Salvar carona"
       tag_it: "Marque sua carona (use vírgula para separá-las)"
     vehicles:
@@ -255,7 +281,7 @@ pt-BR:
       location: Localização
       logged_trips: "Viagens salvas"
       member_since: "Membro desde"
-      title: Caroneiros
+      title: Caroneir@s
       username: Usuário
     profile:
       be_welcome_user: "Nome de usuário no BeWelcome (se possuir)"
@@ -292,7 +318,7 @@ pt-BR:
       more_hitchhiking_buddies: "Mais companhias para caronar"
     home:
       explore_hh_xp: "Veja experiências de caroneiros em mais de 80 países"
-      hitchhiked_by_user: "caronado %{time} por %{user}"
+      hitchhiked_by_user: "caronado %{time} atrás por %{user}"
       meta_description: "Você sempre se perguntou o que acontece de verdade quando pessoas viajam pedindo carona na estrada? Leia histórias escritas por caroneiras e caroneiros de verdade viajando por mais de 80 países.\n"
       more_hitchhikers: "Leia mais sobre outros caroneiros"
       more_stories: "Ler mais histórias"
@@ -301,29 +327,3 @@ pt-BR:
       newest_hitchhikers: "Novos caroneiros"
       newest_hitchhiking_trips: "Viagens de carona salvas recentemente"
       share_your_hh_xp: "Compartilhe conosco a sua experiência de carona"
-  datetime:
-    distance_in_words:
-      about_x_months:
-        one: "%{count} mês"
-        other: "%{count} meses"
-      x_days:
-        one: "%{count} dia"
-        other: "%{count} dias"
-      x_hours:
-        one: "%{count} hora"
-        other: "%{count} horas"
-      x_minutes:
-        one: "%{count} minuto"
-        other: "%{count} minutos"
-      x_months:
-        one: "%{count} mês"
-        other: "%{count} meses"
-  hours:
-    one: "%{count} hora"
-    other: "%{count} horas"
-  hours_with_minutes:
-    one: "%{count} hora %{minutes} minutos"
-    other: "%{count} horas %{minutes} minutos"
-  minutes_without_hours:
-    one: "%{count} minuto"
-    other: "%{count} minutos"

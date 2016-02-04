@@ -109,7 +109,7 @@ nl:
     search: Zoeken
     sign_in_with_facebook: "Inloggen met Facebook"
     sign_up: Inschrijfen
-    sign_up_with_facebook: "Inschrijfen met Facebook"
+    sign_up_with_facebook: "Inschrijven met Facebook"
     slogan: "Een Lifters Logboek"
     story: Verhaal
     story_title: "Verhaal titel"
@@ -302,7 +302,7 @@ nl:
     home:
       explore_hh_xp: "En Verken Lift ervaringen in meer dan 80 Landen"
       hitchhiked_by_user: "%{time} geleden gelift door %{user}"
-      meta_description: "Heeft u zich ooit wel eens afgevraagd, Hoe is dat liften nou eigenlijk? Verken de waargebeurde, Lift ervaring verhalen van Lifters in meer dan 80 Landen.\n"
+      meta_description: "Heeft u zich ooit wel eens afgevraagd, Hoe is dat liften nou eigenlijk? Verken de waargebeurde verhalen en ervaringen van Lifters in meer dan 80 Landen.\n"
       more_hitchhikers: "Leer meer Lifters kennen"
       more_stories: "Lees meer verhalen"
       more_trips: "Bekijk meer Trips"

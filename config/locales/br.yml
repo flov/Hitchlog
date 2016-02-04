@@ -1,306 +1,34 @@
+---
 br:
   activerecord:
     attributes:
       comment:
         body: Comentar
       ride:
-        duration: "Duração do percurso (em horas)"
+        duration: Duração do percurso (em horas)
         experience: Experiência
-        gender: "Gênero do(s) passageiro(s)"
+        gender: Gênero do(s) passageiro(s)
         photo: Foto
-        waiting_time: "Tempo de espera (em minutos)"
+        waiting_time: Tempo de espera (em minutos)
       trip:
         arrival: Chegada
         departure: Partida
         distance: Distância
         duration: Duração
         from: Origem
-        gmaps_duration: "Duração segundo o Google Maps"
-        hitchhikes: "Número de caronas"
+        gmaps_duration: Duração segundo o Google Maps
+        hitchhikes: Número de caronas
         to: Destino
-        travelling_with: "Viajando com"
+        travelling_with: Viajando com
       user:
-        about_you: "Sobre você"
-        cs_user: "Nome de usuário no CouchSurfing (se possuir)"
+        about_you: Sobre você
+        cs_user: Nome de usuário no CouchSurfing (se possuir)
         email: E-Mail
         gender: Gênero
-        origin: "Cidade natal"
+        origin: Cidade natal
         password: Senha
-        password_confirmation: "Confirmar senha"
+        password_confirmation: Confirmar senha
         username: Usuário
-  flash:
-    error: "ops, algo não funcionou corretamente :("
-    future_trips:
-      destroy:
-        success: "Seu plano de viagem de %{from} para %{to} foi removido"
-    rides:
-      add_ride:
-        success: "Carona adicionada"
-      delete_photo:
-        error: "Não foi possível deletar essa foto"
-        success: "Foto deletada com sucesso!"
-      update:
-        success: "Carona atualizada! Confira o resultado abaixo."
-    trips:
-      create_comment:
-        alert: "Houve um erro ao tentar salvar seu comentário!"
-        comment_saved: "Seu comentário foi salvo, obrigado!"
-    users:
-      destroy:
-        not_allowed: "Você não tem permissão para fazer isto"
-        success: "Até mais! Sua conta foi apagada com sucesso!"
-      mail_sent:
-        notice: "E-mail enviado com sucesso para %{user}"
-      update:
-        error: "Não foi possível editar o perfil"
-        notice: "Perfil editado com sucesso"
-  future_trips:
-    edit:
-      edit_future_trip: "Editar seus planos de viagem"
-    form:
-      description_label: Mensagem
-    future_trips:
-      by: Autor
-      country: País
-      departure: Origem
-      send_a_message: "Enviar mensagem"
-    index:
-      and_find_hh_buddy: "e encontre uma companhia para caronar junto"
-      hitchhikers_searching_for_buddies: "Caroneir@s buscando companhia para caronar junto"
-      looking_for_a_hitchhiking_buddy: "Buscando uma companhia para caronar"
-      post_it_on_the_board: "Postar no mural"
-      title: "Companheir@s de viagem"
-      your_thumb_is_itching: "Você está louco para pegar estrada caronando mas te falta uma companhia?\n"
-    new:
-      new_future_trip: "Para onde você quer caronar?"
-      tell_others_about_your_plans: "Informe outras pessoas sobre seus planos de viagem de carona."
-  general:
-    average_speed: "Velocidade média: %{speed}"
-    bad: ruim
-    by: autor
-    comment: comentário
-    confirm: "Deseja continuar?"
-    country: país
-    country_of_origin: "Cidade natal"
-    delete: Apagar
-    edit: Editar
-    experience: experiência
-    female: feminino
-    forgot_your_password: "Esqueceu sua senha?"
-    good: bom
-    google_maps_duration: "Duração segundo o Google Maps"
-    got_a_ride_with: "Pegou carona com %{vehicle}"
-    hitchhiked_kms: "quilômetros viajados de carona"
-    hometown: "Cidade natal"
-    languages: Idiomas
-    male: masculino
-    member_since: "Membro desde %{time}"
-    message: Mensagem
-    minutes: minutos
-    neutral: neutro
-    not_allowed: "Você não tem permissão para fazer isto"
-    or: ou
-    overall_average_speed: "Velocidade média de todas as viagens de carona: %{speed}"
-    photo: foto
-    photo_caption: "Descrição da foto"
-    record_not_found: "Registro não encontrado"
-    ride: carona
-    save: Salvar
-    search: Buscar
-    sign_in_with_facebook: "Logar com Facebook"
-    sign_up: "Criar conta"
-    sign_up_with_facebook: "Criar conta com Facebook"
-    slogan: "Um diário de bordo de caroneiros"
-    story: história
-    story_title: "Título da história"
-    time_ago: "%{time} atrás"
-    total_waiting_time: "tempo total de espera: %{time}"
-    trip: viagem
-    trip_duration: "Duração da viagem"
-    user_age: "%{age} anos"
-    very_bad: "muito ruim"
-    very_good: "muito bom"
-    years: anos
-  helper:
-    bad_experience: "experiência ruim"
-    driving_time: "%{time} de viagem"
-    faster_than_gmaps: "mais rápido do que o Google Maps calcularia"
-    female_hitchhiker: Caroneira
-    good_experience: "boa experiência"
-    male_hitchhiker: Caroneiro
-    male_people: passageiro
-    mixed_people: "todos os passageiros"
-    more_than_three_people_hitchhike: "Carona em grupo"
-    neutral_experience: "experiência neutra"
-    no_results_for_this_route: "nenhum resultado foi encontrado para essa rota"
-    one_person_hitchhike: "Caronou sozinh@"
-    photo: Foto
-    slower_than_gmaps: "mais lento que do que o Google Maps calcularia"
-    three_people_hitchhike: "Carona em grupo"
-    travelling_with_0: "Caronou sozinh@"
-    travelling_with_1: "Carona em dupla"
-    travelling_with_2: "Carona em grupo"
-    travelling_with_3: "Carona em grupo"
-    trip:
-      alone: sozinh@
-      with_1: "1 pessoa"
-      with_2: "2 pessoas"
-      with_3: "3 pessoas"
-      with_4: "4 pessoas"
-      with_more_than_4: "com mais de 4 pessoas"
-    two_people_hitchhike: "Carona em dupla"
-    unknown_distance: "distância desconhecida"
-    very_bad_experience: "experiência muito ruim"
-    very_good_experience: "experiência muito boa"
-    waiting_time: "%{time} de espera"
-  layouts:
-    navigation:
-      about: Sobre
-      find_hitchhiking_buddy: "Companheir@s de viagem"
-      hitchhikers: Caroneir@s
-      log_new_trip: "Registrar nova viagem"
-      settings: Configuraçōes
-      sign_out: Sair
-      statistics: Estatísticas
-      trips: Viagens
-      your_profile: "Seu perfil"
-  mailer:
-    future_trips:
-      nearby_hitchhikers:
-        subject: "[Hitchlog] %{user} está buscando uma companhia para pedir carona de %{from_city} até %{to_city}"
-  registrations:
-    new:
-      create_a_hitchlog_account: "Criar sua conta"
-      sign_up: "Criar conta"
-      use_the_normal_form: "Utilize o formulário normal"
-  rides:
-    ride:
-      please_tag_your_ride: "Por favor, marque sua carona caso você mude a avaliação da sua experiência, assim você ficará mais claro porque você teve uma experiência boa ou ruim. Essa informação será útil para as estatísticas de experiências dos caroneiros usuários do site.\n"
-      save_ride: "Salvar carona"
-      tag_it: "Marque sua carona (use vírgula para separá-las)"
-    vehicles:
-      boat: Barco
-      bus: Ônibus
-      car: Carro
-      motorcycle: Moto
-      plane: Avião
-      truck: Caminhão
-  sessions:
-    new:
-      forgot_password: "Esqueceu a senha?"
-      hitch_in: "Carona em"
-      login_to_your_account: "Acesse sua conta..."
-      login_using_normal_font: "Acesse usando seu usuário e senha"
-      not_on_hitchlog: "Ainda não possui sua conta no Hitchlog? Crie sua conta aqui"
-      sign_in: Acessar
-      signed_in: "Sessão iniciada com sucesso."
-      signed_out: "Sessão encerrada com sucesso."
-    footer:
-      follow_on_facebook: "Siga o Hitchlog no Facebook"
-      follow_on_twitter: "Siga o Hitchlog no Twitter"
-      follow_the_hitchlog: "Siga o Hitchlog"
-    nearby_hitchhikers:
-      nearby_hitchhikers: "Caroneir@s por perto"
-  statistics:
-    index:
-      company_while_hitchhiking: "Companhia durante as caronas"
-      experiences: Experiências
-      gender_of_hitchhikers: "Gênero dos caroneiros"
-      meta_description: "Estatísticas globais de caroneiros"
-      statistics: Estatísticas
-      title: "Estatísticas de caronas"
-      top_10_hitchhikers: "Top 10 de caroneiros"
-      vehicles: Veículos
-      waiting_time: "Tempo de espera"
-  trips:
-    byline:
-      google_maps_duration: "Duração segundo o Google Maps: %{time}"
-      trip_age: "%{user} tinha %{age} anos quando fez essa viagem"
-      trip_duration: "Duração da viagem: %{time}"
-    comments:
-      add_comment: "Adicionar comentário"
-      leave_comment: "Deixe um comentário"
-      log_in_or_register_to_comment: "Acesse sua conta ou cadastre-se para deixar um comentário nessa viagem"
-    edit:
-      edit_title: "Editar sua viagem de carona"
-      edit_trip: "Editar viagem"
-    form:
-      step1_2: Continuar
-    index:
-      latest_hitchhiking_trips: "Viagens de carona"
-      meta_description: "Veja as experiências de viagem de outros caroneiros"
-      title: "Viagens de carona"
-    list:
-      by: Autor
-      hitched_date: "Data da viagem de carona"
-      read_on: "(read on in Trip)"
-    new:
-      log_your_trip_please: "Salvar sua viagem de carona"
-      new_trip: "Salvar uma nova viagem de carona"
-    search_interface:
-      from_placeholder: "(ex. Goiânia ou Brasil)"
-      search_by_country_or_city: "Faça sua busca pelo nome de uma cidade ou país"
-    show:
-      title: "Caronando de %{from_city} a %{to_city}"
-  users:
-    edit:
-      edit_profile: "Editar perfil"
-      hitchlog_supports_gravatar_and_facebook_image: "Se você optar por criar sua conta utilizando o Facebook, o Hitchlog utilizará a mesma imagem de perfil que você utiliza na sua conta no Facebook. Caso você prefira fazer upload de uma foto diferente, por favor faça-o utilizando o site <a href='http://gravatar.com'>gravatar.com</a>.\n"
-      when_changing: "Ao editar, selecione uma opção"
-      your_avatar: "Seu Avatar"
-      your_avatar_is_from_facebook: "Você criou sua conta utilizando o Facebook, sua imagem de perfil do Facebook agora é também a sua imagem de perfil no Hitchlog\n"
-    index:
-      search_by: "Pesquisar por"
-      hitchhiker: Caroneiros
-      location: Localização
-      logged_trips: "Viagens salvas"
-      member_since: "Membro desde"
-      title: Caroneiros
-      username: Usuário
-    profile:
-      be_welcome_user: "Nome de usuário no BeWelcome (se possuir)"
-      cs_user: "Nome de usuário no CouchSurfing (se possuir)"
-      hitchhiked_countries: "Países por onde viajou de carona"
-      send_mail: "Enviar email"
-      waiting_time_per_ride: "Tempo de espera médio"
-    send_mail:
-      mail_text: "Quando você enviar a mensagem, %{username} receberá um email possuindo o seu próprio endereço de email como remetente.<br />Dessa forma %{username} poderá te responder diretamente por email.\n"
-      message_placeholder: Mensagem
-      send_a_mail_to: "Enviar mensagem para %{user}"
-      send_mail: "Enviar Email"
-      title: "Enviar mensagem para %{user}"
-    show:
-      about: Sobre
-      edit: Editar
-      log_your_first_trip: "Salvar sua primeira viagem"
-      title: "Perfil de %{user}"
-      upcoming_trip: "Buscando companhia para caronar"
-  validators:
-    arrival_after_departure: "não pode ser antes do começo da viagem"
-    cannot_be_0: "0 não é aceito"
-    cannot_be_in_past: "deve ser posterior à data de hoje"
-  welcome:
-    about:
-      column1: ~
-      column2: ~
-      column3: ~
-      intro: ~
-    hitchhiking_buddies:
-      contact: Contato
-      find_hitchhiking_buddies: "Encontrar uma companhia para caronar"
-      list_your_own_hitchhiking_adventure: "Adicionar seu próximo plano de viagem"
-      more_hitchhiking_buddies: "Mais companhias para caronar"
-    home:
-      explore_hh_xp: "Veja experiências de caroneiros em mais de 80 países"
-      hitchhiked_by_user: "caronado %{time} por %{user}"
-      meta_description: "Você sempre se perguntou o que acontece de verdade quando pessoas viajam pedindo carona na estrada? Leia histórias escritas por caroneiras e caroneiros de verdade viajando por mais de 80 países.\n"
-      more_hitchhikers: "Leia mais sobre outros caroneiros"
-      more_stories: "Ler mais histórias"
-      more_trips: "Ver mais viagens"
-      newest_hh_stories: "Histórias de caronas mais recentes"
-      newest_hitchhikers: "Novos caroneiros"
-      newest_hitchhiking_trips: "Viagens de carona salvas recentemente"
-      share_your_hh_xp: "Compartilhe conosco a sua experiência de carona"
   datetime:
     distance_in_words:
       about_x_months:
@@ -318,12 +46,291 @@ br:
       x_months:
         one: "%{count} mês"
         other: "%{count} meses"
+  flash:
+    error: ops, algo não funcionou corretamente :(
+    future_trips:
+      destroy:
+        success: Seu plano de viagem de %{from} para %{to} foi removido
+    rides:
+      add_ride:
+        success: Carona adicionada
+      delete_photo:
+        error: Não foi possível deletar essa foto
+        success: Foto deletada com sucesso!
+      update:
+        success: Carona atualizada! Confira o resultado abaixo.
+    trips:
+      create_comment:
+        alert: Houve um erro ao tentar salvar seu comentário!
+        comment_saved: Seu comentário foi salvo, obrigado!
+    users:
+      destroy:
+        not_allowed: Você não tem permissão para fazer isto
+        success: Até mais! Sua conta foi apagada com sucesso!
+      mail_sent:
+        notice: E-mail enviado com sucesso para %{user}
+      update:
+        error: Não foi possível editar o perfil
+        notice: Perfil editado com sucesso
+  future_trips:
+    edit:
+      edit_future_trip: Editar seus planos de viagem
+    form:
+      description_label: Mensagem
+    future_trips:
+      by: Autor
+      country: País
+      departure: Origem
+      send_a_message: Enviar mensagem
+    index:
+      and_find_hh_buddy: e encontre uma companhia para caronar junto
+      hitchhikers_searching_for_buddies: Caroneir@s buscando companhia para caronar junto
+      looking_for_a_hitchhiking_buddy: Buscando uma companhia para caronar
+      post_it_on_the_board: Postar no mural
+      title: Companheir@s de viagem
+      your_thumb_is_itching: |
+        Você está louco para pegar estrada caronando mas te falta uma companhia?
+    new:
+      new_future_trip: Para onde você quer caronar?
+      tell_others_about_your_plans: Informe outras pessoas sobre seus planos de viagem de carona.
+  general:
+    average_speed: 'Velocidade média: %{speed}'
+    bad: ruim
+    by: autor
+    comment: comentário
+    confirm: Deseja continuar?
+    country: país
+    country_of_origin: Cidade natal
+    delete: Apagar
+    edit: Editar
+    experience: experiência
+    female: feminino
+    forgot_your_password: Esqueceu sua senha?
+    good: bom
+    google_maps_duration: Duração segundo o Google Maps
+    got_a_ride_with: Pegou carona com %{vehicle}
+    hitchhiked_kms: quilômetros viajados de carona
+    hometown: Cidade natal
+    languages: Idiomas
+    male: masculino
+    member_since: Membro desde %{time}
+    message: Mensagem
+    minutes: minutos
+    neutral: neutro
+    not_allowed: Você não tem permissão para fazer isto
+    or: ou
+    overall_average_speed: 'Velocidade média de todas as viagens de carona: %{speed}'
+    photo: foto
+    photo_caption: Descrição da foto
+    record_not_found: Registro não encontrado
+    ride: carona
+    save: Salvar
+    search: Buscar
+    sign_in_with_facebook: Logar com Facebook
+    sign_up: Criar conta
+    sign_up_with_facebook: Criar conta com Facebook
+    slogan: Um diário de bordo de caroneiros
+    story: história
+    story_title: Título da história
+    time_ago: "%{time} atrás"
+    total_waiting_time: 'tempo total de espera: %{time}'
+    trip: viagem
+    trip_duration: Duração da viagem
+    user_age: "%{age} anos"
+    very_bad: muito ruim
+    very_good: muito bom
+    years: anos
+  helper:
+    bad_experience: experiência ruim
+    driving_time: "%{time} de viagem"
+    faster_than_gmaps: mais rápido do que o Google Maps calcularia
+    female_hitchhiker: Caroneira
+    good_experience: boa experiência
+    male_hitchhiker: Caroneiro
+    male_people: passageiro
+    mixed_people: todos os passageiros
+    more_than_three_people_hitchhike: Carona em grupo
+    neutral_experience: experiência neutra
+    no_results_for_this_route: nenhum resultado foi encontrado para essa rota
+    one_person_hitchhike: Caronou sozinh@
+    photo: Foto
+    slower_than_gmaps: mais lento que do que o Google Maps calcularia
+    three_people_hitchhike: Carona em grupo
+    travelling_with_0: Caronou sozinh@
+    travelling_with_1: Carona em dupla
+    travelling_with_2: Carona em grupo
+    travelling_with_3: Carona em grupo
+    trip:
+      alone: sozinh@
+      with_1: 1 pessoa
+      with_2: 2 pessoas
+      with_3: 3 pessoas
+      with_4: 4 pessoas
+      with_more_than_4: com mais de 4 pessoas
+    two_people_hitchhike: Carona em dupla
+    unknown_distance: distância desconhecida
+    very_bad_experience: experiência muito ruim
+    very_good_experience: experiência muito boa
+    waiting_time: "%{time} de espera"
   hours:
     one: "%{count} hora"
     other: "%{count} horas"
   hours_with_minutes:
     one: "%{count} hora %{minutes} minutos"
     other: "%{count} horas %{minutes} minutos"
+  layouts:
+    navigation:
+      about: Sobre
+      find_hitchhiking_buddy: Companheir@s de viagem
+      hitchhikers: Caroneir@s
+      log_new_trip: Registrar nova viagem
+      settings: Configuraçōes
+      sign_out: Sair
+      statistics: Estatísticas
+      trips: Viagens
+      your_profile: Seu perfil
+  mailer:
+    future_trips:
+      nearby_hitchhikers:
+        subject: "[Hitchlog] %{user} está buscando uma companhia para pedir carona de %{from_city} até %{to_city}"
   minutes_without_hours:
     one: "%{count} minuto"
     other: "%{count} minutos"
+  registrations:
+    new:
+      create_a_hitchlog_account: Criar sua conta
+      sign_up: Criar conta
+      use_the_normal_form: Utilize o formulário normal
+  rides:
+    ride:
+      please_tag_your_ride: |
+        Por favor, marque sua carona caso você mude a avaliação da sua experiência, assim você ficará mais claro porque você teve uma experiência boa ou ruim. Essa informação será útil para as estatísticas de experiências dos caroneiros usuários do site.
+      save_ride: Salvar carona
+      tag_it: Marque sua carona (use vírgula para separá-las)
+    vehicles:
+      boat: Barco
+      bus: "Ônibus"
+      car: Carro
+      motorcycle: Moto
+      plane: Avião
+      truck: Caminhão
+  sessions:
+    footer:
+      follow_on_facebook: Siga o Hitchlog no Facebook
+      follow_on_twitter: Siga o Hitchlog no Twitter
+      follow_the_hitchlog: Siga o Hitchlog
+    nearby_hitchhikers:
+      nearby_hitchhikers: Caroneir@s por perto
+    new:
+      forgot_password: Esqueceu a senha?
+      hitch_in: Carona em
+      login_to_your_account: Acesse sua conta...
+      login_using_normal_font: Acesse usando seu usuário e senha
+      not_on_hitchlog: Ainda não possui sua conta no Hitchlog? Crie sua conta aqui
+      sign_in: Acessar
+      signed_in: Sessão iniciada com sucesso.
+      signed_out: Sessão encerrada com sucesso.
+  statistics:
+    index:
+      company_while_hitchhiking: Companhia durante as caronas
+      experiences: Experiências
+      gender_of_hitchhikers: Gênero dos caroneiros
+      meta_description: Estatísticas globais de caroneiros
+      statistics: Estatísticas
+      title: Estatísticas de caronas
+      top_10_hitchhikers: Top 10 de caroneiros
+      vehicles: Veículos
+      waiting_time: Tempo de espera
+  trips:
+    byline:
+      google_maps_duration: 'Duração segundo o Google Maps: %{time}'
+      trip_age: "%{user} tinha %{age} anos quando fez essa viagem"
+      trip_duration: 'Duração da viagem: %{time}'
+    comments:
+      add_comment: Adicionar comentário
+      leave_comment: Deixe um comentário
+      log_in_or_register_to_comment: Acesse sua conta ou cadastre-se para deixar um comentário nessa viagem
+    edit:
+      edit_title: Editar sua viagem de carona
+      edit_trip: Editar viagem
+    form:
+      step1_2: Continuar
+    index:
+      latest_hitchhiking_trips: Viagens de carona
+      meta_description: Veja as experiências de viagem de outros caroneiros
+      title: Viagens de carona
+    list:
+      by: Autor
+      hitched_date: Data da viagem de carona
+      read_on: "(read on in Trip)"
+    new:
+      log_your_trip_please: Salvar sua viagem de carona
+      new_trip: Salvar uma nova viagem de carona
+    search_interface:
+      from_placeholder: "(ex. Goiânia ou Brasil)"
+      search_by_country_or_city: Faça sua busca pelo nome de uma cidade ou país
+    show:
+      title: Caronando de %{from_city} a %{to_city}
+  users:
+    edit:
+      edit_profile: Editar perfil
+      hitchlog_supports_gravatar_and_facebook_image: |
+        Se você optar por criar sua conta utilizando o Facebook, o Hitchlog utilizará a mesma imagem de perfil que você utiliza na sua conta no Facebook. Caso você prefira fazer upload de uma foto diferente, por favor faça-o utilizando o site <a href='http://gravatar.com'>gravatar.com</a>.
+      when_changing: Ao editar, selecione uma opção
+      your_avatar: Seu Avatar
+      your_avatar_is_from_facebook: |
+        Você criou sua conta utilizando o Facebook, sua imagem de perfil do Facebook agora é também a sua imagem de perfil no Hitchlog
+    index:
+      hitchhiker: Caroneiros
+      location: Localização
+      logged_trips: Viagens salvas
+      member_since: Membro desde
+      search_by: Pesquisar por
+      title: Caroneiros
+      username: Usuário
+    profile:
+      be_welcome_user: Nome de usuário no BeWelcome (se possuir)
+      cs_user: Nome de usuário no CouchSurfing (se possuir)
+      hitchhiked_countries: Países por onde viajou de carona
+      send_mail: Enviar email
+      waiting_time_per_ride: Tempo de espera médio
+    send_mail:
+      mail_text: |
+        Quando você enviar a mensagem, %{username} receberá um email possuindo o seu próprio endereço de email como remetente.<br />Dessa forma %{username} poderá te responder diretamente por email.
+      message_placeholder: Mensagem
+      send_a_mail_to: Enviar mensagem para %{user}
+      send_mail: Enviar Email
+      title: Enviar mensagem para %{user}
+    show:
+      about: Sobre
+      edit: Editar
+      log_your_first_trip: Salvar sua primeira viagem
+      title: Perfil de %{user}
+      upcoming_trip: Buscando companhia para caronar
+  validators:
+    arrival_after_departure: não pode ser antes do começo da viagem
+    cannot_be_0: 0 não é aceito
+    cannot_be_in_past: deve ser posterior à data de hoje
+  welcome:
+    about:
+      column1: 
+      column2: 
+      column3: 
+      intro: 
+    hitchhiking_buddies:
+      contact: Contato
+      find_hitchhiking_buddies: Encontrar uma companhia para caronar
+      list_your_own_hitchhiking_adventure: Adicionar seu próximo plano de viagem
+      more_hitchhiking_buddies: Mais companhias para caronar
+    home:
+      explore_hh_xp: Veja experiências de caroneiros em mais de 80 países
+      hitchhiked_by_user: caronado %{time} por %{user}
+      meta_description: |
+        Você sempre se perguntou o que acontece de verdade quando pessoas viajam pedindo carona na estrada? Leia histórias escritas por caroneiras e caroneiros de verdade viajando por mais de 80 países.
+      more_hitchhikers: Leia mais sobre outros caroneiros
+      more_stories: Ler mais histórias
+      more_trips: Ver mais viagens
+      newest_hh_stories: Histórias de caronas mais recentes
+      newest_hitchhikers: Novos caroneiros
+      newest_hitchhiking_trips: Viagens de carona salvas recentemente
+      share_your_hh_xp: Compartilhe conosco a sua experiência de carona
