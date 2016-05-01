@@ -216,7 +216,7 @@ en:
       forgot_password: "Forgot Password?"
       hitch_in: "Hitch in"
       login_to_your_account: "Login to your account..."
-      login_using_normal_font: "Login in using the normal form"
+      login_using_normal_font: "Login using the normal form"
       not_on_hitchlog: "Not on Hitchlog yet? Register here"
       sign_in: "Sign in"
       signed_in: "Signed in successfully."
@@ -225,8 +225,6 @@ en:
       follow_on_facebook: "Follow The Hitchlog On Facebook"
       follow_on_twitter: "Follow The Hitchlog On Twitter"
       follow_the_hitchlog: "Follow The Hitchlog"
-    nearby_hitchhikers:
-      nearby_hitchhikers: "Nearby hitchhikers"
   statistics:
     index:
       company_while_hitchhiking: "Company while hitchhiking"
