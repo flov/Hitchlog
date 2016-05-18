@@ -122,6 +122,7 @@ nl:
     very_good: "Erg goed"
     years: Jaren
   helper:
+    ride_with_vehicle: "Ride with %{vehicle}"
     bad_experience: "Slechte ervaring"
     driving_time: "%{time} Rijtijd"
     faster_than_gmaps: "Sneller dan Google maps"

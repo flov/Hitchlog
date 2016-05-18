@@ -178,6 +178,7 @@ fr:
     very_good: very good
     years: years
   helper:
+    ride_with_vehicle: "Ride with %{vehicle}"
     about_person_image: "À propos des passagers"
     add_information: Ajouter des infos sur ce trajet
     add_information_to_hitchhike: Ajouter des infos sur ce trajet

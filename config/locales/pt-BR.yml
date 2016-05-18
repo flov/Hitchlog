@@ -139,6 +139,7 @@ pt-BR:
     very_good: "muito bom"
     years: anos
   helper:
+    ride_with_vehicle: "Ride with %{vehicle}"
     bad_experience: "experiência ruim"
     driving_time: "%{time} de viagem"
     faster_than_gmaps: "mais rápido que previsto pelo Google Maps"

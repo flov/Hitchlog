@@ -142,6 +142,7 @@ de:
     very_good: sehr gut
     years: Jahre
   helper:
+    ride_with_vehicle: "Fahrt mit einem %{vehicle}"
     bad_experience: schlechte Erfahrungen
     driving_time: "%{time} Fahrtzeit"
     faster_than_gmaps: schneller als Google Maps

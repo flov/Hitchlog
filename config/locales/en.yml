@@ -139,6 +139,7 @@ en:
     very_good: "very good"
     years: years
   helper:
+    ride_with_vehicle: "Ride with %{vehicle}"
     bad_experience: "bad experience"
     driving_time: "%{time} driving time"
     faster_than_gmaps: "faster than Google Maps"

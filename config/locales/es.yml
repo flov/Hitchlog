@@ -140,6 +140,7 @@ es:
     very_good: muy bien
     years: años
   helper:
+    ride_with_vehicle: "Ride with %{vehicle}"
     bad_experience: mala experiencia
     driving_time: "%{time} tiempo de conducción"
     faster_than_gmaps: más rápido que los mapas de Google

@@ -1,10 +1,14 @@
 module FontAwesomeHelper
+  def icon(name, options = {})
+    "<i class='fa fa-#{name} #{options[:class]}' title='#{options[:title]}'></i>".html_safe
+  end
+
   def male(title = '')
-    "<i class='fa fa-male blue tip' title='#{title}'></i>".html_safe
+    icon('male', class: 'blue tip', title: title)
   end
 
   def female(title = '')
-    "<i class='fa fa-female pink tip' title='#{title}'></i>".html_safe
+    icon('female', class: 'pink tip', title: title)
   end
 
   def hitchhiker_gender(gender)
@@ -90,9 +94,9 @@ module FontAwesomeHelper
 
   def waiting_time(time=nil)
     if time.nil?
-      "<i class='fa fa-time'></i>".html_safe
+      icon('time')
     else
-      "<i class='fa fa-time tip' title='#{t('helper.waiting_time', time: time)}'></i>".html_safe
+      icon('time', class: 'tip', title: t('helper.waiting_time', time: time))
     end
   end
 
@@ -102,23 +106,23 @@ module FontAwesomeHelper
 
   def very_good(title = t('helper.very_good_experience'))
     "<span class='tip very-good' title='#{title}'>
-      <i class='fa fa-heart'></i>
-      <i class='fa fa-smile-o'></i>
+      #{icon('heart')}
+      #{icon('smile-o')}
     </span>".html_safe
   end
   def good(title = t('helper.good_experience'))
-    "<i class='fa fa-smile-o tip' title='#{title}'></i>".html_safe
+    icon('smile-o', class: 'tip', title: title)
   end
   def neutral(title = t('helper.neutral_experience'))
-    "<i class='fa fa-meh-o tip' title='#{title}'></i>".html_safe
+    icon('meh-o', class: 'tip', title: title)
   end
   def bad(title = t('helper.bad_experience'))
-    "<i class='fa fa-frown-o tip' title='#{title}'></i>".html_safe
+    icon('frown-o', class: 'tip', title: title)
   end
   def very_bad(title = t('helper.very_bad_experience'))
     "<span class='tip' title='#{title}'>
-      <i class='fa fa-bolt'></i>
-      <i class='fa fa-frown-o'></i>
+      #{icon('bolt')}
+      #{icon('frown-o')}
     </span>".html_safe
   end
 
@@ -137,31 +141,33 @@ module FontAwesomeHelper
   end
 
   def driving_time(time)
-    "<i class='fa fa-road tip' title='#{t('helper.driving_time', time: time)}'></i>".html_safe if time
+    if time
+      icon('road', class: 'tip', title: t('helper.driving_time', time: time))
+    end
   end
 
   def photo
-    "<i class='fa fa-picture-o tip' title='#{t('helper.photo')}'></i>".html_safe
+    icon('picture-p', class: 'tip', title: t('helper.photo'))
   end
 
   def number_of_rides(size)
     "<span class='tip' title='#{pluralize(size, t('general.ride'))}'>
       #{size}
-      <i class='fa fa-thumbs-up tip'></i>
+      #{icon('thumbs-up')}
     </span>".html_safe
   end
 
   def number_of_comments(size)
     "<span class='tip' title='#{pluralize(size, t('general.comment'))}'>
       #{size}
-      <i class='fa fa-comment tip'></i>
+      #{icon('comment-o')}
     </span>".html_safe
   end
 
   def number_of_photos(size)
     "<span class='tip' title='#{pluralize(size, t('general.photo'))}'>
       #{size}
-      <i class='fa fa-picture-o tip'></i>
+      #{icon('picture-o')}
     </span>".html_safe
   end
 
@@ -169,6 +175,7 @@ module FontAwesomeHelper
     good
     icons = [ ]
     icons << experience(trip.overall_experience)
+    icons << type_of_rides(trip.rides.pluck(:vehicle))
     icons << number_of_rides(trip.rides.size)
     icons << number_of_comments(trip.comments.size) if trip.comments.size > 0
     icons << number_of_photos(trip.rides.with_photo.size) if trip.rides.with_photo.size > 0
@@ -180,5 +187,12 @@ module FontAwesomeHelper
     icons << driving_time( trip.total_driving_time ) if trip.total_driving_time
 
     icons.join(' ').html_safe
+  end
+
+  def type_of_rides(vehicles)
+    vehicles.reject! {|x| x.blank?}
+    vehicles.map do |vehicle|
+      icon(vehicle, class: 'tip', title: t('helper.ride_with_vehicle', vehicle: t("rides.vehicles.#{vehicle}")))
+    end
   end
 end

@@ -55,6 +55,7 @@
 /*------------------------------------*/
 
 @import "font-awesome";
+.fa-boat:before { content: "\f21a"; } /* .fa-ship alias */
 
 $flags-sprite-dimensions: true;
 @import "flags/*.png";
