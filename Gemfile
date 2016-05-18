@@ -44,7 +44,6 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'gibbon'
-  gem 'i18n-tasks', '~> 0.8.7'
   gem 'hirb'
   gem 'byebug'
   gem 'spring', '1.3.6'
@@ -53,7 +52,10 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
-group :test, :development do
+group :test do
+  gem 'i18n-tasks', '~> 0.8.7'
+  gem 'ruby_cowsay' # for i18n_spec.rb
+  gem 'lolcat'      # for i18n_spec.rb
   gem 'rspec-rails', '~> 3.3.3'
   gem 'cucumber-rails', '~> 1.4.2', require: false
   gem 'rspec-collection_matchers', '~> 1.1.2'
