@@ -5,5 +5,7 @@ class FixGenderData < ActiveRecord::Migration
     User.where(gender: 'feminino').each { |user| user.gender = 'female'; user.save! }
     User.where(gender: 'männlich').each { |user| user.gender = 'male'; user.save! }
     User.where(gender: 'homme').each { |user| user.gender = 'male'; user.save! }
+    User.where(gender: 'hombre').each { |user| user.gender = 'male'; user.save! }
+    User.where(gender: 'mujer').each { |user| user.gender = 'female'; user.save! }
   end
 end
