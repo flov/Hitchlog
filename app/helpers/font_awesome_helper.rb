@@ -117,7 +117,7 @@ module FontAwesomeHelper
   end
   def very_bad(title = t('helper.very_bad_experience'))
     "<span class='tip' title='#{title}'>
-      <i class='fa fa-bolt-o'></i>
+      <i class='fa fa-bolt'></i>
       <i class='fa fa-frown-o'></i>
     </span>".html_safe
   end
