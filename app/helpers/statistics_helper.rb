@@ -47,9 +47,13 @@ module StatisticsHelper
   end
 
   def hitchhikers_by_gender
+    all_users_with_gender = User.where.not(gender: nil).where.not(gender:'').count
     [
-      { label: I18n.t('general.male'), value: ((User.where(gender: "male").count.to_f / User.count) * 100).round },
-      { label: I18n.t('general.female'), value: ((User.where(gender: "female").count.to_f / User.count) * 100).round }
+      { label: I18n.t('general.male'),
+        value: ((User.where(gender: "male").count.to_f / all_users_with_gender) * 100).round 
+      },
+      { label: I18n.t('general.female'),
+        value: ((User.where(gender: "female").count.to_f / all_users_with_gender) * 100).round }
     ]
   end
 
