@@ -143,12 +143,12 @@ class Trip < ActiveRecord::Base
     experiences = self.rides.map(&:experience)
     if experiences.include? 'very bad'
       'very bad'
-    elsif experiences.include? 'very good'
-      'very good'
     elsif experiences.include? 'bad'
       'bad'
     elsif experiences.include? 'neutral'
       'neutral'
+    elsif experiences.include? 'very good'
+      'very good'
     elsif experiences.include? 'good'
       'good'
     end

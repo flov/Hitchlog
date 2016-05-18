@@ -103,20 +103,22 @@ module FontAwesomeHelper
   def very_good(title = t('helper.very_good_experience'))
     "<span class='tip very-good' title='#{title}'>
       <i class='fa fa-heart'></i>
+      <i class='fa fa-smile-o'></i>
     </span>".html_safe
   end
   def good(title = t('helper.good_experience'))
-    "<i class='fa fa-smile tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-smile-o tip' title='#{title}'></i>".html_safe
   end
   def neutral(title = t('helper.neutral_experience'))
-    "<i class='fa fa-meh tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-meh-o tip' title='#{title}'></i>".html_safe
   end
   def bad(title = t('helper.bad_experience'))
-    "<i class='fa fa-frown tip' title='#{title}'></i>".html_safe
+    "<i class='fa fa-frown-o tip' title='#{title}'></i>".html_safe
   end
   def very_bad(title = t('helper.very_bad_experience'))
     "<span class='tip' title='#{title}'>
-      <i class='fa fa-bolt'></i>
+      <i class='fa fa-bolt-o'></i>
+      <i class='fa fa-frown-o'></i>
     </span>".html_safe
   end
 
@@ -164,6 +166,7 @@ module FontAwesomeHelper
   end
 
   def icons_for_trip(trip)
+    good
     icons = [ ]
     icons << experience(trip.overall_experience)
     icons << number_of_rides(trip.rides.size)

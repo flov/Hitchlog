@@ -135,7 +135,7 @@ RSpec.describe Trip, type: :model do
     end
   end
 
-  describe "#experience" do
+  describe "#overall_experience" do
     context "has only good experiences" do
       it "returns a good experience" do
         trip.rides << FactoryGirl.create(:ride, :experience => 'good')
@@ -155,6 +155,14 @@ RSpec.describe Trip, type: :model do
       it "returns a bad experience" do
         trip.rides << FactoryGirl.build(:ride, :experience => 'good')
         trip.rides << FactoryGirl.build(:ride, :experience => 'neutral')
+        trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
+        expect(trip.overall_experience).to eq('bad')
+      end
+    end
+
+    context "has a bad and a very good experience" do
+      it "returns a bad experience" do
+        trip.rides << FactoryGirl.build(:ride, :experience => 'very good')
         trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
         expect(trip.overall_experience).to eq('bad')
       end
