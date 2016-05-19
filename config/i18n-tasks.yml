@@ -6,6 +6,7 @@ data:
     - config/locales/will_paginate.%{locale}.yml
     - config/locales/devise.%{locale}.yml
     - config/locales/simple_form.%{locale}.yml
+    - config/locales/rails-i18n.%{locale}.yml
 
   write:
     - ['{devise, will_paginate, simple_form}.*', 'config/locales/\1.%{locale}.yml']
@@ -25,5 +26,4 @@ ignore_unused:
   - 'helper.travelling_with_{0,1,2,3}'
 
 ignore_missing:
-  - 'datetime.distance_in_words.*'
   - '{devise,simple_form}.*'

@@ -28,6 +28,11 @@ de:
         password: Passwort
         password_confirmation: "Passwort bestätigen"
         username: Nutzername
+  datetime:
+    distance_in_words:
+      x_hours:
+        one: "1 Stunde"
+        other: "%{count} Stunden"
   flash:
     error: "etwas ist schief gelaufen :("
     future_trips:
