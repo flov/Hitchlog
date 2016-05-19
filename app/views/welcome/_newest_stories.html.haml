@@ -9,6 +9,7 @@
         = ride.trip
       = experience(ride.experience)
       = countries_for_trip(ride.trip)
+      = type_of_ride(ride.vehicle)
 
       = t('welcome.home.hitchhiked_by_user',
         user: link_to_user(ride.trip.user),

@@ -192,7 +192,11 @@ module FontAwesomeHelper
   def type_of_rides(vehicles)
     vehicles.reject! {|x| x.blank?}
     vehicles.map do |vehicle|
-      icon(vehicle, class: 'tip', title: t('helper.ride_with_vehicle', vehicle: t("rides.vehicles.#{vehicle}")))
+      type_of_ride(vehicle)
     end
+  end
+
+  def type_of_ride(vehicle)
+    icon(vehicle, class: 'tip', title: t('general.got_a_ride_with', vehicle: t("rides.vehicles.#{vehicle}")))
   end
 end
