@@ -1,181 +1,161 @@
----
 de:
   activerecord:
     attributes:
       comment:
         body: Kommentar
       ride:
-        duration: Fahrtzeit (in Stunden)
+        duration: "Fahrtzeit (in Stunden)"
         experience: Erfahrung
-        gender: Geschlecht der Mitfahrer
+        gender: "Geschlecht der Mitfahrer"
         photo: Foto
-        waiting_time: Wartezeit (in Minuten)
+        waiting_time: "Wartezeit (in Minuten)"
       trip:
         arrival: Ankunft
         departure: Abreise
         distance: Entfernung
         duration: Dauer
         from: Von
-        gmaps_duration: Gmap Dauer
-        hitchhikes: Anzahl der Rides
+        gmaps_duration: "Gmap Dauer"
+        hitchhikes: "Anzahl der Rides"
         to: Nach
-        travelling_with: Gereist mit
+        travelling_with: "Gereist mit"
       user:
         about_you: "Über Dich"
-        cs_user: CS Benutzer
+        cs_user: "CS Benutzer"
         email: Email
         gender: Geschlecht
         origin: Hometown
         password: Passwort
-        password_confirmation: Passwort bestätigen
+        password_confirmation: "Passwort bestätigen"
         username: Nutzername
-  datetime:
-    distance_in_words:
-      about_x_months:
-        one: 1 Monat
-        other: "%{count} Monate"
-      x_days:
-        one: 1 Tag
-        other: "%{count} Tage"
-      x_hours:
-        one: 1 Stunde
-        other: "%{count} Stunden"
-      x_minutes:
-        one: 1 Minute
-        other: "%{count} Minuten"
-      x_months:
-        one: 1 Monat
-        other: "%{count} Monate"
   flash:
-    error: etwas ist schief gelaufen :(
+    error: "etwas ist schief gelaufen :("
     future_trips:
       destroy:
-        success: Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht
+        success: "Ihre zukünftige Reise von %{from} nach %{to} wurde gelöscht"
     rides:
       add_ride:
-        success: Fahrt hinzugefügt
+        success: "Fahrt hinzugefügt"
       delete_photo:
-        error: Foto konnte nicht gelöscht werden
-        success: Dein Foto wurde gelöscht!
+        error: "Foto konnte nicht gelöscht werden"
+        success: "Dein Foto wurde gelöscht!"
       update:
-        success: Fahrt aktualisiert! Siehe das Ergebnis unten.
+        success: "Fahrt aktualisiert! Siehe das Ergebnis unten."
     trips:
       create_comment:
-        alert: Kommentar konnte nicht gespeichert werden!
-        comment_saved: Kommentar gespeichert, danke!
+        alert: "Kommentar konnte nicht gespeichert werden!"
+        comment_saved: "Kommentar gespeichert, danke!"
     users:
       destroy:
-        not_allowed: Du bist nicht berechtigt, dies zu tun.
-        success: Und tschüss! Auf Hitchlog bist Du jetzt nicht mehr!
+        not_allowed: "Du bist nicht berechtigt, dies zu tun."
+        success: "Und tschüss! Auf Hitchlog bist Du jetzt nicht mehr!"
       mail_sent:
-        notice: Mail wurde zu %{user} gesendet
+        notice: "Mail wurde zu %{user} gesendet"
       update:
-        error: Profil konnte nicht editiert werden
-        notice: Profil erfolgreich editiert
+        error: "Profil konnte nicht editiert werden"
+        notice: "Profil erfolgreich editiert"
   future_trips:
     edit:
-      edit_future_trip: Bearbeite deinen kommenden Trip
+      edit_future_trip: "Bearbeite deinen kommenden Trip"
     form:
-      description_label: Was sollten wir über deinen kommenden Trip wissen?
+      description_label: "Was sollten wir über deinen kommenden Trip wissen?"
     future_trips:
       by: Von
       country: Land
       departure: Abfahrt
-      send_a_message: Nachricht senden
+      send_a_message: "Nachricht senden"
     index:
-      and_find_hh_buddy: und finde deinen nächsten Tramppartner
-      hitchhikers_searching_for_buddies: Tramper auf der Suche nach Tramppartnern
-      looking_for_a_hitchhiking_buddy: Suchst Du nach einem Tramppartner
-      post_it_on_the_board: Poste das auf dem Hitchlog
+      and_find_hh_buddy: "und finde deinen nächsten Tramppartner"
+      hitchhikers_searching_for_buddies: "Tramper auf der Suche nach Tramppartnern"
+      looking_for_a_hitchhiking_buddy: "Suchst Du nach einem Tramppartner"
+      post_it_on_the_board: "Poste das auf dem Hitchlog"
       title: Tramppartner
-      your_thumb_is_itching: Dein Daume juckt aber Du weißt noch nicht mit wem du
-        dein nächstes Trampabenteuer beginnen wirst?
+      your_thumb_is_itching: "Dein Daume juckt aber Du weißt noch nicht mit wem du dein nächstes Trampabenteuer beginnen wirst?"
     new:
-      new_future_trip: Wo möchtest du hintrampen?
-      tell_others_about_your_plans: Teile anderen deine Trampplänen mit.
+      new_future_trip: "Wo möchtest du hintrampen?"
+      tell_others_about_your_plans: "Teile anderen deine Trampplänen mit."
   general:
-    average_speed: 'Durchschnittsgeschwindigkeit: %{speed}'
+    average_speed: "Durchschnittsgeschwindigkeit: %{speed}"
     bad: schlecht
     by: von
     comment: Kommentar
-    confirm: Bist du sicher?
+    confirm: "Bist du sicher?"
     country: Land
     country_of_origin: Land
     delete: Löschen
     edit: Bearbeiten
     experience: Erfahrung
     female: weiblich
-    forgot_your_password: Forgot your password?
+    forgot_your_password: "Forgot your password?"
     good: gut
-    google_maps_duration: Google Maps-Dauer
-    got_a_ride_with: Bekam eine Fahrt mit einem %{vehicle}
-    hitchhiked_kms: getrampte kms
+    google_maps_duration: "Google Maps-Dauer"
+    got_a_ride_with: "Bekam eine Fahrt mit einem %{vehicle}"
+    hitchhiked_kms: "getrampte kms"
     hometown: Heimatstadt
     languages: Sprachen
     male: männlich
-    member_since: Mitglied seit %{time}
+    member_since: "Mitglied seit %{time}"
     message: Nachricht
     minutes: Minuten
     neutral: neutral
-    not_allowed: Du bist nicht berechtigt, dies zu tun!
+    not_allowed: "Du bist nicht berechtigt, dies zu tun!"
     or: oder
-    overall_average_speed: 'Durchschnittsgeschwindigkeit von allen getrampten Trips:
-      %{speed}'
+    overall_average_speed: "Durchschnittsgeschwindigkeit von allen getrampten Trips: %{speed}"
     photo: Foto
     photo_caption: Fototitel
-    record_not_found: Der Eintrag wurde nicht gefunden
+    record_not_found: "Der Eintrag wurde nicht gefunden"
     ride: Fahrt
     save: Speichern
     search: Suche
-    sign_in_with_facebook: Mit Facebook anmelden
+    sign_in_with_facebook: "Mit Facebook anmelden"
     sign_up: Anmelden
     sign_up_with_facebook: "Über Facebook anmelden"
-    slogan: Das Tramper Logbuch
+    slogan: "Das Tramper Logbuch"
     story: Story
     story_title: Storytitel
-    time_ago: vor %{time}
-    total_waiting_time: 'totale Wartezeit: %{time} min'
+    time_ago: "vor %{time}"
+    total_waiting_time: "totale Wartezeit: %{time} min"
     trip: Trip
-    trip_duration: Trip Dauer
+    trip_duration: "Trip Dauer"
     user_age: "%{age} Jahre alt"
-    very_bad: sehr schlecht
-    very_good: sehr gut
+    very_bad: "sehr schlecht"
+    very_good: "sehr gut"
     years: Jahre
   helper:
     ride_with_vehicle: "Fahrt mit einem %{vehicle}"
-    bad_experience: schlechte Erfahrungen
+    bad_experience: "schlechte Erfahrungen"
     driving_time: "%{time} Fahrtzeit"
-    faster_than_gmaps: schneller als Google Maps
-    female_hitchhiker: Weiblicher Tramper
-    good_experience: gute Erfahrung
-    male_hitchhiker: Männlicher Tramper
-    male_people: Männliche Mitfahrer
-    mixed_people: Gemixtes Geschlecht der Mitfahrer
-    more_than_three_people_hitchhike: mehr als 3 Personen Tramp
-    neutral_experience: neutrale Erfahrung
-    no_results_for_this_route: keine Ergebnisse für diese Route
-    one_person_hitchhike: 1 Person Tramp
+    faster_than_gmaps: "schneller als Google Maps"
+    female_hitchhiker: "Weiblicher Tramper"
+    good_experience: "gute Erfahrung"
+    male_hitchhiker: "Männlicher Tramper"
+    male_people: "Männliche Mitfahrer"
+    mixed_people: "Gemixtes Geschlecht der Mitfahrer"
+    more_than_three_people_hitchhike: "mehr als 3 Personen Tramp"
+    neutral_experience: "neutrale Erfahrung"
+    no_results_for_this_route: "keine Ergebnisse für diese Route"
+    one_person_hitchhike: "1 Person Tramp"
     photo: Foto
-    slower_than_gmaps: langsamer als Google Maps
-    three_people_hitchhike: 3 Personen Tramp
-    travelling_with_0: alleine getrampt
-    travelling_with_1: zu zweit getrampt
-    travelling_with_2: zu dritt getrampt
-    travelling_with_3: zu viert getrampt
+    slower_than_gmaps: "langsamer als Google Maps"
+    three_people_hitchhike: "3 Personen Tramp"
+    travelling_with_0: "alleine getrampt"
+    travelling_with_1: "zu zweit getrampt"
+    travelling_with_2: "zu dritt getrampt"
+    travelling_with_3: "zu viert getrampt"
     trip:
       alone: alleine
-      with_1: 1 Person
-      with_2: 2 Personen
-      with_3: 3 Personen
-      with_4: 4 Personen
-      with_more_than_4: mehr als 4 Personen
-    two_people_hitchhike: 2 Personen Tramp
-    unknown_distance: unbekannte Distanz
-    very_bad_experience: sehr schlechte Erfahrungen
-    very_good_experience: sehr gute Erfahrungen
+      with_1: "1 Person"
+      with_2: "2 Personen"
+      with_3: "3 Personen"
+      with_4: "4 Personen"
+      with_more_than_4: "mehr als 4 Personen"
+    two_people_hitchhike: "2 Personen Tramp"
+    unknown_distance: "unbekannte Distanz"
+    very_bad_experience: "sehr schlechte Erfahrungen"
+    very_good_experience: "sehr gute Erfahrungen"
     waiting_time: "%{time} Wartezeit"
   hours:
-    one: 1 Stunde
+    one: "1 Stunde"
     other: "%{count} Stunden"
   hours_with_minutes:
     one: "%{count} Stunde %{minutes} Minuten"
@@ -183,37 +163,33 @@ de:
   layouts:
     navigation:
       about: "Über Hitchlog"
-      english: Englisch
       find_hitchhiking_buddy: Tramppartner
-      german: Deutsch
       hitchhikers: Tramper
-      language: Sprache
-      log_new_trip: Log neuen Trip
+      log_new_trip: "Log neuen Trip"
       settings: Einstellungen
       sign_out: Abmelden
       statistics: Statistiken
       trips: Trips
-      your_profile: Dein Profil
+      your_profile: "Dein Profil"
   mailer:
     future_trips:
       nearby_hitchhikers:
         subject: |
-          [Hitchlog] %{user} sucht einen Tramppartner von %{from_city} nach
-          %{to_city}
+            [Hitchlog] %{user} sucht einen Tramppartner von %{from_city} nach
+            %{to_city}
   minutes_without_hours:
     one: "%{count} Minute"
     other: "%{count} Minuten"
   registrations:
     new:
-      create_a_hitchlog_account: Erstelle dein Hitchlog Account
+      create_a_hitchlog_account: "Erstelle dein Hitchlog Account"
       sign_up: Anmelden
-      use_the_normal_form: Verwende die normale Form
+      use_the_normal_form: "Verwende die normale Form"
   rides:
     ride:
-      please_tag_your_ride: Bitte tagge die Fahrt so dass wir leichter sehen können
-        warum Du eine gute oder schlechte Erfahrung hattest
-      save_ride: Sichere Fahrt
-      tag_it: Tag Deine Fahrt (durch Komma getrennt)
+      please_tag_your_ride: "Bitte tagge die Fahrt so dass wir leichter sehen können warum Du eine gute oder schlechte Erfahrung hattest"
+      save_ride: "Sichere Fahrt"
+      tag_it: "Tag Deine Fahrt (durch Komma getrennt)"
     vehicles:
       boat: Boot
       bus: Bus
@@ -223,142 +199,129 @@ de:
       truck: LKW
   sessions:
     new:
-      forgot_password: Passwort vergessen?
-      hitch_in: Hitch in
-      login_to_your_account: Log Dich ein...
-      login_using_normal_font: Melde Dich mit deiner Email an
-      not_on_hitchlog: Noch nicht auf Hitchlog? Registreier dich hier.
+      forgot_password: "Passwort vergessen?"
+      hitch_in: "Hitch in"
+      login_to_your_account: "Log Dich ein..."
+      login_using_normal_font: "Melde Dich mit deiner Email an"
+      not_on_hitchlog: "Noch nicht auf Hitchlog? Registreier dich hier."
       sign_in: Anmelden
-      signed_in: Erfolgreich angemeldet.
-      signed_out: Erfolgreich abgemeldet.
-  shared:
-    banners_in_corners:
-      fork_me_on_github: Fork me on Github
+      signed_in: "Erfolgreich angemeldet."
+      signed_out: "Erfolgreich abgemeldet."
     footer:
-      follow_on_facebook: Folge dem Hitchlog auf Facebook
-      follow_on_twitter: Folge dem Hitchlog auf Twitter
-      follow_the_hitchlog: Folge uns
-    nearby_hitchhikers:
-      nearby_hitchhikers: Tramper in deiner Nähe
+      follow_on_facebook: "Folge dem Hitchlog auf Facebook"
+      follow_on_twitter: "Folge dem Hitchlog auf Twitter"
+      follow_the_hitchlog: "Folge dem Hitchlog"
   statistics:
     index:
-      company_while_hitchhiking: Gesellschaft beim trampen
+      company_while_hitchhiking: "Gesellschaft beim trampen"
       experiences: Erfahrungen
-      gender_of_hitchhikers: Geschlecht der Tramper
-      meta_description: Global statistics of hitchhiking
+      gender_of_hitchhikers: "Geschlecht der Tramper"
+      meta_description: "Global statistics of hitchhiking"
       statistics: Statistiken
-      title: Hitchhiking Statistics
+      title: "Hitchhiking Statistics"
       top_10_hitchhikers: Top-10-Tramper
       vehicles: Fahrzeuge
       waiting_time: Wartezeit
   trips:
     byline:
-      google_maps_duration: 'Google Maps Dauer: %{time}'
+      google_maps_duration: "Google Maps Dauer: %{time}"
       trip_age: "%{user} war %{age} Jahre alt, asl er diesen Trip machte"
-      trip_duration: 'Trip Dauer: %{time}'
+      trip_duration: "Trip Dauer: %{time}"
     comments:
-      add_comment: Kommentar hinzufügen
-      leave_comment: Schreibe einen Kommentar
-      log_in_or_register_to_comment: Log dich ein oder melde Dich an um auf diesen
-        Trip zu kommentieren
+      add_comment: "Kommentar hinzufügen"
+      leave_comment: "Schreibe einen Kommentar"
+      log_in_or_register_to_comment: "Log dich ein oder melde Dich an um auf diesen Trip zu kommentieren"
     edit:
-      edit_title: Trip bearbeiten
-      edit_trip: Trip bearbeiten
+      edit_title: "Trip bearbeiten"
+      edit_trip: "Trip bearbeiten"
     form:
       step1_2: Weiter
     index:
-      latest_hitchhiking_trips: Getrampte Trips
-      meta_description: Durchsuche die Erfahrungen von anderen Trampern
-      title: Tramp Trips
+      latest_hitchhiking_trips: "Getrampte Trips"
+      meta_description: "Durchsuche die Erfahrungen von anderen Trampern"
+      title: "Tramp Trips"
     list:
       by: Von
-      hitched_date: Getrampt am
+      hitched_date: "Getrampt am"
       read_on: "(lese mehr in Trips)"
     new:
-      log_your_trip_please: Log deine Tramp Erfahrung :)
-      new_trip: Log einen neuen Trip
+      log_your_trip_please: "Log deine Tramp Erfahrung :)"
+      new_trip: "Log einen neuen Trip"
     search_interface:
       from_placeholder: "(z.B. Berlin oder Deutschland)"
-      search_by_country_or_city: Suche Trips nach Land oder Stadt
+      search_by_country_or_city: "Suche Trips nach Land oder Stadt"
     show:
-      title: Per Anhalter von %{from_city} zu %{to_city}
+      title: "Per Anhalter von %{from_city} zu %{to_city}"
   users:
     edit:
-      edit_profile: Profil bearbeiten
+      edit_profile: "Profil bearbeiten"
       hitchlog_supports_gravatar_and_facebook_image: |
-        Wenn Du dich mit Facebook anmeldest, nimmt Hitchlog dein
-        Profilbild von Facebook, andernfalls wird es <a href='http://gravatar.com'>Gravatar</a>
-        nutzen.<br/>. Falls Du dein eigenes Bild hochladen möchtest, melde dich
-        bei Gravatar.com an.
-      when_changing: Wenn du das bearbeitest, click auf das Dropdown Feld
-      your_avatar: Dein Avatar
-      your_avatar_is_from_facebook: Du hast Dich mit Facebook angemeldet und somit
-        ist dein Avatar dein Facebook Profilbild
+          Wenn Du dich mit Facebook anmeldest, nimmt Hitchlog dein
+          Profilbild von Facebook, andernfalls wird es <a href='http://gravatar.com'>Gravatar</a>
+          nutzen.<br/>. Falls Du dein eigenes Bild hochladen möchtest, melde dich
+          bei Gravatar.com an.
+      when_changing: "Wenn du das bearbeitest, click auf das Dropdown Feld"
+      your_avatar: "Dein Avatar"
+      your_avatar_is_from_facebook: "Du hast Dich mit Facebook angemeldet und somit ist dein Avatar dein Facebook Profilbild"
     index:
+      search_by: "Filtern nach"
       hitchhiker: Tramper
       location: Lage
       logged_trips: Trips
-      member_since: Mitglied seit
-      title: Tramper index
+      member_since: "Mitglied seit"
+      title: "Tramper index"
       username: Benutzername
     profile:
-      be_welcome_user: BeWelcome User
-      cs_user: CS Benutzer
-      hitchhiked_countries: getrampte Länder
-      send_mail: Sende Mail
-      waiting_time_per_ride: durchschnittliche Wartezeit
+      be_welcome_user: "BeWelcome User"
+      cs_user: "CS Benutzer"
+      hitchhiked_countries: "getrampte Länder"
+      send_mail: "Sende Mail"
+      waiting_time_per_ride: "durchschnittliche Wartezeit"
     send_mail:
       mail_text: |
-        Wenn Du diese Nachricht sendest wird %{username} eine Email mit deiner Email addresse empfangen.
-        Auf diese Weise wird %{username} Dir antworten können.
+          Wenn Du diese Nachricht sendest wird %{username} eine Email mit deiner Email addresse empfangen.
+          Auf diese Weise wird %{username} Dir antworten können.
       message_placeholder: Nachricht
-      send_a_mail_to: Sende Nachricht zu %{user}
-      send_mail: Sende Mail
-      title: Sende eine Nachricht zu %{user}
+      send_a_mail_to: "Sende Nachricht zu %{user}"
+      send_mail: "Sende Mail"
+      title: "Sende eine Nachricht zu %{user}"
     show:
-      about: "Über"
+      about: Über
       edit: Bearbeiten
-      log_your_first_trip: Log deinen ersten Trip
+      log_your_first_trip: "Log deinen ersten Trip"
       title: "%{user}'s Trampprofil"
-      upcoming_trip: kommender Trip
+      upcoming_trip: "kommender Trip"
   validators:
-    arrival_after_departure: kann nicht vor Abfahrt sein
-    cannot_be_0: kann nicht 0 sein
-    cannot_be_in_past: kann nicht in der Vergangenheit sein
+    arrival_after_departure: "kann nicht vor Abfahrt sein"
+    cannot_be_0: "kann nicht 0 sein"
+    cannot_be_in_past: "kann nicht in der Vergangenheit sein"
   welcome:
     about:
-      column1: <span class="dropcap">T</span> rampen ist eine durchaus interessante
-        Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung
-        mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt
-        in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es
-        ist mehr als nur ein Weg, um von A nach B zu kommen.
-      column2: "Das Hitchlog sammelt die Geschichten und Erfahrungen von Hunderten
-        von Trampern und legt sie zusammen mit Bildern, Geschichten und Daten über
-        die Reise.<br/>\nEs erstellt sowohl Statistiken für den <b>einzlenen Tramper</b>
-        in Form eines eigenen Profils mit den gesammelten Daten, <br/>\nsowie Statistiken
-        für <b>alle Tramper</b> z. B. in Form von Aussagen über das Geschlecht aller
-        Tramer, etc. \n<br/> Dies wird ein echtes, authentisches Bild über das Trampen
-        malen.\n"
+      column1: "<span class=\"dropcap\">T</span> rampen ist eine durchaus interessante Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es ist mehr als nur ein Weg, um von A nach B zu kommen."
+      column2: |
+          Das Hitchlog sammelt die Geschichten und Erfahrungen von Hunderten von Trampern und legt sie zusammen mit Bildern, Geschichten und Daten über die Reise.<br/>
+          Es erstellt sowohl Statistiken für den <b>einzlenen Tramper</b> in Form eines eigenen Profils mit den gesammelten Daten, <br/>
+          sowie Statistiken für <b>alle Tramper</b> z. B. in Form von Aussagen über das Geschlecht aller Tramer, etc. 
+          <br/> Dies wird ein echtes, authentisches Bild über das Trampen malen.
       column3: |
-        Ein Bild, das unberührt ist von dem Ruf der von öffentlichen Medien oder Filme verbreitet wird.
-        Ein Bild, welches der Welt zeigt was für eine tolle Art zu reisen das trampen ist.
+          Ein Bild, das unberührt ist von dem Ruf der von öffentlichen Medien oder Filme verbreitet wird.
+          Ein Bild, welches der Welt zeigt was für eine tolle Art zu reisen das trampen ist.
       intro: |
-        Das Hitchlog gibt ein echtes <i class="fa fa-photo"></i> des Trampen wieder.<br>
-        Wir malen dieses Bild mit <i class="fa fa-heart-o"></i> und geben an die <i class="fa fa-group"></i> zurück die uns abgeholt haben.
+          Das Hitchlog gibt ein echtes <i class="fa fa-photo"></i> des Trampen wieder.<br>
+          Wir malen dieses Bild mit <i class="fa fa-heart-o"></i> und geben an die <i class="fa fa-group"></i> zurück die uns abgeholt haben.
     hitchhiking_buddies:
       contact: Kontakt
-      find_hitchhiking_buddies: Finde einen hitchhiking buddy
-      list_your_own_hitchhiking_adventure: Füge deinen bevorstehenden Trip hinzu
-      more_hitchhiking_buddies: Weitere hitchhiking Buddies
+      find_hitchhiking_buddies: "Finde einen hitchhiking buddy"
+      list_your_own_hitchhiking_adventure: "Füge deinen bevorstehenden Trip hinzu"
+      more_hitchhiking_buddies: "Weitere hitchhiking Buddies"
     home:
-      explore_hh_xp: Entdecke Tramperfahrungen in über 80 Ländern
+      explore_hh_xp: "Entdecke Tramperfahrungen in über 80 Ländern"
       hitchhiked_by_user: "%{time} her getrampt von %{user}"
-      meta_description: Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke
-        Tramperfahrungen von Trampern in über 50 Ländern.
-      more_hitchhikers: Lerne mehr Tramper kennen
-      more_stories: Lese mehr Stories
-      more_trips: Lese mehr Trips
-      newest_hh_stories: Neueste Tramp stories
-      newest_hitchhikers: Neueste Tramper
-      newest_hitchhiking_trips: Neueste Tramp Trips
-      share_your_hh_xp: Teile Deine Tramp Erfahrungen
+      meta_description: "Hast Du dich jemals gefragt wie trampen wirklich ist? Entdecke Tramperfahrungen von Trampern in über 50 Ländern."
+      more_hitchhikers: "Lerne mehr Tramper kennen"
+      more_stories: "Lese mehr Stories"
+      more_trips: "Lese mehr Trips"
+      newest_hh_stories: "Neueste Tramp stories"
+      newest_hitchhikers: "Neueste Tramper"
+      newest_hitchhiking_trips: "Neueste Tramp Trips"
+      share_your_hh_xp: "Teile Deine Tramp Erfahrungen"

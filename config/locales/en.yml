@@ -28,23 +28,6 @@ en:
         password: Password
         password_confirmation: "Password confirmation"
         username: Username
-  datetime:
-    distance_in_words:
-      about_x_months:
-        one: "1 month"
-        other: "%{count} months"
-      x_days:
-        one: "1 day"
-        other: "%{count} days"
-      x_hours:
-        one: "1 hour"
-        other: "%{count} hours"
-      x_minutes:
-        one: "1 minute"
-        other: "%{count} minutes"
-      x_months:
-        one: "1 month"
-        other: "%{count} months"
   flash:
     error: "something went wrong :("
     future_trips:
