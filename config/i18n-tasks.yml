@@ -1,5 +1,5 @@
 base_locale: en
-locales: [en]
+locales: [en, de]
 data:
   read:
     - config/locales/%{locale}.yml
@@ -24,3 +24,6 @@ ignore_unused:
   - '{devise,errors,datetime,simple_form,will_paginate}.*'
   - 'helper.travelling_with_{0,1,2,3}'
 
+ignore_missing:
+  - 'datetime.distance_in_words.*'
+  - '{devise,simple_form}.*'
