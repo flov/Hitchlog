@@ -19,4 +19,4 @@
       %b= truncate(ride.title, length: 50)
       = truncated_markdown(ride.story)
 
-%strong=link_to t('welcome.home.more_stories'), "/trips?stories=1"
+%strong= link_to t('welcome.home.more_stories'), trips_path(stories: 1)
