@@ -39,13 +39,16 @@ group :production do
   gem 'bugsnag', '~> 2.8.12'
 end
 
+group :development, :test do
+  gem 'byebug'
+end
+
 group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'gibbon'
   gem 'hirb'
-  gem 'byebug'
   gem 'spring', '1.3.6'
   gem 'spring-commands-rspec', '1.0.4'
   gem 'spring-commands-cucumber'
