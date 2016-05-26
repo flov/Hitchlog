@@ -3,6 +3,7 @@ latest.dump
 db/*.sqlite3
 config/s3.yml
 log/*.log
+log/
 tmp/**/*
 bin/**/*
 public/system
