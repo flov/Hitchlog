@@ -50,7 +50,7 @@ module TripsHelper
   end
 
   def options_for_countries
-    countries = CountryDistance.all.map(&:country).uniq.sort
+    countries = CountryDistance.pluck(:country).uniq.sort
     array =[]
     countries.each{|country| array << "<option>#{country}</option>"}
     array.join ''
