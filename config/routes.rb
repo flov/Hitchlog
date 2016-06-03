@@ -18,8 +18,13 @@ Hitchlog::Application.routes.draw do
     end
   end
 
+  get 'data/country_map', to: 'data#country_map'
+
   resources :trips do
     resources :rides, only: [:create, :update, :destroy]
+    collection do
+      get :experiences
+    end
     member do
       post :create_comment
       post :add_ride
@@ -32,6 +37,9 @@ Hitchlog::Application.routes.draw do
       delete :delete_photo
     end
   end
+
+  # making static crisp html templates available to see if they are displayed correctly
+  match 'crisp/:action', controller: :crisp, via: :get if Rails.env == 'development'
 
   match 'about' => 'welcome#about', via: :get
 

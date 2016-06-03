@@ -57,8 +57,8 @@
 /* Component containers
 ----------------------------------*/
 .ui-widget { font-size: 80%; }
-.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(/stylesheets/images/ui-bg_glass_75_ffffff_1x400.png) 50% 50% repeat-x; }
-.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc url(/stylesheets/images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; }
+.ui-widget-content { border: 1px solid #aaaaaa; }
+.ui-widget-header { font-weight: bold; }
 
 /* Interaction states
 ----------------------------------*/

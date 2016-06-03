@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007133856) do
+ActiveRecord::Schema.define(version: 20160526162949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,15 @@ ActiveRecord::Schema.define(version: 20151007133856) do
   create_table "country_distances", force: :cascade do |t|
     t.integer "distance"
     t.integer "trip_id"
-    t.string  "country",  limit: 255
+    t.string  "country",      limit: 255
+    t.string  "country_code"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "winner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "future_trips", force: :cascade do |t|
@@ -105,6 +113,14 @@ ActiveRecord::Schema.define(version: 20151007133856) do
     t.datetime "updated_at",                         null: false
   end
 
+  create_table "records", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.string   "photo_file_name",    limit: 255
@@ -133,6 +149,7 @@ ActiveRecord::Schema.define(version: 20151007133856) do
   add_index "rides", ["photo_file_name"], name: "index_hitchhikes_on_photo_file_name", using: :btree
   add_index "rides", ["title"], name: "index_rides_on_title", using: :btree
   add_index "rides", ["trip_id"], name: "index_rides_on_trip_id", using: :btree
+  add_index "rides", ["vehicle"], name: "index_rides_on_vehicle", using: :btree
 
   create_table "slugs", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -243,6 +260,7 @@ ActiveRecord::Schema.define(version: 20151007133856) do
 
   add_index "users", ["country"], name: "index_users_on_country", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
   add_index "users", ["location"], name: "index_users_on_location", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", using: :btree

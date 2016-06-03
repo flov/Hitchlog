@@ -564,7 +564,7 @@ DEPENDENCIES
   simple_form (= 3.2.0)
   spring (= 1.7.1)
   spring-commands-cucumber
-  spring-commands-rspec (= 1.0.4)
+  spring-commands-rspec
   uglifier (>= 1.3.0)
   unicorn (= 4.9.0)
   vcr (~> 2.9.3)

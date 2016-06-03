@@ -5,14 +5,20 @@ class Ride < ActiveRecord::Base
                  'bad',
                  'very bad']
 
-  VEHICLES =    ['car',
+  VEHICLES    = ['car',
                  'bus',
                  'truck',
                  'motorcycle',
                  'plane',
                  'boat']
 
+  GENDER      = ['male',
+                 'female',
+                 'mixed']
+
   validates_inclusion_of :experience, in: EXPERIENCES
+  validates_inclusion_of :vehicle,    in: VEHICLES
+  validates_inclusion_of :gender,     in: GENDER
 
   belongs_to :user
   belongs_to :trip
@@ -69,5 +75,11 @@ class Ride < ActiveRecord::Base
   def self.ratio_for_waiting_time_between(starts, ends)
     total_rides = Ride.where("waiting_time != ?", 0).where('waiting_time is not null').count
     ((where(waiting_time: starts..ends).count.to_f / total_rides) * 100).round
+  end
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil)
+    super & %w(title story experience photo vehicle)
   end
 end

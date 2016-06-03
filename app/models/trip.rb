@@ -200,8 +200,8 @@ class Trip < ActiveRecord::Base
       [['Unknown', 10000]]
     else
       countries.each do |country_distance|
-        cd = CountryDistance.where(:country => country_distance[0],
-                                   :trip_id => self.id)
+        cd = CountryDistance.where(country: country_distance[0],
+                                   trip_id: self.id)
         if cd.empty?
           self.country_distances.create(:country  => country_distance[0],
                                         :distance => country_distance[1])
@@ -249,5 +249,15 @@ class Trip < ActiveRecord::Base
     q = q.where(created_at: start.beginning_of_month..Time.now)
     q = q.group('ordered_date').order('ordered_date')
     q.map(&:attributes).group_by { |hash| hash["ordered_date"].to_date }
+  end
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil)
+    super & %w(from_city to_city)
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w(rides country_distances)
   end
 end

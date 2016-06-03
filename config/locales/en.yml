@@ -222,7 +222,7 @@ en:
       meta_description: "Global statistics of hitchhiking"
       statistics: Statistics
       title: "Hitchhiking Statistics"
-      top_10_hitchhikers: "Top 10 Hitchhikers"
+      top_10_hitchhikers: "Top 10 Hitchhikers (click on bar to see profile)"
       vehicles: Vehicles
       waiting_time: "Waiting Time"
   trips:

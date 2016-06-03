@@ -5,9 +5,17 @@
 
 .row-fluid
   .span12
+    = render "world_map_visualization"
+
+%hr/
+
+.row-fluid
+  .span12
     %h3.short_headline
       %span=t('.top_10_hitchhikers')
     = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
+
+%hr/
 
 .row-fluid
   .span6
@@ -19,6 +27,8 @@
       %span= t('.gender_of_hitchhikers')
     = content_tag(:div, '', id: 'gender_donut', class: 'piechart',
       data: {hitchhikers_by_gender: hitchhikers_by_gender})
+
+%hr/
 
 .row-fluid
   .span4
@@ -37,4 +47,8 @@
     = content_tag(:div, '', id: 'vehicles_donut', data: {vehicles: vehicles_data })
 
 - content_for :javascript_at_bottom do
-  = javascript_include_tag 'custom/statistics'
+  = javascript_include_tag 'custom/morris_statistics'
+  = javascript_include_tag 'vendor/jquery-jvectormap-1.2.2.min'
+  = javascript_include_tag 'vendor/jquery-jvectormap-world-mill-en'
+  = javascript_include_tag 'custom/jvectormap_statistics'
+  

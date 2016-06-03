@@ -74,11 +74,11 @@
       - if user.average_waiting_time
         %li.tip{title: "#{t('.waiting_time_per_ride')}: #{user.average_waiting_time} #{t('general.minutes')}"}
           = "#{user.average_waiting_time} min"
-          %i.fa.fa-time
+          %i.fa.fa-clock-o
       - if user.number_of_photos != 0
         %li.tip{title: pluralize(user.number_of_photos, t('general.photo'))}
           = user.number_of_photos
-          %i.fa.fa-picture
+          %i.fa.fa-camera
       %li.tip{title: t('general.overall_average_speed', speed: user.average_speed )}
         = user.average_speed
         %i.fa.fa-dashboard

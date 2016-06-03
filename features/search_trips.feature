@@ -1,4 +1,4 @@
-Feature: Show all trips
+Feature: Search trips
   Scenario: sort trips by country
     Given a German trip exists
     And an English trip exists

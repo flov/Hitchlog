@@ -1,0 +1,88 @@
+%h3.short_headline
+  %span World Map Visualization
+
+#tabs.country_tab
+  %ul
+    %li
+      %a.tabs_headline{href: "#tabs-1"} General
+    %li
+      %a.tabs_headline{href: "#tabs-2"} Experiences
+    %li
+      %a.tabs_headline{href: "#tabs-3"} Vehicles
+  #tabs-1
+    #pills-stacked.tab-pane
+      .tabbable
+        %ul.nav.nav-pills.nav-stacked.span3
+          %li.active
+            %a.tabs_headline{"data-toggle" => "tab", href: "#trips_count_tab"} Number of trips
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#stories_tab"} Stories
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#photos_tab"} Pictures
+        .tab-content.span9
+          #trips_count_tab.tab-pane.active
+            #trips_count_country_map.country_map{"data-topic" => 'trips_count'}
+          #stories_tab.tab-pane
+            #stories_country_map.country_map{"data-topic" => 'stories'}
+          #photos_tab.tab-pane
+            #photos_country_map.country_map{"data-topic" => 'photos'}
+  #tabs-2
+    #pills-stacked.tab-pane
+      .tabbable
+        %ul.nav.nav-pills.nav-stacked.span3
+          %li.active
+            %a.tabs_headline{"data-toggle" => "tab", href: "#pane1"} Total Good XPs
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#pane2"} Good XP Ratio
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#pane3"} Neutral XPs
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#pane4"} Total Bad XPs
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#pane5"} Bad XP Ratio
+        .tab-content.span9
+          #pane1.tab-pane.active
+            #total_good_country_map.country_map{"data-topic" => 'total_good'}
+          #pane2.tab-pane
+            #good_ratio_country_map.country_map{"data-topic" => 'good_ratio'}
+          #pane3.tab-pane
+            #neutral_country_map.country_map{"data-topic" => 'neutral'}
+          #pane4.tab-pane
+            #total_bad_country_map.country_map{"data-topic" => 'total_bad'}
+          #pane5.tab-pane
+            #bad_ratio_country_map.country_map{"data-topic" => 'bad_ratio'}
+
+  #tabs-3
+    #pills-stacked.tab-pane
+      .tabbable
+        %ul.nav.nav-pills.nav-stacked.span3
+          %li.active
+            %a.tabs_headline{"data-toggle" => "tab", href: "#car"} Car
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#bus"} Bus
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#truck"} Truck
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#motorcycle"} Motorcycle
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#boat"} Boat
+          %li
+            %a.tabs_headline{"data-toggle" => "tab", href: "#plane"} Plane
+        .tab-content.span9
+          #car.tab-pane.active
+            #car_ratio_country_map.vehicle_map.country_map{"data-topic" => 'car_ratio'}
+          #bus.tab-pane
+            #bus_ratio_country_map.vehicle_map.country_map{"data-topic" => 'bus_ratio'}
+          #truck.tab-pane
+            #truck_ratio_country_map.vehicle_map.country_map{"data-topic" => 'truck_ratio'}
+          #motorcycle.tab-pane
+            #motorcycle_ratio_country_map.vehicle_map.country_map{"data-topic" => 'motorcycle_ratio'}
+          #boat.tab-pane
+            #boat_ratio_country_map.vehicle_map.country_map{"data-topic" => 'boat_ratio'}
+          #plane.tab-pane
+            #plane_ratio_country_map.vehicle_map.country_map{"data-topic" => 'plane_ratio'}
+
+- content_for :javascript_at_bottom do
+  = javascript_include_tag 'vendor/jquery-jvectormap-1.2.2.min'
+  = javascript_include_tag 'vendor/jquery-jvectormap-world-mill-en'
+  = javascript_include_tag 'custom/jvectormap_statistics'
