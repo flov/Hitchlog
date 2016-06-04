@@ -17,8 +17,8 @@ class Ride < ActiveRecord::Base
                  'mixed']
 
   validates_inclusion_of :experience, in: EXPERIENCES
-  validates_inclusion_of :vehicle,    in: VEHICLES
-  validates_inclusion_of :gender,     in: GENDER
+  validates_inclusion_of :vehicle,    in: VEHICLES,    allow_blank: true
+  validates_inclusion_of :gender,     in: GENDER,      allow_blank: true
 
   belongs_to :user
   belongs_to :trip

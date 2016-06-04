@@ -169,46 +169,6 @@ RSpec.describe Trip, type: :model do
     end
   end
 
-  describe 'self.data_for_country_map' do
-    before do
-      trip = FactoryGirl.build(:trip, hitchhikes: 0)
-      trip.rides.build(experience: 'very good', vehicle: "car")
-      trip.rides.build(experience: 'good', vehicle: "plane")
-      trip.rides.build(experience: 'bad', vehicle: "bus")
-      trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
-      trip.save!
-      trip_2 = FactoryGirl.build(:trip, hitchhikes: 0)
-      trip_2.rides.build(experience: 'very bad', vehicle: "boat")
-      trip_2.rides.build(experience: 'bad', vehicle: "truck")
-      trip_2.country_distances.build(country: 'Spain', country_code: "ES", distance: 3000)
-      trip_2.save!
-      trip_3 = FactoryGirl.build(:trip, hitchhikes: 0)
-      trip_3.rides.build(experience: 'neutral', vehicle: "motorcycle")
-      trip_3.country_distances.build(country: 'Poland', country_code: "PL", distance: 3000)
-      trip_3.save!
-    end
-
-    it 'should return the json for a google chart DataTable' do
-      expect(Trip.data_for_country_map).to eq({
-        "rides_count" => { "DE" => 3, "PL" => 1, "ES" => 2},
-        "very good" => { "DE" => 1 },
-        "good" => { "DE" => 1 },
-        "good_and_very_good" => { "DE" => 2 },
-        "good_xp_ratio" => { "DE" => 0.6666666666666666 },
-        "neutral" => { "PL" => 1 },
-        "bad" => { "ES" => 1, "DE" => 1 },
-        "very bad" => { "ES" => 1 },
-        "bad_and_very_bad" => { "DE" => 1, "ES" => 2 }
-        #"car"=>{"DE"=>1},
-        #"bus"=>{},
-        #"truck"=>{"ES"=>1},
-        #"motorcycle"=>{"PL"=>1},
-        #"plane"=>{"DE"=>1},
-        #"boat"=>{"ES"=>1}
-      })
-    end
-  end
-
   describe 'add_ride' do
     it 'adds a ride to the trip' do
       trip.save
