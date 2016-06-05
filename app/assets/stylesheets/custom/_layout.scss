@@ -1,14 +1,15 @@
 .ui-widget {
   font-size: 100%;
 }
+
+.statistics .country_map {
+  height: 300px;
+}
+.country_map {
+  height: 200px;
+}
 .country_tab {
-  width: 100%;
-  height: 350px;
   margin-bottom: 36px;
-  .country_map {
-    width: 100%;
-    height: 300px;
-  }
   .ui-tabs-panel {
     padding: 0
   }

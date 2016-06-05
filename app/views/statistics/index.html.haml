@@ -3,9 +3,11 @@
 
 %h1= t('.statistics')
 
-.row-fluid
-  .span12
-    = render "world_map_visualization"
+%p= t('.world_map_explanation')
+%p= t('.click_on_country_to_explore')
+
+.statistics
+  = render "world_map_visualization"
 
 %hr/
 

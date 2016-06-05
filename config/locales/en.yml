@@ -144,7 +144,7 @@ en:
     slower_than_gmaps: "slower than Google Maps"
     three_people_hitchhike: "Hitchhiked in threesome"
     travelling_with_0: "Hitchhiked alone"
-    travelling_with_1: "Hitchhiked in pairs"
+    travelling_with_1: "Hitchhiked with one other person"
     travelling_with_2: "Hitchhiked in threesome"
     travelling_with_3: "Hitchhiked in foursome"
     trip:
@@ -154,7 +154,7 @@ en:
       with_3: "3 people"
       with_4: "4 people"
       with_more_than_4: "with more than 4 people"
-    two_people_hitchhike: "Hitchhiked in pairs"
+    two_people_hitchhike: "Hitchhiked together with someone"
     unknown_distance: "unknown distance"
     very_bad_experience: "very bad experience"
     very_good_experience: "very good experience"
@@ -216,6 +216,11 @@ en:
       follow_the_hitchlog: "Follow The Hitchlog"
   statistics:
     index:
+      world_map_explanation: |
+          The Worldmap highlights countries with an interesting aspect
+          (total number of trips, written stories, bad experiences, rides with bikes,
+          etc...) and puts it into relation with each other.
+      click_on_country_to_explore: "Click on a country to explore hitchhiking trips."
       company_while_hitchhiking: "Company while hitchhiking"
       experiences: Experiences
       gender_of_hitchhikers: "Gender of hitchhikers"
