@@ -118,15 +118,14 @@ jQuery ->
           )
   })
 
-  $("#world_map_visualization ul li a").click ->
-    $(".country_map").resize()
-
-  $( "#tabs" ).tabs({
-    widthStyle: 'fill'
-  })
+  $( "#tabs" ).tabs()
 
   $("a.tabs_headline").click ->
     $(".country_map").resize()
 
   $('.country_tab a[data-toggle="tab"]').click ->
-    $(".country_map").resize()
+    # The Pills don't trigger .resize after click.
+    # With setTimeout the resizing of the map works thought
+    setTimeout( ->
+      $(".country_map").resize()
+     , 1)
