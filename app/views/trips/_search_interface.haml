@@ -1,8 +1,5 @@
 .text-center
   = search_form_for q do |f|
-    = f.label :from_cont, t('.search_by_country_or_city')
-    = f.text_field :from_city_or_to_city_or_country_distances_country_eq, placeholder: t('.from_placeholder'), id: "from"
-    %br/
     = f.check_box :rides_photo_present
     = f.label :rides_photo_present, t('general.photo')
     &nbsp;
@@ -12,5 +9,4 @@
     = f.select :rides_experience_eq, options_for_experiences.html_safe, prompt: t('general.experience')
     &nbsp;
     = f.select :country_distances_country_eq, options_for_countries.html_safe, prompt: t('general.country')
-    %br/
     = submit_tag t('general.search'), class: 'btn btn-primary'

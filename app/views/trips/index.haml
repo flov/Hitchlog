@@ -8,6 +8,8 @@
 
 = render 'statistics/world_map_visualization'
 
+= render 'search_interface', q: @q
+
 = will_paginate @trips, class:  'flickr_pagination'
 = render 'list', trips: @trips, by: true
 = will_paginate @trips, class:  'flickr_pagination'
