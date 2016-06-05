@@ -28,6 +28,11 @@ nl:
         password: Paswoord
         password_confirmation: "Paswoord Bevestiging"
         username: Gebruikersnaam
+  datetime:
+    distance_in_words:
+      x_hours:
+        one: "1 uur"
+        other: "%{count} uur"
   flash:
     error: "Oeps! Er ging iets Mis :("
     future_trips:
@@ -154,6 +159,12 @@ nl:
     very_bad_experience: "Erg slechte ervaring"
     very_good_experience: "Erg goede ervaring"
     waiting_time: "%{time} Wachttijd"
+  hours:
+    one: "1 uur"
+    other: "%{count} uur"
+  hours_with_minutes:
+    one: "%{count} uur %{minutes} minuten"
+    other: "%{count} uur %{minutes} minuten"
   layouts:
     navigation:
       about: "Over Hitchlog"
@@ -169,6 +180,9 @@ nl:
     future_trips:
       nearby_hitchhikers:
         subject: "[Hitchlog] %{user} Zoekt naar een Lift maatje van %{from_city} naar %{to_city}"
+  minutes_without_hours:
+    one: "%{count} Minute"
+    other: "%{count} Minuten"
   registrations:
     new:
       create_a_hitchlog_account: "Maak je eigen Hitchlog account"
@@ -200,10 +214,10 @@ nl:
       follow_on_facebook: "Volg The Hitchlog op Facebook"
       follow_on_twitter: "Volg The Hitchlog op Twitter"
       follow_the_hitchlog: "Volg The Hitchlog"
-    nearby_hitchhikers:
-      nearby_hitchhikers: "Dichtstbijzijnde Lifters"
   statistics:
     index:
+      world_map_explanation: ~
+      click_on_country_to_explore: ~
       company_while_hitchhiking: "Lift gezelschap"
       experiences: Ervaringen
       gender_of_hitchhikers: "Geslacht van de Lifters"
@@ -311,29 +325,3 @@ nl:
       newest_hitchhikers: "Nieuwe Lifters"
       newest_hitchhiking_trips: "Nieuwe lift trips"
       share_your_hh_xp: "Deel je Lift ervaringen"
-  datetime:
-    distance_in_words:
-      about_x_months:
-        one: "1 Maand"
-        other: "%{count} Maanden"
-      x_days:
-        one: "1 Dag"
-        other: "%{count} Dagen"
-      x_hours:
-        one: "1 uur"
-        other: "%{count} uur"
-      x_minutes:
-        one: "1 Minute"
-        other: "%{count} Minuten"
-      x_months:
-        one: "1 Maand"
-        other: "%{count} Maanden"
-  hours:
-    one: "1 uur"
-    other: "%{count} uur"
-  hours_with_minutes:
-    one: "%{count} uur %{minutes} minuten"
-    other: "%{count} uur %{minutes} minuten"
-  minutes_without_hours:
-    one: "%{count} Minute"
-    other: "%{count} Minuten"

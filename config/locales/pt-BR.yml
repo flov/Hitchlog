@@ -30,21 +30,9 @@ pt-BR:
         username: Usuário
   datetime:
     distance_in_words:
-      about_x_months:
-        one: "1 mês"
-        other: "%{count} meses"
-      x_days:
-        one: "%{count} dia"
-        other: "%{count} dias"
       x_hours:
         one: "1 hora"
         other: "%{count} horas"
-      x_minutes:
-        one: "%{count} minuto"
-        other: "%{count} minutos"
-      x_months:
-        one: "%{count} mês"
-        other: "%{count} meses"
   flash:
     error: "ops, algo não funcionou corretamente :("
     future_trips:
@@ -226,10 +214,10 @@ pt-BR:
       follow_on_facebook: "Siga o Hitchlog no Facebook"
       follow_on_twitter: "Siga o Hitchlog no Twitter"
       follow_the_hitchlog: "Siga o Hitchlog"
-    nearby_hitchhikers:
-      nearby_hitchhikers: "Caroneir@s por perto"
   statistics:
     index:
+      world_map_explanation: ~
+      click_on_country_to_explore: ~
       company_while_hitchhiking: "Companhia durante as caronas"
       experiences: Experiências
       gender_of_hitchhikers: "Gênero dos caroneiros"

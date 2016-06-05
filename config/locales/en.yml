@@ -217,7 +217,7 @@ en:
   statistics:
     index:
       world_map_explanation: |
-          The Worldmap highlights countries with an interesting aspect
+          The Worldmap highlights countries with interesting data
           (total number of trips, written stories, bad experiences, rides with bikes,
           etc...) and puts it into relation with each other.
       click_on_country_to_explore: "Click on a country to explore hitchhiking trips."
