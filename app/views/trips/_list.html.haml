@@ -1,34 +1,28 @@
 - by ||= false
 
 %table.trips.responsive
-  %thead
-    %tr
-      %th Trips
-      - if by
-        %th= t('.by')
-      %th= t('activerecord.attributes.trip.distance')
-      %th.trip-properties
-        %i.fa.fa-star-empty
-      %th= t('.hitched_date')
-
   %tbody
     - trips.each do |trip|
       %tr{id: "trip_#{trip.id}"}
         %td
           = link_to trip.to_s.html_safe, trip
+          = distance( trip.distance )
+          - if by
+            hitchhiked by
+            = user_with_gender(trip.user)
+
+          = icons_for_trip(trip)
+          = tags(trip.tag_list)
+
           = link_to t('general.edit'), edit_trip_path(trip) if trip.user == current_user
+
           - trip.rides.with_story.each do |ride|
             - if ride.title.present?
               %p
-                %b= ride.title
+                %b
+                  %i= ride.title
             = truncated_markdown(ride.story)
-        - if by
-          %td.no-wrap= user_with_gender(trip.user)
-        %td.no-wrap= distance( trip.distance )
 
-        %td
-          = icons_for_trip(trip)
-          = tags(trip.tag_list)
 
         %td.no-wrap
           - if trip.departure > 12.month.ago
