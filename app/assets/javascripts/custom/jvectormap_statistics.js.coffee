@@ -1,4 +1,6 @@
 jQuery ->
+  $( "#tabs" ).tabs()
+
   GENERAL_TOPICS     = [ "trips_count", "stories", "photos"]
   EXPERIENCE_TOPICS  = [ "bad_ratio", "good_ratio", "total_good", "neutral", "total_bad"]
   VEHICLE_TOPICS     = [ "car_ratio", "bus_ratio", "truck_ratio", "motorcycle_ratio", "plane_ratio", "boat_ratio"]
@@ -117,8 +119,6 @@ jQuery ->
             )
           )
   })
-
-  $( "#tabs" ).tabs()
 
   $("a.tabs_headline").click ->
     $(".country_map").resize()
