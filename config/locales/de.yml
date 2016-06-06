@@ -219,10 +219,9 @@ de:
   statistics:
     index:
       world_map_explanation: |
-          Die Weltkarte hebt die Länder mit interessanten Daten hervor
-          (Anzahl der Trips, geschriebene Geschichten, schlechte Erfahrungen,
-          rides mit Motorbikes, etc...) und stellt sie in Relation zu einander.
-      click_on_country_to_explore: Klick auf ein Land um die Tramp-Trips zu erforschen.
+          Die Weltkarte hebt Länder mit interessanten Daten hervor (Anzahl der Trips,
+          geschriebene Geschichten, schlechte Erfahrungen, Rides mit Flugzeugen, etc).
+      click_on_country_to_explore: Browse durch die Hitchhiking Trips indem du auf eines der Länder klickst.
       company_while_hitchhiking: "Gesellschaft beim trampen"
       experiences: Erfahrungen
       gender_of_hitchhikers: "Geschlecht der Tramper"
