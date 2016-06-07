@@ -18,10 +18,18 @@
       %p
         or
         = link_to 'sign up with the form', new_user_registration_path
+    %p
+      = succeed ':' do
+        = t('.explore_hh_xp')
 
-    = succeed ':' do
-      = t('.explore_hh_xp')
-    %p= all_country_images
+.row-fluid
+  .span12
+    #worldmap_home
+
+- content_for :javascript_at_bottom do
+  = javascript_include_tag 'vendor/jquery-jvectormap-1.2.2.min'
+  = javascript_include_tag 'vendor/jquery-jvectormap-world-mill-en'
+  = javascript_include_tag 'custom/jvectormap_home'
 
 %hr/
 

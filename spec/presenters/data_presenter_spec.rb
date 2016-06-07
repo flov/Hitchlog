@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DataPresenter do
-  describe 'trip_data_for_country_map' do
+  describe '#trip_data_for_map' do
     before do
       trip = FactoryGirl.build(:trip, hitchhikes: 0)
       trip.rides.build(experience: 'very good', vehicle: "car")
@@ -22,7 +22,7 @@ RSpec.describe DataPresenter do
     end
 
     it 'should return the json for a google chart DataTable' do
-      expect(DataPresenter.new.trip_data_for_country_map).to eq({
+      expect(DataPresenter.new.trip_data_for_map).to eq({
         "trips_count" => { "DE" => 3, "PL" => 1, "ES" => 2},
         "stories" => {"ES"=>1},
         "photos" => {"DE"=>1},
@@ -52,6 +52,24 @@ RSpec.describe DataPresenter do
         "boat"=>{"ES"=>1},
         "boat_ratio" => {"ES"=>50}
 
+      })
+    end
+  end
+
+  describe '#trips_count_for_map' do
+    before do
+      trip = FactoryGirl.build(:trip, hitchhikes: 0)
+      trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
+      trip.rides.build(experience: 'bad', vehicle: "bus", story: "this is a true tale...",
+                      photo: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'thumb.png')))
+      trip.save!
+    end
+
+    it 'should return the json for a google chart DataTable' do
+      expect(DataPresenter.new.trips_count_for_map).to eq({
+        "trips_count" => { "DE" => 1 },
+        "photos" => {"DE"=>1},
+        "stories" => {"DE"=>1}
       })
     end
   end

@@ -347,7 +347,7 @@ en:
     home:
       explore_hh_xp: "Explore hitchhiking experiences in over 80 countries"
       hitchhiked_by_user: "hitchhiked %{time} ago by %{user}"
-      meta_description: "Ever wondered what hitchhiking is really like? Explore the hitchhiking experiences of real people in over 80 countries.\n"
+      meta_description: "Ever wondered what hitchhiking is really like? Explore hitchhiking experiences of real people in over 80 countries."
       more_hitchhikers: "Get To Know More Hitchhikers"
       more_stories: "Read More Stories"
       more_trips: "See More Trips"

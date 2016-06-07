@@ -19,6 +19,7 @@ Hitchlog::Application.routes.draw do
   end
 
   get 'data/country_map', to: 'data#country_map'
+  get 'data/trips_count', to: 'data#trips_count'
 
   resources :trips do
     resources :rides, only: [:create, :update, :destroy]

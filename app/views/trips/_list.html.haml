@@ -12,16 +12,13 @@
 
           = icons_for_trip(trip)
           = tags(trip.tag_list)
-
           = link_to t('general.edit'), edit_trip_path(trip) if trip.user == current_user
 
           - trip.rides.with_story.each do |ride|
             - if ride.title.present?
               %p
-                %b
-                  %i= ride.title
+                %i= ride.title
             = truncated_markdown(ride.story)
-
 
         %td.no-wrap
           - if trip.departure > 12.month.ago

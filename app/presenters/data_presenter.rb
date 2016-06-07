@@ -1,9 +1,22 @@
 class DataPresenter
-  def trip_data_for_country_map
+  def trip_data_for_map
     hash = {}
 
     fill_experiences_to_hash(hash)
     fill_vehicles_to_hash(hash)
+    fill_stories_to_hash(hash)
+    fill_photos_to_hash(hash)
+
+    hash
+  end
+
+  def trips_count_for_map
+    hash = {}
+
+    trip_ids = Trip.joins(:rides).pluck(:id).uniq
+    CountryDistance.where(trip_id: trip_ids).pluck(:country_code).each do |country_code|
+      fill_hash(hash, "trips_count", country_code)
+    end
     fill_stories_to_hash(hash)
     fill_photos_to_hash(hash)
 
