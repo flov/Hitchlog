@@ -215,6 +215,22 @@ en:
       follow_on_twitter: "Follow The Hitchlog On Twitter"
       follow_the_hitchlog: "Follow The Hitchlog"
   statistics:
+    world_map_visualization:
+      general: "General"
+      trips_on_hitchlog: Trips on hitchlog
+      with_stories: With stories
+      with_pictures: With pictures
+      bad_hitchhking_xps: "Bad Hitchhiking Exps (ratio)"
+      good_hitchhking_xps: "Good Hitchhiking Exps (ratio)"
+      neutral_hitchhking_xps: "Neutral Hitchhiking Exps"
+      total_good_experiences: "Total Good Experiences"
+      total_bad_experiences: "Total Bad Experiences"
+      hitched_with_a_plane: "Hitched with a plane"
+      hitched_with_a_boat: "Hitched with a boat"
+      hitched_with_a_car: "Hitched with a car"
+      hitched_with_a_bike: "Hitched with a bike"
+      hitched_with_a_truck: "Hitched with a truck"
+      hitched_with_a_bus: "Hitched with a bus"
     index:
       world_map_explanation: |
           The Worldmap highlights countries with interesting data
@@ -251,7 +267,7 @@ en:
       meta_description: "Explore the hitchhiking experience of other hitchhikers"
       title: "Hitchhinking Trips"
     list:
-      by: By
+      hitchhiked_by: "Hitchhiked by %{user}"
       hitched_date: "Hitchhiked Date"
       read_on: "(read on in Trip)"
     new:

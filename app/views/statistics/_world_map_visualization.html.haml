@@ -3,21 +3,21 @@
     #tabs.country_tab
       %ul
         %li
-          %a.tabs_headline{href: "#tabs-1"} General
+          %a.tabs_headline{href: "#tabs-1"}= t('.general')
         %li
-          %a.tabs_headline{href: "#tabs-2"} Experiences
+          %a.tabs_headline{href: "#tabs-2"}=t('statistics.index.experiences')
         %li
-          %a.tabs_headline{href: "#tabs-3"} Vehicles
+          %a.tabs_headline{href: "#tabs-3"}=t('statistics.index.vehicles')
       #tabs-1
         #pills-stacked.tab-pane
           .tabbable
             %ul.nav.nav-pills.nav-stacked.span3
               %li.active
-                %a.tabs_headline{"data-toggle" => "tab", href: "#trips_count_tab"} Trips On Hitchlog
+                %a.tabs_headline{"data-toggle" => "tab", href: "#trips_count_tab"}= t('.trips_on_hitchlog')
               %li
-                %a#stories.tabs_headline{"data-toggle" => "tab", href: "#stories_tab"} With Stories
+                %a#stories.tabs_headline{"data-toggle" => "tab", href: "#stories_tab"}= t('.with_stories')
               %li
-                %a.tabs_headline{"data-toggle" => "tab", href: "#photos_tab"} With Pictures
+                %a.tabs_headline{"data-toggle" => "tab", href: "#photos_tab"}= t('.with_pictures')
 
             .tab-content.span9
               #trips_count_tab.tab-pane.active
@@ -31,15 +31,15 @@
           .tabbable
             %ul.nav.nav-pills.nav-stacked.span3
               %li.active
-                %a.tabs_headline{"data-toggle" => "tab", href: "#pane1"} Bad Hitchhking XPs
+                %a.tabs_headline{"data-toggle" => "tab", href: "#pane1"}= t('.bad_hitchhking_xps')
               %li
-                %a.tabs_headline{"data-toggle" => "tab", href: "#pane2"} Good Hitchhiking XPs
+                %a.tabs_headline{"data-toggle" => "tab", href: "#pane2"}= t('.good_hitchhiking_xps')
               %li
-                %a.tabs_headline{"data-toggle" => "tab", href: "#pane3"} Neutral Hitchhiking XPs
+                %a.tabs_headline{"data-toggle" => "tab", href: "#pane3"}= t('.neutral_hitchhiking_xps')
               %li
-                %a.tabs_headline{"data-toggle" => "tab", href: "#pane4"} Total Good Experiences
+                %a.tabs_headline{"data-toggle" => "tab", href: "#pane4"}= t('.total_good_experiences')
               %li
-                %a.tabs_headline{"data-toggle" => "tab", href: "#pane5"} Total Bad Experiences
+                %a.tabs_headline{"data-toggle" => "tab", href: "#pane5"}= t('.total_bad_experiences')
             .tab-content.span9
               #pane1.tab-pane.active
                 #bad_ratio_country_map.country_map{"data-topic" => 'bad_ratio'}
@@ -57,17 +57,17 @@
           .tabbable
             %ul.nav.nav-pills.nav-stacked.span3
               %li.active
-                %a{"data-toggle" => "tab", href: "#car"} Hitched with a car
+                %a{"data-toggle" => "tab", href: "#car"}= t('.hitched_with_a_car')
               %li
-                %a{"data-toggle" => "tab", href: "#bus"} Hitched with a bus
+                %a{"data-toggle" => "tab", href: "#bus"}= t('.hitched_with_a_bus')
               %li
-                %a{"data-toggle" => "tab", href: "#truck"} Hitched with a truck
+                %a{"data-toggle" => "tab", href: "#truck"}= t('.hitched_with_a_truck')
               %li
-                %a{"data-toggle" => "tab", href: "#motorcycle"} Hitched with a bike
+                %a{"data-toggle" => "tab", href: "#motorcycle"}= t('.hitched_with_a_bike')
               %li
-                %a{"data-toggle" => "tab", href: "#boat"} Hitched with a boat
+                %a{"data-toggle" => "tab", href: "#boat"}= t('.hitched_with_a_boat')
               %li
-                %a{"data-toggle" => "tab", href: "#plane"} Hitched with a plane
+                %a{"data-toggle" => "tab", href: "#plane"}= t('.hitched_with_a_plane')
             .tab-content.span9
               #car.tab-pane.active
                 #car_ratio_country_map.vehicle_map.country_map{"data-topic" => 'car_ratio'}
