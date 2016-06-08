@@ -56,8 +56,8 @@ module TripsHelper
     array.join ''
   end
 
-  def truncated_markdown(string)
-    RDiscount.new(truncate(string, :length => 200, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
+  def truncated_markdown(string, length = 200)
+    RDiscount.new(truncate(string, :length => length, :separator => ' ', :omission => "... #{t('trips.list.read_on')}")).to_html.html_safe if string.class == String
   end
 
   def distance_of_time_helper

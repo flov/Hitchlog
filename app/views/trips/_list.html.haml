@@ -8,7 +8,7 @@
           = link_to trip.to_s.html_safe, trip
           = distance( trip.distance )
           - if by
-            = t('.hitchhiked_by', user: user_with_gender(trip.user))
+            = t('.hitchhiked_by', user: user_with_gender(trip.user)).html_safe
 
           = icons_for_trip(trip)
           = tags(trip.tag_list)
@@ -18,7 +18,7 @@
             - if ride.title.present?
               %p
                 %i= ride.title
-            = truncated_markdown(ride.story)
+            = truncated_markdown(ride.story, 400)
 
         %td.no-wrap
           - if trip.departure > 12.month.ago
