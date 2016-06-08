@@ -31,7 +31,7 @@ en:
       updated: "Your password was changed successfully. You are now signed in."
       updated_not_active: "Your password was changed successfully."
     registrations:
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      destroyed: 'Bye! Your account on Hitchlog was successfully cancelled. We hope to see you again soon.'
       signed_up: 'Welcome To The Hitchlog! Now go ahead and log your first trip'
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
@@ -40,8 +40,8 @@ en:
       updated: 'You updated your account successfully.'
     sessions:
       remember_me: Remember Me
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
+      signed_in: "Welcome Back! Have you hitchhiked somewhere lately? Then log it."
+      signed_out: "Hitched out."
     unlocks:
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
