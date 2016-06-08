@@ -60,8 +60,8 @@ RSpec.describe DataPresenter do
     before do
       trip = FactoryGirl.build(:trip, hitchhikes: 0)
       trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
-      trip.rides.build(experience: 'bad', vehicle: "bus", story: "this is a true tale...",
-                      photo: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'thumb.png')))
+      trip.rides.build(story: "this is a true tale...",
+                       photo: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'thumb.png')))
       trip.save!
     end
 
@@ -71,6 +71,25 @@ RSpec.describe DataPresenter do
         "photos" => {"DE"=>1},
         "stories" => {"DE"=>1}
       })
+    end
+  end
+
+  describe '#hitchhikers_with_most_stories' do
+    before do
+      ["supertramp", "flohfish"].each do |username|
+        user = FactoryGirl.build(:user, username: username)
+        trip = FactoryGirl.build(:trip, hitchhikes: 0)
+        trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
+        trip.rides.build( story: "this is a true tale...")
+        user.trips << trip
+        user.save
+      end
+    end
+
+    it 'should return the json for a google chart DataTable' do
+      expect(DataPresenter.new.hitchhikers_with_most_stories).to eq(
+        [{username: 'flohfish', stories: 1},
+         {username: 'supertramp', stories: 1}])
     end
   end
 end
