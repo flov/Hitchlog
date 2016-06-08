@@ -20,16 +20,18 @@
 
     = render 'about_you', user: user
 
-    - if user.future_trips.any?
+    - if user.future_trips.relevant.any?
       %h4.short_headline
         %span= "#{ t('.upcoming_trip') }:"
       = render 'future_trips/future_trips', future_trips: user.future_trips.paginate(page: params[:hitchhiking_buddy_page])
 
     - if user.trips.any?
+      %h4.short_headline
+        %span= "#{ t('.hitchhiked_trips') }:"
+      = render 'trips/search_interface', q: @q
       = will_paginate(@trips, class: 'flickr_pagination')
       #trips
         = render 'trips/list', trips: @trips
       = will_paginate(@trips, class: 'flickr_pagination')
     - else
       %h2.text-center No Trips Found
-

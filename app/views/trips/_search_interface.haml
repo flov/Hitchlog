@@ -1,5 +1,5 @@
 .text-center
-  = search_form_for q do |f|
+  = search_form_for q, url: '' do |f|
     = f.check_box :rides_photo_present
     = f.label :rides_photo_present, t('general.photo')
     &nbsp;
