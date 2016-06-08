@@ -311,6 +311,7 @@ en:
       log_your_first_trip: "Log your first Trip"
       title: "%{user}'s Profile"
       upcoming_trip: "Hitchhiking buddy wanted"
+      hitchhiked_trips: "Hitchhiked trips"
   validators:
     arrival_after_departure: "cannot be before the departure"
     cannot_be_0: "cannot be 0"
