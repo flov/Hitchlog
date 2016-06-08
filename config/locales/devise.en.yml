@@ -40,8 +40,8 @@ en:
       updated: 'You updated your account successfully.'
     sessions:
       remember_me: Remember Me
-      signed_in: "Welcome Back! Have you hitchhiked somewhere lately? Then log it."
-      signed_out: "Hitched out."
+      signed_in: "Welcome Back! Have you gone on a hitchhiking adventure somewhere lately? Log it here."
+      signed_out: "You have just hitched out. See you next time and don't forget to log your next hitchhiking adventure."
     unlocks:
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
