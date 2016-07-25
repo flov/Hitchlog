@@ -71,7 +71,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5.0'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara', '~> 2.5.0'
-  gem 'selenium-webdriver', '~> 2.47.1'
+  gem 'selenium-webdriver'
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'
