@@ -1,0 +1,1 @@
+json.array! DataPresenter.new.hitchhikers_with_most_stories
