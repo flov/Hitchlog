@@ -73,7 +73,7 @@ class DataPresenter
       hash["total_#{xp}"].keys.each do |country_code|
         hash["#{xp}_ratio"] = {} if hash["#{xp}_ratio"].nil?
         hash["#{xp}_ratio"][country_code] =
-          ((hash["total_#{xp}"][country_code].to_f / hash["trips_count"][country_code])*100).round
+          ((hash["total_#{xp}"][country_code].to_f / hash["trips_count"][country_code])*100).round(1)
       end
     end
   end
