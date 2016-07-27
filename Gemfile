@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.3'
 
 gem 'rails', '~> 4.2.0'
 gem 'pg', '0.18.2'
@@ -77,5 +77,4 @@ group :test do
   gem 'rb-fsevent', '~> 0.9.6'
   gem 'fuubar'
 end
-
 
