@@ -217,11 +217,27 @@ de:
       follow_on_twitter: "Folge dem Hitchlog auf Twitter"
       follow_the_hitchlog: "Folge dem Hitchlog"
   statistics:
+    world_map_visualization:
+      general: Allgemein
+      trips_on_hitchlog: "Trips im Hitchlog"
+      with_stories: "Mit Geschichten"
+      with_pictures: "Mit Photos"
+      bad_hitchhiking_xps: "Schlechte Hitchhiking Erfahrungen (prozentueller Anteil)"
+      good_hitchhiking_xps: "Gute Tramp Erfahrungen (prozentueller Anteil)"
+      neutral_hitchhiking_xps: "Neutrale Tramp Erfahrung (total)"
+      total_good_experiences: "Gute Erfahrungen (total)"
+      total_bad_experiences: "Schlechte Erfahrungen (total)"
+      hitched_with_a_plane: "Mit Flugzeug getrampt"
+      hitched_with_a_boat: "Mit Boot getrampt"
+      hitched_with_a_car: "Mit Auto getrampt"
+      hitched_with_a_bike: "Mit Motorrad getrampt"
+      hitched_with_a_truck: "Mit LKW getrampt"
+      hitched_with_a_bus: "Mit Bus getrampt"
     index:
       world_map_explanation: |
           Die Weltkarte hebt Länder mit interessanten Daten hervor (Anzahl der Trips,
           geschriebene Geschichten, schlechte Erfahrungen, Rides mit Flugzeugen, etc).
-      click_on_country_to_explore: Browse durch die Hitchhiking Trips indem du auf eines der Länder klickst.
+      click_on_country_to_explore: "Browse durch die Hitchhiking Trips indem du auf eines der Länder klickst."
       company_while_hitchhiking: "Gesellschaft beim trampen"
       experiences: Erfahrungen
       gender_of_hitchhikers: "Geschlecht der Tramper"
@@ -250,7 +266,7 @@ de:
       meta_description: "Durchsuche die Erfahrungen von anderen Trampern"
       title: "Tramp Trips"
     list:
-      by: Von
+      hitchhiked_by: Getrampt von
       hitched_date: "Getrampt am"
       read_on: "(lese mehr in Trips)"
     new:
@@ -300,6 +316,7 @@ de:
       log_your_first_trip: "Log deinen ersten Trip"
       title: "%{user}'s Trampprofil"
       upcoming_trip: "kommender Trip"
+      hitchhiked_trips: Getrampte Trips
   validators:
     arrival_after_departure: "kann nicht vor Abfahrt sein"
     cannot_be_0: "kann nicht 0 sein"

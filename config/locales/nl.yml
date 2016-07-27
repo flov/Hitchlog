@@ -215,6 +215,22 @@ nl:
       follow_on_twitter: "Volg The Hitchlog op Twitter"
       follow_the_hitchlog: "Volg The Hitchlog"
   statistics:
+    world_map_visualization:
+      general: ~
+      trips_on_hitchlog: ~
+      with_stories: ~
+      with_pictures: ~
+      bad_hitchhiking_xps: ~
+      good_hitchhiking_xps: ~
+      neutral_hitchhiking_xps: ~
+      total_good_experiences: ~
+      total_bad_experiences: ~
+      hitched_with_a_plane: ~
+      hitched_with_a_boat: ~
+      hitched_with_a_car: ~
+      hitched_with_a_bike: ~
+      hitched_with_a_truck: ~
+      hitched_with_a_bus: ~
     index:
       world_map_explanation: ~
       click_on_country_to_explore: ~
@@ -246,7 +262,7 @@ nl:
       meta_description: "Verken de lift ervaringen van andere Lifters"
       title: "Lift Trips"
     list:
-      by: Door
+      hitchhiked_by: ~
       hitched_date: "Datum gelift"
       read_on: "(Ik wil meer lezen)"
     new:
@@ -290,6 +306,7 @@ nl:
       log_your_first_trip: "Archiveer je eerste Reis"
       title: "%{user}'s Profiel"
       upcoming_trip: "Lift maatje Gezogd"
+      hitchhiked_trips: ~
   validators:
     arrival_after_departure: "Kan niet voor Vertrek zijn"
     cannot_be_0: "0 Onmogelijk"

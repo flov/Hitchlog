@@ -215,6 +215,22 @@ pt-BR:
       follow_on_twitter: "Siga o Hitchlog no Twitter"
       follow_the_hitchlog: "Siga o Hitchlog"
   statistics:
+    world_map_visualization:
+      general: ~
+      trips_on_hitchlog: ~
+      with_stories: ~
+      with_pictures: ~
+      bad_hitchhiking_xps: ~
+      good_hitchhiking_xps: ~
+      neutral_hitchhiking_xps: ~
+      total_good_experiences: ~
+      total_bad_experiences: ~
+      hitched_with_a_plane: ~
+      hitched_with_a_boat: ~
+      hitched_with_a_car: ~
+      hitched_with_a_bike: ~
+      hitched_with_a_truck: ~
+      hitched_with_a_bus: ~
     index:
       world_map_explanation: ~
       click_on_country_to_explore: ~
@@ -246,7 +262,7 @@ pt-BR:
       meta_description: "Veja as experiências de viagem de outros caroneiros"
       title: "Viagens de carona"
     list:
-      by: Autor
+      hitchhiked_by: ~
       hitched_date: "Data da viagem de carona"
       read_on: "(read on in Trip)"
     new:
@@ -290,6 +306,7 @@ pt-BR:
       log_your_first_trip: "Salvar sua primeira viagem"
       title: "Perfil de %{user}"
       upcoming_trip: "Buscando companhia para caronar"
+      hitchhiked_trips: ~
   validators:
     arrival_after_departure: "não pode ser antes do começo da viagem"
     cannot_be_0: "0 não é aceito"
