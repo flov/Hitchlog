@@ -9,8 +9,8 @@ end
 
 Then /^"([^"]*)" should have the lat and lng from Melbourne$/ do |username|
   user = User.find_by_username(username)
-  expect(user.lat).to eq(-37.8142155)
-  expect(user.lng).to eq(144.9632307)
+  expect(user.lat).to be_within(0.1).of(-37.8142155)
+  expect(user.lng).to be_within(0.1).of(144.9632307)
 end
 
 Then /^on the profile page of "([^"]*)" I should see that he is currently in "([^"]*)"$/ do |username, location|
