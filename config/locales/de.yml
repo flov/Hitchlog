@@ -234,9 +234,6 @@ de:
       hitched_with_a_truck: "Mit LKW getrampt"
       hitched_with_a_bus: "Mit Bus getrampt"
     index:
-      world_map_explanation: |
-          Die Weltkarte hebt Länder mit interessanten Daten hervor (Anzahl der Trips,
-          geschriebene Geschichten, schlechte Erfahrungen, Rides mit Flugzeugen, etc).
       click_on_country_to_explore: "Browse durch die Hitchhiking Trips indem du auf eines der Länder klickst."
       company_while_hitchhiking: "Gesellschaft beim trampen"
       experiences: Erfahrungen

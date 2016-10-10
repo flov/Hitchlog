@@ -232,12 +232,6 @@ en:
       hitched_with_a_truck: "Hitched with a truck"
       hitched_with_a_bus: "Hitched with a bus"
     index:
-      world_map_explanation: |
-          The Worldmap highlights countries with interesting data
-          (total number of trips, written stories, bad experiences, rides with bikes,
-          etc...) and puts it into relation with each other.  Easily browse
-          through interesting trips like for example "bad experiences in
-          Brazil", or "Hitchhiking trips with airplanes"
       click_on_country_to_explore: "Click on a country to explore hitchhiking trips."
       company_while_hitchhiking: "Company while hitchhiking"
       experiences: Experiences
