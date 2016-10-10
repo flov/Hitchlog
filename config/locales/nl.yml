@@ -232,7 +232,6 @@ nl:
       hitched_with_a_truck: ~
       hitched_with_a_bus: ~
     index:
-      world_map_explanation: ~
       click_on_country_to_explore: ~
       company_while_hitchhiking: "Lift gezelschap"
       experiences: Ervaringen
@@ -312,6 +311,8 @@ nl:
     cannot_be_0: "0 Onmogelijk"
     cannot_be_in_past: "Kan niet in't verleden"
   welcome:
+    newest_pics:
+      newest_pictures_from_the_road: ~
     about:
       column1: "<span class=\"dropcap\">L</span>iften is best een interesante manier van reizen. De leuke avonturen, Ontmoetingen met interesante en erg gulle bestuurders maar ook de ervaring van verscheidenheid in de huidige samenleving. Maakt deze manier van reizen veel levensrijker dan het gebruik van de Bus of Trein.<br/> Het is meer dan een manier om van Punt A naar B te komen.\n"
       column2: |

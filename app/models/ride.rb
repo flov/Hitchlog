@@ -26,8 +26,8 @@ class Ride < ActiveRecord::Base
   scope :with_photo, -> { where.not(photo: nil) }
   scope :with_story, -> { where("story <> ''") }
   scope :with_story_or_photo, -> { where("story <> '' OR photo IS NOT NULL") }
-  scope :latest_first, -> { order('id DESC') }
-  scope :oldest_first, -> { order('id ASC') }
+  scope :latest_first, -> { order('created_at DESC') }
+  scope :oldest_first, -> { order('created_at ASC') }
 
   scope :very_good_experiences, -> { where(experience: "very good") }
   scope :good_experiences,      -> { where(experience: "good") }

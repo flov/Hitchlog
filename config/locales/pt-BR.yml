@@ -232,7 +232,6 @@ pt-BR:
       hitched_with_a_truck: ~
       hitched_with_a_bus: ~
     index:
-      world_map_explanation: ~
       click_on_country_to_explore: ~
       company_while_hitchhiking: "Companhia durante as caronas"
       experiences: Experiências
@@ -312,6 +311,8 @@ pt-BR:
     cannot_be_0: "0 não é aceito"
     cannot_be_in_past: "deve ser posterior à data de hoje"
   welcome:
+    newest_pics:
+      newest_pictures_from_the_road: ~
     about:
       column1: ~
       column2: ~

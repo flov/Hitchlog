@@ -1,0 +1,24 @@
+.newest_pics
+  %p.short_headline
+    %span 
+      %i.fa.fa-photo
+      = t('.newest_pictures_from_the_road')
+  %ul
+    - rides_with_photo.each do |ride|
+      %li
+        .ride_content
+          = link_to ride.trip, trip_path(ride.trip)
+          = countries_for_trip(ride.trip)
+          = number_of_rides(ride.trip.rides.size)
+          = number_of_comments(ride.trip.comments.size) if ride.trip.comments.size > 0
+          = tags(ride.tags)
+          = experience(ride.experience)
+          = passenger_gender(ride.gender)
+          = waiting_time(accurate_time(ride.waiting_time.minutes)) if ride.waiting_time
+          = driving_time(human_hours(ride.duration)) if ride.duration
+          - if ride.vehicle
+            = icon(ride.vehicle, class: 'tip', title: t('general.got_a_ride_with', vehicle: ride.vehicle))
+        .ride_pic
+          = link_to trip_path(ride.trip) do
+            = image_tag(ride.photo.small.url, title: ride.photo_caption, class: 'tip')
+        %hr/

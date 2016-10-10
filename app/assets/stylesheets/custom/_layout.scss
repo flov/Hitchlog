@@ -426,6 +426,16 @@ table.trips th {
   width: 90%;
 }
 
+.newest_pics {
+  .ride_pic img{
+    @include border-radius(5px);
+  }
+  hr {
+    margin: 10px 100px 6px 100px;
+  }
+}
+
+
 @media only screen and (max-width:600px) { 
   .ride_detail .date{
     width: 43px;

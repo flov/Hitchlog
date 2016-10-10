@@ -190,7 +190,7 @@ en:
       use_the_normal_form: "Use the normal Form"
   rides:
     ride:
-      please_tag_your_ride: "Please tag your ride if you change the experience, so that it's easy to see why you had a \"very bad\", or \"very good\" experience. This will be important for the overall statistics\n"
+      please_tag_your_ride: "Tag your ride so that it's easy to see why you had a \"very bad\", or \"very good\" experience. This will be important for the overall statistics\n"
       save_ride: "Save Ride"
       tag_it: "Tag your ride (seperated by comma)"
     vehicles:
@@ -311,6 +311,8 @@ en:
     cannot_be_0: "cannot be 0"
     cannot_be_in_past: "can't be in past"
   welcome:
+    newest_pics:
+      newest_pictures_from_the_road: Newest Pictures From The Road
     about:
       column1: |
           <span class="dropcap">H</span>itchhiking is quite an interesting

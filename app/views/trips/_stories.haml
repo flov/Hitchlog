@@ -6,8 +6,7 @@
         %span.month= t('general.ride')
 
     %article
-      %h3
-        = ride.title
+      %h3= ride.title if ride.title
       %p.story_icons
         = tags(ride.tags)
         = experience(ride.experience)
