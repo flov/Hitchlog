@@ -18,7 +18,12 @@
           = driving_time(human_hours(ride.duration)) if ride.duration
           - if ride.vehicle
             = icon(ride.vehicle, class: 'tip', title: t('general.got_a_ride_with', vehicle: ride.vehicle))
+
+          = t('welcome.home.hitchhiked_by_user',
+            user: link_to(h(ride.trip.user), user_path(ride.trip.user)),
+            time: time_ago_in_words(ride.trip.departure)).html_safe
+          = hitchhiker_gender(ride.trip.user.gender)
+
         .ride_pic
           = link_to trip_path(ride.trip) do
             = image_tag(ride.photo.small.url, title: ride.photo_caption, class: 'tip')
-        %hr/

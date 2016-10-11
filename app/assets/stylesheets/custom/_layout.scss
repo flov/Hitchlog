@@ -427,11 +427,11 @@ table.trips th {
 }
 
 .newest_pics {
+  ul li {
+    margin-bottom: 5px;
+  }
   .ride_pic img{
     @include border-radius(5px);
-  }
-  hr {
-    margin: 10px 100px 6px 100px;
   }
 }
 

@@ -8,7 +8,7 @@
     - unless trip.rides.with_photo.empty?
       %li.tip{title: pluralize(trip.rides.with_photo.size, t('general.photo'))}
         = trip.rides.with_photo.size
-        %i.fa.fa-picture
+        %i.fa.fa-photo
     - if trip.user.date_of_birth
       %li.tip{title: t('.trip_age', age: trip.age, user: trip.user)}
         %i.fa.fa-user
