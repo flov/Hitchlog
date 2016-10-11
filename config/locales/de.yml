@@ -263,7 +263,7 @@ de:
       meta_description: "Durchsuche die Erfahrungen von anderen Trampern"
       title: "Tramp Trips"
     list:
-      hitchhiked_by: ~
+      hitchhiked_by: "Getrampt von"
       hitched_date: "Getrampt am"
       read_on: "(lese mehr in Trips)"
     new:
@@ -313,15 +313,14 @@ de:
       log_your_first_trip: "Log deinen ersten Trip"
       title: "%{user}'s Trampprofil"
       upcoming_trip: "kommender Trip"
-      hitchhiked_trips: ~
+      hitchhiked_trips: "Getrampte Trips"
   validators:
     arrival_after_departure: "kann nicht vor Abfahrt sein"
     cannot_be_0: "kann nicht 0 sein"
     cannot_be_in_past: "kann nicht in der Vergangenheit sein"
   welcome:
     newest_pics:
-      newest_pictures_from_the_road: Die Neuesten Trampfotos
-        
+      newest_pictures_from_the_road: "Die Neuesten Trampfotos"
     about:
       column1: "<span class=\"dropcap\">T</span> rampen ist eine durchaus interessante Art und Weise des Reisens. <br/> Das ereignisreiche Reisen, die Begegnung mit vielen interessanten und großzügigen Fahrern und die Erfahrung der Vielfalt in unserer Gesellschaft setzt es von einer Zug oder Bus fahrt ab.<br/> Es ist mehr als nur ein Weg, um von A nach B zu kommen."
       column2: |
