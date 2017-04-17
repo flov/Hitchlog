@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526162949) do
+ActiveRecord::Schema.define(version: 20170417120906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(version: 20160526162949) do
     t.integer "trip_id"
     t.string  "country",      limit: 255
     t.string  "country_code"
-  end
-
-  create_table "entries", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "winner"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "future_trips", force: :cascade do |t|
@@ -111,14 +104,6 @@ ActiveRecord::Schema.define(version: 20160526162949) do
     t.string   "to_formatted_address",   limit: 255
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-  end
-
-  create_table "records", force: :cascade do |t|
-    t.string   "title"
-    t.date     "date"
-    t.float    "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "rides", force: :cascade do |t|
@@ -256,6 +241,7 @@ ActiveRecord::Schema.define(version: 20160526162949) do
     t.string   "oauth_token",            limit: 255
     t.time     "oauth_expires_at"
     t.string   "name",                   limit: 255
+    t.string   "trustroots"
   end
 
   add_index "users", ["country"], name: "index_users_on_country", using: :btree

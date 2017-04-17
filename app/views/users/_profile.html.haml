@@ -21,6 +21,11 @@
     - if user.be_welcome_user.present?
       #{t('.be_welcome_user')}: #{link_to(user.be_welcome_user.capitalize, "http://www.bewelcome.org/members/#{user.be_welcome_user}")}
       %br/
+    - if user.trustroots.present?
+      = image_tag 'trustroots.png'
+      Trustroots: 
+      = link_to(user.trustroots.capitalize, "https://www.trustroots.org/profile/#{user.trustroots}")
+      %br/
     - if user != current_user
       %i.fa.fa-envelope
       = link_to t('.send_mail'), send_mail_user_path(user)

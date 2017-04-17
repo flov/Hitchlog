@@ -61,6 +61,7 @@ class UsersController < ApplicationController
       :username,
       :about_you,
       :cs_user,
+      :trustroots,
       :be_welcome_user,
       :gender,
       :lat,
