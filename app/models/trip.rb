@@ -27,11 +27,13 @@ class Trip < ActiveRecord::Base
 
   after_create :get_country_distance
 
-  scope :alone,        -> { where(travelling_with: 0) }
-  scope :in_pairs,     -> { where(travelling_with: 1) }
-  scope :with_three,   -> { where(travelling_with: 2) }
-  scope :with_four,    -> { where(travelling_with: 3) }
-  scope :latest_first, -> { order("id DESC") }
+  scope :alone,               -> { where(travelling_with: 0) }
+  scope :in_pairs,            -> { where(travelling_with: 1) }
+  scope :with_three,          -> { where(travelling_with: 2) }
+  scope :with_four,           -> { where(travelling_with: 3) }
+  scope :latest_first,        -> { order("id DESC") }
+  scope :sorted_by_departure, -> { order("departure DESC") }
+  
 
   before_create do
     # build as much rides on top of the ride as needed

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @q = user.trips.latest_first.ransack(params[:q])
+    @q = user.trips.sorted_by_departure.ransack(params[:q])
     @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
   end
 
