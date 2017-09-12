@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    username = choose_username(auth.info.first_name.downcase)
+    username = choose_username(auth.info.name.split(' ').first)
 
     user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
       user.email            = auth.info.email

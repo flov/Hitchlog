@@ -18,8 +18,7 @@ gem 'routing-filter'
 gem 'acts-as-taggable-on', '3.5.0'
 gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 3.5.0'
-gem 'omniauth', '1.2.2'
-gem 'omniauth-facebook', '1.6.0'
+gem 'omniauth-facebook'
 gem 'rdiscount', '1.6.8'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'nokogiri', '1.6.6.2'
@@ -39,9 +38,7 @@ group :production do
   gem 'bugsnag', '~> 2.8.12'
 end
 
-group :development, :test do
-  gem 'byebug'
-end
+gem 'byebug'
 
 group :development do
   gem 'guard'

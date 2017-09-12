@@ -8,7 +8,6 @@ Feature: Edit user
      And I go to the edit profile page of Flov
 
   Scenario: Edit attributes
-    Then show me the page
      When I fill in the following:
        | About you         | About me   |
        | CS user           | flov     |
