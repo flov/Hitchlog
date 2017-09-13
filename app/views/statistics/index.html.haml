@@ -17,6 +17,13 @@
     = content_tag(:div, '', id: 'top_10_hitchhikers', data: {hitchhikers: top_10_hitchhikers})
 
 %hr/
+.row-fluid
+  .span12
+    %h3.short_headline
+      %span=t('.age_for_trips', average_age: average_age_of_hitchhikers)
+    = content_tag(:div, '', id: 'age_for_trips', data: {ages: age_for_trips})
+
+%hr/
 
 .row-fluid
   .span6

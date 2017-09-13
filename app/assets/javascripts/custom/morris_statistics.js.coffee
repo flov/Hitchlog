@@ -51,3 +51,11 @@ jQuery ->
     formatter: (y, data) ->
       return "#{y}%"
   )
+
+  new Morris.Bar(
+    element: 'age_for_trips',
+    data: $('#age_for_trips').data('ages'),
+    xkey: 'age',
+    ykeys: ['trips_count'],
+    labels: ['Number of trips hitchhiked in that age']
+  )

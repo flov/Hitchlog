@@ -242,6 +242,7 @@ de:
       statistics: Statistiken
       title: "Hitchhiking Statistics"
       top_10_hitchhikers: Top-10-Tramper
+      age_for_trips: "Das durchschnittliche Alter eines Trampers auf dem Hitchlog ist %{average_age}"
       vehicles: Fahrzeuge
       waiting_time: Wartezeit
   trips:

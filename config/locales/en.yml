@@ -240,6 +240,7 @@ en:
       statistics: Statistics
       title: "Hitchhiking Statistics"
       top_10_hitchhikers: "Top 10 Hitchhikers (click on bar to see profile)"
+      age_for_trips: "The average age of a hitchhiker on the hitchlog is *%{average_age}*"
       vehicles: Vehicles
       waiting_time: "Waiting Time"
   trips:
