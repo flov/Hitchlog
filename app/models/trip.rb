@@ -235,8 +235,9 @@ class Trip < ActiveRecord::Base
   end
 
   def age
-    age = (departure.to_date - user.date_of_birth) / 365
-    age.to_i if self.user.date_of_birth
+    return unless self.user.date_of_birth
+
+   ((departure.to_date - user.date_of_birth) / 365).to_i
   end
 
   def self.kms_by_month(start)

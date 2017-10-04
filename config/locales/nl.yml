@@ -240,6 +240,7 @@ nl:
       statistics: Statistieken
       title: "Lift Satistieken"
       top_10_hitchhikers: "Top 10 Lifters"
+      age_for_trips: "The average age of a hitchhiker on the hitchlog is *%{average_age}*"
       vehicles: Voertuigen
       waiting_time: Wachttijd
   trips:

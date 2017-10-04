@@ -16,7 +16,7 @@ module Hitchlog
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.i18n.available_locales = %w(en de nl pt-BR)
+    config.i18n.available_locales = %w(en de pl nl pt-BR)
 
     config.i18n.default_locale = :en
 

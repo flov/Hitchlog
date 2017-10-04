@@ -1,0 +1,363 @@
+pl:
+  activerecord:
+    attributes:
+      comment:
+        body: Komentarz
+      ride:
+        duration: "Czas jazdy (w godzinach)"
+        experience: Doświadczenie
+        gender: "Płeć pasażera(ów)"
+        photo: Zdjęcie
+        waiting_time: "Czas oczekiwania (w minutach)"
+      trip:
+        arrival: Przybycie
+        departure: Wyjazd
+        distance: Odległość
+        duration: "Czas trwania"
+        from: Z
+        gmaps_duration: "Czas gmap"
+        hitchhikes: "Ilość podwózek"
+        to: Do
+        travelling_with: "Podróżowanie z"
+      user:
+        about_you: "O tobie"
+        cs_user: "Użytkownik CS"
+        email: E-mail
+        gender: Płeć
+        origin: "Miasto rodzinne"
+        password: Hasło
+        password_confirmation: "Potwierdzenie hasła"
+        username: Użytkownik
+  flash:
+    error: "Coś poszło nie tak :("
+    future_trips:
+      destroy:
+        success: "Twoja przyszła podróż z %{from} do %{to} została usunięta."
+    rides:
+      add_ride:
+        success: "Dodana jazda"
+      delete_photo:
+        error: "Nie mozna usunąć zdjęcia"
+        success: "Twojego zdjęcia już nie ma!"
+      update:
+        success: "Podwózka zaktualizowana! Zobacz rezultat poniżej."
+    trips:
+      create_comment:
+        alert: "Nie mozna zapisać komentarza!"
+        comment_saved: "Komentarz zapisany, dziękujemy!"
+    users:
+      destroy:
+        not_allowed: "Nie masz pozwolenia by to zrobić!"
+        success: "Do dowiedzenia! Twoje konto zostało usunięte!"
+      mail_sent:
+        notice: "Wiadomość została wysłana do %{user}"
+      update:
+        error: "Nie mozna edytować twojego profilu"
+        notice: "Profil został pomyślnie edytowany"
+  future_trips:
+    edit:
+      edit_future_trip: "Edytuj swoją przyszłą podróż"
+    form:
+      description_label: Wiadomość
+    future_trips:
+      by: Przez
+      country: Państwo
+      departure: Wyjazd
+      send_a_message: "Wyślij wiadomość"
+    index:
+      and_find_hh_buddy: "I znajdź swojego autostopowego kompana"
+      hitchhikers_searching_for_buddies: "Autostopowicze szukają kompana do podróży"
+      looking_for_a_hitchhiking_buddy: "Poszukiwanie autostopowego kompana"
+      post_it_on_the_board: "Wstaw to na tablicę"
+      title: "Autostopowi kompani"
+      your_thumb_is_itching: "Twoj kciuk jest wyciągnięty ale ty nie wiesz z kim chcesz pojechac w następna autostopową przygodę?\n"
+    new:
+      new_future_trip: "Gdzie chciałbyś stopować?"
+      tell_others_about_your_plans: "Powiedz innym o swoich autostopowych planach"
+  general:
+    average_speed: "Średnia prędkość: %{speed}"
+    bad: źle
+    by: przez
+    comment: komentarz
+    confirm: "Czy na pewno?"
+    country: kraj
+    country_of_origin: "Miasto rodzinne"
+    delete: Usuń
+    edit: Edytuj
+    experience: doświadczenie
+    female: kobieta
+    forgot_your_password: "Zapomniałeś hasło?"
+    good: Dobrze
+    google_maps_duration: "Czas według google maps"
+    got_a_ride_with: "Jechałem z %{vehicle}"
+    hitchhiked_kms: "Kilometry autostopem"
+    hometown: "Miasto rodzinne"
+    languages: Języki
+    male: facet
+    member_since: "Użytkownik od %{time}"
+    message: Wiadomość
+    minutes: Minuty
+    neutral: Neutralny
+    not_allowed: "Nie masz pozwolenia by to zrobić!"
+    or: Albo
+    overall_average_speed: "Średnia prędkość wszystkich twoich autostopowych podróży: %{speed}"
+    photo: zdjecie
+    photo_caption: "Opis zdjęcia"
+    record_not_found: "Nie znaleziono rezultatu"
+    ride: Jazda
+    save: Zapisz
+    search: Szukaj
+    sign_in_with_facebook: "Zaloguj się poprzez Facebooka"
+    sign_up: Dołącz
+    sign_up_with_facebook: "Zarejestruj się poprzez Facebooka"
+    slogan: "Notatnik autostopowicza"
+    story: Opowieść
+    story_title: "Tytuł opowieści"
+    time_ago: "%{time} temu"
+    total_waiting_time: "Czas oczekiwania: %{time}"
+    trip: Podróż
+    trip_duration: "Czas trwania podróży"
+    user_age: "%{age} wiek"
+    very_bad: "bardzo złe"
+    very_good: "bardzo dobre"
+    years: lata
+  helper:
+    ride_with_vehicle: "Jazda z %{vehicle}"
+    bad_experience: "Złe doświadczenie"
+    driving_time: "%{time} czas jazdy"
+    faster_than_gmaps: "Szybciej niż google maps"
+    female_hitchhiker: Autostopowiczka
+    good_experience: "Dobre doświadczenie"
+    male_hitchhiker: Autostopowicz
+    male_people: Pasażer
+    mixed_people: "Różni pasażerowie"
+    more_than_three_people_hitchhike: "Wiecej niż trzy osoby"
+    neutral_experience: "Słabe doświadczenie"
+    no_results_for_this_route: "Brak rezultatu do tej trasy"
+    one_person_hitchhike: "Autostopowanie samemu"
+    photo: Zdjecie
+    slower_than_gmaps: "Wolniej niż googl maps"
+    three_people_hitchhike: "Autostop w trzy osoby"
+    travelling_with_0: "Autostop samemu"
+    travelling_with_1: "Autostop z dodatkową osobą"
+    travelling_with_2: "Autostop w trzy osoby"
+    travelling_with_3: "Wiecej niż trzy osoby"
+    trip:
+      alone: Sam
+      with_1: "1 osoba"
+      with_2: "2 osoby"
+      with_3: "3 osoby"
+      with_4: "4 osoby"
+      with_more_than_4: "Więcej niż 4 osoby"
+    two_people_hitchhike: "Autostop z 1 osobą"
+    unknown_distance: "Nieznany dystans"
+    very_bad_experience: "Bardzo złe doświadczenie"
+    very_good_experience: "Bardzo dobre doświadczenie"
+    waiting_time: "%{time} czas oczekiwania"
+  layouts:
+    navigation:
+      about: O
+      find_hitchhiking_buddy: "Autostopowi kompani"
+      hitchhikers: Autostopowicze
+      log_new_trip: "Zaloguj nową podróż"
+      settings: Ustawienia
+      sign_out: "Wyloguj się"
+      statistics: Statystyki
+      trips: Podróże
+      your_profile: "Twoj profil"
+  mailer:
+    future_trips:
+      nearby_hitchhikers:
+        subject: "[Hitchlog] %{user} szuka autostopowego kompana z %{from_city} do %{to_city}"
+  registrations:
+    new:
+      create_a_hitchlog_account: "Stwórz swoje konto"
+      sign_up: Rejestracja
+      use_the_normal_form: "Użyj standardowej formy"
+  rides:
+    ride:
+      please_tag_your_ride: "Proszę otaguj swoją podróż, żeby było widać czy miałeś \"bardzo złe\" albo \"bardzo dobre\" doświadczenie. To będzie wazne dla ogólnych statystyk\n"
+      save_ride: "Zapisz podwózkę"
+      tag_it: "Otaguj swoją podwózkę (przez przecinek)"
+    vehicles:
+      boat: Łódź
+      bus: Autobus
+      car: Samochod
+      motorcycle: Motocykl
+      plane: Samolot
+      truck: Ciężarówka
+  sessions:
+    new:
+      forgot_password: "Zapominiałeś hasła?"
+      hitch_in: Wskakuj
+      login_to_your_account: "Zaloguj się do swojego konta..."
+      login_using_normal_font: "Zaloguj sie używając normalnej formy"
+      not_on_hitchlog: "Nie jestes jeszcze na Hitchlog? Zarejestruj się tutaj"
+      sign_in: "Zaloguj się"
+      signed_in: "Zalogowano pomyślnie."
+      signed_out: "Pomyślnie wylogowano."
+    footer:
+      follow_on_facebook: "Śledź Hitchlog na Facebooku"
+      follow_on_twitter: "Śledź Hitchlog na Twitterze"
+      follow_the_hitchlog: "Śledź Hitchlog"
+  statistics:
+    world_map_visualization:
+      general: Ogólne
+      trips_on_hitchlog: "Podróże na hitchlog"
+      with_stories: "Z historią"
+      with_pictures: "Ze zdjęciami"
+      bad_hitchhiking_xps: "Złe doświadczenia autostopowe (średnia)"
+      good_hitchhiking_xps: "Dobre doświadczenia autostopowe (średnia)"
+      neutral_hitchhiking_xps: "Neutralne doświadczenia autostopowe"
+      total_good_experiences: "Wszystkie obre doświadczenia"
+      total_bad_experiences: "Wszystkie złe doświadczenia"
+      hitched_with_a_plane: "Autostop samolotem"
+      hitched_with_a_boat: "Autostop łodzią"
+      hitched_with_a_car: "Autostop samochodem"
+      hitched_with_a_bike: "Autostop rowerem"
+      hitched_with_a_truck: "Autostop ciężarówką"
+      hitched_with_a_bus: "Autostop autobusem"
+    index:
+      click_on_country_to_explore: "Kliknij na kraj aby eksplorować podróże autostopem."
+      company_while_hitchhiking: "Kompani podczas autostopu"
+      experiences: Doświadczenia
+      gender_of_hitchhikers: "Płeć autostopowiczów"
+      meta_description: "Globalne statystyki autostopowiczów"
+      statistics: Statystyki
+      title: "Autostopowe statystyki"
+      top_10_hitchhikers: "Top 10 Autostopowiczy (kliknij na pasek by zobaczyć profil)"
+      age_for_trips: "Średni wiek autostopowicza na stronie to *%{average_age}"
+      vehicles: Pojazdy
+      waiting_time: "Czas oczekiwania"
+  trips:
+    byline:
+      google_maps_duration: "Czas według google maps: %{time}"
+      trip_age: "%{user} miał %{age} lat gdy przebył tą podróż"
+      trip_duration: "Czas podróży: %{time}"
+    comments:
+      add_comment: "Dodaj komentarz"
+      leave_comment: "Dodaj komentarz"
+      log_in_or_register_to_comment: "Zaloguj sie albo zarejestruj aby dodać komentarz"
+    edit:
+      edit_title: "Edytuj swoją autostopową podróż"
+      edit_trip: "Edytuj podróż"
+    form:
+      step1_2: Dalej
+    index:
+      latest_hitchhiking_trips: "Autostopowe podróże"
+      meta_description: "Odkryj doświadczenia innych autostopowiczów"
+      title: "Autostopowe podróże"
+    list:
+      hitchhiked_by: "Autostopem jeździł %{user}"
+      hitched_date: "Data autostopowania"
+      read_on: "(Przeczytaj w Tripie)"
+    new:
+      log_your_trip_please: "Zaloguj swoją autostopową podróż"
+      new_trip: "Zaloguj nową autostopową podróż"
+    search_interface:
+      from_placeholder: "(.e.g. Berlin albo Niemcy)"
+      search_by_country_or_city: "Wyszukaj podróże przez państwo albo miasto"
+    show:
+      title: "Autostop z %{from_city} do %{to_city}"
+  users:
+    edit:
+      edit_profile: "Edytuj profil"
+      hitchlog_supports_gravatar_and_facebook_image: "Jesli połączysz się z Facebookiem, Hitchlog pobierze twoje profilowe zdjęcie, a jesli nie to użyje <a href=<a href='http://gravatar.com'>Gravatar</a>.<br/> Jesli chcesz dodac swoje własne zdjęcie, proszę dodaj je na <a href='http://gravatar.com'>gravatar.com</a> albo połącz się z Facebookiem.\n"
+      when_changing: "Kiedy chcesz cos zmienić, kliknij na dolny pasek"
+      your_avatar: "Twoj awatar"
+      your_avatar_is_from_facebook: "Połączyłeś się z Facebookiem i twoje zdjęcie profilowe to twoje zdjęcie z Facebooka\n"
+    index:
+      search_by: "Wyszukaj za pomocą"
+      hitchhiker: Autostopowicze
+      location: Lokalizacja
+      logged_trips: "Zapisane podróże"
+      member_since: "Użytkownik od"
+      title: Autostopowicze
+      username: Użytkownik
+    profile:
+      be_welcome_user: "Użytkownik BeWelcome"
+      cs_user: "Użytkownik CS"
+      hitchhiked_countries: "Autostop w krajach"
+      send_mail: "Wyślij wiadomość"
+      waiting_time_per_ride: "Średni czas oczekiwania"
+    send_mail:
+      mail_text: "Kiedy wysyłasz wiadomość, %{username} otrzyma wiadomość z twoim adresem e-mail w rubryce<br/> W taki sposób %{username} będzie mógł otrzymać wiadomość od Ciebie bezpośrednio na skrzynkę.\n"
+      message_placeholder: Wiadomość
+      send_a_mail_to: "Wyślij wiadomość do %{user}"
+      send_mail: "Wyślij wiadomość"
+      title: "Wyślij wiadomość do %{user}"
+    show:
+      about: O
+      edit: Edytuj
+      log_your_first_trip: "Zapisz swoją pierwsza podróż"
+      title: "%{user}'s Profil"
+      upcoming_trip: "Poszukiwany kompan autostopowy"
+      hitchhiked_trips: "Autostopowe podróże"
+  validators:
+    arrival_after_departure: "Nie może być przed wyjazdem"
+    cannot_be_0: "Nie może być zero"
+    cannot_be_in_past: "Nie moze byc w przeszłości"
+  welcome:
+    newest_pics:
+      newest_pictures_from_the_road: "Najnowsze zdjęcie z trasy"
+    about:
+      column1: |
+          <span Classic="dropcap">A</span>utostop to całkiem ciekawa forma
+          podróżowania. <br/> Urozmaicona podróż, niezliczona ilość
+                    interesujących i hojnych kierowców i niesamowite doświadczenie 
+                    różnorodności w naszym społeczeństwie pokazuje że podróż autostopem może być znacznie
+                  ciekawsza niż monotonna jazda pociągiem albo autobusem.<br/> To jest coś więcej niż przemieszczanie
+                    sie z punktu A do punktu B.
+      column2: |
+          The Hitchlog zbiera historię i doświadczenie setek autostopowiczy
+          i pokazuje ich razem ze zdjęciami, historiami oraz informacjami o podróży <br/>
+          
+           Pokazuje statystyki dla <b>jednego autostopowicza</b> który ma swój profil razem ze wszystkimi danymi, jak również statystykami <b>wszystkich autostopowiczy</b> 
+          którzy są w różnym wieku i różnej płci.
+          
+          To pokazuje prawdziwy, autentyczny obraz tego, jak autostop wygląda w rzeczywistości.
+      column3: |
+          Obraz zatraconej reputacji, wygloszonej przez społeczeństwo, media czy filmy.
+          Obraz, ktory mamy nadzieje pokaze, że świat to piękne miejsce do podróżowania.
+      intro: |
+          The Hitchlog daje realną <i class="fa fa-photo"></i> autostopu <br>
+          Próbujemy pokazywać to razem z <i class="fa fa-heart-o"></i>
+          i dawać w zamian <i class= "fa fa-group"></i> temu, kto nas zabrał.
+    hitchhiking_buddies:
+      contact: Kontakt
+      find_hitchhiking_buddies: "Znajdź autostopowego kompana"
+      list_your_own_hitchhiking_adventure: "Dodaj swoją nadchodząca podróż"
+      more_hitchhiking_buddies: "Więcej autostopowych kompanów"
+    home:
+      explore_hh_xp: "Eksploruj doświadczenia autostopowiczy w ponad 80 krajach"
+      hitchhiked_by_user: "Autostop %{time} temu przez %{user}"
+      meta_description: "Myślałeś kiedyś jak wyglada naprawdę autostop? Zobacz doświadczenia autostopowiczy w ponad 80 krajach."
+      more_hitchhikers: "Poznaj więcej autostopowiczy"
+      more_stories: "Przeczytaj więcej historii"
+      more_trips: "Zobacz więcej podróży"
+      newest_hh_stories: "Najnowsza autostopowa historia"
+      newest_hitchhikers: "Nowi autostopowicze"
+      newest_hitchhiking_trips: "Nowa autostopowa podróż"
+      share_your_hh_xp: "Podziel się doświadczeniem z podróży"
+  datetime:
+    distance_in_words:
+      x_hours:
+        one: "%{count} 1 godz"
+        few: "%{count} parę godzin"
+        many: "%{count} wiele godzin"
+        other: "%{count} zero"
+  hours:
+    one: "%{count} 1 godz"
+    few: "%{count} kilka godzin"
+    many: "%{count} wiele godzin"
+    other: "%{count} zero "
+  hours_with_minutes:
+    one: "1 %{count} godzina %{minutes} minut"
+    few: "Kilka %{count} godzin %{minutes} minut"
+    many: "Wiele %{count} godzin %{minutes} minut"
+    other: "Zero %{count} %{minutes} minut"
+  minutes_without_hours:
+    one: "1 %{count} minuta"
+    few: "Kilka %{count} minut"
+    many: "Wiele %{count} minut"
+    other: "Zero %{count} minut"
