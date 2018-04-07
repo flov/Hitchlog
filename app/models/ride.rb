@@ -66,7 +66,7 @@ class Ride < ActiveRecord::Base
 
   def markdown_story
     if not self.story.blank?
-      RDiscount.new(self.story).to_html
+      RDiscount.new(self.story, :smart, :filter_html).to_html.html_safe
     else
       ''
     end
