@@ -41,6 +41,7 @@ end
 gem 'byebug'
 
 group :development do
+  gem 'rb-readline'
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
