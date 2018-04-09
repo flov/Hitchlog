@@ -19,7 +19,7 @@
                 = comment.created_at.strftime("%B %d, %Y %H:%M")
 
         .text
-          = RDiscount.new(comment.body).to_html.html_safe
+          = RDiscount.new(comment.body, :smart, :filter_html).to_html.html_safe
           #comment-form
 
   - if user_signed_in?
