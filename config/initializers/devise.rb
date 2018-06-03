@@ -12,7 +12,7 @@ Devise.setup do |config|
 
   config.stretches = Rails.env.test? ? 1 : 10
 
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   config.reset_password_within = 6.hours
 

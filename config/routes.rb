@@ -10,6 +10,9 @@ Hitchlog::Application.routes.draw do
   resources :statistics, only: [:index]
 
   resources :users, :path => 'hitchhikers' do
+    collection do
+      get :me
+    end
     member do
       get :trips
       get :geomap

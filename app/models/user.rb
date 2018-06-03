@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :confirmable, :recoverable, :rememberable, :trackable,
+         :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :rides, through: :trips
   has_many :trips, dependent: :destroy
@@ -30,17 +30,17 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     username = choose_username(auth.info.name.split(' ').first)
 
-    user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |user|
-      user.email            = auth.info.email
-      user.gender           = auth.extra.raw_info.gender
-      user.username         = username
-      user.oauth_token      = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.provider         = auth.provider
-      user.uid              = auth.uid
-      user.name             = auth.info.name
-      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
-      user.password         = Devise.friendly_token[0,20]
+    user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |u|
+      u.email            = auth.info.email
+      u.gender           = auth.extra.raw_info.gender
+      u.username         = username
+      u.oauth_token      = auth.credentials.token
+      u.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      u.provider         = auth.provider
+      u.uid              = auth.uid
+      u.name             = auth.info.name
+      u.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
+      u.password         = Devise.friendly_token[0,20]
     end
     if user.uid.nil? # if already registered but not yet with facebook
       user.uid              = auth.uid

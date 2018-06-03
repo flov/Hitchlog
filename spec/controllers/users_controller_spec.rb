@@ -11,6 +11,28 @@ RSpec.describe UsersController, type: :controller do
     it_blocks_unauthenticated_access
   end
 
+  describe "#me" do
+    let(:action) { get :me }
+    let(:current_user) { double('current_user', to_param: 'flov') }
+
+    context "looged out" do
+      it_blocks_unauthenticated_access
+    end
+
+    context "logged in" do
+      before do
+        sign_in current_user
+      end
+
+      it "should redirect to the logged in users profile path" do
+        action
+
+        expect(response).to redirect_to(user_path(current_user))
+      end
+    end
+  end
+
+
   describe "#mail_sent" do
     let(:action) { post :mail_sent, id: 'flov', message_body: 'text' }
     let(:current_user) { double('user1',

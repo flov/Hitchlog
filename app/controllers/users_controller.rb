@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   expose!(:user) { user_in_context }
 
-  before_action :authenticate_user!, only: [:edit, :mail_sent, :send_mail, :destroy, :update]
+  before_action :authenticate_user!, only: [:edit, :me, :mail_sent, :send_mail, :destroy, :update]
 
   def index
     @search = User.order("id desc").search(params[:q])
@@ -48,6 +48,10 @@ class UsersController < ApplicationController
       flash[:alert] = t('flash.users.destroy.not_allowed')
       redirect_to user_path(current_user)
     end
+  end
+
+  def me
+    redirect_to user_path(current_user)
   end
 
   private

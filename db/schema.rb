@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417120906) do
+ActiveRecord::Schema.define(version: 20180603173812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -242,8 +242,12 @@ ActiveRecord::Schema.define(version: 20170417120906) do
     t.time     "oauth_expires_at"
     t.string   "name",                   limit: 255
     t.string   "trustroots"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["country"], name: "index_users_on_country", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["gender"], name: "index_users_on_gender", using: :btree
