@@ -3,7 +3,7 @@
   %head
     %title= content_for?(:title) ? "#{yield(:title)} &middot; Hitchlog".html_safe : "Hitchlog"
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-    %meta{content: "http://hitchlog.dev/assets/hitchlog_icon.png", property: "og:image"}/
+    %meta{content: "http://#{ENV['HOST']}/assets/hitchlog_icon.png", property: "og:image"}/
     = csrf_meta_tag 
     = stylesheet_link_tag 'application'
     = yield(:head)
