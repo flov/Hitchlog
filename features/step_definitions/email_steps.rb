@@ -57,15 +57,18 @@ Then /^(?:I|they|"([^"]*?)") should have (an|no|\d+) emails?$/ do |address, amou
 end
 
 Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails? with subject "([^"]*?)"$/ do |address, amount, subject|
+  address = User.find_by_username(address).email unless address.include?("@")
   unread_emails_for(address).select { |m| m.subject =~ Regexp.new(Regexp.escape(subject)) }.size.should == parse_email_count(amount)
 end
 
 Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails? with subject \/([^"]*?)\/$/ do |address, amount, subject|
+  address = User.find_by_username(address).email unless address.include?("@")
   unread_emails_for(address).select { |m| m.subject =~ Regexp.new(subject) }.size.should == parse_email_count(amount)
 end
 
 Then /^(?:I|they|"([^"]*?)") should receive an email with the following body:$/ do |address, expected_body|
   open_email(address, :with_text => expected_body)
+  expect(last_email_sent).to have_subject("[Hitchlog] New Message From #{from_user.capitalize}")
 end
 
 #
@@ -209,3 +212,12 @@ Then /^a mail should have been delivered to "([^"]*)"$/ do |username|
   user = User.find_by_username username
   expect(unread_emails_for(user.email).size).to eq(parse_email_count(1))
 end
+
+Then(/^the last email should have been delivered to "(.*?)"$/) do |username|
+  expect(last_email_sent).to have_subject('Welcome')
+end
+
+Then(/^"(.*?)" should have received an email from "(.*?)"$/) do |to_user, from_user|
+  expect(last_email_sent).to have_subject("[Hitchlog] New Message From #{from_user.capitalize}")
+end
+

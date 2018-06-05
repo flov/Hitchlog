@@ -2,8 +2,8 @@ Feature: Sign up and sign out
   Scenario: User signs up
     When I go to the signup page
     And I sign up as "florian"
-    Then I should be on the profile page of florian
-    And  I should see "Welcome To The Hitchlog!"
+    Then I should be on the homepage
+    And  I should see "Welcome to the Hitchlog! A message with a confirmation link has been sent to your email address"
 
   Scenario: sign out
     Given I am logged in

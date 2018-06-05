@@ -7,6 +7,5 @@ Feature: Send mails
     And I fill in "Message body" with "test message"
     And I press "Send Mail"
     Then I should be on the profile page of Supertramp
-    And a mail should have been delivered to "supertramp"
+    And "supertramp" should have received an email from "flov"
     And I should see "Mail has been sent to Supertramp"
-
