@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :rides, through: :trips
   has_many :trips, dependent: :destroy
   has_many :authentications, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :future_trips, dependent: :destroy
 
   validates :username, presence: true,
