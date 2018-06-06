@@ -3,20 +3,21 @@
     = pluralize(trip.comments.size, t('general.comment'))
   %ul
     - trip.comments.each do |comment|
-      %li
-        %footer.comment-meta.comment-picture
-          = link_to user_path(comment.user) do
-            = render 'users/profile_image', user: comment.user, type: 'square'
+      - if comment.user
+        %li
+          %footer.comment-meta.comment-picture
+            = link_to user_path(comment.user) do
+              = render 'users/profile_image', user: comment.user, type: 'square'
 
-          .comment-meta
-            %span.comment-author.vcard
-              %cite
-                = link_to comment.user, user_path(comment.user)
-            %time.published
-              - if comment.created_at > 20.days.ago
-                = t('general.time_ago', time: time_ago_in_words(comment.created_at))
-              - else
-                = comment.created_at.strftime("%B %d, %Y %H:%M")
+            .comment-meta
+              %span.comment-author.vcard
+                %cite
+                  = link_to comment.user, user_path(comment.user)
+              %time.published
+                - if comment.created_at > 20.days.ago
+                  = t('general.time_ago', time: time_ago_in_words(comment.created_at))
+                - else
+                  = comment.created_at.strftime("%B %d, %Y %H:%M")
 
         .text
           = RDiscount.new(comment.body, :smart, :filter_html).to_html.html_safe
