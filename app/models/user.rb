@@ -27,34 +27,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.from_omniauth(auth)
-    username = choose_username(auth.info.name.split(' ').first)
-
-    user = where("(provider = '#{auth.provider}' and uid = '#{auth.uid}') or email = '#{auth.info.email}'").first_or_create do |u|
-      u.email            = auth.info.email
-      u.gender           = auth.extra.raw_info.gender
-      u.username         = username
-      u.oauth_token      = auth.credentials.token
-      u.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      u.provider         = auth.provider
-      u.uid              = auth.uid
-      u.name             = auth.info.name
-      u.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
-      u.password         = Devise.friendly_token[0,20]
-    end
-    if user.uid.nil? # if already registered but not yet with facebook
-      user.uid              = auth.uid
-      user.name             = auth.info.name
-      user.date_of_birth    = Date.strptime(auth.extra.raw_info.birthday, '%m/%d/%Y') unless auth.extra.raw_info.birthday.nil?
-      user.oauth_token      = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.provider         = auth.provider
-      user.save
-    end
-    user
-  end
-
-
   def facebook_user?
     self.provider == 'facebook'
   end
@@ -232,6 +204,29 @@ class User < ActiveRecord::Base
     q.map(&:attributes).group_by { |hash| hash["ordered_date"].to_date }
   end
 
+  def self.from_omniauth(auth)
+    graph = Koala::Facebook::API.new(auth.credentials.token)
+    fb_info = graph.get_object("me", {fields: "birthday,gender"})
+
+    User.where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
+      u.email            = auth.info.email
+      u.gender           = fb_info["gender"]
+      u.date_of_birth    = Date.strptime(fb_info["birthday"], '%m/%d/%Y')
+      u.username         = self.choose_username(auth.info.name.split(' ').first)
+      u.oauth_token      = auth.credentials.token
+      u.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      u.provider         = auth.provider
+      u.uid              = auth.uid
+      u.name             = auth.info.name
+      u.password         = Devise.friendly_token[0,20]
+      u.uid              = auth.uid
+      u.provider         = auth.provider
+      u.name             = auth.info.name
+      u.oauth_token      = auth.credentials.token
+      u.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    end
+  end
+  
   private
 
   def update_location_updated_at

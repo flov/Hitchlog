@@ -34,6 +34,7 @@ de:
         one: "1 Stunde"
         other: "%{count} Stunden"
   flash:
+    facebook_first_sign_up: "Willkommen im Hitchlog! Du hast dich erfolgreich mit Facebook authentifiziert! Jetzt kannst Du deinen ersten per Anhalter Eintrag loggen."
     error: "etwas ist schief gelaufen :("
     future_trips:
       destroy:

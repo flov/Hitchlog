@@ -31,6 +31,7 @@ gem 'fog', '1.31.0'
 gem 'rmagick', '2.13.2'
 gem "font-awesome-rails", '~> 4.3.0'
 gem 'jbuilder', '1.0.2'
+gem 'koala', '~> 3.0.0'
 
 group :production do
   gem 'newrelic_rpm', '~> 3.13.1'

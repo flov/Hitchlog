@@ -34,6 +34,7 @@ en:
         one: 1 hour
         other: '%{count} hours'
   flash:
+    facebook_first_sign_up: "Welcome To The Hitchlog! You have successfully authenticated with Facebook! Now go ahead and log your first trip."
     error: "something went wrong :("
     future_trips:
       destroy:
