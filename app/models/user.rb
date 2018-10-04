@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable,
+         :recoverable, :rememberable, :trackable, :confirmable,
          :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :rides, through: :trips
