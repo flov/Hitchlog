@@ -12,7 +12,7 @@ module Gmaps
       data = Net::HTTP.get_response(URI.parse(url)).body
       # we convert the returned JSON data to native Ruby hash
       result = JSON.parse(data)
-    rescue Exception => e
+    rescue Exception
       # Should only happen when used offline. Should not happen if online
       result = {'status' => 'OFFLINE'}
     end

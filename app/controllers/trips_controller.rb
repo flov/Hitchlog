@@ -12,6 +12,8 @@ class TripsController < ApplicationController
 
   def create
     trip.user = current_user
+    countries = JSON.parse(trip_params[:countries])
+    build_country_distances(trip, countries)
     if trip.save
       redirect_to(edit_trip_path(trip))
     else
@@ -104,6 +106,7 @@ class TripsController < ApplicationController
         :route,
         :distance,
         :gmaps_duration,
+        :countries,
         :from_lat,
         :from_lng,
         :from_formatted_address,
@@ -152,5 +155,14 @@ class TripsController < ApplicationController
       trips = Trip.joins(rides: :tags).where(tags: {name: [params[:tag]]})
     end
     trips = trips.latest_first.paginate(page: params[:page])
+  end
+
+  def build_country_distances(trip, countries)
+    # e.g. countries = [["Netherlands",116566],["Belgium",86072]]
+    countries.each do |country_distance|
+      trip.country_distances.build(country: country_distance[0],
+                                   distance: country_distance[1],
+                                   country_code: Countries[country_distance[0]])
+    end
   end
 end

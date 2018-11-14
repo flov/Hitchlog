@@ -17,7 +17,8 @@ class window.Map
     google.maps.event.addListener @directions_display, 'directions_changed', () =>
       if @directions_display.directions.status == google.maps.DirectionsStatus.OK
         # update route and distance inputs
-        this.set_routing_inputs()
+        @construct_country_distance(@directions_display.getDirections())
+        @set_routing_inputs()
 
     this.autocomplete("#{@type}_from")
     this.autocomplete("#{@type}_to")
@@ -58,13 +59,12 @@ class window.Map
         $("input##{input_id}_lng").val place.geometry.location.lng()
         $("input##{input_id}_formatted_address").val place.formatted_address
 
-        this.set_routing_inputs()
+        @set_routing_inputs()
 
         if input_id.indexOf('from') > 0
           @from = place.geometry.location
         else if input_id.indexOf('to') > 0
-          @to   = place.geometry.location
-
+          @to = place.geometry.location
         if @from and @to
           # show route if from and to are defined
           this.route(@from, @to)
@@ -83,8 +83,42 @@ class window.Map
 
     @directions_service.route(request, (response, status) =>
       if (status == google.maps.DirectionsStatus.OK)
-        @directions_display.setDirections(response);
+        @construct_country_distance(response)
+        @directions_display.setDirections(response)
     )
+
+  construct_country_distance: (data) =>
+    distance = 0
+    from_country = $("input#trip_from_country").val()
+    countries = [[from_country, distance]]
+    steps = data.routes[0].legs[0].steps
+    for step, i in steps
+      distance += step['distance']['value']
+      if step.instructions.includes("Entering")
+        # construct html parser since instructions will return:
+        # e.g. Continue onto <b>A12</b><div style="font-size:0.9em">Entering Poland</div>
+        parser = document.createElement("html")
+        parser.innerHTML = step.instructions
+        divs = parser.getElementsByTagName('div')
+        country = divs[divs.length-1].textContent.replace("Entering ", "")
+        countries[countries.length-1][1] = distance
+        countries.push([country, 0])
+
+        distance = 0
+      if (i == steps.length-1)
+        countries[countries.length-1][1] = distance
+
+    $("input#trip_countries").val(@parse_array_to_string(countries))
+
+  parse_array_to_string: (array) =>
+    output = "["
+    for country, i in array
+      if i != array.length-1
+        output += "[\"#{country[0]}\",#{country[1]}],"
+      else
+        output += "[\"#{country[0]}\",#{country[1]}]"
+    output += "]"
+    return output
 
   build_directions_hash: =>
     waypoints = []

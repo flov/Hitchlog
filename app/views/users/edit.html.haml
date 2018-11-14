@@ -46,5 +46,5 @@
 
 
 - content_for :javascript_at_bottom do
-  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=#{ENV['GOOGLE_MAPS']}", type: "text/javascript"}
+  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_MAPS']}", type: "text/javascript"}
   = javascript_include_tag 'custom/edit_user'

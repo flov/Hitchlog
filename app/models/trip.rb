@@ -23,9 +23,8 @@ class Trip < ActiveRecord::Base
 
   attr_accessor   :hitchhikes,
                   :departure_time,
-                  :arrival_time
-
-  after_create :get_country_distance
+                  :arrival_time,
+                  :countries
 
   scope :alone,               -> { where(travelling_with: 0) }
   scope :in_pairs,            -> { where(travelling_with: 1) }
@@ -33,7 +32,6 @@ class Trip < ActiveRecord::Base
   scope :with_four,           -> { where(travelling_with: 3) }
   scope :latest_first,        -> { order("id DESC") }
   scope :sorted_by_departure, -> { order("departure DESC") }
-  
 
   before_create do
     # build as much rides on top of the ride as needed
@@ -205,8 +203,9 @@ class Trip < ActiveRecord::Base
         cd = CountryDistance.where(country: country_distance[0],
                                    trip_id: self.id)
         if cd.empty?
-          self.country_distances.create(:country  => country_distance[0],
-                                        :distance => country_distance[1])
+          self.country_distances.create(country: country_distance[0],
+                                        distance: country_distance[1],
+                                        country_code: Countries[country_distance[0]])
         elsif cd.first.distance != country_distance
           cd.first.update_attribute :distance, country_distance[1]
         end

@@ -41,6 +41,7 @@
       = f.hidden_field :route
       = hidden_field_tag 'trip[distance]', 0
       = hidden_field_tag 'trip[gmaps_duration]', 0
+      = f.hidden_field :countries
 
       = f.input :from_lat, as: :hidden
       = f.input :from_lng, as: :hidden
