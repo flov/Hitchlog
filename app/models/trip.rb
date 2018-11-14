@@ -79,6 +79,17 @@ class Trip < ActiveRecord::Base
     (kilometers / hour).to_i
   end
 
+  def countries=(countries)
+    # argument received is a string that has to be parsed
+    # e.g. '[["Netherlands",116566],["Belgium",86072]]'
+    countries = JSON.parse(countries)
+    countries.each do |country_distance|
+      self.country_distances.build(country: country_distance[0],
+                                   distance: country_distance[1],
+                                   country_code: Countries[country_distance[0]])
+    end
+  end
+
   def hitchability
     if self.gmaps_duration && self.gmaps_duration != 0 && self.duration
       (self.duration / self.gmaps_duration).round 2

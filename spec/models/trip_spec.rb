@@ -193,4 +193,13 @@ RSpec.describe Trip, type: :model do
       expect(trip.average_speed).to eq('5 kmh')
     end
   end
+
+  describe 'countries=' do
+    it 'converts the string to an array and sets the country distances' do
+      trip.countries = '[["Netherlands",116566],["Belgium",86072]]'
+      expect(trip.country_distances.size).to eq(2)
+      expect(trip.country_distances.first.distance).to eq(116566)
+      expect(trip.country_distances.last.distance).to eq(86072)
+    end
+  end
 end
