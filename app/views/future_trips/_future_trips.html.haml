@@ -9,10 +9,11 @@
       %th= t('.country')
       %th= t('.departure')
   %tbody
-    - future_trips.each do |future_trip|
+    - future_trips.relevant.each do |future_trip|
       %tr{:id => "future_trip_#{future_trip.id}"}
         %td.title.neutralize_fonts
           %b= future_trip.to_s
+          = future_trip.formatted_departure
           - if future_trip.user != current_user
             = link_to t('.send_a_message'), send_mail_user_path(future_trip.user)
           - else

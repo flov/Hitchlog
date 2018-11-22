@@ -3,6 +3,10 @@ require 'email_spec/cucumber'
 
 Capybara.default_selector = :css
 
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
 ActionController::Base.allow_rescue = false
 DatabaseCleaner.strategy = :transaction
 

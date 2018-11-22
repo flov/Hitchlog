@@ -83,7 +83,7 @@ es:
       departure: Salida
       send_a_message: enviar mensaje
     index:
-      and_find_hh_buddy: y encontrar a su próximo compañero haciendo autostop
+      find_hh_buddy: Encontrar a su próximo compañero haciendo autostop
       hitchhikers_searching_for_buddies: Autostopistas buscando amigos hacer autostop con
       looking_for_a_hitchhiking_buddy: En busca de un amigo haciendo autostop
       post_it_on_the_board: Publicar en el tablero

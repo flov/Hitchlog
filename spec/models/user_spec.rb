@@ -69,13 +69,13 @@ RSpec.describe User, type: :model do
   end
 
   describe "hitchhiked countries" do
-    before { user.trips << FactoryGirl.build(:trip) }
+    before do
+      trip = FactoryGirl.build(:trip,
+                               countries: '[["Germany",103060],["Poland",470608]]')
+      user.trips << trip
+    end
+
     it "should return number of countries hitchhiked" do
-      user.trips.first.from = "Berlin"
-      user.trips.first.to   = "Warsaw"
-      VCR.use_cassette('berlin_to_warsaw') do
-        user.save!
-      end
       expect(user.hitchhiked_countries).to eq(2)
     end
   end

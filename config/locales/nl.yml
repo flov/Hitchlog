@@ -70,7 +70,7 @@ nl:
       departure: Vertrek
       send_a_message: "Stuur bericht"
     index:
-      and_find_hh_buddy: "en vind je volgende Lift maatje."
+      find_hh_buddy: "Vind je volgende Lift maatje."
       hitchhikers_searching_for_buddies: "Lifters zoeken maatjes om mee te Liften"
       looking_for_a_hitchhiking_buddy: "Zoekt een Lift maatje"
       post_it_on_the_board: "Plaats op het Bord"

@@ -65,7 +65,7 @@ pl:
       departure: Wyjazd
       send_a_message: "Wyślij wiadomość"
     index:
-      and_find_hh_buddy: "I znajdź swojego autostopowego kompana"
+      find_hh_buddy: "Znajdź swojego autostopowego kompana"
       hitchhikers_searching_for_buddies: "Autostopowicze szukają kompana do podróży"
       looking_for_a_hitchhiking_buddy: "Poszukiwanie autostopowego kompana"
       post_it_on_the_board: "Wstaw to na tablicę"

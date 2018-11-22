@@ -34,7 +34,7 @@ class FutureTrip < ActiveRecord::Base
     end
   end
 
-  def formatted_time
+  def formatted_departure
     departure.strftime("%d %b %Y")
   end
 end

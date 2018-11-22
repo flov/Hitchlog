@@ -29,7 +29,7 @@
       = f.input :be_welcome_user
       = f.input :origin
       = f.input :languages
-
+      %br/
       = f.submit class: 'btn btn-primary'
 
   .span6
@@ -46,5 +46,5 @@
 
 
 - content_for :javascript_at_bottom do
-  %script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_MAPS']}", type: "text/javascript"}
+  %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=#{ENV['GOOGLE_MAPS']}&sensor=false&libraries=places"}
   = javascript_include_tag 'custom/edit_user'

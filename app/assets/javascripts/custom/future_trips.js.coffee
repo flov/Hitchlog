@@ -1,4 +1,3 @@
 $ ->
-  window.initMap = ->
-    new Map("future_trip")
+  new Map("future_trip")
 

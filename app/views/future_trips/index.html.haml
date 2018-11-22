@@ -9,9 +9,10 @@
   .span12
     %p
       = t('.your_thumb_is_itching')
+    %p
+      = t('.find_hh_buddy')
       %br/
-      = link_to t('.post_it_on_the_board'), new_future_trip_path
-      = t('.and_find_hh_buddy')
+      = link_to t('.post_it_on_the_board'), new_future_trip_path, class: 'btn btn-primary'
 
     - if future_trips.any?
       %h3.short_headline

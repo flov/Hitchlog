@@ -7,7 +7,7 @@
     #map.map
 
 - content_for :javascript_at_bottom do
+  %script{src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=#{ENV['GOOGLE_MAPS']}&sensor=false&libraries=places"}
   = javascript_include_tag 'vendor/jquery.observe_field'
   = javascript_include_tag 'custom/new_map'
   = javascript_include_tag 'custom/future_trips'
-  %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?v=3.exp&key=#{ENV['GOOGLE_MAPS']}&callback=initMap&libraries=places"}

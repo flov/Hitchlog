@@ -59,7 +59,7 @@ group :test do
   gem 'ruby_cowsay' # for i18n_spec.rb
   gem 'lolcat'      # for i18n_spec.rb
   gem 'rspec-rails', '~> 3.3.3'
-  gem 'cucumber-rails', '~> 1.4.2', require: false
+  gem 'cucumber-rails', require: false
   gem 'rspec-collection_matchers', '~> 1.1.2'
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
@@ -67,10 +67,11 @@ group :test do
   gem 'jasmine-rails', '~> 0.12.0'
   gem 'shoulda-matchers', '3.0.1'
   gem 'pickle', '~> 0.5.1'
-  gem 'database_cleaner', '~> 1.5.0'
+  gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara', '~> 2.5.0'
-  gem 'selenium-webdriver'
+  gem "selenium-webdriver"
+  gem "chromedriver-helper"
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'

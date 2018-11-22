@@ -33,11 +33,11 @@ RSpec.describe FutureTrip, type: :model do
     end
   end
 
-  describe '#formatted_time' do
+  describe '#formatted_departure' do
     it 'formats the time' do
       time = 1.day.from_now
       future_trip.departure = time
-      expect(future_trip.formatted_time).to eq(future_trip.departure.strftime("%d %b %Y"))
+      expect(future_trip.formatted_departure).to eq(future_trip.departure.strftime("%d %b %Y"))
     end
   end
 

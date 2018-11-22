@@ -1,6 +1,9 @@
 When /^I enter a new location "([^"]*)"$/ do |location|
-  fill_in('Location', with: location, exact: true)
-  page.find(:css, ".pac-container .pac-item", match: :first).click
+  VCR.use_cassette 'edit_user_location' do
+    fill_in('Location', with: location, exact: true)
+    page.find(:css, ".pac-container .pac-item", match: :first).click
+    sleep 1
+  end
 end
 
 Then /^"([^"]*)" should have "([^"]*)" as city$/ do |username, city|
