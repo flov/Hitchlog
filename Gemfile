@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass-rails', '2.3.1.1'
 gem 'routing-filter'
 
-gem 'acts-as-taggable-on', '3.5.0'
+gem 'acts-as-taggable-on', '~> 4.0'
 gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 3.5.0'
 gem 'omniauth-facebook'
