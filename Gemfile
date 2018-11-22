@@ -43,9 +43,6 @@ gem 'byebug'
 
 group :development do
   gem 'rb-readline'
-  gem 'guard'
-  gem 'guard-livereload'
-  gem 'guard-rspec'
   gem 'gibbon'
   gem 'hirb'
   gem 'spring', '1.7.1'
@@ -58,9 +55,9 @@ group :test do
   gem 'i18n-tasks', '~> 0.8.7'
   gem 'ruby_cowsay' # for i18n_spec.rb
   gem 'lolcat'      # for i18n_spec.rb
-  gem 'rspec-rails', '~> 3.3.3'
-  gem 'cucumber-rails', require: false
+  gem 'rspec-rails'
   gem 'rspec-collection_matchers', '~> 1.1.2'
+  gem 'cucumber-rails', require: false
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
   gem 'launchy', '~> 2.4.3'
