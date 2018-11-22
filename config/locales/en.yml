@@ -315,6 +315,7 @@ en:
   welcome:
     newest_pics:
       newest_pictures_from_the_road: Newest Pictures From The Road
+      show_more_pictures: Show More pictures
     about:
       column1: |
           <span class="dropcap">H</span>itchhiking is quite an interesting

@@ -27,3 +27,4 @@
         .ride_pic
           = link_to trip_path(ride.trip) do
             = image_tag(ride.photo.small.url, title: ride.photo_caption, class: 'tip')
+  %p= link_to t('.show_more_pictures'), "#{I18n.locale}/trips?q&q%5Brides_photo_present%5D=1"
