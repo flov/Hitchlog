@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '~> 4.2.0'
+gem 'rails'
 gem 'pg', '0.18.2'
 gem 'unicorn', '4.9.0'
 
-gem 'jquery-rails', '3.1.3'
-gem 'jquery-ui-rails', '~> 5.0.5'
-gem 'sass-rails', '~> 5.0.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'sass-rails'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass-rails', '2.3.1.1'
 gem 'routing-filter'
@@ -21,15 +21,15 @@ gem 'devise', '~> 3.5.0'
 gem 'omniauth-facebook'
 gem 'rdiscount', '1.6.8'
 gem 'will_paginate', '~> 3.0.pre2'
-gem 'nokogiri', '1.6.6.2'
+gem 'nokogiri', '1.8.5'
 gem 'ransack', '1.7.0'
 gem 'geocoder', '1.1.6'
 gem 'haml', '4.0.7'
-gem 'simple_form', '3.2.0'
+gem 'simple_form'
 gem 'carrierwave', '0.8.0'
 gem 'fog', '1.31.0'
 gem 'rmagick', '2.13.2'
-gem "font-awesome-rails", '~> 4.3.0'
+gem "font-awesome-rails"
 gem 'jbuilder', '1.0.2'
 gem 'koala', '~> 3.0.0'
 
@@ -48,7 +48,6 @@ group :development do
   gem 'spring', '1.7.1'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
-  gem 'web-console', '~> 2.0'
 end
 
 group :test do
@@ -61,12 +60,12 @@ group :test do
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.21.0'
   gem 'launchy', '~> 2.4.3'
-  gem 'jasmine-rails', '~> 0.12.0'
+  gem 'jasmine-rails'
   gem 'shoulda-matchers', '3.0.1'
   gem 'pickle', '~> 0.5.1'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
-  gem 'capybara', '~> 2.5.0'
+  gem 'capybara'
   gem "selenium-webdriver"
   gem "chromedriver-helper"
   gem 'faker', '~> 1.5.0'
