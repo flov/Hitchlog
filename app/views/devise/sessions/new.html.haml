@@ -34,7 +34,9 @@
     .float-left
       %ul
         %li
-          = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 100%;'), user_omniauth_authorize_path(:facebook)
+          = link_to image_tag("sign-in-facebook.png",
+            alt: t('general.sign_in_with_facebook'), style: 'width: 100%;'),
+            user_facebook_omniauth_authorize_path
 
       %p
         = link_to t('sessions.new.not_on_hitchlog'), new_user_registration_path

@@ -6,7 +6,8 @@
 
   .row-fluid
     .span4
-      = link_to t('general.sign_up_with_facebook'), user_omniauth_authorize_path(:facebook), class: 'btn btn-primary btn-large'
+      = link_to t('general.sign_up_with_facebook'), user_facebook_omniauth_authorize_path,
+        class: 'btn btn-primary btn-large'
     .span1
       %h4= t('general.or')
     .span7

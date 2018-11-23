@@ -14,7 +14,8 @@
 
     - unless user_signed_in?
       %p.sign_up#facebook_login
-        = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'), style: 'width: 300px;'), user_omniauth_authorize_path(:facebook)
+        = link_to image_tag("sign-in-facebook.png", alt: t('general.sign_in_with_facebook'),
+          style: 'width: 300px;'), user_facebook_omniauth_authorize_path
       %p
         or
         = link_to 'sign up with the form', new_user_registration_path
