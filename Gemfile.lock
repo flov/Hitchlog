@@ -308,7 +308,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
-    geocoder (1.1.6)
+    geocoder (1.5.0)
     gherkin (5.1.0)
     gibbon (2.0.0)
       faraday (>= 0.9.1)
@@ -569,7 +569,7 @@ DEPENDENCIES
   fog
   font-awesome-rails
   fuubar
-  geocoder (= 1.1.6)
+  geocoder
   gibbon
   haml (= 4.0.7)
   hirb
