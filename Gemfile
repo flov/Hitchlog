@@ -17,7 +17,7 @@ gem 'routing-filter'
 
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'decent_exposure', '~> 2.3.2'
-gem 'devise', '~> 4.0.0'
+gem 'devise', '~> 4.4.0'
 gem 'omniauth-facebook'
 gem 'rdiscount', '1.6.8'
 gem 'will_paginate', '~> 3.0.pre2'
