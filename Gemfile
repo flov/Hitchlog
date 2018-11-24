@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.5.1'
 
 gem 'rails'
 gem 'pg', '0.18.2'
@@ -14,8 +14,9 @@ gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass-rails', '2.3.1.1'
 gem 'routing-filter'
+gem 'xmlrpc' # required for gem dependency missing somewhere
 
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', '~> 5.0.0'
 gem 'decent_exposure', '~> 2.3.2'
 gem 'devise', '~> 4.5.0'
 gem 'omniauth-facebook'
@@ -27,7 +28,7 @@ gem 'geocoder', '1.1.6'
 gem 'haml', '4.0.7'
 gem 'simple_form'
 gem 'carrierwave', '0.8.0'
-gem 'fog', '1.31.0'
+gem 'fog'
 gem 'rmagick', '2.13.2'
 gem "font-awesome-rails"
 gem 'jbuilder', '1.0.2'
@@ -57,8 +58,8 @@ group :test do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers', '~> 1.1.2'
   gem 'cucumber-rails', require: false
-  gem 'vcr', '~> 2.9.3'
-  gem 'webmock', '~> 1.21.0'
+  gem 'vcr'
+  gem 'webmock'
   gem 'launchy', '~> 2.4.3'
   gem 'jasmine-rails'
   gem 'shoulda-matchers', '3.0.1'
