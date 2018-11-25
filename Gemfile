@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
-gem 'rails'
+gem 'rails', '~> 4.2.0'
 gem 'pg', '0.18.2'
 gem 'unicorn', '4.9.0'
 
@@ -74,4 +74,3 @@ group :test do
   gem 'rb-fsevent', '~> 0.9.6'
   gem 'fuubar'
 end
-
