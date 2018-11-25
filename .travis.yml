@@ -9,7 +9,6 @@ addons:
 services: postgresql
 dist: trusty
 before_install:
-  - # start your web application and listen on `localhost`
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 before_script:
@@ -35,5 +34,4 @@ deploy:
     secure: FFualFIJXLj4TukM6ytjtVpXaao1YYLP4R+LUQBFKiLmyueluXE971xeMt1on1E5fLDF+JNxiZN/umukeIxXcPlVqMB5R50A3AaSvhniJ9YMoW11/qosTOAsDeWNz5tEptlH+ztvTHKm4vToitWn2vqRcYu+ZNuEt+wG3XM4cRY=
   run:
     - "rake db:migrate"
-  rvm: 2.0.0
 
