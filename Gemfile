@@ -4,7 +4,7 @@ ruby '2.5.1'
 
 gem 'rails', '~> 4.2.0'
 gem 'pg', '0.18.2'
-gem 'unicorn', '4.9.0'
+gem 'unicorn'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
