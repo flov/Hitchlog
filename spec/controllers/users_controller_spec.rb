@@ -73,9 +73,9 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe '#show' do
-    let(:action) { get :show, id: 'flov' }
-    let(:user)   { double('user') }
-    let(:trip)   { double('trip') }
+    let(:action)  { get :show, id: 'flov' }
+    let(:user)    { double('user') }
+    let(:trip)    { double('trip') }
     let(:search)  { double('meta_where') }
 
     context 'user cant be found' do
@@ -83,19 +83,18 @@ RSpec.describe UsersController, type: :controller do
         get :show, id: 'does not exist'
       end
 
-      xit 'redirects if user cannot be found' do
+      it 'redirects if user cannot be found' do
         expect(response).to redirect_to(root_path)
       end
 
-      xit 'sets the error flash' do
+      it 'sets the error flash' do
         expect(flash[:error]).to eq('The record was not found')
       end
     end
 
-
-    xit 'renders show view' do
-      allow(User).to receive_message_chain(:includes, :find).and_return user
-      allow(user).to receive_message_chain(:trips, :scoped, :order, :search).and_return( search )
+    it 'renders show view' do
+      allow(User).to receive_message_chain(:includes, :find_by_username).and_return user
+      allow(user).to receive_message_chain(:trips, :sorted_by_departure, :ransack).and_return( search )
       allow(search).to receive_message_chain(:result, :paginate).and_return(trip)
 
       action

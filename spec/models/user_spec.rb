@@ -61,10 +61,10 @@ RSpec.describe User, type: :model do
   end
 
   describe "hitchhiked kms" do
-    xit "should return total amount of kms hitchhiked" do
+    it "should return total amount of kms hitchhiked" do
       user.trips << FactoryGirl.build(:trip, distance: 1000)
       user.save
-      expect(User.first.hitchhiked_kms).to eq(1)
+      expect(User.last.hitchhiked_kms).to eq(1)
     end
   end
 
