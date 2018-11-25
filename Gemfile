@@ -27,7 +27,7 @@ gem 'ransack', '1.7.0'
 gem 'geocoder'
 gem 'haml', '4.0.7'
 gem 'simple_form'
-gem 'carrierwave', '0.8.0'
+gem 'carrierwave'
 gem 'fog'
 gem 'rmagick', '2.13.2'
 gem "font-awesome-rails"
