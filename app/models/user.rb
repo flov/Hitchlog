@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   end
 
   def hitchhiked_kms
-    self.trips.sum(:distance)/1000
+    self.trips.pluck(:distance).sum/1000
   end
 
   def no_of_rides
