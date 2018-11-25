@@ -28,6 +28,7 @@ gem 'geocoder'
 gem 'haml', '4.0.7'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'fog'
 gem 'fog-aws'
 gem 'rmagick', '2.13.2'
 gem "font-awesome-rails"
