@@ -29,6 +29,7 @@ zeus.json
 config/initializers/a_env_vars_config.rb
 .env.rb
 *.swp
+.byebug_history
 
 # These images belong to the crisp template (see /app/views/crisp/*)
 public/images/
