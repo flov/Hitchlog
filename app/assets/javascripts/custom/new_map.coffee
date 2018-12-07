@@ -1,4 +1,4 @@
-class window.Map
+class window.HitchMap
   constructor: (@type) ->
     mapOptions = {
       center: new google.maps.LatLng(52.5234051, 13.411399899999992),

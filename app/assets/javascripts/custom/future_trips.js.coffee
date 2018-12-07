@@ -1,3 +1,3 @@
 $ ->
-  new Map("future_trip")
+  new HitchMap("future_trip")
 
