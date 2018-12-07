@@ -1,31 +1,27 @@
 language: ruby
-
 rvm:
-  - 2.5.1
-
+- 2.5.1
 sudo: required
 addons:
   chrome: stable
 services: postgresql
 dist: trusty
 before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-
+- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
+  &
 before_script:
-  - psql -c 'create database hitchlog_test;' -U postgres
-  - bundle exec rake db:schema:load RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
-
+- psql -c 'create database hitchlog_test;' -U postgres
+- bundle exec rake db:schema:load RAILS_ENV=test
+- bundle exec rake db:migrate RAILS_ENV=test
 script:
-  - bundle exec rspec spec --format progress
-  - bundle exec cucumber features --format progress
-
+- bundle exec rspec spec --format progress
+- bundle exec cucumber features --format progress
 deploy:
   provider: heroku
   strategy: git
   branch:
-    - develop
-    - master
+  - develop
+  - master
   app:
     master: hitchlog
     develop: hitchlog-staging
@@ -33,5 +29,7 @@ deploy:
   api_key:
     secure: FFualFIJXLj4TukM6ytjtVpXaao1YYLP4R+LUQBFKiLmyueluXE971xeMt1on1E5fLDF+JNxiZN/umukeIxXcPlVqMB5R50A3AaSvhniJ9YMoW11/qosTOAsDeWNz5tEptlH+ztvTHKm4vToitWn2vqRcYu+ZNuEt+wG3XM4cRY=
   run:
-    - "rake db:migrate"
-
+  - rake db:migrate
+env:
+  global:
+    secure: MJ5rgPXC+Sfkex0odcngmPz5KYa+sS7KGMg2I07SPyteoSJeVpbn+JgwHFqJyPzwrHMX5TLiOMFbvQ3q1WqflSia5DvvCCIL8WpnFY9tV3c+qq2sfEIppZTMw/M10cW2xZbrwLn8zZHMyTl+ZZk2VeCFO7D9eqkLYmwIT4s3zkU=
