@@ -1,3 +1,5 @@
+require "#{Rails.root}/.env.rb" if File.exists?("#{Rails.root}/.env.rb")
+
 Hitchlog::Application.configure do
   config.cache_classes = true
   config.consider_all_requests_local       = true
