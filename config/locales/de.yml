@@ -269,7 +269,7 @@ de:
       hitched_date: "Getrampt am"
       read_on: "(lese mehr in Trips)"
     new:
-      log_your_trip_please: "Log deine Tramp Erfahrung :)"
+      log_your_trip_please: "Log deine Tramp Erfahrung"
       new_trip: "Log einen neuen Trip"
     search_interface:
       from_placeholder: "(z.B. Berlin oder Deutschland)"
