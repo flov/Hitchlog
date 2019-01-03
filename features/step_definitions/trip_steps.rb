@@ -86,14 +86,14 @@ When /^I click on the next button$/ do
   click_link("Next")
 end
 
-When /^I fill in the new trip form$/ do
+When /^I fill in the new trip form "([^"]*)" to "([^"]*)"$/ do |from, to|
   VCR.use_cassette 'berlin' do
-    fill_in('trip_from', with: 'Berlin', exact: true)
+    fill_in('trip_from', with: from, exact: true)
     page.find(:css, ".pac-container .pac-item", match: :first).click
   end
 
   VCR.use_cassette 'hamburg' do
-    fill_in('trip_to', with: 'Hamburg', exact: true)
+    fill_in('trip_to', with: to, exact: true)
     page.find(:css, ".pac-container .pac-item", match: :first).click
   end
 
@@ -102,6 +102,7 @@ When /^I fill in the new trip form$/ do
 end
 
 Then /^the from and to location should be geocoded$/ do
+  sleep(10)
   # from geocoding:
   expect(find('#trip_from_formatted_address', visible: false).value).to eq('Berlin, Germany')
   expect(find('#trip_from_city', visible: false).value).to eq('Berlin')
@@ -110,7 +111,6 @@ Then /^the from and to location should be geocoded$/ do
   expect(find('#trip_from_lat', visible: false).value.to_i).to eq(52)
   expect(find('#trip_from_lng', visible: false).value.to_i).to eq(13)
 
-  # to geocoding:
   expect(find('#trip_to_formatted_address', visible: false).value).to eq('Hamburg, Germany')
   expect(find('#trip_to_city', visible: false).value).to eq('Hamburg')
   expect(find('#trip_to_country', visible: false).value).to eq('Germany')
@@ -120,10 +120,6 @@ Then /^the from and to location should be geocoded$/ do
 
   expect(find('#trip_distance', visible: false).value.to_i).to_not eq(0)
   expect(find('#trip_gmaps_duration', visible: false).value.to_i).to_not eq(0)
-end
-
-Then /^it should route from origin to destination$/ do
-  expect(find('#trip_distance', visible: false).value.to_i).to be_within(1000).of(288232)
 end
 
 Then /^I should see the details of the trip again$/ do

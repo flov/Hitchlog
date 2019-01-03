@@ -7,9 +7,8 @@ Feature: User manages trips
   Scenario: Log new trip
     Given I am logged in
     And I go to the new trip page
-    When I fill in the new trip form
+    When I fill in the new trip form "Berlin" to "Hamburg"
     Then the from and to location should be geocoded
-    And it should route from origin to destination
     When I submit the form
     Then I should be on the edit trip page
 
