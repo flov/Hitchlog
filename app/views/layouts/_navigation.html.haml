@@ -51,6 +51,9 @@
                     %i.fa.fa-users
                     = t('.find_hitchhiking_buddy')
                 %li
+                  = link_to user_path(current_user) do
+                    = fa_icon 'user', text: t('.my_trips')
+                %li
                   = link_to destroy_user_session_path, method: :delete do
                     %i.fa.fa-sign-out
                     = t('.sign_out')

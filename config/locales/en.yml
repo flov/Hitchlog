@@ -170,6 +170,7 @@ en:
     navigation:
       about: About
       find_hitchhiking_buddy: "Hitchhiking Buddies"
+      my_trips: "My Trips"
       hitchhikers: Hitchhikers
       log_new_trip: "Log new trip"
       settings: Settings
