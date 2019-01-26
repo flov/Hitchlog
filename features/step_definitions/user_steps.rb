@@ -54,7 +54,8 @@ Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
 end
 
 Given /^I logged a trip$/ do
-  @user.trips << FactoryGirl(:trip)
+  user ||= User.last
+  user.trips << FactoryGirl.create(:trip)
 end
 
 When /^I sign up as "([^"]*)"$/ do |username|
@@ -80,6 +81,10 @@ end
 
 When /^I visit the profile page of "([^"]*)"$/ do |username|
   visit user_path(username)
+end
+
+When /^I visit the edit page of this trip$/ do
+  visit edit_trip_path(Trip.last)
 end
 
 Given /^"([^"]*)" logged a trip$/ do |username|

@@ -6,12 +6,11 @@
       = t('.edit_trip')
       = link_to trip_path(trip), :method => :delete, data: { confirm: t('general.confirm') }, class: 'btn btn-danger' do
         = t('general.delete')
-    %p
-      #{t('activerecord.attributes.trip.departure')}:
-      = trip.departure.strftime("%B %d, %Y %H:%M")
-      %br/
-      #{t('activerecord.attributes.trip.arrival')}:
-      = trip.arrival.strftime("%B %d, %Y %H:%M")
+
+    = simple_form_for trip do |f|
+      = f.input :departure
+      = f.input :arrival
+      = f.submit class: 'btn btn-primary submit-trip'
 
     = link_to add_ride_trip_path(trip), method: :post do
       %i.fa.fa-plus
