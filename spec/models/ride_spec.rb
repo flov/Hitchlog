@@ -14,6 +14,16 @@ RSpec.describe Ride, type: :model do
       ride.experience = 'not an experience'
       expect(ride).not_to be_valid
     end
+
+    it 'validates youtube link' do
+      # Exactly 11 characters
+      # Allowed symbols: a-z, A-Z, 0-9, -, and _
+      ride.youtube = 'zCWXOVXGxWI'
+      expect(ride).to be_valid
+
+      ride.youtube = "<script>alert('hacked')</script>"
+      expect(ride).not_to be_valid
+    end
   end
 
   describe "#caption_or_title" do

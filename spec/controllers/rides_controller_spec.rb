@@ -38,6 +38,16 @@ RSpec.describe RidesController, type: :controller do
 
   describe "#update" do
     let(:action) { put :update, id: '1' }
+    let(:ride)   { create(:ride) }
+
+    it "renders edit ride view on validation failure" do
+      sign_in ride.trip.user
+
+      put(:update, { id: ride.id,
+                     ride: attributes_for(:ride).merge!( youtube: '!!!' ) })
+
+      expect(response).to render_template(:edit)
+    end
 
     it_blocks_unauthenticated_access
   end

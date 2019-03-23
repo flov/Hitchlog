@@ -80,26 +80,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe "geocode" do
-  #   before do
-  #     VCR.use_cassette('brooklyn') do
-  #       user.current_sign_in_ip = "24.193.83.1"
-  #       user.save!
-  #     end
-  #   end
-  #
-  #   it "should geocode lat and lng from ip" do
-  #     expect(user.lat).to eq(40.662)
-  #     expect(user.lng).to eq(-73.986)
-  #   end
-  #
-  #   it "should geocode address" do
-  #     expect(user.country_code).to eq("US")
-  #     expect(user.city).to eq("Brooklyn")
-  #     expect(user.country).to eq("United States")
-  #   end
-  # end
-
   describe "#formatted_address" do
     it "should display the city name and the country if present" do
       user.city = 'Cairns'
@@ -197,11 +177,11 @@ RSpec.describe User, type: :model do
 
   describe '#choose_username' do
     it 'should choose a different username if it already exists' do
-      expect(User.choose_username('flov')).to eq('flov')
-      FactoryGirl.create(:user, username: 'flov')
-      expect(User.choose_username('flov')).to eq('flov1')
-      FactoryGirl.create(:user, username: 'flov1')
-      expect(User.choose_username('flov')).to eq('flov2')
+      expect(User.choose_username('flo')).to eq('flo')
+      FactoryGirl.create(:user, username: 'flo')
+      expect(User.choose_username('flo')).to eq('flo1')
+      FactoryGirl.create(:user, username: 'flo1')
+      expect(User.choose_username('flo')).to eq('flo2')
     end
   end
 end

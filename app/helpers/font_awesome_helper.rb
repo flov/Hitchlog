@@ -140,6 +140,10 @@ module FontAwesomeHelper
     end
   end
 
+  def video
+    icon('video-camera', class: 'tip', title: t('helper.video'))
+  end
+
   def driving_time(time)
     if time
       icon('road', class: 'tip', title: t('helper.driving_time', time: time))
@@ -177,6 +181,7 @@ module FontAwesomeHelper
     icons << experience(trip.overall_experience)
     icons << type_of_rides(trip.rides.pluck(:vehicle))
     icons << number_of_rides(trip.rides.size)
+    icons << video if trip.rides.with_video.size > 0
     icons << number_of_comments(trip.comments.size) if trip.comments.size > 0
     icons << number_of_photos(trip.rides.with_photo.size) if trip.rides.with_photo.size > 0
     trip.country_distances.map(&:country).each do |country|

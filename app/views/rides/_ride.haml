@@ -1,6 +1,14 @@
 %p Ride #{ride.number}
 .accordion_content
   = form_for ride, html:  {multipart:  true} do |f|
+    - if ride.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(ride.errors.count, "error")
+          prohibited this article from being saved:
+        %ul
+          - ride.errors.full_messages.each do |msg|
+            %li= msg
     .section
       = experience(ride.experience)
       = f.label("experience")
@@ -53,4 +61,10 @@
       = passenger_gender(ride.gender)
       %br/
       = f.select("gender", ['male', 'female', 'mixed'], {include_blank:  true})
+
+      %br/
+      = f.label :youtube
+      %br/
+      = f.text_field :youtube
+
       = submit_tag t(".save_ride"), class: 'btn btn-primary'

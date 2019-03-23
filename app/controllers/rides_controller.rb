@@ -30,11 +30,12 @@ class RidesController < ApplicationController
   end
 
   def update
-    ride = Ride.find(params[:id])
-    if not ride.update_attributes(ride_params)
-      flash[:alert] = t('flash.error')
+    if ride.update_attributes(ride_params)
+      flash[:success] = I18n.t('flash.rides.update.success')
+      redirect_to edit_trip_path(ride.trip)
+    else
+      render :edit
     end
-    redirect_to edit_trip_path(ride.trip)
   end
 
   def destroy
@@ -49,7 +50,7 @@ class RidesController < ApplicationController
     if params['id']
       Ride.find(params["id"])
     else
-      Ride.new
+      Ride.new(ride_params)
     end
   end
 
@@ -67,7 +68,8 @@ class RidesController < ApplicationController
       :gender,
       :date,
       :number,
-      :photo
+      :photo,
+      :youtube
     )
   end
 

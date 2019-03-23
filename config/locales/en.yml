@@ -9,6 +9,7 @@ en:
         gender: "Gender of passenger(s)"
         photo: Photo
         waiting_time: "Waiting time (in minutes)"
+        youtube: "YouTube ID (uploaded video on youtube)"
       trip:
         arrival: Arrival
         departure: Departure
@@ -82,6 +83,7 @@ en:
       tell_others_about_your_plans: "Tell others about your hitchhiking plans."
   general:
     average_speed: "Average speed: %{speed}"
+    video: video
     bad: bad
     by: by
     comment: comment
@@ -128,6 +130,7 @@ en:
     very_good: "very good"
     years: years
   helper:
+    video: Video
     ride_with_vehicle: "Ride with %{vehicle}"
     bad_experience: "bad experience"
     driving_time: "%{time} driving time"
@@ -352,6 +355,8 @@ en:
       more_hitchhikers: "Get To Know More Hitchhikers"
       more_stories: "Read More Stories"
       more_trips: "See More Trips"
+      more_videos: "More Hitchhiking Videos"
+      newest_videos: "Newest videos from the road"
       newest_hh_stories: "Newest hitchhiking Stories"
       newest_hitchhikers: "New Hitchhikers"
       newest_hitchhiking_trips: "New Hitchhiking Trips"

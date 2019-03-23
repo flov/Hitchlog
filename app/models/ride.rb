@@ -1,4 +1,4 @@
-class Ride < ActiveRecord::Base  
+class Ride < ActiveRecord::Base
   EXPERIENCES = ['very good',
                  'good',
                  'neutral',
@@ -19,13 +19,16 @@ class Ride < ActiveRecord::Base
   validates_inclusion_of :experience, in: EXPERIENCES
   validates_inclusion_of :vehicle,    in: VEHICLES,    allow_blank: true
   validates_inclusion_of :gender,     in: GENDER,      allow_blank: true
-
+  validates :youtube, length: { is: 11 },
+                      format: { with: /\A[a-zA-Z0-9\-\_]+\z/, message: "Allowed symbols: a-z, A-Z, 0-9, -, and _" },
+                      allow_blank: true
   belongs_to :user
   belongs_to :trip
 
   scope :with_photo, -> { where.not(photo: nil) }
+  scope :with_video, -> { where.not(youtube: nil) }
   scope :with_story, -> { where("story <> ''") }
-  scope :with_story_or_photo, -> { where("story <> '' OR photo IS NOT NULL") }
+  scope :with_story_or_photo, -> { where("story <> '' OR photo IS NOT NULL OR youtube IS NOT NULL AND youtube != ''") }
   scope :latest_first, -> { order('created_at DESC') }
   scope :oldest_first, -> { order('created_at ASC') }
 
@@ -80,6 +83,6 @@ class Ride < ActiveRecord::Base
   private
 
   def self.ransackable_attributes(auth_object = nil)
-    super & %w(title story experience photo vehicle)
+    %w(title youtube story experience photo vehicle)
   end
 end

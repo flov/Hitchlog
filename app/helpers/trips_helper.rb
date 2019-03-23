@@ -28,7 +28,7 @@ module TripsHelper
 
   def trip_has_duration(trip)
     (!trip.duration.nil? and trip.duration > 0) or (trip.departure.nil? and trip.departure.nil?)
-  end  
+  end
 
   def ride_box_attributes(i, trip)
     array=[]
@@ -82,5 +82,14 @@ module TripsHelper
        <i class='fa fa-dashboard'></i> <span id='trip_distance_display'>0 kms</span>\
      </span>\
     ".html_safe
+  end
+
+  def embed_youtube_video(youtube_id)
+    "<div class='youtube_iframe_container'>
+      <iframe width='560' height='315'
+        src='https://www.youtube.com/embed/#{youtube_id}' frameborder='0'
+        allow='accelerometer; autoplay; encrypted-media; gyroscope;
+        picture-in-picture' allowfullscreen></iframe>
+    </div>".html_safe
   end
 end

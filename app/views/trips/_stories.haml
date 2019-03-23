@@ -19,5 +19,7 @@
       = photo_for_ride(ride) if ride.photo.url.present?
       = ride.markdown_story  if ride.story.present?
 
+      = embed_youtube_video(ride.youtube) if ride.youtube.present?
+
       %hr/
 

@@ -3,10 +3,10 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  if Rails.env == 'production'
-    storage :fog
-  else
+  if Rails.env == 'test'
     storage :file
+  else
+    storage :fog
   end
 
   process resize_to_fit: [800, 800]

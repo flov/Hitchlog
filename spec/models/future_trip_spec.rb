@@ -13,7 +13,7 @@ RSpec.describe FutureTrip, type: :model do
 
     describe '#departure' do
       it "cannot be in the past" do
-        future_trip = FutureTrip.new(departure: 1.day.ago)
+        future_trip = FutureTrip.new(departure: 2.days.ago)
         expect(future_trip).to have(1).error_on(:departure)
       end
 

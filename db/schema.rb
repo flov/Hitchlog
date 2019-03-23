@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181227232152) do
+ActiveRecord::Schema.define(version: 20190204195250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20181227232152) do
     t.string   "photo",              limit: 255
     t.string   "mission",            limit: 255
     t.string   "vehicle",            limit: 255
+    t.string   "youtube",            limit: 11
   end
 
   add_index "rides", ["experience"], name: "index_rides_on_experience", using: :btree
@@ -135,6 +136,7 @@ ActiveRecord::Schema.define(version: 20181227232152) do
   add_index "rides", ["title"], name: "index_rides_on_title", using: :btree
   add_index "rides", ["trip_id"], name: "index_rides_on_trip_id", using: :btree
   add_index "rides", ["vehicle"], name: "index_rides_on_vehicle", using: :btree
+  add_index "rides", ["youtube"], name: "index_rides_on_youtube", using: :btree
 
   create_table "slugs", force: :cascade do |t|
     t.string   "name",           limit: 255
