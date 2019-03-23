@@ -29,7 +29,7 @@
         = RDiscount.new(truncate(future_trip.description, :length => 400), :smart, :filter_html).to_html.html_safe
 
 %p
-  = link_to t('.more_hitchhiking_buddies'), future_trips_path
+  = link_to t('.more_hitchhiking_buddies'), future_trips_path if future_trips.any?
   - if user_signed_in?
     %br/
     = link_to t('.list_your_own_hitchhiking_adventure'), new_future_trip_path

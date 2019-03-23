@@ -1,12 +1,11 @@
 %p.short_headline
-  %span 
+  %span
     %i.fa.fa-book
     = t('welcome.home.newest_hh_stories')
 %ul
   - Ride.with_story.latest_first.paginate(per_page: 4, page: 1).each do |ride|
     %li
-      = link_to trip_path(ride.trip) do
-        = ride.trip
+      = link_to ride.trip, trip_path(ride.trip)
       = experience(ride.experience)
       = countries_for_trip(ride.trip)
       = type_of_ride(ride.vehicle)
@@ -19,4 +18,4 @@
       %b= truncate(ride.title, length: 50)
       = truncated_markdown(ride.story)
 
-%strong= link_to t('welcome.home.more_stories'), trips_path(stories: 1)
+%strong= link_to t('welcome.home.more_stories'), "/trips?q%5Brides_title_or_rides_story_present%5D=1"
