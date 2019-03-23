@@ -92,4 +92,16 @@ module TripsHelper
         picture-in-picture' allowfullscreen></iframe>
     </div>".html_safe
   end
+
+  def trip_with_icons(trip)
+    capture do
+      concat(link_to trip, trip_path(trip))
+      concat(" ")
+      concat(icons_for_trip(trip))
+      concat(" ")
+      concat(t('welcome.home.hitchhiked_by_user',
+        user: link_to(h(trip.user), user_path(trip.user)),
+        time: time_ago_in_words(trip.departure)).html_safe)
+    end
+  end
 end
