@@ -6,6 +6,7 @@ class DataPresenter
     fill_vehicles_to_hash(hash)
     fill_stories_to_hash(hash)
     fill_photos_to_hash(hash)
+    fill_videos_to_hash(hash)
 
     hash
   end
@@ -101,6 +102,13 @@ class DataPresenter
       where.not(rides: { story: '' }).
       pluck(:country_code).each do |country_code|
         fill_hash(hash, "stories", country_code)
+    end
+  end
+
+  def fill_videos_to_hash(hash)
+    Trip.joins(:rides).where.not(rides: { youtube: nil }).
+      joins(:country_distances).pluck(:country_code).each do |country_code|
+        fill_hash(hash, "videos", country_code)
     end
   end
 

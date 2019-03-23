@@ -1,1 +1,1 @@
-json.array! DataPresenter.new.hitchhikers_with_most_stories
+json.array! @data_presenter.hitchhikers_with_most_stories

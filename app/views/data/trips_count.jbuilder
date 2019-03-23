@@ -1,1 +1,1 @@
-json.array! DataPresenter.new.trips_count_for_map
+json.array! @data_presenter.trips_count_for_map

@@ -1,7 +1,7 @@
 jQuery ->
   $( "#tabs" ).tabs()
 
-  GENERAL_TOPICS     = [ "trips_count", "stories", "photos"]
+  GENERAL_TOPICS     = [ "trips_count", "stories", "photos", "videos"]
   EXPERIENCE_TOPICS  = [ "bad_ratio", "good_ratio", "total_good", "neutral", "total_bad"]
   VEHICLE_TOPICS     = [ "car_ratio", "bus_ratio", "truck_ratio", "motorcycle_ratio", "plane_ratio", "boat_ratio"]
   TOPICS             = GENERAL_TOPICS.concat(EXPERIENCE_TOPICS).concat(VEHICLE_TOPICS)
@@ -46,30 +46,25 @@ jQuery ->
 
   search_url_for = (topic, code) ->
     switch topic
-      when "trips_count"
+      when 'trips_count'
         "trips?q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       when 'photos'
         "trips?q%5Brides_photo_present%5D=1&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
+      when 'videos'
+        "trips?q%5Brides_youtube_present%5D=1&q%5Bcountry_distances_country_code_eq%5D=#{code}"
       when 'stories'
         "trips?q%5Brides_story_present%5D=1&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       when 'total_good', 'good_ratio'
         "trips?q%5Brides_experience_cont%5D=good&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       when 'total_bad', 'bad_ratio'
         "trips?q%5Brides_experience_cont%5D=bad&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       when 'neutral'
         "trips?q%5Brides_experience_eq%5D=neutral&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       when  "car_ratio", "bus_ratio", "truck_ratio", "motorcycle_ratio", "plane_ratio", "boat_ratio"
         vehicle = topic.slice(0, topic.indexOf("_")) # turning `car_ratio` into `car`
         "trips?q%5Brides_vehicle_eq%5D=#{vehicle}&q%5Bcountry_distances_country_code_eq%5D=#{code}"
-
       else
-        ""
+        "trips"
 
   $.ajax({
     url: "/data/country_map.json"
@@ -125,7 +120,7 @@ jQuery ->
 
   $('.country_tab a[data-toggle="tab"]').click ->
     # The Pills don't trigger .resize after click.
-    # With setTimeout the resizing of the map works thought
+    # With setTimeout the resizing of the map works though
     setTimeout( ->
       $(".country_map").resize()
      , 1)

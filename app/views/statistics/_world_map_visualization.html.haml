@@ -18,6 +18,8 @@
                 %a#stories.tabs_headline{"data-toggle" => "tab", href: "#stories_tab"}= t('.with_stories')
               %li
                 %a.tabs_headline{"data-toggle" => "tab", href: "#photos_tab"}= t('.with_pictures')
+              %li
+                %a.tabs_headline{"data-toggle" => "tab", href: "#videos_tab"}= t('.with_videos')
 
             .tab-content.span9
               #trips_count_tab.tab-pane.active
@@ -26,6 +28,8 @@
                 #stories_country_map.country_map{"data-topic" => 'stories'}
               #photos_tab.tab-pane
                 #photos_country_map.country_map{"data-topic" => 'photos'}
+              #videos_tab.tab-pane
+                #videos_country_map.country_map{"data-topic" => 'videos'}
       #tabs-2
         #pills-stacked.tab-pane
           .tabbable
