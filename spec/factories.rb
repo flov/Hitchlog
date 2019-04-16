@@ -29,9 +29,6 @@ FactoryGirl.define do
   end
 
   factory :ride do
-    trip
-
-    travelling_with 1
     waiting_time 15
     duration 2
     youtube "czau9QSX3fo"
