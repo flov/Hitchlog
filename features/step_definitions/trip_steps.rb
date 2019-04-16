@@ -52,25 +52,6 @@ Given /^a trip with a story$/ do
   @trip_with_story.save!
 end
 
-Given /^a trip without a story$/ do
-  @trip_without_story = FactoryGirl.create(:trip)
-end
-
-Then /^I should see a trip with a story$/ do
-  expect(page).to have_content @trip_with_story.from
-end
-
-Then /^I should see a trip without a story$/ do
-  expect(page).to have_content @trip_without_story.from
-end
-Then /^I should see trips with stories$/ do
-  expect(page.find("#trip_#{@trip_with_story.id}")).to have_content("#{@trip_with_story.rides.first.story[0..150]}")
-end
-
-Then /^I should not see trips without stories$/ do
-  expect { page.find("#trip_#{@trip_without_story.id}") }.to raise_error(Capybara::ElementNotFound)
-end
-
 Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
   trip = FactoryGirl.create(:trip, from: from, to: to)
   ride = trip.rides.first

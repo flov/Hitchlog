@@ -15,7 +15,7 @@ Feature: Manage rides
       | ride_story             | Example Story              |
       | ride_tag_list          | Example Tag, Example Tag 2 |
       | ride_vehicle  (select) | car                        |
-      | ride_waiting_time      | 2                          |
+      | ride_waiting_time      | 20                         |
       | ride_duration          | 4                          |
       | ride_gender (select)   | male                       |
       | YouTube ID             | ksMkENKMlyk                |
