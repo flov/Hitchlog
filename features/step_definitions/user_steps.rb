@@ -23,14 +23,12 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  VCR.use_cassette "new_user" do
-    user = FactoryGirl.create(:user, username: 'flo')
-    user.confirm
-    visit new_user_session_path
-    fill_in "Username", with: user.username
-    fill_in "Password", with: 'password'
-    click_button "Hitch in"
-  end
+  user = FactoryGirl.create(:user, username: 'flo')
+  user.confirm
+  visit new_user_session_path
+  fill_in "Username", with: user.username
+  fill_in "Password", with: 'password'
+  click_button "Hitch in"
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |username|
