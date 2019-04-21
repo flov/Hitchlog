@@ -10,6 +10,11 @@ before_install:
 - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost
   &
 before_script:
+# include ChromeDriver in PATH
+- wget https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip
+- sudo cp chromedriver /usr/local/bin/
+- sudo chmod +x /usr/local/bin/chromedriver
 - psql -c 'create database hitchlog_test;' -U postgres
 - bundle exec rake db:schema:load RAILS_ENV=test
 - bundle exec rake db:migrate RAILS_ENV=test
