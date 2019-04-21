@@ -11,7 +11,7 @@ before_install:
   &
 before_script:
 # include ChromeDriver in PATH
-- wget https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip
+- wget https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
 - unzip chromedriver_linux64.zip
 - sudo cp chromedriver /usr/local/bin/
 - sudo chmod +x /usr/local/bin/chromedriver
