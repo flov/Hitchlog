@@ -68,8 +68,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara'
-  gem "selenium-webdriver"
-  gem "chromedriver-helper"
+  gem 'webdrivers', '~> 3.0'
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'

@@ -50,8 +50,6 @@ GEM
       activerecord (>= 4.2.8)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    archive-zip (0.7.0)
-      io-like (~> 0.3.0)
     arel (6.0.4)
     backports (3.11.4)
     bcrypt (3.1.12)
@@ -75,9 +73,6 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (1.1.0)
-      archive-zip (~> 0.7.0)
-      nokogiri (~> 1.6)
     chunky_png (1.3.4)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -333,7 +328,6 @@ GEM
       i18n
       term-ansicolor (>= 1.3.2)
       terminal-table (>= 1.5.1)
-    io-like (0.3.0)
     ipaddress (0.8.3)
     jasmine-core (2.99.2)
     jasmine-rails (0.12.6)
@@ -533,6 +527,10 @@ GEM
     vcr (4.0.0)
     warden (1.2.7)
       rack (>= 1.0)
+    webdrivers (3.8.0)
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -553,7 +551,6 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
-  chromedriver-helper
   coffee-rails
   compass-rails!
   cucumber-rails
@@ -596,7 +593,6 @@ DEPENDENCIES
   rspec-rails
   ruby_cowsay
   sass-rails
-  selenium-webdriver
   shoulda-matchers (= 3.0.1)
   simple_form
   spring (= 1.7.1)
@@ -605,6 +601,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   vcr
+  webdrivers (~> 3.0)
   webmock
   will_paginate
   xmlrpc
@@ -613,4 +610,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
