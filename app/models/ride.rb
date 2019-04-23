@@ -26,7 +26,7 @@ class Ride < ActiveRecord::Base
   belongs_to :trip
 
   scope :with_photo, -> { where.not(photo: nil) }
-  scope :with_video, -> { where.not(youtube: nil) }
+  scope :with_video, -> { where.not(youtube: '') }
   scope :with_story, -> { where("story <> ''") }
   scope :with_story_or_photo, -> { where("story <> '' OR photo IS NOT NULL OR youtube IS NOT NULL AND youtube != ''") }
   scope :latest_first, -> { order('created_at DESC') }
