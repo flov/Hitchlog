@@ -32,8 +32,9 @@ gem 'fog'
 gem 'fog-aws'
 gem 'rmagick', '2.13.2'
 gem "font-awesome-rails"
-gem 'jbuilder', '1.0.2'
+gem 'jbuilder'
 gem 'koala', '~> 3.0.0'
+gem 'rack-cors'
 
 group :production do
   gem 'newrelic_rpm', '~> 3.13.1'
@@ -42,6 +43,10 @@ group :production do
 end
 
 gem 'byebug'
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
 
 group :development do
   gem 'rb-readline'
@@ -66,9 +71,8 @@ group :test do
   gem 'shoulda-matchers', '3.0.1'
   gem 'pickle', '~> 0.5.1'
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara'
-  gem 'webdrivers', '~> 3.0'
+  gem 'webdrivers'
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'

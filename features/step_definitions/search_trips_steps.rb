@@ -22,8 +22,8 @@ end
 
 Given /^6 trips exist with a different experience respectively$/ do
   Ride::EXPERIENCES.each do |exp|
-    trip = FactoryGirl.build(:trip)
-    trip.rides << FactoryGirl.create(:ride,
+    trip = FactoryBot.build(:trip)
+    trip.rides << FactoryBot.create(:ride,
                                      experience: exp)
     trip.save!
   end

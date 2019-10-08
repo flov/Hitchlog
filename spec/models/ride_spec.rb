@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Ride, type: :model do
   it { is_expected.to belong_to :trip }
 
-  let(:ride) { FactoryGirl.build :ride }
+  let(:ride) { FactoryBot.build :ride }
 
   describe 'valid?' do
     it 'validates experience' do

@@ -32,5 +32,5 @@ RSpec.configure do |config|
   config.include ControllerHelpers, type: :controller
 
   # Include Factory Girl syntax to simplify calls to factories
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 end

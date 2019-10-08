@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryGirl.build(:user) }
+  let(:user) { FactoryBot.build(:user) }
 
   it { is_expected.to have_many(:trips) }
   it { is_expected.to have_many(:comments) }
@@ -45,24 +45,24 @@ RSpec.describe User, type: :model do
   end
 
   describe "gender" do
-    before { user.trips << FactoryGirl.build(:trip) }
+    before { user.trips << FactoryBot.build(:trip) }
     it "should display percentage of genders of people who picked you up" do
-      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
-      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'female')
-      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'mixed')
+      user.trips[0].rides << FactoryBot.build(:ride, :gender => 'male')
+      user.trips[0].rides << FactoryBot.build(:ride, :gender => 'female')
+      user.trips[0].rides << FactoryBot.build(:ride, :gender => 'mixed')
       expect(user.genders).to eq(['male', 'female', 'mixed'])
       expect(user.genders_in_percentage).to eq({'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33})
     end
 
     it "only male driver" do
-      user.trips[0].rides << FactoryGirl.build(:ride, :gender => 'male')
+      user.trips[0].rides << FactoryBot.build(:ride, :gender => 'male')
       expect(user.genders_in_percentage).to eq({'male' => 1.0})
     end
   end
 
   describe "hitchhiked kms" do
     it "should return total amount of kms hitchhiked" do
-      user.trips << FactoryGirl.build(:trip, distance: 1000)
+      user.trips << FactoryBot.build(:trip, distance: 1000)
       user.save
       expect(User.last.hitchhiked_kms).to eq(1)
     end
@@ -70,7 +70,7 @@ RSpec.describe User, type: :model do
 
   describe "hitchhiked countries" do
     before do
-      trip = FactoryGirl.build(:trip,
+      trip = FactoryBot.build(:trip,
                                countries: '[["Germany",103060],["Poland",470608]]')
       user.trips << trip
     end
@@ -108,8 +108,8 @@ RSpec.describe User, type: :model do
 
   describe '#to_geomap' do
     before do
-      user.trips << FactoryGirl.build(:trip, from_city: 'Berlin')
-      user.trips << FactoryGirl.build(:trip, from_city: 'Madrid')
+      user.trips << FactoryBot.build(:trip, from_city: 'Berlin')
+      user.trips << FactoryBot.build(:trip, from_city: 'Madrid')
       2.times { user.trips.first.country_distances.build(country: 'Germany', distance: 1000) }
       1.times { user.trips.last.country_distances.build(country: 'Spain', distance: 1000) }
     end
@@ -126,10 +126,10 @@ RSpec.describe User, type: :model do
 
   describe "#vehicles" do
     before do
-      user.trips << FactoryGirl.build(:trip)
-      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
-      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'car')
-      user.trips[0].rides << FactoryGirl.build(:ride, vehicle: 'truck')
+      user.trips << FactoryBot.build(:trip)
+      user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'car')
+      user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'car')
+      user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'truck')
     end
 
     it 'returns the vehicles that the user has hitchhiked with' do
@@ -139,8 +139,8 @@ RSpec.describe User, type: :model do
 
   describe '#average_speed' do
     it 'returns the overall average speed while hitchhiking' do
-      user.trips << FactoryGirl.build(:trip, distance: 10000, departure: 5.hours.ago, arrival: 4.hours.ago)
-      user.trips << FactoryGirl.build(:trip, distance: 6000, departure: 5.hours.ago, arrival: 4.hours.ago)
+      user.trips << FactoryBot.build(:trip, distance: 10000, departure: 5.hours.ago, arrival: 4.hours.ago)
+      user.trips << FactoryBot.build(:trip, distance: 6000, departure: 5.hours.ago, arrival: 4.hours.ago)
 
       expect(user.trips.first.average_speed).to eq('10 kmh')
       expect(user.trips.last.average_speed).to  eq('6 kmh')
@@ -159,11 +159,11 @@ RSpec.describe User, type: :model do
   describe '#age_of_trips' do
     before do
       user.save!
-      FactoryGirl.create(:trip, departure: 2.years.ago, user_id: user.id,
+      FactoryBot.create(:trip, departure: 2.years.ago, user_id: user.id,
                                 arrival:   2.years.ago + 3.hours)
-      FactoryGirl.create(:trip, departure: 1.years.ago, user_id: user.id,
+      FactoryBot.create(:trip, departure: 1.years.ago, user_id: user.id,
                                 arrival:   1.years.ago + 3.hours)
-      FactoryGirl.create(:trip, departure: 3.years.ago,
+      FactoryBot.create(:trip, departure: 3.years.ago,
                                 arrival: 3.years.ago + 3.hours,
                                 user_id: user.id)
       user.date_of_birth = 23.years.ago.to_date
@@ -178,9 +178,9 @@ RSpec.describe User, type: :model do
   describe '#choose_username' do
     it 'should choose a different username if it already exists' do
       expect(User.choose_username('flo')).to eq('flo')
-      FactoryGirl.create(:user, username: 'flo')
+      FactoryBot.create(:user, username: 'flo')
       expect(User.choose_username('flo')).to eq('flo1')
-      FactoryGirl.create(:user, username: 'flo1')
+      FactoryBot.create(:user, username: 'flo1')
       expect(User.choose_username('flo')).to eq('flo2')
     end
   end

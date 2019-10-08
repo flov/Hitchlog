@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FutureTrip, type: :model do
 
-  let(:future_trip) { FactoryGirl.build(:future_trip) }
+  let(:future_trip) { FactoryBot.build(:future_trip) }
 
   it { is_expected.to belong_to(:user) }
 

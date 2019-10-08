@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
-  let(:trip) { FactoryGirl.build(:trip) }
+  let(:trip) { FactoryBot.build(:trip) }
 
   it { is_expected.to have_many(:rides) }
   it { is_expected.to have_many(:comments) }
@@ -16,7 +16,7 @@ RSpec.describe Trip, type: :model do
 
     describe '#hitchhikes' do
       it 'creates 1 ride on trip if hitchhikes equals 1' do
-        trip = FactoryGirl.build(:trip, hitchhikes: 1)
+        trip = FactoryBot.build(:trip, hitchhikes: 1)
         trip.save
         expect(trip.rides.size).to eq(1)
       end
@@ -25,7 +25,7 @@ RSpec.describe Trip, type: :model do
 
   describe '#departure and #arrival' do
     it 'should save departure_date and departure_time to departure' do
-      trip = FactoryGirl.build(:trip,
+      trip = FactoryBot.build(:trip,
                                departure: '5 July, 2013',
                                departure_time: '08:00 AM')
 
@@ -33,7 +33,7 @@ RSpec.describe Trip, type: :model do
     end
 
     it 'should save arrival_date and arrival_time to arrival' do
-      trip = FactoryGirl.build(:trip,
+      trip = FactoryBot.build(:trip,
                                arrival: '5 July, 2013',
                                arrival_time: '08:00 AM')
 
@@ -124,13 +124,13 @@ RSpec.describe Trip, type: :model do
 
   describe "#total_waiting_time" do
     it 'returns the total accumulated waiting_time' do
-      trip.rides << FactoryGirl.build(:ride, waiting_time: 5)
-      trip.rides << FactoryGirl.build(:ride, waiting_time: 6)
+      trip.rides << FactoryBot.build(:ride, waiting_time: 5)
+      trip.rides << FactoryBot.build(:ride, waiting_time: 6)
       expect(trip.total_waiting_time).to eq('11 minutes')
     end
 
     it 'returns nil if no waiting time has been logged' do
-      trip.rides << FactoryGirl.build(:ride, waiting_time: nil)
+      trip.rides << FactoryBot.build(:ride, waiting_time: nil)
       expect(trip.total_waiting_time).to eq(nil)
     end
   end
@@ -138,32 +138,32 @@ RSpec.describe Trip, type: :model do
   describe "#overall_experience" do
     context "has only good experiences" do
       it "returns a good experience" do
-        trip.rides << FactoryGirl.create(:ride, :experience => 'good')
+        trip.rides << FactoryBot.create(:ride, :experience => 'good')
         expect(trip.overall_experience).to eq('good')
       end
     end
 
     context "has a neutral experience" do
       it "returns a neutral experience" do
-        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'good' )
-        trip.rides << FactoryGirl.build_stubbed( :ride, :experience => 'neutral' )
+        trip.rides << FactoryBot.build_stubbed( :ride, :experience => 'good' )
+        trip.rides << FactoryBot.build_stubbed( :ride, :experience => 'neutral' )
         expect(trip.overall_experience).to eq('neutral')
       end
     end
 
     context "has a bad experience" do
       it "returns a bad experience" do
-        trip.rides << FactoryGirl.build(:ride, :experience => 'good')
-        trip.rides << FactoryGirl.build(:ride, :experience => 'neutral')
-        trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
+        trip.rides << FactoryBot.build(:ride, :experience => 'good')
+        trip.rides << FactoryBot.build(:ride, :experience => 'neutral')
+        trip.rides << FactoryBot.build(:ride, :experience => 'bad')
         expect(trip.overall_experience).to eq('bad')
       end
     end
 
     context "has a bad and a very good experience" do
       it "returns a bad experience" do
-        trip.rides << FactoryGirl.build(:ride, :experience => 'very good')
-        trip.rides << FactoryGirl.build(:ride, :experience => 'bad')
+        trip.rides << FactoryBot.build(:ride, :experience => 'very good')
+        trip.rides << FactoryBot.build(:ride, :experience => 'bad')
         expect(trip.overall_experience).to eq('bad')
       end
     end

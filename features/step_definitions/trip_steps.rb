@@ -1,9 +1,9 @@
 Given /^a trip exists from "([^"]*)" to "([^"]*)"$/ do |from, to|
-  @trip = FactoryGirl.create(:trip, from: from, to: to)
+  @trip = FactoryBot.create(:trip, from: from, to: to)
 end
 
 Given /^a trip exists$/ do
-  FactoryGirl.create(:trip)
+  FactoryBot.create(:trip)
 end
 
 Given /^the user the trip from "([^"]*)" to "([^"]*)" is "([^"]*)"$/ do |from, to, username|
@@ -34,26 +34,26 @@ Given /^google maps says it takes 9 hours and 15 minutes$/ do
 end
 
 Given /^a German trip exists$/ do
-  @german_trip = FactoryGirl.build(:trip, :from => 'Berlin', :to => 'Freiburg')
+  @german_trip = FactoryBot.build(:trip, :from => 'Berlin', :to => 'Freiburg')
   @german_trip.country_distances <<  CountryDistance.new(:country => 'Germany', :distance => 123123)
   @german_trip.save!
 end
 
 Given /^an English trip exists$/ do
-  @english_trip = FactoryGirl.build(:trip, :from => 'London', :to => 'Manchester')
+  @english_trip = FactoryBot.build(:trip, :from => 'London', :to => 'Manchester')
   @english_trip.country_distances <<  CountryDistance.new(:country => 'United Kingodm', :distance => 123123)
   @english_trip.save!
 end
 
 Given /^a trip with a story$/ do
-  @trip_with_story = FactoryGirl.build(:trip, hitchhikes: 0)
-  @trip_with_story.rides << FactoryGirl.create(:ride,
+  @trip_with_story = FactoryBot.build(:trip, hitchhikes: 0)
+  @trip_with_story.rides << FactoryBot.create(:ride,
                                                story: Faker::Lorem::paragraph(sentence_count = 10))
   @trip_with_story.save!
 end
 
 Given /^a trip from "([^"]*)" to "([^"]*)" with a photo on ride$/ do |from, to|
-  trip = FactoryGirl.create(:trip, from: from, to: to)
+  trip = FactoryBot.create(:trip, from: from, to: to)
   ride = trip.rides.first
   ride.photo = File.open("#{Rails.root}/features/support/images/thumb.png")
   ride.save
@@ -118,7 +118,7 @@ end
 
 Given /^"([^"]*)" logged a trip with (\d+) ride$/ do |username, number_of_rides|
   user = User.find_by_username username
-  FactoryGirl.create :trip, user_id: user.id, hitchhikes: number_of_rides
+  FactoryBot.create :trip, user_id: user.id, hitchhikes: number_of_rides
 end
 
 Then /^I should be able to edit (\d+) ride$/ do |number|

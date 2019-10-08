@@ -1,20 +1,20 @@
 Given /^a hitchhiker$/ do
-  @user = FactoryGirl.create :user
+  @user = FactoryBot.create :user
   @user.confirm
 end
 
 Given /^a hitchhiker called "([^"]*)"$/ do |username|
-  @user = FactoryGirl.create :user, username: username.downcase, email: "#{username}@test.com"
+  @user = FactoryBot.create :user, username: username.downcase, email: "#{username}@test.com"
   @user.confirm
 end
 
 Given /^a hitchhiker called "([^"]*)" from "([^"]*)"$/ do |username, city|
-  user = FactoryGirl.create :user, username: username
+  user = FactoryBot.create :user, username: username
   user.update_column :city, city
 end
 
 Given /^a hitchhiker from "([^"]*)"$/ do |city|
-  FactoryGirl.create :user, city: city, location: city
+  FactoryBot.create :user, city: city, location: city
 end
 
 Given /^his CS user is "([^"]*)"$/ do |cs_username|
@@ -23,7 +23,7 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  user = FactoryGirl.create(:user, username: 'flo')
+  user = FactoryBot.create(:user, username: 'flo')
   user.confirm
   visit new_user_session_path
   fill_in "Username", with: user.username
@@ -32,7 +32,7 @@ Given /^I am logged in$/ do
 end
 
 Given /^I am logged in as "([^"]*)"$/ do |username|
-  user = User.find_by_username(username) || FactoryGirl.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
+  user = User.find_by_username(username) || FactoryBot.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
   user.confirm
   visit new_user_session_path
   fill_in "Username", with: user.username
@@ -41,7 +41,7 @@ Given /^I am logged in as "([^"]*)"$/ do |username|
 end
 
 Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
-  user = FactoryGirl.build(:user, email: "#{username}@hitchlog.com", username: username, city: city)
+  user = FactoryBot.build(:user, email: "#{username}@hitchlog.com", username: username, city: city)
   user.save!
   user.confirm
 
@@ -53,7 +53,7 @@ end
 
 Given /^I logged a trip$/ do
   user ||= User.last
-  user.trips << FactoryGirl.create(:trip)
+  user.trips << FactoryBot.create(:trip)
 end
 
 When /^I sign up as "([^"]*)"$/ do |username|
@@ -66,7 +66,7 @@ When /^I sign up as "([^"]*)"$/ do |username|
 end
 
 Given /^(\d+) hitchhikers$/ do |number|
-  number.to_i.times { FactoryGirl.create(:user) }
+  number.to_i.times { FactoryBot.create(:user) }
 end
 
 Then /^I should be able to see both hitchhikers$/ do
@@ -87,7 +87,7 @@ end
 
 Given /^"([^"]*)" logged a trip$/ do |username|
   user = User.find_by_username username
-  FactoryGirl.create(:trip, user_id: user.id)
+  FactoryBot.create(:trip, user_id: user.id)
 end
 
 When /^I click on the sign out link$/ do
@@ -107,7 +107,7 @@ Then(/^I should be registered with facebook$/) do
 end
 
 Given /^a user with email same as his facebook account$/ do
-  FactoryGirl.create(:user, email: 'florian@hitchlog.com')
+  FactoryBot.create(:user, email: 'florian@hitchlog.com')
 end
 
 Then /^the user should receive the data from facebook$/ do

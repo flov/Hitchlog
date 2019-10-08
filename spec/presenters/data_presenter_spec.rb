@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.describe DataPresenter do
   describe '#trip_data_for_map' do
     before do
-      trip = FactoryGirl.build(:trip, hitchhikes: 0)
+      trip = FactoryBot.build(:trip, hitchhikes: 0)
       trip.rides.build(experience: 'very good', vehicle: "car")
       trip.rides.build(experience: 'good', vehicle: "plane")
       trip.rides.build(experience: 'bad', vehicle: "bus",
                       photo: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'thumb.png')))
       trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
       trip.save!
-      trip_2 = FactoryGirl.build(:trip, hitchhikes: 0)
+      trip_2 = FactoryBot.build(:trip, hitchhikes: 0)
       trip_2.rides.build(experience: 'very bad', vehicle: "boat", story: "this is a true tale...")
       trip_2.rides.build(experience: 'bad', vehicle: "truck")
       trip_2.country_distances.build(country: 'Spain', country_code: "ES", distance: 3000)
       trip_2.save!
-      trip_3 = FactoryGirl.build(:trip, hitchhikes: 0)
+      trip_3 = FactoryBot.build(:trip, hitchhikes: 0)
       trip_3.rides.build(experience: 'neutral', vehicle: "motorcycle")
       trip_3.country_distances.build(country: 'Poland', country_code: "PL", distance: 3000)
       trip_3.save!
@@ -58,7 +58,7 @@ RSpec.describe DataPresenter do
 
   describe '#trips_count_for_map' do
     before do
-      trip = FactoryGirl.build(:trip, hitchhikes: 0)
+      trip = FactoryBot.build(:trip, hitchhikes: 0)
       trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
       trip.rides.build(story: "this is a true tale...",
                        photo: Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'images', 'thumb.png')))
@@ -77,8 +77,8 @@ RSpec.describe DataPresenter do
   describe '#hitchhikers_with_most_stories' do
     before do
       ["supertramp", "flohfish"].each do |username|
-        user = FactoryGirl.build(:user, username: username)
-        trip = FactoryGirl.build(:trip, hitchhikes: 0)
+        user = FactoryBot.build(:user, username: username)
+        trip = FactoryBot.build(:trip, hitchhikes: 0)
         trip.country_distances.build(country: 'Germany', country_code: "DE", distance: 3000)
         trip.rides.build( story: "this is a true tale...")
         user.trips << trip

@@ -9,8 +9,8 @@ Then /^I should see "([^"]*)" as a tag on the trip$/ do |tag|
 end
 
 Given /^a trip with a tagged ride "([^"]*)"$/ do |tag|
-  trip = FactoryGirl.create(:trip)
-  FactoryGirl.create(:ride, trip_id: trip.id, tag_list: tag, number: (Ride.count+1))
+  trip = FactoryBot.create(:trip)
+  FactoryBot.create(:ride, trip_id: trip.id, tag_list: tag, number: (Ride.count+1))
 end
 
 When /^I click on the "([^"]*)" tag$/ do |tag|
@@ -30,8 +30,8 @@ end
 Given /^"([^"]*)" logged (\d+) trips? with a tagged ride "([^"]*)"$/ do |username, number_of_trips, tag|
   user = User.find_by_username(username)
   number_of_trips.to_i.times do
-    trip = FactoryGirl.create(:trip, user_id: user.id)
-    ride = FactoryGirl.create(:ride, trip_id: trip.id, tag_list: tag)
+    trip = FactoryBot.create(:trip, user_id: user.id)
+    ride = FactoryBot.create(:ride, trip_id: trip.id, tag_list: tag)
   end
 end
 

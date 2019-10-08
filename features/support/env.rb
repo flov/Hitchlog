@@ -25,6 +25,6 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 I18n.backend.reload!
-FactoryGirl.reload
+FactoryBot.reload
 RoutingFilter.active = false
 

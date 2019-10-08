@@ -24,7 +24,7 @@ module Hitchlog
     config.encoding = "utf-8"
 
     config.generators do |g|
-      g.fixture_replacement :factory_girl
+      g.fixture_replacement :factory_bot
       g.template_engine :haml
     end
 
