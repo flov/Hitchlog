@@ -226,7 +226,7 @@ class User < ActiveRecord::Base
       u.oauth_expires_at = Time.at(auth.credentials.expires_at)
     end
   end
-  
+
   private
 
   def update_location_updated_at
@@ -234,7 +234,7 @@ class User < ActiveRecord::Base
   end
 
   def sanitize_username
-    self.username = self.username.gsub('.', '_') if self.username.include? '.'
-    self.username = self.username.downcase
+    self.username = self.username.gsub('.', '_') if self.username&.include? '.'
+    self.username = self.username&.downcase
   end
 end

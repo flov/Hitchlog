@@ -20,6 +20,7 @@ Hitchlog::Application.routes.draw do
       post :mail_sent
     end
   end
+  match 'users', to: 'users#index', via: [:options]
 
   get 'data/country_map', to: 'data#country_map'
   get 'data/trips_count', to: 'data#trips_count'
@@ -46,6 +47,12 @@ Hitchlog::Application.routes.draw do
   match 'crisp/:action', controller: :crisp, via: :get if Rails.env == 'development'
 
   match 'about' => 'welcome#about', via: :get
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
 
   root to: "welcome#home"
 
