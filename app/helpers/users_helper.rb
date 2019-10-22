@@ -18,4 +18,12 @@ module UsersHelper
   def user_with_gender(user)
     link_to "#{h(user)} #{hitchhiker_gender(user.gender)}".html_safe, user_path(user)
   end
+
+  def avatar_url(user)
+    if user.facebook_user?
+      "https://graph.facebook.com/#{user.uid}/picture?type=normal"
+    else
+      gravatar_url(user, size: "normal")
+    end
+  end
 end

@@ -2,12 +2,6 @@ require 'factory_bot'
 require 'faker'
 
 FactoryBot.define do
-  factory :comment do
-    body { "Great Example Comment" }
-    association :user
-    association :trip
-  end
-
   factory :user do
     email                 { Faker::Internet.email }
     username              { |u| u.email.split("@").first }
@@ -18,6 +12,12 @@ FactoryBot.define do
     cs_user               { Faker::Name.first_name }
     last_sign_in_at       { Time.zone.now }
     current_sign_in_ip    { '195.71.11.67' }
+  end
+
+  factory :comment do
+    body { "Great Example Comment" }
+    user
+    trip
   end
 
   factory :munich_user, :parent => :user do
@@ -42,6 +42,7 @@ FactoryBot.define do
   end
 
   factory :trip do
+    user
     from            { 'Tehran' }
     to              { 'Shiraz' }
     departure       { "07/12/2011 10:00" }
@@ -49,7 +50,6 @@ FactoryBot.define do
     travelling_with { 0 }
     gmaps_duration  { 9.hours.to_i }
     distance { 1_646_989 }
-    association(:user)
     hitchhikes { 1 }
   end
 

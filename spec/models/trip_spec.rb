@@ -16,8 +16,8 @@ RSpec.describe Trip, type: :model do
 
     describe '#hitchhikes' do
       it 'creates 1 ride on trip if hitchhikes equals 1' do
-        trip = FactoryBot.build(:trip, hitchhikes: 1)
-        trip.save
+        user = FactoryBot.create(:user)
+        trip = FactoryBot.create(:trip, hitchhikes: 1, user_id: user.id)
         expect(trip.rides.size).to eq(1)
       end
     end

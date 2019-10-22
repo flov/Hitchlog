@@ -6,7 +6,6 @@ module Api
 
       def index
         @users = User.paginate(page: params[:page])
-        render json: @users.to_json
       end
 
       def create
@@ -19,11 +18,7 @@ module Api
       end
 
       def show
-        if @user
-          render json: @user
-        else
-          render json: { message: "Couldn't find User" }, status: :not_found
-        end
+        render json: { message: "Couldn't find User" }, status: :not_found if !@user
       end
 
       def update

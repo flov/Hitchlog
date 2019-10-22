@@ -12,7 +12,7 @@ class Trip < ActiveRecord::Base
   validates :to,         presence: true
   validates :departure,  presence: true
   validates :arrival,    presence: true, after_departure: true
-  validates :user_id,    presence: true
+  validates :user,       presence: true
   validates :hitchhikes, numericality:  true, presence: true, if: :new_record
   validates :travelling_with, presence: true
 
@@ -34,7 +34,7 @@ class Trip < ActiveRecord::Base
   scope :sorted_by_departure, -> { order("departure DESC") }
 
   before_create do
-    # build as much rides on top of the ride as needed
+    # build as many rides on top of the trip as needed
     hitchhikes.to_i.times{|i| rides.build(:number => i+1) }
   end
 

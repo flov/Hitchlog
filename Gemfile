@@ -30,7 +30,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
-gem 'rmagick', '2.13.2'
+gem 'rmagick'
 gem "font-awesome-rails"
 gem 'jbuilder'
 gem 'koala', '~> 3.0.0'
