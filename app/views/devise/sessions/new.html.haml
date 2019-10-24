@@ -8,12 +8,12 @@
   .login-wrapper.clearfix
     .float-right
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'login_form'}) do |f|
-        = f.label :username
+        = f.label :email
         .input-prepend
           %span.add-on
             %i.fa.fa-user
 
-          = f.text_field :username, autofocus: 'true', required: true
+          = f.text_field :email, autofocus: 'true', required: true
         = f.label :password
         .input-prepend
           %span.add-on

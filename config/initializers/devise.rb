@@ -1,7 +1,7 @@
 Devise.setup do |config|
   require 'devise/orm/active_record'
   config.mailer_sender = "florian@hitchlog.com"
-  config.authentication_keys = [ :username ]
+  config.authentication_keys = [ :email ]
   config.pepper = "e61e2fa1aeb5895fbfbbb8c45bb282d9bda8f09dfeadc9afaeef950586b5bfd40b8414692524d494f66947d28e24a13f315a6d8b7c88194036c9e70d1dc52231"
   config.secret_key = 'e9e39eb9e91b52cf02cd190e61a144e6341be769d97fb4bf3d0648003d0246b665a11c59ef3696be67f8168afcb5b3f74c6567807e9924f828a258f4b507c681'
   config.password_length = 4..20
