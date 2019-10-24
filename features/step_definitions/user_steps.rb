@@ -23,10 +23,10 @@ Given /^his CS user is "([^"]*)"$/ do |cs_username|
 end
 
 Given /^I am logged in$/ do
-  user = FactoryBot.create(:user, username: 'flo')
+  user = FactoryBot.create(:user, email: 'flo@hitchlog.com')
   user.confirm
   visit new_user_session_path
-  fill_in "Username", with: user.username
+  fill_in "Email", with: user.email
   fill_in "Password", with: 'password'
   click_button "Hitch in"
 end
@@ -35,7 +35,7 @@ Given /^I am logged in as "([^"]*)"$/ do |username|
   user = User.find_by_username(username) || FactoryBot.create(:user, email: "#{username}@hitchlog.com", username: username) unless @user
   user.confirm
   visit new_user_session_path
-  fill_in "Username", with: user.username
+  fill_in "Email", with: user.email
   fill_in "Password", with: 'password'
   click_button "Hitch in"
 end
@@ -46,7 +46,7 @@ Given /^I am logged in as "([^"]*)" from "([^"]*)"$/ do |username, city|
   user.confirm
 
   visit new_user_session_path
-  fill_in "Username", with: username
+  fill_in "Email", with: user.email
   fill_in "Password", with: 'password'
   click_button "Hitch in"
 end
