@@ -40,27 +40,27 @@ class User < ActiveRecord::Base
   end
 
   def very_good_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'very good'}).size
+    self.rides.where( rides: {experience: 'very good'}).size
   end
 
   def good_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'good'}).size
+    self.rides.where( rides: {experience: 'good'}).size
   end
 
   def neutral_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'neutral'}).size
+    self.rides.where( rides: {experience: 'neutral'}).size
   end
 
   def bad_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'bad'}).size
+    self.rides.where( rides: {experience: 'bad'}).size
   end
 
   def very_bad_experiences
-    self.trips.joins(:rides).where( rides: {experience: 'very bad'}).size
+    self.rides.where( rides: {experience: 'very bad'}).size
   end
 
   def genders
-    self.trips.map(&:rides).flatten.map(&:gender).reject(&:blank?)
+    self.rides.flatten.map(&:gender).reject(&:blank?)
   end
 
   def genders_in_percentage
