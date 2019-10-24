@@ -88,7 +88,11 @@ class User < ActiveRecord::Base
   end
 
   def no_of_rides
-    self.rides.size
+    Ride.where(trip_id: self.trips.pluck(:id)).size
+  end
+
+  def no_of_trips
+    self.trips.count
   end
 
   def hitchhiked_countries
@@ -110,7 +114,7 @@ class User < ActiveRecord::Base
   end
 
   def rides
-    self.trips.map(&:rides).flatten
+    Ride.where(trip_id: self.trips.pluck(:id))
   end
 
   def average_waiting_time

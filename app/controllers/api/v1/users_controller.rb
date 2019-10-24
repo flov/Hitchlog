@@ -5,7 +5,7 @@ module Api
       before_action :set_user, only: [:show, :update, :destroy]
 
       def index
-        @users = User.paginate(page: params[:page])
+        @users = User.paginate(per_page: 30, page: params[:page])
       end
 
       def create
