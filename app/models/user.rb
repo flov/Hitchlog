@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  GENDERS = ['male',
+             'female',
+             'non-binary'].freeze
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable,
          :validatable, :omniauthable, :omniauth_providers => [:facebook]
