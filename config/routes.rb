@@ -51,6 +51,9 @@ Hitchlog::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users
+      resource :statistics, only: [] do
+        get 'top_10_hitchhikers', to: 'statistics#top_10_hitchhikers'
+      end
     end
   end
 
