@@ -37,9 +37,9 @@ module ApplicationHelper
   def gravatar_url(user, opts = {})
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
     if opts[:size] == 'square'
-      "http://gravatar.com/avatar/#{gravatar_id}.png?default=identicon&s=25"
+      "https://gravatar.com/avatar/#{gravatar_id}.png?default=identicon&s=25"
     else
-      "http://gravatar.com/avatar/#{gravatar_id}.png?default=identicon"
+      "https://gravatar.com/avatar/#{gravatar_id}.png?default=identicon"
     end
   end
 end
