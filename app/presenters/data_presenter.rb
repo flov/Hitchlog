@@ -35,7 +35,7 @@ class DataPresenter
       select('username, count(*) as stories').map do |user|
         { username: user.username,
           stories: user.stories }
-      end.sort_by{ |hash| hash[:stories] }
+      end.sort_by{ |hash| hash[:stories] }.reverse
   end
 
   private

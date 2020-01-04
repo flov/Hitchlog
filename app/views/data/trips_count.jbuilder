@@ -1,1 +1,3 @@
-json.array! @data_presenter.trips_count_for_map
+json.trips_count @data['trips_count']
+json.stories     @data['stories']
+json.photos      @data['photos']
