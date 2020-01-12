@@ -53,6 +53,7 @@ group :development do
 end
 
 group :test do
+  gem 'puma'
   gem 'i18n-tasks', '~> 0.8.7'
   gem 'ruby_cowsay' # for i18n_spec.rb
   gem 'lolcat'      # for i18n_spec.rb
@@ -68,7 +69,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara'
-  gem 'webdrivers', '~> 3.0'
+  gem 'webdrivers'
   gem 'faker', '~> 1.5.0'
   gem 'email_spec', '~> 1.6.0'
   gem 'rb-fsevent', '~> 0.9.6'
