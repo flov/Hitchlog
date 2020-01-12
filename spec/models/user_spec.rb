@@ -37,9 +37,8 @@ RSpec.describe User, type: :model do
 
   describe "#location_updated_at" do
     it 'should not change if the location does not change' do
-      user.save!
       location_updated_at = user.location_updated_at
-      user.save!
+      user.save
       expect(user.location_updated_at).to eq(location_updated_at)
     end
   end
@@ -50,12 +49,14 @@ RSpec.describe User, type: :model do
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'male')
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'female')
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'mixed')
+      user.save
       expect(user.genders).to eq(['male', 'female', 'mixed'])
       expect(user.genders_in_percentage).to eq({'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33})
     end
 
     it "only male driver" do
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'male')
+      user.save
       expect(user.genders_in_percentage).to eq({'male' => 1.0})
     end
   end
@@ -130,6 +131,7 @@ RSpec.describe User, type: :model do
       user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'car')
       user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'car')
       user.trips[0].rides << FactoryBot.build(:ride, vehicle: 'truck')
+      user.save
     end
 
     it 'returns the vehicles that the user has hitchhiked with' do

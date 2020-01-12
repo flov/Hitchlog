@@ -88,8 +88,10 @@ RSpec.describe DataPresenter do
 
     it 'should return the json for a google chart DataTable' do
       expect(DataPresenter.new.hitchhikers_with_most_stories).to eq(
-        [{username: 'flohfish', stories: 1},
-         {username: 'supertramp', stories: 1}])
+        [
+          {username: 'supertramp', stories: 1},
+          {username: 'flohfish', stories: 1}
+        ])
     end
   end
 end
