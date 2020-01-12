@@ -18,7 +18,7 @@ gem 'xmlrpc' # required for gem dependency missing somewhere
 
 gem 'acts-as-taggable-on', '~> 5.0.0'
 gem 'decent_exposure', '~> 2.3.2'
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.7.1'
 gem 'omniauth-facebook'
 gem 'rdiscount', '1.6.8'
 gem 'will_paginate'
