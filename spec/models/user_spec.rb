@@ -50,8 +50,16 @@ RSpec.describe User, type: :model do
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'female')
       user.trips[0].rides << FactoryBot.build(:ride, :gender => 'mixed')
       user.save
-      expect(user.genders).to eq(['male', 'female', 'mixed'])
-      expect(user.genders_in_percentage).to eq({'male' => 0.33, 'female' => 0.33, 'mixed' => 0.33})
+      user.genders do
+        it { is_expected.to include('male') }
+        it { is_expected.to include('female') }
+        it { is_expected.to include('mixed') }
+      end
+      user.genders_in_percentage do
+        it { is_expected.to include({'male' => 0.33}) }
+        it { is_expected.to include({'female' => 0.33}) }
+        it { is_expected.to include({'mixed' => 0.33}) }
+      end
     end
 
     it "only male driver" do
