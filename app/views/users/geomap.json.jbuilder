@@ -1,1 +1,2 @@
-json.array! user.to_geomap
+json.distances @data["distances"]
+json.trip_count @data["trip_count"]

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def geomap
+    @data = user.to_geomap
   end
 
   def update
