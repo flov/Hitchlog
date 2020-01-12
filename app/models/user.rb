@@ -216,7 +216,7 @@ class User < ActiveRecord::Base
     graph = Koala::Facebook::API.new(auth.credentials.token)
     fb_info = graph.get_object("me", {fields: "birthday,gender"})
 
-    User.where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
+    user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |u|
       u.email            = auth.info.email
       u.gender           = fb_info["gender"]
       u.date_of_birth    = Date.strptime(fb_info["birthday"], '%m/%d/%Y')
@@ -233,6 +233,8 @@ class User < ActiveRecord::Base
       u.oauth_token      = auth.credentials.token
       u.oauth_expires_at = Time.at(auth.credentials.expires_at)
     end
+    user.confirm
+    user
   end
 
   private

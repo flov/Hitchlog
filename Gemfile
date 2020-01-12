@@ -58,6 +58,7 @@ group :development do
 end
 
 group :test do
+  gem 'puma'
   gem 'i18n-tasks', '~> 0.8.7'
   gem 'ruby_cowsay' # for i18n_spec.rb
   gem 'lolcat'      # for i18n_spec.rb
