@@ -364,7 +364,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     mini_mime (1.0.2)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.14.0)
     multi_json (1.14.1)
     multi_test (0.1.2)
@@ -372,8 +372,8 @@ GEM
     multipart-post (2.0.0)
     newrelic_rpm (3.13.1.300)
     nio4r (2.5.2)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.8)
+      mini_portile2 (~> 2.4.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -583,7 +583,7 @@ DEPENDENCIES
   launchy (~> 2.4.3)
   lolcat
   newrelic_rpm (~> 3.13.1)
-  nokogiri (= 1.8.5)
+  nokogiri (= 1.10.8)
   omniauth-facebook
   pg (= 0.18.2)
   pickle (~> 0.5.1)
