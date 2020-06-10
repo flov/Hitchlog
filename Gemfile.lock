@@ -304,7 +304,7 @@ GEM
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
-    geocoder (1.5.0)
+    geocoder (1.6.3)
     gherkin (5.1.0)
     gibbon (2.0.0)
       faraday (>= 0.9.1)
