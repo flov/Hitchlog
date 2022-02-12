@@ -371,7 +371,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     newrelic_rpm (3.13.1.300)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
@@ -396,7 +396,7 @@ GEM
       cucumber (>= 0.8)
       rake
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (5.6.2)
       nio4r (~> 2.0)
     rack (1.6.12)
     rack-cors (1.0.6)
