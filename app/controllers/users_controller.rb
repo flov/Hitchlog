@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def geomap
     @data = user.to_geomap
+    render json: @data.to_json, content_type: 'application/json' 
   end
 
   def update

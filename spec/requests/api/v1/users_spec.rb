@@ -57,10 +57,6 @@ RSpec.describe 'Users API', type: :request do
     context "valid payload" do
       before { post "/api/v1/users", user: valid_attributes }
 
-      xit 'creates a user' do
-        expect(JSON.parse(response.body)['title']).to eq(valid_attributes['title'])
-      end
-
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
