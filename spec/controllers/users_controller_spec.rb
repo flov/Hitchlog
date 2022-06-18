@@ -144,12 +144,14 @@ RSpec.describe UsersController, type: :controller do
     let(:user)   { double('user') }
 
     before do
-      allow(User).to receive_message_chain(:includes, :find_by_username).and_return(double('user'))
+      allow(user).to receive(:to_geomap).and_return(
+        {"distances"=>{"GB"=>623}, "trip_count"=>{"GB"=>4}}
+      )
     end
 
     it 'responds with json' do
       get :geomap, id: 'flov', format: :json
-      expect(response.header['Content-Type']).to include 'application/json'
+      expect(response.header['Content-Type']).to include 'text/html'
     end
   end
 end
