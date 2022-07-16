@@ -237,6 +237,28 @@ class User < ActiveRecord::Base
     user
   end
 
+  def to_firestore_document
+    {
+      displayName: self.username,
+      name: self.name,
+      email: self.email,
+      dateOfBirth: self.date_of_birth,
+      createdAt: self.created_at,
+      beWelcomeUser: self.be_welcome_user,
+      gender: self.gender,
+      languages: self.languages,
+      providerId: self.provider,
+      uid: self.uid,
+      location: {
+        country: self.country,
+        countryCode: self.country_code,
+        city: self.city,
+        lat: self.lat,
+        lng: self.lng
+      }
+    }
+  end
+
   private
 
   def update_location_updated_at

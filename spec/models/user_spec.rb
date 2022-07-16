@@ -194,4 +194,28 @@ RSpec.describe User, type: :model do
       expect(User.choose_username('flo')).to eq('flo2')
     end
   end
+
+  describe '#to_firestore_document' do
+    it 'should return a hash with the users data' do
+      expect(user.to_firestore_document).to eq({
+        displayName: user.username,
+        name: user.name,
+        email: user.email,
+        dateOfBirth: user.date_of_birth,
+        createdAt: user.created_at,
+        gender: user.gender,
+        languages: user.languages,
+        beWelcomeUser: user.be_welcome_user,
+        providerId: user.provider,
+        uid: user.uid,
+        location: {
+          city: user.city,
+          country: user.country,
+          countryCode: user.country_code,
+          lat: user.lat,
+          lng: user.lng
+        }
+      })
+    end
+  end
 end

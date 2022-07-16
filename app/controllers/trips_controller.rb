@@ -8,6 +8,10 @@ class TripsController < ApplicationController
   def index
     @q = Trip.latest_first.ransack(params[:q])
     @trips = @q.result(distinct: true).paginate(page: params[:page], per_page: 20)
+    respond_to do |wants|
+      wants.html { render :index }
+      wants.json { render json: @trips.to_json(include: [:user, :rides, :country_distances, :comments]) }
+    end
   end
 
   def create
