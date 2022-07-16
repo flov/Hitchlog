@@ -42,4 +42,28 @@ RSpec.describe Ride, type: :model do
       expect(ride.markdown_story).to eq("<h1>Wow</h1>\n")
     end
   end
+
+  describe "#to_firebase_document" do
+    it "returns a hash with the ride attributes" do
+      ride.save!
+      ride.title = 'example title'
+      ride.photo_caption = 'example caption for photo'
+      ride.story = 'example story'
+      ride.youtube = 'zCWXOVXGxWI'
+      ride.experience = 'very good'
+      ride.vehicle = 'car'
+      ride.waiting_time = 15
+      expect(ride.to_firebase_document).to eq({
+        title: 'example title',
+        photoCaption: 'example caption for photo',
+        story: 'example story',
+        youtube: 'zCWXOVXGxWI',
+        experience: 'very good',
+        vehicle: 'car',
+        waitingTime: 15,
+        tagList: [],
+        photo: nil
+      })
+    end
+  end
 end
