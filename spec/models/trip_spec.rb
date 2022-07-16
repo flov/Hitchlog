@@ -202,4 +202,34 @@ RSpec.describe Trip, type: :model do
       expect(trip.country_distances.last.distance).to eq(86072)
     end
   end
+
+  describe '#to_firebase_document' do
+    it 'returns a hash with the trip data' do
+      expect(trip.to_firebase_document).to eq({
+        id: trip.id,
+        uid: trip.user_id,
+        arrival: trip.arrival,
+        departure: trip.departure,
+        origin: {
+          lat: trip.from_lat,
+          lng: trip.from_lng,
+          city: trip.from_city,
+          country: trip.from_country,
+          countryCode: trip.from_country_code,
+        },
+        destination: {
+          lat: trip.to_lat,
+          lng: trip.to_lng,
+          city: trip.to_city,
+          country: trip.to_country,
+          countryCode: trip.to_country_code,
+        },
+        googleDuration: trip.gmaps_duration,
+        totalDistance: trip.distance,
+        rides: trip.rides.map(&:to_firebase_document),
+        createdAt: trip.created_at,
+        updatedAt: trip.updated_at,
+      })
+    end
+  end
 end

@@ -45,6 +45,34 @@ class Trip < ActiveRecord::Base
     "#{origin} &rarr; #{destin}".html_safe
   end
 
+  def to_firebase_document
+    {
+      rides: self.rides.map(&:to_firebase_document),
+      id: self.id,
+      uid: self.user.id,
+      arrival: self.arrival,
+      departure: self.departure,
+      totalDistance: self.distance,
+      googleDuration: self.gmaps_duration,
+      createdAt: self.created_at,
+      updatedAt: self.updated_at,
+      origin: {
+        lat: self.from_lat,
+        lng: self.from_lng,
+        city: self.from_city,
+        country: self.from_country, 
+        countryCode: self.from_country_code,
+      },
+      destination: {
+        lat: self.to_lat,
+        lng: self.to_lng,
+        city: self.to_city,
+        country: self.to_country, 
+        countryCode: self.to_country_code,
+      },
+    }
+  end
+
   def to_param
     origin = CGI::escape(sanitize_address('from'))
     destin = CGI::escape(sanitize_address('to'))

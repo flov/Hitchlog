@@ -80,6 +80,18 @@ class Ride < ActiveRecord::Base
     ((where(waiting_time: starts..ends).count.to_f / total_rides) * 100).round
   end
 
+  def to_firebase_document
+    {
+      title: self.title,
+      story: self.story,
+      experience: self.experience,
+      vehicle: self.vehicle,
+      waitingTime: self.waiting_time,
+      youtube: self.youtube,
+      tagList: self.tag_list,
+    }
+  end
+
   private
 
   def self.ransackable_attributes(auth_object = nil)
