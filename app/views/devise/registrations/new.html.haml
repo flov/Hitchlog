@@ -14,7 +14,7 @@
 
       %h4= t('registrations.new.use_the_normal_form')
       = simple_form_for resource do |f|
-        = f.input :username
+        = f.input :username, placeholder: 'username'
         = f.input :email, placeholder: 'user@domain.com'
         = f.input :password, placeholder: 'Password'
         = f.input :password_confirmation, placeholder: 'Password confirmation'
