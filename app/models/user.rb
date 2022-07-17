@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
              'non-binary'].freeze
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable,
+         :recoverable, :rememberable, :trackable,
          :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :rides, through: :trips
