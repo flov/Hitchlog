@@ -36,6 +36,7 @@ gem 'jbuilder'
 gem 'koala', '~> 3.0.0'
 gem 'rack-cors'
 gem 'httparty'
+gem 'google-cloud-firestore'
 
 group :production do
   gem 'newrelic_rpm', '~> 3.13.1'
@@ -50,7 +51,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'google-cloud-firestore'
   gem 'rb-readline'
   gem 'gibbon'
   gem 'hirb'
