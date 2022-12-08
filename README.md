@@ -1,3 +1,8 @@
+DEPRECATED
+==========
+
+This project is no longer maintained. The new repo is [hitchlog-api](https://github.com/flov/hitchlog-api) and [hitchlog-nextjs](https://github.com/flov/hitchlog-nextjs).
+  
 Hitchlog
 --------
 
@@ -13,15 +18,9 @@ alone.
 Hitchhiking enables the traveller, to have an eventful journey, to learn
 more about our fellow human beings and many more things.
 
-# Contributing to Hitchlog
-
-Any contribution is highly appreciated!
+# Technology
 
 ## Reporting Bugs
 
-Add an [issue on GitHub](https://github.com/flov/Hitchlog/issues) with a
-reproduction of the bug including workflows or screenshots.  If
-possible, submit a Pull Request with a failing test.  If you'd rather
-take matters into your own hands, fix the bug yourself (jump down to the
-"Contributing (Step-by-step)" section).
-
+Add an [issue on GitHub](https://github.com/flov/Hitchlog/issues) and document
+how to reproduce the bug. Adding screenshots also helps a lot.
