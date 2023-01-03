@@ -1,12 +1,12 @@
 GIT
-  remote: git://github.com/Compass/compass-rails.git
-  revision: d600de4a6c5870613aac63f32491da4771a3c982
+  remote: https://github.com/Compass/compass-rails.git
+  revision: f6391d0d30fa63bb9bf6cd94e0e5608012584e6e
   branch: master
   specs:
-    compass-rails (2.0.5)
+    compass-rails (4.0.0)
       compass (~> 1.0.0)
       sass-rails (< 5.1)
-      sprockets (< 2.13)
+      sprockets (< 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -73,7 +73,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     childprocess (3.0.0)
-    chunky_png (1.3.4)
+    chunky_png (1.4.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -148,7 +148,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.11.3)
+    ffi (1.15.5)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.41.0)
@@ -355,8 +355,8 @@ GEM
     highline (1.7.7)
     hike (1.2.3)
     hirb (0.7.3)
-    httparty (0.17.3)
-      mime-types (~> 3.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -401,9 +401,9 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     memoist (0.16.2)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
+    mime-types-data (3.2022.0105)
     mini_mime (1.0.2)
     mini_portile2 (2.3.0)
     minitest (5.14.0)
@@ -482,8 +482,8 @@ GEM
       activesupport (>= 3.0, <= 5.1.1)
       i18n
     rb-fsevent (0.9.6)
-    rb-inotify (0.9.5)
-      ffi (>= 0.5.0)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rb-readline (0.5.5)
     rbtree (0.4.5)
     rbvmomi (1.13.0)
